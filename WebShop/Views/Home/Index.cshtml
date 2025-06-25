@@ -1,12 +1,12 @@
 ﻿@inject WebShop.Services.IPageInfoService PageInfoService;
 @{
 
-    List<WebShop.Models.Category> lsCat = ViewBag.lsCat;
+    // List<WebShop.Models.Category> lsCat = ViewBag.lsCat;
     // ViewData["Title"] = @PageInfoService.GetPageInfo().Title;
-    ViewData["Description"] = @PageInfoService.GetPageInfo().MetaDesc;
-    ViewData["Keywords"] = @PageInfoService.GetPageInfo().MetaKey;
+    // ViewData["Description"] = @PageInfoService.GetPageInfo().MetaDesc;
+    // ViewData["Keywords"] = @PageInfoService.GetPageInfo().MetaKey;
  
-    ViewData["OGimage"] = PageInfoService.GetPageInfo().Domain + "Adminassets/images/logo/" + PageInfoService.GetPageInfo().OgImage;
+    // ViewData["OGimage"] = PageInfoService.GetPageInfo().Domain + "Adminassets/images/logo/" + PageInfoService.GetPageInfo().OgImage;
      
 } 
 @section Styles{
@@ -53,7 +53,7 @@
 <div class="container-fluid pt-2">
     <h2 class="section-title position-relative mx-xl-5 mb-4"><span class="  pr-3" style="background-color:#F0F1FB">Công nghệ toàn cầu</span></h2>
     <div class="row px-xl-5  ">
-        @foreach (var item in lsCat)
+@*         @foreach (var item in lsCat)
         {
             <div class="col-lg-3 col-md-4 col-sm-6  p-1">
                 <a class="text-decoration-none click-cate" href="/@item.Alias">
@@ -68,7 +68,7 @@
                 </a>
             </div>
         }
-    </div>
+    </div> *@
 </div>
 <!-- Categories End -->
 <!-- Products Start -->

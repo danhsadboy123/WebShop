@@ -1,90 +1,82 @@
 ﻿@using System.Security.Claims;
 @inject WebShop.Services.IPageInfoService PageInfoService;
 @{
-    // Kiểm tra nếu trang hiện tại là trang chi tiết sản phẩm
-    //var ogImage = Model?.Avatar != null 
-    //              ? PageInfoService.GetPageInfo().Domain + Model.Avatar // Đường dẫn ảnh sản phẩm
-    //              : PageInfoService.GetPageInfo().Domain + "Adminassets/images/logo/" + PageInfoService.GetPageInfo().OgImage; // Ảnh mặc định nếu không phải trang chi tiết sản phẩm
-
-    //ViewData["OGimage"] = ogImage;
+    // Calculate ogImage with null safety
+    var pageInfo = PageInfoService.GetPageInfo();
+    var ogImage = Model?.Avatar != null
+        ? (pageInfo?.Domain ?? "https://novazone.co") + Model.Avatar
+        : (pageInfo?.Domain ?? "https://novazone.co") + "Adminassets/images/logo/" + (pageInfo?.OgImage ?? "default-image.jpg");
+    ViewData["OGimage"] = ogImage;
 }
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <!-- Google Tag Manager -->
-    const BASE_URL = "https://novazone.co";
     <script>
+        const BASE_URL = "https://novazone.co";
         (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-NGRB3HXF');</script>
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NGRB3HXF');
+    </script>
     <!-- End Google Tag Manager -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="~/images/newsimages/logonovazone.png">    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/newsimages/logonovazone.png">
+    <!-- Use a single Font Awesome version -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <title>@ViewData["Title"]</title>
     <meta name="title" content="@ViewData["Title"]">
-    <meta property="og:title" content="@ViewData["Title"]">
     <meta name="description" content="@ViewData["Description"]">
+    <meta property="og:title" content="@ViewData["Title"]">
     <meta property="og:description" content="@ViewData["Description"]">
-    <link rel="canonical" href="@PageInfoService.GetPageInfo().Domain">
+    <link rel="canonical" href="@(pageInfo?.Domain ?? "https://novazone.co")">
     <meta name="keywords" content="@ViewData["Keywords"]">
-    <meta property="fb:app_id" content="@PageInfoService.GetPageInfo().FacebookAppId">
-    <meta property="og:site_name" content="@PageInfoService.GetPageInfo().Domain">
-    <meta property="fb:admins" content="@ViewData["FacebookAdmins"]">
-    <meta property="og:url" content="@PageInfoService.GetPageInfo().Domain">
-    <meta property="og:image" content="@ViewData["OGimage"]" />
+    <meta property="og:site_name" content="@(pageInfo?.Domain ?? "https://novazone.co")">
+    <meta property="og:url" content="@(pageInfo?.Domain ?? "https://novazone.co")">
+    <meta property="og:image" content="@ViewData["OGimage"]">
     <meta property="og:image:alt" content="NOVAZONE">
-    <meta name="robots" content="@PageInfoService.GetPageInfo().Robots">
-    <meta name="google-site-verification" content="@PageInfoService.GetPageInfo().GoogleSiteVerification">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-   
+    <meta name="robots" content="@(pageInfo?.Robots ?? "index, follow")">
+    <meta name="google-site-verification" content="@(pageInfo?.GoogleSiteVerification ?? string.Empty)">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
     <!-- Libraries Stylesheet -->
     <link href="~/Novazone/lib/animate/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
     <!-- Customized Bootstrap Stylesheet -->
     <link href="~/Novazone/css/style.css" rel="stylesheet">
-
     <link href="https://cdn.jsdelivr.net/npm/@@splidejs/splide@3.6.12/dist/css/splide.min.css" rel="stylesheet">
+    <link href="~/novazone/css/reponeproductindex.css" rel="stylesheet">
 
-    <link href="~/novazone/css/reponeproductindex.css" rel="stylesheet" />
     <style>
-        /* CSS để giữ ảnh cùng kích thước */
+        /* Product Image Styling */
         .product-img img {
-            width: 100%; /* Đảm bảo ảnh rộng đủ khung */
-            height: 200px; /* Đặt chiều cao cố định cho ảnh */
-            object-fit: cover; /* Crop ảnh sao cho lấp đầy vùng chứa */
-            object-position: center; /* Căn giữa ảnh trong vùng chứa */
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
         }
-
 
         .prices-list .full-prices {
             display: none;
         }
 
         .prices-list:hover .full-prices {
-            display: block; 
+            display: block;
             position: absolute;
             z-index: 99999;
             background: #FFFFFF;
             left: 120px;
             top: 152px;
-            padding:10px;
+            padding: 10px;
         }
 
         .show-more {
@@ -96,7 +88,7 @@
             .show-more.hide {
                 display: none;
             }
- 
+
         .item-brand {
             background: rgba(0, 0, 0, .04);
             float: left;
@@ -107,7 +99,7 @@
             margin-right: 5px;
             margin-top: 5px;
         }
-        /* Đặt kiểu cơ bản cho card */
+
         .container {
             display: flex;
             justify-content: center;
@@ -117,7 +109,7 @@
 
         .card {
             width: 100%;
-            max-width: 180px; /* Giảm kích thước card */
+            max-width: 180px;
             background: #fff;
             border-radius: 15px;
             overflow: hidden;
@@ -125,16 +117,14 @@
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
         }
 
-            /* Hiệu ứng hover cho card */
             .card:hover {
                 transform: translateY(-10px);
                 box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
             }
 
-        /* Kiểu cho hình ảnh */
         .imgBx {
             width: 100%;
-            height: 120px; /* Kích thước nhỏ hơn cho ảnh */
+            height: 120px;
             overflow: hidden;
             position: relative;
         }
@@ -146,45 +136,40 @@
                 transition: transform 0.4s ease-in-out;
             }
 
-        /* Hiệu ứng phóng to hình ảnh khi hover */
-         .imgBx:hover img {
-            transform: scale(1.1);
-            z-index:9999;
-        }
+            .imgBx:hover img {
+                transform: scale(1.1);
+                z-index: 9999;
+            }
 
-        /* Kiểu cho nội dung */
         .contentBx {
             text-align: center;
-            padding: 10px; /* Giảm padding */
+            padding: 10px;
         }
 
             .contentBx h6 {
-                font-size: 14px; /* Giảm kích thước chữ */
+                font-size: 14px;
                 color: #333;
                 margin-bottom: 5px;
                 transition: color 0.3s ease;
             }
 
-        /* Hiệu ứng hover cho tiêu đề sản phẩm */
         .card:hover h6 {
-            color: #00B98E; /* Màu primary */
+            color: #00B98E;
         }
 
         .contentBx a {
             text-decoration: none;
-            color: #00B98E; /* Màu primary */
+            color: #00B98E;
             font-weight: bold;
-            font-size: 12px; /* Giảm kích thước chữ cho liên kết */
+            font-size: 12px;
             transition: color 0.3s ease;
         }
 
-            /* Hiệu ứng hover cho liên kết */
             .contentBx a:hover {
                 color: #007B5E;
             }
 
-
-           /* contact*/
+        /* Contact Box */
         .contact-box-bottom {
             position: fixed;
             bottom: 270px;
@@ -192,7 +177,6 @@
             z-index: 10000;
         }
 
-        
         .contact-icon-box {
             display: block;
             text-align: center;
@@ -213,11 +197,10 @@
             align-items: center;
             background: #fff;
             margin-bottom: 10px;
-            padding: 10px 10px;
+            padding: 10px;
             border-radius: 50%;
-            /* box-shadow: 0 0 4px 0 rgba(0, 0, 0, .08); */
             text-decoration: none;
-            animation:  lightShake 1.5s infinite;
+            animation: lightShake 1.5s infinite;
             transition: transform 0.3s;
             background-size: 200% 200%;
         }
@@ -231,438 +214,300 @@
             display: inline-flex;
             white-space: nowrap;
             animation: scroll-left 10s linear infinite;
-
         }
 
- 
         .contact-box-wrapper:hover {
             transform: scale(1.1);
         }
 
-        .link-web:hover{
-            color:Red;
+        .link-web:hover {
+            color: Red;
         }
+
         @@keyframes scroll-left {
-            0% {
-                transform: translateX(100%);
-            }
+            0%
 
-            100% {
-                transform: translateX(-100%);
-            }
+        {
+            transform: translateX(100%);
         }
 
- 
+        100% {
+            transform: translateX(-100%);
+        }
+
+        }
+
         @@keyframes lightShake {
-            0%, 100% {
-                transform: translateX(0);
-            }
+            0%, 100%
 
-            10% {
-                transform: translateX(-2px);
-            }
-
-            20% {
-                transform: translateX(2px);
-            }
-
-            30% {
-                transform: translateX(-2px);
-            }
-
-            40% {
-                transform: translateX(2px);
-            }
-
-            50% {
-                transform: translateX(-1px);
-            }
-
-            60% {
-                transform: translateX(1px);
-            }
-
-            70% {
-                transform: translateX(-1px);
-            }
-
-            80% {
-                transform: translateX(1px);
-            }
-
-            90% {
-                transform: translateX(-1px);
-            }
+        {
+            transform: translateX(0);
         }
 
-     
-        </style>
+        10% {
+            transform: translateX(-2px);
+        }
 
+        20% {
+            transform: translateX(2px);
+        }
 
+        30% {
+            transform: translateX(-2px);
+        }
+
+        40% {
+            transform: translateX(2px);
+        }
+
+        50% {
+            transform: translateX(-1px);
+        }
+
+        60% {
+            transform: translateX(1px);
+        }
+
+        70% {
+            transform: translateX(-1px);
+        }
+
+        80% {
+            transform: translateX(1px);
+        }
+
+        90% {
+            transform: translateX(-1px);
+        }
+
+        }
+    </style>
 </head>
- 
-<body >
 
+<body>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGRB3HXF"
-                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGRB3HXF" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div class="header-container">
         @await Html.PartialAsync("_HeaderPartialView.cshtml")
         @await Html.PartialAsync("~/Views/Shared/_NavbarPartialView.cshtml")
-    </div> 
-   
+    </div>
+
     <div class="content">
         @RenderBody()
     </div>
-  
 
     <div class="contact-box-bottom">
         <a class="contact-box-wrapper nut-chat-facebook" href="https://m.me/103192122779802" rel="nofollow" target="_blank">
-            <div class="contact-icon-box" style="border: none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><radialGradient id="a" cx="101.9" cy="809" r="1.1" gradientTransform="matrix(800 0 0 -800 -81386 648000)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#09f"></stop><stop offset=".6" style="stop-color:#a033ff"></stop><stop offset=".9" style="stop-color:#ff5280"></stop><stop offset="1" style="stop-color:#ff7061"></stop></radialGradient><path fill="url(#a)" d="M400 0C174.7 0 0 165.1 0 388c0 116.6 47.8 217.4 125.6 287 6.5 5.8 10.5 14 10.7 22.8l2.2 71.2a32 32 0 0 0 44.9 28.3l79.4-35c6.7-3 14.3-3.5 21.4-1.6 36.5 10 75.3 15.4 115.8 15.4 225.3 0 400-165.1 400-388S625.3 0 400 0z"></path><path fill="#FFF" d="m159.8 501.5 117.5-186.4a60 60 0 0 1 86.8-16l93.5 70.1a24 24 0 0 0 28.9-.1l126.2-95.8c16.8-12.8 38.8 7.4 27.6 25.3L522.7 484.9a60 60 0 0 1-86.8 16l-93.5-70.1a24 24 0 0 0-28.9.1l-126.2 95.8c-16.8 12.8-38.8-7.3-27.5-25.2z"></path></svg></div>
-           
-        </a> 
+            <div class="contact-icon-box" style="border: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+                    <radialGradient id="a" cx="101.9" cy="809" r="1.1" gradientTransform="matrix(800 0 0 -800 -81386 648000)" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" style="stop-color:#09f"></stop>
+                        <stop offset=".6" style="stop-color:#a033ff"></stop>
+                        <stop offset=".9" style="stop-color:#ff5280"></stop>
+                        <stop offset="1" style="stop-color:#ff7061"></stop>
+                    </radialGradient>
+                    <path fill="url(#a)" d="M400 0C174.7 0 0 165.1 0 388c0 116.6 47.8 217.4 125.6 287 6.5 5.8 10.5 14 10.7 22.8l2.2 71.2a32 32 0 0 0 44.9 28.3l79.4-35c6.7-3 14.3-3.5 21.4-1.6 36.5 10 75.3 15.4 115.8 15.4 225.3 0 400-165.1 400-388S625.3 0 400 0z"></path>
+                    <path fill="#FFF" d="m159.8 501.5 117.5-186.4a60 60 0 0 1 86.8-16l93.5 70.1a24 24 0 0 0 28.9-.1l126.2-95.8c16.8-12.8 38.8 7.4 27.6 25.3L522.7 484.9a60 60 0 0 1-86.8 16l-93.5-70.1a24 24 0 0 0-28.9.1l-126.2 95.8c-16.8 12.8-38.8-7.3-27.5-25.2z"></path>
+                </svg>
+            </div>
+        </a>
         <a class="contact-box-wrapper nut-chat-zalo" href="https://zalo.me/0848967333" rel="nofollow" target="_blank">
-            <div class="contact-icon-box" style="border: none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.5 161.5"><path d="M504.54,431.79h14.31c19.66,0,31.15,2.89,41.35,8.36a56.65,56.65,0,0,1,23.65,23.65c5.47,10.2,8.36,21.69,8.36,41.35V519.4c0,19.66-2.89,31.15-8.36,41.35a56.65,56.65,0,0,1-23.65,23.65c-10.2,5.47-21.69,8.36-41.35,8.36H504.6c-19.66,0-31.15-2.89-41.35-8.36a56.65,56.65,0,0,1-23.65-23.65c-5.47-10.2-8.36-21.69-8.36-41.35V505.14c0-19.66,2.89-31.15,8.36-41.35a56.65,56.65,0,0,1,23.65-23.65C473.39,434.68,484.94,431.79,504.54,431.79Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path><path d="M592.21,517v2.35c0,19.66-2.89,31.15-8.35,41.35a56.65,56.65,0,0,1-23.65,23.65c-10.2,5.47-21.69,8.36-41.35,8.36H504.6c-16.09,0-26.7-1.93-35.62-5.63L454.29,572Z" transform="translate(-431.25 -431.25)" style="fill:#001a33;opacity:0.11999999731779099;isolation:isolate"></path><path d="M455.92,572.51c7.53.83,16.94-1.31,23.62-4.56,29,16,74.38,15.27,101.84-2.3q1.6-2.4,3-5c5.49-10.24,8.39-21.77,8.39-41.5v-14.3c0-19.73-2.9-31.26-8.39-41.5a56.86,56.86,0,0,0-23.74-23.74c-10.24-5.49-21.77-8.39-41.5-8.39H504.76c-16.8,0-27.71,2.12-36.88,6.15q-.75.67-1.47,1.37c-26.89,25.92-28.93,82.11-6.13,112.64l.08.14c3.51,5.18.12,14.24-5.18,19.55C454.32,571.89,454.63,572.39,455.92,572.51Z" transform="translate(-431.25 -431.25)" style="fill:#fff"></path><path d="M497.35,486.34H465.84v6.76h21.87l-21.56,26.72a6.06,6.06,0,0,0-1.17,4v1.72h29.73a2.73,2.73,0,0,0,2.7-2.7v-3.62h-23l20.27-25.43,1.11-1.35.12-.18a8,8,0,0,0,1.41-5Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path><path d="M537.47,525.54H542v-39.2h-6.76v36.92A2.27,2.27,0,0,0,537.47,525.54Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path><path d="M514.37,495.07a15.36,15.36,0,1,0,15.36,15.36A15.36,15.36,0,0,0,514.37,495.07Zm0,24.39a9,9,0,1,1,9-9A9,9,0,0,1,514.37,519.46Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path><path d="M561.92,494.82A15.48,15.48,0,1,0,577.4,510.3,15.5,15.5,0,0,0,561.92,494.82Zm0,24.64a9.09,9.09,0,1,1,9.09-9.09A9.07,9.07,0,0,1,561.92,519.46Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path><path d="M526.17,525.54h3.62V495.93h-6.33v27A2.72,2.72,0,0,0,526.17,525.54Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path></svg></div>
-          
-        </a> 
+            <div class="contact-icon-box" style="border: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.5 161.5">
+                    <path d="M504.54,431.79h14.31c19.66,0,31.15,2.89,41.35,8.36a56.65,56.65,0,0,1,23.65,23.65c5.47,10.2,8.36,21.69,8.36,41.35V519.4c0,19.66-2.89,31.15-8.36,41.35a56.65,56.65,0,0,1-23.65,23.65c-10.2,5.47-21.69,8.36-41.35,8.36H504.6c-19.66,0-31.15-2.89-41.35-8.36a56.65,56.65,0,0,1-23.65-23.65c-5.47-10.2-8.36-21.69-8.36-41.35V505.14c0-19.66,2.89-31.15,8.36-41.35a56.65,56.65,0,0,1,23.65-23.65C473.39,434.68,484.94,431.79,504.54,431.79Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path>
+                    <path d="M592.21,517v2.35c0,19.66-2.89,31.15-8.35,41.35a56.65,56.65,0,0,1-23.65,23.65c-10.2,5.47-21.69,8.36-41.35,8.36H504.6c-16.09,0-26.7-1.93-35.62-5.63L454.29,572Z" transform="translate(-431.25 -431.25)" style="fill:#001a33;opacity:0.11999999731779099;isolation:isolate"></path>
+                    <path d="M455.92,572.51c7.53.83,16.94-1.31,23.62-4.56,29,16,74.38,15.27,101.84-2.3q1.6-2.4,3-5c5.49-10.24,8.39-21.77,8.39-41.5v-14.3c0-19.73-2.9-31.26-8.39-41.5a56.86,56.86,0,0,0-23.74-23.74c-10.24-5.49-21.77-8.39-41.5-8.39H504.76c-16.8,0-27.71,2.12-36.88,6.15q-.75.67-1.47,1.37c-26.89,25.92-28.93,82.11-6.13,112.64l.08.14c3.51,5.18.12,14.24-5.18,19.55C454.32,571.89,454.63,572.39,455.92,572.51Z" transform="translate(-431.25 -431.25)" style="fill:#fff"></path>
+                    <path d="M497.35,486.34H465.84v6.76h21.87l-21.56,26.72a6.06,6.06,0,0,0-1.17,4v1.72h29.73a2.73,2.73,0,0,0,2.7-2.7v-3.62h-23l20.27-25.43,1.11-1.35.12-.18a8,8,0,0,0,1.41-5Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path>
+                    <path d="M537.47,525.54H542v-39.2h-6.76v36.92A2.27,2.27,0,0,0,537.47,525.54Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path>
+                    <path d="M514.37,495.07a15.36,15.36,0,1,0,15.36,15.36A15.36,15.36,0,0,0,514.37,495.07Zm0,24.39a9,9,0,1,1,9-9A9,9,0,0,1,514.37,519.46Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path>
+                    <path d="M561.92,494.82A15.48,15.48,0,1,0,577.4,510.3,15.5,15.5,0,0,0,561.92,494.82Zm0,24.64a9.09,9.09,0,1,1,9.09-9.09A9.07,9.07,0,0,1,561.92,519.46Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path>
+                    <path d="M526.17,525.54h3.62V495.93h-6.33v27A2.72,2.72,0,0,0,526.17,525.54Z" transform="translate(-431.25 -431.25)" style="fill:#0068ff"></path>
+                </svg>
+            </div>
+        </a>
         <a class="contact-box-wrapper nut-goi-hotline" href="tel:0848967333">
             <div class="contact-icon-box" style="color: #00cd78;"><i class="fas fa-phone-alt"></i></div>
         </a>
     </div>
     @await Html.PartialAsync("_FooterPartialView.cshtml")
 
-    <script src="https://cdn.jsdelivr.net/npm/@@splidejs/splide@3.6.11/dist/js/splide.min.js"></script>
-  
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <!-- Fancybox JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="~/Novazone/mail/jqBootstrapValidation.min.js"></script>  
-    <!-- Template Javascript -->
+    <!-- Contact and Template Javascript -->
+    <script src="~/Novazone/mail/jqBootstrapValidation.min.js"></script>
     <script src="~/Novazone/js/main.js"></script>
-    <!-- Toastr  -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <!-- sweetalert2  -->
+    <!-- Notifications -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     <script>
-         
         $(document).ready(function () {
             var successMessage = '@TempData["SuccessMessage"]';
-            var errorMessage = '@TempData["ErrorMessage"]'; 
-            if (successMessage) {
-                toastr.success(successMessage);
-            } 
-            if (errorMessage) {
-                toastr.error(errorMessage);
-            }
-            $('.click-showCate').on('mouseenter', function () { 
-                $('.dropdown-menu').removeClass("show"); 
+            var errorMessage = '@TempData["ErrorMessage"]';
+            if (successMessage) toastr.success(successMessage);
+            if (errorMessage) toastr.error(errorMessage);
+
+            $('.click-showCate').on('mouseenter', function () {
+                $('.dropdown-menu').removeClass("show");
                 $(this).next('.dropdown-menu').addClass("show");
-                var id = $(this).attr('data-id'); 
+                var id = $(this).attr('data-id');
             });
 
             $('.dropdown-menu').on('mouseleave', function () {
-                // Ẩn menu con khi chuột rời khỏi
                 $(this).removeClass("show");
             });
+
             $('.btn-seeMoreProductHome').on('click', function () {
                 $(this).addClass('d-none');
                 $.ajax({
-                    url: '/Home/SeeMoreProductCateIndex', // Thay đổi đường dẫn đến controller của bạn
+                    url: '/Home/SeeMoreProductCateIndex',
                     method: 'GET',
                     dataType: 'json',
                     success: function (categoriesWithProductsSee) {
                         categoriesWithProductsSee.forEach(function (category) {
-                            // Tạo tiêu đề danh mục
-                            const categoryTitle = `
-                <a href="/${category.CategoryAlias}" class="">
-                    <h2 class="section-title position-relative mx-xl-5 mb-4 mt-5">
-                        <span style="background-color:#F0F1FB" class="pr-3">${category.CategoryName}</span>
-                    </h2>
-                </a>`;
-
+                            const categoryTitle = `<a href="/${category.CategoryAlias}" class=""><h2 class="section-title position-relative mx-xl-5 mb-4 mt-5"><span style="background-color:#F0F1FB" class="pr-3">${category.CategoryName}</span></h2></a>`;
                             $('#product-container').append(categoryTitle);
 
-                            // Tạo dòng chính cho danh mục
                             const rowDiv = $('<div class="row px-xl-5" style="margin:0; padding:0;justify-content:center;"></div>');
-
-                            // Thêm banner hoặc thông báo "Đang cập nhật"
                             if (category.Banner) {
-                                const bannerImage = `
-                    <div class="col-12 col-md-12 col-lg-3 poster">
-                        <img style="height:100%;" src="https://novazone.co/${category.Banner}" class="img-fluid" alt="${category.CategoryName}" loading="lazy">
-                    </div>`;
-                                rowDiv.append(bannerImage);
+                                rowDiv.append(`<div class="col-12 col-md-12 col-lg-3 poster"><img style="height:100%;" src="https://novazone.co/${category.Banner}" class="img-fluid" alt="${category.CategoryName}" loading="lazy"></div>`);
                             } else {
-                                const placeholder = `
-                    <div class="col-12 col-md-12 col-lg-3 poster">
-                        <p>Đang cập nhật</p>
-                    </div>`;
-                                rowDiv.append(placeholder);
+                                rowDiv.append(`<div class="col-12 col-md-12 col-lg-3 poster"><p>Đang cập nhật</p></div>`);
                             }
 
-                            // Tạo cột chứa các sản phẩm
                             const productCol = $('<div class="row justify-content-center row-category col-12 col-md-12 col-lg-9"></div>');
-
-                            // Lặp qua từng sản phẩm trong danh mục
                             category.Products.forEach(function (product) {
-                                // Kiểm tra và tính toán số tiền giảm giá (nếu có)
                                 const discountAmount = product.Price && product.SalePrice && product.SalePrice < product.Price
-                                    ? (product.Price - product.SalePrice).toLocaleString()
-                                    : null;
-
-                                // Tạo phần tử sản phẩm
-                                const productItem = `
-                    <div class="item-product-Cate" title="Xem chi tiết ${product.ProductName}">
-                        <div class="product-item bg-light mb-1" style="padding:15px">
-                            <div class="product-img position-relative overflow-hidden">
-                                <div class="d-flex justify-content-center" style="height:200px;">
-                                    <img style="object-fit:contain;" class="img-fluid" src="https://novazone.co/${product.Avatar}" alt="${product.Alias}" loading="lazy">
-                                </div>
-                                <div class="product-action">
-                                    ${product.UnitsInStock > 0
-                                        ? `<a class="btn btn-outline-dark btn-square" href="javascript:void(0)" onclick="addToCart(${product.ProductId})"><i class="fa fa-shopping-cart"></i></a>`
-                                        : ''}
-                                    <a class="btn btn-outline-dark btn-square" href="/${product.Alias}-${product.ProductId}"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-3">
-                                <a class="text-decoration-none p-7 text-dark"
-                                   style="height: 3.3em; display: block; overflow: hidden; line-height: 1.5em; white-space: normal; text-overflow: ellipsis; text-align:left; font-size:15px; font-weight: bold;"
-                                   href="/${product.Alias}-${product.ProductId}">
-                                    ${product.ProductName.length > 50 ? product.ProductName.substring(0, 50) + "..." : product.ProductName}
-                                </a>
-
-                                <div class="d-md-flex justify-content-center mt-2 flex-column">
-                                    <div class="md-d-flex" style="font-size: 13px;text-align:left;">
-                                        ${discountAmount
-                                        ? `<span class="text-muted" style="margin-right: 5px;"><del>${product.Price.toLocaleString()}₫</del></span>
-                                               <span class="text-success ml-2 d-none d-lg-inline">Tiết kiệm ${discountAmount}₫</span>`
-                                        : `<span class="text-muted" style="margin-right: 5px;"> </span>
-                                               <span class="text-success ml-2 d-none d-lg-inline"> </span>`}
+                                    ? (product.Price - product.SalePrice).toLocaleString() : null;
+                                productCol.append(`
+                                    <div class="item-product-Cate" title="Xem chi tiết ${product.ProductName}">
+                                        <div class="product-item bg-light mb-1" style="padding:15px">
+                                            <div class="product-img position-relative overflow-hidden">
+                                                <div class="d-flex justify-content-center" style="height:200px;">
+                                                    <img style="object-fit:contain;" class="img-fluid" src="https://novazone.co/${product.Avatar}" alt="${product.Alias}" loading="lazy">
+                                                </div>
+                                                <div class="product-action">
+                                                    ${product.UnitsInStock > 0 ? `<a class="btn btn-outline-dark btn-square" href="javascript:void(0)" onclick="addToCart(${product.ProductId})"><i class="fa fa-shopping-cart"></i></a>` : ''}
+                                                    <a class="btn btn-outline-dark btn-square" href="/${product.Alias}-${product.ProductId}"><i class="fa fa-search"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="text-center py-3">
+                                                <a class="text-decoration-none p-7 text-dark" style="height: 3.3em; display: block; overflow: hidden; line-height: 1.5em; white-space: normal; text-overflow: ellipsis; text-align:left; font-size:15px; font-weight: bold;" href="/${product.Alias}-${product.ProductId}">
+                                                    ${product.ProductName.length > 50 ? product.ProductName.substring(0, 50) + "..." : product.ProductName}
+                                                </a>
+                                                <div class="d-md-flex justify-content-center mt-2 flex-column">
+                                                    <div class="md-d-flex" style="font-size: 13px;text-align:left;">
+                                                        ${discountAmount ? `<span class="text-muted" style="margin-right: 5px;"><del>${product.Price.toLocaleString()}₫</del></span><span class="text-success ml-2 d-none d-lg-inline">Tiết kiệm ${discountAmount}₫</span>` : `<span class="text-muted" style="margin-right: 5px;"> </span><span class="text-success ml-2 d-none d-lg-inline"> </span>`}
+                                                    </div>
+                                                    <span class="text-danger" style="font-size: 1.1em; font-weight: bold; text-align:left;">Giá: ${product.SalePrice ? product.SalePrice.toLocaleString() : product.Price.toLocaleString()}₫</span>
+                                                </div>
+                                                <div class="mt-1" style="text-align:left;">
+                                                    ${product.UnitsInStock > 0 ? `<span style="color: #2cc067; font-size: 14px;line-height: 30px;"><i class="fa fa-check" style="color:#2cc067"></i> Còn hàng</span>` : `<span style="color:#0074da"><i class="fas fa-phone fa-flip-horizontal"></i> Đặt hàng</span>`}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="text-danger" style="font-size: 1.1em; font-weight: bold; text-align:left;">
-                                        Giá: ${product.SalePrice ? product.SalePrice.toLocaleString() : product.Price.toLocaleString()}₫
-                                    </span>
-                                </div>
-
-                                <div class="mt-1" style="text-align:left;">
-                                    ${product.UnitsInStock > 0
-                                        ? `<span style="color: #2cc067; font-size: 14px;line-height: 30px;"><i class="fa fa-check" style="color:#2cc067"></i> Còn hàng</span>`
-                                        : `<span style="color:#0074da"><i class="fas fa-phone fa-flip-horizontal"></i> Đặt hàng</span>`}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-                                productCol.append(productItem);
+                                `);
                             });
-
                             rowDiv.append(productCol);
                             $('#product-container').append(rowDiv);
                         });
-
                     },
                     error: function (xhr, status, error) {
                         console.error('Error fetching products:', error);
                     }
                 });
             });
-         
+
             $('.hover-price').hover(
-                function () {
-                    $(this).find('.tooltip-prices').show();
-                },
-                function () {
-                    $(this).find('.tooltip-prices').hide();
-                }
+                function () { $(this).find('.tooltip-prices').show(); },
+                function () { $(this).find('.tooltip-prices').hide(); }
             );
 
-            // Xử lý sự kiện cho nút "Xem thêm"
             $('.show-more-remaining').hover(
-                function () {
-                    $('.remaining-prices').removeClass('d-none'); // Bỏ class d-none khi hover vào nút
-                },
-                function () {
-                    // Kiểm tra xem chuột có hover vào danh sách giá không
-                    if (!$('.remaining-prices').is(':hover')) {
-                        $('.remaining-prices').addClass('d-none'); // Thêm class d-none khi không hover
-                    }
-                }
+                function () { $('.remaining-prices').removeClass('d-none'); },
+                function () { if (!$('.remaining-prices').is(':hover')) $('.remaining-prices').addClass('d-none'); }
             );
 
-            // Xử lý sự kiện hover cho danh sách giá
             $('.remaining-prices').hover(
-                function () {
-                    $(this).removeClass('d-none'); // Giữ cho danh sách giá hiển thị khi hover vào nó
-                },
-                function () {
-                    $(this).addClass('d-none'); // Ẩn danh sách giá khi không hover
-                }
+                function () { $(this).removeClass('d-none'); },
+                function () { $(this).addClass('d-none'); }
             );
-            
-             
+
             updateCartCount();
-            //xử lý khi người dùng hover vào danh mục
             $('.click-showCate').hover(function () {
                 var id = $(this).attr('data-id');
                 var alias = $(this).attr('data-alias');
                 loadAttributeByCateId(id, alias);
                 loadBrandByCategoryId(id);
                 loadProductNavByCateId(id);
-            }); 
-            function updateClass() { 
-                console.log($(window).width());
-                if ($(window).width() >= 1558) {
-                    $('.row-category').addClass('col-12 col-md-12 col-lg-9'); 
-                } else {
-                    $('.row-category').removeClass('col-12 col-md-12 col-lg-9'); 
-                }
+            });
 
-
-                if ($(window).width() >= 1200) { 
-                    $('.product-detail-page').css({
-                        'padding-right': '77px',
-                        'padding-left': '77px',
-                    });
-                } else { 
-                    $('.product-detail-page').css({
-                        'padding-right': '',
-                        'padding-left': '',
-                    });
-                }
-
-
+            function updateClass() {
+                if ($(window).width() >= 1558) $('.row-category').addClass('col-12 col-md-12 col-lg-9');
+                else $('.row-category').removeClass('col-12 col-md-12 col-lg-9');
+                if ($(window).width() >= 1200) $('.product-detail-page').css({ 'padding-right': '77px', 'padding-left': '77px' });
+                else $('.product-detail-page').css({ 'padding-right': '', 'padding-left': '' });
             }
             updateClass();
             $(window).resize(updateClass);
-
         });
+
         document.addEventListener('DOMContentLoaded', function () {
-            var main = new Splide('#main-slider', {
-                type: 'fade',
-                rewind: true,
-                pagination: false,
-                arrows: false,
-            });
-
+            var main = new Splide('#main-slider', { type: 'fade', rewind: true, pagination: false, arrows: false });
             var thumbnails = new Splide('#thumbnail-slider', {
-                fixedWidth: 100,
-                fixedHeight: 60,
-                gap: 10,
-                rewind: true,
-                pagination: false,
-                cover: true,
-                isNavigation: true,
-                breakpoints: {
-                    600: {
-                        fixedWidth: 60,
-                        fixedHeight: 44,
-                    },
-                },
+                fixedWidth: 100, fixedHeight: 60, gap: 10, rewind: true, pagination: false, cover: true, isNavigation: true,
+                breakpoints: { 600: { fixedWidth: 60, fixedHeight: 44 } }
             });
-
-            main.sync(thumbnails);  // Đồng bộ ảnh lớn với ảnh nhỏ
+            main.sync(thumbnails);
             main.mount();
             thumbnails.mount();
         });
 
         function addToCart(id, amount = 1) {
             var amountDetail = $('.add-count').val();
-            if (amountDetail !=null)
-            {
-                amount = amountDetail;
-            } 
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Thêm vào giỏ hàng thành công",
-                showConfirmButton: false,
-                timer: 1500
-            });
-    
+            if (amountDetail != null) amount = amountDetail;
+            Swal.fire({ position: "center", icon: "success", title: "Thêm vào giỏ hàng thành công", showConfirmButton: false, timer: 1500 });
             $.ajax({
-                url: "/api/cart/add",  
-                type: "POST",       
-                data: {
-                    productID: id,    
-                    amount: amount    
-                },
+                url: "/api/cart/add", type: "POST", data: { productID: id, amount: amount },
                 success: function (response) {
                     if (response.success) {
-                        
                         console.log('Khách hàng thêm sản phẩm vào giỏ');
                         updateCartCount();
-                        // Kiểm tra xem có cần chuyển hướng đến giỏ hàng hay không
-                        if (response.result === "Redirect") {
-                            window.location.href = response.url; // Chuyển hướng đến trang giỏ hàng
-                        }
+                        if (response.result === "Redirect") window.location.href = response.url;
                     } else {
-                        Swal.fire({
-                            position: "center",
-                            icon: "error",
-                            title: "Thêm sản phẩm thất bại",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+                        Swal.fire({ position: "center", icon: "error", title: "Thêm sản phẩm thất bại", showConfirmButton: false, timer: 1500 });
                     }
                 },
                 error: function () {
-                    Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: "Có lỗi xảy ra, vui lòng thử lại!",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                    Swal.fire({ position: "center", icon: "error", title: "Có lỗi xảy ra, vui lòng thử lại!", showConfirmButton: false, timer: 1500 });
                 }
             });
         }
-        //update số trong giỏ hàng
-        function updateCartCount() {
-            $.ajax({
-                url: '/cart/getCartCount',
-                method: 'GET',
-                success: function (response) {
-                    // Cập nhật số lượng sản phẩm trên giao diện
-                    $('.shopping-cart-count').text(response.cartCount);
-                },
-                error: function () {
-                    console.log("Lỗi khi lấy số lượng sản phẩm trong giỏ hàng");
-                }
-            });
-        }
-        $('.text-search').on('input', function () {
-            var text = $(this).val();
-            var cateId = $('.selected-category').val();
 
-            // Kiểm tra nếu ô tìm kiếm không rỗng
+        function updateCartCount() {
+            $.ajax({ url: '/cart/getCartCount', method: 'GET', success: function (response) { $('.shopping-cart-count').text(response.cartCount); }, error: function () { console.log("Lỗi khi lấy số lượng sản phẩm trong giỏ hàng"); } });
+        }
+
+        $('.text-search').on('input', function () {
+            var text = $(this).val(), cateId = $('.selected-category').val();
             if (text !== "") {
                 $('.search-result').removeClass('d-none');
-
-                // Gửi yêu cầu Ajax
                 $.ajax({
-                    url: "/Product/Search", // Thay YourController bằng tên controller thực tế
-                    type: "GET",
-                    data: {
-                        textSearch: text,
-                        cateId: cateId
-                    },
-                    success: function (response) { 
-                        $('.search-result').empty(); // Xóa kết quả cũ 
+                    url: "/Product/Search", type: "GET", data: { textSearch: text, cateId: cateId },
+                    success: function (response) {
+                        $('.search-result').empty();
                         if (response.data.length > 0) {
                             response.data.forEach(function (item) {
                                 $('.search-result').append(`
@@ -673,167 +518,70 @@
                                             <p class="text-danger">${item.salePrice ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.salePrice) : 'liên hệ'}</p>
                                         </span>
                                     </a>
-                                `); 
+                                `);
                             });
-                        } else {
-                            $('.search-result').append('<div class="link-product">Không tìm thấy sản phẩm nào.</div>');
-                        }
+                        } else $('.search-result').append('<div class="link-product">Không tìm thấy sản phẩm nào.</div>');
                     },
                     error: function (error) {
                         console.error("Có lỗi xảy ra:", error);
                         $('.search-result').append('<div class="link-product">Có lỗi xảy ra trong quá trình tìm kiếm.</div>');
                     }
                 });
-            } else {
-                $('.search-result').addClass('d-none');
-            }
-        }); 
+            } else $('.search-result').addClass('d-none');
+        });
 
-        //function loadCategories
-        function loadAttributeByCateId(id,alias)
-        { 
-            $.ajax({
-                url: "/Product/loadAttributeByCateId",
-                type: "GET",
-                data: { id: id }, // Sử dụng đối tượng để gửi dữ liệu
-                success: function (response) {
-                    if (response ) {
-                        $('.fillter-list').empty();
-                        $('.view-lsAttribute').addClass('show');
-                      //  console.log(response);
-                        // Giới hạn ở 8 phần tử
-                        var attributes = response.attributes.slice(0, 8); 
-                     
-                        //lấy 7 phần tử
-                        $.each(attributes.slice(0, 7), function (index, attribute) {
-                            // Tạo một item cho thuộc tính và các giá trị của nó
-                            var attributeItem = `
-                            <div class="col-3">
-                                <span class="fillter-item col-12 font-weight-bold text-danger">${attribute.attributeName}</span>
-                                <div class="attribute-values mt-2">`;
-
-                                            $.each(attribute.attributesPrices.slice(0,5), function (i, price) {
-                                                // Kiểm tra và cắt chuỗi giá trị thuộc tính
-                                                var priceText = price.price;
-                                                var priceTextSub = priceText.length > 20 ? priceText.substring(0, 20) + '...' : priceText;
-                                                // Thêm giá trị thuộc tính vào danh sách
-                                                attributeItem += `<div class="attribute-value-item "> <a class="text-dark" href="/loc-san-pham/${price.priceId}/${alias}">${priceTextSub}</a></div>`;
-                                            });
-
-                                            // Đóng div của thuộc tính
-                                            attributeItem += `
-                                </div>
-                            </div>`; 
-                            // Thêm thuộc tính và các giá trị của nó vào danh sách
-                            $('.fillter-list').append(attributeItem);
+        function loadAttributeByCateId(id, alias) {
+            $.ajax({ url: "/Product/loadAttributeByCateId", type: "GET", data: { id: id }, success: function (response) {
+                if (response) {
+                    $('.fillter-list').empty(); $('.view-lsAttribute').addClass('show');
+                    var attributes = response.attributes.slice(0, 8);
+                    $.each(attributes.slice(0, 7), function (index, attribute) {
+                        var attributeItem = `<div class="col-3"><span class="fillter-item col-12 font-weight-bold text-danger">${attribute.attributeName}</span><div class="attribute-values mt-2">`;
+                        $.each(attribute.attributesPrices.slice(0, 5), function (i, price) {
+                            var priceText = price.price, priceTextSub = priceText.length > 20 ? priceText.substring(0, 20) + '...' : priceText;
+                            attributeItem += `<div class="attribute-value-item"><a class="text-dark" href="/loc-san-pham/${price.priceId}/${alias}">${priceTextSub}</a></div>`;
                         });
-                         
-                        if (attributes.length > 7) {
-                            // Tạo một item cho thuộc tính từ thứ 7
-                            var remainingAttributesItem = `
-                            <div class="col-3">
-                                <span class="fillter-item col-12 font-weight-bold text-danger">Thuộc tính</span>
-                                <div class="attribute-values mt-2">`;
-
-                                            // Thêm giá trị thuộc tính còn lại từ thuộc tính thứ 8 trở đi
-                                            $.each(response.attributes.slice(7), function (i, attribute) {
-                                                remainingAttributesItem += `<div class="attribute-value-item text-danger font-weight-bold">${attribute.attributeName}</div>`;
-                                            });
-
-
-                                            // Đóng div của thuộc tính còn lại
-                                            remainingAttributesItem += `
-                                </div>
-                            </div>`; 
-                            // Thêm thuộc tính còn lại vào danh sách
-                            $('.fillter-list').append(remainingAttributesItem);
-                        } 
-                    } else {
-                        console.warn("Không có thuộc tính nào được trả về.");
-                    }
-                },
-                error: function (error) {
-                    console.error("Có lỗi xảy ra:", error);
-                }
-            });
-
-        }
-        function loadBrandByCategoryId(id){ 
-            $.ajax({
-                url: "/Product/loadBrandByCategoryId",
-                type: "GET",
-                data: { id: id},
-                success: function (response) { 
-                    if (response.data.length === 0) {
-                        console.log('No brands available');
-                    } else if (response.data.length <= 1) {
-                        $(".brand-list").empty();
-                        response.data.forEach(function (brand) {
-                            var brandHtml = `
-                                    <div class="col-12 bg-secondary p-1" style="margin-right:5px;margin-bottom:2px;">
-                                        <a class="d-flex justify-content-center p-2" href="#">
-                                            <img style="width: 100%; height: 100%; object-fit: cover;" class="img-fluid" src="${brand.poster}" alt="${brand.name}" />
-                                        </a>
-                                    </div>`;
-                            $(".brand-list").append(brandHtml);
-                        });
-                         
-                        return;
-                    } else {
-                        $(".brand-list").empty();
-                        response.data.forEach(function (brand) {
-                            var brandHtml = `
-                            <div class="col-5 bg-secondary p-1" style="margin-right:5px;margin-bottom:2px;">
-                                <a class="d-flex justify-content-center p-2" href=" ">
-                                    <img style="width: 100%; height: 20px; object-fit: cover;" class="img-fluid" src="${brand.thumb}" alt="${brand.name}" />
-                                </a>
-                            </div>`;
-                            $(".brand-list").append(brandHtml);
-                        });
-                    }
-
-                },
-                error: function (err) { 
-                    console.log(err);
-                }
-            });
-        }
-
-
-        function loadProductNavByCateId(id)
-        {
-            $.ajax({
-                url: "/Product/loadProductNavByCateId",
-                type: "GET",
-                data: { id: id },
-                success: function (response) {
-                    console.log(response);
-                    $(".ls-product-nav").empty();
-                    response.data.forEach(function (item) {
-                        var productHtml = `
-                         <div class="col-3 row">
-                         <div class="imgBx col-8">
-                             <img src=`+ item.thumb + ` alt=` + item.slideName + `  itemprop="image" title=` + item.slideName + ` ">
-                         </div>
-                         <div class="contentBx col-4 ">
-                                    <span class="h6 d-block " style="width:120px; text-align:left" itemprop="name">`+ item.slideName + `</span>
-                            <a href="`+ item.alias+ `" itemprop="url" title="Xem chi tiết " >Xem ngay</a>
-                         </div>
-                         </div>`;
-                         
-                        $(".ls-product-nav").append(productHtml);
+                        attributeItem += `</div></div>`;
+                        $('.fillter-list').append(attributeItem);
                     });
-
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
+                    if (attributes.length > 7) {
+                        var remainingAttributesItem = `<div class="col-3"><span class="fillter-item col-12 font-weight-bold text-danger">Thuộc tính</span><div class="attribute-values mt-2">`;
+                        $.each(response.attributes.slice(7), function (i, attribute) { remainingAttributesItem += `<div class="attribute-value-item text-danger font-weight-bold">${attribute.attributeName}</div>`; });
+                        remainingAttributesItem += `</div></div>`;
+                        $('.fillter-list').append(remainingAttributesItem);
+                    }
+                } else console.warn("Không có thuộc tính nào được trả về.");
+            }, error: function (error) { console.error("Có lỗi xảy ra:", error); } });
         }
-    </script> 
-    @await RenderSectionAsync("Scripts", required:false)
-    @await RenderSectionAsync("Styles", required: false)
-    <script>!function(s,u,b,i,z){var o,t,r,y;s[i]||(s._sbzaccid=z,s[i]=function(){s[i].q.push(arguments)},s[i].q=[],s[i]("setAccount",z),r=["widget.subiz.net","storage.googleapis"+(t=".com"),"app.sbz.workers.dev",i+"a"+(o=function(k,t){var n=t<=6?5:o(k,t-1)+o(k,t-3);return k!==t?n:n.toString(32)})(20,20)+t,i+"b"+o(30,30)+t,i+"c"+o(40,40)+t],(y=function(k){var t,n;s._subiz_init_2094850928430||r[k]&&(t=u.createElement(b),n=u.getElementsByTagName(b)[0],t.async=1,t.src="https://"+r[k]+"/sbz/app.js?accid="+z,n.parentNode.insertBefore(t,n),setTimeout(y,2e3,k+1))})(0))}(window,document,"script","subiz", "acseaubtzovsartaluar")</script>
-</body>
 
+        function loadBrandByCategoryId(id) {
+            $.ajax({ url: "/Product/loadBrandByCategoryId", type: "GET", data: { id: id }, success: function (response) {
+                if (response.data.length === 0) console.log('No brands available');
+                else if (response.data.length <= 1) {
+                    $(".brand-list").empty();
+                    response.data.forEach(function (brand) {
+                        $(".brand-list").append(`<div class="col-12 bg-secondary p-1" style="margin-right:5px;margin-bottom:2px;"><a class="d-flex justify-content-center p-2" href="#"><img style="width: 100%; height: 100%; object-fit: cover;" class="img-fluid" src="${brand.poster}" alt="${brand.name}" /></a></div>`);
+                    });
+                } else {
+                    $(".brand-list").empty();
+                    response.data.forEach(function (brand) {
+                        $(".brand-list").append(`<div class="col-5 bg-secondary p-1" style="margin-right:5px;margin-bottom:2px;"><a class="d-flex justify-content-center p-2" href=" "><img style="width: 100%; height: 20px; object-fit: cover;" class="img-fluid" src="${brand.thumb}" alt="${brand.name}" /></a></div>`);
+                    });
+                }
+            }, error: function (err) { console.log(err); } });
+        }
+
+        function loadProductNavByCateId(id) {
+            $.ajax({ url: "/Product/loadProductNavByCateId", type: "GET", data: { id: id }, success: function (response) {
+                $(".ls-product-nav").empty();
+                response.data.forEach(function (item) {
+                    $(".ls-product-nav").append(`<div class="col-3 row"><div class="imgBx col-8"><img src="${item.thumb}" alt="${item.slideName}" itemprop="image" title="${item.slideName}"></div><div class="contentBx col-4 "><span class="h6 d-block" style="width:120px; text-align:left" itemprop="name">${item.slideName}</span><a href="${item.alias}" itemprop="url" title="Xem chi tiết">Xem ngay</a></div></div>`);
+                });
+            }, error: function (err) { console.log(err); } });
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Styles", required: false)
+    <script>!function(s,u,b,i,z){var o,t,r,y;s[i]||(s._sbzaccid=z,s[i]=function(){s[i].q.push(arguments)},s[i].q=[],s[i]("setAccount",z),r=["widget.subiz.net","storage.googleapis"+(t=".com"),"app.sbz.workers.dev",i+"a"+(o=function(k,t){var n=t<=6?5:o(k,t-1)+o(k,t-3);return k!==t?n:n.toString(32)})(20,20)+t,i+"b"+o(30,30)+t,i+"c"+o(40,40)+t],(y=function(k){var t,n;s._subiz_init_2094850928430||r[k]&&(t=u.createElement(b),n=u.getElementsByTagName(b)[0],t.async=1,t.src="https://"+r[k]+"/sbz/app.js?accid="+z,n.parentNode.insertBefore(t,n),setTimeout(y,2e3,k+1))})(0))}(window,document,"script","subiz","acseaubtzovsartaluar")</script>
+</body>
 </html>

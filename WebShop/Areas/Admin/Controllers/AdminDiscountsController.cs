@@ -745,7 +745,9 @@ namespace WebShop.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-
+                // Log the exception or handle it appropriately
+                Console.WriteLine($"An error occurred: {e.Message}");
+                return Json(new { success = "No" });
             }
 
 
