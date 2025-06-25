@@ -1,0 +1,250 @@
+@model IEnumerable<WebShop.Models.Customer>
+
+@{
+    ViewData["Title"] = "Danh sách khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section Styles{
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dataTables_filter {
+            display: none;
+        }
+
+        .dataTables_wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        div.dataTables_wrapper div.dataTables_length select {
+            width: 70px;
+        }
+        .dt-buttons{
+            display:none;
+        }
+    </style>
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Quản lý khách hàng</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="input-group" style="flex-wrap:nowrap">
+                    <select class="custom-select" style="min-width: 230px;" id="selectOption">
+                        <option value="1" selected>Tên khách hàng</option>
+                        <option value="2">Số điện thoại</option>
+                        <option value="3">Email</option>
+                    </select>
+                    <div class="input-affix m-l-10">
+                        <input id="inputText" name="keyword" style="margin-bottom:0px" type="text" class="form-control" placeholder="Vui lòng nhập">
+                        <i class="suffix-icon anticon anticon-search opacity-04"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 d-flex text-right" style="margin-bottom:12px;">
+                <a class="btn btn-primary" href="#" id="searchBtn">Tìm kiếm</a>
+                @*<a class="btn m-r-5" style="margin-left:12px" data-target="#modal-header" data-toggle="modal">Đặt lại</a>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="row justify-content-between">
+            <h3>Danh sách khách hàng</h3>
+            <div class="col-lg-4 text-right">
+                <a class="btn btn-default m-r-5" id="exportBtn"><i class="anticon anticon-file-excel m-r-5"></i><span>Xuất dữ liệu</span></a>
+                <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Create"><i class="anticon anticon-plus m-r-5"></i><span>Thêm khách hàng</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="data-table" class="table table-hover e-commerce-table" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Họ khách hàng</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Địa chỉ</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CustomerId</td>
+                                <td>
+                                    <p>@item.FullName</p>
+                                </td>
+                                <td>
+                                    <p>@item.Phone</p>
+                                </td>
+                                <td>
+                                    <p>@item.Email</p>
+                                </td>
+                                <td>
+                                    @if(item.AccountAddresses.Count >0 && item.AccountAddresses != null)
+                                    {
+                                        @foreach (var address in item.AccountAddresses)
+                                        {
+                                            if (address.IsDefault == true)
+                                            {
+                                                <p>
+                                                    @address.Content, @address.Ward.WardName, @address.District.DistrictName, @address.Province.ProvinceName
+                                                </p>
+                                            }
+                                           
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            Chưa cập nhật ...
+                                        </p>
+                                    }
+                                </td>
+                                
+                                <td>
+                                    <a class="btn btn-secondary btn-tone m-r-5" data-toggle="tooltip" data-placement="top" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@item.CustomerId" asp-route-curPage="@ViewBag.CurrentPage">
+                                        <i class="anticon anticon-eye"></i>
+                                    </a>
+                                    @*<a class="btn btn-danger btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Chặn" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@item.CustomerId" asp-route-curPage="@ViewBag.CurrentPage">
+                                        <i class="anticon anticon-delete"></i>
+                                    </a>*@
+                                    <a id="delete-button" class="btn btn-danger btn-tone m-r-5" data-target="#delete-pd-md" data-toggle="modal" title="Xóa sản phẩm" data-customerid="@item.CustomerId">
+                                        <i class="anticon anticon-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="delete-pd-md" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Xóa khách hàng</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                Khách hàng này sẽ bị xóa khỏi website vĩnh viễn, bạn có chắc chắn muốn xóa khách hàng này không?
+                <br />
+                <span>Lưu ý: Chỉ xóa được những khách hàng chưa từng đặt hàng tại website!</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Hủy</button>
+                <a style="color:#fff" id="confirm-delete-button" class="btn btn-danger">Xóa khách hàng</a>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script>
+        var table = $('#data-table').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'excel'
+            ],
+            scrollX: true,
+            order: [[0, 'asc']],
+            language: {
+                search: "Tìm kiếm",
+                lengthMenu: "Hiển thị _MENU_",
+                zeroRecords: "Không tìm thấy",
+                info: "Hiển thị _START_ đến _END_ trong _TOTAL_ khách hàng",
+                infoEmpty: "",
+                loadingRecords: "Loading...",
+                infoFiltered: "",
+                paginate: {
+                    "previous": "Trước",
+                    "next": "Sau"
+                }
+            },
+            
+        });
+        $(document).ready(function () {
+            var selectedValue = 1;
+            var selectElement = document.getElementById("selectOption");
+            var searchBtn = document.getElementById("searchBtn");
+            var inputText = document.getElementById("inputText");
+
+            selectElement.addEventListener("change", function () {
+                selectedValue = selectElement.value;
+                table.columns().search('').draw();
+                inputText.value = "";
+            });
+            searchBtn.addEventListener("click", function () {
+                table.columns(selectedValue).search(inputText.value).draw();
+            });
+            //$('#inputText').keyup(function () {
+            //    table.columns(selectedValue).search($(this).val()).draw();
+            //})
+            $('#exportBtn').click(() => {
+                table.buttons(0, 0).trigger()
+            })
+        });
+ 
+        document.addEventListener("DOMContentLoaded", function () {
+            var deleteButtons = document.querySelectorAll("#delete-button");
+            var confirmDeleteButton = document.querySelector("#confirm-delete-button");
+
+            var productIdToDelete;
+
+            deleteButtons.forEach(function (deleteButton) {
+                deleteButton.addEventListener("click", function () {
+                    productIdToDelete = this.getAttribute("data-customerid");
+                });
+            });
+
+            confirmDeleteButton.addEventListener("click", function () {
+                var customerid = productIdToDelete;
+                
+                $.ajax({
+                    url: '/Admin/AdminCustomers/DeleteCustomer/',
+                    datatype: "json",
+                    type: "POST",
+                    data: { id: customerid },
+                    async: true,
+                    success: function (results) {
+                        if (results.success == true) {
+                            location.reload();
+                        } else {
+                            alert(results.message);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+        });
+
+    </script>
+}

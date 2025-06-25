@@ -1,0 +1,306 @@
+﻿@model IEnumerable<WebShop.Models.Discount>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section Styles{
+    <link href="~/adminassets/css/settingfull.css" rel="stylesheet" />
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <style>
+        .discountCad{            
+            display:flex;
+            
+        }
+
+        .dataTables_wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+       
+
+        div.dataTables_wrapper div.dataTables_length select {
+            width: 70px;
+        }
+    </style>
+}
+@if (Model.Count() <1){
+    <div class="wrapper-block" id="wrapper-block">
+        <div class="padding-container">
+            <div class="discount_empty">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 m-auto pb-md-0 pb-3">
+                        <p class="discount_empty__title">Quản lý khuyến mãi</p>
+                        <p class="discount_empty__desc">Dễ dàng tạo và quản lý đa dạng loại hình khuyến mãi, thu hút khách hàng và tăng doanh số bán hàng nhanh chóng, hiệu quả.</p>
+                        <div class="d-flex flex-wrap" style="gap: 4px;">
+                            <div>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                    <i class="fa-solid fa-plus fa-beat-fade"></i>
+                                    <span class="ml-3 d-none d-sm-inline-block">Tạo khuyến mãi</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 m-auto"><img src="https://hstatic.net/0/0/global/design/omni/discounts_initscreen.svg" alt="" class="img-fluid w-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div>
+        <div class="row no-gutters pb-4">
+            <div class="col align-items-center d-flex">
+                <p class="title-page">Danh sách khuyến mãi</p>
+            </div>
+            <div class="col-auto pl-3"> 
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <i class="fa-solid fa-plus fa-beat-fade"></i>
+                    <span class="ml-3 d-none d-sm-inline-block">Tạo khuyến mãi</span>
+                </button>
+            </div>
+        </div>
+        <div>
+            <div class="omni-tabs-wrapper ">
+                <ul class="nav nav-tabs nav-justified" id="myTabJustified" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" onclick="startus('startus0')" id="home-tab-justified" data-toggle="tab" href="#home-justified" role="tab" aria-controls="home-justified" aria-selected="true">Tất cả khuyến mãi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="startus('startus1')" id="profile-tab-justified" data-toggle="tab" href="#profile-justified" role="tab" aria-controls="profile-justified" aria-selected="false">Đã kích hoạt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="startus('startus2')" id="contact-tab-justified" data-toggle="tab" href="#contact-justified" role="tab" aria-controls="contact-justified" aria-selected="false">Chưa kích hoạt</a>
+                    </li>
+                </ul>
+                 
+                <div class="px-4 pt-4">
+                    <div class="">
+                        <div class="row no-gutters">                             
+                            <div class="col">
+                                <div class="next-input--stylized">
+                                    <input autocomplete="on" type="text" class="next-input next-input--invisible" id="inputText" placeholder="Tìm kiếm" step="1" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive tab-pane fade show active" id="myTabContentJustified">
+                    <table id="data-table" class="table table-hover e-commerce-table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @*@Html.DisplayNameFor(model => model.Name)*@
+                                        khuyến mãi
+                                    </th>
+                                    <th style="display:none">
+                                        @Html.DisplayNameFor(model => model.Image)
+                                    </th>
+                                    <th style="display:none">
+                                        @* @Html.DisplayNameFor(model => model.Description)*@
+                                        Nội dung
+                                    </th>
+                                    <th>
+                                        @*@Html.DisplayNameFor(model => model.TimeOn)*@
+                                        Ngày bắt đầu
+                                    </th>
+                                    <th>
+                                        @*@Html.DisplayNameFor(model => model.TimeOff)*@
+                                        Ngày kết thúc
+                                    </th>
+                                    <th>
+                                        @*@Html.DisplayNameFor(model => model.ShowWeb)*@
+                                        Hiển thị trên web
+
+                                    </th>
+                                    <th>
+                                        @*@Html.DisplayNameFor(model => model.MaxApply)*@
+                                        Tối đa áp dụng
+                                    </th>
+                                    <th>
+                                        @*@Html.DisplayNameFor(model => model.Startus)*@
+                                        Trạng thái
+                                    </th>
+                                    <th>
+                                        @*@Html.DisplayNameFor(model => model.Discount1)*@
+                                        Giảm giá
+                                    </th>
+                                    <th style="display:none">
+                                        @Html.DisplayNameFor(model => model.ConditionCheck)
+                                    </th>
+                                    <th style="display:none">
+                                        @Html.DisplayNameFor(model => model.Money)
+                                    </th>
+                                    <th style="display:none">
+                                        @Html.DisplayNameFor(model => model.ProductCount)
+                                    </th>
+                                    <th style="display:none">
+                                        @Html.DisplayNameFor(model => model.Sum)
+                                    </th>
+                                </tr>
+                            </thead>
+                        <tbody id="records_table">
+                                @foreach (var item in Model)
+                                {
+                                    var text = "startus1";
+                                    if (item.Startus == false)
+                                    {
+                                        text = "startus2";
+                                    }
+                                <tr class="Edititem @text" id="@item.Id">
+                                        <td class="Name" style="padding:1rem">
+                                            @if (item.Name != null)
+                                            {
+                                                <p> <strong>Chương trình:</strong> @item.Name</p>
+                                            }
+                                            else
+                                            {
+                                                <p> <strong>Mã:</strong> @item.Code</p>
+                                            }
+
+                                        </td>
+                                        <td class="Image" style="display:none">
+                                            @*<img src="@item.Image" style="max-width:50px">*@
+                                            @Html.DisplayFor(modelItem => item.Image)
+                                        </td>
+                                        <td class="Description" style="display:none">
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </td>
+                                        <td class="TimeOn">
+                                            @Html.DisplayFor(modelItem => item.TimeOn)
+                                        </td>
+                                        <td class="TimeOff">
+                                            @Html.DisplayFor(modelItem => item.TimeOff)
+                                        </td>
+                                        <td class="ShowWeb">
+                                            @Html.DisplayFor(modelItem => item.ShowWeb)
+                                        </td>
+                                        <td class="MaxApply">
+                                            @Html.DisplayFor(modelItem => item.MaxApply)
+                                        </td>
+                                        <td class="Startus">
+                                            @Html.DisplayFor(modelItem => item.Startus)
+                                        </td>
+                                        <td class="Discount1">
+                                            @if (item.Discount1 <= 100)
+                                            {
+                                                <p>@item.Discount1 %</p>
+                                            }
+                                            else
+                                            {
+                                                <p>@Html.Raw(String.Format("{0:#,0.}",@item.Discount1)) VND</p>
+                                            }
+                                        </td>
+                                        <td class="ConditionCheck" style="display:none">
+                                            @Html.DisplayFor(modelItem => item.ConditionCheck)
+                                        </td>
+                                        <td class="Money" style="display:none">
+                                            @Html.DisplayFor(modelItem => item.Money)
+                                        </td>
+                                        <td class="ProductCount" style="display:none">
+                                            @Html.DisplayFor(modelItem => item.ProductCount)
+                                        </td>
+                                        <td style="display:none">
+                                            @Html.DisplayFor(modelItem => item.Sum)
+                                        </td>
+                                    </tr>                                     
+                                }
+                            </tbody>
+                     </table>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+} 
+    <div class="modal fade" id="exampleModalCenter">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Tạo khuyến mãi</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="anticon anticon-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="discountCad">
+                        <a asp-action="CreateGift" class="btn btn-outline-primary" style="display:flex; text-decoration:none;color:black">
+                            <img src="~/adminassets/images/others/coupon.png" />
+                            <p style="text-align:left; padding-left:1.5rem">
+                                <strong>Tạo mã Khuyến mãi</strong>
+                                <br>
+                                <i>Khách hàng sẽ nhận giảm giá khi nhập mã khuyến mãi cho đơn hàng</i>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="discountCad">
+                        <a asp-action="Create" class="btn btn-outline-primary" style="display:flex; text-decoration:none;color:black">
+                            <img src="~/adminassets/images/others/tag.png" width=""/>
+                            <p style="text-align:left; padding-left:1.5rem">
+                                <strong>Tạo mã chương trình khuyến mãi</strong>
+                                <br>
+                                <i>Khách hàng sẽ nhận giảm giá tự động cho đơn hàng</i>
+                            </p>
+                        </a>
+                    </div> 
+                </div>                 
+            </div>
+        </div>
+    </div>
+@section Scripts{
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            
+        var table = $('#data-table').DataTable({
+            language: {
+                search: "Tìm kiếm",
+                lengthMenu: "Hiển thị _MENU_",
+                zeroRecords: "Không tìm thấy",
+                info: "",
+                infoEmpty: "",
+                infoFiltered: "",
+                paginate: {
+                    "previous": "Trước",
+                    "next": "Sau"
+                }
+            },
+        });
+        $('#inputText').keyup(function () {
+            table.search($(this).val()).draw();
+        })
+
+        $("#data-table_filter").html("");
+            table.row("1").child.hide();
+            //
+            
+            
+        });
+        //Admin/AdminDiscounts/Edit/5
+        $(".Edititem").on('click', function () {
+            var id = $(this).attr("id");
+            if (id != null) {
+                window.location.assign("AdminDiscounts/Delete/" + id + "");
+            }
+        })
+        function startus(startus){ 
+            var list = $('.Edititem');
+            list.each(function () {
+                if (startus == "startus0") {
+                    $(this).removeClass('d-none')
+                }else{
+                    if ($(this).attr('class').includes(startus)) {
+                        $(this).removeClass('d-none')
+                    }
+                    else {
+                        $(this).addClass('d-none')
+                    }
+                }                
+            });
+            
+        }
+        
+    </script>
+}

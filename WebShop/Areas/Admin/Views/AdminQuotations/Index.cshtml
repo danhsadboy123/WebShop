@@ -1,0 +1,219 @@
+﻿@model IEnumerable<WebShop.Models.Quotation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<WebShop.Models.Customer> lsCustomer = ViewBag.Customers;
+}
+
+@section Styles{
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dataTables_filter {
+            display: none;
+        }
+
+        .dataTables_wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        div.dataTables_wrapper div.dataTables_length select {
+            width: 70px;
+        }
+    </style>
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Quản lý báo giá</span>
+        </nav>
+    </div>
+</div>
+<div class="text-right" style="margin-bottom:12px;">
+    <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminQuotations" asp-action="Create"><i class="anticon anticon-plus m-r-5"></i><span>Tạo báo giá</span></a>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group" style="flex-wrap:nowrap">
+                            <select class="custom-select" style="min-width: 200px;" id="selectOption">
+                                <option value="1" selected>Tên khách hàng</option>
+                               @*  <option value="0">Mã sản phẩm</option>
+                                <option>Nhà cung cấp</option> *@
+                            </select>
+                            <div class="input-affix m-l-10">
+                                <input id="inputText" name="keyword" style="margin-bottom:0px" type="text" class="form-control" placeholder="Vui lòng nhập">
+                                <i class="suffix-icon anticon anticon-search opacity-04"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h5>Danh sách báo giá</h5>
+    </div>
+    <div class="card-body">
+            <div class="table-responsive tab-pane fade show active">
+                <table id="data-table" class="table table-hover e-commerce-table" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên khách hàng</th>
+                            <th>Tên công ty</th>
+                            <th>SĐT</th>
+                            <th>Xác nhận</th>
+                            <th>Tổng tiền</th>
+                            <th>Ngày tạo</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="records_table">
+                    @if (Model != null && Model.Count() > 0)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>#@item.QuotationId</td>
+                                <td>
+                                    @item.Customer.FullName
+                                </td>
+                                <td>@item.Customer.CompanyName</td>
+                                <td>@item.Customer.Phone</td>
+                                <td>
+                                    @if (item.Confirmed == true)
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Đã xác nhận</div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                                            <div>Chưa xác nhận</div>
+                                        </div>
+                                    }
+                                </td>
+                                <td>@item.TotalMoney.Value.ToString("#,##0") đ</td>
+                                <td>@item.CreateDate</td>
+                                <td>
+                                    <a class="btn btn-secondary btn-tone m-r-5"  asp-area="Admin" asp-controller="AdminQuotations" asp-action="Edit" asp-route-id="@item.QuotationId" asp-route-curPage="@ViewBag.CurrentPage">
+                                        <i class="anticon anticon-edit"></i>
+                                    </a>
+                                    <a id="delete-button" class="btn btn-danger btn-tone m-r-5" data-target="#delete-pd-md" data-toggle="modal" data-productid="@item.QuotationId">
+                                        <i class="anticon anticon-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+<div id="delete-pd-md" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Xóa sản phẩm</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                Sản phẩm này sẽ bị xóa khỏi website vĩnh viễn, bạn có chắc chắn muốn xóa sản phẩm này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Hủy</button>
+                <a id="confirm-delete-button" class="btn btn-danger">Xóa sản phẩm</a>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script>
+        var table = $('#data-table').DataTable({
+            scrollX: true,
+            order: [[1, 'asc']],
+            language: {
+                search: "Tìm kiếm",
+                lengthMenu: "Hiển thị _MENU_",
+                zeroRecords: "Không tìm thấy",
+                info: "Hiển thị _START_ đến _END_ trong _TOTAL_ sản phẩm",
+                infoEmpty: "",
+                loadingRecords: "Loading...",
+                infoFiltered: "",
+                paginate: {
+                    "previous": "Trước",
+                    "next": "Sau"
+                }
+            },
+        });
+        $(document).ready(function () {
+            var selectedValue = 1;
+            var selectElement = document.getElementById("selectOption");
+            var searchBtn = document.getElementById("searchBtn");
+            var inputText = document.getElementById("inputText");
+
+            selectElement.addEventListener("change", function () {
+                selectedValue = selectElement.value;
+                table.columns().search('').draw();
+                inputText.value = "";
+            });
+            //searchBtn.addEventListener("click", function () {
+            //    table.columns(selectedValue).search(inputText.value).draw();
+
+            //});
+            $('#inputText').keyup(function () {
+                table.columns(selectedValue).search($(this).val()).draw();
+            })
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var deleteButtons = document.querySelectorAll("#delete-button");
+            var confirmDeleteButton = document.querySelector("#confirm-delete-button");
+
+            var productIdToDelete;
+
+            deleteButtons.forEach(function (deleteButton) {
+                deleteButton.addEventListener("click", function () {
+                    productIdToDelete = this.getAttribute("data-productid");
+                });
+            });
+
+            confirmDeleteButton.addEventListener("click", function () {
+                var productid = productIdToDelete;
+                $.ajax({
+                    url: '/Admin/AdminProducts/DeleteProduct/',
+                    datatype: "json",
+                    type: "POST",
+                    data: { id: productid },
+                    async: true,
+                    success: function (results) {
+                        if (results.success == true) {
+                            location.reload();
+                        } else {
+                            alert(results.message);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+        });
+    </script>
+}

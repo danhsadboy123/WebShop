@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNetCore.Html;
+@model List<WebShop.Models.AttributesPotentail>;
+
+@section Styles{
+
+
+}
+<div class="modal-header">
+    <h5 class="modal-title">Thông tin Email</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <style type="text/css">
+        .deleteEmail {
+            display: none;
+        }
+    </style>
+
+    @{
+        foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="product-info-table m-t-20">
+                            <tbody>
+                                <tr class="row">
+                                    <div class="col"><p>Ngày gửi:@item.TimeSend</p></div>
+                                    <div class="col">
+                                        <a onclick="deleteItem(@item.Id)" class="btn btn-danger btn-tone m-r-5 @item.Id" data-toggle="tooltip" data-placement="top" title="Xóa thư đã gửi">
+                                            <i class="anticon anticon-delete"></i>
+                                        </a>
+                                        <span id="@item.Id" class="deleteEmail">Đã Xóa</span>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td class="viewitemtrue+@item.Id">
+                                        <div class="itemContent">
+                                            @if (item.Body != null)
+                                            {
+                                                @(new HtmlString(item.Body.ToString()))
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+
+    <script type="text/javascript">
+        function deleteItem(e) {
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("deleteItem","AdminAttributesPotentails")',
+                dataType: "Json",
+                data: {
+                    id: e
+                },
+                success: function (data) {
+
+                    if (data.success == "Ok") {
+                        $('.' + e).css("display", "none");
+                        $('#' + e).css("display", "block");
+                    }
+                }
+            })
+        }
+    </script>
+</div>

@@ -1,0 +1,90 @@
+﻿@model WebShop.Models.Slide
+
+@{
+    ViewData["Title"] = "Details" ; 
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminSlides" asp-action="Index" class="breadcrumb-item">Danh sách Slide</a>
+            <span class="breadcrumb-item active">Thông tin Slide : @Model.SlideName</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card-body">
+    <h4 class="card-title">Thông tin Slide : @Model.SlideName</h4>
+    <div class="table-responsive">
+        <table class="product-info-table m-t-20">
+            <tbody>
+                <tr>
+                    <td>ID:</td>
+                    <td class="text-dark font-weight-semibold">@Model.SlideId</td>
+                </tr>
+                <tr>
+                    <td>Tiêu đề:</td>
+                    <td>@Model.SlideName</td>
+                </tr>
+                <tr>
+                    <td>Đường dẫn ảnh:</td>
+                    <td>
+                        <img width="200" height="200" src="~/images/slides/@Model.Thumb" alt="@Model.SlideName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Đường dẫn:</td>
+                    <td>@Html.Raw(Model.Alias)</td>
+                </tr>
+                @if (Model.CatId != null)
+                {
+                    <tr>
+                        <td>Danh mục:</td>
+                        <td>@Model.Cat.CatName</td>
+                    </tr>
+                }
+                <tr>
+                    <td>Trạng thái:</td>
+                    <td>
+                        @if (Model.Active)
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" checked="" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>HomeFlag:</td>
+                    <td>
+                        @if (Model.HomeFlag)
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" checked="" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

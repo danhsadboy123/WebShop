@@ -1,0 +1,84 @@
+﻿/* Màn hình từ 1200px đến 1235px */
+@media (min-width: 1200px) and (max-width: 1265px) {
+    .item-product-Cate {
+        width: 19rem;
+        margin-right: 5px;
+    }
+    .poster{
+        display:none;
+    }
+}
+
+
+@media (min-width: 1266px) and (max-width: 1557px) {
+    .item-product-Cate {
+        width: 16rem;
+        margin-right: 5px;
+    }
+
+    .poster {
+        display: none;
+    }
+    /*.item-product-Cate:nth-last-child(-n+2) {
+        display:none;
+    }*/
+}
+
+@media (min-width: 1558px) and (max-width: 1899px) {
+    .item-product-Cate {
+        width: 16rem;
+        margin-right: 5px;
+    }
+
+    .poster {
+        display: block;
+    }
+    /* .item-product-Cate:nth-last-child(-n+2) {
+        display:none;
+    }*/
+}
+
+
+
+@media (min-width: 1900px) {
+    .item-product-Cate {
+        width: 19rem;
+        margin-right: 5px;
+    }
+}
+
+/* Màn hình tablet (768px đến dưới 1200px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .item-product-Cate {
+        width: 19rem;
+        margin-right: 5px;
+    }
+    .poster {
+        display: none;
+    }
+}
+
+/* Màn hình nhỏ (576px đến dưới 768px) */
+@media (max-width: 767px) and (min-width: 576px) {
+    .item-product-Cate {
+        width: 100%;
+        margin-right: 5px;
+    }
+    .poster {
+        display: none;
+    }
+}
+
+/* Màn hình rất nhỏ (dưới 576px) */
+@media (max-width: 575px) {
+    .item-product-Cate {
+
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        margin-right: 0;
+        margin-bottom: 5px; /* Thêm khoảng cách giữa các sản phẩm */
+    }
+
+    .poster {
+        display: none;
+    }
+}

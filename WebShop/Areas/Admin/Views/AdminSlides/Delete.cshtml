@@ -1,0 +1,87 @@
+﻿@model WebShop.Models.Slide
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="card-body">
+    <h4 class="card-title">Thông tin Slide : @Model.SlideName</h4>
+    <div class="table-responsive">
+        <table class="product-info-table m-t-20">
+            <tbody>
+                <tr>
+                    <td>Thumb:</td>
+                    <td>@Model.Thumb</td>
+                </tr>
+                <tr>
+                    <td>Alias:</td>
+                    <td>@Model.Alias</td>
+                </tr>
+                <tr>
+                    <td>SlideName:</td>
+                    <td>@Model.SlideName</td>
+                </tr>
+                @if(Model.CatId != null)
+                {
+                    <tr>
+                        <td>Danh mục:</td>
+                        <td>@Model.Cat.CatName</td>
+                    </tr>                   
+                }
+                <tr>
+                    <td>Trạng thái:</td>
+                    <td>
+                        @if (Model.Active)
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" checked="" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>HomeFlag:</td>
+                    <td>
+                        @if (Model.HomeFlag)
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" checked="" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="switch m-r-10">
+                                <input type="checkbox" id="switch-1" disabled />
+                                <label for="switch-1"></label>
+                            </div>
+                        }
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Xác nhận xóa:</td>
+                    <td>
+                        <form asp-controller="AdminSlides" asp-action="Delete" asp-route-id="@Model.SlideId">
+                            <input type="hidden" asp-for="SlideId" />
+                            <input type="submit" value="Xác nhận xóa" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

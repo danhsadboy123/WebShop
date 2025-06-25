@@ -1,0 +1,224 @@
+@model WebShop.Models.Category
+
+@{ ViewData["Title"] = "Tạo mới danh mục sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml"; }
+@section Styles{
+    <link rel="stylesheet" href="~/lib/jqueryui/themes/base/theme.css" />
+    <link rel="stylesheet" href="~/lib/jqueryui/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="~/lib/elfinder/css/elfinder.full.css" />
+    <link rel="stylesheet" href="~/lib/elfinder/css/theme.min.css" />
+    <link rel="stylesheet" href="~/css/elfinder-material-theme/Material/css/theme-gray.css" />
+
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminCategories" asp-action="Index" class="breadcrumb-item">Danh mục sản phẩm</a>
+            <span class="breadcrumb-item active">Thêm danh mục</span>
+        </nav>
+    </div>
+</div>
+<div>
+    <form asp-controller="AdminCategories" asp-action="Create" method="post" enctype="multipart/form-data">
+      
+        <div class="page-header no-gutters has-tab">
+            <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+                <div class="media align-items-center m-b-15">
+                    <div class="m-l-15">
+                        <img style="max-width:80px" class="Iconimage" src="~/adminassets/images/avatars/thumb-1.jpg" />
+                        <p class="font-weight-semibold" for="Icon">Icon danh mục</p>
+                        <div class="form-group">
+                            <input id="Iconimage" name="Icon" class="form-control" type="text" asp-for="Icon" placeholder="Nhập link icon" />
+                        </div>
+                    </div>
+                    <div class="m-l-15">
+                        <img style="max-width:80px" class="Thumbimage" src="~/adminassets/images/avatars/thumb-1.jpg" />
+                        <p class="font-weight-semibold" for="Thumb">Ảnh đại diện</p>
+                        <div class="form-group" style="display:flex">
+                            <input id="Thumbimage" name="Thumb" class="form-control col-8" type="text" asp-for="Thumb" placeholder="Nhập link ảnh" />
+                        </div>
+                    </div>
+                </div>
+                <div class="media align-items-center m-b-15">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-light m-r-5 fileserver" data-toggle="modal" data-target=".bd-example-modal-xl"><i class="fa-solid fa-paperclip"></i></button>
+                    </div>
+                    <a asp-area="Admin" asp-controller="AdminCategories" asp-action="Index" class="btn btn-warning  m-r-5">
+                        <span>Đóng</span>
+                    </a>
+                    <div class="form-group">
+                        <button type="submit" value="Save" class="btn btn-primary">Lưu chỉnh sửa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="CatName">Tên danh mục</label>
+                        <input type="text" class="form-control" name="CatName" asp-for="CatName" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="CatName">Category Name</label>
+                        <input type="text" class="form-control" name="CatNameEn" asp-for="CatNameEn" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="parentCategoryId">Danh mục cha</label>
+                        <select class="custom-select" asp-for="ParentId" style="min-width: 200px;">
+                            <option value="" disabled selected>Chọn danh mục cha</option>
+                            @foreach (var item in ViewBag.Categories)
+                            {
+                                <option value="@item.CatId">@item.CatName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="ShortDesc">Sắp xếp</label>
+                        <input type="number" class="form-control" asp-for="Ordering">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="Description">Mô tả</label>
+                        <textarea class="form-control" asp-for="Description"></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="Description">Description</label>
+                        <textarea class="form-control" asp-for="DescriptionEn"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="Title">Tiêu đề SEO</label>
+                        <input type="text" class="form-control" asp-for="Title">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="Title">SEO Title</label>
+                        <input type="text" class="form-control" asp-for="TitleEn">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="MetaDesc">Mô tả SEO</label>
+                        <input type="text" class="form-control" asp-for="MetaDesc">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="MetaDesc">SEO Description</label>
+                        <input type="text" class="form-control" asp-for="MetaDescEn">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="MetaKey">Từ khóa SEO</label>
+                        <input type="text" class="form-control" asp-for="MetaKey">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-semibold" for="MetaKey">SEO Keywords</label>
+                        <input type="text" class="form-control" asp-for="MetaKeyEn">
+                    </div>
+                </div>
+                <div class="form-group d-flex align-items-center">
+                    <div class="switch m-r-10">
+                        <input type="checkbox" asp-for="Published" checked="">
+                        <label for="Published"></label>
+                    </div>
+                    <label>Công khai</label>
+                </div>
+                <div class="form-group d-flex align-items-center">
+                    <div class="switch m-r-10">
+                        <input type="checkbox" asp-for="Outstanding">
+                        <label for="Outstanding"></label>
+                    </div>
+                    <label>Danh mục nổi bật</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal fade bd-example-modal-xl">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h4">File</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                <div id="elfinder"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+ 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Adminassets/summernote/summernote-bs4.js"></script>
+    <script src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="~/lib/elfinder/js/elfinder.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            var myCommands = elFinder.prototype._options.commands;
+            var disabled = ['callback', 'chmod', 'editor', 'netmount', 'ping', 'search', 'zipdl', 'help'];
+            elFinder.prototype.i18.en.messages.TextArea = "Edit";
+            $.each(disabled, function (i, cmd) {
+                (idx = $.inArray(cmd, myCommands)) !== -1 && myCommands.splice(idx, 1);
+            });
+            var options = {
+                baseUrl: "/lib/elfinder/",
+                url: "/el-finder-file-system/connector",
+                rememberLastDir: false,
+                commands: myCommands,
+                lang: 'vi',
+                uiOptions: {
+                    toolbar: [
+                        ['back', 'forward'],
+                        ['reload'],
+                        ['home', 'up'],
+                        ['mkdir', 'mkfile', 'upload'],
+                        ['open', 'download'],
+                        ['undo', 'redo'],
+                        ['info'],
+                        ['quicklook'],
+                        ['copy', 'cut', 'paste'],                  
+                        ['duplicate', 'rename', 'edit'],
+                        ['selectall', 'selectnone', 'selectinvert'],
+                        ['view', 'sort']
+                    ]
+                },
+                width:'100%',
+                height: '70%',
+                //onlyMimes: ["image", "text/plain"] // Get files of requested mime types only
+                lang: 'vi',
+            };
+            $('#elfinder').elfinder(options).elfinder('instance');
+
+           
+        });
+        $('#Thumbimage').on('keyup',function(){
+            var name = $(this).val();
+           if(name!=null){
+                $('.Thumbimage').attr('src', name)
+           }
+           
+        })
+        $('#Iconimage').on('keyup', function () {
+            var name = $(this).val();
+            if (name != null) {
+                $('.Iconimage').attr('src', name)
+            }
+
+        })
+    </script>
+}

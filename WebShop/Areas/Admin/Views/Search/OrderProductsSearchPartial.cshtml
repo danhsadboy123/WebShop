@@ -1,0 +1,69 @@
+﻿@model List<Product>
+@if (Model != null)
+{
+    <div class="table-responsive">
+        <table class="table table-hover e-commerce-table" style="width:100%">
+            @foreach (var item in Model)
+            {
+                string url = $"/{item.Alias}-{item.ProductId}";
+                <tr>
+                    <td>
+                        <div class="list">
+                            <a target="_blank" href="@url">
+                                @if (item.Avatar != null)
+                                {
+                                    <img class="img-fluid rounded" src="@item.Avatar" style="max-width: 60px;border:solid #DDDDDD 1px;" alt="">
+                                }
+                                else
+                                {
+                                    <img class="img-fluid rounded" src="~/Adminassets/images/avatars/thumb-1.jpg" style="max-width: 60px;border:solid #DDDDDD 1px;" alt="">
+                                }
+                                <span class="info">
+                                    <span class="name">@item.ProductName</span>
+                                    <span class="price">@item.SalePrice.Value.ToString("#,##0") đ</span>
+                                </span>
+                            </a>
+                            <a class="addBtn btn" style="height:38px" data-productid="@item.ProductId">Thêm</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+        <script>
+            var addButtons = document.querySelectorAll(".addBtn");
+            addButtons.forEach(function (addBtn) {
+                addBtn.addEventListener("click", function () {
+                    var productId = this.getAttribute('data-productid');
+                    $.ajax({
+                        url: '/api/order/add',
+                        type: "POST",
+                        dataType: "JSON",
+                        data: {
+                            productID: productId,
+                            amount: 1
+                        },
+                        success: function (response) {
+                            if (response.success) {
+                                loadProductOrder(); //Reload lai gio hang
+                            }
+                        },
+                        error: function (error) {
+                            alert("There was an error posting the data to the server: " + error.responseText);
+                        }
+                    });
+                });
+            });
+            function loadProductOrder() {
+                $('#productOrder').load("/Admin/AdminAjaxContent/ProductOrder");
+                $('#productOrderDetails').load("/Admin/AdminAjaxContent/ProductOrderDetails");
+            }
+           
+        </script>
+    </div>
+}
+else
+{
+    <div>
+        Không tìm thấy sản phẩm nào!
+    </div>
+}

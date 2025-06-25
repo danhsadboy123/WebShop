@@ -1,0 +1,73 @@
+﻿@model WebShop.Models.Slide
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card-body">
+    <h4>Tạo mới Slide</h4>
+    <div class="m-t-25" style="max-width: 700px">
+        <form asp-controller="AdminSlides" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Tiêu đề</label>
+                    <input type="text" class="form-control" asp-for="SlideName" placeholder="Tiêu đề">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" for="productSlide">Đường dẫn ảnh</label>
+                <input name="fThumb" type="file" class="form-control-file" asp-for="Thumb" />
+                <span asp-validation-for="Thumb" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Đường dẫn chuyển đến trang khác</label>
+                    <input type="text" class="form-control" asp-for="Alias" placeholder="Đường dẫn">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="font-weight-semibold" for="productCategory">Danh mục sản phẩm</label>
+                    <select class="custom-select" asp-for="CatId" style="min-width: 200px;" asp-items="ViewBag.DanhMuc">
+                        <option value="" disabled selected>Chọn danh mục</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="m-t-25">
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="Active" checked="">
+                            <label for="Active"></label>
+                        </div>
+                        <label>Công khai</label>
+                    </div>
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="HomeFlag">
+                            <label for="HomeFlag"></label>
+                        </div>
+                        <label>Đặt làm banner cho trang chủ</label>
+                    </div>
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="Bottom">
+                            <label for="Bottom"></label>
+                        </div>
+                        <label>Banner bên dưới</label>
+                    </div>
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="Right">
+                            <label for="Right"></label>
+                        </div>
+                        <label>Banner bên phải (Tạm thời cho hiển thị bên trong danh mục => Nếu true sẽ hiển thị trong danh mục )</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Tạo mới</button>
+        </form>
+    </div>
+</div>
+

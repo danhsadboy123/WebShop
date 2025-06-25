@@ -1,0 +1,51 @@
+﻿@model List<WebShop.ModelViews.HeaderMenu>
+@section Styles{
+    <style>
+       
+    </style>
+}
+<nav id="mobile-nav" class="collapse" style="">
+    
+    <div class="menu-login">
+        <i class="anticon anticon-user ml-3 fa-2x text-blue"></i>
+
+        <span class="mobile-login-box text-bold" style="background-color:#FF9801">
+            <a href="/Account/Register" class="text-bold" title="Đăng ký tài khoản" rel="nofollow">Đăng ký</a>
+            /
+            <a href="/Account/Login" class="text-bold" rel="nofollow">Đăng nhập</a>
+        </span>
+
+        <button type="button" id="close-button" class="btn btn-danger btn-sm mr-2" aria-expanded="false"><i class="anticon anticon-close"></i></button>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var closeButton = document.getElementById('close-button');
+                var menuContent = document.getElementById('mobile-nav');
+                closeButton.addEventListener('click', function () {
+                    menuContent.classList.remove('show');
+                });
+            });
+        </script>
+    </div>
+    <ul class="main-menu sm sm-vertical sm-simple" id="main-menu">
+        <li style="width:100vh">
+            <a class="sub-cat" style="color:#FF9801" href="#"><i class="anticon anticon-bars"></i> Danh mục sản phẩm<span @*  class="sub-arrow" *@ ></span></a>
+            <ul class="showCat"  style="display:block;margin-left:10px; margin-top:10px;margin-right:0;position:relative;width:100%;border:none">
+                @foreach (var cat in Model.OrderBy(c => c.Category.Ordering).Take(18))
+                {
+                    <li style ="width:100%">
+                        <div >
+                            <a  href="/danhmuc/@cat.Category.Alias">@cat.Category.CatName</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </li>
+        <li style="width:100vh"><hr style="margin: 0"></li>
+     @*    <li><a href="/cart" rel="nofollow"><i class="anticon anticon-shopping"></i> Giỏ hàng của bạn </a></li> *@
+    @*     <li><a href="#" rel="nofollow"><i class="fas fa-newspaper fa-fw"></i> Tin tức công nghệ </a></li> *@
+        <li style="width:100vh"><a href="https://www.messenger.com/t/103192122779802" target="_blank" style="color:#FF9801"><i class="anticon anticon-user"></i> Tư vấn mua hàng </a></li>
+        <li style="width:100vh"><a asp-controller="Home" asp-action="Products" style="color:#FF9801"><i class="anticon anticon-laptop"></i> Sản Phẩm </a></li>
+        <li style="width:100vh"><a href="page/lien-he-hop-tac" style="color:#FF9801"><i class="anticon anticon-phone"></i> Liên hệ hợp tác </a></li>
+    </ul>
+</nav>

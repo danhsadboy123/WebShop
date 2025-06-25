@@ -1,0 +1,9 @@
+﻿@model List<WebShop.ModelViews.CartItem>
+@if (Model != null && Model.Count() > 0)
+{
+    <span class="cart-count js-cart-count">@Model.Count()</span>
+}
+else
+{
+    <span class="cart-count js-cart-count">0</span>
+}

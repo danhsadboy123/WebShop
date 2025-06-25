@@ -1,0 +1,506 @@
+﻿@model WebShop.Models.Discount
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@section Styles{
+    <link href="~/adminassets/css/settingfull.css" rel="stylesheet" />
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+
+}
+
+<div class="omni-layout-body discount-detail-page">
+    <div class="omni-layout-body-md">
+        <div class="row no-gutters ui-title-bar-container">
+            <div class="col align-items-center d-flex">
+                <p class="title-page">ád</p>
+            </div>
+            <div class="col-auto pl-3">
+                <button class="omni-btn omni-btn-primary discount--action-disable">
+                    <div class="omni-btn-content"><span class="false">Dừng kích hoạt</span></div>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--section">
+                                <div><label>Mô tả</label><span>ádasdasd</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Thời Gian Hiệu Lực</span></div>
+                            <div class="omni-layout-card--section">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="mb-2">Thời gian bắt đầu</div>
+                                        <div class="hrv-daterangepicker hrv-daterangepicker--disabled">
+                                            <div class="hrv-daterangepicker--input">
+                                                <div class="hrv-daterangepicker--content">
+                                                    <div class="hrv-daterangepicker--time">18/11/2023 09:17 SA</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="next-input-checkbox mb-2 input-disabled">
+                                            <label class="next-label--switch" for="endtime">Có thời gian kết thúc</label><input class="next-checkbox" type="checkbox" name="endtime" id="endtime" disabled="" checked="">
+                                            <span class="next-checkbox--styled">
+                                                <svg class="svg-next-icon checkmark svg-next-icon-size-10" width="10" height="10">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+                                                        <path d="m.3,14c-0.2-0.2-0.3-0.5-0.3-0.7s0.1-0.5 0.3-0.7l1.4-1.4c0.4-0.4 1-0.4 1.4,0l.1,.1 5.5,5.9c0.2,0.2 0.5,0.2 0.7,0l13.4-13.9h0.1v-8.88178e-16c0.4-0.4 1-0.4 1.4,0l1.4,1.4c0.4,0.4 0.4,1 0,1.4l0,0-16,16.6c-0.2,0.2-0.4,0.3-0.7,0.3-0.3,0-0.5-0.1-0.7-0.3l-7.8-8.4-.2-.3z"></path>
+                                                    </svg>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="hrv-daterangepicker hrv-daterangepicker--disabled">
+                                            <div class="hrv-daterangepicker--input">
+                                                <div class="hrv-daterangepicker--content">
+                                                    <div class="hrv-daterangepicker--time">25/11/2023 09:17 SA</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-0">
+                                    <div class="col-12">
+                                        <div class="next-input-checkbox mb-2 input-disabled">
+                                            <label class="next-label--switch" for="periodTime">Giới hạn ngày và giờ áp dụng trong tuần</label><input class="next-checkbox" type="checkbox" name="periodTime" id="periodTime" disabled="">
+                                            <span class="next-checkbox--styled">
+                                                <svg class="svg-next-icon checkmark svg-next-icon-size-10" width="10" height="10">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+                                                        <path d="m.3,14c-0.2-0.2-0.3-0.5-0.3-0.7s0.1-0.5 0.3-0.7l1.4-1.4c0.4-0.4 1-0.4 1.4,0l.1,.1 5.5,5.9c0.2,0.2 0.5,0.2 0.7,0l13.4-13.9h0.1v-8.88178e-16c0.4-0.4 1-0.4 1.4,0l1.4,1.4c0.4,0.4 0.4,1 0,1.4l0,0-16,16.6c-0.2,0.2-0.4,0.3-0.7,0.3-0.3,0-0.5-0.1-0.7-0.3l-7.8-8.4-.2-.3z"></path>
+                                                    </svg>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header"><span class="header-title">Loại khuyến mãi</span></div>
+                        <div class="omni-layout-card--section">
+                            <div>
+                                <svg class="svg-next-icon mx-auto svg-next-icon-size-30" width="30" height="30">
+                                    <svg viewBox="0 0 41 40" fill="none">
+                                        <rect x="0.996338" width="40" height="40" rx="8" fill="url(#paint0_linear_5109_217769)"></rect>
+                                        <g filter="url(#filter0_d_5109_217769)">
+                                            <path d="M30.4063 19.58L21.4063 10.58C21.0463 10.22 20.5463 10 19.9963 10H12.9963C11.8963 10 10.9963 10.9 10.9963 12V19C10.9963 19.55 11.2163 20.05 11.5863 20.42L20.5863 29.42C20.9463 29.78 21.4463 30 21.9963 30C22.5463 30 23.0463 29.78 23.4063 29.41L30.4063 22.41C30.7763 22.05 30.9963 21.55 30.9963 21C30.9963 20.45 30.7663 19.94 30.4063 19.58ZM14.4963 15C13.6663 15 12.9963 14.33 12.9963 13.5C12.9963 12.67 13.6663 12 14.4963 12C15.3263 12 15.9963 12.67 15.9963 13.5C15.9963 14.33 15.3263 15 14.4963 15Z" fill="white"></path>
+                                        </g>
+                                        <path d="M19.9112 17.9574C19.9112 17.4287 19.4825 17 18.9538 17C18.425 17 17.9963 17.4287 17.9963 17.9574C17.9963 18.4862 18.425 18.9149 18.9538 18.9149C19.4825 18.9149 19.9112 18.4862 19.9112 17.9574Z" fill="#E7B008"></path>
+                                        <path d="M22.0814 22.0426C22.0814 22.5713 22.5101 23 23.0389 23C23.5676 23 23.9963 22.5713 23.9963 22.0426C23.9963 21.5138 23.5676 21.0851 23.0389 21.0851C22.5101 21.0851 22.0814 21.5138 22.0814 22.0426Z" fill="#E7B008"></path>
+                                        <path d="M18.9538 22.9999C19.1988 22.9999 19.4439 22.9064 19.6308 22.7195L21.6733 20.677L23.7158 18.6345C24.0898 18.2605 24.0898 17.6543 23.7159 17.2805C23.342 16.9066 22.7357 16.9066 22.3619 17.2805L18.2768 21.3655C17.9029 21.7394 17.9029 22.3456 18.2768 22.7195C18.4637 22.9064 18.7087 22.9999 18.9538 22.9999Z" fill="#E7B008"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M27.6363 25.18L24.8786 26.5589C23.7489 27.1237 22.412 27.3699 21.4963 26.5L13.9963 19C13.4388 18.4703 12.5675 18 11.7985 18H10.9963V19C10.9963 19.55 11.2163 20.05 11.5863 20.42L20.5863 29.42C20.9463 29.78 21.4463 30 21.9963 30C22.5463 30 23.0463 29.78 23.4063 29.41L27.6363 25.18Z" fill="#F3EACA"></path>
+                                        <defs>
+                                            <filter id="filter0_d_5109_217769" x="8.99634" y="9" width="24" height="24" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                                                <feOffset dy="1"></feOffset>
+                                                <feGaussianBlur stdDeviation="1"></feGaussianBlur>
+                                                <feComposite in2="hardAlpha" operator="out"></feComposite>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"></feColorMatrix>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_5109_217769"></feBlend>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_5109_217769" result="shape"></feBlend>
+                                            </filter>
+                                            <linearGradient id="paint0_linear_5109_217769" x1="20.9963" y1="0" x2="20.9963" y2="40" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FFD940"></stop>
+                                                <stop offset="1" stop-color="#E4A400"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </svg>
+                                <span class="text-left ml-2">Giảm giá sản phẩm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Giảm giá sản phẩm</span></div>
+                            <div class="omni-layout-card--section">
+                                <div class="d-flex">
+                                    <div class="w-50">
+                                        <label class="mb-4">Mức giảm</label>
+                                        <div class="d-flex">
+                                            <div class="discount-value--input-discount-take shipping-discount--input-value mr-2">
+                                                <div class="quantity-decimal_wrapper position-relative">
+                                                    <div class="next-input--disabled"><input type="text" id="quantity" class="next-input text-left min-width-100px position-relative quantity-decimal" placeholder=" " disabled="" max="0" step="any" value="5"></div>
+                                                </div>
+                                            </div>
+                                            <div class="next-input--disabled shipping-discount--input-select w-60px next-input--disabled"><input autocomplete="on" type="text" class="next-input text-center min-width-50px" placeholder="Loại giảm" disabled="" step="1" value="%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column-reverse w-50 ml-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Sản phẩm áp dụng</span></div>
+                            <div class="omni-layout-card--section">
+                                <span class="text-lowercase">9 Sản phẩm</span>
+                                <div class="pt-16">
+                                    <div>
+                                        <div class="ui-popover-control ui-popover-dropdown--fullWidth">
+                                            <div class="ui-popover-dropdown ui-popover-dropdown-bottom">
+                                                <div class="ui-popover-header"></div>
+                                                <div class="ui-popover-body">
+                                                    <div class="text-center p-3">
+                                                        <svg class="svg-next-icon svg-next-icon-size-20" width="20" height="20">
+                                                            <svg viewBox="0 0 12 12">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.92082 7.44942C7.95668 7.484 8.00454 7.50332 8.05435 7.50332H8.23644C8.40734 7.50332 8.57122 7.57129 8.69194 7.69226L11.3339 10.3395C11.608 10.6141 11.6078 11.0589 11.3334 11.3333C11.059 11.6077 10.6142 11.6079 10.3395 11.3338L7.69232 8.69188C7.57135 8.57116 7.50338 8.40728 7.50338 8.23638V8.05429C7.50338 8.00448 7.48406 7.95661 7.44948 7.92076C7.3787 7.84736 7.26321 7.84232 7.18318 7.90552C6.44385 8.48941 5.51187 8.83665 4.50338 8.83665C2.11004 8.83665 0.170044 6.89665 0.170044 4.50332C0.170044 2.10998 2.11004 0.169983 4.50338 0.169983C6.89671 0.169983 8.83671 2.10998 8.83671 4.50332C8.83671 5.51181 8.48947 6.44378 7.90558 7.18312C7.84238 7.26315 7.84742 7.37864 7.92082 7.44942ZM1.50338 4.50332C1.50338 6.16332 2.84338 7.50332 4.50338 7.50332C6.16338 7.50332 7.50338 6.16332 7.50338 4.50332C7.50338 2.84332 6.16338 1.50332 4.50338 1.50332C2.84338 1.50332 1.50338 2.84332 1.50338 4.50332Z"></path>
+                                                            </svg>
+                                                        </svg>
+                                                        <p class="font-weight-bold text-primary text-center my-3">Không tìm thấy dữ liệu</p>
+                                                    </div>
+                                                </div>
+                                                <div class="ui-popover-footer">
+                                                    <div class="border-top text-right p-3">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-default" disabled="">
+                                                                <svg class="svg-next-icon svg-next-icon-size-14 svg-next-icon-rotate-180" width="14" height="14">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.846 451.847">
+                                                                        <g>
+                                                                            <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744   L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284   c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path>
+                                                                        </g>
+                                                                    </svg>
+                                                                </svg>
+                                                            </button>
+                                                            <button class="btn btn-default" disabled="">
+                                                                <svg class="svg-next-icon svg-next-icon-size-14" width="14" height="14">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.846 451.847">
+                                                                        <g>
+                                                                            <path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744   L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284   c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path>
+                                                                        </g>
+                                                                    </svg>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-choose-collections">
+                                            <ul data-bind="foreach: selectedItems" class="list-divided-border mt-2">
+                                                <li class="py-3 border-bottom">
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="d-flex">
+                                                            <div class="mr-4 table-cell--image"><img class="box-image" src="//product.hstatic.net/200000818325/product/_b9330b13-f1af-4828-b78e-045ce1668659_569b62f1fafc48958fe3f5ce48cdc986_4bb8fd9a7a804ea2851b0dc7f3a2d76c_thumb.jpg"></div>
+                                                            <div class="my-auto"><a class="" href="/admin/products/1051280198">Iphone 6plus 64GB</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="py-3 border-bottom">
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="d-flex">
+                                                            <div class="mr-4 table-cell--image"><img class="box-image" src="//product.hstatic.net/200000818325/product/51_38680082-6684-4dfe-bbdc-c1a019aa2f55_63bcfc529b04440daf4d0bfc0bedee96_thumb.jpg"></div>
+                                                            <div class="my-auto"><a class="" href="/admin/products/1051280195">iPad Pro 10.5 inch 64GB</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="py-3 border-bottom">
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="d-flex">
+                                                            <div class="mr-4 table-cell--image"><img class="box-image" src="//product.hstatic.net/200000818325/product/ggfh_a3d5dd60102c40a38ffc5f6c91f6a667_thumb.jpg"></div>
+                                                            <div class="my-auto"><a class="" href="/admin/products/1051280191">Headphone Pro 5</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <div class="text-center mt-4"><button class="btn btn-default">Hiển thị thêm</button></div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Điều kiện tối thiểu</span></div>
+                            <div class="omni-layout-card--section"><span>Không yêu cầu</span></div>
+                        </div>
+                    </div>
+                    <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header"><span class="header-title">Đối tượng khách hàng</span></div>
+                        <div class="omni-layout-card--section border-0"><span class="">Không giới hạn khách hàng</span></div>
+                    </div>
+                    <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header"><span class="header-title">Kênh áp dụng</span></div>
+                        <div class="omni-layout-card--section">Tất cả kênh</div>
+                    </div>
+                    <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header"><span class="header-title">Chi nhánh áp dụng</span></div>
+                        <div class="omni-layout-card--section"><span class="">Tất cả chi nhánh</span></div>
+                    </div>
+                    <div>
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Giới hạn sử dụng</span></div>
+                            <div class="omni-layout-card--section">
+                                Giới hạn tổng số lần có thể sử dụng khuyến mãi
+                                <div class="next-input--disabled my-4 w-50"><input type="number" class="next-input text-left min-width-100px" disabled="" step="1" value="12"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding-container">
+                        <p class="order-history--title">Lịch sử</p>
+                        <div class="activity-log ">
+                            <div class="timeline-emojipicker border-top-0 p-0">
+                                <div class="emoji-container">
+                                    <div class="img-rounded">
+                                        <svg class="svg-next-icon svg-next-icon-size-40" width="40" height="40">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                                                <g id="Layer_2" data-name="Layer 2">
+                                                    <g id="Layer_1-2" data-name="Layer 1">
+                                                        <path xmlns="http://www.w3.org/2000/svg" fill="#3c94d1" d="M32,63.5A31.5,31.5,0,1,1,63.5,32,31.54,31.54,0,0,1,32,63.5Z"></path>
+                                                        <path xmlns="http://www.w3.org/2000/svg" fill="#fff" d="M32,1A31,31,0,1,1,1,32,31,31,0,0,1,32,1m0-1A32,32,0,1,0,64,32,32,32,0,0,0,32,0Z"></path>
+                                                        <path xmlns="http://www.w3.org/2000/svg" fill="#fff" d="M32,7.8A11.94,11.94,0,1,1,20.06,19.75,11.93,11.93,0,0,1,32,7.8Z"></path>
+                                                        <path xmlns="http://www.w3.org/2000/svg" fill="#fff" d="M32,59.34A28.67,28.67,0,0,1,8.11,46.52C8.23,38.59,24,34.25,32,34.25s23.77,4.34,23.89,12.26A28.67,28.67,0,0,1,32,59.34Z"></path>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </svg>
+                                    </div>
+                                    <div class="emoji-action">
+                                        <div class="emoji-input">
+                                            <div class="next-input--stylized">
+                                                <input autocomplete="on" type="text" class="next-input next-input--invisible" placeholder="Thêm nội dung ghi chú" step="1" value="">
+                                                <div class="next-input-add-on next-input__add-on--after pl-3">
+                                                    <div class="hrv-emoji-picker">
+                                                        <svg class="hrv-svg-inline-block" width="24px" height="24px" viewBox="0 0 295.996 295.996">
+                                                            <g>
+                                                                <path d="M147.998,0C66.392,0,0,66.392,0,147.998s66.392,147.998,147.998,147.998s147.998-66.392,147.998-147.998   S229.605,0,147.998,0z M147.998,279.996c-36.256,0-69.143-14.696-93.022-38.44c-9.536-9.482-17.631-20.41-23.934-32.42   C21.442,190.847,16,170.047,16,147.998C16,75.214,75.214,16,147.998,16c34.523,0,65.987,13.328,89.533,35.102   c12.208,11.288,22.289,24.844,29.558,39.996c8.27,17.239,12.907,36.538,12.907,56.9   C279.996,220.782,220.782,279.996,147.998,279.996z"></path>
+                                                                <circle cx="99.666" cy="114.998" r="16"></circle>
+                                                                <circle cx="198.666" cy="114.998" r="16"></circle>
+                                                                <path d="M147.715,229.995c30.954,0,60.619-15.83,77.604-42.113l-13.439-8.684c-15.597,24.135-44.126,37.604-72.693,34.308   c-22.262-2.567-42.849-15.393-55.072-34.308l-13.438,8.684c14.79,22.889,39.716,38.409,66.676,41.519   C140.814,229.8,144.27,229.995,147.715,229.995z"></path>
+                                                            </g>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="emoji-action__button">
+                                            <button disabled="" type="button" class="hrv-btn hrv-btn-primary ml-4 ">
+                                                <span>
+                                                    <svg class="svg-next-icon svg-next-icon-size-16" width="16" height="16">
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 6.66667L1.00667 2L15 8L1.00667 14L1 9.33333L11 8L1 6.66667ZM2.34 4.02L7.34667 6.16667L2.33333 5.5L2.34 4.02ZM7.34 9.83333L2.33333 11.98V10.5L7.34 9.83333Z" fill="white"></path>
+                                                        </svg>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="timeline-date-event timline-date-event--margin mt-0">
+                                    <div class="timeline-date-time text-uppercase timeline-tilte"><span>15/11/2023</span></div>
+                                    <div class="timeline-event-content active">
+                                        <div class="timeline-item">
+                                            <div class="timeline-body">
+                                                <div class="timeline__message-container">
+                                                    <div class="timeline__inner-message">
+                                                        <p class="mb-2">Chương trình khuyến mãi được kích hoạt bởi <span> nguyen </span></p>
+                                                    </div>
+                                                </div>
+                                                <time class="timeline__time"><span>09:37 SA</span></time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-event-content active">
+                                        <div class="timeline-item">
+                                            <div class="timeline-body">
+                                                <div class="timeline__message-container">
+                                                    <div class="timeline__inner-message">
+                                                        <p class="mb-2"> Chương trình khuyến mãi bị dừng kích hoạt bởi <span> nguyen </span></p>
+                                                    </div>
+                                                </div>
+                                                <time class="timeline__time"><span>09:37 SA</span></time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-event-content active">
+                                        <div class="timeline-item">
+                                            <div class="timeline-body">
+                                                <div class="timeline__message-container">
+                                                    <div class="timeline__inner-message">
+                                                        <p class="mb-2">Chương trình khuyến mãi được tạo bởi <span> nguyen </span></p>
+                                                    </div>
+                                                </div>
+                                                <time class="timeline__time"><span>09:19 SA</span></time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger mt-4"><span>Xóa khuyến mãi</span></button>
+                    <div class="display-none"></div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="discount--right-column">
+                    <div class="omni-layout-card card-secondary">
+                        <div class="omni-layout-card--header"><span class="header-title">Tóm tắt</span></div>
+                        <div class="omni-layout-card--section">
+                            <div class="d-flex mb-4"><span class="h2 word-break">ád</span></div>
+                            <div class="mb-4"><span class="omni-badge badge-light-default badge-M">Chưa kích hoạt</span></div>
+                            <div class="d-flex justify-content-between"><strong>Loại và hình thức khuyến mãi</strong></div>
+                            <div class="pl-4 m-4 discount-summary">
+                                <ul>
+                                    <li class="mb-2 discount-summary--text-capitalize">Giảm giá sản phẩm</li>
+                                    <li class="mb-2 discount-summary--text-capitalize">Chương trình khuyến mãi</li>
+                                </ul>
+                            </div>
+                            <div class="d-flex justify-content-between"><strong>Chi tiết</strong></div>
+                            <div class="pl-4 m-4 discount-summary">
+                                <ul>
+                                    <li class="mb-2 discount-summary--text-capitalize">Giảm giá 5%   cho 9 Sản phẩm</li>
+                                    <li class="mb-2 discount-summary--text-capitalize">Giới hạn sử dụng 12 lần</li>
+                                    <li class="mb-2 discount-summary--text-capitalize">Không giới hạn khách hàng</li>
+                                    <li class="mb-2 discount-summary--text-capitalize">Áp dụng cho Tất cả kênh bán hàng</li>
+                                    <li class="mb-2 discount-summary--text-capitalize">Áp dụng cho Tất cả Chi nhánh</li>
+                                    <li class="mb-2">Có hiệu lực từ 09:17 18/11/2023 - 09:17 25/11/2023</li>
+                                </ul>
+                            </div>
+                            <div class="d-flex flex-column mt-4 border-top"><span class="mt-2">Chương trình khuyến mãi  được tạo bởi <a target="blank" href="/admin/settings/accounts/200002092879">nguyen</a> vào ngày 15/11/2023</span></div>
+                        </div>
+                    </div>
+                    <div class="omni-layout-card card-secondary">
+                        <div class="omni-layout-card--header"><span class="header-title">Thống kê </span></div>
+                        <div class="omni-layout-card--section">
+                            <div class="pl-4 discount-summary">
+                                <ul>
+                                    <li class="mb-2">Đã sử dụng 0/12 lần</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="omni-layout-card card-secondary">
+                        <div class="omni-layout-card--header"><span class="header-title">Cài đặt</span></div>
+                        <div class="omni-layout-card--section">
+                            <div class="d-flex flex-row">
+                                <button type="button" class="hrv-switch hrv-switch-checked">
+                                    <span class="hrv-switch-inner"></span>
+                                    <div class="hrv-click-animating-node"></div>
+                                </button>
+                                <div class="ml-3 align-self-center">
+                                    <span>Hiển thị trên website</span>
+                                    <span class="trigger ">
+                                        <span class="omni-svg-create svg-next-icon svg-color-lightblue ml-2 mb-2 cursor-pointer svg-next-icon-size-14">
+                                            <svg width="14" height="14">
+                                                <svg viewBox="0 0 24 24">
+                                                    <path d="M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z"></path>
+                                                </svg>
+                                            </svg>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mt-4"><span>Khuyến mãi sẽ hiển thị tại nhiều trang trên website. Bạn có thể cài đặt trong ứng dụng <a href="https://displaypromotion.haravan.app" target="blank" class="cursor-pointer">Display Promotion</a></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<h1>Edit</h1>
+
+<h4>Discount</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeOn" class="control-label"></label>
+                <input asp-for="TimeOn" class="form-control" />
+                <span asp-validation-for="TimeOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeOff" class="control-label"></label>
+                <input asp-for="TimeOff" class="form-control" />
+                <span asp-validation-for="TimeOff" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShowWeb" class="control-label"></label>
+                <input asp-for="ShowWeb" class="form-control" />
+                <span asp-validation-for="ShowWeb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxApply" class="control-label"></label>
+                <input asp-for="MaxApply" class="form-control" />
+                <span asp-validation-for="MaxApply" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Startus" class="control-label"></label>
+                <input asp-for="Startus" class="form-control" />
+                <span asp-validation-for="Startus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount1" class="control-label"></label>
+                <input asp-for="Discount1" class="form-control" />
+                <span asp-validation-for="Discount1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConditionCheck" class="control-label"></label>
+                <input asp-for="ConditionCheck" class="form-control" />
+                <span asp-validation-for="ConditionCheck" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Money" class="control-label"></label>
+                <input asp-for="Money" class="form-control" />
+                <span asp-validation-for="Money" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductCount" class="control-label"></label>
+                <input asp-for="ProductCount" class="form-control" />
+                <span asp-validation-for="ProductCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sum" class="control-label"></label>
+                <input asp-for="Sum" class="form-control" />
+                <span asp-validation-for="Sum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "WebShop.Areas.Admin.Controllers.WebhookController",
+    "Method": "ReceiveWebhookGHN",
+    "RelativePath": "api/ghn/shipping-order/update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "WebShop.Areas.Admin.Models.GHNOrder",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

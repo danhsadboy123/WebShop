@@ -1,0 +1,268 @@
+﻿@model WebShop.Areas.Admin.Models.AdminNotificationSettingVM
+@{
+    ViewData["Title"] = "Notification";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section Styles{
+    <link href="~/Adminassets/css/settingfull.css" rel="stylesheet" />    
+
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-action="Index" asp-controller="AdminSettings" asp-area="Admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Cấu hình</a>
+            <span class="breadcrumb-item active">Thông báo</span>
+        </nav>
+    </div>
+</div>
+<div class="wrapper-block card" id="wrapper-block">
+    <div class="shipment-background mb-5">
+        <div class="padding-container pb-0">
+            <div class="row mb-5">
+                <div class="col-12 col-md-4 pt-4">
+                    <h2 class="ui-heading title-settings">Nội dung email</h2>
+                    <p class="sub-settings">Những email này được gửi tự động tới bạn hoặc khách hàng. Click vào tên mẫu email để chỉnh sửa.&nbsp;<a href="#" target="_blank">Xem thêm tài liệu về nội dung biến trong email.</a></p>
+                    <a href="/admin/settings/emailtemplate/edit/10">Hiệu chỉnh email</a>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div>
+                        <div class="ui-table-normal-container wrapper-content">
+                            <table class="ui-table">
+                                <thead>
+                                    <tr>
+                                        <th class="min-width-200px">Mẫu</th>
+                                        <th class="min-width-150px">Mô tả</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null)
+                                    {
+                                        foreach(var item in Model.emails)
+                                        {
+                                            if(item.Input != 1)
+                                            {
+                                                <tr>
+                                                    <td><a class="table-break-word" asp-route-id="@item.EmailId" asp-action="DetaileditEmail" asp-controller="AdminSettings" asp-area="Admin">@item.Title</a></td>
+                                                    <td><span class="table-break-word">@item.ContentName</span></td>
+                                                    <td></td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <td><a class="table-break-word" asp-route-id="@item.EmailId" asp-action="DetaileditEmail" asp-controller="AdminSettings" asp-area="Admin">@item.Title</a></td>
+                                                    <td><span class="table-break-word">@item.ContentName</span></td>
+                                                    @if(item.Active==1){
+                                                        <td>
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox" checked>
+                                                                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                                                            </div>
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox">
+                                                                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                                                            </div>
+                                                        </td>
+                                                        
+                                                    }
+
+                                                </tr>
+                                            }
+
+                                        }
+                                    }                                  
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-0 border-top--line row"></div>
+        </div>
+        <div class="padding-container pb-0">
+            <div class="row mb-5">
+                <div class="pt-4 col-12 col-md-4">
+                    <h2 class="ui-heading title-settings">Nội dung in tồn kho</h2>
+                    <p class="sub-settings">Mẫu nội dung có trong tồn kho được in ra. <a href="#" target="_blank">Xem thêm thông tin in tồn kho</a></p>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div>
+                        <div class="ui-table-normal-container">
+                            <table class="ui-table">
+                                <thead>
+                                    <tr>
+                                        <th class="table-header--name min-width-200px">Mẫu nội dung in tồn kho</th>
+                                        <th class="min-width-150px">Mô tả</th>
+                                        <th class="text-right"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(Model.cardTemplates !=null && Model.cardTemplates.Count > 0)
+                                    {
+                                        foreach(var item in Model.cardTemplates)
+                                        {
+                                            if(item.Type == 1)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <a asp-route-id="@item.CardTemplateId" asp-action="EditCartTemplate" asp-controller="AdminSettings" asp-area="Admin" class="table-break-word noti-name">@item.Title</a>
+                                                    </td>
+                                                    <td>@item.Description</td>
+                                                    <td class="text-right"></td>
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-0 border-top--line row"></div>
+        </div>
+        <div class="padding-container pb-0">
+            <div class="row mb-5">
+                <div class="pt-4 col-12 col-md-4">
+                    <h2 class="ui-heading title-settings">Nội dung in đơn hàng</h2>
+                    <p class="sub-settings">Mẫu nội dung có trong đơn hàng được in ra. <a href="#" target="_blank">Xem thêm thông tin in đơn hàng</a></p>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div>
+                        <div class="ui-table-normal-container">
+                            <table class="ui-table">
+                                <thead>
+                                    <tr>
+                                        <th class="table-header--name min-width-200px">Mẫu nội dung in đơn hàng</th>
+                                        <th class="min-width-150px">Mô tả</th>
+                                        <th class="text-right"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.cardTemplates != null && Model.cardTemplates.Count > 0)
+                                    {
+                                        foreach (var item in Model.cardTemplates)
+                                        {
+                                            if (item.Type == 2)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <a asp-route-id="@item.CardTemplateId" asp-action="EditCartTemplate" asp-controller="AdminSettings" asp-area="Admin" class="table-break-word noti-name">@item.Title</a>
+                                                    </td>
+                                                    <td>@item.Description</td>
+                                                    <td class="text-right"></td>
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-0 border-top--line row"></div>
+        </div>
+        <div class="padding-container pb-0">
+            <div class="row mb-5">
+                <div class="pt-4 col-12 col-md-4">
+                    <h2 class="ui-heading title-settings">Nội dung in vận đơn</h2>
+                    <p class="sub-settings">Mẫu nội dung có trong vận đơn được in ra. <a href="#" target="_blank">Xem thêm thông tin in vận đơn</a></p>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div>
+                        <div class="ui-table-normal-container">
+                            <table class="ui-table">
+                                <thead>
+                                    <tr>
+                                        <th class="table-header--name min-width-200px">Mẫu nội dung in vận đơn</th>
+                                        <th class="min-width-150px">Mô tả</th>
+                                        <th class="text-right"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.cardTemplates != null && Model.cardTemplates.Count > 0)
+                                    {
+                                        foreach (var item in Model.cardTemplates)
+                                        {
+                                            if (item.Type == 3)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <a asp-route-id="@item.CardTemplateId" asp-action="EditCartTemplate" asp-controller="AdminSettings" asp-area="Admin" class="table-break-word noti-name">@item.Title</a>
+                                                    </td>
+                                                    <td>@item.Description</td>
+                                                    <td class="text-right"></td>
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-0 border-top--line row"></div>
+        </div>
+        <div class="padding-container pb-0">
+            <div class="row mb-5">
+                <div class="col-12 col-md-4 pt-4">
+                    <h2 class="ui-heading title-settings">Thông báo đơn hàng</h2>
+                    <p class="sub-settings">Nhận thông báo về đơn hàng qua email hoặc điện thoại.</p>
+                    <div class="d-inline-block">
+                        <div class="display-none"></div>
+                        <button class="btn btn-primary">Thêm thông báo đơn hàng</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div>
+                        <div class="ui-table-normal-container">
+                            <table class="ui-table">
+                                <thead>
+                                    <tr>
+                                        <th class="min-width-200px">Thông báo</th>
+                                        <th class="min-width-150px">Chi nhánh</th>
+                                        <th></th>
+                                        <th class="text-center"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="">Gửi email đến <strong>  - nguyen.tan@gmail.com </strong></span></td>
+                                        <td>Tất cả</td>
+                                        <td><span class="text-primary cursor-pointer">Gửi thông báo thử nghiệm</span></td>
+                                        <td class="d-flex justify-content-between">
+                                            <button class="btn btn-default fix-height--button mr-2">Tắt</button>
+                                            <div class="d-inline-block">
+                                                <div class="display-none"></div>
+                                                <div>
+                                                    <button class="btn btn-danger fix-height--button pd-10">
+                                                        <svg class="svg-next-icon svg-next-icon-size-20" width="20" height="20">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                                <path d="M16 6a1 1 0 1 1 0 2h-1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8H4a1 1 0 1 1 0-2h12zM9 4a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2H9zm2 12h2V8h-2v8zm-4 0h2V8H7v8z"></path>
+                                                            </svg>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-0 border-top--line row"></div>
+        </div>
+        
+    </div>
+</div>

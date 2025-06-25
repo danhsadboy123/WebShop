@@ -1,0 +1,287 @@
+﻿
+@model IEnumerable<WebShop.Models.Brand>
+
+@{
+    
+    ViewData["Title"] = "Danh sách hãng sản xuất ";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Styles{
+    @*<link href="~/Adminassets/datatable/datatabese.css" />*@
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Adminassets/vendors/select2/select2.css" rel="stylesheet">
+    <style type="text/css">
+        .spinner-border {
+            display: none;
+        }
+
+        .dataTables_filter label {
+            display: none
+        }
+    </style>
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Quản lý thương hiệu</span>
+        </nav>
+    </div>
+</div>
+<div class="row m-b-30">
+    <div class="col-md-12">
+        <div class="row">
+           
+            
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-6">
+            <h6>Tìm kiếm</h6>
+            <div class="input-affix m-v-10">
+                <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                <input id="keyword" name="keyword" type="text" class="form-control" placeholder="Nhập tên thương hiệu">
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <h3>Danh sách thương hiệu</h3>
+            <div class="col-lg-4 text-right">
+                <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminBrands" asp-action="Create"><i class="anticon anticon-plus m-r-5"></i><span>Thêm thương hiệu</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="data-table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        
+                        <th>Tổng sản phẩm</th>
+                        <th>Mô tả</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody id="records_table" class="table-hover">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center" style="max-width:700px">
+                                        <img class="img-fluid rounded" style="max-width: 60px;border:solid #DDDDDD 1px;" src="@item.Thumb">                                        
+                                        <div class="d-flex" style="flex-direction:column; margin-left:12px">
+                                            <a target="_blank" class="text-dark" style="font-weight:500">@item.BrandName</a>
+                                            <span style="display: inline-flex;align-items: center;font-size: 12px;color: #9c9c9c;max-width: 100%">ID: @item.BrandId</span>
+                                        </div>
+                                    </div>                                                                        
+                                </td> 
+                                <td>@item.Products.Count()</td>
+                                <td>@item.Description</td>
+                                <td>
+                                    @{
+                                        var catitem = "";
+                                        foreach(var cate in item.CategoryBrands)
+                                        {
+                                            catitem += " " +cate.CatId;
+                                        }
+                                     }
+                                  @*  <button type="button" class="btn btn-primary EditBrand" data-cate="@catitem" data-id="@item.BrandId"       
+                                    data-src="@item.Thumb"  data-id="@item.BrandId" data-des="@item.Description" data-name="@item.BrandName" data-toggle="modal" data-target="#exampleModalScrollable">
+                                        <i class="anticon anticon-edit"></i>
+                                    </button>*@
+                                    <a class="btn btn-secondary btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" asp-controller="AdminBrands" asp-action="Edit" asp-route-id="@item.BrandId" asp-route-page="@ViewBag.CurrentPage">
+                                        <i class="anticon anticon-edit"></i>
+                                    </a>
+                                    <a class="btn btn-danger btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Xóa" asp-controller="AdminBrands" asp-action="Delete" asp-route-id="@item.BrandId" asp-route-page="@ViewBag.CurrentPage">
+                                        <i class="anticon anticon-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">           
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Thông tin thương hiệu</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="anticon anticon-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                         <img class="img-fluid rounded Thumbs" name="Thumbs" style="max-width: 60px;border:solid #DDDDDD 1px;">
+                        <input type="number" class="BrandId" name="BrandId"/>
+                        <div class="form-group">
+                            <label class="control-label" for="Thumb"></label>
+                            <input class="form-control Thumb" name="Thumb" placeholder ="Link ảnh thương hiệu"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="BrandName"></label>
+                            <input class="form-control BrandName" name="BrandName" placeholder="Tên thương hiệu"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Description"></label>
+                            <input class="form-control Description" name="Description" placeholder="Nội dung" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Danh mục</label>
+                            <div class="m-b-15">
+                                <select class="select2" name="CategoryBrands" multiple="multiple">
+                                    @foreach (var category in ViewBag.AllCategories)
+                                    {
+                                        <option data-id="@category.CatId" data-name="@category.CatName" value="@category.CatId" class="itemcate">@category.CatName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>                         
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary SaveBrand">Lưu</button>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*@foreach (var category in ViewBag.AllCategories)
+{
+    var isSelected = ViewBag.SelectedCategories.Contains(category);
+    <option value="@category.CatId" selected=@isSelected ? selected:"">@category.CatName</option>
+}*@
+
+@section Scripts{
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Adminassets/vendors/select2/select2.min.js"></script>
+    <script>
+        $('.Thumb').on('keyup',function(){
+            $('.Thumbs').attr('src', $('.Thumb').val());
+        })
+        $('.select2').select2();
+        $('.EditBrand').on('click',function(){           
+            var id = $(this).attr('data-id');
+            var name = $(this).attr('data-name');
+            var des = $(this).attr('data-des');
+            var src = $(this).attr('data-src');
+            var catecheck = $(this).attr('data-cate');
+            console.log(id);
+            $('.BrandId').val(id);
+            $('.BrandName').val(name);
+            $('.Description').val(des);
+            $('.Thumbs').attr('src', src);
+            $('.Thumb').val(src);
+            var itemarr = catecheck.split(' ');
+            var itemc = $('.itemcate');
+            var html="";
+            $.each(itemarr, function (key, item) { 
+                $.each(itemc,function(key2,item2){
+                    if($(item2).attr('data-id')==item){
+                        html += '<li class="select2-search-choice">'
+                            + '<div>' + $(item2).attr('data-name') + '</div>'
+                        +'<a href="#" class="select2-search-choice-close" tabindex="-1"></a></li>';                        
+                        console.log(item2);
+                        $(item2).attr('selected',true);
+                    }
+                })
+            })
+            html += '<li class="select2-search-field"><label for="s2id_autogen2" class="select2-offscreen"></label> <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" id="s2id_autogen2" placeholder="" style="width: 20px;">  </li>';
+            $('.select2-choices').html(html);
+        });
+        $('.SaveBrand').on('click',function(){
+            var id = $('.BrandId').val();
+            var BrandName= $('.BrandName').val();
+            var Description =$('.Description').val();          
+            var Thumb =$('.Thumb').val();
+            var itemc = $('.itemcate');
+            var cate =[];
+            $.each(itemc, function (key2, item2) {
+                if ($(item2).change()) {
+                    cate.push($(item2).attr('data-id'))
+                }
+            })
+            console.log(cate, id, BrandName, Description, Thumb, Thumb);
+        }) 
+        $(document).ready(function () {
+            var table = $('#data-table').DataTable({
+                order: [[1, 'desc']],
+                language: {
+                    search: "Tìm kiếm",
+                    lengthMenu: "Hiển thị _MENU_",
+                    zeroRecords: "Không tìm thấy",
+                    info: "Hiển thị từ _START_ đến _END_ trong _TOTAL_ thương hiệu",
+                    infoEmpty: "",
+                    infoFiltered: "",
+                    paginate: {
+                        "previous": "Trước",
+                        "next": "Sau"
+                    }
+                },
+
+            });
+            $('#keyword').keyup(function () {
+                table.search($(this).val()).draw();
+            })
+
+            //jQuery("#txtCatID").change(function () {
+            //    var catID = jQuery(this).children(":selected").attr("value");
+            //    catID = parseFloat(catID);
+            //    $('#txtCatID option')
+            //        .removeAttr('selected');
+            //    $("#txtCatID > [value=" + catID + "]").attr("selected", "true");
+            //    $.ajax({
+            //        url: '/Admin/AdminProducts/Filtter',
+            //        datatype: "json",
+            //        type: "GET",
+            //        data: {
+            //            CatID: catID
+            //        },
+            //        async: true,
+            //        success: function (results) {
+            //            if (results.status == "success") {
+            //                window.location.href = results.redirectUrl;
+            //            }
+            //        },
+            //        error: function (xhr) {
+            //            alert('error');
+            //        }
+            //    });
+            //});
+
+            //$("#keyword").keyup(function () {
+            //    var strkeyword = $('#keyword').val();
+            //    $.ajax({
+            //        url: '/Admin/Search/FindBrand/',
+            //        datatype: "json",
+            //        type: "POST",
+            //        data: { keyword: strkeyword },
+            //        async: true,
+            //        success: function (results) {
+            //            $("#records_table").html("");
+            //            $("#records_table").html(results);
+            //        },
+            //        error: function (xhr) {
+            //            alert('error');
+            //        }
+            //    });
+            //});
+        });
+    </script>
+}

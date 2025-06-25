@@ -1,0 +1,39 @@
+﻿@model List<Category>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CatId</td>
+            <td>
+                <h6>@item.CatName</h6>
+            </td>
+            <td>@item.Ordering</td>
+            <td>
+                @if (item.Published == true)
+                {
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <div>Công khai</div>
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex align-items-center">
+                        <div class="badge badge-success badge-dot m-r-10"></div>
+                        <div>Ẩn</div>
+                    </div>
+                }
+            </td>
+
+            <td>
+                <a class="btn btn-secondary btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" asp-area="Admin" asp-controller="AdminCategories" asp-action="Edit" asp-route-id="@item.CatId">
+                    <i class="anticon anticon-edit"></i>
+                </a>
+                <a class="btn btn-danger btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Xóa" asp-area="Admin" asp-controller="AdminCategories" asp-action="Delete" asp-route-id="@item.CatId">
+                    <i class="anticon anticon-delete"></i>
+                </a>
+            </td>
+        </tr>
+    }
+}

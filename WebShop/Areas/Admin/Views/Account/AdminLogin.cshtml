@@ -1,0 +1,163 @@
+﻿@model WebShop.Areas.Admin.Models.LoginViewModel
+@{
+    Layout = null;
+  
+}
+<style>
+
+    .contaidiv{
+        display:flex;
+        height:3.5rem;
+        word-wrap: break-word;
+        align-items:flex-start;
+        padding:5px;
+    }
+
+    .inbut {
+        max-width:50px;  
+    }
+
+    .countdown {
+        background: white;
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 1px rgba(0,0,0,0.1411764705882353), 0 1px 3px rgba(0,0,0,0.12156862745098039);
+    }
+</style>
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Đăng nhập</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/Adminassets/images/logo/logo.png" />
+    <link href="~/adminassets/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/adminassets/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/adminassets/font-awesome/css/regular.css" rel="stylesheet" />
+    <link href="~/adminassets/font-awesome/css/regular.min.css" rel="stylesheet" />
+    <!-- page css -->
+    <!-- Core css -->
+    <link href="~/Adminassets/css/app.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="app">
+        <div class="container-fluid p-h-0 p-v-20 bg full-height d-flex">
+            <div class="d-flex flex-column justify-content-between w-100">
+                <div class="container d-flex h-100">
+                    <div class="row align-items-center w-100">
+                        <div class="m-h-auto">
+                            <div class="card shadow-lg">
+                                <div class="card-body row">
+                                    <div id="content-Card" class="col-sm-12 col-md-12 col-xl-8" style="padding-bottom:10px">
+                                        <div class="d-flex justify-content-center">
+                                            <img class="img-fluid" alt="" src="~/images/newsimages/logonovazone.png" height="120px" width="160px">
+                                        </div>
+                                        <br />
+                                        <div class="contaidiv">
+                                            <div class="btn btn-primary inbut col-2">
+                                                <i class="fab fa-accusoft"></i>
+                                            </div>
+                                            <p class="col-10">Hệ thống biên tập và quản lý các chủ đề, bài viết, thông tin cập nhật.</p>
+                                        </div>
+                                        <div class="contaidiv">
+                                            <div class="btn btn-secondary inbut col-2">
+                                                <i class="fas fa-id-card-alt"></i>                                                
+                                            </div>
+                                            <p class="col-10">Hệ thống quản lý không giới hạn số lượng thành viên, nhóm thành viên.</p>
+                                        </div>
+                                        <div class="contaidiv">
+                                            <div class="btn btn-success inbut col-2">
+                                                <i class="fas fa-palette"></i>
+                                            </div>
+                                            <p class="col-10">Giao diện tùy biến, dễ dàng đáp ứng được ý đồ xây dựng Website của khách hàng.</p>
+                                        </div>
+                                        <div class="contaidiv">
+                                            <div class="btn btn-danger inbut col-2">
+                                                <i class="fas fa-book"></i>
+                                            </div>
+                                            <p class="col-10">Hỗ trợ đa ngôn ngữ cả ở phần nội dung thông tin và phần giao diện sử dụng.</p>
+                                        </div>
+                                        <div class="contaidiv">
+                                            <div class="btn btn-warning inbut col-2">
+                                                <i class="fas fa-unlock-alt"></i>
+                                            </div>
+                                            <p class="col-10">Hệ thống quản lý an ninh và an toàn dữ liệu.</p>
+                                        </div>
+                                    </div>
+                                    <form asp-action="AdminLogin" method="post" style="padding-top:1rem;" class="card countdown col-sm-12 col-md-12 col-xl-4">
+                                        <div style="text-align:center; margin-bottom:2rem">
+                                            <span style="margin-top:18px;font-size:30px; font-weight:500; text-align:center;">ĐĂNG NHẬP</span>
+                                        </div>
+                                        <br />
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <div class="input-affix">
+                                                <i class="prefix-icon anticon anticon-user"></i>
+                                                <input type="text" class="form-control" asp-for="UserName" placeholder="Tài khoản">
+                                            </div>
+                                            <span asp-validation-for="UserName" class="text-danger"></span>
+                                        </div>
+                                        <br />
+                                        <div class="form-group">
+                                            <div class="input-affix m-b-10">
+                                                <i class="prefix-icon anticon anticon-lock"></i>
+                                                <input type="password" class="form-control passW" asp-for="Password" placeholder="Mật khẩu">
+                                                <span class="toggle-password-icon" onclick="togglePasswordVisibility()">
+                                                    <i class="suffix-icon anticon anticon-eye"></i>
+                                                </span>
+                                            </div>
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                        <br />
+                                        <script>
+                                            function togglePasswordVisibility() {
+                                                var passwordInput = $(".passW").attr('type');                                             
+                                                if (passwordInput == "password"){
+                                                    $(".passW").attr('type','text');
+                                                    $('.suffix-icon').removeClass("anticon-eye");
+                                                    $('.suffix-icon').addClass("anticon-eye-invisible");
+
+                                                }else{
+                                                    $(".passW").attr('type', 'password');
+                                                    $('.suffix-icon').removeClass("anticon-eye-invisible");
+                                                    $('.suffix-icon').addClass("anticon-eye ");
+                                                } 
+                                            }
+                                        </script>
+                                        <div class="form-group">
+                                            <div style="flex-direction:column" class="d-flex align-items-center justify-content-between">
+                                                <button class="btn btn-primary">Đăng nhập</button>
+                                                @if (ViewBag.Error != null)
+                                                {
+                                                    <p class="text-danger"> @ViewBag.Error !</p>
+                                                }
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Core Vendors JS -->
+    <script src="~/Adminassets/js/vendors.min.js"></script>
+    <script src="~/adminassets/font-awesome/js/all.js"></script>
+    <script src="~/adminassets/font-awesome/js/all.min.js"></script>
+    <!-- page js -->
+    <!-- Core JS -->
+    <script src="~/Adminassets/js/app.min.js"></script>
+
+</body>
+
+</html>

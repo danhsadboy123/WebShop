@@ -1,0 +1,132 @@
+﻿@model IEnumerable<WebShop.Models.ImageServer>
+
+@{
+    ViewData["Title"] = "Kho hình ảnh";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/lib/jqueryui/themes/base/theme.css" />
+    <link rel="stylesheet" href="~/lib/jqueryui/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="~/lib/elfinder/css/elfinder.full.css" />
+    <link rel="stylesheet" href="~/lib/elfinder/css/theme.min.css" />
+    <link rel="stylesheet" href="~/css/elfinder-material-theme/Material/css/theme-gray.css" />
+ 
+    <style type="text/css">
+        .spinner-border {
+            display: none;
+        }
+
+        .dataTables_filter label {
+            display: none
+        }
+    </style>
+
+
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Quản lý file</span>
+        </nav>
+    </div>
+</div> 
+
+<div class="card">    
+    <div class="card-body">
+        <div id="elfinder"></div>
+    </div>
+</div> 
+@section Scripts{
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="~/lib/elfinder/js/elfinder.min.js"></script>
+    <script>
+        $(document).ready(function () {            
+            $('html').keyup(function (e) {
+                if ($('.Adminrole').attr('data-Ad') != "Admin") {
+                    if (e.keyCode == 46) {
+                        window.close();
+                        location.href = "/logout.html"; 
+                    }
+                }
+            });
+            var myCommands = elFinder.prototype._options.commands;
+            var disabled = ['callback', 'chmod', 'editor', 'netmount', 'ping', 'search', 'zipdl', 'help'];
+            elFinder.prototype.i18.en.messages.TextArea = "Edit";
+            $.each(disabled, function (i, cmd) {
+                (idx = $.inArray(cmd, myCommands)) !== -1 && myCommands.splice(idx, 1);
+            });
+            var options = {
+                baseUrl: "/lib/elfinder/",
+                url: "/el-finder-file-system/connector",
+                rememberLastDir: false,
+                commands: myCommands,
+                lang: 'vi',
+                uiOptions: {
+                    toolbar: [
+                        ['back', 'forward'],
+                        ['reload'],
+                        ['home', 'up'],
+                        ['mkdir', 'mkfile', 'upload'],
+                        ['open', 'download'],
+                        ['undo', 'redo'],
+                        ['info'],
+                        ['quicklook'],
+                        ['copy', 'cut', 'paste'],                      
+                        ['duplicate', 'rename', 'edit'],
+                        ['selectall', 'selectnone', 'selectinvert'],
+                        ['view', 'sort']
+                    ]
+                },
+                //onlyMimes: ["image", "text/plain"] // Get files of requested mime types only
+                lang: 'vi',
+                handlers: {
+                    keydown: function (event, elfinderInstance) {
+                        // Check if the pressed key is 'Delete'
+                        if (event.key === 'Delete') {
+                            // Prevent the default action of the Delete key
+                            event.preventDefault();
+                            alert('Delete key is disabled in elFinder.');
+                        }
+                    }
+                }
+            };
+            $('#elfinder').elfinder(options).elfinder('instance');
+            var table = $('#data-table').DataTable({
+                language: {
+                    search: "Tìm kiếm",
+                    lengthMenu: "Hiển thị _MENU_",
+                    zeroRecords: "Không tìm thấy",
+                    info: "Hiển thị _START_ đến _END_ trong _TOTAL_ sản phẩm",
+                    infoEmpty: "",
+                    loadingRecords: "Loading...",
+                    infoFiltered: "",
+                    paginate: {
+                        "previous": "Trước",
+                        "next": "Sau"
+                    }
+                },
+            });
+            $('#keyword').keyup(function () {
+                table.search($(this).val()).draw();
+            })
+
+
+        });
+
+        function Copylink(Id){
+            var origin = window.location.origin;            
+            var a = $("." + Id).attr('src');
+            var imageCopy = origin+a;   
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(imageCopy).select();
+            document.execCommand("copy");
+            $temp.remove();
+        }
+    </script>
+}

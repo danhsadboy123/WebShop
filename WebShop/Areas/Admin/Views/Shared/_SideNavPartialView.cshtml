@@ -1,0 +1,271 @@
+﻿@using System.Security.Claims;
+<div class="side-nav">
+    <div class="side-nav-inner">
+        <ul class="side-nav-menu scrollable">
+            <li class="nav-item" style="margin-top:20px">
+                <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="sidebar-link @(ViewContext.HttpContext.Request.Path == "/Admin" ? "active" : "")">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-dashboard"></i>
+                    </span>
+                    <span class="title">Tổng Quan</span>
+                </a>
+            </li>
+            @*don hang*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fa-brands fa-shopify fa-bounce"></i>
+                    </span>
+                    <span class="title">Đơn hàng</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminOrders/Index") ? "active" : "")">
+                        <a asp-action="Index" asp-controller="AdminOrders" asp-area="Admin">Tất cả đơn hàng</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path == "/Admin/DraftOrder" ? "active" : "")">
+                        <a asp-action="DraftOrder" asp-controller="Home" asp-area="Admin">Đơn hàng nháp</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            @*vận chuyển*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fa-solid fa-truck-fast fa-fade"></i>
+                    </span>
+                    <span class="title">Vận Chuyển</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a asp-area="Admin">Tổng quan</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminOrders/Transports") ? "active" : "")">
+                        <a asp-action="Transports" asp-controller="AdminOrders" asp-area="Admin">Vận chuyển</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Admin">Quản lý thu hộ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Admin">Biên bản bàn giao</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Admin">Biên bản hoàn thành</a>
+                    </li>
+                </ul>
+            </li>
+            @*hàng hóa*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fa-solid fa-tag"></i>
+                    </span>
+                    <span class="title">Hàng hóa</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminProducts") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index">Danh sách sản phẩm</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminQuotations") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="AdminQuotations" asp-action="Index">Báo giá sản phẩm</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminCategories") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="AdminCategories" asp-action="Index">Danh mục sản phẩm</a>
+                    </li>
+
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminBrands") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="AdminBrands" asp-action="Index">Thương hiệu</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminAttributes") ? "active" : "")">
+                        <a asp-action="Index" asp-controller="AdminAttributes" asp-area="Admin">Thuộc tính sản phẩm</a>
+                    </li>
+                </ul>
+            </li>
+
+            @*Đối tác*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                    </span>
+                    <span class="title">Đối tác</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminCustomers") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Index">Khách hàng</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminCustomerProjects") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="AdminCustomerSuppliers" asp-action="Index">Nhà cung cấp</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            @*số quỹ*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fa-solid fa-book"></i>
+                    </span>
+                    <span class="title">Số quỹ</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a asp-area="Admin">Số quỹ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Admin">công nợ</a>
+                    </li>
+                </ul>
+            </li>
+
+            @*Khuyến mãi*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" asp-area="Admin" asp-controller="AdminDiscounts" asp-action="Index">
+                    <span class="icon-holder">
+                        <i class="fa-solid fa-gift"></i>
+                    </span>                    
+                    <span class="title">Khuyến Mãi</span>
+                </a>
+                
+            </li>
+            @*báo cáo*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </span>
+                    <span class="title">Báo Cáo</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a asp-area="Admin">Bảng phân tích</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Admin">Danh sách báo cáo</a>
+                    </li>
+                </ul>
+            </li>
+            @*maketing*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <img src="~/adminassets/images/others/bullhorn.png" width="25px" />
+                        
+                    </span>
+                    <span class="title">Marketting</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">                    
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminEmailMakettings/CustumerSendEmail") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="AdminEmailMakettings" asp-action="CustumerSendEmail"><img src="~/adminassets/images/others/gmail.png" width="20px" /> Chăm sóc khách hàng</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminEmailMakettings/CustumerPotentailSendEmail") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="AdminEmailMakettings" asp-action="CustumerPotentailSendEmail"><img src="~/adminassets/images/others/gmail.png" width="20px" /> Khách hàng tiềm năng</a>
+                    </li>
+                    <li class="nav-item">
+                        
+                        <a><img src="~/adminassets/images/others/google.png" width="20px"/> Google Ads</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Admin" asp-controller="AdminSMS" asp-action="Index"><img src="~/adminassets/images/others/sms.png" width="20px" /> SMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a><img src="~/adminassets/images/others/tik-tok.png" width="20px" /> TikTok</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Admin" asp-controller="AdminFacebookPages" asp-action="Index"><img src="~/adminassets/images/others/facebook.png" width="20px" /> Facebook</a>
+                    </li>
+                </ul>
+
+            </li>
+            @*Quản lý website*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fa-solid fa-globe"></i>
+                    </span>
+                    <span class="title">Quản lý website</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    @if (User.Claims.Any(c => c.Type == "RoleId" && c.Value == "1"))
+                    {
+                        <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminAccounts") ? "active" : "")">
+                            <a class="sidebar-link" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Index">Tài khoản</a>
+                        </li>
+                        <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminRoles") ? "active" : "")">
+                            <a asp-action="Index" asp-controller="AdminRoles" asp-area="Admin">Quyền truy cập</a>
+                        </li>
+                    }
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminSlides") ? "active" : "")">
+                        <a asp-action="Index" asp-controller="AdminSlides" asp-area="Admin">Banner</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminPages") ? "active" : "")">
+                        <a asp-area="Admin" asp-controller="AdminPages" asp-action="Index">Trang thông tin</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminTinDangs") ? "active" : "")">
+                        <a asp-action="Index" asp-controller="AdminTinDangs" asp-area="Admin">Tin tức công nghệ</a>
+                    </li>
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/configuation") ? "active" : "")">
+                        <a asp-action="ChangePageInfos" asp-controller="Home" asp-area="Admin">Cấu hình Site</a>
+                    </li>
+                  
+                    <li class="nav-item @(ViewContext.HttpContext.Request.Path.StartsWithSegments("/Admin/AdminSystemWebs") ? "active" : "")">
+                        <a asp-action="Index" asp-controller="AdminSystemWebs" asp-area="Admin">Hệ thống</a>
+                    </li>
+                </ul>
+            </li>
+            @*giải phap hổ trợ*@
+            <li class="nav-item dropdown">
+                <a class="sidebar-link dropdown-toggle" href="javascript:void(0);">
+                    <span class="icon-holder">
+                        <i class="fa-solid fa-list-check"></i>
+                    </span>
+                    <span class="title">Giải Pháp hổ trợ</span>
+                    <span class="arrow">
+                        <i class="arrow-icon"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a asp-area="Admin">Thiết bị bán hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Admin">Kho dịch vụ</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a asp-action="Index" asp-controller="AdminSettings" asp-area="Admin">
+                    <span class="icon-holder">
+                        <i class="fa-solid fa-gear"></i>
+                    </span>
+                    <span class="title">Cấu hình</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>

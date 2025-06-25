@@ -1,0 +1,41 @@
+﻿@model WebShop.Models.EmailMaketting
+@using Microsoft.AspNetCore.Html;
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Bạn có muốn xóa mẫu Email này?</h3>
+<div>
+
+    <hr />
+    <div class="col-12 col-sm-4 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <p>Loại thư: @Html.DisplayFor(model => model.Title)</p>
+                <p> Người Tạo: @Html.DisplayFor(model => model.Acount.FullName)</p>
+            </div>
+            <div class="card-body">
+                <div>
+                  
+                    @if (Model.Body != null)
+                    {
+                        @(new HtmlString(Model.Body.ToString()))
+                    }
+                 
+                    
+                </div>
+            </div>
+             
+
+        </div>
+
+    </div>
+     
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EmailId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Quay lại</a>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "font-awesome@6.4.0",
+      "destination": "wwwroot/assets/font-awesome/"
+    },
+    {
+      "library": "fancybox@3.5.7",
+      "destination": "wwwroot/assets/fancybox/"
+    },
+    {
+      "library": "owl-carousel@1.3.3",
+      "destination": "wwwroot/assets/owl-carousel/"
+    },
+    {
+      "library": "jquery-file-upload@4.0.11",
+      "destination": "wwwroot/Adminassets/vendors/jquery-file-upload/"
+    },
+    {
+      "library": "jquery.smartmenus@1.2.1",
+      "destination": "wwwroot/assets/jquery.smartmenus/"
+    },
+    {
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/Adminassets/vendors/datatables/"
+    },
+    {
+      "library": "jspdf@2.5.1",
+      "destination": "wwwroot/assets/jspdf/"
+    },
+    {
+      "library": "jquery@3.5.1",
+      "destination": "wwwroot/lib/jquery"
+    },
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/lib/jqueryui"
+    },
+    {
+      "library": "elfinder@2.1.57",
+      "destination": "wwwroot/lib/elfinder"
+    }
+  ]
+}

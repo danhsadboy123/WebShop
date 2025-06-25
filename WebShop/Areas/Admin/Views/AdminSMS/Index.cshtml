@@ -1,0 +1,26 @@
+﻿@using System.Security.Claims;
+@using Microsoft.AspNetCore.Html;
+@{
+    ViewData["Title"] = "Facebook";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+ 
+}
+@section Styles{
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Adminassets/summernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/Adminassets/summernote/summernote.css" rel="stylesheet" />
+    <style type="text/css">
+ 
+    </style>
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">SMS</span>
+        </nav>
+    </div>
+</div>
+<div>SMS</div>

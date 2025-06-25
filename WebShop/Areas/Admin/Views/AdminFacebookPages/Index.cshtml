@@ -1,0 +1,811 @@
+﻿@model IEnumerable<WebShop.Models.FacebookPage>
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Html;
+@{
+    ViewData["Title"] = "Facebook";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Product> lsproduct = ViewBag.Product;
+    FacebookPage facebookPage = ViewBag.facebook;
+}
+@section Styles{
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Adminassets/summernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/Adminassets/summernote/summernote.css" rel="stylesheet" />
+    <style type="text/css"> 
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+        .spinner-border {
+            display: none;
+        }
+        .dataTables_filter label {
+            display: none
+        }
+        #errEmail {
+            display: none;
+        }
+        .card tbody tr {
+            float: left;
+            width: 25em;
+            margin: 0.5em;
+            border: 1px solid #bfbfbf;
+            border-radius: 0.5em;
+            background-color: transparent !important;
+            box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+        }
+
+            .card tbody tr td {
+                display: block;
+                border: 0;
+            }
+
+        td, p{
+            margin:0;
+            padding:0;
+        }
+        #data-table_length {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btnclear{
+            border-radius: 50%;          
+            width: 30px;
+            height: 30px;
+            border: 1px solid #b1caed;
+        }
+        .textcontent{            
+            background: rgb(253, 253, 253);
+            height: auto;
+            width: 100%;
+            border: none;        
+        }
+    </style>
+}
+<div class="wrapper-block card"  id="wrapper-block">
+    <div class="padding-container" >
+        <div class="discount_empty" >
+            <div class="row" style="height:80vh">
+                <div class="col-xs-12 col-md-6 m-auto"><img src="https://i.imgur.com/gpueoKC.png" alt="" class="img-fluid w-100"></div>
+                <div class="col-xs-12 col-md-6 m-auto pb-md-0 pb-3">
+                    <h1 style="font-size: 60px;font-weight: 600;color: #851aef;">
+                        Facebook
+                    </h1>
+                    <p class="discount_empty__title">MAKETTING FACEBOOK</p>
+                    <p class="discount_empty__desc" style="line-height:2rem">Phần mềm đăng bài Facebook là cầu nối tuyệt vời giữa sự tiện lợi và hiệu suất. 
+                        Bạn có thể theo dõi số liệu thống kê, 
+                        và quản lý nhiều tài khoản một cách dễ dàng. Đặc biệt, 
+                        tính năng tự động hóa giúp giải phóng thời gian, 
+                        tập trung vào nội dung sáng tạo hơn. Đây không chỉ là phần mềm đăng bài,
+                        mà là trợ thủ đắc lực để xây dựng và duy trì một tương tác mạnh mẽ trên mạng xã hội.</p>
+                    <div class="d-flex flex-wrap" style="gap: 4px;">
+                        <div>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                <i class="fa-solid fa-plus fa-beat-fade"></i>
+                                <span class="ml-3 d-none d-sm-inline-block">Cấu hình hệ thống</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Facebook maketting</span>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4">
+        
+        <div class="card">
+             <div class="card-header">
+                <img width="100%" src="@facebookPage.AvartarGroup"/>
+                @if (facebookPage != null)
+                {   
+                    <div style="display:flex;justify-content:space-between">
+                        <div class="col-8">
+                            <p><strong>Tên nhóm:</strong>@facebookPage.NameGroup</p>
+                            <p><strong>Xin chào:</strong>@facebookPage.Name</p>
+                        </div>
+                        <div>
+                            <br>
+                        <img class="col-2" style="max-width:110px" src="data:image/png;base64,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">
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <h1>Facebook Login</h1>                
+                }
+                <button id="loginBtn" class="btn btn-primary">Kết nôi với Facebook</button>               
+            </div>             
+        </div>
+        <div class="iframe">
+            @if (facebookPage != null)
+            {   
+                <div class="card">
+                     
+                        <button type="button" class="btn btn-primary ItemPro" data-toggle="modal" data-target="#exampleModalScrollable">Tạo bài Viết</button>                
+                </div>
+            }
+        </div>
+    </div>
+  
+    <div class="card col-sm-12 col-md-12 col-lg-12 col-xl-8">  
+        <div>
+            <div class="input-affix m-l-10 col-8" style="margin-top:1rem">
+                <input id="inputText" name="keyword" style="margin-bottom:0px" type="text" class="form-control" placeholder="Vui lòng nhập">
+                <i class="suffix-icon anticon anticon-search opacity-04"></i>
+            </div>
+                <ul class="nav nav-tabs nav-justified" id="myTabJustified" role="tablist">
+                    <li class="nav-item">
+                    @if (ViewBag.ckeck == "All" || ViewBag.ckeck==null)
+                        {
+                        <a class="nav-link active" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
+                    }
+                </li>
+                    <li class="nav-item">
+                    @if (ViewBag.ckeck == "yesFacebook")
+                    {
+                        <a class="nav-link active" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
+                    }
+                </li>
+                    <li class="nav-item">
+                    @if (ViewBag.ckeck == "noFacebook")
+                    {
+                        <a class="nav-link active" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
+                    }
+                    </li>
+                </ul>
+            <div class="row" style="display:flex">                  
+               <div class="table-responsive" style="width:100%">
+                        <table id="data-table" class="table table-striped table-bordered card" cellspacing="0" width="100%">
+                            <thead style="visibility:hidden;display:none">
+                                <tr>                                
+                                    <th>Thông tin sản phẩm</th>
+                                    <th>Giá nhập</th>
+                                    <th>Giá bán</th>                               
+                                    <th>Trạng thái</th> 
+                                </tr>
+                            </thead>
+                            <tbody id="records_table" class="row" style="flex-wrap:wrap;align-items:center;justify-content:space-evenly">
+                            @foreach (var item in lsproduct)
+                                    {
+                                        string url = $"/{item.Alias}-{item.ProductId}";
+                                        <tr class="card col-5 col-sm-5 col-md-4 col-lg-3 col-xl-2" style="min-width:182px">                                        
+                                            <td class="d-flex align-items-center" style="max-width:100%;justify-content:center">
+                                                    @if (item.Avatar != null)
+                                                    {
+                                                        <img class="img-fluid rounded" src="@item.Avatar" style="width:60px;min-width:60px;min-height:60px;height:60px;border:solid #DDDDDD 1px;" alt="">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img class="img-fluid rounded" src="~/Adminassets/images/avatars/thumb-1.jpg" style="max-width: 60px;border:solid #DDDDDD 1px;" alt="">
+                                                    }
+                                                <input style="position:absolute;top:5px;right:5px" 
+                                                    data-id="@item.ProductId" 
+                                                    data-name="@item.ProductName" 
+                                                    data-avatar="@item.Avatar" 
+                                                    data-model="@item.ProductCode" 
+                                                    data-saleprice="@item.SalePrice" 
+                                                    data-price="@item.Price" 
+                                                    data-stock="@item.UnitsInStock"
+                                                    data-description="@item.ShortDesc"
+                                                    data-url="@url"
+                                                    class="checkItem" type="checkbox">
+                                            </td>
+                                            <td>                                          
+                                                <a href="@url" target="_blank" class="text-dark" style="font-weight:500"><p style="max-width:20ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">@item.ProductName</p> </a>
+                                                <p style="font-size: 12px;color:#9c9c9c;max-width:20ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Model:@item.ProductCode</p>                                          
+                                            </td>
+                                    <td style="font-size:10px;text-align:center">
+                                        @string.Format("{0:#,##0}đ-{1:#,##0}đ", item.Price, item.SalePrice)
+                                    </td>
+
+                                    @*<td style="font-size:10px;text-align:center">@item.Price.ToString("#,##0")đ-@item.SalePrice.ToString("#,##0")đ</td>              *@
+                                    <td style="display:flex;justify-content:space-between">
+                                                @if (item.Active == true)
+                                                {
+                                                    <div class="d-flex align-items-center">
+                                                        <p class="badge badge-success badge-dot m-r-10"></p>
+                                                        <p>Đang bán </p>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="badge badge-danger badge-dot m-r-10"></div>
+                                                        <div>Ẩn </div>
+                                                    </div>
+                                                }
+                                                <p><strong>SL:</strong>@item.UnitsInStock</p>
+                                            </td> 
+                                        </tr> 
+                                    }                                
+                            </tbody>
+                        </table>
+                    </div>
+               </div>
+        </div>
+    </div>
+</div>
+ 
+<div id="groupPosts"></div>
+ <a href=""></a>
+<div class="modal fade" id="exampleModalScrollable">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header" style="display:flex;justify-content:center">
+                <h3 class="modal-title" id="exampleModalScrollableTitle" style="font-weight:700" >Tạo bài viết</h3>
+                <button style="position:absolute;top:0;right:0" type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body" style="min-height:600px;overflow-y:scroll;">
+                <div>
+                    <textarea placeholder="Tiêu đề bài viết" class="textcontent"></textarea>
+                    <div style="max-height:466px">
+                        <div id="listproduct" class="card row" style="padding:8px; display:flex;flex-wrap:wrap;flex-direction: row;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="display:flex;justify-content:center">               
+                <button type="button" id="portGroup" class="btn btn-primary col-12">Đăng</button>
+            </div>
+        </div>
+    </div> 
+</div>
+<div class="data">
+    <input type="hidden" id="facebook" 
+        data-userid="@facebookPage.Userid"
+        data-token="@facebookPage.TokenAccount" 
+        data-name="@facebookPage.Name" 
+        data-avatar="@facebookPage.Avatar" 
+        data-namegroup="@facebookPage.NameGroup" 
+        data-avatargroup="@facebookPage.AvartarGroup" 
+        data-appid="@facebookPage.AppId" 
+        data-groupid="@facebookPage.GroupId"/>
+</div>
+@section Scripts {
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>    
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Adminassets/summernote/summernote-bs4.min.js"></script>
+    <script> 
+        $(document).ready(function () { 
+            var infcb = {};            
+            infcb.userid = $('#facebook').attr('data-userid');
+            infcb.token = $('#facebook').attr('data-token');
+            infcb.name = $('#facebook').attr('data-name');
+            infcb.avatar = $('#facebook').attr('data-avatar');
+            infcb.namegroup = $('#facebook').attr('data-namegroup');
+            infcb.avatargroup = $('#facebook').attr('data-avatargroup');
+            infcb.appid = $('#facebook').attr('data-appid');
+            infcb.appid = $('#facebook').attr('data-appid');
+
+            infcb.groupid = $('#facebook').attr('data-groupid');
+            $('.data').html('');            
+            var checkclick = false;
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: infcb.appid,
+                    autoLogAppEvents: true,
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v18.0'
+                });
+            };
+            FB.init({
+                appId: infcb.appid,
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v18.0'
+            });
+            
+            $('#loginBtn').click(function () {
+                FB.login(function (response) {
+                    if (response.authResponse) {
+                        // Người dùng đã đăng nhập và cấp quyền
+                        console.log('Login successful. Access Token:', response.authResponse.accessToken);
+                        infcb.token = response.authResponse.accessToken;                        
+                    } else {
+                        // Người dùng đã hủy đăng nhập hoặc không cấp quyền
+                        console.log('Login cancelled.');
+                    }
+                }, { scope: 'public_profile,email' });
+                userinfo = getUserProfileImages(infcb.token);
+                groupinfo = getGroupImages(infcb.token, infcb.groupid);
+                var group = JSON.parse(sessionStorage.getItem('group'));
+                var user = JSON.parse(sessionStorage.getItem('user'));
+                sessionStorage.removeItem('group');
+                sessionStorage.removeItem('user');
+                if (user.userName != infcb.name) {
+                    console.log('Đăng nhập tài khoản Không được phép đăng bài');
+                }
+                else {                                // cap nhat thong tin
+                    if (infcb.groupid == group.groupId) {
+                        infcb.userid = user.userId;
+                        infcb.name = user.userName;
+                        infcb.avatar = user.profilePicture;
+                        infcb.namegroup = group.groupName;
+                        infcb.avatargroup = group.groupProfilePicture;
+                        infcb.groupid = group.groupId;
+                        insertdata();
+                    }
+                }
+
+
+                //FB.login(function (response) {
+                //    if (response.authResponse) {
+                //        infcb.token = response.authResponse.accessToken;
+                //        console.log(infcb.token);
+                //        //userinfo = getUserProfileImages(infcb.token);
+                //        //groupinfo = getGroupImages(infcb.token, infcb.groupid);
+                //        //var group = JSON.parse(sessionStorage.getItem('group'));
+                //        //var user = JSON.parse(sessionStorage.getItem('user'));
+                //        //sessionStorage.removeItem('group');
+                //        //sessionStorage.removeItem('user');                        
+                //        //if (user.userName != infcb.name) {
+                //        //    console.log('Đăng nhập tài khoản Không được phép đăng bài');
+                //        //}
+                //        //else{                                // cap nhat thong tin
+                //        //    if (infcb.groupid == group.groupId) {
+                //        //        infcb.userid = user.userId;
+                //        //        infcb.name = user.userName;
+                //        //        infcb.avatar = user.profilePicture;
+                //        //        infcb.namegroup = group.groupName;
+                //        //        infcb.avatargroup = group.groupProfilePicture;
+                //        //        infcb.groupid = group.groupId;
+                //        //        insertdata();
+                //        //    }
+                //        //}
+                //    } else {
+                //        console.log('Đăng nhập không thành công.');
+                //    }
+                //}, { scope: 'email,public_profile,publish_actions,groups_access_member_info' }); // Thêm quyền cho việc đăng bài lên nhóm
+            });
+            /// load gin thnah cong luu lai token
+            $('#portGroup').on('click',function(){
+                var message = $('.textcontent').val();
+                if(message!=""){
+                    postToGroup(infcb.token,infcb.groupid,message);
+                }else{
+                    alert("Vui lòng thêm tiêu đề bài viết");
+                }
+            });
+            function insertdata(){
+                $.ajax({
+                    type: 'post',
+                    url: '@Url.Action("updatefacebook","AdminFacebookPages")',
+                    data:{
+                        userid:infcb.userid,
+                        token: infcb.token,
+                        name: infcb.name,
+                        avatar: infcb.avatar,
+                        namegroup: infcb.namegroup,
+                        avatargroup: infcb.avatargroup,
+                        appid: infcb.appid,
+                        groupid: infcb.groupid
+                    },
+                    dataType: "Json",
+                    success: function (data) {
+                        infcb.token = data.tokenAccount;
+                        infcb.name = data.name;
+                        infcb.avatar = data.avatar;
+                        infcb.namegroup = data.nameGroup;
+                        infcb.avatargroup = data.avartarGroup;
+                        infcb.appid = data.appId;
+                        infcb.groupid = data.groupId;
+                        if (infcb.token == null || infcb.appid == null || infcb.groupid == null) {                           
+                            checkclick == true;
+                        }
+                       // alert("Đã lấy được dữ liệu cần thiết, giờ đây bạn có thể dăng bài lên nhóm facebook của bạn.");
+                    }
+                })
+            }
+
+            function postToGroup(accessToken, groupId, message) {
+                FB.api('/' + groupId + '/feed', 'post', {
+                    message: message,
+                    access_token: accessToken,
+                    published: true,
+                    attached_media: JSON.parse(sessionStorage.getItem('arrayPro'))
+                }, function (response) {
+                    if (!response || response.error) {
+                        console.log('Posting error:', response ? response.error : 'Unknown error');
+                        alert("Lỗi khi đăng bài lên nhóm: Vui lòng tải lại trang. Tiếng hàng đăng nhập và cấu hình theo hướng dẫn"); 
+                    } else {
+                        console.log('Post ID:', response.id);
+                        alert('Bài viết đã được đăng công khai!');
+                        if (response.post_supports_client_mutation_id == true) {
+                            $("#exampleModalScrollable").modal('hide');
+                        }
+                    }
+                });
+                //$.ajax({
+                //    url: 'https://graph.facebook.com/' + groupId + '/feed',
+                //    method: 'POST',
+                //    data: {
+                //        message: message,
+                //        access_token: accessToken,
+                //        published: true,
+                //        attached_media: JSON.parse(sessionStorage.getItem('arrayPro'))
+                //    },
+                //    success: function (response) {
+                //        if(response.post_supports_client_mutation_id==true){
+                //            $("#exampleModalScrollable").modal('hide');
+                //        }
+                //    },
+                //    error: function (error) { 
+                //        alert("Lỗi khi đăng bài lên nhóm: Vui lòng tải lại trang. Tiếng hàng dăng nhập và cấu hình theo hướng dẫn");                        
+                //    }
+                //});
+            } 
+            function uploadproduct(product) {
+                 var origin = window.location.origin; 
+                var arrayPro = [];
+                var prol = product.length;
+                $.each(product,function(key,item){                    
+                    $.ajax({
+                        url: 'https://graph.facebook.com/v13.0/' + infcb.groupid + '/photos',
+                        type: 'POST',
+                        data: {
+                            url: item.avatar,                       
+                            published:false,
+                            access_token: infcb.token
+                        },
+                        success: function (response) {
+                            if (response && response.id) {
+                                var itemarr={};                                
+                                itemarr.media_fbid = response.id;
+                                if(prol>1){
+                                    itemarr.message = item.name + '\n\n[Xem thêm]('+origin+item.url+')';
+                                }
+                                arrayPro.push(itemarr);
+                                sessionStorage.setItem('arrayPro', JSON.stringify(arrayPro));
+                            } else {
+                               alert("Lỗi khi đăng bài lên nhóm: Vui lòng tải lại trang. Tiếng hàng đăng nhập và cấu hình theo hướng dẫn");
+                            }
+                        },
+                        error: function (error) {
+                           alert("Lỗi khi đăng bài lên nhóm: Vui lòng tải lại trang. Tiếng hàng đăng nhập và cấu hình theo hướng dẫn");
+
+                        }
+                    });                    
+                })
+            } 
+            var table = $('#data-table').DataTable({
+                language: {
+                    search: "Tìm kiếm",
+                    lengthMenu: "Hiển thị _MENU_",
+                    zeroRecords: "Không tìm thấy",
+                    info: "Hiển thị từ _START_ đến _END_ trong _TOTAL_ sản phẩm",
+                    infoEmpty: "",
+                    infoFiltered: "",
+                    paginate: {
+                        "previous": "Trước",
+                        "next": "Sau"
+                    }
+                },
+                dom: '<"dt-buttons"Bf><"clear">lirtp',
+                paging: true,
+                autoWidth: true,               
+                initComplete: function (settings, json) {
+                    $(".dt-buttons .btn-group").append(
+                        '<a id="cv" class="btn btn-primary" href="#">CARD VIEW</a>'
+                    );
+                    $("#cv").on("click", function () {
+                        if ($("#example").hasClass("card")) {
+                            $(".colHeader").remove();
+                        } else {
+                            var labels = [];
+                            $("#example thead th").each(function () {
+                                labels.push($(this).text());
+                            });
+                            $("#example tbody tr").each(function () {
+                                $(this)
+                                    .find("td")
+                                    .each(function (column) {
+                                        $("<span class='colHeader'>" + labels[column] + ":</span>").prependTo(
+                                            $(this)
+                                        );
+                                    });
+                            });
+                        }
+                        $("#example").toggleClass("card");
+                    });
+                }
+          
+            });
+            $('#inputText').keyup(function () {
+                table.search($(this).val()).draw();
+            });
+            $('#data-table_length').append('<div style=""><button onclick="AllItem()" type="button" class="btn btn-outline-primary">Chọn tất cả</button><button onclick="OutItem()" type="button" class="btn btn-outline-success">Hủy chọn</button></div>');
+            $('.ItemPro').on('click', function () {
+                loadpro();
+                var product = JSON.parse(sessionStorage.getItem('product'));                
+                uploadproduct(product);
+            })
+        });
+        // Hàm lấy thông tin ảnh đại diện và ảnh bìa người dùng
+        function getUserProfileImages(accessToken) {           
+            $.ajax({
+                url: 'https://graph.facebook.com/v12.0/me?fields=picture.type(large),cover,name',
+                type: 'GET',
+                data: { access_token: accessToken },
+                success: function (response) {
+                    userProfileImages = {
+                        profilePicture: response.picture.data.url,
+                        userId: response.id,
+                        userName: response.name,
+                    };
+                    sessionStorage.setItem('user', JSON.stringify(userProfileImages));
+                }                
+            });            
+        }
+        function getGroupImages(accessToken, groupId) {     
+            $.ajax({
+                url: `https://graph.facebook.com/v12.0/${groupId}?fields=picture.type(large),cover,name`,
+                type: 'GET',
+                data: { access_token: accessToken },
+                success: function (response) {
+                    groupImages = {
+                        groupProfilePicture: response.picture.data.url,
+                        groupId: response.id,
+                        groupName: response.name,
+                    };
+                    sessionStorage.setItem('group', JSON.stringify(groupImages));                  
+                }
+                    
+            });
+          
+        }        
+        const listProduct =[];
+        class itempro {
+            constructor(id, name, avatar, model, saleprice, price, stock, description,media_fbid,url) {
+                this.id = id;
+                this.name = name;
+                this.avatar = avatar;
+                this.model = model;
+                this.saleprice =saleprice;
+                this.price = price;
+                this.stock = stock;
+                this.description = description;
+                this.media_fbid = media_fbid;
+                this.url = url;
+            }
+        }
+        $('.checkItem').on('click',function(){
+            var chec = $(".checkItem");
+            if ($(this).prop("checked")){
+                chec.each(function () {
+                    if ($(this).prop("checked")) {
+                        const item = new itempro(
+                            $(this).attr('data-id'),
+                            $(this).attr('data-name'),
+                            $(this).attr('data-avatar'),
+                            $(this).attr('data-model'),
+                            $(this).attr('data-saleprice'),
+                            $(this).attr('data-price'),
+                            $(this).attr('data-stock'),
+                            $(this).attr('data-description'),
+                            null,
+                            $(this).attr('data-url')
+                            );
+                        var check = false;
+                        $.each(listProduct, function (key, proitem) {
+                            if (proitem.id == item.id) {
+                                check = true;
+                            }
+                        })
+                        if (check == false) {
+                            listProduct.push(item);
+                        }
+                    }
+                });
+            }else{
+                chec.each(function () {
+                    if ($(this).prop("checked") == false) {
+                        const item = new itempro(
+                            $(this).attr('data-id'),
+                            $(this).attr('data-name'),
+                            $(this).attr('data-avatar'),
+                            $(this).attr('data-model'),
+                            $(this).attr('data-saleprice'),
+                            $(this).attr('data-price'),
+                            $(this).attr('data-stock'),
+                            $(this).attr('data-description'),
+                            null,
+                            $(this).attr('data-url')
+                            );
+                        listProduct.splice($.inArray(item, listProduct), 1);
+                    }
+                });
+            }
+        })
+        function AllItem(){
+            $(".checkItem").prop("checked", true);
+            var chec = $(".checkItem");
+            chec.each(function () {                
+                if ($(this).prop("checked")) {
+                    const item = new itempro(
+                        $(this).attr('data-id'), 
+                        $(this).attr('data-name'),
+                        $(this).attr('data-avatar'),
+                        $(this).attr('data-model'),
+                        $(this).attr('data-saleprice'),
+                        $(this).attr('data-price'),
+                        $(this).attr('data-stock'),
+                        $(this).attr('data-description'),
+                        null,
+                        $(this).attr('data-url')
+                        );
+                 
+                     var check = false;                      
+                    $.each(listProduct,function(key,proitem){
+                        if (proitem.id==item.id){
+                            check=true;
+                        }                        
+                    })
+                    if(check==false){
+                        listProduct.push(item);
+                    }
+                }
+            });
+           
+        }
+        function OutItem(){
+            $(".checkItem").prop("checked", false);
+            var chec = $(".checkItem");
+            chec.each(function () {
+                if ($(this).prop("checked")==false) {
+                    const item = new itempro(
+                        $(this).attr('data-id'),
+                        $(this).attr('data-name'),
+                        $(this).attr('data-avatar'),
+                        $(this).attr('data-model'),
+                        $(this).attr('data-saleprice'),
+                        $(this).attr('data-price'),
+                        $(this).attr('data-stock'),
+                        $(this).attr('data-description'));
+                    listProduct.splice($.inArray(item,listProduct),1);
+                }
+            });       
+        }            
+        function loadProduct(check){          
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("loadpro","AdminFacebookPages")',
+                dataType: "Json",
+                data: {
+                    check: check
+                },
+                success: function (data) {                 
+                   location.reload();
+                }
+            })
+        }
+        // modal
+        function loadpro(){
+            var html = "";
+            if(listProduct.length>0){
+                $.each(listProduct, function (key, item) {
+                var btn = '<button onclick="checkout(' + key + ')" class="btnclear" style="position:absolute;top:9px;right:9px" type="button">';
+                if (listProduct.length == 1) {
+                    html += '<div style="background: #edf2f9;position:relative;padding: 7px;" class="col-12">'
+                        + '<img width="100%" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                        + btn
+                        + '<i class="anticon anticon-close"></i></button></div>';
+                }
+                if (listProduct.length == 2) {
+                    html += '<div style="background: #edf2f9;position:relative;padding: 7px;" class="col-12">'
+                        + '<img width="100%" height="230" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                        +  btn
+                        + '<i class="anticon anticon-close"></i></button></div>';
+                }
+                if (listProduct.length == 3) {
+                    if (key < 2) {
+                        html += '<div style="background: #edf2f9;position:relative;padding: 7px;" class="col-6">'
+                            + '<img width="100%" height="230" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                            + btn
+                            + '<i class="anticon anticon-close"></i></button></div>';
+                    }
+                    else {
+                        html += '<div style="background: #fff3f3;position:relative;padding: 7px;" class="col-12">'
+                            + '<img width="100%" height="230" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                            +  btn
+                            + '<i class="anticon anticon-close"></i></button></div>';
+                    }
+
+                }
+                if (listProduct.length == 4) {
+                    html += '<div style="background: #fff3f3;position:relative;padding: 7px;" class="col-6">'
+                        + '<img width="100%" height="230" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                       + btn
+                        + '<i class="anticon anticon-close"></i></button></div>';
+                }
+                if (listProduct.length == 5) {
+                    if (key < 2) {
+                        html += '<div style="background: #fff3f3;position:relative;padding: 7px;" class="col-6">'
+                            + '<img width="100%" height="230" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                            + btn
+                            + '<i class="anticon anticon-close"></i></button></div>';
+                    }
+                    else {
+                        html += '<div style="background: #fff3f3;position:relative;padding: 7px;" class="col-4">'
+                            + '<img width="100%" height="230" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                            + btn
+                            + '<i class="anticon anticon-close"></i></button></div>';
+                    }
+                }
+                if (listProduct.length > 5) {
+                    if (key < 2) {
+                        html += '<div style="background: #fff3f3;position:relative;padding: 7px;" class="col-6">'
+                            + '<img width="100%" height="230" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                            + btn
+                            + '<i class="anticon anticon-close"></i></button></div>';
+                    }
+                    else if (key < 4) {
+                        html += '<div style="background: #fff3f3;position:relative;padding: 7px;" class="col-4">'
+                            + '<img width="100%" height="230" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                            + btn
+                            + '<i class="anticon anticon-close"></i></button></div>';
+                    }
+                    if (key == 4) {
+                        html += '<div style="background: #fff3f3;position:relative;padding: 7px;" class="col-4">'
+                            + '<img width="100%" height="230" style="object-fit:cover;" src="' + item.avatar + '" alt="' + item.name + '"/>'
+                            + btn
+                            + '<i class="anticon anticon-close"></i></button>'
+                            + '<p style="font-size: 39px;color:white;position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);"> +' + (listProduct.length - 5) + '</p> </div>';
+                            
+                    }
+
+                }
+            })
+            }
+            else{
+                html+="<p>Vui lòng thêm sản phẩm!</p>";
+            }
+            $('#listproduct').html(html);
+            sessionStorage.setItem('product', JSON.stringify(listProduct));           
+        }       
+        function checkout(keyclose){            
+            $.each(listProduct, function (key, item) {
+                if(key==keyclose){
+                    listProduct.splice($.inArray(item, listProduct), 1);                    
+                }
+            });
+            loadpro();
+        }
+       
+
+    </script>
+ }
+

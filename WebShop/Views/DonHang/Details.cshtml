@@ -1,0 +1,149 @@
+﻿@model WebShop.ModelViews.XemDonHang
+@{
+    var total = Model.ChiTietDonHang.Sum(x => x.TotalMoney).Value.ToString("#,##0");
+}
+@section Styles{
+    <style>
+        .status-label {
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+            .status-label.processing {
+                background-color: #FFD700;
+            }
+
+            .status-label.confirm {
+                background-color: #20B2AA;
+            }
+
+            .status-label.deliver {
+                background-color: grey;
+            }
+
+            .status-label.success {
+                background-color: #32CD32;
+            }
+
+            .status-label.failed {
+                background-color: #FF0000;
+            }
+    </style>
+}
+<div class="modal-header">
+    <h5 class="modal-title">THÔNG TIN ĐƠN HÀNG</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+            <div class="table-responsive">
+                <table class="product-info-table m-t-20">
+                    <tbody>
+                        <tr>
+                            <td>Mã đơn hàng:</td>
+                            <td><b>#@Model.DonHang.OrderId</b></td>
+                        </tr>
+                        <tr>
+                            <td>Người nhận:</td>
+                            <td>@Model.DonHang.Customer.FullName</td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại:</td>
+                            <td>@Model.DonHang.Phone</td>
+                        </tr>
+                        @{
+                            var strThanhPho = Model.DiaChi.Province.ProvinceName;
+                            var strQuanHuyen = Model.DiaChi.District.Type + " " + Model.DiaChi.District.DistrictName;
+                            var strPhuongXa = Model.DiaChi.Ward.Type + " " + Model.DiaChi.Ward.WardName;
+                        }
+                        <tr>
+                            <td>Địa chỉ nhận hàng: </td>
+                            <td>@Model.DiaChi.Address, @strPhuongXa, @strQuanHuyen, @strThanhPho</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày đặt hàng:</td>
+                            <td>@Model.DonHang.OrderDate</td>
+                        </tr>
+                        <tr>
+                            <td>Trạng thái đơn hàng:</td>
+                    <td>
+                        <div>
+                            @{
+                                string statusClass;
+                                if (Model.DonHang.DeliveryStatusId == 1)
+                                {
+                                    statusClass = "processing";
+                                }
+                                else if (Model.DonHang.DeliveryStatusId == 2)
+                                {
+                                    statusClass = "confirm";
+                                }
+                                else if (Model.DonHang.DeliveryStatusId == 3)
+                                {
+                                    statusClass = "deliver";
+                                }
+                                else if (Model.DonHang.DeliveryStatusId == 4)
+                                {
+                                    statusClass = "success";
+                                }
+                                else
+                                {
+                                    statusClass = "failed";
+                                }
+                            }
+                            <span class="status-label @statusClass">@Model.DonHang.DeliveryStatus.Status</span>
+
+                        </div>
+                    </td>
+                        </tr>
+                        <tr>
+                            <td>Ngày ship hàng:</td>
+                            <td>@Model.DonHang.ShipDate</td>
+                        </tr>                      
+                    </tbody>
+                </table>
+            </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <th>#</th>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+                @if (Model.ChiTietDonHang.Count() > 0)
+                {
+                    var stt = 1;
+                    @foreach (var item in Model.ChiTietDonHang)
+                    {
+                        string url = $"/{item.Product.Alias}-{item.Product.ProductId}";
+                        
+                        <tr>
+                            <td>@stt</td>
+                            <td>
+                                <a target="_blank" href="@url" class="row" style="display:flex; align-items:center;flex-wrap:nowrap">
+                                    <img src="~/images/products/@item.Product.Avatar" width="200px"/>
+                                    @item.Product.ProductName
+                                </a>
+                            </td>
+                            <td>@item.Amount</td>
+                            <td>@item.Product.SalePrice.Value.ToString("#,##0") VNĐ</td>
+                            <td>@item.TotalMoney.Value.ToString("#,##0") VNĐ</td>
+                        </tr>
+                        stt++;
+                    }
+                }
+                
+            </tbody>
+        </table>
+    </div>
+    <div style="float:right">Tổng cộng: <b style="color:red">@total VNĐ</b> </div>
+</div>
+
+
+

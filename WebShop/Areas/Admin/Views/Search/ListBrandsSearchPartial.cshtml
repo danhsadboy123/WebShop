@@ -1,0 +1,22 @@
+﻿@model List<Brand>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BrandId</td>
+
+            <td>@item.BrandName</td>
+
+            <td>@item.Description</td>
+            <td>
+                <a class="btn btn-secondary btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" asp-controller="AdminBrands" asp-action="Edit" asp-route-id="@item.BrandId" asp-route-page="@ViewBag.CurrentPage">
+                    <i class="anticon anticon-edit"></i>
+                </a>
+                <a class="btn btn-danger btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Xóa" asp-controller="AdminBrands" asp-action="Delete" asp-route-id="@item.BrandId" asp-route-page="@ViewBag.CurrentPage">
+                    <i class="anticon anticon-delete"></i>
+                </a>
+            </td>
+        </tr>
+    }
+}

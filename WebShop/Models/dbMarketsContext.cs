@@ -1,0 +1,925 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
+namespace WebShop.Models;
+
+public partial class DbMarketsContext : DbContext
+{
+    public DbMarketsContext()
+    {
+    }
+
+    public DbMarketsContext(DbContextOptions<DbMarketsContext> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<Account> Accounts { get; set; }
+
+    public virtual DbSet<AccountAddress> AccountAddresses { get; set; }
+
+    public virtual DbSet<Attribute> Attributes { get; set; }
+
+    public virtual DbSet<AttributesPotentail> AttributesPotentails { get; set; }
+
+    public virtual DbSet<AttributesPrice> AttributesPrices { get; set; }
+
+    public virtual DbSet<Banner> Banners { get; set; }
+
+    public virtual DbSet<Brand> Brands { get; set; }
+
+    public virtual DbSet<BrandGroup> BrandGroups { get; set; }
+
+    public virtual DbSet<CardTemplate> CardTemplates { get; set; }
+
+    public virtual DbSet<Category> Categories { get; set; }
+
+    public virtual DbSet<CategoryAttribute> CategoryAttributes { get; set; }
+
+    public virtual DbSet<CategoryBrand> CategoryBrands { get; set; }
+
+    public virtual DbSet<Codstatus> Codstatuses { get; set; }
+
+    public virtual DbSet<Customer> Customers { get; set; }
+
+    public virtual DbSet<CustomerBrand> CustomerBrands { get; set; }
+
+    public virtual DbSet<CustomerPotentail> CustomerPotentails { get; set; }
+
+    public virtual DbSet<CustomerProject> CustomerProjects { get; set; }
+
+    public virtual DbSet<CustomerSupplier> CustomerSuppliers { get; set; }
+
+    public virtual DbSet<DeliveryStatus> DeliveryStatuses { get; set; }
+
+    public virtual DbSet<Discount> Discounts { get; set; }
+
+    public virtual DbSet<DiscountAddCustomer> DiscountAddCustomers { get; set; }
+
+    public virtual DbSet<DiscountAddProduct> DiscountAddProducts { get; set; }
+
+    public virtual DbSet<District> Districts { get; set; }
+
+    public virtual DbSet<EmailAttribute> EmailAttributes { get; set; }
+
+    public virtual DbSet<EmailMaketting> EmailMakettings { get; set; }
+
+    public virtual DbSet<FacebookPage> FacebookPages { get; set; }
+
+    public virtual DbSet<GitAttribute> GitAttributes { get; set; }
+
+    public virtual DbSet<Guest> Guests { get; set; }
+
+    public virtual DbSet<HistoryDiscount> HistoryDiscounts { get; set; }
+
+    public virtual DbSet<ImageServer> ImageServers { get; set; }
+
+    public virtual DbSet<LeverCustommerPtt> LeverCustommerPtts { get; set; }
+
+    public virtual DbSet<Order> Orders { get; set; }
+
+    public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+
+    public virtual DbSet<Page> Pages { get; set; }
+
+    public virtual DbSet<PageInfo> PageInfos { get; set; }
+
+    public virtual DbSet<PaymentStatus> PaymentStatuses { get; set; }
+
+    public virtual DbSet<Post> Posts { get; set; }
+
+    public virtual DbSet<PostCategory> PostCategories { get; set; }
+
+    public virtual DbSet<Product> Products { get; set; }
+
+    public virtual DbSet<ProductAddCusPro> ProductAddCusPros { get; set; }
+
+    public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+
+    public virtual DbSet<ProductFacebook> ProductFacebooks { get; set; }
+
+    public virtual DbSet<ProductGift> ProductGifts { get; set; }
+
+    public virtual DbSet<ProductThumb> ProductThumbs { get; set; }
+
+    public virtual DbSet<Province> Provinces { get; set; }
+
+    public virtual DbSet<QuangCao> QuangCaos { get; set; }
+
+    public virtual DbSet<Quotation> Quotations { get; set; }
+
+    public virtual DbSet<QuotationDetail> QuotationDetails { get; set; }
+
+    public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<Shipper> Shippers { get; set; }
+
+    public virtual DbSet<ShippingAddress> ShippingAddresses { get; set; }
+
+    public virtual DbSet<Slide> Slides { get; set; }
+
+    public virtual DbSet<SystemWeb> SystemWebs { get; set; }
+
+    public virtual DbSet<Video> Videos { get; set; }
+
+    public virtual DbSet<Ward> Wards { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("NovazoneConnectionString"));
+        }
+    }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Account>(entity =>
+        {
+            entity.Property(e => e.AccountId).HasColumnName("AccountID");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.Email).HasMaxLength(50);
+            entity.Property(e => e.FullName).HasMaxLength(150);
+            entity.Property(e => e.LastLogin).HasColumnType("datetime");
+            entity.Property(e => e.Password).HasMaxLength(50);
+            entity.Property(e => e.Phone)
+                .HasMaxLength(12)
+                .IsUnicode(false);
+            entity.Property(e => e.RoleId).HasColumnName("RoleID");
+            entity.Property(e => e.Salt)
+                .HasMaxLength(10)
+                .IsFixedLength();
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Accounts)
+                .HasForeignKey(d => d.RoleId)
+                .HasConstraintName("FK_Accounts_Roles");
+        });
+
+        modelBuilder.Entity<AccountAddress>(entity =>
+        {
+            entity.HasKey(e => e.AddressId).HasName("PK__AccountA__091C2A1B7AAC9A99");
+
+            entity.ToTable("AccountAddress");
+
+            entity.Property(e => e.AddressId).HasColumnName("AddressID");
+            entity.Property(e => e.Content).HasMaxLength(50);
+            entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+            entity.Property(e => e.DistrictId).HasColumnName("DistrictID");
+            entity.Property(e => e.GuestId).HasColumnName("GuestID");
+            entity.Property(e => e.Phone).HasMaxLength(10);
+            entity.Property(e => e.ProvinceId).HasColumnName("ProvinceID");
+            entity.Property(e => e.UserName).HasMaxLength(20);
+            entity.Property(e => e.WardId).HasColumnName("WardID");
+
+            entity.HasOne(d => d.Customer).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK_AccountAddress_Customers");
+
+            entity.HasOne(d => d.District).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.DistrictId)
+                .HasConstraintName("FK_AccountAddress_Districts");
+
+            entity.HasOne(d => d.Guest).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.GuestId)
+                .HasConstraintName("FK_AccountAddress_Guests");
+
+            entity.HasOne(d => d.Province).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.ProvinceId)
+                .HasConstraintName("FK_AccountAddress_Provinces");
+
+            entity.HasOne(d => d.Ward).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.WardId)
+                .HasConstraintName("FK_AccountAddress_Wards");
+        });
+
+        modelBuilder.Entity<Attribute>(entity =>
+        {
+            entity.Property(e => e.AttributeId).HasColumnName("AttributeID");
+            entity.Property(e => e.NameEn).HasColumnName("Name_EN");
+        });
+
+        modelBuilder.Entity<AttributesPotentail>(entity =>
+        {
+            entity.ToTable("AttributesPotentail");
+
+            entity.Property(e => e.TimeSend).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Potentail).WithMany(p => p.AttributesPotentails)
+                .HasForeignKey(d => d.PotentailId)
+                .HasConstraintName("FK_AttributesPotentail_CustomerPotentail");
+        });
+
+        modelBuilder.Entity<AttributesPrice>(entity =>
+        {
+            entity.Property(e => e.AttributesPriceId).HasColumnName("AttributesPriceID");
+            entity.Property(e => e.AttributeId).HasColumnName("AttributeID");
+            entity.Property(e => e.PriceEn).HasColumnName("Price_EN");
+            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+            entity.HasOne(d => d.Attribute).WithMany(p => p.AttributesPrices)
+                .HasForeignKey(d => d.AttributeId)
+                .HasConstraintName("FK_AttributesPrices_Attributes");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.AttributesPrices)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_AttributesPrices_Products");
+        });
+
+        modelBuilder.Entity<Banner>(entity =>
+        {
+            entity.ToTable("Banner");
+
+            entity.Property(e => e.Banner1).HasColumnName("Banner");
+
+            entity.HasOne(d => d.Cat).WithMany(p => p.Banners)
+                .HasForeignKey(d => d.CatId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Banner_Categories");
+        });
+
+        modelBuilder.Entity<Brand>(entity =>
+        {
+            entity.Property(e => e.BrandId).HasColumnName("BrandID");
+            entity.Property(e => e.BrandName).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<BrandGroup>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_BrandGroup");
+
+            entity.HasOne(d => d.Brand).WithMany(p => p.BrandGroups)
+                .HasForeignKey(d => d.BrandId)
+                .HasConstraintName("FK_BrandGroup_Brands");
+        });
+
+        modelBuilder.Entity<CardTemplate>(entity =>
+        {
+            entity.Property(e => e.CardTemplateId).HasColumnName("CardTemplateID");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.DateModified).HasColumnType("datetime");
+            entity.Property(e => e.Title).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Category>(entity =>
+        {
+            entity.HasKey(e => e.CatId);
+
+            entity.Property(e => e.CatId).HasColumnName("CatID");
+            entity.Property(e => e.Alias).HasMaxLength(250);
+            entity.Property(e => e.CatName).HasMaxLength(250);
+            entity.Property(e => e.CatNameEn)
+                .HasMaxLength(250)
+                .HasColumnName("CatName_EN");
+            entity.Property(e => e.Cover).HasMaxLength(255);
+            entity.Property(e => e.DescriptionEn).HasColumnName("Description_EN");
+            entity.Property(e => e.MetaDesc).HasMaxLength(250);
+            entity.Property(e => e.MetaDescEn)
+                .HasMaxLength(250)
+                .HasColumnName("MetaDesc_EN");
+            entity.Property(e => e.MetaKey).HasMaxLength(250);
+            entity.Property(e => e.MetaKeyEn)
+                .HasMaxLength(250)
+                .HasColumnName("MetaKey_EN");
+            entity.Property(e => e.ParentId).HasColumnName("ParentID");
+            entity.Property(e => e.Thumb).HasMaxLength(250);
+            entity.Property(e => e.Title).HasMaxLength(250);
+            entity.Property(e => e.TitleEn)
+                .HasMaxLength(250)
+                .HasColumnName("Title_EN");
+
+            entity.HasOne(d => d.Parent).WithMany(p => p.InverseParent)
+                .HasForeignKey(d => d.ParentId)
+                .HasConstraintName("FK_Categories_Categories");
+        });
+
+        modelBuilder.Entity<CategoryAttribute>(entity =>
+        {
+            entity.Property(e => e.CategoryAttributeId).HasColumnName("CategoryAttributeID");
+            entity.Property(e => e.AttributeId).HasColumnName("AttributeID");
+            entity.Property(e => e.CatId).HasColumnName("CatID");
+            entity.Property(e => e.Name).HasMaxLength(50);
+
+            entity.HasOne(d => d.Attribute).WithMany(p => p.CategoryAttributes)
+                .HasForeignKey(d => d.AttributeId)
+                .HasConstraintName("FK_CategoryAttributes_Attributes");
+
+            entity.HasOne(d => d.Cat).WithMany(p => p.CategoryAttributes)
+                .HasForeignKey(d => d.CatId)
+                .HasConstraintName("FK_CategoryAttributes_Categories");
+        });
+
+        modelBuilder.Entity<CategoryBrand>(entity =>
+        {
+            entity.Property(e => e.CategoryBrandId).HasColumnName("CategoryBrandID");
+            entity.Property(e => e.BrandId).HasColumnName("BrandID");
+            entity.Property(e => e.CatId).HasColumnName("CatID");
+            entity.Property(e => e.Description).HasMaxLength(50);
+            entity.Property(e => e.Name).HasMaxLength(50);
+
+            entity.HasOne(d => d.Brand).WithMany(p => p.CategoryBrands)
+                .HasForeignKey(d => d.BrandId)
+                .HasConstraintName("FK_CategoryBrands_Brands");
+
+            entity.HasOne(d => d.Cat).WithMany(p => p.CategoryBrands)
+                .HasForeignKey(d => d.CatId)
+                .HasConstraintName("FK_CategoryBrands_Categories");
+        });
+
+        modelBuilder.Entity<Codstatus>(entity =>
+        {
+            entity.HasKey(e => e.CodStatusId).HasName("PK_CODStatus_1");
+
+            entity.ToTable("CODStatus");
+
+            entity.Property(e => e.CodStatusId).HasColumnName("CodStatusID");
+            entity.Property(e => e.Status).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Customer>(entity =>
+        {
+            entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+            entity.Property(e => e.Avatar).HasMaxLength(255);
+            entity.Property(e => e.Birthday).HasColumnType("datetime");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.Email)
+                .HasMaxLength(150)
+                .IsFixedLength();
+            entity.Property(e => e.FullName).HasMaxLength(255);
+            entity.Property(e => e.LastLogin).HasColumnType("datetime");
+            entity.Property(e => e.Password).HasMaxLength(50);
+            entity.Property(e => e.Phone)
+                .HasMaxLength(12)
+                .IsUnicode(false);
+            entity.Property(e => e.Salt)
+                .HasMaxLength(8)
+                .IsFixedLength();
+        });
+
+        modelBuilder.Entity<CustomerBrand>(entity =>
+        {
+            entity.ToTable("CustomerBrand");
+
+            entity.Property(e => e.Link)
+                .HasMaxLength(10)
+                .IsFixedLength();
+            entity.Property(e => e.YearOff)
+                .HasMaxLength(10)
+                .IsFixedLength();
+            entity.Property(e => e.YearOn).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<CustomerPotentail>(entity =>
+        {
+            entity.ToTable("CustomerPotentail");
+
+            entity.Property(e => e.Email).HasMaxLength(50);
+            entity.Property(e => e.Name).HasMaxLength(50);
+
+            entity.HasOne(d => d.Lever).WithMany(p => p.CustomerPotentails)
+                .HasForeignKey(d => d.LeverId)
+                .HasConstraintName("FK_CustomerPotentail_LeverCustommerPTT");
+        });
+
+        modelBuilder.Entity<CustomerProject>(entity =>
+        {
+            entity.ToTable("CustomerProject");
+
+            entity.Property(e => e.YearOff).HasColumnType("datetime");
+            entity.Property(e => e.YearOn).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<CustomerSupplier>(entity =>
+        {
+            entity.ToTable("CustomerSupplier");
+
+            entity.Property(e => e.Image).HasColumnName("image");
+            entity.Property(e => e.YearAdd).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<DeliveryStatus>(entity =>
+        {
+            entity.HasKey(e => e.DeliveryStatusId).HasName("PK_TransactStatus");
+
+            entity.ToTable("DeliveryStatus");
+
+            entity.Property(e => e.DeliveryStatusId).HasColumnName("DeliveryStatusID");
+            entity.Property(e => e.Status).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Discount>(entity =>
+        {
+            entity.ToTable("Discount");
+
+            entity.Property(e => e.Discount1).HasColumnName("Discount");
+            entity.Property(e => e.TimeOff).HasColumnType("datetime");
+            entity.Property(e => e.TimeOn).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<DiscountAddCustomer>(entity =>
+        {
+            entity.ToTable("DiscountAddCustomer");
+
+            entity.HasOne(d => d.Customer).WithMany(p => p.DiscountAddCustomers)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK_DiscountAddCustomer_Customers");
+
+            entity.HasOne(d => d.Discount).WithMany(p => p.DiscountAddCustomers)
+                .HasForeignKey(d => d.DiscountId)
+                .HasConstraintName("FK_DiscountAddCustomer_Discount");
+        });
+
+        modelBuilder.Entity<DiscountAddProduct>(entity =>
+        {
+            entity.HasOne(d => d.Discount).WithMany(p => p.DiscountAddProducts)
+                .HasForeignKey(d => d.DiscountId)
+                .HasConstraintName("FK_DiscountAddProducts_Discount");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.DiscountAddProducts)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_DiscountAddProducts_Products");
+        });
+
+        modelBuilder.Entity<District>(entity =>
+        {
+            entity.HasKey(e => e.DistrictId).HasName("PK__District__85FDA4A66FD0CA46");
+
+            entity.Property(e => e.DistrictId)
+                .ValueGeneratedNever()
+                .HasColumnName("DistrictID");
+            entity.Property(e => e.DistrictName).HasMaxLength(50);
+            entity.Property(e => e.ProvinceId).HasColumnName("ProvinceID");
+            entity.Property(e => e.Type).HasMaxLength(20);
+
+            entity.HasOne(d => d.Province).WithMany(p => p.Districts)
+                .HasForeignKey(d => d.ProvinceId)
+                .HasConstraintName("FK_Districts_Provinces");
+        });
+
+        modelBuilder.Entity<EmailAttribute>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_EmailAttributes_1");
+
+            entity.Property(e => e.Body).HasColumnName("body");
+            entity.Property(e => e.TimeSend).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Custumer).WithMany(p => p.EmailAttributes)
+                .HasForeignKey(d => d.CustumerId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_EmailAttributes_Customers");
+        });
+
+        modelBuilder.Entity<EmailMaketting>(entity =>
+        {
+            entity.HasKey(e => e.EmailId);
+
+            entity.ToTable("EmailMaketting");
+
+            entity.Property(e => e.EmailId).HasColumnName("EmailID");
+            entity.Property(e => e.AcountId).HasColumnName("AcountID");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.CustomDate).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Acount).WithMany(p => p.EmailMakettings)
+                .HasForeignKey(d => d.AcountId)
+                .HasConstraintName("FK_EmailMaketting_Accounts");
+        });
+
+        modelBuilder.Entity<FacebookPage>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_Facebook");
+
+            entity.ToTable("FacebookPage");
+
+            entity.Property(e => e.AvartarGroup).HasColumnName("Avartar_group");
+            entity.Property(e => e.NameGroup).HasColumnName("Name_group");
+            entity.Property(e => e.TokenAccount).HasColumnName("token_account");
+        });
+
+        modelBuilder.Entity<GitAttribute>(entity =>
+        {
+            entity.HasOne(d => d.Discount).WithMany(p => p.GitAttributes)
+                .HasForeignKey(d => d.DiscountId)
+                .HasConstraintName("FK_GitAttributes_Discount");
+
+            entity.HasOne(d => d.ProductGift).WithMany(p => p.GitAttributes)
+                .HasForeignKey(d => d.ProductGiftId)
+                .HasConstraintName("FK_GitAttributes_ProductGift");
+        });
+
+        modelBuilder.Entity<Guest>(entity =>
+        {
+            entity.Property(e => e.GuestId).HasColumnName("GuestID");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.Email)
+                .HasMaxLength(150)
+                .IsFixedLength();
+            entity.Property(e => e.FullName).HasMaxLength(255);
+            entity.Property(e => e.Phone)
+                .HasMaxLength(12)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<HistoryDiscount>(entity =>
+        {
+            entity.ToTable("HistoryDiscount");
+
+            entity.Property(e => e.TimeCreate).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Discount).WithMany(p => p.HistoryDiscounts)
+                .HasForeignKey(d => d.DiscountId)
+                .HasConstraintName("FK_HistoryDiscount_Discount");
+        });
+
+        modelBuilder.Entity<ImageServer>(entity =>
+        {
+            entity.ToTable("ImageServer");
+        });
+
+        modelBuilder.Entity<LeverCustommerPtt>(entity =>
+        {
+            entity.ToTable("LeverCustommerPTT");
+        });
+
+        modelBuilder.Entity<Order>(entity =>
+        {
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
+            entity.Property(e => e.CodstatusId).HasColumnName("CODstatusID");
+            entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+            entity.Property(e => e.DeliveryStatusId).HasColumnName("DeliveryStatusID");
+            entity.Property(e => e.GuestId).HasColumnName("GuestID");
+            entity.Property(e => e.OrderDate).HasColumnType("datetime");
+            entity.Property(e => e.PaymentDate).HasColumnType("datetime");
+            entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
+            entity.Property(e => e.PaymentStatusId).HasColumnName("PaymentStatusID");
+            entity.Property(e => e.Phone)
+                .HasMaxLength(10)
+                .IsFixedLength();
+            entity.Property(e => e.ShipDate).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Codstatus).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.CodstatusId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Orders_CODStatus");
+
+            entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK_Orders_Customers");
+
+            entity.HasOne(d => d.DeliveryStatus).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.DeliveryStatusId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Orders_DeliveryStatus");
+
+            entity.HasOne(d => d.Guest).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.GuestId)
+                .HasConstraintName("FK_Orders_Guests");
+
+            entity.HasOne(d => d.PaymentStatus).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.PaymentStatusId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Orders_PaymentStatus");
+        });
+
+        modelBuilder.Entity<OrderDetail>(entity =>
+        {
+            entity.Property(e => e.OrderDetailId).HasColumnName("OrderDetailID");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
+            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
+                .HasForeignKey(d => d.OrderId)
+                .HasConstraintName("FK_OrderDetails_Orders");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_OrderDetails_Products");
+        });
+
+        modelBuilder.Entity<Page>(entity =>
+        {
+            entity.Property(e => e.PageId).HasColumnName("PageID");
+            entity.Property(e => e.Alias).HasMaxLength(250);
+            entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+            entity.Property(e => e.MetaDesc).HasMaxLength(250);
+            entity.Property(e => e.MetaKey).HasMaxLength(250);
+            entity.Property(e => e.PageName).HasMaxLength(250);
+            entity.Property(e => e.Thumb).HasMaxLength(250);
+            entity.Property(e => e.Title).HasMaxLength(250);
+        });
+
+        modelBuilder.Entity<PageInfo>(entity =>
+        {
+            entity.Property(e => e.Id)
+                .ValueGeneratedNever()
+                .HasColumnName("ID");
+            entity.Property(e => e.Domain).HasMaxLength(50);
+            entity.Property(e => e.FacebookAppId).HasMaxLength(50);
+            entity.Property(e => e.FacebookPage).HasMaxLength(50);
+            entity.Property(e => e.GoogleSiteVerification).HasMaxLength(50);
+            entity.Property(e => e.Phone).HasMaxLength(50);
+            entity.Property(e => e.Robots).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<PaymentStatus>(entity =>
+        {
+            entity.ToTable("PaymentStatus");
+
+            entity.Property(e => e.PaymentStatusId).HasColumnName("PaymentStatusID");
+            entity.Property(e => e.Status).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Post>(entity =>
+        {
+            entity.HasKey(e => e.PostId).HasName("PK_tblTinTucs");
+
+            entity.Property(e => e.PostId).HasColumnName("PostID");
+            entity.Property(e => e.AccountId).HasColumnName("AccountID");
+            entity.Property(e => e.Alias).HasMaxLength(255);
+            entity.Property(e => e.AliasEn)
+                .HasMaxLength(255)
+                .HasColumnName("Alias_EN");
+            entity.Property(e => e.Author).HasMaxLength(255);
+            entity.Property(e => e.ContentsEn).HasColumnName("Contents_EN");
+            entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+            entity.Property(e => e.IsHot).HasColumnName("isHot");
+            entity.Property(e => e.IsNewfeed).HasColumnName("isNewfeed");
+            entity.Property(e => e.MetaDescEn).HasColumnName("MetaDesc_EN");
+            entity.Property(e => e.MetaKey).HasMaxLength(255);
+            entity.Property(e => e.MetaKeyEn)
+                .HasMaxLength(255)
+                .HasColumnName("MetaKey_EN");
+            entity.Property(e => e.PostCatId).HasColumnName("PostCatID");
+            entity.Property(e => e.Scontents).HasColumnName("SContents");
+            entity.Property(e => e.ScontentsEn).HasColumnName("SContents_EN");
+            entity.Property(e => e.Thumb).HasMaxLength(255);
+            entity.Property(e => e.Title).HasMaxLength(255);
+            entity.Property(e => e.TitleEn)
+                .HasMaxLength(255)
+                .HasColumnName("Title_EN");
+            entity.Property(e => e.TitleSeo)
+                .HasMaxLength(255)
+                .HasColumnName("TitleSEO");
+            entity.Property(e => e.TitleSeoEn)
+                .HasMaxLength(255)
+                .HasColumnName("TitleSEO_EN");
+
+            entity.HasOne(d => d.PostCat).WithMany(p => p.Posts)
+                .HasForeignKey(d => d.PostCatId)
+                .HasConstraintName("FK_Posts_PostCategory");
+        });
+
+        modelBuilder.Entity<PostCategory>(entity =>
+        {
+            entity.HasKey(e => e.PostCatId);
+
+            entity.ToTable("PostCategory");
+
+            entity.Property(e => e.PostCatId).HasColumnName("PostCatID");
+            entity.Property(e => e.DateCreated).HasColumnType("datetime");
+            entity.Property(e => e.DateModified).HasColumnType("datetime");
+            entity.Property(e => e.PostCatName).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<Product>(entity =>
+        {
+            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+            entity.Property(e => e.BrandId).HasColumnName("BrandID");
+            entity.Property(e => e.ConfigInformationEn).HasColumnName("ConfigInformation_EN");
+            entity.Property(e => e.DateCreated).HasColumnType("datetime");
+            entity.Property(e => e.DateModified).HasColumnType("datetime");
+            entity.Property(e => e.DescriptionEn).HasColumnName("Description_EN");
+            entity.Property(e => e.GiftEn).HasColumnName("Gift_EN");
+            entity.Property(e => e.MetaDescEn).HasColumnName("MetaDesc_EN");
+            entity.Property(e => e.MetaKeyEn).HasColumnName("MetaKey_EN");
+            entity.Property(e => e.ProductCode).IsRequired();
+            entity.Property(e => e.ProductName).IsRequired();
+            entity.Property(e => e.ProductNameEn).HasColumnName("ProductName_EN");
+            entity.Property(e => e.ShortDescEn).HasColumnName("ShortDesc_EN");
+            entity.Property(e => e.TitleEn).HasColumnName("Title_EN");
+            entity.Property(e => e.WarrantyNoteEn).HasColumnName("WarrantyNote_EN");
+
+            entity.HasOne(d => d.Brand).WithMany(p => p.Products)
+                .HasForeignKey(d => d.BrandId)
+                .HasConstraintName("FK_Products_Brands");
+        });
+
+        modelBuilder.Entity<ProductAddCusPro>(entity =>
+        {
+            entity.ToTable("ProductAddCusPro");
+
+            entity.HasOne(d => d.Customer).WithMany(p => p.ProductAddCusPros)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK_ProductAddCusPro_CustomerSupplier");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductAddCusPros)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_ProductAddCusPro_Products");
+        });
+
+        modelBuilder.Entity<ProductCategory>(entity =>
+        {
+            entity.HasKey(e => e.ProductCatId);
+
+            entity.Property(e => e.ProductCatId).HasColumnName("ProductCatID");
+            entity.Property(e => e.CatId).HasColumnName("CatID");
+            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+            entity.HasOne(d => d.Cat).WithMany(p => p.ProductCategories)
+                .HasForeignKey(d => d.CatId)
+                .HasConstraintName("FK_ProductCategories_Categories");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductCategories)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_ProductCategories_Products");
+        });
+
+        modelBuilder.Entity<ProductFacebook>(entity =>
+        {
+            entity.ToTable("ProductFacebook");
+
+            entity.Property(e => e.CeateAdd).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<ProductGift>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_ProductDift");
+
+            entity.ToTable("ProductGift");
+        });
+
+        modelBuilder.Entity<ProductThumb>(entity =>
+        {
+            entity.HasKey(e => e.ImageId).HasName("PK_Product_Thumb");
+
+            entity.Property(e => e.ImageId).HasColumnName("ImageID");
+            entity.Property(e => e.Alias).HasMaxLength(250);
+            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductThumbs)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_ProductThumbs_Products");
+        });
+
+        modelBuilder.Entity<Province>(entity =>
+        {
+            entity.HasKey(e => e.ProvinceId).HasName("PK__Province__FD0A6FA3F17E00B8");
+
+            entity.Property(e => e.ProvinceId)
+                .ValueGeneratedNever()
+                .HasColumnName("ProvinceID");
+            entity.Property(e => e.ProvinceName).HasMaxLength(50);
+            entity.Property(e => e.Type).HasMaxLength(20);
+        });
+
+        modelBuilder.Entity<QuangCao>(entity =>
+        {
+            entity.Property(e => e.QuangCaoId).HasColumnName("QuangCaoID");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.ImageBg)
+                .HasMaxLength(250)
+                .HasColumnName("ImageBG");
+            entity.Property(e => e.ImageProduct).HasMaxLength(250);
+            entity.Property(e => e.SubTitle).HasMaxLength(150);
+            entity.Property(e => e.Title).HasMaxLength(150);
+            entity.Property(e => e.UrlLink).HasMaxLength(250);
+        });
+
+        modelBuilder.Entity<Quotation>(entity =>
+        {
+            entity.Property(e => e.QuotationId).HasColumnName("QuotationID");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+            entity.Property(e => e.Vat)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("VAT");
+
+            entity.HasOne(d => d.Customer).WithMany(p => p.Quotations)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK_Quotations_Customers");
+        });
+
+        modelBuilder.Entity<QuotationDetail>(entity =>
+        {
+            entity.Property(e => e.QuotationDetailId).HasColumnName("QuotationDetailID");
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+            entity.Property(e => e.QuotationId).HasColumnName("QuotationID");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.QuotationDetails)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_QuotationDetails_Products");
+
+            entity.HasOne(d => d.Quotation).WithMany(p => p.QuotationDetails)
+                .HasForeignKey(d => d.QuotationId)
+                .HasConstraintName("FK_QuotationDetails_Quotations");
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.Property(e => e.RoleId).HasColumnName("RoleID");
+            entity.Property(e => e.Description).HasMaxLength(50);
+            entity.Property(e => e.RoleName).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Shipper>(entity =>
+        {
+            entity.Property(e => e.ShipperId).HasColumnName("ShipperID");
+            entity.Property(e => e.Company).HasMaxLength(150);
+            entity.Property(e => e.Phone)
+                .HasMaxLength(10)
+                .IsFixedLength();
+            entity.Property(e => e.ShipDate).HasColumnType("datetime");
+            entity.Property(e => e.ShipperName).HasMaxLength(150);
+        });
+
+        modelBuilder.Entity<ShippingAddress>(entity =>
+        {
+            entity.HasKey(e => e.ShippingAdressId);
+
+            entity.ToTable("ShippingAddress");
+
+            entity.Property(e => e.ShippingAdressId).HasColumnName("ShippingAdressID");
+            entity.Property(e => e.DistrictId).HasColumnName("DistrictID");
+            entity.Property(e => e.Name).HasMaxLength(255);
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
+            entity.Property(e => e.Phone).HasMaxLength(255);
+            entity.Property(e => e.ProvinceId).HasColumnName("ProvinceID");
+            entity.Property(e => e.WardId).HasColumnName("WardID");
+
+            entity.HasOne(d => d.District).WithMany(p => p.ShippingAddresses)
+                .HasForeignKey(d => d.DistrictId)
+                .HasConstraintName("FK_ShippingAddress_Districts");
+
+            entity.HasOne(d => d.Order).WithMany(p => p.ShippingAddresses)
+                .HasForeignKey(d => d.OrderId)
+                .HasConstraintName("FK_ShippingAddress_Orders");
+
+            entity.HasOne(d => d.Province).WithMany(p => p.ShippingAddresses)
+                .HasForeignKey(d => d.ProvinceId)
+                .HasConstraintName("FK_ShippingAddress_Provinces");
+
+            entity.HasOne(d => d.Ward).WithMany(p => p.ShippingAddresses)
+                .HasForeignKey(d => d.WardId)
+                .HasConstraintName("FK_ShippingAddress_Wards");
+        });
+
+        modelBuilder.Entity<Slide>(entity =>
+        {
+            entity.HasKey(e => e.SlideId).HasName("PK_Table_1");
+
+            entity.Property(e => e.SlideId).HasColumnName("SlideID");
+            entity.Property(e => e.CatId).HasColumnName("CatID");
+
+            entity.HasOne(d => d.Cat).WithMany(p => p.Slides)
+                .HasForeignKey(d => d.CatId)
+                .HasConstraintName("FK_Slides_Categories");
+        });
+
+        modelBuilder.Entity<SystemWeb>(entity =>
+        {
+            entity.ToTable("SystemWeb");
+
+            entity.Property(e => e.EmailSmtp).HasColumnName("EmailSMTP");
+            entity.Property(e => e.PassSmtp).HasColumnName("PassSMTP");
+        });
+
+        modelBuilder.Entity<Video>(entity =>
+        {
+            entity.ToTable("Video");
+
+            entity.Property(e => e.Video1).HasColumnName("Video");
+
+            entity.HasOne(d => d.Brand).WithMany(p => p.Videos)
+                .HasForeignKey(d => d.BrandId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Video_Brands");
+        });
+
+        modelBuilder.Entity<Ward>(entity =>
+        {
+            entity.HasKey(e => e.WardId).HasName("PK__Wards__C6BD9BEAAFC290EC");
+
+            entity.Property(e => e.WardId)
+                .ValueGeneratedNever()
+                .HasColumnName("WardID");
+            entity.Property(e => e.DistrictId).HasColumnName("DistrictID");
+            entity.Property(e => e.Type).HasMaxLength(20);
+            entity.Property(e => e.WardName).HasMaxLength(50);
+
+            entity.HasOne(d => d.District).WithMany(p => p.Wards)
+                .HasForeignKey(d => d.DistrictId)
+                .HasConstraintName("FK_Wards_Districts");
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+}

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebShop.Models.CustomerBrand>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Danh sách Đối tác</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create"><i class="anticon anticon-plus m-r-5"></i><span>Thêm</span></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+ 
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearOff)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Link)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>   
+                    <div style="width:130px;height:100px;background-color:#fff;display:flex;justify-content:center;text-align:center" >
+                   <img src="@Html.DisplayFor(modelItem => item.Image)" style="width:90%;object-fit:fill">
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearOff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                    <a class="btn btn-secondary btn-tone m-r-5" asp-action="Edit" asp-route-id="@item.Id"><i class="anticon anticon-edit"></i></a>
+
+                    <a class="btn btn-danger btn-tone m-r-5" asp-action="Delete" asp-route-id="@item.Id"><i class="anticon anticon-delete"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

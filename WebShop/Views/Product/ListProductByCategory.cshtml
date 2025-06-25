@@ -1,0 +1,407 @@
+@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<WebShop.Models.Product>
+@inject WebShop.Services.IPageInfoService PageInfoService;
+@{
+    List<Banner> lsBanner = ViewBag.Banner;
+    Category category = ViewBag.CurrentCat;
+    List<Slide> slide = ViewBag.Slides;
+    List<Brand> brands = ViewBag.Brands;
+    List<WebShop.Models.Attribute> attrs = ViewBag.Attrs;
+    List<AttributesPrice> priceP = ViewBag.price;
+    List<Slide> slides = ViewBag.Slider;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int PageCurrent = ViewBag.CurrentPage;
+    int PageNext = PageCurrent + 1;
+    ViewData["Title"] = category.Title;
+    ViewData["Description"] = category.MetaDesc;
+    ViewData["Keywords"] = category.MetaKey;
+    BrandGroup brandg = ViewBag.groupbrand;
+}
+
+@section Styles{ 
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <style> 
+        .section-title:hover{
+            cursor:pointer;
+        }
+
+    </style>
+}
+
+
+
+
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
+               
+                @foreach (var item in ViewBag.BreadcrumbCategories)
+                {
+                    <span class="breadcrumb-item active">@item.CatName</span>
+                }
+
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Carousel Start -->
+<div class="container-fluid mb-3">
+    <div class="row px-xl-5">
+        <div class="col-lg-12">
+            <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    @{
+                        bool isFirst = true; // Đặt biến kiểm tra mục đầu tiên
+                        foreach (var item in slides)
+                        {
+                            <div class="carousel-item @(isFirst ? "active" : "")">
+                                <a href="@item.Alias">
+                                    <img class="w-100" src="https://localhost:44353/images/slides/@item.Thumb" alt="Novazone Banner" style="object-fit: cover;">
+                                </a>
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 700px;">
+                                        <!-- Nội dung cho banner -->
+                                    </div>
+                                </div>
+                            </div>
+                            isFirst = false; // Sau khi chạy lần đầu tiên thì đặt là false
+                        }
+                    } 
+                </div> 
+                <!-- Nút điều hướng trái -->
+                <a class="carousel-control-prev" href="#header-carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <!-- Nút điều hướng phải -->
+                <a class="carousel-control-next" href="#header-carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div> 
+        </div> 
+    </div>
+</div>
+<!-- Carousel End -->
+<!-- Shop Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <!-- Shop Sidebar Start -->
+        <div class="col-lg-3 col-md-4">
+            <!-- Price Start -->
+            <h5 class="section-title position-relative mb-3"><span class="bg-secondary pr-3">Thương hiệu</span></h5>
+            <div class="bg-light p-4 mb-30">  
+                <form>
+                    @foreach (var itemb in brands)
+                    {
+                        @foreach (var item in ViewBag.BreadcrumbCategories)
+                        {
+                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                <input type="checkbox" class="custom-control-input checkitembrand" data-alias="@item.Alias" data-id="@itemb.BrandId" id="brand-@itemb.BrandId">
+                                <label class="custom-control-label" for="brand-@itemb.BrandId">@itemb.BrandName   </label>
+                            </div>
+                        }
+                        
+                    }
+                </form>
+            </div>
+            <!-- Price End -->
+            <!-- Color Start -->
+            <div id="accordion">
+                @{
+                    int count = 0; // Bộ đếm để kiểm soát số lượng phần tử mở sẵn
+                }
+                @foreach (var attr in attrs)
+                {
+                    count++; // Tăng giá trị của bộ đếm lên cho mỗi phần tử
+
+                    // Mở sẵn cho 2 phần tử đầu tiên
+                    var isExpanded = count <= 2;
+                    var collapseClass = isExpanded ? "collapse show" : "collapse";
+                    var ariaExpanded = isExpanded ? "true" : "false";
+
+                    <div class="mb-2">
+                        <h5 class="section-title position-relative mb-3" data-toggle="collapse" data-target="#collapse-@attr.AttributeId" aria-expanded="@ariaExpanded" aria-controls="collapse-@attr.AttributeId"><span class="bg-secondary pr-3">@attr.Name</span></h5>
+                  
+                        <div id="collapse-@attr.AttributeId" class="@collapseClass" aria-labelledby="heading-@attr.AttributeId" data-parent="#accordion">
+                            <div class="bg-light p-4 mb-30">
+                                <form>
+                                    @{
+                                        var attrss = attr.AttributesPrices.Where(p => p.ProductId == null).ToList();
+                                        foreach (var atts in attrss)
+                                        {
+                                            // Sử dụng một ID duy nhất cho mỗi checkbox
+                                            var checkboxId = $"price-{atts.AttributesPriceId}";
+
+                                            @foreach (var item in ViewBag.BreadcrumbCategories)
+                                            {
+                                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                                    <input type="checkbox" data-id="@atts.AttributesPriceId" data-alias="@item.Alias" class="custom-control-input checkitemattribute" id="@checkboxId">
+                                                    <label class="custom-control-label" for="@checkboxId">@atts.Price</label>
+                                                </div>
+                                            }
+                                           
+                                        }
+                                    }
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+               
+            </div>
+
+            <!-- Color End -->
+           
+        </div>
+        <!-- Shop Sidebar End -->
+        <!-- Shop Product Start -->
+        <div class="col-lg-9 col-md-8">
+            <div class="row pb-3">
+                <div class="col-12 pb-1">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <button class="btn btn-sm btn-light"><i class="fas fa-sync-alt mr-3"></i>Làm mới</button>
+                        </div>
+                        <div class="ml-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
+                                    Sắp xếp
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    @foreach (var item in ViewBag.BreadcrumbCategories)
+                                    {
+                                        <button class="dropdown-item sort" data-alias="@item.Alias" data-value="discount">Khuyến mãi tốt nhất</button>
+                                        <button class="dropdown-item sort" data-alias="@item.Alias" data-value="asc">Giá tăng dần</button>
+                                        <button class="dropdown-item sort" data-alias="@item.Alias" data-value="desc">Giá giảm dần</button>
+                                        <button class="dropdown-item sort" data-alias="@item.Alias" data-value="new">Sản phẩm mới nhất</button>
+                                        <button class="dropdown-item sort" data-alias="@item.Alias" data-value="az">Tên A -> Z</button>
+                                    }
+                                   
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                @if (Model != null && Model.Count()>0)
+                {
+                    @foreach (var product in Model)
+                    {
+                      
+                        <div class=" item-product-Cate  " title="chi tiết sản phẩm   @product.ProductName">
+                            <div class="product-item bg-light mb-1" style="padding:15px">
+                                <div class="product-img position-relative overflow-hidden">
+                                    <div class="d-flex justify-content-center" style="height:200px;">
+                                        <img style="object-fit:contain;" class="img-fluid" src="https://novazone.co/@product.Avatar" alt="@product.Alias" loading="lazy">
+                                    </div>
+                                    <div class="product-action">
+                                        @if (product.UnitsInStock > 0)
+                                        {
+                                            <a class="btn btn-outline-dark btn-square" href="javascript:void(0)" onclick="addToCart(@product.ProductId)"><i class="fa fa-shopping-cart"></i></a>
+                                            <a title="@product.ProductName" class="btn btn-outline-dark btn-square" href="/@product.Alias-@product.ProductId"><i class="fa fa-ellipsis-h"></i></a>
+                                        }
+                                        else
+                                        {
+                                            <a title="@product.ProductName" class="btn btn-outline-dark btn-square" href="/@product.Alias-@product.ProductId"><i class="fa fa-ellipsis-h"></i></a>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="text-center py-3">
+                                    <a class="text-decoration-none p-7 text-dark"
+                                       title="@product.ProductName"
+                                       style="height: 3.3em; display: block; overflow: hidden; line-height: 1.5em; white-space: normal; text-overflow: ellipsis; text-align:left; font-size:15px;font-weight: bold;"
+                                       href="/@product.Alias-@product.ProductId">
+                                        @product.ProductName
+                                    </a>
+
+                                    <div class="d-md-flex  justify-content-center mt-2 flex-column">
+                                        @if (product.Price <= 0)
+                                        {
+                                            <div class="md-d-flex  " style="font-size: 13px;text-align:left;">
+                                                <span class="text-muted" style="margin-right: 5px;"> </span>
+                                                <span class="text-success ml-2 d-none d-lg-inline "></span>
+                                            </div>
+                                            <span class="d-block">Giá: <b class="text-danger">liên hệ</b></span>
+                                        }
+                                        else
+                                        {
+                                            @if (product.SalePrice != null && product.SalePrice < product.Price)
+                                            {
+                                                <div class="md-d-flex  " style="font-size: 13px;text-align:left;">
+                                                    <span class="text-muted" style="margin-right: 5px;"><del>@($"{product.Price:N0}")<u>đ</u>    </del></span>
+                                                    <span class="text-success ml-2 d-none d-lg-inline ">Tiết kiệm @((product.Price - product.SalePrice)?.ToString("N0"))₫</span>
+                                                </div>
+                                                <span class="text-danger" style="font-size: 1.1em; font-weight: bold; text-align:left;">Giá: @($"{product.SalePrice:N0}")<u>đ</u> </span>
+                                            }
+                                            else
+                                            {
+                                                <div class="md-d-flex  " style="font-size: 13px;text-align:left;">
+                                                    <span class="text-muted" style="margin-right: 5px;"> </span>
+                                                    <span class="text-success ml-2 d-none d-lg-inline "> </span>
+                                                </div>
+                                                <span class="text-danger " style="font-size: 1.1em; font-weight: bold;text-align:left;">Giá:@($"{product.Price:N0}")<u>đ</u>  </span>
+                                            }
+                                        }
+                                    </div>
+                                    <div class="mt-1 " style="text-align:left;">
+                                        @if (product.UnitsInStock > 0)
+                                        {
+                                            <span style="color: #2cc067; font-size: 14px;line-height: 30px;" class=""><i class="fa fa-check" style="color:#2cc067"></i> Sẵn hàng</span>
+                                        }
+                                        else
+                                        {
+                                            <span style="color:#0074da"><i class="fas fa-phone fa-flip-horizontal"></i> Đặt hàng</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                } 
+                <div class="col-12">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <!-- Nút Previous (kích hoạt/dừng tùy thuộc vào trang hiện tại) -->
+                            <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                                <a class="page-link" asp-route-pageNumber="@(Model.PageNumber - 1)" asp-route-Alias="@ViewBag.CurrentCat.Alias">Quay lại</a>
+                            </li>
+
+                            <!-- Vòng lặp cho các trang -->
+                            @for (var i = 1; i <= Model.PageCount; i++)
+                            {
+                                <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                                    <a class="page-link" asp-route-pageNumber="@i" asp-route-Alias="@ViewBag.CurrentCat.Alias">@i</a>
+                                </li>
+                            }
+
+                            <!-- Nút Next (kích hoạt/dừng tùy thuộc vào trang hiện tại) -->
+                            <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                                <a class="page-link" asp-route-pageNumber="@(Model.PageNumber + 1)" asp-route-Alias="@ViewBag.CurrentCat.Alias">Trang kế</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+        <!-- Shop Product End -->
+    </div>
+</div>
+<!-- Shop End -->
+@section Scripts{
+    <script src="~/Adminassets/vendors/select2/select2.min.js"></script> 
+    <script>
+        $('.sort').on('click', function () { 
+            $('.spinner-container').removeClass('d-none');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("checkItemSort","Product")',
+                dataType: "Json",
+                data: {
+                    sort: $(this).attr('data-value'),
+                    alias: $(this).attr('data-alias'),
+                },
+                success: function (data) {
+                    $('.spinner-container').addClass('d-none');
+                    location.reload();
+                }
+            })
+        }) 
+
+        $('.checkitemattribute').on('click',function(){
+            console.log($(this).attr('data-id'), $(this).attr('data-alias'))
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("checkItemsearch","Product")',
+                dataType: "Json",
+                data: {
+                    id: $(this).attr('data-id'),
+                    alias: $(this).attr('data-alias'),
+                },
+                success: function (data) {                   
+                    location.reload();
+                }
+            })
+            
+        })
+
+        $('.checkitembrand').on('click', function () {3
+            console.log($(this).attr('data-id'), $(this).attr('data-alias'))
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("checkItembrand","Product")',
+                dataType: "Json",
+                data: {
+                    id: $(this).attr('data-id'),
+                    alias: $(this).attr('data-alias'),
+             
+                },
+                success: function (data) {                   
+                    location.reload();
+                }
+            })
+        })
+
+
+        // Hàm lưu mảng thương hiệu đã chọn vào localStorage
+
+
+
+
+
+        // Hàm lưu mảng thương hiệu đã chọn vào localStorage
+        function saveSelectedBrands() {
+            const selectedBrands = [];
+            $('.checkitembrand:checked').each(function () {
+                selectedBrands.push($(this).attr('data-id')); // Lưu ID hoặc tên thương hiệu
+            });
+
+            console.log('Selected Brands:', selectedBrands); // Xem trạng thái
+            localStorage.setItem('selectedBrands', JSON.stringify(selectedBrands));
+        }
+
+
+        // Hàm phục hồi mảng thương hiệu đã chọn từ localStorage
+        function loadSelectedBrands() {
+            const selectedBrands = JSON.parse(localStorage.getItem('selectedBrands')) || [];
+            console.log('Loaded Brands:', selectedBrands); // Kiểm tra giá trị đã lưu
+
+            selectedBrands.forEach(function (id) {
+                $('#brand-' + id).prop('checked', true); // Đánh dấu checkbox tương ứng
+            });
+
+            updateFilterNotification(); // Cập nhật thông báo
+        }         // Hàm cập nhật thông báo khi người dùng filter
+        function updateFilterNotification() {
+            const selectedBrands = [];
+            $('.checkitembrand:checked').each(function () {
+                selectedBrands.push($(this).next('label').text()); // Lấy tên thương hiệu từ label
+            });
+            console.log(selectedBrands);
+            const $notificationElement = $('#filter-notification');
+            const $selectedBrandsElement = $('#selected-brands');
+
+            if (selectedBrands.length > 0) {
+                $selectedBrandsElement.text(selectedBrands.join(', '));
+                $notificationElement.show(); // Hiện thông báo
+            } else {
+                $notificationElement.hide(); // Ẩn thông báo
+            }
+        } 
+        $(document).ready(function () {
+            // Gán sự kiện cho checkbox
+            $('.checkitembrand').change(function () {
+                saveSelectedBrands(); // Lưu trạng thái checkbox mỗi khi thay đổi
+            });
+
+            loadSelectedBrands(); // Tải danh sách thương hiệu đã chọn khi trang được tải
+        });
+    </script>
+}

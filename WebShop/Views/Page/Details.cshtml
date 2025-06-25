@@ -1,0 +1,180 @@
+@model WebShop.Models.Page
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string url = $"/page/{Model.Alias}";
+}
+@section Styles {
+    <style>
+        table {
+            width: 100% !important;
+            margin-left: 0px !important;
+        }
+
+            table tr {
+                line-height: 22px !important;
+            }
+
+                table tr th {
+                    padding: 0px 10px !important;
+                }
+
+                table tr td {
+                    width: 20% !important;
+                }
+
+                    table tr td ul {
+                        width: 100%;
+                        float: left;
+                        padding: 15px;
+                    }
+
+                table tr:nth-child(1) {
+                    background: #f1f1f1 !important;
+                    font-weight: bold
+                }
+
+                table tr:nth-child(2) {
+                    background: #fff !important
+                }
+
+                table tr:nth-child(2n+1) {
+                    background: #f3f3f3 !important;
+                }
+
+            table td {
+                padding: 7px !important;
+                padding-left: 10px !important;
+                text-align: left !important;
+                border: 1px solid #ccc !important
+            }
+
+            table tr td, table tr td p, table tr td p {
+                margin: 0 0 0 0 !important;
+            }
+
+                table tr td p strong {
+                    font-weight: 600;
+                }
+
+        .step1 {
+            position: absolute;
+            top: -20px; /* Điều chỉnh vị trí chữ lên trên */
+            left: 20px; /* Điều chỉnh vị trí ngang */
+            background-color: white;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+ 
+
+    </style>
+}
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
+                <span class="breadcrumb-item active">@Model.PageName</span>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div style="width: 93.5%;  background: #fff; margin: auto;color:#000">
+
+    @if (Model.Contents != "<p><br></p>" && Model.Contents != null)
+    {
+        @Html.Raw(Model.Contents)
+    }
+    else
+    {
+        <p>Chưa có thông tin</p>
+    }
+    @* <div>
+        <p class="h2 text-center text-primary" style="padding:25px;">Các bước bảo hành sản phẩm</p>
+        <div class="row mt-4" style="width:70%;margin:auto;">
+            <div class="col-6 col-md-3">
+                <div class="d-flex justify-content-center">
+                    <img class="w-100" src="https://i.imgur.com/M19UkRp.png" alt="img1" />
+                </div>
+                 
+                <p class="text-center"><b>Liên hệ với Novazone</b></p>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="d-flex justify-content-center">
+                    <img class="w-100" src="https://i.imgur.com/M19UkRp.png" alt="img1" />
+                </div>
+                <p class="text-center"><b>Chuyển sản phẩm cần bảo hành tới Novazone</b></p>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="d-flex justify-content-center">
+                    <img class="w-100" src="https://i.imgur.com/M19UkRp.png" alt="img1" />
+                </div>
+                <p class="text-center"><b>Bảo hành và kiểm tra</b></p>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="d-flex justify-content-center">
+                    <img class="w-100" src="https://i.imgur.com/M19UkRp.png" alt="img1" />
+                </div>
+                <p class="text-center"><b>Bàn giao sản phẩm</b></p>
+            </div>
+        </div>
+        <div class="container mt-5" style="width:70%; margin:auto; position: relative; border-radius: 13px; border: 1px solid #ffd333">
+            <h3 class="step1 text-primary">Bước 1: </h3>
+            <div class="content">
+                <p><b>Khi có nhu cầu bảo hành sản phẩm, khách hàng vui lòng liên hệ với Novazone qua hình thức sau:</b></p>
+                <ul>
+                    <li>Hotline Novazone: 0848 967 333.</li>
+                    <li>Zalo Novazone: 0848 967 333.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="container mt-5" style="width:70%; margin:auto; position: relative; border-radius: 13px; border:1px solid #ffd333">
+            <h3 class="step1 text-primary">Bước 2:</h3>
+            <div class="content">
+                <p><b>Trung tâm bảo hành Novazone:</b></p>
+                <ul>
+                    <li>Quý khách gửi sản phẩm bảo hành trực tiếp tại địa chỉ của Novazone </li>
+                    <li>Liên hệ hỗ trợ bảo hành : 0848 967 333</li>
+                    <li>Quý khách vui lòng truy cập Website: <a href="https://novazone.co/">www.novazone.co</a> để tìm hiểu chi tiết về Novazone.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container mt-5" style="width:70%; margin:auto; position: relative; border-radius: 13px; border:1px solid #ffd333">
+            <h3 class="step1 text-primary">Bước 3:</h3>
+            <div class="content">
+                <p><b>Tiến hành bảo hành và kiểm tra:</b></p>
+                <ul>
+                    <li>Novazone tiến hàng bảo hành sản phẩm của quý khách </li>
+                    <li>Sau khi bảo hành Novazone sẽ tiếp tục kiểm tra thiết bị, sản phẩm trước khi bàn giao đến quý khách hàng</li>
+                    <li>Liên hệ hỗ trợ bảo hành : 0848 967 333</li> 
+                </ul>
+            </div>
+        </div>
+        <div class="container mt-5" style="width:70%; margin:auto; position: relative; border-radius: 13px; border:1px solid #ffd333">
+            <h3 class="step1 text-primary">Bước 4:</h3>
+            <div class="content">
+                <p><b>Hoàn tất và bàn giao đến khách hàng:</b></p>
+                <ul>
+                    <li style="color:#1567cf">Hoàn tất xử lý bảo hành và bàn giao sản phẩm đến khách hàng.</li>
+                </ul>
+            </div>
+        </div>
+    </div> *@
+
+</div>
+
+
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.17.164/pdf.min.js"></script>
+
+    <script>
+
+    </script>
+}

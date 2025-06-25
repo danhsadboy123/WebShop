@@ -1,0 +1,418 @@
+﻿
+@model WebShop.Models.Discount
+@using Microsoft.AspNetCore.Html;
+@using System.Formats;
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var product = ViewBag.product;
+    var customer = ViewBag.customer;
+    List<GitAttribute> Gift = ViewBag.Gift;
+
+}
+@section Styles{
+    <link href="~/adminassets/css/settingfull.css" rel="stylesheet" />
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+}
+
+<div class="omni-layout-body discount-detail-page">
+    <div class="omni-layout-body-md">
+        <div class="row no-gutters ui-title-bar-container" style="background-image:url(@Model.Image); background-size:cover;background-repeat:no-repeat;max-height:15rem; min-height:10rem; padding:1rem">
+            <div class="col align-items-center">
+                <p class="title-page"> @Html.DisplayFor(model => model.Name)</p>
+                @if (Model.Startus == true)
+                {
+                    <button onclick="StatusOn(@Model.Id,1)" class="btn btn-warning StartusDis">
+                        Dừng kích hoạt
+                    </button>
+                }
+                else
+                {
+                    <button onclick="StatusOn(@Model.Id,2)" class="btn btn-warning StartusDis">
+                        Kích hoạt
+                    </button>
+                }
+
+            </div>
+            <div class="col-auto pl-3">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--section">
+                                <div><label>Mô tả</label>
+                                    @if (Model.Description != null)
+                                    {
+                                        @(new HtmlString(Model.Description.ToString()))
+                                        
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Thời Gian Hiệu Lực</span></div>
+                            <div class="omni-layout-card--section">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="mb-2">Thời gian bắt đầu</div>
+                                        <div class="hrv-daterangepicker hrv-daterangepicker--disabled">
+                                            <div class="hrv-daterangepicker--input">
+                                                <div class="hrv-daterangepicker--content">
+                                                    <div class="hrv-daterangepicker--time">@Html.DisplayFor(model => model.TimeOn)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="next-input-checkbox mb-2 input-disabled">
+                                            <label class="next-label--switch" for="endtime">Có thời gian kết thúc</label>                                            
+                                        </div>
+                                        <div class="hrv-daterangepicker hrv-daterangepicker--disabled">
+                                            <div class="hrv-daterangepicker--input">
+                                                <div class="hrv-daterangepicker--content">
+                                                    <div class="hrv-daterangepicker--time">@Html.DisplayFor(model => model.TimeOff)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                     
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Giảm giá sản phẩm</span></div>
+                            <div class="omni-layout-card--section">
+                                <div class="d-flex">
+                                    <div class="w-50">
+                                        <label class="mb-4">Mức giảm</label>
+                                        <div class="d-flex">
+                                            <div class="discount-value--input-discount-take shipping-discount--input-value mr-2">
+                                                <div class="quantity-decimal_wrapper position-relative">
+                                                    <div class="next-input--disabled"><input type="text" id="quantity" class="next-input text-left min-width-100px position-relative quantity-decimal" placeholder=" " disabled="" max="0" step="any" value="@Html.Raw(String.Format("{0:#,0.}",Model.Discount1))"></div>
+                                                </div>
+                                            </div>
+                                            @if (Model.Discount1 <= 100)
+                                            {
+                                                <div class="next-input--disabled shipping-discount--input-select w-60px next-input--disabled"><input autocomplete="on" type="text" class="next-input text-center min-width-50px" placeholder="Loại giảm" disabled="" step="1" value="%"></div>
+
+                                            }
+                                            else
+                                            {
+                                                <div class="next-input--disabled shipping-discount--input-select w-60px next-input--disabled">
+                                                    <input autocomplete="on" type="text" class="next-input text-center min-width-50px" placeholder="Loại giảm" disabled="" step="1" value="VND">
+                                                    </div>
+
+                                            }
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Sản phẩm áp dụng</span></div>
+                            <div class="omni-layout-card--section">
+                                @if (product.Count == 0)
+                                {
+                                    <span class="text-lowercase">Tất cả Sản phẩm</span>
+                                }
+                                else
+                                {                                    
+                                 <span class="text-lowercase">@product.Count Sản phẩm</span>
+                                    <div class="pt-16">
+                                    <div>
+                                        <div class="ui-popover-control ui-popover-dropdown--fullWidth">
+                                            <div class="ui-popover-dropdown ui-popover-dropdown-bottom">
+                                                <div class="ui-popover-header"></div>                                               
+                                                 
+                                            </div>
+                                        </div>
+                                        <div class="table-choose-collections">
+                                            <ul data-bind="foreach: selectedItems" class="list-divided-border mt-2">
+                                                    @foreach(var item in product)
+                                                    {
+                                                        string url = "/" + item.Product.Alias + "-" + item.Product.ProductId + "";
+                                                        <li class="py-3 border-bottom">
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <div class="mr-4 table-cell--image"><img class="box-image" src="@item.Product.Avatar" width="60px"></div>
+                                                                    <div class="my-auto"><a class="" href="@url">@item.Product.ProductName</a></div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Sản phẩm quà tặng</span></div>
+                            <div class="omni-layout-card--section">
+                                @if (Gift.Count==0)
+                                {
+                                    <span class="text-lowercase">Không áp dụng sản phẩm khuyến mãi</span>
+                                }
+                                else
+                                {
+                                    <span class="text-lowercase">@Gift.Count Sản phẩm</span>
+                                    <div class="pt-16">
+                                        <div>
+                                            <div class="ui-popover-control ui-popover-dropdown--fullWidth">
+                                                <div class="ui-popover-dropdown ui-popover-dropdown-bottom">
+                                                    <div class="ui-popover-header"></div>
+
+                                                </div>
+                                            </div>
+                                            <div class="table-choose-collections">
+                                                <ul data-bind="foreach: selectedItems" class="list-divided-border mt-2">
+                                                    @foreach (var item in Gift)
+                                                    {                                                        
+                                                        <li class="py-3 border-bottom">
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <div class="mr-4 table-cell--image"><img class="box-image" src="@item.ProductGift.Avatar" width="60px"></div>
+                                                                    <div class="my-auto"><a class="" href="@item.ProductGift.Alias">@item.ProductGift.Name</a></div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Điều kiện tối thiểu</span></div>
+                            <div class="omni-layout-card--section">
+                                    @if (Model.ConditionCheck)
+                                    {
+                                    <span> không yêu cầu</span>
+                                }
+                                else
+                                {
+                                    <p> @Html.Raw(String.Format("{0:#,0.}",Model.Money))VND</p>
+                                    <p> @Model.ProductCount sản phẩm</p>                               
+
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header"><span class="header-title">Đối tượng khách hàng</span></div>
+                        @if (ViewBag.customer.Count < 1)
+                        {
+                        <div class="omni-layout-card--section border-0"><span class="">Không giới hạn khách hàng</span></div>
+                            
+                        }
+                        @if (ViewBag.customer.Count > 1)
+                        {
+                            <div class="omni-layout-card--section border-0"><span class="">Giới hạn @Html.Raw(String.Format("{0:#,0.}", ViewBag.customer.Count)) khách hàng</span></div>
+
+                        }
+                    </div>
+                    
+                    <div>
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Giới hạn sử dụng</span></div>
+                            <div class="omni-layout-card--section">
+                                Giới hạn tổng số lần có thể sử dụng khuyến mãi
+                                <div class="next-input--disabled my-4 w-50"><input class="next-input text-left min-width-100px" disabled="" step="1" value="@Html.Raw(String.Format("{0:#,0.}", @Model.Sum))"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding-container">
+                        <p class="order-history--title">Lịch sử</p>
+                        <div class="activity-log historyContent">
+                                @if (ViewBag.his.Count > 0)
+                                {
+                                    foreach (var item in ViewBag.his)
+                                    {
+                                        <div class="timeline-item">
+                                            <div class="timeline-body">
+                                                <div class="timeline__message-container">
+                                                    <div class="timeline__inner-message">
+                                                        <p class="mb-2">@item.Description   | <span>@item.TimeCreate</span></p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
+                        </div>
+                    </div>
+                    <form asp-action="Deleteitem">
+                        <input type="hidden" asp-for="Id" />
+                        <input class="btn btn-danger" type="submit" value="Xóa khuyến mãi"/>
+                        <a class="btn btn-primary" asp-action="Index">Quay về</a>
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="discount--right-column">
+                    <div class="omni-layout-card card-secondary">
+                        <div class="omni-layout-card--header"><span class="header-title">Tóm tắt</span></div>
+                        <div class="omni-layout-card--section">
+                            <div class="d-flex mb-4"><span class="h2 word-break"> @Html.DisplayFor(model => model.Name)</span></div>
+                            <div class="mb-4">
+                                @if (Model.Startus == true)
+                                {
+                                    <span class="omni-badge badge-light-default badge-M">Đang kích hoạt</span>
+                                }else
+                                {
+                                    <span class="omni-badge badge-light-default badge-M">Đang dừng kích hoạt</span>
+                                }
+
+                           </div>
+                             
+                            <div class="d-flex justify-content-between"><strong>Chi tiết</strong></div>
+                            <div class="pl-4 m-4 discount-summary">
+                                <ul>
+                                    @{
+                                        var dis = "VND";
+                                        var text = "Không giới hạng sử dụng";
+                                        var text2 = "Không giới hạng khách hàng";
+                                        @if (Model.Discount1 <= 100)
+                                        {
+                                            dis = "%";
+                                        }
+                                        if (Model.MaxApply > 0)
+                                        {
+                                            text = "Giới hạn sử dụng " + Model.MaxApply + " lần";
+                                        }
+                                        if (customer.Count > 0)
+                                        {
+                                            text2 = "Giới hạn sử dụng với" + customer.Count + " khách hàng";
+                                        }
+                                        var text4 = "tất cả sản phẩm";
+                                        if (product.Count > 0)
+                                        {
+                                            text4 = product.Count + " sản phẩm";
+                                        }
+                                    }
+                                    <li class="mb-2 discount-summary--text-capitalize">Giảm giá @Html.Raw(String.Format("{0:#,0.}",@Model.Discount1)) @dis   cho  @text4</li>
+                                    <li class="mb-2 discount-summary--text-capitalize">@text</li>
+                                    <li class="mb-2 discount-summary--text-capitalize">@text2</li>                               
+                                    <li class="mb-2">Có hiệu lực từ @Model.TimeOn - @Model.TimeOff</li>
+                                </ul>
+                            </div>
+                            <div class="d-flex flex-column mt-4 border-top">
+                                @if (ViewBag.his.Count > 0)
+                                {
+                                    int check = 0;
+                                    foreach (var item in ViewBag.his)
+                                    {
+                                        if (check == 0)
+                                        {
+                                             
+                                            <span class="mt-2"> @item.Description vào @item.TimeCreate</span>
+                                        }
+                                        check=1; 
+                                    }
+                                }
+                                
+                                </div>
+                        </div>
+                    </div>
+                  
+                    <div class="omni-layout-card card-secondary">
+                        <div class="omni-layout-card--header"><span class="header-title">Cài đặt</span></div>
+                        <div class="omni-layout-card--section">
+                            <div class="d-flex flex-row">
+                                <div class="form-group d-flex align-items-center">
+                                    <div class="switch m-r-10">
+                                        @if (Model.ShowWeb == true)
+                                        {
+                                            <input class="showWebOn @Model.Id" onclick="showWebOn(@Model.Id)" type="checkbox" id="switch-1" checked="">
+                                            <label for="switch-1"></label>
+                                        }
+                                        else
+                                        {
+                                            <input class="showWebOn @Model.Id" onclick="showWebOn(@Model.Id)" type="checkbox" id="switch-1">
+                                            <label for="switch-1"></label>
+                                        }
+                                    </div>                                  
+                                </div>
+                                <div class="ml-3 align-self-center">
+                                    <span>Hiển thị trên website</span>                                     
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ @section Scripts{
+    <script>
+        //$('.showWebOn').on('click',function(){
+        //    if($(this).is(':checked')){
+        //        console.log($(this).attr('class'));
+        //    }
+        //})
+        function showWebOn(id){
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Edit","AdminDiscounts")',
+                dataType: "Json",
+                data: {
+                    id: id,
+                    option:1
+                },
+                success: function (data) {
+                    if (data.success=="Ok"){
+                        location.reload();
+                    }
+                }
+
+            })
+        }
+        function StatusOn(id,id2) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Edit","AdminDiscounts")',
+                dataType: "Json",
+                data: {
+                    id: id,
+                    option: 2
+                },
+                success: function (data) {
+                    if (data.success == "Ok") {
+                        location.reload();
+                    }
+                }
+
+            })
+        }
+       
+    $(document).ready(function () {
+        
+    });
+    </script>
+ }

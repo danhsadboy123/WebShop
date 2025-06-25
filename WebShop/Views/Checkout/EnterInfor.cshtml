@@ -1,0 +1,421 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<WebShop.ModelViews.CartItem> Carts = ViewBag.GioHang;
+    ViewData["Title"] = "Kiểm tra thông tin giao hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var total = 0;
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
+                <a class="breadcrumb-item text-dark" href="#">Giỏ hàng</a>
+                <span class="breadcrumb-item active">Mua hàng</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+@if (Carts!=null)
+{
+    <!-- Checkout Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Thông tin địa chỉ người nhận hàng</span></h5>
+                <div class="bg-light p-30 mb-5">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Họ và tên </label>
+                            <input class="form-control" type="text" id="Fullname" placeholder="Nhập họ tên ">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" type="text" id="Email" placeholder="example@email.com">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Số điện thoại</label>
+                            <input class="form-control" type="text" id="Phone" placeholder="+123 456 789">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Thành phố</label>
+                            <select class="custom-select selected-province">
+                                <option>Tỉnh / Thành phố</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Quận/Huyện</label>
+                            <select class="custom-select selected-district">
+                                <option>Chọn quận huyện</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Phường xã</label>
+                            <select class="custom-select selected-ward">
+                                <option>Chọn phường xã</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Địa chỉ chi tiết</label>
+                            <input class="form-control" id="Address" type="text" placeholder="Tên đường, số nhà,...">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="shipto">
+                                <label class="custom-control-label" for="shipto" data-toggle="collapse" data-target="#shipping-address">Xuất hóa đơn công ty</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* xuất hóa đơn công ty*@
+              @*  <div class="collapse mb-5" id="shipping-address">
+                    <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Shipping Address</span></h5>
+                    <div class="bg-light p-30">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>First Name</label>
+                                <input class="form-control" type="text" placeholder="John">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Last Name</label>
+                                <input class="form-control" type="text" placeholder="Doe">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>E-mail</label>
+                                <input class="form-control" type="text" placeholder="example@email.com">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Mobile No</label>
+                                <input class="form-control" type="text" placeholder="+123 456 789">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Address Line 1</label>
+                                <input class="form-control" type="text" placeholder="123 Street">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Address Line 2</label>
+                                <input class="form-control" type="text" placeholder="123 Street">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Tỉnh/ thành phố</label>
+                                <select class="custom-select selected-province">
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Tỉnh/ thành phố</label>
+                                <select class="custom-select selected-ward">
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>City</label>
+                                <input class="form-control" type="text" placeholder="New York">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>State</label>
+                                <input class="form-control" type="text" placeholder="New York">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>ZIP Code</label>
+                                <input class="form-control" type="text" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+            <div class="col-lg-4">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Chi tiết đơn hàng</span></h5>
+                <div class="bg-light p-30 mb-5">
+                    <div class="border-bottom">
+                        <h6 class="mb-3">Sản phẩm</h6>
+
+                        @foreach (var item in Carts)
+                        {
+                            var totalProduct = item.amount * item.product.SalePrice;
+                            total = (int)totalProduct + total;
+                            <div class="d-flex justify-content-between">
+                                <div class="item-pro-cart d-flex">
+                                    <a href="/@item.product.Alias-@item.product.ProductId" class="p-n-img col-3">
+                                        <img class="w-100 h-auto" src="@item.product.Avatar" alt="@item.product.Alias">
+                                    </a><div class="p-n-info">
+                                        <a href="/@item.product.Alias-@item.product.ProductId" class="p-n-name">@item.product.ProductName</a>
+                                        <div class="p-n-quan">SL: @item.amount</div>
+                                    </div>
+                                    <div class="p-n-price">@totalProduct?.ToString("N0") VNĐ</div>
+                                </div>
+
+
+                            </div>
+                        }
+                    </div>
+                    <div class="border-bottom pt-3 pb-2">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Vận chuyển</h6>
+                            <h6 class="font-weight-medium">0 NVĐ</h6>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5>Tổng tiền</h5>
+                            <h5>@total.ToString("N0") VNĐ</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Thanh toán</span></h5>
+                    <div class="bg-light p-30">
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="paypal" value="1">
+                                <label class="custom-control-label" for="paypal">VN Pay </label>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer" value="2">
+                                <label class="custom-control-label" for="banktransfer">Thanh toán khi nhận hàng</label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-block btn-primary font-weight-bold py-3 btnprintQuotion"><i class="fa fa-print" aria-hidden="true"></i> In báo giá</button>
+                        <button class="btn btn-block btn-success font-weight-bold py-3 btn-save-Order">Đặt hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*input hidden*@
+    <input type="hidden" id="ProvinceId">
+    <input type="hidden" id="DistrictId">
+    <input type="hidden" id="WardId">
+
+}
+else
+{
+    <div class="container-fluid text-center">
+    <a href="/"  >Bạn chưa có sản phẩm nào</a>
+    </div>
+}
+
+<!-- Checkout End -->
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: "/AccountAddresses/GetProvince", // Đường dẫn chính xác đến action GetProvince
+                type: "GET",
+                success: function (response) {
+                    console.log(response);
+                    if (response && response.length > 0) { 
+                        var $provinceSelect = $('.selected-province');  
+                        $provinceSelect.empty();  
+                        $provinceSelect.append('<option value="">Chọn tỉnh/thành phố</option>');  
+                        $.each(response, function (index, province) {
+                            $provinceSelect.append('<option value="' + province.provinceId + '">' + '' + province.type + ' ' + province.provinceName + '</option>');
+                        });
+                    }
+                },
+                error: function (error) {
+                    console.error("Có lỗi xảy ra:", error);
+                }
+            });
+        });
+        $('.selected-province').on('change', function () {
+            $('#ProvinceId').val($(this).val());
+            var provinceId = $(this).val();   
+            if (provinceId) { // Kiểm tra nếu có tỉnh/thành phố được chọn
+                $.ajax({
+                    url: "/AccountAddresses/GetDistricts", // Đường dẫn chính xác đến action GetDistricts
+                    type: "GET",
+                    data: { ProvinceId: provinceId }, // Gửi id của tỉnh
+                    success: function (response) {
+                        console.log(response);
+                        if (response && response.length > 0) {
+                            var $districtSelect = $('.selected-district');
+                            $districtSelect.empty();
+                            $districtSelect.append('<option value="">Chọn quận/huyện</option>'); // Thêm tùy chọn mặc định
+
+                            $.each(response, function (index, district) {
+                                $districtSelect.append('<option value="' + district.districtId + '">' + '' + district.type + ' ' + district.districtName + '</option>');
+                            });
+                        }
+                    },
+                    error: function (error) {
+                        console.error("Có lỗi xảy ra:", error);
+                    }
+                });
+            }
+        });
+
+        // Khi quận/huyện được chọn
+        $('.selected-district').on('change', function () {
+            $('#DistrictId').val($(this).val());
+            var districtId = $(this).val(); // Lấy id của quận/huyện được chọn
+            console.log(districtId);
+            if (districtId) {
+                $.ajax({
+                    url: "/AccountAddresses/GetWards", // Đường dẫn chính xác đến action GetWards
+                    type: "GET",
+                    data: { DistrictId: districtId }, // Gửi id của quận/huyện
+                    success: function (response) {
+                        console.log(response);
+                        if (response && response.length > 0) {
+                            var $wardSelect = $('.selected-ward');
+                            $wardSelect.empty();
+                            $wardSelect.append('<option value="">Chọn phường/xã</option>'); // Thêm tùy chọn mặc định 
+                            $.each(response, function (index, ward) {
+                                $wardSelect.append('<option value="' + ward.wardId + '">' + '' + ward.type + ' ' + ward.wardName + '</option>');
+                            });
+                        }
+                    },
+                    error: function (error) {
+                        console.error("Có lỗi xảy ra:", error);
+                    }
+                });
+            }
+        });
+        $('.selected-ward').on('change',function(){
+            $('#WardId').val($(this).val());
+            
+        })
+
+        $('.btnprintQuotion').on('click', function() {
+            var ProvinceId = $('#ProvinceId').val();
+            var DistrictId = $('#DistrictId').val();
+            var WardId = $('#WardId').val();
+            var Fullname = $('#Fullname').val();
+            var Email = $('#Email').val();
+            var Phone = $('#Phone').val();
+            var Address = $('#Address').val(); // Nếu có trường địa chỉ
+
+            console.log(ProvinceId, DistrictId, WardId, Fullname, Email, Phone);
+
+           
+         // Biểu thức chính quy cho email và số điện thoại
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            var phoneRegex = /^(0[0-9]{9})$/;
+
+
+            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && Fullname !== "" && emailRegex.test(Email) && phoneRegex.test(Phone)) {
+                $.ajax({
+                    url: "/PrintQuotation", // Đường dẫn đến action
+                    type: "GET",
+                    data: {
+                        code: '', // Nếu có mã giảm giá, bạn có thể lấy từ một input
+                        FullName: Fullname,
+                        Phone: Phone,
+                        Email: Email,
+                        ProvinceId: ProvinceId,
+                        DistrictId: DistrictId,
+                        WardId: WardId,
+                        Address: Address // Địa chỉ
+                    },
+                    success: function(response) {
+                        //console.log(response); 
+                        // Tạo URL với các tham số cần thiết
+                        var url = `/PrintQuotation?code=&FullName=${encodeURIComponent(Fullname)}&Phone=${encodeURIComponent(Phone)}&Email=${encodeURIComponent(Email)}&ProvinceId=${ProvinceId}&DistrictId=${DistrictId}&WardId=${WardId}&Address=${encodeURIComponent(Address)}`;
+
+                        // Mở URL trong cửa sổ mới
+                        window.open(url, '_blank');
+                    },
+                    error: function(error) {
+                        console.error("Có lỗi xảy ra:", error);
+                    }
+                });
+            } else {
+                alert('Vui lòng nhập đầy đủ thông tin hợp lệ');
+            }
+            });
+
+
+        $('.btn-save-Order').on('click',function(){
+            var idPay = $('input[name="payment"]:checked').val(); // Lấy giá trị của radio button đã chọn
+
+            var ProvinceId = $('#ProvinceId').val();
+            var DistrictId = $('#DistrictId').val();
+            var WardId = $('#WardId').val();
+            var Fullname = $('#Fullname').val();
+            var Email = $('#Email').val();
+            var Phone = $('#Phone').val();
+            var Address = $('#Address').val(); // Nếu có trường địa chỉ
+            // Biểu thức chính quy cho email và số điện thoại
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            var phoneRegex = /^(0[0-9]{9})$/;
+
+            console.log(idPay);
+            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && Fullname !== "" && emailRegex.test(Email) && phoneRegex.test(Phone)) {
+                if (idPay == undefined) {
+                    alert('Vui lòng chọn hình thức thanh toán');
+                }
+                if (idPay ==1) { // Thanh toán qua VN Pay
+                    alert("Hình thức này đang trong quá trình test vui lòng không thanh toán thực tế bằng hình thức này !");
+                    const PaymentInfor = {
+                        OrderType: "Thanh toán",
+                        Amount: 0,
+                        OrderDescription: "Thanh toán VNPAY",
+                        Name: "Người dùng thanh toán",
+                        FullName: Fullname,
+                        Phone: Phone,
+                        Email: Email,
+                        ProvinceId: ProvinceId,
+                        DistrictId: DistrictId,
+                        WardId: WardId,
+                        Address: Address
+                    };
+
+                    $.ajax({
+                        url: "/Pays",
+                        type: "POST",
+                        contentType: "application/json",
+                        data: JSON.stringify(PaymentInfor),
+                        success: function (response) {
+                            console.log(response);
+                            // Chuyển hướng nếu thành công
+                            window.location.href = response; // URL nhận được từ VNPAY
+                        },
+                        error: function (error) {
+                            console.error("Có lỗi xảy ra:", error);
+                        }
+                    });
+                }
+                if (idPay == 2) { // Thanh toán khi nhận hàng
+                    // Xử lý thanh toán khi nhận hàng
+                    $.ajax({
+                        url: "/save-Order",
+                        type: "POST",
+                        data: {
+                            FullName: Fullname,
+                            Phone: Phone,
+                            Email: Email,
+                            ProvinceId: ProvinceId,
+                            DistrictId: DistrictId,
+                            WardId: WardId,
+                            Address: Address
+                        },
+                        success: function (response) {
+                            console.log(response);
+                            if (response.success == true) {
+                                window.location.href = "/OrderSuccess";
+                            }
+                            if (response.success == false)
+                            {
+                                alert(response.message);
+                            }
+                        },
+                        error: function (error) {
+                            console.error("Có lỗi xảy ra:", error);
+                        }
+                    });
+                }
+            } else {
+                alert('Vui lòng nhập đầy đủ thông tin hợp lệ');
+            }
+
+        });
+    </script>
+}

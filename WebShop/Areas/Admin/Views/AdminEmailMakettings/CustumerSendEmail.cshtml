@@ -1,0 +1,416 @@
+﻿ 
+@model PagedList.Core.IPagedList<WebShop.Models.Customer>
+@using PagedList.Core.Mvc
+@{
+    ViewData["Title"] = "Danh sách tài khoản khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section Styles{
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        .spinner-border {
+            display: none;
+        }
+
+        .dataTables_filter label {
+            display: none
+        }
+
+        #errEmail {
+            display: none;
+        }
+
+        
+    </style>
+    
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+        <a class="breadcrumb-item">Chăm sóc khách hàng</a>
+        <span class="breadcrumb-item active">Khách hàng hệ thống</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-6">
+ 
+                    @using (Html.BeginForm("CustumerSendEmail", "AdminEmailMakettings"))
+                    {
+                    <label for="OptionEmailID">Tìm kiếm</label>
+                    <div class="input-affix v-10">
+                        <input id="inputText" name="search" type="text" class="form-control" placeholder="Nhập tên Khách hàng">
+                    
+                    </div>
+                    }
+            </div>
+            <div class="col-lg-4">
+                    <label for="OptionEmailID">Chọn mẫu thư</label>
+                <select class="custom-select" id="OptionEmailID" name="OptionEmailID" style="min-width: 200px;">
+                    @if (ViewBag.Email != null)
+                    {
+                        foreach (var item in ViewBag.Email)
+                        {
+                           
+                            <option value="@item.EmailId" selected>@item.Title</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <label for="OptionEmailID">Xem trước và cài đặt</label>
+                <div class="row">
+                    <button type="button" class="btn btn-secondary btn-tone" data-toggle="modal" data-target="#exampleModalLongIsEmail" onclick="viewEmail()"><i class="anticon anticon-eye"></i></button>
+                    <div>
+                        <a data-toggle="modal" data-target="#exampleModalLongOPtionmail"><i class="btn btn-primary anticon anticon-setting"></i></a>
+                    </div>
+                </div>
+            </div>
+                     
+
+        </div>
+        <div class="row m-b-30">
+            <div class="col-lg-12">
+                <div class="d-md-flex">              
+                    <div class="m-b-15">
+                        <a style="color:white" class="btn btn-secondary" id="ClickAllEmail" onclick="SendAllEmail()"><i class="fa-sharp fa-regular fa-paper-plane"></i> <span>Gửi thư tất cả</span></a>
+                        <div id="loadAllEmail" class="spinner-border text-primary" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        <span id="errEmail">Liên hệ Sunhitech lỗi gửi email</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table id="data-table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Họ và tên</th>
+                        <th>Email</th>
+                        <th>Điện thoại</th>
+                        <th>Sinh nhật</th>
+                        <th>Trạng thái</th>
+                        <th>Hộp thư</th>
+                         
+                    </tr>
+                </thead>
+                <tbody class="checkinput">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            if (item.Email != null)
+                            {
+                                <tr>
+                                    <td>
+                                        <input type="hidden" value="@item.CustomerId">
+                                        <p type="hidden"></p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+ 
+                                            <h6 class="m-b-0 m-l-10">@item.FullName</h6>
+                                        </div>
+                                    </td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.Birthday</td>
+                                    <td>
+                                        @if (item.Active)
+                                        {
+                                            <div class="d-flex align-items-center">
+                                                <div class="badge badge-success badge-dot m-r-10"></div>
+                                                <div>Active</div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="d-flex align-items-center">
+                                                <div class="badge badge-success badge-dot m-r-10"></div>
+                                                <div>Blog</div>
+                                            </div>
+                                        }
+                                    </td>
+                                    <td class="d-flex align-items-center">
+                                        <a class="btn btn-secondary btn-tone m-r-5 @item.CustomerId" id="@item.CustomerId+click" onclick=OneSend(@item.CustomerId) ><i class="anticon anticon-mail"></i></a>
+                                        
+                                        <div id="@item.CustomerId" class="spinner-border text-primary" role="status">
+                                            <span class="sr-only"></span>
+                                        </div>
+                                        
+                                      
+                                        <!-- Modal -->
+                                        <a data-target="#modal-header" data-toggle="modal" class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminEmailMakettings" asp-action="ListEmailCustomer" asp-route-id="@item.CustomerId"><i class="anticon anticon-eye"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>            
+        </div>
+    </div>
+</div>
+<div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+@*view email*@
+<div class="modal fade bd-example-modal-lg" id="exampleModalLongOPtionmail">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="exampleModalLongTitle">
+                    <h5>
+                        Danh sách email
+                        <a class="btn btn-primary m-r-5" asp-controller="AdminEmailMakettings" asp-action="Create" asp-route-url="CustumerSendEmail"><i class="anticon anticon-plus m-r-5"></i><span>Tạo mẫu thư</span></a>
+                    </h5>
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <table class="display" style="width:100%">
+                    <thead>
+                    <th>Id</th>
+                    <th>Tên mẫu Email</th>
+                    <th width="20%">#</th>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in ViewBag.Email)
+                        {
+                            <tr>
+                                <td>@item.EmailId</td>
+                                <td>
+                                    @item.Title
+                                </td>
+                                <td class="option">
+                                    <div class="btn-group" dropdown>
+                                        <button type="button" class="btn btn-secondary btn-tone" data-toggle="modal" data-target="#exampleModalLongIsEmail" onclick="viewEmail1(@item.EmailId)"><i class="anticon anticon-eye"></i></button>
+
+                                        <a class="btn btn-secondary btn-tone" asp-action="Edit" asp-route-id="@item.EmailId" asp-route-url="CustumerSendEmail" asp-controller="AdminEmailMakettings">
+                                            <i class="anticon anticon-edit"></i>
+                                        </a>
+                                        <a onclick="DeleteEmail(@item.EmailId)" class="btn btn-danger btn-tone">
+                                            <i class="anticon anticon-delete"> </i>
+                                        </a>
+                                    </div>
+
+
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@*is email*@
+<div class="modal fade bd-example-modal-lg" id="exampleModalLongIsEmail">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="exampleModalLongTitleIsEmail">
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body isemail">
+            </div>
+            <div class="modal-body ViewEdit">
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".isemail img").css('width', '100%');
+            var table = $('#data-table').DataTable({
+                language: {
+                    search: "Tìm kiếm",
+                    lengthMenu: "Hiển thị _MENU_",
+                    zeroRecords: "Không tìm thấy",
+                    info: "Hiển thị từ _START_ đến _END_ trong _TOTAL_ khách hàng",
+                    infoEmpty: "",
+                    infoFiltered: "",
+                    paginate: {
+                        "previous": "Trước",
+                        "next": "Sau"
+                    }
+                },
+
+            });
+
+            $('#inputText').keyup(function () {
+                table.search($(this).val()).draw();
+            })
+            
+        });
+        function DeleteEmail(id) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Delete","AdminEmailMakettings")',
+                dataType: "Json",
+                data: {
+                    id: id,
+                },
+                success: function (data) {
+                    if (data.success == "Ok") {
+                        alert("Xóa thành công");
+                        location.reload();
+                    }
+                    if (data.success == "No") {
+                        alert("Xóa không thành công");
+                    }
+
+
+                }
+
+            });
+        }
+        function viewEmail() {
+            var option = $("#OptionEmailID").val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("ViewEmail","AdminEmailMakettings")',
+                dataType: "Json",
+                data: {
+                    option: option
+                },
+                success: function (data) {
+                    $("#exampleModalLongTitleIsEmail").html(data.value.title)
+                    $(".isemail").html(data.value.body)
+                    $(".isemail img").css('width', '100%');
+                    $(".ViewEdit").html('<div class="btn-group" dropdown>'
+                        + '<a class="btn btn-secondary btn-tone" href="/Admin/AdminEmailMakettings/Edit/' + option + '?url=CustumerSendEmail">'
+                        + '<i class="anticon anticon-edit"></i></a>'
+                        + '<a onclick ="DeleteEmail(' + option + ')" class="btn btn-danger btn-tone">'
+                        + '<i class="anticon anticon-delete"> </i></a>'
+                        + '</div>')
+                }
+
+            })
+        }
+        function viewEmail1(id) {
+            var option = id;
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("ViewEmail","AdminEmailMakettings")',
+                dataType: "Json",
+                data: {
+                    option: option
+                },
+                success: function (data) {
+                    $("#exampleModalLongTitleIsEmail").html(data.value.title)
+                    $(".isemail").html(data.value.body)
+                    $(".isemail img").css('width', '100%');
+                    $(".ViewEdit").html('<div class="btn-group" dropdown>'
+                        + '<a class="btn btn-secondary btn-tone" href="/Admin/AdminEmailMakettings/Edit/' + id + '?url=CustumerSendEmail">'
+                        + '<i class="anticon anticon-edit"></i></a>'
+                        + '<a onclick ="DeleteEmail(' + id + ')" class="btn btn-danger btn-tone">'
+                        + '<i class="anticon anticon-delete"> </i></a>'
+                        + '</div>')
+                }
+
+            })
+        }
+        function SendAllEmail(){
+            var OptionEmailID = $('#OptionEmailID').find(":selected").val();
+            var search = $("#searchcustummer").val();
+            $('#ClickAllEmail').css("display", "none");
+            $('#loadAllEmail').css("display", "block");
+            
+            $.ajax({
+                type: 'GET',
+                url: 'SendAllEmail',
+                dataType: "Json",
+                data: {
+                    OptionEmailID: OptionEmailID,
+                    sreach:search
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data.succses=="Ok"){
+                    $('#ClickAllEmail').css("display", "block");
+                    $('#loadAllEmail').css("display", "none");
+
+                    }
+                    else{
+                        $('#errEmail').css("display", "block");
+                    }
+                }
+            })
+        }
+       
+        
+        // gửi 1 email
+        function OneSend(userId){
+            var date = new Date();
+            var date = String(date);
+            
+            var c= $("#allSend").value;
+            var OptionEmailID = $('#OptionEmailID').find(":selected").val();
+            console.log(userId, OptionEmailID)
+            $('#' + userId).css("display","block");
+            $('.' + userId).css("display", "none");
+            $.ajax({
+                type: 'GET',
+                url: 'SendEmail',
+                dataType:"Json",
+                data: {
+                    userId: userId,
+                    OptionEmailID: OptionEmailID,
+                },
+                success: function (data){
+                    if (data.succses!="Ok"){
+                        alert("Lỗi gửi email vui lòng liên hệ hổ trợ")
+                    }
+                    $('#' + userId).css("display", "none");
+                    $('.' + userId).css("display", "block");
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("CreateApi","AdminEmailAttributes")',
+                        dataType: "Json",
+                        data: {
+                            CustumerId: userId,
+                            Body: data.value,
+                            
+                        },
+                        success: function (data) {
+                             
+                        }
+                    })
+                }
+            })
+        }
+        
+        // xem nhung thu da gui
+      
+        $('#modal-header').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var url = button.attr("href");
+            var modal = $(this);
+            // note that this will replace the content of modal-content ever time the modal is opened
+            console.log(url);
+            modal.find('.modal-content').load(url);
+        });
+    </script>
+}

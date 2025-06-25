@@ -1,0 +1,289 @@
+﻿@model WebShop.Models.Customer
+
+@{
+    ViewData["Title"] = "Thông tin khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Order> lsOrders = ViewBag.lsOrders;
+}
+@section Styles{
+    <style>
+        .status-label {
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+            .status-label.processing {
+                background-color: #FFD700;
+            }
+
+            .status-label.confirm {
+                background-color: #20B2AA;
+            }
+
+            .status-label.deliver {
+                background-color: grey;
+            }
+
+            .status-label.success {
+                background-color: #32CD32;
+            }
+
+            .status-label.failed {
+                background-color: #FF0000;
+            }
+    </style>
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Khách hàng</a>
+            <span class="breadcrumb-item active">@Model.FullName</span>
+        </nav>
+    </div>
+</div>
+<div>
+    <a asp-action="Index" style="color:#3f87f5; text-decoration:underline">Quay lại</a>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card" style="margin-top:12px">
+            <div class="card-header">
+                <div class="row justify-content-between">
+                    <h4>Thông tin khách hàng</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="d-md-flex align-items-center">
+                            <div class="text-center text-sm-left ">
+                                <div class="avatar avatar-image" style="width: 100px; height:100px">
+                                    <img src="~/Adminassets/images/avatars/thumb-3.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="text-center text-sm-left m-v-15 p-l-30 w-100">
+                                <h2 class="m-b-5">@Model.FullName</h2>
+                                <div class="col">
+                                    <ul class="list-unstyled m-t-10">
+                                        <li class="row">
+                                            <p class="col-sm-4 col-4 font-weight-semibold text-dark m-b-5">
+                                                <i class="m-r-10 text-primary anticon anticon-mail"></i>
+                                                <span>Email: </span>
+                                            </p>
+                                            <p class="col font-weight-semibold">@Model.Email</p>
+                                        </li>
+                                        <li class="row">
+                                            <p class="col-sm-4 col-4 font-weight-semibold text-dark m-b-5">
+                                                <i class="m-r-10 text-primary anticon anticon-phone"></i>
+                                                <span>Số điện thoại: </span>
+                                            </p>
+                                            <p class="col font-weight-semibold"> @Model.Phone</p>
+                                        </li>
+                                       
+                                        <li class="row">
+                                            <p class="col-sm-4 col-5 font-weight-semibold text-dark m-b-5">
+                                                <i class="m-r-10 text-primary anticon anticon-compass"></i>
+                                                <span>Địa chỉ: </span>
+                                            </p>
+                                            @if (Model.AccountAddresses.Count > 0 && Model.AccountAddresses != null)
+                                            {
+                                                @foreach (var address in Model.AccountAddresses)
+                                                {
+                                                    if (address.IsDefault == true)
+                                                    {
+                                                        <p class="col font-weight-semibold">
+                                                            @address.Content, @address.Ward.WardName, @address.District.DistrictName, @address.Province.ProvinceName
+                                                        </p>
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <p class="col font-weight-semibold">
+                                                    Chưa cập nhật ...
+                                                </p>
+                                            }
+                                        </li>
+                                        <li class="row">
+                                            <p class="col-sm-4 col-5 font-weight-semibold text-dark m-b-5">
+                                                <i class="m-r-10 text-primary anticon anticon-compass"></i>
+                                                <span>Công ty: </span>
+                                            </p>
+                                            @if (Model.CompanyName != null)
+                                            {
+                                                <p class="col font-weight-semibold">
+                                                    @Model.CompanyName
+                                                </p>
+                                            }
+                                            else
+                                            {
+                                                <p class="col font-weight-semibold">
+                                                    -
+                                                </p>
+                                            }
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h4>Đơn hàng đã mua</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover e-commerce-table">
+                        <thead>
+                            <tr>
+                                <th>Mã hóa đơn</th>
+                                <th>Ngày đặt</th>
+                                <th>Tổng cộng</th>
+                                <th>Trạng thái</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (lsOrders != null)
+                            {
+                                foreach (var item in lsOrders)
+                                {
+                                    <tr>
+                                        <td>#@item.OrderId</td>
+                                        <td>@item.OrderDate</td>
+
+                                        <td>@item.TotalMoney.ToString("#,##0") VNĐ</td>
+                                        <td>
+                                            <div>
+                                                @{
+                                                    string statusClass;
+                                                    if (@item.DeliveryStatusId == 1)
+                                                    {
+                                                        statusClass = "processing";
+                                                    }
+                                                    else if (@item.DeliveryStatusId == 2)
+                                                    {
+                                                        statusClass = "confirm";
+                                                    }
+                                                    else if (@item.DeliveryStatusId == 3)
+                                                    {
+                                                        statusClass = "deliver";
+                                                    }
+                                                    else if (@item.DeliveryStatusId == 4)
+                                                    {
+                                                        statusClass = "success";
+                                                    }
+                                                    else
+                                                    {
+                                                        statusClass = "failed";
+                                                    }
+                                                }
+                                                <span class="status-label @statusClass">@item.DeliveryStatus.Status</span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a target="_blank" class="btn btn-primary btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Xem chi tiết" asp-area="Admin" asp-controller="AdminOrders" asp-action="Details" asp-route-id="@item.OrderId"><i class="anticon anticon-eye"></i></a>
+                                            @*<a data-target="#modal-header" data-toggle="modal" class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminOrders" asp-action="ChangeStatus" asp-route-id="@item.OrderId"><i class="anticon anticon-edit"></i></a>*@
+                                            @*<a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminOrders" asp-action="Edit" asp-route-id="@item.OrderId">Chỉnh sửa</a>
+                                    <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminOrders" asp-action="Delete" asp-route-id="@item.OrderId">Xóa</a>*@
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="margin-top:12px">
+            <div class="card-header">
+                <div class="row justify-content-between">
+                    <h4>Thống kê</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item p-h-0">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex">
+                                    <div>
+                                        <span class="text-muted font-size-14">Đơn hàng gần nhất</span>
+                                        @if(lsOrders.Count() > 0 && lsOrders != null)
+                                        {
+                                            <p>@lsOrders.First().OrderDate</p>
+                                        }
+                                    </div>
+                                </div>
+                                <h6 class="m-b-0">
+                                    @if (lsOrders.Count() > 0 && lsOrders != null)
+                                    {
+                                        <a target="_blank" asp-area="Admin" asp-controller="AdminOrders" asp-action="Details" asp-route-id="@lsOrders.Last().OrderId" class="text-blue">#@lsOrders.Last().OrderId</a>
+                                    }
+                                    else
+                                    {
+                                        <a>Chưa có</a>
+                                    }
+                                </h6>
+                            </div>
+                        </li>
+                        <li class="list-group-item p-h-0">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex">
+                                    <div>
+                                        <span class="text-muted font-size-14">Đã đặt</span>
+                                    </div>
+                                </div>
+                                <h6 class="m-b-0">
+                                    <a href="javascript:void(0);" class="text-dark">@lsOrders.Count() Đơn hàng</a>
+                                </h6>
+                            </div>
+                        </li>
+                        <li class="list-group-item p-h-0">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex">
+                                    <div>
+                                        <span class="text-muted font-size-13">Doanh thu tích lũy</span>
+                                    </div>
+                                </div>
+                                <span class="badge badge-pill badge-cyan font-size-12">
+                                    <span class="font-weight-semibold m-l-5"> VND</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="list-group-item p-h-0">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex">
+                                    <div>
+                                        <span class="text-muted font-size-13">Nợ phải thu</span>
+                                    </div>
+                                </div>
+                                <span class="badge badge-pill badge-red font-size-12">
+                                    <span class="font-weight-semibold m-l-5">0 VND</span>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-header" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+

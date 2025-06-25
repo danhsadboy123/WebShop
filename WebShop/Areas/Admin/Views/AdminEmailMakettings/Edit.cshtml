@@ -1,0 +1,250 @@
+﻿@model WebShop.Models.EmailMaketting
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var url = "CustumerSendEmail";
+    if (ViewBag.Url != null)
+    {
+        url = ViewBag.Url;
+    }
+}
+@section Styles{
+
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Adminassets/summernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/Adminassets/summernote/summernote.css" rel="stylesheet" />
+    <link href="~/Adminassets/vendors/select2/select2.css" rel="stylesheet">
+    <style type="text/css">
+        .spinner-border {
+            display: none;
+        }
+
+        .dataTables_filter label {
+            display: none
+        }
+
+        #errEmail {
+            display: none;
+        }
+
+        #show1 {
+            display: none;
+        }
+
+        .show1 {
+            display: none;
+        }
+
+         .note-group-select-from-files label{
+             display:none;
+         }
+
+        .note-group-select-from-files input {
+            display: none;
+        }
+    </style>
+}
+<h1>Sửa đổi Email</h1>
+
+<h4>EmailMaketting</h4>
+<hr /> 
+<div>   
+   
+    <form asp-action="Edit" asp-route-url="@url" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmailId" />
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="AcountId" class="control-label">Người tạo</label>
+                    <select class="custom-select" id="AcountId" name="AcountId">
+
+                @if (ViewBag.Account != null)
+                {
+                    <option value="@ViewBag.Account.AccountId" selected>@ViewBag.Account.FullName</option>
+
+                }
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label">Tiêu đề thư</label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                 
+            </div>
+        <div>
+            <ol>
+                <strong>Danh sách từ thay thế</strong>
+                <li>HovaTenKH:<i>(Trường họ và tên của khách hàng)</i> </li>
+                <li>TenCongTyKH:<i>(Trường tên công ty của khách hàng)</i> </li>
+                <li>EmailKH:<i>(Trường email của khách hàng)</i> </li>
+                <li>DiaChiKH: <i>(Trường địa chỉ của khách hàng)</i></li>
+                <li>SDTKH: <i>(Trường số điện thoại của khách hàng)</i></li>
+            </ol>
+            
+        </div>
+            <div class="col-md-12">                
+                <div class="form-group ">
+                    <label asp-for="Body" class="control-label">Nội dung Thư</label>
+                    <span asp-validation-for="Body" class="text-danger"></span>
+                    <textarea class="summernote" asp-for="Body"></textarea>                   
+                </div>
+            </div>          
+            <div class="form-group">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </form>
+    <div>
+        <a asp-action="@url">Quay lại</a>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="row justify-content-between">
+            <h3>Danh sách Link hình ảnh</h3>
+            @*<a class="btn btn-default m-r-5" data-target="#import_excel_md" data-toggle="modal"> <i class="anticon anticon-file-excel m-r-5"> </i><span>Import Image</span> </a>*@
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Tìm kiếm</h6>
+                <div class="input-affix m-v-10">
+                    <i class="prefix-icon anticon anticon-search opacity-04"></i>
+                    <input id="keyword" name="keyword" type="text" class="form-control" placeholder="Nhập tên danh mục">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h6>Lấy link ảnh</h6>
+                <a class="btn btn-light" onclick="CheckShow()"><i class="fa-solid fa-eye fa-fade show1"></i> <i class="fa-solid fa-eye-slash hide1"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body" id="show1">
+        <div class="table-responsive">
+            <table id="data-table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Tên hình ảnh</th>
+                        <th>Hình ảnh</th>
+                        <th>Copy link</th>
+                    </tr>
+                </thead>
+                <tbody id="records_table">
+                    @if (ViewBag.ImageServer != null)
+                    {
+                        foreach (var item in ViewBag.ImageServer)
+                        {
+                            <tr>
+                                <td>
+                                    <p>@item.Name</p>
+
+                                </td>
+                                <td><img class="@item.Id" src="~/images/newsImageS/@item.NameLink" style="max-width:300px" /></td>
+                                <td>
+                                    <a class="btn btn-light" onclick="Copylink(@item.Id)"> <i class="fa-solid fa-copy"></i> </a>
+
+                                    @* <a id="delete-button" class="btn btn-danger btn-tone m-r-5" data-target="#delete-pd-md" data-toggle="modal" title="Xóa sản phẩm" data-productid="@item.Id">
+                            <i class="anticon anticon-delete"></i>
+                            </a>*@
+
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+ 
+
+
+
+ 
+@section Scripts {
+     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/Adminassets/vendors/select2/select2.min.js"></script>
+    <script src="~/Adminassets/vendors/jquery-file-upload/jquery.uploadfile.js"></script>
+    <script src="~/Adminassets/js/pages/e-commerce-product-edit.js"></script>
+    <script src="~/Adminassets/summernote/summernote-bs4.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script>
+        var show1 = 1;
+        function CheckShow() {
+            if (show1 % 2 == 0) {
+                $('.show1').css("display", "none");
+                $('#show1').css("display", "none");
+                $('.hide1').css("display", "block");
+            }
+            else {
+                $('.show1').css("display", "block");
+                $('#show1').css("display", "block");
+                $('.hide1').css("display", "none");
+            }
+            show1++;
+        }
+        function Copylink(a) {
+            console.log('kkk');
+            console.log(a);
+        }
+        jQuery(document).ready(function () {
+           
+            $('.summernote').summernote({
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
+                height: 515,
+                minHeight: null,
+                maxHeight: null,
+                focus: false
+            });
+            $('.summernoteA').summernote({
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
+                height: 170,
+                minHeight: null,
+                maxHeight: null,
+                focus: false
+            });
+            var table = $('#data-table').DataTable({
+                language: {
+                    search: "Tìm kiếm",
+                    lengthMenu: "Hiển thị _MENU_",
+                    zeroRecords: "Không tìm thấy",
+                    info: "Hiển thị từ _START_ đến _END_ trong _TOTAL_ khách hàng",
+                    infoEmpty: "",
+                    infoFiltered: "",
+                    paginate: {
+                        "previous": "Trước",
+                        "next": "Sau"
+                    }
+                },
+
+            });
+            $('#keyword').keyup(function () {
+                table.search($(this).val()).draw();
+            })
+
+            $('.note-group-select-from-files').html('<p>Vui lòng lấy link ảnh bên dưới</p>');
+
+        });
+        function ViewEmail() {
+            var body = $("#summernoteB").val();
+            console.log(body);
+        }
+        function Copylink(Id) {
+            var origin = window.location.origin;
+            var a = $("." + Id).attr('src');
+            var imageCopy = origin + a;
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(imageCopy).select();
+            document.execCommand("copy");
+            $temp.remove();
+        }
+
+    </script>
+}

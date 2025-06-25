@@ -1,0 +1,562 @@
+@*@using PagedList.Core.Mvc*@
+@model WebShop.Areas.Admin.Models.AdminOrderVM
+@{
+    ViewData["Title"] = "Quản lý đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var id = ViewBag.check;
+}
+@section Styles{
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dataTables_filter label {
+            display: none;
+        }
+
+        .dataTables_filter input {
+            display: none;
+        }
+
+        #data-table_length {
+            display:none;
+        }
+        .dataTables_wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+        .status-label {
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+        .status-label.processing {
+                background-color: #f0f6ff;
+                color: #2463eb;
+                border: solid #2463eb 1px;
+        }
+        .status-label.confirm {
+                background-color: #fefce7;
+                color: #c88a04;
+                border: solid #c88a04 1px;
+        }
+        .status-label.deliver {
+                background-color: #f2fdf5;
+                color: #16a249;
+                border: solid #16a249 1px;
+        }
+        .status-label.success {
+                background-color: #f2fdf5;
+                color: #16a249;
+                border: solid #16a249 1px;
+        }
+        .status-label.failed {
+                background-color: #fef1f1;
+                color: #dc2828;
+                border: solid #dc2828 1px;
+        }
+        .status-label.return {
+            background-color: #f3f4f6;
+            color: grey;
+            border: solid grey 1px;
+        }
+
+        .dt-buttons {
+            display: none;
+        }
+        .table-hover input{
+
+        }
+    </style>
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Quản lý đơn hàng</span>
+        </nav>
+    </div>
+</div>
+<div class="text-right" style="margin-bottom:12px;">
+    <a class="btn btn-default m-r-5" id="exportBtn"><i class="anticon anticon-file-excel m-r-5"></i><span>Xuất dữ liệu</span></a>
+    <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminOrders" asp-action="Create"><i class="anticon anticon-plus m-r-5"></i><span>Tạo đơn hàng</span></a>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-9">
+                    @*<div class="col-md-3">
+                        <h6>Lọc theo trạng thái</h6>
+                        <div class="input-affix m-v-10">
+                            <select class="custom-select" id="txtStatusID" name="txtStatusID" style="min-width: 200px;" asp-items="ViewBag.TrangThai">
+                                <option selected>Chọn trạng thái</option>
+                                <option value="0">Tất cả đơn</option>
+                            </select>
+                        </div>
+                    </div>*@
+                <div class="input-group" style="flex-wrap:nowrap">
+                   @* <select class="custom-select" style="min-width: 230px;" id="selectOption">
+                        <option value="0" selected>Mã đơn hàng</option>
+                        <option value="2">Tên khách hàng</option>
+                        <option value="2">Số điện thoại khách hàng</option>
+                        <option value="3">Email khách hàng</option>
+                        <option value="4">Sản phẩm</option>
+                        <option value="5">Mã vận đơn</option>
+                    </select>*@
+                    <div class="input-affix m-l-10">
+                        <input id="inputText" name="keyword" style="margin-bottom:0px" type="text" class="form-control" placeholder="Vui lòng nhập">
+                        <i class="suffix-icon anticon anticon-search opacity-04"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex text-right" style="margin-bottom:12px;">
+                <a class="btn btn-primary" href="#" id="searchBtn">Tìm kiếm</a>
+               
+                @*<a class="btn m-r-5" style="margin-left:12px" data-target="#modal-header" data-toggle="modal">Đặt lại</a>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header" style="border-bottom:none">
+
+        <ul class="nav nav-tabs">
+            @{
+                if (ViewBag.check == null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(1)" href="#project-details-tasks">Tất cả</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" onclick="CheckSearch(2)" href="#project-details-comments">Đơn hàng mới</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" onclick="CheckSearch(3)" href="#project-details-attachment">Chưa giao hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" onclick="CheckSearch(4)" href="#project-details-attachment">Chưa thanh toán</a>
+                    </li>
+                }          
+                else{
+                    if (id == "1")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(1)" href="#project-details-tasks">Tất cả</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" onclick="CheckSearch(1)" href="#project-details-tasks">Tất cả</a>
+                        </li>
+                    }
+                    if (id == "2")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(2)" href="#project-details-comments">Đơn hàng mới</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" onclick="CheckSearch(2)" href="#project-details-comments">Đơn hàng mới</a>
+                        </li>
+                    }
+                    if (id == "3")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(3)" href="#project-details-attachment">Chưa giao hàng</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" onclick="CheckSearch(3)" href="#project-details-attachment">Chưa giao hàng</a>
+                        </li>
+                    }
+                    if (id == "4")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(4)" href="#project-details-attachment">Chưa thanh toán</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" onclick="CheckSearch(4)" href="#project-details-attachment">Chưa thanh toán</a>
+                        </li>
+                    }
+                }
+             }
+            
+           
+        </ul>
+    </div>
+    <div class="card-body">
+        
+        <div class="dropdown dropdown-animated scale-left" style="float:right">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <i class="anticon anticon-table"></i>
+            </button>
+            <div class="dropdown-menu" style="width:500px">
+                <p class="dropdown-item">Tùy chọn hiển thị</p>
+                <div class="row">
+                    <div class="col-lg-11 mx-auto">
+                        <form asp-action="SaveCheckboxs" method="post">
+                            <div class="row">
+                                <a class="checkbox col-md-6">
+                                    <input id="checkbox1" class="checkitembox" data-column="0" type="checkbox" asp-for="CheckboxOrder.OrderId">
+                                    <label for="checkbox1">Mã đơn hàng</label>
+                                </a>
+                                <a class="checkbox col-md-6">
+                                    <input id="checkbox2" class="checkitembox" data-column="1" type="checkbox" asp-for="CheckboxOrder.OrderDate">
+                                    <label for="checkbox2">Ngày tạo đơn</label>
+                                </a>
+                                <a class="checkbox col-md-6">
+                                    <input id="checkbox3" class="checkitembox" data-column="2" type="checkbox" asp-for="CheckboxOrder.CustomerName">
+                                    <label for="checkbox3">Tên khách hàng</label>
+                                </a>
+                                <a class="checkbox col-md-6">
+                                    <input id="checkbox4" class="checkitembox" data-column="3" type="checkbox" asp-for="CheckboxOrder.Email">
+                                    <label for="checkbox4">Email khách hàng</label>
+                                </a>
+                                <a class="checkbox col-md-6">
+                                    <input id="checkbox5" class="checkitembox" data-column="4" type="checkbox" asp-for="CheckboxOrder.Phone">
+                                    <label for="checkbox5">SĐT khách hàng</label>
+                                </a>
+                                <a class="checkbox col-md-6">
+                                    <input id="checkbox6" class="checkitembox" data-column="5" type="checkbox" asp-for="CheckboxOrder.PaymentStatus">
+                                    <label for="checkbox6">Trạng thái thanh toán</label>
+                                </a>
+                                <a class="checkbox col-md-6">
+                                    <input id="checkbox7" class="checkitembox" data-column="6" type="checkbox" asp-for="CheckboxOrder.DeliverStatus">
+                                    <label for="checkbox7">Trạng thái giao hàng</label>
+                                </a>
+                                <a class="checkbox col-md-6">
+                                    <input id="checkbox8" class="checkitembox" data-column="7" type="checkbox" asp-for="CheckboxOrder.CodStatus">
+                                    <label for="checkbox8">COD</label>
+                                </a>
+                                <a class="checkbox col-md-6">
+                                    <input id="checkbox9" class="checkitembox" data-column="8" type="checkbox" asp-for="CheckboxOrder.Total">
+                                    <label for="checkbox9">Tổng tiền</label>
+                                </a>
+                            </div>
+                            <button class="btn btn-primary" style="float:right" type="submit">Lưu</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @if (id == "2")
+            {
+            <button class="btn btn-primary" id="updateAll">Giao hàng loạt</button>
+            }
+        </div>
+        <div class="table-responsive">
+            <table id="data-table" class="table table-hover e-commerce-table" style="width:100%">
+                <thead>
+                    <tr>                        
+                        <th>Mã</th>
+                        <th>Ngày tạo</th>
+                        <th>Khách hàng</th>
+                        <th>Email</th>
+                        <th>SĐT</th>
+                        <th>Thanh toán</th>                      
+                        <th>Giao hàng</th>
+                        <th>COD</th>
+                        <th>Tổng tiền</th>
+                        <th>#
+                            @if (id == "2")
+                            {
+                                <span>| </span> <input type="checkbox" class="checkall" />
+                            }
+                            
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Orders != null)
+                    {
+                        foreach (var item in Model.Orders)
+                        {
+                            <tr class="@item.OrderId">
+                               
+                                @if (item.Confirmed)
+                                {
+                                    <td><span style="color: #1a71ff;">@item.OrderId</span><i class="fa-solid fa-check fa-bounce"></i> </td>
+                                }
+                                else
+                                {
+                                    <td><span style="color: #1a71ff;">@item.OrderId</span></td>
+                                }
+                                <td>@item.OrderDate</td>
+                               
+                                @if(item.Customer == null)
+                                {
+                                    <td>@item.Guest.FullName</td>
+                                    <td>@item.Guest.Email</td>
+                                    <td>@item.Guest.Phone</td>
+                                }
+                                else{
+                                    <td>@item.Customer.FullName</td>
+                                    <td>@item.Customer.Email</td>
+                                    <td>@item.Customer.Phone</td>
+                                }
+                                <td>
+                                     
+                                    <div>
+                                        @{
+                                            string paymentStatus;
+                                            if (@item.PaymentStatusId == 1)
+                                            {
+                                                paymentStatus = "processing";
+                                            }
+                                            else if (@item.PaymentStatusId == 2)
+                                            {
+                                                paymentStatus = "confirm";
+                                            }
+                                            else
+                                            {
+                                                paymentStatus = "deliver";
+                                            }
+                                        }
+                                        <span class="status-label @paymentStatus">@item.PaymentStatus.Status</span>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div>
+                                        @{
+                                            string deliveryStatus;
+                                            if (@item.DeliveryStatusId == 1)
+                                            {
+                                                deliveryStatus = "confirm";
+                                            }
+                                            else if (@item.DeliveryStatusId == 2)
+                                            {
+                                                deliveryStatus = "confirm";
+                                            }
+                                            else if (@item.DeliveryStatusId == 3)
+                                            {
+                                                deliveryStatus = "deliver";
+                                            }
+                                            else if (@item.DeliveryStatusId == 4)
+                                            {
+                                                deliveryStatus = "success";
+                                            }
+                                            else
+                                            {
+                                                deliveryStatus = "failed";
+                                            }
+                                        }
+                                        <span class="status-label @deliveryStatus">@item.DeliveryStatus.Status</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        @{
+                                            string CODStatus;
+                                            if (@item.CodstatusId == 1)
+                                            {
+                                                CODStatus = "failed";
+                                            }
+                                            else if (@item.CodstatusId == 2)
+                                            {
+                                                CODStatus = "confirm";
+                                            }
+                                            else
+                                            {
+                                                CODStatus = "success";
+                                            }
+                                        }
+                                        <span class="status-label @CODStatus">@item.Codstatus.Status</span>
+                                    </div>
+                                </td>
+
+                                <td>@item.TotalMoney.ToString("#,##0") đ</td>
+
+                                <td>
+                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminOrders" asp-action="Details" asp-route-id="@item.OrderId"><i class="anticon anticon-eye"></i></a>
+
+                                    @if (item.Confirmed == false && id == "2")
+                                    {
+                                        <input type="checkbox" id="@item.OrderId" class="checkitem">
+                                    }
+
+                                    @*<a data-target="#modal-header" data-toggle="modal" class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminOrders" asp-action="ChangeStatus" asp-route-id="@item.OrderId"><i class="anticon anticon-edit"></i></a>*@
+                                    @*<a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminOrders" asp-action="Edit" asp-route-id="@item.OrderId">Chỉnh sửa</a>*@
+                                    @*<a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminOrders" asp-action="Delete" asp-route-id="@item.OrderId">Xóa</a>*@
+                                </td>
+                               
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+            @*@if (Model.Count() > 0)
+            {               
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminOrders" asp-route-CatID="@ViewBag.CurrentStatusID" asp-action="Index" />
+                </ul>
+            </div>
+            }*@
+        </div>
+    </div>
+</div>
+<div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+ 
+@section Scripts {
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    @*<script src="~/adminassets/js/datatableselect.min.js"></script>*@
+   @* <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>*@
+    <script>
+        var table = $('#data-table').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'excel'
+            ],
+            order: [[0, 'desc']],
+            scrollX: true,
+            language: {
+                search: "Tìm kiếm",
+                lengthMenu: "Hiển thị _MENU_",
+                zeroRecords: "Không tìm thấy",
+                info: "Hiển thị _START_ đến _END_ trong _TOTAL_ đơn hàng",
+                infoEmpty: "",
+                loadingRecords: "Loading...",
+                infoFiltered: "",
+                paginate: {
+                    "previous": "Trước",
+                    "next": "Sau"
+                }
+            },
+        });
+        $(".checkall").on('click',function(){
+            if ($(".checkall").prop("checked")) {                
+                $(".checkitem").prop("checked", true);
+            }else{
+                $(".checkitem").prop("checked", false);
+            }
+        })
+        var chec = $(".checkitem");
+        $("#updateAll").on('click',function(){
+            var arr = [];
+            chec.each(function () {
+                var id = $(this).attr('id');
+                if ($(this).prop("checked")) {
+                    arr.push(id);
+                }
+            });
+           
+            if(arr.length==0){
+                alert("Bạn chưa chọn vào đơn hàng. Hãy chọn vào đơn hàng để tiến hành chuyển trạng thái đơn hàng.");
+            }
+            else{
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("updateStatusAll","AdminOrders")',
+                    dataType: "Json",
+                    data: {
+                        listid: arr
+                    },
+                    success: function (data) {
+                       
+                        if(data.success=="Ok"){
+                            var classid = data.data
+                            $.each(classid, function (key, value) {
+                                $('.' + value).css("display", "none");
+                               
+                            });
+                        }
+                    }
+
+                })
+            }
+        })
+
+       
+     
+        function CheckSearch(id){
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Addsectionindex","AdminOrders")',
+                dataType: "Json",
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                  location.reload();
+                }
+            })
+        }
+        $(document).ready(function () {
+            $('#exportBtn').click(() => {
+                table.buttons(0, 0).trigger()
+            });
+            $('#inputText').keyup(function () {
+                table.search($(this).val()).draw();
+            })
+
+            $(".dropdown-menu").click(function (event) {
+                event.stopPropagation();
+            });
+
+            var checkitembox = $(".checkitembox");
+            $(".checkitembox").on('click',function(){
+                var arr = [];
+                checkitembox.each(function () {
+                    var id = $(this).attr('data-column');
+                    if ($(this).prop("checked")) {
+                        table.column(id).visible(true);
+                    }
+                    else{
+                        table.column(id).visible(false);
+                    }
+                });
+                 
+            })
+            checkitembox.each(function () {
+                var id = $(this).attr('data-column');
+                if ($(this).prop("checked")) {
+                    table.column(id).visible(true);
+                }
+                else {
+                    table.column(id).visible(false);
+                }
+            });
+
+            function showOrHideColumn(columnIdx) {
+                let column = table.column(columnIdx);
+
+                // Toggle the visibility
+                column.visible(!column.visible());
+            }
+           
+
+            
+             
+            $('#modal-header').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget); // Button that triggered the modal
+                var url = button.attr("href");
+                var modal = $(this);
+                // note that this will replace the content of modal-content ever time the modal is opened
+                modal.find('.modal-content').load(url);
+            });
+        });
+    </script>
+}
+
+

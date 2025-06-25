@@ -1,0 +1,164 @@
+﻿@{
+    ViewData["Title"] = "Tra cứu tình trạng đơn hàng - Novazone";
+}
+@section Styles{
+    <style>
+        /* New Tab Styling */
+    
+
+        .custom-tabs {
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid #e0e0e0;
+            margin-top: 20px;
+            position: relative;
+        }
+
+            .custom-tabs .tab-item {
+                padding: 15px 20px;
+                cursor: pointer;
+                font-weight: 500;
+                color: #555;
+                transition: color 0.3s, transform 0.3s;
+                position: relative;
+                margin: 0 10px;
+            }
+
+                .custom-tabs .tab-item.active {
+                    color: #007bff;
+                    font-weight: 600;
+                }
+
+            /* Underline Effect */
+            .custom-tabs .underline {
+                position: absolute;
+                bottom: 0;
+                height: 2px;
+                width: 100px;
+                background-color: #007bff;
+                transition: left 0.3s ease;
+            }
+
+        /* Tab Content Styling */
+        .tab-content {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+
+        .shipping-step-title {
+            margin-top: 0;
+            color: #ed1b24;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .shipping-step-content {
+            font-size: 1.25em;
+         
+        }
+    </style>
+}
+
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
+                <span class="breadcrumb-item active">Tra cứu</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Main Content Start -->
+<div class="container-fluid">
+    <div class="row justify-content-center px-xl-5">
+        <!-- Image Container -->
+        <div class="col-12 position-relative mb-5 p-0" style="height: 400px;">
+            <img class="img-fluid w-100 h-auto" src="https://www.kanto.vn/wp-content/uploads/2022/11/shipping-banner-kanto-2.png.webp" alt="chinh-sach-giao-hang-png" style="object-fit: cover; border-radius: 8px;">
+        </div>
+
+        <!-- Custom Tabs -->
+        <div class="col-12">
+            <div class="custom-tabs">
+                <div class="tab-item active" data-tab="track-order">Tra cứu đơn hàng</div>
+                <div class="tab-item" data-tab="delivery-policy">Chính sách giao hàng</div>
+                <div class="tab-item" data-tab="delivery-process">Quy trình giao hàng</div>
+                <div class="tab-item" data-tab="how-to-track">Cách thức tra cứu</div>
+                <div class="underline"></div>
+            </div>
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="col-12 tab-content mt-3">
+            <div class="tab-pane" id="track-order" style="display: block;">
+                <h5>Tra cứu đơn hàng</h5>
+                <p>Nhập mã đơn hàng của bạn để tra cứu tình trạng đơn hàng.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="orderCode">Mã đơn hàng:</label>
+                        <input type="text" class="form-control" id="orderCode" placeholder="Nhập mã đơn hàng">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tra cứu</button>
+                </form>
+            </div>
+            <div class="tab-pane" id="delivery-policy" style="display: none;">
+                <h5>Chính sách giao hàng</h5>
+                <p>Thông tin về chính sách giao hàng của Novazone.</p>
+            </div>
+            <div class="tab-pane" id="delivery-process" style="display: none;">
+                <h5>Quy trình giao hàng</h5>
+                <p>Quy trình giao hàng đảm bảo nhanh chóng và hiệu quả.</p>
+            </div>
+            <div class="tab-pane" id="how-to-track" style="display: none;">
+                <h4 class="shipping-step-title  ">Khách hàng tự tra cứu thông tin</h4>
+                <p class="text-dark">Hướng dẫn cách tra cứu đơn hàng chi tiết và nhanh chóng.</p>
+                <p class="shipping-step-content text-dark">Sau khi khách hàng đặt hàng, khách hàng sẽ được cung cấp mã đơn hàng. Khách hàng nhập thông tin tra cứu theo form trong tab Tra cứu đơn hàng.</p>
+                <h4 class="shipping-step-title">Gọi điện qua Hotline</h4>
+                <p class="shipping-step-content text-dark">Tổng đài chăm sóc khách hàng: 0848 967 333.</p>
+                <p class="shipping-step-content text-dark">
+                    Thời gian làm việc: <br>
+                    <span>- Các ngày <span style="font-weight: bold">thứ 2,3,4,6,7</span> - Thời gian làm việc từ: <span style="font-weight: bold">08:00 - 17:30</span></span><br>
+                    <span>- Các ngày <span style="font-weight: bold">thứ 5 &amp; Chủ nhật</span> - Thời gian làm việc từ: <span style="font-weight: bold">08:30 - 17:30</span></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Content End -->
+@section Scripts{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-item');
+            const panes = document.querySelectorAll('.tab-pane');
+            const underline = document.querySelector('.underline');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    // Remove active state from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Hide all panes
+                    panes.forEach(pane => pane.style.display = 'none');
+
+                    // Add active state to clicked tab
+                    tab.classList.add('active');
+                    // Show the corresponding pane
+                    document.getElementById(tab.dataset.tab).style.display = 'block';
+
+                    // Move underline to active tab
+                    underline.style.width = tab.offsetWidth + 'px';
+                    underline.style.left = tab.offsetLeft + 'px';
+                });
+            });
+
+            // Set initial underline position
+            underline.style.width = tabs[0].offsetWidth + 'px';
+            underline.style.left = tabs[0].offsetLeft + 'px';
+        });
+    </script>
+}

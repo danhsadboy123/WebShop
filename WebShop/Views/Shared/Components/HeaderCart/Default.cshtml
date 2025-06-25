@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model List<WebShop.ModelViews.CartItem>
+
+    @if (Model != null && Model.Count() > 0)
+    {
+    <div class="cart-items-holder">
+        @foreach (var item in Model) 
+        {
+         
+            string url = $"/products/{item.product.Alias}-{item.product.ProductId}";
+            <div class="cart-item">
+                <a asp-action="Details" as class="cart-img">
+                    @if (item.product.Avatar != null)
+                    {
+                        <img class="img-fluid rounded" src="@item.product.Avatar" style="max-width: 60px;border:solid #DDDDDD 1px;" alt="@item.product.Avatar">
+                    }
+                    else
+                    {
+                        <img class="img-fluid rounded" src="~/Adminassets/images/avatars/thumb-1.jpg" style="max-width: 60px;border:solid #DDDDDD 1px;" alt="~/Adminassets/images/avatars/thumb-1.jpg">
+                    }
+                </a>
+                <div class="cart-text">
+                <a href="@url" style="margin-bottom: 5px">@item.product.ProductName</a>
+                    <p class="m-0 d-flex justify-content-between">
+                    <b>Số lượng @item.amount</b>
+                    <b class="red">@item.product.SalePrice.Value.ToString("#,##0") đ</b>
+                    </p>
+                </div>
+            </div>             
+        }
+    </div>
+        <div class="cart-price-hover">
+            <p class="grey font-300 m-0 text-right">
+                Tổng tiền hàng
+            (<span class="red"><span class="js-cart-count">@Model.Count()</span> sản phẩm</span>):
+                <span class="red text-18 font-600" style="vertical-align: top;">
+                    @Model.Sum(x => x.TotalMoney).ToString("#,##0") đ
+                </span>
+            </p>
+            <div class="cart-btn">
+                <a href="/cart" class="d-block text-center text-white btn-goCart">Thanh toán</a>
+            </div>
+        </div>       
+    }
+    else
+    {
+        <div class="cart-items-holder">
+            <div class="cart-empty">
+                <p style="font-size:16px; color:#000">Chưa có sản phẩm nào trong giỏ</p>
+                <a href="/" class="d-block text-center text-white btn-goHome">Mua sắm ngay</a>
+            </div>
+        </div>
+    }
+
+

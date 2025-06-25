@@ -1,0 +1,30 @@
+﻿ 
+@model List<WebShop.ModelViews.HeaderMenu>
+@section Styles{
+    <style>       
+        .sub_nav {
+            display: none;
+        }
+
+        .js-hover-menu:hover .sub_nav {
+            display: block;
+        }
+    </style>
+}
+
+<ul class="ul ul_menu_2023" style="width: 100%;">
+@foreach (var cat in Model.Take(18))
+{
+    var urlalis = cat.Category.Alias;
+        <li class="js-hover-menu " data-id="@cat.Category.CatId" style="display:block;width: 100%;">
+            <a href="/danhmuc/@cat.Category.Alias">
+            @cat.Category.CatName
+            </a>
+            <div class="sub_nav loadmenu" data-id="@cat.Category.CatId" style="left:200px">
+                <div class="sub-menu @cat.Category.CatId">
+                   <p class="text-danger">Đang tải</p>
+                </div>
+            </div>
+        </li>
+}
+</ul>

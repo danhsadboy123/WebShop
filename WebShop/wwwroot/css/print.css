@@ -1,0 +1,26 @@
+﻿@page {
+    size: A4;
+    margin: 0 !important;
+}
+
+@media print {
+    html, body {
+        width: 210mm;
+        height: 297mm;
+        background-color:#ffffff;
+        padding:0px;
+    }
+    .in-bao-gia-container {         
+        padding: 0px;       
+    }
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}

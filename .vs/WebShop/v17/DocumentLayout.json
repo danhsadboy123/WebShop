@@ -1,0 +1,503 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\migrations\\20250625102507_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\migrations\\20250625102507_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\_footerpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\_footerpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\_headerpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\_headerpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\wwwroot\\novazone\\css\\reponeheader.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\novazone\\css\\reponeheader.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\areas\\admin\\controllers\\adminquotationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminquotationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\search\\listproductssearchpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\search\\listproductssearchpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\enums\\cachekeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\enums\\cachekeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\wwwroot\\novazone\\lib\\owlcarousel\\assets\\owl.carousel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\novazone\\lib\\owlcarousel\\assets\\owl.carousel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\wwwroot\\css\\print.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\css\\print.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\ordersuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\ordersuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\_navbarpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\_navbarpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\_listproductpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\_listproductpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\_listproductbybrandpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\_listproductbybrandpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\_categoriesandattributespartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\_categoriesandattributespartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\shared\\_carouselpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\shared\\_carouselpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\areas\\admin\\views\\adminorders\\aaa.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\views\\adminorders\\aaa.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\new folder (7)\\novazone\\webshop\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20250625102507_data.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Migrations\\20250625102507_data.cs",
+              "RelativeDocumentMoniker": "WebShop\\Migrations\\20250625102507_data.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Migrations\\20250625102507_data.cs",
+              "RelativeToolTip": "WebShop\\Migrations\\20250625102507_data.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:25:08.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-07T06:21:51.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "owl.carousel.js",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js",
+              "RelativeDocumentMoniker": "WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js",
+              "RelativeToolTip": "WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAAAOgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-04T11:29:25.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "owl.carousel.css",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\Novazone\\lib\\owlcarousel\\assets\\owl.carousel.css",
+              "RelativeDocumentMoniker": "WebShop\\wwwroot\\Novazone\\lib\\owlcarousel\\assets\\owl.carousel.css",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\Novazone\\lib\\owlcarousel\\assets\\owl.carousel.css",
+              "RelativeToolTip": "WebShop\\wwwroot\\Novazone\\lib\\owlcarousel\\assets\\owl.carousel.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABXAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-04T11:29:21.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "owl.carousel.css",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css",
+              "RelativeDocumentMoniker": "WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css",
+              "RelativeToolTip": "WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAABwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-04T11:29:17.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Startup.cs",
+              "RelativeDocumentMoniker": "WebShop\\Startup.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Startup.cs",
+              "RelativeToolTip": "WebShop\\Startup.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAswCQAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T11:13:45.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Program.cs",
+              "RelativeDocumentMoniker": "WebShop\\Program.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Program.cs",
+              "RelativeToolTip": "WebShop\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T11:13:42.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACABAAAAAAAAAAAnwDABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:17:55.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_HeaderPartialView.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_HeaderPartialView.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\_HeaderPartialView.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_HeaderPartialView.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\_HeaderPartialView.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAIwF0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:26:35.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_FooterPartialView.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_FooterPartialView.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\_FooterPartialView.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_FooterPartialView.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\_FooterPartialView.cshtml",
+              "ViewState": "AgIAADcAAAAAAAAAAAAIwGQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:26:27.764Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\appsettings.json",
+              "RelativeDocumentMoniker": "WebShop\\appsettings.json",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\appsettings.json",
+              "RelativeToolTip": "WebShop\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-07T06:12:38.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "reponeHeader.css",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\Novazone\\css\\reponeHeader.css",
+              "RelativeDocumentMoniker": "WebShop\\wwwroot\\Novazone\\css\\reponeHeader.css",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\Novazone\\css\\reponeHeader.css",
+              "RelativeToolTip": "WebShop\\wwwroot\\Novazone\\css\\reponeHeader.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-07T06:22:47.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminQuotationsController.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Areas\\Admin\\Controllers\\AdminQuotationsController.cs",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminQuotationsController.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Areas\\Admin\\Controllers\\AdminQuotationsController.cs",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminQuotationsController.cs",
+              "ViewState": "AgIAAIcCAAAAAAAAAAAvwJQCAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T11:29:35.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CacheKeys.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Enums\\CacheKeys.cs",
+              "RelativeDocumentMoniker": "WebShop\\Enums\\CacheKeys.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Enums\\CacheKeys.cs",
+              "RelativeToolTip": "WebShop\\Enums\\CacheKeys.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T11:30:32.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ListProductsSearchPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Search\\ListProductsSearchPartial.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Search\\ListProductsSearchPartial.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Search\\ListProductsSearchPartial.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Search\\ListProductsSearchPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwgAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:30:48.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "print.css",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\css\\print.css",
+              "RelativeDocumentMoniker": "WebShop\\wwwroot\\css\\print.css",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\css\\print.css",
+              "RelativeToolTip": "WebShop\\wwwroot\\css\\print.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwkAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-04T11:29:16.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:27:14.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:27:13.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "OrderSuccess.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\OrderSuccess.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\OrderSuccess.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\OrderSuccess.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\OrderSuccess.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:27:10.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:27:04.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:27:02.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_NavbarPartialView.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_NavbarPartialView.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\_NavbarPartialView.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_NavbarPartialView.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\_NavbarPartialView.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwUAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:26:55.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "_ListProductPartialView.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_ListProductPartialView.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\_ListProductPartialView.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_ListProductPartialView.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\_ListProductPartialView.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:26:49.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "_ListProductByBrandPartialView.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_ListProductByBrandPartialView.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\_ListProductByBrandPartialView.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_ListProductByBrandPartialView.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\_ListProductByBrandPartialView.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:26:42.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "_CategoriesAndAttributesPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_CategoriesAndAttributesPartial.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\_CategoriesAndAttributesPartial.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_CategoriesAndAttributesPartial.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\_CategoriesAndAttributesPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:26:17.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "_CarouselPartialView.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_CarouselPartialView.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Shared\\_CarouselPartialView.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Shared\\_CarouselPartialView.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Shared\\_CarouselPartialView.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAIAwwAwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:24:55.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAHEBAAAAAAAAAIAxwHwBAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:21:45.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AAA.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Areas\\Admin\\Views\\AdminOrders\\AAA.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Views\\AdminOrders\\AAA.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Areas\\Admin\\Views\\AdminOrders\\AAA.cshtml",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Views\\AdminOrders\\AAA.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T11:21:37.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "WebShop\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "WebShop\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-04T11:17:46.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "VnPayService.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Services\\VnPayService.cs",
+              "RelativeDocumentMoniker": "WebShop\\Services\\VnPayService.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (7)\\novazone\\WebShop\\Services\\VnPayService.cs",
+              "RelativeToolTip": "WebShop\\Services\\VnPayService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T11:13:39.342Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

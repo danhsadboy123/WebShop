@@ -1,0 +1,185 @@
+﻿@model WebShop.Areas.Admin.Models.AdminCustomerCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section Styles{
+    <link href="~/assets/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+}
+<form asp-controller="AdminCustomers" asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="text-right" style="margin-bottom:12px;">
+        <a class="btn btn-warning m-r-5" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Index"><span>Hủy</span></a>
+        <button type="submit" class="btn btn-primary" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Create"><span>Lưu</span></button>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Thông tin chung</h4>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="FullName" class="control-label">Tên khách hàng</label>
+                            <input asp-for="FullName" class="form-control" placeholder="Nhập tên" required />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Email" class="control-label">Địa chỉ email</label>  
+                            <input asp-for="Email" class="form-control" placeholder="Nhập địa chỉ email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Phone" class="control-label">Số điện thoại</label>
+                            <input asp-for="Phone" class="form-control" placeholder="Nhập số điện thoại" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Birthday" class="control-label">Chọn ngày sinh</label>
+                            <input asp-for="Birthday" class="form-control" />
+                            <span asp-validation-for="Birthday" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="CompanyName" class="control-label">Công ty</label>
+                            <input asp-for="CompanyName" class="form-control" placeholder="Nhập tên công ty" />
+                            <span asp-validation-for="CompanyName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4>Địa chỉ</h4>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Address" class="control-label">Địa chỉ</label>
+                            <input asp-for="Address" class="form-control" placeholder="Nhập địa chỉ" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="PhoneAddress" class="control-label">Số điện thoại</label>
+                            <input asp-for="PhoneAddress" class="form-control" placeholder="Nhập số điện thoại" />
+                            <span asp-validation-for="PhoneAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="ProvinceId" class="control-label">Tỉnh/Thành phố</label>
+                            <select asp-for="ProvinceId" class="" asp-items="ViewBag.lsProvinces" style="width:100% !important">
+                                <option value="0" disabled selected>Tỉnh/Thành phố</option>
+                            </select>
+                            <span asp-validation-for="ProvinceId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="DistrictId" class="control-label">Quận/Huyện</label>
+                            <select asp-for="DistrictId" class="">
+                                <option value="0" disabled selected>Quận/Huyện</option>
+                            </select>
+                            <span asp-validation-for="DistrictId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="WardId" class="control-label">Phường/Xã</label>
+                            <select asp-for="WardId" class="">
+                                <option value="0" disabled selected>Phường/Xã</option>
+                            </select>
+                            <span asp-validation-for="WardId" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Thông tin bổ sung</h4>
+                </div>
+                <div class="card-body">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for ="Note" class="control-label">Ghi chú</label>
+                        <input asp-for="Note" class="form-control" placeholder="Nhập ghi chú" />
+                        <span asp-validation-for="Note" class="text-danger"></span>
+                    </div>
+
+                    @*   <div class="form-group">
+                    <label asp-for="Email" class="control-label">Địa chỉ email</label>
+                    <input asp-for="Email" class="form-control" placeholder="Nhập địa chỉ email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</form>
+
+@section Scripts{
+    <script src="~/assets/jquery-nice-select/js/jquery.nice-select.js"></script>
+    <script src="~/assets/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    <script>
+        $('select').niceSelect();
+
+        $(document).ready(function () {
+           
+        });
+        $(function () {
+            $("#ProvinceId").change(function () {
+                var provinceid = $('#ProvinceId').val();
+                $.ajax({
+                    url: '/AccountAddresses/GetDistricts',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { ProvinceId: provinceid },
+                    success: function (Districts) {
+                        $('#DistrictId').empty();
+                        $('#WardId').empty();
+                        //Clear nội dung quận huyện và phường xã
+                        var strWardId = '<option value="" disabled selected> Phường / Xã </option>';
+                        $("#WardId").append(strWardId);
+                        var strDistrictId = '<option value="" disabled selected> Quận / Huyện </option>';
+                        $("#DistrictId").append(strDistrictId);
+                        $.each(Districts, function (i, item) {
+                            var option = '<option value ="' + item.districtId + '">' + item.type + " " + item.districtName + '</option>';
+                            $("#DistrictId").append(option);
+                        });
+                        $('select').niceSelect('update');
+                    }
+                })
+            })
+        });
+        $(function () {
+            $("#DistrictId").change(function () {
+                var districtid = $('#DistrictId').val();
+
+                $.ajax({
+                    url: '/AccountAddresses/GetWards',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { DistrictId: districtid },
+                    success: function (Wards) {
+                        $('#WardId').empty();
+                        //Clear nội dung quận huyện và phường xã
+                        var strWardId = '<option value="" disabled selected> Phường / Xã </option>';
+                        $("#WardId").append(strWardId);
+                        $.each(Wards, function (i, item) {
+                            var option = '<option value ="' + item.wardId + '">' + item.type + " " + item.wardName + '</option>';
+                            $("#WardId").append(option);
+                        });
+                        $('select').niceSelect('update');
+                    }
+                })
+            })
+        });
+    </script>
+}

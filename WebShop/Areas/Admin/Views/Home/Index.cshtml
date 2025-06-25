@@ -1,0 +1,228 @@
+﻿@model List<Order> 
+@{
+    ViewData["Title"] = "Trang chủ Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    //List<WebShop.Models.Order> orders = ViewBag.LsOrders;
+}
+<div class="row">
+    <div class="col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">                
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="m-b-0">Hàng hóa</p>
+                        <h2 class="m-b-0">
+                            <span></span>
+                        </h2>
+                    </div>
+                    <div class="avatar avatar-icon avatar-lg avatar-blue">
+                        <i class="anticon anticon-laptop"></i>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <a asp-action="Index" asp-controller="AdminOrders" asp-area="Admin">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="m-b-0">Giao dịch</p>
+                        <h2 class="m-b-0">
+                            <span></span>
+                        </h2>
+                    </div>
+                    <div class="avatar avatar-icon avatar-lg avatar-blue">
+                        <i class="anticon anticon-swap"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Index">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="m-b-0">Đối tác</p>
+                        <h2 class="m-b-0">
+                            <span></span>
+                        </h2>
+                    </div>
+                    <div class="avatar avatar-icon avatar-lg avatar-cyan">
+                        <i class="anticon anticon-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <a asp-area="Admin" asp-controller="AdminEmailMakettings" asp-action="Index">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="m-b-0">Chăm sóc khách hàng</p>
+                        <h2 class="m-b-0">
+                            <span></span>
+                        </h2>
+                    </div>
+                    <div class="avatar avatar-icon avatar-lg avatar-red">
+                        <i class="anticon anticon-mail"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="m-b-0">Reports</p>
+                        <h2 class="m-b-0">
+                            <span></span>
+                        </h2>
+                    </div>
+                    <div class="avatar avatar-icon avatar-lg avatar-lime">
+                        <i class="anticon anticon-bar-chart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <a class="sidebar-link" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Index">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="m-b-0">Tài khoản & phân quyền</p>
+                        <h2 class="m-b-0">
+                            <span></span>
+                        </h2>
+                    </div>
+                    <div class="avatar avatar-icon avatar-lg avatar-magenta">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <a asp-action="ChangePageInfos" asp-controller="Home" asp-area="Admin">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="m-b-0">Quản lý website</p>
+                        <h2 class="m-b-0">
+                            <span></span>
+                        </h2> 
+                    </div>
+                    <div class="avatar avatar-icon avatar-lg avatar-geekblue">
+                        <i class="anticon anticon-global"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="m-b-0">Tổng đơn hàng</p>
+                        <h2 class="m-b-0">
+                            <span></span>
+                        </h2>
+                    </div>
+                    <div class="avatar avatar-icon avatar-lg avatar-red">
+                        <i class="anticon anticon-profile"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="m-b-0">Tổng doanh thu</p>
+                        <h2 class="m-b-0">
+                            <span>VNĐ</span>
+                        </h2>
+                    </div>
+                    <div class="avatar avatar-icon avatar-lg avatar-gold">
+                        <i class="anticon anticon-dollar"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="card" style="margin-top:12px">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <h5>Đơn hàng gần đây</h5>
+            <div>
+                <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Index" class="btn btn-sm btn-default">Xem tất cả</a>
+            </div>
+        </div>
+        <div class="m-t-30">
+            @if (Model.Count() > 0)
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Mã đơn hàng</th>
+                                <th>Khách hàng</th>
+                                <th>Ngày đặt</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                                <tr>
+                                    <td>#@item.OrderId</td>
+                                    @if (item.Customer == null)
+                                    {
+                                        <td>@item.Guest.FullName</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Customer.FullName</td>
+                                    }
+                                    <td>@item.OrderDate</td>
+                                    <td>@item.TotalMoney.ToString("#,##0") VNĐ</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span>@item.TransactStatus.Status</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div>Chưa có đơn hàng nào</div>
+            }
+        </div>
+    </div>
+</div>*@

@@ -1,0 +1,109 @@
+﻿@model WebShop.Models.ImageServer
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .createadd{
+        display:none;
+    }
+</style>
+<h1></h1>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row justify-content-between">
+            <h3>Tạo Link hình ảnh</h3>
+            
+        </div>
+        
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create" method="post" name="myForm" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">Tên ảnh</label>
+                        <input asp-for="Name" class="form-control" id="NameSreach" required />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-semibold" for="productBrand">Ảnh đại diện</label>
+                        <input name="NameLink" type="file" class="form-control-file" asp-for="NameLink" id="uploadFile" required />
+                        <span asp-validation-for="NameLink" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Khởi tạo Link" class="btn btn-primary createadd" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Quay về</a>
+        </div>
+
+    </div>
+</div>
+ 
+
+
+@section Scripts {
+    <script src="~/Adminassets/vendors/select2/select2.min.js"></script>
+    <script src="~/Adminassets/js/pages/e-commerce-product-edit.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+
+      
+        $(document).ready(function () {
+
+            $('#uploadFile').change(function () {
+                fileSize = this.files[0].size;
+                if (fileSize > 70000) {
+                    this.setCustomValidity("Dung lượng file quá lớn");
+                    this.reportValidity();
+                } else {
+                    this.setCustomValidity("");
+                }
+            });
+
+
+            $(window).keydown(function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+            $("#NameSreach").keydown(function () {
+                var name = $(this).val()
+                console.log(name);
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Search","AdminImageServers")',
+                    dataType: "Json",
+                    data: {
+                        name: name                       
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        if(data.data=="OK"){
+                            $('.createadd').css("display", "block");                           
+                        }
+                        else{
+                            $('.createadd').css("display", "none");
+                        }
+
+                    }
+                })
+
+            })
+            
+        });
+       
+    </script>
+    
+}

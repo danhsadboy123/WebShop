@@ -1,0 +1,116 @@
+﻿@model WebShop.ModelViews.HomeViewVM
+@inject WebShop.Services.IPageInfoService PageInfoService;
+
+@{
+
+    //List<Category> allCats = ViewBag.AllCats;
+    //List<AttributesPrice> attributep = ViewBag.attribute;
+    //List<Discount> discountsls = ViewBag.discountHome;
+    ViewData["Title"] = @PageInfoService.GetPageInfo().Title;
+
+    ViewData["Description"] = @PageInfoService.GetPageInfo().MetaDesc;
+    ViewData["Keywords"] = @PageInfoService.GetPageInfo().MetaKey;
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+@section Styles{
+     
+}
+<!-- container-2023 body -->
+<!-- Products Start -->
+<div class="container-fluid pt-5 pb-3">
+    @foreach (var item in ViewBag.categoriesWithProducts)
+    {
+        <a href="@item.category.Alias" title="Xem tất cả sản phẩm danh mục @item.category.CatName">
+            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4 mt-5"><span class="bg-secondary pr-3">@item.category.CatName</span></h2>
+        </a>
+        <div class="row px-xl-5" style="margin:0; padding:0;justify-content:center;">
+            <div class="row col-12 col-md-12  col-lg-12  justify-content-center ">
+                @foreach (var product in item.lsProducts)
+                {
+                    <div class=" item-product-Cate  " title="chi tiết sản phẩm   @product.ProductName">
+                        <div class="product-item bg-light mb-1" style="padding:15px">
+                            <div class="product-img position-relative overflow-hidden">
+                                <div class="d-flex justify-content-center" style="height:200px;">
+                                    <img style="object-fit:contain;" class="img-fluid" src="https://novazone.co/@product.Avatar" alt="@product.Alias" loading="lazy">
+                                </div>
+                                <div class="product-action">
+                                    @if (product.UnitsInStock > 0)
+                                    {
+                                        <a class="btn btn-outline-dark btn-square" href="javascript:void(0)" onclick="addToCart(@product.ProductId)"><i class="fa fa-shopping-cart"></i></a>
+                                        <a class="btn btn-outline-dark btn-square" href="/@product.Alias-@product.ProductId"><i class="fa fa-ellipsis-h"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-outline-dark btn-square" href="/@product.Alias-@product.ProductId"><i class="fa fa-bars"></i></a>
+                                    }
+                                </div>
+                            </div>
+                            <div class="text-center py-3">
+                                <a class="text-decoration-none p-7 text-dark"
+                                   style="height: 3.3em; display: block; overflow: hidden; line-height: 1.5em; white-space: normal; text-overflow: ellipsis; text-align:left; font-size:15px;font-weight: bold;"
+                                   href="/@product.Alias-@product.ProductId">
+                                    @product.ProductName
+                                </a>
+
+                                <div class="d-md-flex  justify-content-center mt-2 flex-column">
+                                    @if (product.Price <= 0)
+                                    {
+                                        <div class="md-d-flex" style="font-size: 17px;text-align:left;">
+                                            <span class="text-muted" style="margin-right: 5px;"> </span>
+                                            <span class="text-success ml-2 d-none d-lg-inline "></span>
+                                        </div>
+                                        <span class="d-block">Giá: <b class="text-danger">liên hệ</b></span>
+                                    }
+                                    else
+                                    {
+                                        @if (product.SalePrice != null && product.SalePrice < product.Price)
+                                        {
+                                            <div class="md-d-flex  " style="font-size: 13px;text-align:left;">
+                                                <span class="text-muted" style="margin-right: 5px;"><del>@product.Price.ToString("N0")₫</del></span>
+                                                <span class="text-success ml-2 d-none d-lg-inline ">Tiết kiệm @((product.Price - product.SalePrice)?.ToString("N0"))₫</span>
+                                            </div>
+                                            <span class="text-danger" style="font-size: 1.1em; font-weight: bold; text-align:left;">Giá: @product.SalePrice.ToString("N0")₫</span>
+                                        }
+                                        else
+                                        {
+                                            <div class="md-d-flex  " style="font-size: 17px;text-align:left;">
+                                                <span class="text-muted" style="margin-right: 5px;"> </span>
+                                                <span class="text-success ml-2 d-none d-lg-inline "> </span>
+                                            </div>
+                                            <span class="text-danger " style="font-size: 1.1em; font-weight: bold;text-align:left;">Giá: @product.Price.ToString("N0")₫</span>
+                                        }
+                                    }
+                                </div>
+                                <div class="mt-1 " style="text-align:left;">
+                                    @if (product.UnitsInStock > 0)
+                                    {
+                                        <span style="color: #2cc067; font-size: 14px;line-height: 30px;" class=""><i class="fa fa-check" style="color:#2cc067"></i> Sẵn hàng</span>
+                                    }
+                                    else
+                                    {
+                                        <span style="color:#0074da"><i class="fas fa-phone fa-flip-horizontal"></i> Đặt hàng</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+    }
+ 
+</div>
+<!-- Products End -->
+ 
+@*<div class="container-fluid pb-3 d-none categoriesWithProductsSeeMore" id="product-container">
+</div>
+*@
+
+
+@section Scripts {
+    <script>
+       
+    </script>
+}

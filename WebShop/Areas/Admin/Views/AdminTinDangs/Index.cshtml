@@ -1,0 +1,223 @@
+@model IEnumerable<WebShop.Models.Post>
+@{ 
+    ViewData["Title"] = "Danh sách tin tức";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml"; 
+
+}
+<link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Danh sách tin tức </span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    @*<div class="card-header" style="border-bottom:none">
+        <ul class="nav nav-tabs">
+           <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#project-details-tasks">Tất cả</a>
+            </li>
+            @foreach(var item in ViewBag.Card)
+            {
+                <li class="nav-item">
+                    <a class="nav-link " data-toggle="tab" href="#@item.PostCatName">@item.PostCatName</a>
+                </li>
+            }
+            
+        </ul>
+    </div>*@
+    
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-8">
+                <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminTinDangs" asp-action="Create"><i class="anticon anticon-plus m-r-5"></i><span>Thêm tin</span></a>
+            </div>
+            <div class="col-lg-4 text-right">
+                
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="data-table" class="display" style="width:100%">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>Hình ảnh</th>
+                        <th>Tiêu đề</th>
+                        <th>Ngày tạo</th>
+                        <th>Loại tin</th>
+                        <th>Trạng thái</th>
+                        <th>Tin hot</th>
+                        <th>Trang chủ</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr id ="project-details-tasks">
+                            <td>@item.PostId</td>
+                            <td width="15%" style="padding:5px"><img src="~/images/newsImage/@item.Thumb" width="100%" height="100px" style="object-fit:fill;"/></td>
+                            <td>@item.Title</td>
+                            <td>@item.CreatedDate</td>
+                            <td>@item.PostCat.PostCatName</td>
+                            <td>
+                                @if (item.Published == true)
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge badge-success badge-dot m-r-10"></div>
+                                        <div>Công khai</div>
+                                    </div> 
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge badge-success badge-dot m-r-10"></div>
+                                        <div>Ẩn</div>
+                                    </div>
+                                }
+                            </td>
+                            <td>
+                                @if (item.IsHot == true)
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge badge-success badge-dot m-r-10"></div>
+                                        <div>Hot</div>
+                                    </div> 
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge badge-success badge-dot m-r-10"></div>
+                                        <div>-</div>
+                                    </div>
+                                }
+                            </td>
+
+                            <td>
+                                @if (item.IsNewfeed == true)
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge badge-success badge-dot m-r-10"></div>
+                                        <div>Trang chủ</div>
+                                    </div> 
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge badge-success badge-dot m-r-10"></div>
+                                        <div>-</div>
+                                    </div>
+                                }
+                            </td>
+                            <td width="15%">
+                                @*<a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminTinDangs" asp-action="Details" asp-route-id="@item.PostId">Chi tiết</a>*@
+                                <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminTinDangs" asp-action="Edit" asp-route-id="@item.PostId">Sửa</a>
+                                    <a id="delete-button" class="btn btn-danger btn-tone m-r-5" data-target="#delete-post-md" data-toggle="modal" title="Xóa bài viết" data-postid="@item.PostId">
+                                    <i class="anticon anticon-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        }                      
+                         
+                    }
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
+<div id="delete-post-md" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Xóa bài viết</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bài viết này sẽ bị xóa khỏi website vĩnh viễn, bạn có chắc chắn muốn xóa bài viết này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Hủy</button>
+                <a id="confirm-delete-button" class="btn btn-danger">Xóa bài viết</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#data-table').DataTable({
+                language: {
+                    search: "Tìm kiếm",
+                    lengthMenu: "Hiển thị _MENU_",
+                    zeroRecords: "Không tìm thấy",
+                    info: "Hiển thị từ _START_ đến _END_ trong _TOTAL_ khách hàng",
+                    infoEmpty: "",
+                    infoFiltered: "",
+                    paginate: {
+                        "previous": "Trước",
+                        "next": "Sau"
+                    }
+                },
+
+            });
+
+          
+            var html = '<div class="col-lg-7">'
+                +'<label>Tìm kiếm</label>'
+                    +'<input id="inputText" name="search" value ="@ViewBag.Search" type ="text" class="form-control" placeholder ="Nhập thông tin">'
+                        +'</div>'
+            $("#data-table_filter").html(html)
+            $('#inputText').keyup(function () {
+                table.search($(this).val()).draw();
+            })
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var deleteButtons = document.querySelectorAll("#delete-button");
+            var confirmDeleteButton = document.querySelector("#confirm-delete-button");
+
+            var postIdToDelete;
+
+            deleteButtons.forEach(function (deleteButton) {
+                deleteButton.addEventListener("click", function () {
+                    postIdToDelete = this.getAttribute("data-postid");
+                });
+            });
+
+            confirmDeleteButton.addEventListener("click", function () {
+                var postid = postIdToDelete;
+                $.ajax({
+                    url: '/Admin/AdminTinDangs/DeletePost/',
+                    datatype: "json",
+                    type: "POST",
+                    data: { id: postid },
+                    async: true,
+                    success: function (results) {
+                        if (results.success == true) {
+                            location.reload();
+                        } else {
+                            alert(results.message);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+            });
+        });
+    </script>
+}

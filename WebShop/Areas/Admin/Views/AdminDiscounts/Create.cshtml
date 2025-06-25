@@ -1,0 +1,1219 @@
+﻿@model WebShop.Models.Discount
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section Styles{
+    <link href="~/adminassets/css/settingfull.css" rel="stylesheet" />
+    <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    
+    <link href="~/Adminassets/summernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/Adminassets/summernote/summernote.css" rel="stylesheet" />
+  <style>
+       .note-group-select-from-files{
+           display:none;
+       }
+
+        .customerok{
+            display:none;
+        }
+
+        .Productok {
+            display: none;
+        }
+
+        .fullproduct {
+            display: none;
+        }
+
+        .fullcustomer{
+            display:none;
+        }
+
+        .spinner-border {
+            display: none;
+        }
+
+        #data-table_wrapper > div:first-child {
+           display:none;
+        }
+
+        #data-table_wrapper > div:nth-child(3) {
+            display: none;
+        }
+
+        .Money{
+            display: none;
+        }
+
+        .ProductCount {
+            display: none;
+        }
+
+        #MaxApply{
+            display:none;
+        }
+
+        #Sum {
+            display: none;
+        }
+
+        /*gift*/
+        .ProductGift {
+            display: none;
+        }
+
+        .avatars {
+            font-size: .875rem;
+            text-align: center;
+            color: #fff;
+            white-space: nowrap;
+            position: relative;
+            vertical-align: middle;
+            width: 2rem;
+            line-height: 40px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+  </style>
+
+}
+ 
+<div class="omni-layout-body discount-detail-page">
+    <div class="omni-layout-body-md">
+        <div class="row no-gutters ui-title-bar-container" id="bgs" style="border-radius:5px; background:#dbd7d7;background-repeat:no-repeat; background-size:100% 100%;max-height:15rem; min-height:10rem">
+            <div class="col align-items-center d-flex">                
+                <div class="form-group title-page" style="padding:5px">
+                    <label asp-for="Name" class="control-label">Tên Khuyến mãi</label>
+                        <input asp-for="Name" id="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fa-solid fa-plus fa-beat-fade"></i>
+                        Ảnh khuyến mãi
+                    </a>
+                     
+                    <div class="modal fade" id="exampleModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Link ảnh</h5>
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <i class="anticon anticon-close"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">                                        
+                                        <input id="Image" class="form-control" />
+                                        <span asp-validation-for="Image" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-default checkImage" data-dismiss="modal">Save changes</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">                            
+                            <div class="form-group omni-layout-card--section">
+                                <label asp-for="Description" class="control-label">Mô tả Khuyến mãi</label>
+                                    <textarea id="Description" class="summernote" asp-for="Description"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Thời Gian Hiệu Lực</span></div>
+                            <div class="omni-layout-card--section">
+                                <div class="row">
+                                    <div class="col-6">                                        
+                                        <div class="form-group">
+                                            <label asp-for="TimeOn" class="control-label mb-2">Thời gian bắt đầu</label>
+                                             <input asp-for="TimeOn" id="TimeOn" min="" type="datetime-local" class="form-control listingDateOpen" />
+                                            <span asp-validation-for="TimeOn" class="text-danger"></span>
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-6">                                        
+                                        <div class="form-group">
+                                            <label asp-for="TimeOff" class="control-label mb-2">Có thời gian kết thúc</label>
+                                                <input type="datetime-local" id="TimeOff" asp-for="TimeOff" class="form-control listingDateOpen" />
+                                            <span asp-validation-for="TimeOff" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex flex-column"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Giảm giá sản phẩm</span></div>
+                            <div class="omni-layout-card--section">
+                                <label asp-for="Discount1" class="control-label"> Mức giảm</label>
+                                <div class="d-flex">
+                                    <div class="form-group w-50" >
+                                        <input asp-for="Discount1" id="Discount1" value="0" step="1" class="form-control" style="text-align:right;" />
+                                        <span asp-validation-for="Discount1" class="text-danger"></span>
+                                    </div>
+                                        <select class="form-control w-20 Discount1">
+                                        <option value="VND">VND</option>
+                                        <option value="%">%</option>
+                                    </select>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*Product*@
+
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title"></span>Sản phẩm áp dụng</div>
+                            <div class="omni-layout-card--section">
+                                <div class="radio">
+                                    <input id="Product1" onclick="ProductSearch(1)" name="Product" type="radio" checked="">
+                                    <label for="Product1">Tất cả sản phẩm chưa có khuyến mãi</label>
+                                </div>
+                                <div class="radio">
+                                    <input id="Product2" onclick="ProductSearch(2)" name="Product" type="radio">
+                                    <label for="Product2">Tùy chỉnh sản phẩm</label>
+                                </div>
+                            </div>
+                            <div class="list-group Productok">
+                                <div style="position:relative;width:100%">
+                                    <div class="input-affix m-b-10">
+                                        <i class="prefix-icon anticon anticon-search"></i>
+                                        <input type="text" id="inputText" class="form-control searchProductadd" placeholder="tên sản phẩm">
+                                    </div>
+                                    <div class="fullproduct" style="text-align:center">
+                                        <i class="fa-solid fa-xmark outProductsearch"></i>
+                                        <ul loadfullproduct" style="position:absolute;z-index:100;background:#e2e2f9;width:100%;height:150px;overflow:auto;border:1px solid;border-radius:5px">
+                                            <table id="data-table" class="table table-hover e-commerce-table" style="width:100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sản phẩm</th>
+                                                        <th>Chọn</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (ViewBag.product != null)
+                                                    {
+                                                        foreach (var item in ViewBag.product){
+                                                            <tr style="background:#ffffff;border-radius:5px">
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <div class="avatar avatar-image col-1">
+                                                                        <img src="@item.Avatar" />
+                                                                        </div>
+                                                                        <div class="m-l-10" style="text-align:left">
+                                                                            <div class="m-b-0 text-dark font-weight-semibold">@item.ProductName</div>
+                                                                            <div class="m-b-0 opacity-07 font-size-13">@item.UnitsInStock cái | @item.SalePrice.ToString("#,##0") VND</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td width="10%">
+                                                                    <input type="checkbox" id="@item.ProductId" class="checkitem">
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                     
+                                                </tbody>
+                                            </table>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <ul class="deleteProdeuct">
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    @*Gift*@
+                    <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header"><span class="header-title"></span>Sản phẩm quà tặng</div>
+                        <div class="omni-layout-card--section">
+                            <div class="radio">
+                                <input id="Gift1" onclick="GiftSearch(1)" name="Gift" type="radio" checked="">
+                                <label for="Gift1">Không áp dụng sản phẩm khuyến mãi</label>
+                            </div>
+                            <div class="radio">
+                                <input id="Gift2" onclick="GiftSearch(2)" name="Gift" data-toggle="modal" data-target=".bd-example-modal-xl" type="radio">
+                                <label for="Gift2">
+                              
+                                    Tùy chỉnh sản phẩm
+                                
+                                </label>
+
+                            </div>
+                        </div>
+                    <div class="list-group ProductGift" style="padding:1rem">
+                            <ul class="deleteGift">
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="">
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Điều kiện tối thiểu</span></div>
+                            <div class="omni-layout-card--section">
+                                <div class="radio">
+                                    <input id="ConditionCheck" name="ConditionCheck" value="Không yêu cầu" type="radio" checked="">
+                                    <label for="ConditionCheck">Không yêu cầu</label>                                 
+                                   
+                                </div>
+                                <div class="radio">
+                                    <input id="ConditionCheck2" name="ConditionCheck" value="Giá trị tối thiểu" type="radio">
+                                    <label for="ConditionCheck2">Giá trị tối thiểu</label>
+                                    <input asp-for="Money" value="0" id="Money" class="form-control Money" />
+                                </div>
+                                <div class="radio">
+                                    <input id="ConditionCheck3" name="ConditionCheck" value="Số lượng sản phẩm tối thiểu" type="radio">
+                                    <label for="ConditionCheck3">Số lượng sản phẩm tối thiểu</label>
+                                <input type="number" asp-for="ProductCount" value="0" id="ProductCount" class="form-control ProductCount" step="1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="omni-layout-card card-default form-group" style="display:none" >
+                        <div class="omni-layout-card--header"><span class="header-title">Đối tượng khách hàng</span></div>
+                        <div class="omni-layout-card--section">
+                            <div class="radio">
+                                <input id="radio1" onclick="checkSearch(1)" name="Customer" type="radio" value="1" checked="">
+                                <label for="radio1">Không giới hạn khách hàng</label>
+                            </div>
+                            <div class="radio">
+                                <input id="radio2" onclick="checkSearch(2)" name="Customer" value="2" type="radio">
+                                <label for="radio2">Tùy chỉnh khách hàng</label>
+                            </div>                            
+                       </div>
+                        <div class="list-group customerok">
+                            <div style="position:relative;width:100%">
+                                <div class="input-affix m-b-10">
+                                    <i class="prefix-icon anticon anticon-search"></i>
+                                    <input type="text" onclick="checkforcus()" class="form-control searchadd" placeholder="Tìm kiếm khách hàng">
+                                </div>  
+                                <div class="fullcustomer" style="text-align:center">
+                                    <i class="fa-solid fa-xmark outsearch"></i>
+                                    <ul class="list-group loadfullcustomer" style="position:absolute;z-index:100;background:#e2e2f9;width:100%;height:150px;overflow:auto;border:1px solid;border-radius:5px">
+                                         
+                                         
+                                    </ul>
+                                </div>                               
+                            </div>
+                            <ul class="deletecustomer">
+                                 
+                            </ul>
+                        </div>
+                    </div>
+
+                   
+                        <div class="omni-layout-card card-default">
+                            <div class="omni-layout-card--header"><span class="header-title">Giới hạn sử dụng</span></div>
+                            <div class="omni-layout-card--section">
+                                <div class="radio">
+                                    <input id="MaxApply1" name="MaxApply1" type="radio" value="1" checked="">
+                                    <label for="MaxApply1">Không áp dụng </label>
+                                </div>
+                                <div class="radio">
+                                    <input id="MaxApply2" name="MaxApply1" type="radio" value="2">
+                                    <label for="MaxApply2">Giới hạn</label>
+                                </div>
+                                
+                                <div class="next-input--disabled form-group">
+                                    <input type="number" value="0" class="next-input text-left min-width-100px" id="MaxApply" asp-for="MaxApply" step="1">
+                                 </div>
+                            </div>                            
+                        </div>
+                    <div class="omni-layout-card card-default">
+                        <div class="omni-layout-card--header"><span class="header-title">Giới hạn Khuyến mãi</span></div>
+                        <div class="omni-layout-card--section">
+                            <div class="radio">
+                                <input id="Sum1" name="Sum1" type="radio" value="1" checked="">
+                                <label for="Sum1">Không áp dụng </label>
+                            </div>
+                            <div class="radio">
+                                <input id="Sum2" name="Sum1" value="2" type="radio">
+                                <label for="Sum2">Giới hạn</label>
+                            </div>
+                            <div class="next-input--disabled form-group">
+                                <input type="number" value="0" class="next-input text-left min-width-100px" id="Sum" asp-for="Sum" step="1">
+                            </div>
+                        </div>
+                    </div>
+                        <br />
+                    <button onclick="Create()" class="btn btn-primary">Tạo khuyến mãi</button>
+                        <a asp-action="Index"> Quay lại</a>
+                </div>
+            <div class="col-lg-4 col-12">
+                <div class="discount--right-column">
+                    <div class="omni-layout-card card-secondary">
+                        <div class="omni-layout-card--header"><span class="header-title">Tóm tắt</span></div>
+                        <div class="omni-layout-card--section">                            
+                            <h3 class="mb-4 nameTitle"></h3>
+                             <strong>Chi tiết</strong>
+                                <ul class="loadcontent" style="padding:5px">                                 
+                                    
+                                </ul>                           
+                             
+                        </div>
+                    </div>
+                     
+                    <div class="omni-layout-card card-secondary">
+                        <div class="omni-layout-card--header"><span class="header-title">Cài đặt</span></div>
+                        <div class="omni-layout-card--section">
+                            <div class="d-flex flex-row">
+                                <div class="form-group d-flex align-items-center">
+                                    <div>
+                                         <input class="btn-check" id="ShowWeb" type="checkbox" checked="">
+                                        <i><strong class="fa-beat-fade"> Hiển thị trên Web của bạn.</strong></i>
+                                         
+                                    </div>                                    
+                                </div>                               
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-xl">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h4">Danh sách sản phẩm quà tặng</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">               
+                <div class="row">                    
+                    <div class="col-sm-12 col-md-7 col-lg-8">
+                        <div class="card-header">
+                            <h4 class="card-title">Danh sách sản phẩm</h4>
+                            <div class="card-body">
+                                <table style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Chọn</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="GiftProduct">                                     
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-5 col-lg-4">
+                        <div class="CreateDiv">
+                            <div class="card-header" style="display:flex">
+                                <h4 class="card-title">Thêm sản phẩm</h4>                            
+                            </div>
+                            <div class="card-body">                                
+                                <label for="NamePro">Tên sản phẩm</label>
+                                <input type="text" id="NamePro" class="form-control" placeholder="Tên sản phẩm">
+                                <span class="NamePro" style="color:red"></span>
+
+                                <label for="AvatarPro">Link hình ảnh</label>
+                                <input type="text" id="AvatarPro" class="form-control" placeholder="Link hình ảnh">
+                                <span class="AvatarPro" style="color:red"></span>
+
+                                <label for="Alias">Link sản phẩm</label>
+                                <input type="text" id="Alias" class="form-control" placeholder="Link sản phẩm">
+                                <span class="Alias" style="color:red"></span>
+
+                                <label for="Prite">Giá tiền sản phẩm</label>
+                                <input type="number" id="Prite" class="form-control" placeholder="Giá tiền sản phẩm">
+                                <span class="Prite" style="color:red"></span>
+
+                                <div style="display:flex;flex-direction: row-reverse;">
+                                    <button id="CreateGift" class="btn btn-primary">Tạo mới</button>                               
+                                </div>
+                            </div>
+                        </div>
+                        <div class="EditDiv" style="display:none">
+                            <div class="card-header" style="display:flex">
+                                <h4 class="card-title">Sửa sản phẩm</h4>
+                            </div>
+                            <div class="card-body">
+                                <input type="hidden" id="Idgift" />
+                                <label for="NamePros">Tên sản phẩm</label>
+                                <input type="text" id="NamePros" class="form-control" placeholder="Tên sản phẩm">
+                                <span class="NamePros" style="color:red"></span>
+
+                                <label for="AvatarPros">Link hình ảnh</label>
+                                <input type="text" id="AvatarPros" class="form-control" placeholder="Link hình ảnh">
+                                <span class="AvatarPros" style="color:red"></span>
+
+                                <label for="Aliass">Link sản phẩm</label>
+                                <input type="text" id="Aliass" class="form-control" placeholder="Link sản phẩm">
+                                <span class="Aliass" style="color:red"></span>
+
+                                <label for="Prites">Giá tiền sản phẩm</label>
+                                <input type="number" id="Prites" class="form-control" placeholder="Giá tiền sản phẩm">
+                                <span class="Prites" style="color:red"></span>
+
+                                <div style="display:flex;flex-direction: row-reverse;">
+                                    <a href="javascript:void(0)" class="btn breadCreate">Quay lai</a>
+                                    <button onclick="EditGift()"class="btn btn-primary">Lưu</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/Adminassets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Adminassets/summernote/summernote-bs4.min.js"></script>
+   
+    <script>
+        // them  xóa sửa product gift
+        // loadproductGift
+        
+        $(document).ready(function () {
+             
+            loadfullproductgift();
+             
+            if ($('.checkitem').val()!="on"){
+                alert('Hiện tất cả sản phẩm dang trong chương trình khuyến mãi bạn không thể tạo khuyến mãi')
+            }
+            laodcontendiscount();
+            datacustomer();
+            $('.summernote').summernote({
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
+                height: 150,
+                minHeight: null,
+                maxHeight: null,
+                focus: false
+            });
+            var table = $('#data-table').DataTable({
+                language: {
+                    search: "Tìm kiếm",
+                    lengthMenu: "Hiển thị _MENU_",
+                    zeroRecords: "Không tìm thấy hoặc sản phẩm đang trong sư chương trình khuyến mãi",
+                    info: "Hiển thị từ _START_ đến _END_ trong _TOTAL_ khuyến mãi",
+                    infoEmpty: "",
+                    infoFiltered: "",
+                    paginate: {
+                        "previous": "Trước",
+                        "next": "Sau"
+                    }
+                },
+
+            });
+            $('#inputText').keyup(function () {
+                table.search($(this).val()).draw();
+            })
+        });
+        
+        // GET: Admin/AdminDiscounts/SearchCustomer full customer
+        var customer;
+        var cusadd = [];
+        var cusdelete = [];
+        var origin = window.location.origin;
+        function datacustomer() {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("SearchCustomer","AdminDiscounts")',
+                dataType: "Json",
+                success: function (data) {
+                    customer = data.data;
+                }
+            })
+            return customer;
+        }
+      // css customer
+        $(".searchadd").on("focusout", function () {
+            $('.outsearch').addClass("fa-beat-fade");           
+        })
+        $(".searchadd").on("keydown", function () {            
+            if ($(this).val() == "") {
+                $('.fullcustomer').css("display", "none");
+            } else {
+                $('.fullcustomer').css("display", "block");
+            }
+        })
+        $(".searchadd").on("focus", function () {
+            $('.outsearch').removeClass("fa-beat-fade");
+            loadfullcustomer(customer);
+        })
+        $(".outsearch").on("click", function () {
+            $('.fullcustomer').css("display", "none");
+            $('.outsearch').removeClass("fa-beat-fade");
+        })
+        function checkforcus(id){
+            if (id==1) {
+                $('.fullcustomer').css("display", "none");
+            }
+            else{
+                $('.fullcustomer').css("display", "block");
+            }
+        }
+        function checkSearch(id){            
+            if(id==2)
+            {
+                $('.customerok').css("display", "block");
+                
+            }else{
+                $('.customerok').css("display", "none");
+            }
+        }
+        
+        // laod customer
+        function loadfullcustomer(data) {
+            var html = ""; for (var item = 0; item < data.length; item++) {
+                html += '<li onclick="itemcustomeradd(' + data[item].customerId + ')" style="text-align:left" class="list-group-item d-flex justify-content-between" id="' + data[item].customerId + '">'
+                            +'<div class="d-flex align-items-center">'
+                            +'<div class="avatar avatar-image" >'
+                            + '<img src="'+origin+'/adminassets/images/avatars/thumb-1.jpg"/></div>'
+                            +'<div class="m-l-10">'
+                            + '<div class="m-b-0 text-dark font-weight-semibold"> ' + data[item].fullName + ' </div>'
+                            + '<div class="m-b-0 opacity-07 font-size-13">' + data[item].email + '</div></div></div>'
+                            +'<div style="display:flex;align-items:center">'
+                            +'<i class="fa-solid fa-plus fa-beat-fade"></i> </div></li>';
+                }
+                $(".loadfullcustomer").html(html);
+        }
+        // load customer delete
+        function loaddeletecustomer(data) {
+            var html = ""; for (var item = 0; item < data.length; item++) {
+                html += '<li style="text-align:left" class="list-group-item d-flex justify-content-between customercheck" id="' + data[item].customerId + '">'
+                    + '<div class="d-flex align-items-center">'
+                    + '<div class="avatar avatar-image" >'
+                    + '<img src="' + origin + '/adminassets/images/avatars/thumb-1.jpg"/></div>'
+                    + '<div class="m-l-10">'
+                    + '<div class="m-b-0 text-dark font-weight-semibold"> ' + data[item].fullName + ' </div>'
+                    + '<div class="m-b-0 opacity-07 font-size-13">' + data[item].email + '</div></div></div>'
+                    + '<div style="display:flex;align-items:center">'
+                    + '<i onclick="itemcustomerdelete(' + data[item].customerId + ')" class="fa-solid fa-trash"></i></div></li>';
+            }
+            $(".deletecustomer").html(html);
+
+        }
+
+        var itemCus = [];
+        // add customer ra view chính
+        function itemcustomeradd(id){           
+            // lay tat ca id click
+            if(itemCus.indexOf(id)==-1){
+                itemCus.push(id);
+            }
+            // customerdata chia 2 phan add vaf delete
+            for (var item = 0; item < customer.length; item++) {
+                for (var j = 0; j < itemCus.length; j++) {
+                    // neu == nhau 
+                    if (customer[item].customerId==itemCus[j]) {
+                        if (cusdelete.indexOf(customer[item]) == -1) {
+                            cusdelete.push(customer[item]);
+                        }
+                        customer.splice(item,1);
+                    }
+                    
+                }
+            }
+            cusadd = customer;
+            if(cusadd.length==0){
+                $('.fullcustomer').css("display", "none");
+            }
+            if (cusadd.length == 1) {
+                $('.loadfullcustomer').css("height", "80px");
+            }
+            loaddeletecustomer(cusdelete);
+            loadfullcustomer(cusadd);
+            itemdele = [];
+            laodcontendiscount();
+        }
+        var itemdele=[];
+        // xoa phan tu khoi list delete
+        function itemcustomerdelete(id){
+            itemCus = [];
+            // lay tat ca id click
+            if (itemdele.indexOf(id) == -1) {
+                itemdele.push(id);                 
+            }
+            for (var item = 0; item < cusdelete.length; item++) {
+                for (var j = 0; j < itemdele.length; j++) {
+                    // neu == nhau
+                    if (cusdelete[item].customerId == itemdele[j]) {
+                        if (cusadd.indexOf(cusdelete[item]) == -1) {
+                            cusadd.push(cusdelete[item]);
+                        }
+                        cusdelete.splice(item, 1);
+                    }
+
+                }
+            }
+            if (cusadd.length == 1) {
+                $('.loadfullcustomer').css("height", "80px");
+            }
+            else{
+                $('.loadfullcustomer').css("height", "150px");
+            }
+            loaddeletecustomer(cusdelete);
+            loadfullcustomer(cusadd);
+            laodcontendiscount();
+        }
+        // product
+        // lay image
+        $('.checkImage').on('click', function () {
+            var images = $("#Image").val();
+            $("#bgs").css('background-image', 'url(' + images + ')');
+        })
+        
+        // check input search
+        function ProductSearch(id) {
+            if (id == 2) {
+                $('.Productok').css("display", "block");
+
+            } else {
+                $('.Productok').css("display", "none");
+            }
+        }
+        $(".searchProductadd").on("focusout", function () {
+            $('.outProductsearch').addClass("fa-beat-fade");
+        })
+        $(".searchProductadd").on("keydown", function () {
+            if ($(this).val() == "") {
+                $('.fullproduct').css("display", "none");
+            } else {
+                $('.fullproduct').css("display", "block");
+            }
+        })
+        $(".searchProductadd").on("focus", function () {
+            $('.fullproduct').css("display", "block");
+            $('.outProductsearch').removeClass("fa-beat-fade");
+
+        })
+        $(".outProductsearch").on("click", function () {
+            $('.fullproduct').css("display", "none");
+            $('.outProductsearch').removeClass("fa-beat-fade");
+        })
+        /// get add product
+        var chec = $(".checkitem");
+        $('.checkitem').on('click',function(){
+            var arr = [];
+            chec.each(function () {
+                var id = $(this).attr('id');
+                if ($(this).prop("checked")) {
+                    arr.push(id);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("SearchStatusAll","AdminDiscounts")',
+                dataType: "Json",
+                data: {
+                    listid: arr
+                },
+                success: function (data) {
+                    if (data.success == "Ok") {
+                        loaddeleteproduct(data.data);
+                        laodcontendiscount();
+                    }
+                }
+
+            })
+            
+        })
+        function loaddeleteproduct(data) {
+            var html = "";
+            var url = "https://"+window.location.host;
+            $.each(data, function (key, item) {
+                
+                let price = item.salePrice;
+                html += '<tr style="background:#ffffff;border-radius:5px" class="Productitem" id="' + item.productId + '" ><td><div class="d-flex">'
+                    + '<div class="avatar avatar-image col-2">'
+                    + '<img src="' + item.avatar + '"/></div>'
+                    + '<div class="m-l-10" style="text-align:left">'
+                    + '<div class="m-b-0 text-dark font-weight-semibold">' + item.productName + '</div>'
+                    + '<div class="m-b-0 opacity-07 font-size-13"> ' + item.unitsInStock + 'cái |' + price + 'VND </div>'
+                    + '</div></div></td>'
+                    + '</tr>';
+            });
+            $(".deleteProdeuct").html(html);
+        }
+        
+        $("input[name='ConditionCheck']").change(function () {
+             var id =$(this).attr('id');
+            if (id == "ConditionCheck") {
+                $('.ProductCount').css("display", "none");
+                $('.Money').css("display", "none");
+                $('.ProductCount').val(0);
+                $('.Money').val(0);
+            }
+            else if (id == "ConditionCheck2") {
+                $('.ProductCount').css("display", "none");
+                $('.ProductCount').val(0);
+                $('.Money').css("display", "block");
+            } else {
+                $('.ProductCount').css("display", "block");
+                $('.Money').val(0);
+                $('.Money').css("display", "none");
+                
+            }
+            laodcontendiscount();
+        });
+        $("input[name='MaxApply1']").change(function () {
+            var id = $(this).attr('id');
+            if (id == "MaxApply1") {
+                $('#MaxApply').css("display", "none");
+                $('#MaxApply').val(0);
+            }
+            else {
+                $('#MaxApply').css("display", "block");              
+
+            }
+            laodcontendiscount();
+        });
+        $("input[name='Sum1']").change(function () {
+            var id = $(this).attr('id');
+            if (id == "Sum1") {
+                $('#Sum').css("display", "none");
+                $('#Sum').val(0);
+            }
+            else {
+                $('#Sum').css("display", "block");
+
+            }
+            laodcontendiscount();
+        });
+       
+
+
+        $('#Name').keyup(function () {            
+            $('.nameTitle').html($(this).val());
+            name = $(this).val();            
+        })
+        $('#Discount1').keyup(function () {
+            laodcontendiscount();
+        })
+        $('#ProductCount').keyup(function () {
+            laodcontendiscount();
+        })
+        $('#MaxApply').keyup(function () {
+            laodcontendiscount();
+        })
+        $('#Sum').keyup(function () {
+            laodcontendiscount();          
+
+        })
+        // load chi tiet
+        function laodcontendiscount(){            
+            var html = "";
+            var text1 = "";
+            var text2 = "";
+            var text3 ="";
+            var text4 ="";
+            if ($('input[name="ConditionCheck"]:checked').val() == "Không yêu cầu"){
+                text1= "Không yêu cầu giá trị tối thiểu và sản phẩm mua tối thiểu";
+            }
+            else if ($('input[name="ConditionCheck"]:checked').val() == "Giá trị tối thiểu") {
+                text1 = "Áp dụng giá trị tối thiểu là " + $("#Money").val() + "VND cho mỗi đơn hàng."
+            }
+            else{
+                text1 = "Áp dụng số lượng tối thiểu là " + $("#ProductCount").val() + "sản phẩm cho mỗi đơn hàng."
+            }
+            // khách hàng
+            if ($('input[name="Customer"]:checked').val() == "1") {
+                text2 = "Không giới hạn khách hàng."
+            }
+            else {
+                text2 = "Áp dụng với " + $(".deletecustomer").children().length + "khách hàng."
+            }
+
+            // text 3
+            if ($('input[name="MaxApply1"]:checked').val() == "1") {
+                text3 = "Không giới hạn số lần áp dụng."
+            }
+            else {
+                text3 = "Áp dụng với tối đa " + $("#MaxApply").val() + "/khách hàng."
+            }
+            // text 4
+            if ($('input[name="Sum1"]:checked').val() == "1") {
+                text4 = "Không giới hạn khuyến mãi.";
+            }
+            else {
+                text4 = "Số lượng khuyến mãi là:" + $("#Sum").val() + "";
+            }
+            html = '<li> Giảm giá ' + $("#Discount1").val() + ' ' + $(".Discount1").val() + ' cho '+$(".deleteProdeuct").children().length+' Sản phẩm </li>'
+                +'<li> '+text1+' </li>'
+                +'<li> '+text3+' </li>'
+                +'<li>'+text2+'</li>'
+                +'<li> Có hiệu lực từ ' + $("#TimeOn").val() + 'đến ' + $("#TimeOff").val() + '<span>.</li>'
+                + '<li>'+ text4 + '</li>';
+            $(".loadcontent").html(html)
+        }
+        
+        // gift
+        function GiftSearch(id) {
+            if (id == 2) {
+                $('.ProductGift').css("display", "block");
+
+            } else {
+                $('.ProductGift').css("display", "none");
+            }
+        }
+        $('.checkitemGift').on('click', function () {           
+            var checGift = $(".checkitemGift");
+            var arrGift = [];
+            console.log($(this).attr('id'));
+            checGift.each(function () {
+                var id = $(this).attr('id');
+                if ($(this).prop("checked")) {
+                    arrGift.push(id);
+                }
+            });
+          
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("SearchGiftAll","AdminDiscounts")',
+                dataType: "Json",
+                data: {
+                    listid: arrGift
+                },
+                success: function (data) {
+                    if (data.success == "Ok") {                       
+                        loaddeleteGift(data.data);
+                        laodcontendiscount();
+                    }
+                }
+
+            })
+
+        })
+        function loaddeleteGift(data) {        
+            var html = "";
+            $.each(data, function (key, item) {
+                let price = item.price;
+                html += '<tr style="background:#ffffff;border-radius:5px" class="Giftitem" id="' + item.id + '" ><td><div class="d-flex">'
+                    + '<div class="avatar avatar-text bg-primary" style="width:70px;height:70px">'
+                    + '<img src="' + item.avatar + '"/></div>'
+                    + '<div class="m-l-7" style="text-align:left; padding-left:2rem">'
+                    + '<div class="m-b-0 text-dark font-weight-semibold">' + item.name + '</div>'
+                    + '<div class="m-b-0 opacity-07 font-size-13"> ' + price + 'VND </div>'
+                    + '</div></div></td>'
+                    + '</tr>';
+            });
+            $(".deleteGift").html(html);
+        }
+
+        function loadfullproductgift() {
+            var html = '';
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("loadFullProductGiff","AdminDiscounts")',
+                dataType: "Json",
+                success: function (data) {
+                    $.each(data.product, function (key, item) {
+                        html += '<tr style="background:#ffffff;border-radius:5px"><td>'
+                            + '<div class="d-flex"><div class="avatar avatar-image">'
+                            + '<img src="' + item.avatar + '"/></div>'
+                            + '<div class="m-l-10" style="text-align:left">'
+                            + '<div class="m-b-0 text-dark font-weight-semibold">' + item.name + '</div>'
+                            + '<div class="m-b-0 opacity-07 font-size-13">' + item.price + 'VND</div>'
+                            + '</div></div></td><td width="20%" style="display:flex;flex-wrap:nowrap;align-items:center;">'
+                            + '<i class="anticon anticon-edit btn" onclick="edit( ' + item.id + ')"></i><i onclick="deleteGift( ' + item.id + ')" class="anticon anticon-delete btn"></i><input class="checkitemGift" onclick="checkitemGift( ' + item.id + ')" type="checkbox" id ="' + item.id + '"></td></tr>'
+                    });
+                    $("#GiftProduct").html(html);
+                }
+            })
+        }
+        function edit(id){
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("detailGift","AdminDiscounts")',
+                dataType: "Json",
+                data:{id:id},
+                success: function (data) {
+                     if(data.data!=null){
+                        var item = data.data;
+                        $('#Idgift').val(item.id);
+                        $('#NamePros').val(item.name);
+                        $('#AvatarPros').val(item.avatar);
+                        $('#Aliass').val(item.alias);
+                        $('#Prites').val(item.price);
+                        $('.CreateDiv').css('display','none');
+                        $('.EditDiv').css('display', 'block');
+                     }
+                }
+            })
+        }
+        function deleteGift(id) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("deleteProGift","AdminDiscounts")',
+                dataType: "Json",
+                data: { id: id },
+                success: function (data) {
+                    if(data.success=="Ok"){
+                        loadfullproductgift();
+                        loaddeleteGift(data.data)
+
+                    }else{
+                        alert('bạn không thể xóa sản phẩm này do sản phẩm đang trong quá chương trình khuyến mãi hoặc tồn tai trong mã khuyến mãi');
+                    }
+                }
+            })
+        }
+        $('.breadCreate').on('click',function(){
+            $('#Idgift').val("");
+            $('#NamePros').val("");
+            $('#AvatarPros').val("");
+            $('#Aliass').val("");
+            $('#Prites').val("");
+            $('.CreateDiv').css('display', 'block');
+            $('.EditDiv').css('display', 'none');
+        })
+       
+        $('#CreateGift').on('click', function () {
+            var NamePro = $('#NamePro').val();
+            var AvatarPro = $('#AvatarPro').val();
+            var Alias = $('#Alias').val();
+            var Prite = $('#Prite').val();              
+            if (NamePro != "" && AvatarPro != "" && Alias != "" && Prite !="") {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("CreateProductGiff","AdminDiscounts")',
+                    dataType: "Json",
+                    data: {                 
+                        Name: NamePro,
+                        Avatar: AvatarPro,
+                        Alias: Alias,
+                        Prite: Prite
+                    },
+                    success: function (data) {                        
+                        loadfullproductgift();
+                    }
+                })
+            }
+            else{
+                if(NamePro=="")
+                    $('.NamePro').html("Vui lòng không để chống Tên");
+                if (AvatarPro == "")                    
+                    $('.AvatarPro').html("Vui lòng không để chống Link hình ảnh");
+                if (Alias == "")
+                    $('.Alias').html("Vui lòng không để chống Link sản phẩm");                    
+                if (Prite == "")
+                    $('.Prite').html("Vui lòng không để chống giá tiền");              
+            }
+
+        })
+        
+        function EditGift() {
+            var ids = $('#Idgift').val();
+            var NamePros = $('#NamePros').val();
+            var AvatarPros = $('#AvatarPros').val();
+            var Aliass = $('#Aliass').val();
+            var Prites = $('#Prites').val();
+                console.log(NamePros);
+            if (NamePros != "" && AvatarPros != "" && Aliass != "" && Prites != "") {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("updateProductGiff","AdminDiscounts")',
+                    dataType: "Json",
+                    data: {
+                        id:ids,
+                        Name: NamePros,
+                        Avatar: AvatarPros,
+                        Alias: Aliass,
+                        Prite: Prites
+                    },
+                    success: function (data) {
+                        loadfullproductgift();
+                    }
+                })
+            }
+            else {
+                if (NamePro == "")
+                    $('.NamePros').html("Vui lòng không để chống Tên");
+                if (AvatarPro == "")
+                    $('.AvatarPros').html("Vui lòng không để chống Link hình ảnh");
+                if (Alias == "")
+                    $('.Aliass').html("Vui lòng không để chống Link sản phẩm");
+                if (Prite == "")
+                    $('.Prites').html("Vui lòng không để chống giá tiền");
+            }
+
+        }
+
+        function checkitemGift(id) {
+            var checGift = $(".checkitemGift");
+            var arrGift = [];            
+            checGift.each(function () {
+                var id = $(this).attr('id');
+                if ($(this).prop("checked")) {
+                    arrGift.push(id);
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("SearchGiftAll","AdminDiscounts")',
+                dataType: "Json",
+                data: {
+                    listid: arrGift
+                },
+                success: function (data) {
+                    if (data.success == "Ok") {
+
+                        loaddeleteGift(data.data);
+                        laodcontendiscount();
+                    }
+                }
+
+            })
+        }
+        
+        
+        
+        // xu ly valy add
+        var Discount = { Name: $('#Name').val(), Gift: true, Image: $('#Image').val(), Description: $('#Description').val(), TimeOn: $('#TimeOn').val(), TimeOff: $('#TimeOff').val(), ShowWeb: true, MaxApply: $('#MaxApply').val(), Startus: "", Discount1: $('#Discount1').val(), ConditionCheck: true, Money: $('#Money').val(), ProductCount: $("#ProductCount").val(), Sum: $('#Sum').val() };
+        function CheckAddDiscount(){
+            var check =false;
+            if ($("#ShowWeb").is(':checked')){
+                Discount.ShowWeb=true;
+            }
+            else
+            {
+                Discount.ShowWeb = false;
+            }
+            if ($("#ApplyGift").is(':checked')) {
+                Discount.ApplyGift = true;
+            }
+            else {
+                Discount.ApplyGift = false;
+            }
+
+            if ($("#ConditionCheck").is(':checked')) {
+                Discount.ConditionCheck=true;
+                Discount.Discount1=0;
+                Discount.Money= 0;
+            }
+            else {
+                Discount.ConditionCheck = false;
+                Discount.Discount1= $('#Discount1').val();
+                Discount.Money= $('#Money').val();                
+            }
+            if ($('.Discount1').val()!="VND"){
+                let so = $('#Discount1').val();
+                if(so>100){
+                    so=100;
+                }
+                Discount.Discount1=so;
+            }else{
+                Discount.Discount1= $('#Discount1').val();
+            }
+            if ($("#Gift1").is(':checked')) {
+                Discount.Gift = true;
+            }
+            else {
+                Discount.Gift = false;
+            }
+
+            //Discount.ConditionCheck: true
+            Discount.Name = $('#Name').val();
+            Discount.Image= $('#Image').val();
+            Discount.Description= $('#Description').val();
+            Discount.TimeOn= $('#TimeOn').val();
+            Discount.TimeOff= $('#TimeOff').val();
+            Discount.MaxApply= $('#MaxApply').val();
+            Discount.Startus= true;
+            Discount.ProductCount = $("#ProductCount").val();
+            Discount.Sum= $('#Sum').val();
+            if (Discount.Name != "" && Discount.TimeOn != "" && Discount.TimeOff != "" && Discount.MaxApply != "" && Discount.Sum != "") {
+                check =true;
+            }
+            return check;
+        };
+
+
+
+      
+        function Create(){
+            var custonmer = $(".customercheck");
+            var product = $(".Productitem");
+            var listproduct = [];
+            var listcustomer = [];
+            var Gift = $(".Giftitem");
+            var listGift = [];
+
+            product.each(function () {
+                var id = $(this).attr('id');                
+                listproduct.push(id);               
+            });
+            custonmer.each(function () {
+                var id = $(this).attr('id');                
+                listcustomer.push(id); 
+            });
+            Gift.each(function () {
+                var id = $(this).attr('id');
+                listGift.push(id);
+            });
+      
+            if (CheckAddDiscount()){
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("CreateData","AdminDiscounts")',
+                    dataType: "Json",
+                    data: {
+                        Name: Discount.Name,
+                        Gift: Discount.Gift,
+                        Image: Discount.Image,
+                        Description: Discount.Description,
+                        TimeOn: Discount.TimeOn,
+                        TimeOff: Discount.TimeOff,
+                        ShowWeb: Discount.ShowWeb,
+                        MaxApply: Discount.MaxApply,
+                        Startus: Discount.Startus,
+                        Discount1: Discount.Discount1,
+                        ConditionCheck: Discount.ConditionCheck,
+                        Money: Discount.Money,
+                        ProductCount: Discount.ProductCount,
+                        Sum: Discount.Sum,
+                        listProduct: listproduct,
+                        listCustomer: listcustomer,
+                        listGift: listGift,
+                    },
+                    success: function (data) {
+                        if(data.data=="Ok"){
+                            location.href = '@Url.Action("Index","AdminDiscounts")';
+                        }
+                        else{
+                            alert("Đã gặp lỗi do quá trình tạo hoặc thêm dữ liệu vui lòng kiểm tra lại");
+                        }
+                    }
+
+                })
+            }
+            else{
+                alert("Bạn chưa điền đủ thông tin của khuyến mãi vui lòng điền");
+            }
+        }
+       
+    </script>
+}
+
