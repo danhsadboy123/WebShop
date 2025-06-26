@@ -21,11 +21,11 @@ public partial class ShippingAddress
 
     public string Address { get; set; }
 
-    public virtual District District { get; set; }
+    public virtual Huyen District { get; set; }
 
-    public virtual Order Order { get; set; }
+    public virtual DonHang Order { get; set; }
 
-    public virtual Province Province { get; set; }
+    public virtual Tinh Province { get; set; }
 
-    public virtual Ward Ward { get; set; }
+    public virtual Xa Ward { get; set; }
 }

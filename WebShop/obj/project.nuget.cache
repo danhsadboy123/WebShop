@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GRIBgTiqYb0=",
+  "dgSpecHash": "yw0X2JqJee0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Novazone\\Desktop\\New folder (11)\\WebShop\\WebShop\\WebShop.csproj",
+  "projectFilePath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Novazone\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\Novazone\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
@@ -322,14 +322,20 @@
     "C:\\Users\\Novazone\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Novazone\\.nuget\\packages\\twilio\\7.0.5\\twilio.7.0.5.nupkg.sha512",
     "C:\\Users\\Novazone\\.nuget\\packages\\twilio.aspnet.common\\7.0.0\\twilio.aspnet.common.7.0.0.nupkg.sha512",
-    "C:\\Users\\Novazone\\.nuget\\packages\\twilio.aspnet.mvc\\7.0.0\\twilio.aspnet.mvc.7.0.0.nupkg.sha512"
+    "C:\\Users\\Novazone\\.nuget\\packages\\twilio.aspnet.mvc\\7.0.0\\twilio.aspnet.mvc.7.0.0.nupkg.sha512",
+    "C:\\Users\\Novazone\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Novazone\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Novazone\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Novazone\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'Facebook 7.0.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
       "libraryId": "Facebook",
       "targetGraphs": [
         "net7.0"
@@ -338,8 +344,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'Microsoft.AspNet.Mvc 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
       "libraryId": "Microsoft.AspNet.Mvc",
       "targetGraphs": [
         "net7.0"
@@ -348,8 +356,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'Microsoft.AspNet.Razor 3.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
       "libraryId": "Microsoft.AspNet.Razor",
       "targetGraphs": [
         "net7.0"
@@ -358,8 +368,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'Microsoft.AspNet.WebPages 3.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
       "libraryId": "Microsoft.AspNet.WebPages",
       "targetGraphs": [
         "net7.0"
@@ -368,8 +380,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'Microsoft.Web.Infrastructure 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
       "libraryId": "Microsoft.Web.Infrastructure",
       "targetGraphs": [
         "net7.0"
@@ -378,8 +392,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'Twilio.AspNet.Mvc 7.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Novazone\\Desktop\\AD\\WebShop\\WebShop\\WebShop.csproj",
       "libraryId": "Twilio.AspNet.Mvc",
       "targetGraphs": [
         "net7.0"

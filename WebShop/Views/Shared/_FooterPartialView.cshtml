@@ -4,7 +4,7 @@
 @inject WebShop.Services.IPageInfoService PageInfoService;
 @using Microsoft.AspNetCore.Html;
 @{
-    List<WebShop.Models.Category> lsCat = ViewBag.lsCat ?? new List<WebShop.Models.Category>();
+    List<WebShop.Models.DanhMuc> lsCat = ViewBag.lsCat ?? new List<WebShop.Models.DanhMuc>();
     var pageInfo = PageInfoService.GetPageInfo();
     var foodterCode = pageInfo?.FoodterCode;
 }

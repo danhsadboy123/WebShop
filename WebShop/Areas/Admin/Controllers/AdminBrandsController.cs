@@ -66,7 +66,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BrandId,BrandName,MoTa")] Brand brand)
+        public async Task<IActionResult> Create([Bind("BrandId,BrandName,MoTa")] ThuongHieu brand)
         {
             if (ModelState.IsValid)
             {               
@@ -80,7 +80,7 @@ namespace WebShop.Areas.Admin.Controllers
                 foreach (var value in categoryBrands)
                 {
                     //Thêm bảng ghi mới
-                    var newcategoryBrand = new CategoryBrand
+                    var newcategoryBrand = new DanhMucThuongHieu
                     {
                         BrandId = brand.BrandId,
                         CatId = Convert.ToInt32(value),
@@ -129,7 +129,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, int curPage, [Bind("BrandId,BrandName,MoTa,Thumb")] Brand brand)
+        public async Task<IActionResult> Edit(int id, int curPage, [Bind("BrandId,BrandName,MoTa,Thumb")] ThuongHieu brand)
         {
             var currentPage = curPage;
 
@@ -153,7 +153,7 @@ namespace WebShop.Areas.Admin.Controllers
                     foreach (var value in cats)
                     {
                         //Thêm bảng ghi mới
-                        var newcategoryBrand = new CategoryBrand
+                        var newcategoryBrand = new DanhMucThuongHieu
                         {
                             BrandId = brand.BrandId,
                             CatId = Convert.ToInt32(value),
@@ -186,7 +186,7 @@ namespace WebShop.Areas.Admin.Controllers
             return View(brand);
         }
 
-        public IActionResult Editbrandcate(int id, [Bind("BrandId,BrandName,MoTa,Thumb")] Brand brand,int[] cate)
+        public IActionResult Editbrandcate(int id, [Bind("BrandId,BrandName,MoTa,Thumb")] ThuongHieu brand,int[] cate)
         {
             return Json("ok");
         }

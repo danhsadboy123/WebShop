@@ -17,7 +17,7 @@ public partial class ProductAddCusPro
 
     public string Address { get; set; }
 
-    public virtual CustomerSupplier Customer { get; set; }
+    public virtual NhaCungCapKhachHang Customer { get; set; }
 
     public virtual Product Product { get; set; }
 }

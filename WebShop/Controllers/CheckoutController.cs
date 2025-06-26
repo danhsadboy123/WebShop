@@ -221,7 +221,7 @@ namespace WebShop.Controllers
                 {
                     var khachhang = _context.Customers.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID));
                     var address = _context.AccountAddresses.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID) && x.IsDefault == true);
-                    AccountAddress addressnew = new AccountAddress();
+                    DiaChiTaiKhoan addressnew = new DiaChiTaiKhoan();
                     addressnew.CustomerId = khachhang.CustomerId;
                     addressnew.UserName = muaHang.HoTen;
                     addressnew.SoDienThoai = muaHang.SoDienThoai;
@@ -237,7 +237,7 @@ namespace WebShop.Controllers
                     }
 
                     //Khoi tao don hang
-                    Order donhangg = new Order();
+                    DonHang donhangg = new DonHang();
                     donhangg.CustomerId = khachhang.CustomerId;
                     donhangg.Draft = false;
                     donhangg.CheckEmail = muaHang.CheckEmail;
@@ -323,7 +323,7 @@ namespace WebShop.Controllers
                     if (ModelState.IsValid)
                     {
                         //tạo mới một khách hàng vãng lai
-                        Guest guest = new Guest
+                        KhachVangLai guest = new KhachVangLai
                         {
                             HoTen = muaHang.HoTen,
                             SoDienThoai = muaHang.SoDienThoai.Trim().ToLower(),
@@ -334,7 +334,7 @@ namespace WebShop.Controllers
                         _context.SaveChanges();
                         int guestid = guest.GuestId;
                         //Khoi tao don hang
-                        Order donhang = new Order();
+                        DonHang donhang = new DonHang();
                         donhang.CheckEmail = muaHang.CheckEmail;
                         donhang.Draft = false;
                         donhang.GuestId = guestid;
@@ -469,13 +469,13 @@ namespace WebShop.Controllers
                     decimal totalMoney = cart.Sum(item =>
                         (decimal)(item.product.SalePrice > 0 ? item.product.SalePrice : item.product.Price) * item.amount);
 
-                    Guest guest = null;
+                    KhachVangLai guest = null;
                     //tạo list Orderdetail để gửi mail
                     List<OrderDetail>lsOD = new List<OrderDetail>();
                     // Nếu khách hàng chưa đăng nhập, tạo mới một khách hàng vãng lai
                     if (taikhoanID == null)
                     {
-                        guest = new Guest
+                        guest = new KhachVangLai
                         {
                             HoTen = HoTen,
                             SoDienThoai = SoDienThoai.Trim().ToLower(),
@@ -487,7 +487,7 @@ namespace WebShop.Controllers
                     }
 
                     // Tạo đơn hàng
-                    var order = new Order
+                    var order = new DonHang
                     {
                         GuestId = guest?.GuestId, // Có thể là null nếu khách hàng đã đăng nhập
                         SoDienThoai = guest?.SoDienThoai,
@@ -633,7 +633,7 @@ namespace WebShop.Controllers
             public IActionResult AddAccountAddress(int TinhThanh1,int QuanHuyen1,int PhuongXa1,string Address1, string PhoneAdd,string FullNameAdd,int CustomerAdd)
         {
             bool success = true;
-            AccountAddress cus = new AccountAddress();
+            DiaChiTaiKhoan cus = new DiaChiTaiKhoan();
             try {
                 cus.CustomerId = CustomerAdd;
                 cus.SoDienThoai=PhoneAdd;
@@ -816,7 +816,7 @@ namespace WebShop.Controllers
         }
 
         // send email dat hang thanh cong
-        public IActionResult SendEmail(Customer tk, List<OrderDetail> listO,Order donhang)
+        public IActionResult SendEmail(KhachHang tk, List<OrderDetail> listO,DonHang donhang)
         {
             var address = "";
             var systemW = _context.SystemWebs.FirstOrDefault();
@@ -878,7 +878,7 @@ namespace WebShop.Controllers
         }
 
         // kahch hang van lai
-        public IActionResult SendEmail2(Guest tk, string address, List<OrderDetail> listO,Order donhang)
+        public IActionResult SendEmail2(KhachVangLai tk, string address, List<OrderDetail> listO,DonHang donhang)
         {
             var address1 = "";
             if (address != null)
@@ -940,7 +940,7 @@ namespace WebShop.Controllers
         }
 
         //thay đổii nội dung phần Email gửi khách hàng
-        public string textcover(string body, string Name, string Email, string SoDienThoai, string Address, string CompannyName, List<OrderDetail> Order, Order donhang)
+        public string textcover(string body, string Name, string Email, string SoDienThoai, string Address, string CompannyName, List<OrderDetail> Order, DonHang donhang)
         {
             var url = HttpContext.Request.Host;
             var id = "";

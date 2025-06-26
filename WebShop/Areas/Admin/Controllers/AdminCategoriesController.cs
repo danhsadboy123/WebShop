@@ -197,7 +197,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CatId,CatName,CatNameEn,DescriptionEn,MoTa,ParentId,Levels,Ordering,Outstanding,Published,Thumb,Title,TitleEn,Alias,MetaDesc,MetaDescEn,MetaKey,MetaKeyEn,Cover,SchemaMarkup,Icon")] Category category)
+        public async Task<IActionResult> Create([Bind("CatId,CatName,CatNameEn,DescriptionEn,MoTa,ParentId,Levels,Ordering,Outstanding,Published,Thumb,Title,TitleEn,Alias,MetaDesc,MetaDescEn,MetaKey,MetaKeyEn,Cover,SchemaMarkup,Icon")] DanhMuc category)
         {
             if (ModelState.IsValid)
             {
@@ -339,7 +339,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Category updatedCategory)
+        public async Task<IActionResult> Edit(int id, DanhMuc updatedCategory)
         {
             if (id != updatedCategory.CatId)
             {
@@ -395,7 +395,7 @@ namespace WebShop.Areas.Admin.Controllers
             var attr = _context.Attributes.Where(i => i.AttributeId == id).FirstOrDefault();
             try
             {
-                CategoryAttribute cate = new CategoryAttribute();
+                DanhMucThuocTinh cate = new DanhMucThuocTinh();
                 cate.CatId = cateid;
                 cate.Name = attr.Name;
                 cate.AttributeId = attr.AttributeId;
@@ -531,7 +531,7 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 try
                 {
-                    BrandGroup br = new BrandGroup();
+                    NhomThuongHieu br = new NhomThuongHieu();
                     br.BrandId = cateb.BrandId;
                     br.CatId = cateb.CatId;
                     br.Name = text;
@@ -646,7 +646,7 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 if (brand != null)
                 {
-                    var newcategoryBrand = new CategoryBrand
+                    var newcategoryBrand = new DanhMucThuongHieu
                     {
                         BrandId = brand.BrandId,
                         CatId = catid,

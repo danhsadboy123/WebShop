@@ -4,8 +4,8 @@
     ViewData["Title"] = "Chỉnh sửa sản phẩm :" + Model.ProductName;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
     List<WebShop.Models.ProductThumb> Images = ViewBag.lsImage;
-    List<WebShop.Models.Attribute> Attributes = ViewBag.lsAttribute;
-    List<WebShop.Models.AttributesPrice> SelectedPrices = ViewBag.SelectedPrice;
+    List<WebShop.Models.ThuocTinh> Attributes = ViewBag.lsAttribute;
+    List<WebShop.Models.GiaThuocTinh> SelectedPrices = ViewBag.SelectedPrice;
     List<WebShop.Models.ProductCategory> productsCate = ViewBag.productsCate;
     var imgp = "";
     var max = 0;

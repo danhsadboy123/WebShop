@@ -6,8 +6,8 @@ namespace WebShop.ModelViews
 {
     public class HeaderMenu
     {
-        public Category Category { get; set; } 
-        public List<Attribute> attribute { get; set; }
+        public DanhMuc Category { get; set; } 
+        public List<ThuocTinh> attribute { get; set; }
         public List<HeaderMenu> Children { get; set; }
     }
 }

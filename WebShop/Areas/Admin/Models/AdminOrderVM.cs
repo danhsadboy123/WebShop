@@ -6,6 +6,6 @@ namespace WebShop.Areas.Admin.Models
     public class AdminOrderVM
     {
         public CheckboxOrder CheckboxOrder { get; set; }
-        public List<Order> Orders { get; set; }
+        public List<DonHang> Orders { get; set; }
     }
 }

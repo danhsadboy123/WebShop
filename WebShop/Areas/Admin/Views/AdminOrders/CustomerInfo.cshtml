@@ -1,4 +1,4 @@
-﻿@model WebShop.Models.Customer
+﻿@model WebShop.Models.KhachHang
 <div class="card-body">
     <a target="_blank" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@Model.CustomerId">@Model.HoTen</a>
     <a style="float:right" class="btn" id="cancelBtn" onclick="onCancel()">
@@ -19,7 +19,7 @@
 <div class="card-body pt-0">
     @if (ViewBag.Address != null)
     {
-        var shippingAddress = ViewBag.Address as AccountAddress;
+        var shippingAddress = ViewBag.Address as DiaChiTaiKhoan;
         var strThanhPho = shippingAddress.Province.ProvinceName;
         var strQuanHuyen = shippingAddress.District.Type + " " + shippingAddress.District.DistrictName;
         var strPhuongXa = shippingAddress.Ward.Type + " " + shippingAddress.Ward.WardName;

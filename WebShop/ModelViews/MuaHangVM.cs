@@ -26,7 +26,7 @@ namespace WebShop.ModelViews
         [RegularExpression(@"^(0[3|5|7|8|9])[0-9]{8}$", ErrorMessage = "So dien thoai khong hop le")]
         public string SoDienThoai { get; set; }
 
-        public List<AccountAddress> Addresses { get; set; }
+        public List<DiaChiTaiKhoan> Addresses { get; set; }
 
         [Required(ErrorMessage = "*Vui long nhap dia chi nhan hang")]
         public string Address { get; set; }

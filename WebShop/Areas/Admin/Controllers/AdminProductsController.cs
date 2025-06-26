@@ -736,7 +736,7 @@ namespace WebShop.Areas.Admin.Controllers
                         if (attributeValue != null)
                         {
                             //Thêm bảng ghi mới
-                            var newAttributeValue = new AttributesPrice
+                            var newAttributeValue = new GiaThuocTinh
                             {
                                 AttributeId = attributeValue.AttributeId,
                                 ProductId = product.ProductId,
@@ -1228,7 +1228,7 @@ namespace WebShop.Areas.Admin.Controllers
         {
             return _context.Products.Any(e => e.ProductCode == productCode);
         }
-        public List<AttributesPrice> GetAttributeValues(int attributeId)
+        public List<GiaThuocTinh> GetAttributeValues(int attributeId)
         {
             // Truy vấn cơ sở dữ liệu để lấy danh sách attributeValues tương ứng với attributeId
             var attributeValues = _context.AttributesPrices
@@ -1453,7 +1453,7 @@ namespace WebShop.Areas.Admin.Controllers
                                         string price = attr.Price;
                                         if (product.ShortDesc.Contains(price))
                                         {
-                                            AttributesPrice addattr = new AttributesPrice();
+                                            GiaThuocTinh addattr = new GiaThuocTinh();
                                             addattr.AttributeId = itemAttr.AttributeId;
                                             addattr.Price = attr.Price;
                                             addattr.ProductId = product.ProductId;
@@ -1599,7 +1599,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 else
                 {
-                    CustomerSupplier cusSp = new CustomerSupplier();
+                    NhaCungCapKhachHang cusSp = new NhaCungCapKhachHang();
                     cusSp.Image = "";
                     cusSp.Name = "Đối tác mới";
                     cusSp.Company = "Cập nhật công ty";

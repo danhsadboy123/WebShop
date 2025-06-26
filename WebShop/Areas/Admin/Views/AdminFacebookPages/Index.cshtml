@@ -1,11 +1,11 @@
-﻿@model IEnumerable<WebShop.Models.FacebookPage>
+﻿@model IEnumerable<WebShop.Models.TrangFacebook>
 @using System.Security.Claims;
 @using Microsoft.AspNetCore.Html;
 @{
     ViewData["Title"] = "Facebook";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
     List<Product> lsproduct = ViewBag.Product;
-    FacebookPage facebookPage = ViewBag.facebook;
+    TrangFacebook facebookPage = ViewBag.facebook;
 }
 @section Styles{
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

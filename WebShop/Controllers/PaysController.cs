@@ -61,12 +61,12 @@ namespace WebShop.Controllers
                     decimal totalMoney = cart.Sum(item =>
                         (decimal)(item.product.SalePrice > 0 ? item.product.SalePrice : item.product.Price) * item.amount);
                     model.Amount = (double)totalMoney;
-                    Guest guest = null;
+                    KhachVangLai guest = null;
 
                     // Nếu khách hàng chưa đăng nhập, tạo mới một khách hàng vãng lai
                     if (taikhoanID == null)
                     {
-                        guest = new Guest
+                        guest = new KhachVangLai
                         {
                             HoTen = model.HoTen,
                             SoDienThoai = model.SoDienThoai.Trim().ToLower(),
@@ -78,7 +78,7 @@ namespace WebShop.Controllers
                     }
 
                     // Tạo đơn hàng
-                    var order = new Order
+                    var order = new DonHang
                     {
                         GuestId = guest?.GuestId, // Có thể là null nếu khách hàng đã đăng nhập
                         SoDienThoai = guest?.SoDienThoai,

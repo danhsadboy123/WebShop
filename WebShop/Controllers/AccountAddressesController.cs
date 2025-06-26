@@ -96,7 +96,7 @@ namespace WebShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateAddress([Bind("AddressId,CustomerId,GuestId,SoDienThoai,UserName,ProvinceId,DistrictId,WardId,Content,IsDefault")] AccountAddress accountAddress)
+        public async Task<IActionResult> CreateAddress([Bind("AddressId,CustomerId,GuestId,SoDienThoai,UserName,ProvinceId,DistrictId,WardId,Content,IsDefault")] DiaChiTaiKhoan accountAddress)
         {
             try
             {
@@ -150,7 +150,7 @@ namespace WebShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AddressId,CustomerId,GuestId,SoDienThoai,UserName,ProvinceId,DistrictId,WardId,Content,IsDefault")] AccountAddress accountAddress)
+        public async Task<IActionResult> Edit(int id, [Bind("AddressId,CustomerId,GuestId,SoDienThoai,UserName,ProvinceId,DistrictId,WardId,Content,IsDefault")] DiaChiTaiKhoan accountAddress)
         {
             if (id != accountAddress.AddressId)
             {

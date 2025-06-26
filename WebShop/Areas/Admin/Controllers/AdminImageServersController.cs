@@ -65,7 +65,7 @@ namespace WebShop.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,NameLink")] ImageServer imageServer, Microsoft.AspNetCore.Http.IFormFile NameLink)
+        public async Task<IActionResult> Create([Bind("Id,Name,NameLink")] MayChuHinhAnh imageServer, Microsoft.AspNetCore.Http.IFormFile NameLink)
         {
             var names = _context.ImageServers.Where(x => x.Name.Contains(imageServer.Name)).FirstOrDefault();
             if (names == null)

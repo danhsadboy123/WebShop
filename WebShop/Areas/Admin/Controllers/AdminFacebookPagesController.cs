@@ -160,7 +160,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ClientId,RedirectUri,Scope")] FacebookPage facebookPage)
+        public async Task<IActionResult> Create([Bind("Id,ClientId,RedirectUri,Scope")] TrangFacebook facebookPage)
         {
             if (ModelState.IsValid)
             {
@@ -192,7 +192,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ClientId,RedirectUri,Scope")] FacebookPage facebookPage)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ClientId,RedirectUri,Scope")] TrangFacebook facebookPage)
         {
             if (id != facebookPage.Id)
             {

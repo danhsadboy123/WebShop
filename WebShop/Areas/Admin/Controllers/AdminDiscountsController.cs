@@ -234,7 +234,7 @@ namespace WebShop.Areas.Admin.Controllers
         public IActionResult CreateData(string Name, string Image, bool Gift, string MoTa,DateTime TimeOn,DateTime TimeOff,bool ShowWeb,int MaxApply,bool Startus,int Discount1,bool ConditionCheck,int Money, int ProductCount, int Sum, int[] listCustomer,int[] listProduct, int[] listGift)
         {
             var text = "Ok";
-            Discount discount = new Discount();
+            KhuyenMai discount = new KhuyenMai();
             discount.Name = Name;
             discount.Image = Image;
             discount.Gift = Gift;
@@ -262,7 +262,7 @@ namespace WebShop.Areas.Admin.Controllers
                     {
                         foreach (var item in listCustomer)
                         {
-                            DiscountAddCustomer customer = new DiscountAddCustomer();
+                            KhuyenMaiThemKhachHang customer = new KhuyenMaiThemKhachHang();
                             customer.DiscountId = id;
                             customer.CustomerId = item;
                             customer.CheckDiscount = false;
@@ -272,7 +272,7 @@ namespace WebShop.Areas.Admin.Controllers
                     }
                     else
                     {
-                        DiscountAddCustomer customer = new DiscountAddCustomer();
+                        KhuyenMaiThemKhachHang customer = new KhuyenMaiThemKhachHang();
                         customer.DiscountId = id;
                         customer.CheckDiscount = true;
                         _context.Add(customer);
@@ -296,7 +296,7 @@ namespace WebShop.Areas.Admin.Controllers
                         }
                         foreach (var item in listgift)
                         {
-                            GitAttribute Gifts = new GitAttribute();
+                            ThuocTinhQuaTang Gifts = new ThuocTinhQuaTang();
                             Gifts.DiscountId = id;
                             Gifts.ProductGiftId = item.Id;
                             _context.GitAttributes.Add(Gifts);
@@ -308,7 +308,7 @@ namespace WebShop.Areas.Admin.Controllers
                     {
                         foreach (var item in listProduct)
                         {
-                            DiscountAddProduct product = new DiscountAddProduct();
+                            KhuyenMaiThemSanPham product = new KhuyenMaiThemSanPham();
                             product.DiscountId = id;
                             product.ProductId = item;
                             product.CheckDiscount = false;
@@ -336,7 +336,7 @@ namespace WebShop.Areas.Admin.Controllers
                         {
                             foreach (var item in productlist)
                             {
-                            DiscountAddProduct product = new DiscountAddProduct();
+                            KhuyenMaiThemSanPham product = new KhuyenMaiThemSanPham();
                             product.DiscountId = id;
                             product.ProductId = item.ProductId;
                             product.CheckDiscount = false;
@@ -349,7 +349,7 @@ namespace WebShop.Areas.Admin.Controllers
                         {
                             foreach (var item in productlist)
                             {
-                                DiscountAddProduct product = new DiscountAddProduct();
+                                KhuyenMaiThemSanPham product = new KhuyenMaiThemSanPham();
                                 product.DiscountId = id;
                                 product.ProductId = item.ProductId;
                                 product.CheckDiscount = true;
@@ -362,7 +362,7 @@ namespace WebShop.Areas.Admin.Controllers
                     var user = _context.TaiKhoans.Where(x=>x.MaTaiKhoan==int.Parse(taikhoanID)).FirstOrDefault();
                     if (user !=null)
                     {
-                        HistoryDiscount his = new HistoryDiscount();
+                        LichSuKhuyenMai his = new LichSuKhuyenMai();
                         his.DiscountId = id;
                         his.MoTa = "Khởi tạo bởi "+ user.HoTen + " id:" + taikhoanID;
                         his.TimeCreate = DateTime.Now;
@@ -440,7 +440,7 @@ namespace WebShop.Areas.Admin.Controllers
         public IActionResult CreateDiscountGift(string Code, string Image,bool Gift, string MoTa, DateTime TimeOn, DateTime TimeOff, bool ShowWeb, int MaxApply, bool Startus, int Discount1, bool ConditionCheck, int Money, int ProductCount, int Sum, int[] listCustomer, int[] listGift,bool ApplyGift)
         {
             var text = "Ok";
-            Discount discount = new Discount();
+            KhuyenMai discount = new KhuyenMai();
             discount.Code = Code;
             discount.Gift = Gift;
             discount.Image = Image;
@@ -471,7 +471,7 @@ namespace WebShop.Areas.Admin.Controllers
                     {
                         foreach (var item in listCustomer)
                         {
-                            DiscountAddCustomer customer = new DiscountAddCustomer();
+                            KhuyenMaiThemKhachHang customer = new KhuyenMaiThemKhachHang();
                             customer.DiscountId = id;
                             customer.CustomerId = item;
                             customer.CheckDiscount = false;
@@ -481,7 +481,7 @@ namespace WebShop.Areas.Admin.Controllers
                     }
                     else
                     {
-                        DiscountAddCustomer customer = new DiscountAddCustomer();
+                        KhuyenMaiThemKhachHang customer = new KhuyenMaiThemKhachHang();
                         customer.DiscountId = id;
                         customer.CheckDiscount = true;
                         _context.Add(customer);
@@ -507,7 +507,7 @@ namespace WebShop.Areas.Admin.Controllers
                         }
                         foreach(var item in listgift)
                         {
-                            GitAttribute Gifts = new GitAttribute();
+                            ThuocTinhQuaTang Gifts = new ThuocTinhQuaTang();
                             Gifts.DiscountId = id;
                             Gifts.ProductGiftId = item.Id;                          
                             _context.GitAttributes.Add(Gifts);
@@ -520,7 +520,7 @@ namespace WebShop.Areas.Admin.Controllers
                     var user = _context.TaiKhoans.Where(x => x.MaTaiKhoan == int.Parse(taikhoanID)).FirstOrDefault();
                     if (user != null)
                     {
-                        HistoryDiscount his = new HistoryDiscount();
+                        LichSuKhuyenMai his = new LichSuKhuyenMai();
                         his.DiscountId = id;
                         his.MoTa = "Khởi tạo bởi " + user.HoTen + " id:" + taikhoanID;
                         his.TimeCreate = DateTime.Now;
@@ -609,7 +609,7 @@ namespace WebShop.Areas.Admin.Controllers
             var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
             var user = _context.TaiKhoans.Where(x => x.MaTaiKhoan == int.Parse(taikhoanID)).FirstOrDefault();
 
-                HistoryDiscount his = new HistoryDiscount();
+                LichSuKhuyenMai his = new LichSuKhuyenMai();
             try {
                 his.DiscountId = id;
                 if (option == 1 && user != null)

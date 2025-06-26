@@ -17,5 +17,5 @@ public partial class Video
 
     public int? Sort { get; set; }
 
-    public virtual Brand Brand { get; set; }
+    public virtual ThuongHieu Brand { get; set; }
 }

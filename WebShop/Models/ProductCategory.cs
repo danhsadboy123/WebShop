@@ -11,7 +11,7 @@ public partial class ProductCategory
 
     public int? ProductId { get; set; }
 
-    public virtual Category Cat { get; set; }
+    public virtual DanhMuc Cat { get; set; }
 
     public virtual Product Product { get; set; }
    

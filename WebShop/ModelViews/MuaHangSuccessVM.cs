@@ -7,7 +7,7 @@ namespace WebShop.ModelViews
     public class MuaHangSuccessVM
     {
         public int DonHangID { get; set; }         // Mã đơn hàng
-        public Order Order { get; set; }           // Thông tin đơn hàng
+        public DonHang Order { get; set; }           // Thông tin đơn hàng
         public string HoTen { get; set; }       // Họ tên khách hàng
         public string SoDienThoai { get; set; }          // Số điện thoại khách hàng
         public string Address { get; set; }        // Địa chỉ giao hàng

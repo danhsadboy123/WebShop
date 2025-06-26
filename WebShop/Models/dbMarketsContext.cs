@@ -19,67 +19,67 @@ public partial class DbMarketsContext : DbContext
 
     public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
 
-    public virtual DbSet<AccountAddress> AccountAddresses { get; set; }
+    public virtual DbSet<DiaChiTaiKhoan> DiaChiTaiKhoans { get; set; }
 
-    public virtual DbSet<Attribute> Attributes { get; set; }
+    public virtual DbSet<ThuocTinh> Attributes { get; set; }
 
-    public virtual DbSet<AttributesPotentail> AttributesPotentails { get; set; }
+    public virtual DbSet<ThuocTinhTiemNang> AttributesPotentails { get; set; }
 
-    public virtual DbSet<AttributesPrice> AttributesPrices { get; set; }
+    public virtual DbSet<GiaThuocTinh> AttributesPrices { get; set; }
 
     public virtual DbSet<Banner> Banners { get; set; }
 
-    public virtual DbSet<Brand> Brands { get; set; }
+    public virtual DbSet<ThuongHieu> Brands { get; set; }
 
-    public virtual DbSet<BrandGroup> BrandGroups { get; set; }
+    public virtual DbSet<NhomThuongHieu> BrandGroups { get; set; }
 
-    public virtual DbSet<CardTemplate> CardTemplates { get; set; }
+    public virtual DbSet<MauThe> CardTemplates { get; set; }
 
-    public virtual DbSet<Category> Categories { get; set; }
+    public virtual DbSet<DanhMuc> Categories { get; set; }
 
-    public virtual DbSet<CategoryAttribute> CategoryAttributes { get; set; }
+    public virtual DbSet<DanhMucThuocTinh> CategoryAttributes { get; set; }
 
-    public virtual DbSet<CategoryBrand> CategoryBrands { get; set; }
+    public virtual DbSet<DanhMucThuongHieu> CategoryBrands { get; set; }
 
-    public virtual DbSet<Codstatus> Codstatuses { get; set; }
+    public virtual DbSet<TrangThaiThanhToan> Codstatuses { get; set; }
 
-    public virtual DbSet<Customer> Customers { get; set; }
+    public virtual DbSet<KhachHang> Customers { get; set; }
 
-    public virtual DbSet<CustomerBrand> CustomerBrands { get; set; }
+    public virtual DbSet<KhachHangThuongHieu> CustomerBrands { get; set; }
 
-    public virtual DbSet<CustomerPotentail> CustomerPotentails { get; set; }
+    public virtual DbSet<KhachHangTiemNang> CustomerPotentails { get; set; }
 
-    public virtual DbSet<CustomerProject> CustomerProjects { get; set; }
+    public virtual DbSet<DuAnKhachHang> CustomerProjects { get; set; }
 
-    public virtual DbSet<CustomerSupplier> CustomerSuppliers { get; set; }
+    public virtual DbSet<NhaCungCapKhachHang> CustomerSuppliers { get; set; }
 
-    public virtual DbSet<DeliveryStatus> DeliveryStatuses { get; set; }
+    public virtual DbSet<TrangThaiGiaoHang> DeliveryStatuses { get; set; }
 
-    public virtual DbSet<Discount> Discounts { get; set; }
+    public virtual DbSet<KhuyenMai> Discounts { get; set; }
 
-    public virtual DbSet<DiscountAddCustomer> DiscountAddCustomers { get; set; }
+    public virtual DbSet<KhuyenMaiThemKhachHang> DiscountAddCustomers { get; set; }
 
-    public virtual DbSet<DiscountAddProduct> DiscountAddProducts { get; set; }
+    public virtual DbSet<KhuyenMaiThemSanPham> DiscountAddProducts { get; set; }
 
-    public virtual DbSet<District> Districts { get; set; }
+    public virtual DbSet<Huyen> Districts { get; set; }
 
-    public virtual DbSet<EmailAttribute> EmailAttributes { get; set; }
+    public virtual DbSet<ThuocTinhEmail> EmailAttributes { get; set; }
 
-    public virtual DbSet<EmailMaketting> EmailMakettings { get; set; }
+    public virtual DbSet<EmailTiepThi> EmailMakettings { get; set; }
 
-    public virtual DbSet<FacebookPage> FacebookPages { get; set; }
+    public virtual DbSet<TrangFacebook> FacebookPages { get; set; }
 
-    public virtual DbSet<GitAttribute> GitAttributes { get; set; }
+    public virtual DbSet<ThuocTinhQuaTang> GitAttributes { get; set; }
 
-    public virtual DbSet<Guest> Guests { get; set; }
+    public virtual DbSet<KhachVangLai> Guests { get; set; }
 
-    public virtual DbSet<HistoryDiscount> HistoryDiscounts { get; set; }
+    public virtual DbSet<LichSuKhuyenMai> HistoryDiscounts { get; set; }
 
-    public virtual DbSet<ImageServer> ImageServers { get; set; }
+    public virtual DbSet<MayChuHinhAnh> ImageServers { get; set; }
 
-    public virtual DbSet<LeverCustommerPtt> LeverCustommerPtts { get; set; }
+    public virtual DbSet<CapDoKhachHang> LeverCustommerPtts { get; set; }
 
-    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<DonHang> Orders { get; set; }
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
@@ -105,7 +105,7 @@ public partial class DbMarketsContext : DbContext
 
     public virtual DbSet<ProductThumb> ProductThumbs { get; set; }
 
-    public virtual DbSet<Province> Provinces { get; set; }
+    public virtual DbSet<Tinh> Provinces { get; set; }
 
     public virtual DbSet<QuangCao> QuangCaos { get; set; }
 
@@ -125,7 +125,7 @@ public partial class DbMarketsContext : DbContext
 
     public virtual DbSet<Video> Videos { get; set; }
 
-    public virtual DbSet<Ward> Wards { get; set; }
+    public virtual DbSet<Xa> Wards { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -161,50 +161,50 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_Accounts_Roles");
         });
 
-        modelBuilder.Entity<AccountAddress>(entity =>
+        modelBuilder.Entity<DiaChiTaiKhoan>(entity =>
         {
-            entity.HasKey(e => e.AddressId).HasName("PK__AccountA__091C2A1B7AAC9A99");
+            entity.HasKey(e => e.MaDiaChi).HasName("PK__AccountA__091C2A1B7AAC9A99");
 
             entity.ToTable("AccountAddress");
 
-            entity.Property(e => e.AddressId).HasColumnName("AddressID");
-            entity.Property(e => e.Content).HasMaxLength(50);
-            entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
-            entity.Property(e => e.DistrictId).HasColumnName("DistrictID");
-            entity.Property(e => e.GuestId).HasColumnName("GuestID");
+            entity.Property(e => e.MaDiaChi).HasColumnName("AddressID");
+            entity.Property(e => e.NoiDung).HasMaxLength(50);
+            entity.Property(e => e.MaKhachHang).HasColumnName("CustomerID");
+            entity.Property(e => e.MaHuyen).HasColumnName("DistrictID");
+            entity.Property(e => e.MaKhachVangLai).HasColumnName("GuestID");
             entity.Property(e => e.SoDienThoai).HasMaxLength(10);
-            entity.Property(e => e.ProvinceId).HasColumnName("ProvinceID");
-            entity.Property(e => e.UserName).HasMaxLength(20);
-            entity.Property(e => e.WardId).HasColumnName("WardID");
+            entity.Property(e => e.MaTinh).HasColumnName("ProvinceID");
+            entity.Property(e => e.TenNguoiDung).HasMaxLength(20);
+            entity.Property(e => e.MaXa).HasColumnName("WardID");
 
-            entity.HasOne(d => d.Customer).WithMany(p => p.AccountAddresses)
-                .HasForeignKey(d => d.CustomerId)
+            entity.HasOne(d => d.KhachHang).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.MaKhachHang)
                 .HasConstraintName("FK_AccountAddress_Customers");
 
-            entity.HasOne(d => d.District).WithMany(p => p.AccountAddresses)
-                .HasForeignKey(d => d.DistrictId)
+            entity.HasOne(d => d.Tinh).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.MaTinh)
                 .HasConstraintName("FK_AccountAddress_Districts");
 
-            entity.HasOne(d => d.Guest).WithMany(p => p.AccountAddresses)
-                .HasForeignKey(d => d.GuestId)
+            entity.HasOne(d => d.KhachVangLai).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.MaKhachVangLai)
                 .HasConstraintName("FK_AccountAddress_Guests");
 
-            entity.HasOne(d => d.Province).WithMany(p => p.AccountAddresses)
-                .HasForeignKey(d => d.ProvinceId)
+            entity.HasOne(d => d.Tinh).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.MaTinh)
                 .HasConstraintName("FK_AccountAddress_Provinces");
 
-            entity.HasOne(d => d.Ward).WithMany(p => p.AccountAddresses)
-                .HasForeignKey(d => d.WardId)
+            entity.HasOne(d => d.Xa).WithMany(p => p.AccountAddresses)
+                .HasForeignKey(d => d.MaXa)
                 .HasConstraintName("FK_AccountAddress_Wards");
         });
 
-        modelBuilder.Entity<Attribute>(entity =>
+        modelBuilder.Entity<ThuocTinh>(entity =>
         {
             entity.Property(e => e.AttributeId).HasColumnName("AttributeID");
             entity.Property(e => e.NameEn).HasColumnName("Name_EN");
         });
 
-        modelBuilder.Entity<AttributesPotentail>(entity =>
+        modelBuilder.Entity<ThuocTinhTiemNang>(entity =>
         {
             entity.ToTable("AttributesPotentail");
 
@@ -215,7 +215,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_AttributesPotentail_CustomerPotentail");
         });
 
-        modelBuilder.Entity<AttributesPrice>(entity =>
+        modelBuilder.Entity<GiaThuocTinh>(entity =>
         {
             entity.Property(e => e.AttributesPriceId).HasColumnName("AttributesPriceID");
             entity.Property(e => e.AttributeId).HasColumnName("AttributeID");
@@ -243,13 +243,13 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_Banner_Categories");
         });
 
-        modelBuilder.Entity<Brand>(entity =>
+        modelBuilder.Entity<ThuongHieu>(entity =>
         {
             entity.Property(e => e.BrandId).HasColumnName("BrandID");
             entity.Property(e => e.BrandName).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<BrandGroup>(entity =>
+        modelBuilder.Entity<NhomThuongHieu>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK_BrandGroup");
 
@@ -258,7 +258,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_BrandGroup_Brands");
         });
 
-        modelBuilder.Entity<CardTemplate>(entity =>
+        modelBuilder.Entity<MauThe>(entity =>
         {
             entity.Property(e => e.CardTemplateId).HasColumnName("CardTemplateID");
             entity.Property(e => e.NgayTao).HasColumnType("datetime");
@@ -266,7 +266,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.Title).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<Category>(entity =>
+        modelBuilder.Entity<DanhMuc>(entity =>
         {
             entity.HasKey(e => e.CatId);
 
@@ -298,7 +298,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_Categories_Categories");
         });
 
-        modelBuilder.Entity<CategoryAttribute>(entity =>
+        modelBuilder.Entity<DanhMucThuocTinh>(entity =>
         {
             entity.Property(e => e.CategoryAttributeId).HasColumnName("CategoryAttributeID");
             entity.Property(e => e.AttributeId).HasColumnName("AttributeID");
@@ -314,7 +314,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_CategoryAttributes_Categories");
         });
 
-        modelBuilder.Entity<CategoryBrand>(entity =>
+        modelBuilder.Entity<DanhMucThuongHieu>(entity =>
         {
             entity.Property(e => e.CategoryBrandId).HasColumnName("CategoryBrandID");
             entity.Property(e => e.BrandId).HasColumnName("BrandID");
@@ -331,7 +331,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_CategoryBrands_Categories");
         });
 
-        modelBuilder.Entity<Codstatus>(entity =>
+        modelBuilder.Entity<TrangThaiThanhToan>(entity =>
         {
             entity.HasKey(e => e.CodStatusId).HasName("PK_CODStatus_1");
 
@@ -341,7 +341,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.Status).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<Customer>(entity =>
+        modelBuilder.Entity<KhachHang>(entity =>
         {
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.Avatar).HasMaxLength(255);
@@ -361,7 +361,7 @@ public partial class DbMarketsContext : DbContext
                 .IsFixedLength();
         });
 
-        modelBuilder.Entity<CustomerBrand>(entity =>
+        modelBuilder.Entity<KhachHangThuongHieu>(entity =>
         {
             entity.ToTable("CustomerBrand");
 
@@ -374,7 +374,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.YearOn).HasColumnType("datetime");
         });
 
-        modelBuilder.Entity<CustomerPotentail>(entity =>
+        modelBuilder.Entity<KhachHangTiemNang>(entity =>
         {
             entity.ToTable("CustomerPotentail");
 
@@ -386,7 +386,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_CustomerPotentail_LeverCustommerPTT");
         });
 
-        modelBuilder.Entity<CustomerProject>(entity =>
+        modelBuilder.Entity<DuAnKhachHang>(entity =>
         {
             entity.ToTable("CustomerProject");
 
@@ -394,7 +394,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.YearOn).HasColumnType("datetime");
         });
 
-        modelBuilder.Entity<CustomerSupplier>(entity =>
+        modelBuilder.Entity<NhaCungCapKhachHang>(entity =>
         {
             entity.ToTable("CustomerSupplier");
 
@@ -402,7 +402,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.YearAdd).HasColumnType("datetime");
         });
 
-        modelBuilder.Entity<DeliveryStatus>(entity =>
+        modelBuilder.Entity<TrangThaiGiaoHang>(entity =>
         {
             entity.HasKey(e => e.DeliveryStatusId).HasName("PK_TransactStatus");
 
@@ -412,7 +412,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.Status).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<Discount>(entity =>
+        modelBuilder.Entity<KhuyenMai>(entity =>
         {
             entity.ToTable("Discount");
 
@@ -421,7 +421,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.TimeOn).HasColumnType("datetime");
         });
 
-        modelBuilder.Entity<DiscountAddCustomer>(entity =>
+        modelBuilder.Entity<KhuyenMaiThemKhachHang>(entity =>
         {
             entity.ToTable("DiscountAddCustomer");
 
@@ -434,7 +434,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_DiscountAddCustomer_Discount");
         });
 
-        modelBuilder.Entity<DiscountAddProduct>(entity =>
+        modelBuilder.Entity<KhuyenMaiThemSanPham>(entity =>
         {
             entity.HasOne(d => d.Discount).WithMany(p => p.DiscountAddProducts)
                 .HasForeignKey(d => d.DiscountId)
@@ -445,7 +445,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_DiscountAddProducts_Products");
         });
 
-        modelBuilder.Entity<District>(entity =>
+        modelBuilder.Entity<Huyen>(entity =>
         {
             entity.HasKey(e => e.DistrictId).HasName("PK__District__85FDA4A66FD0CA46");
 
@@ -461,7 +461,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_Districts_Provinces");
         });
 
-        modelBuilder.Entity<EmailAttribute>(entity =>
+        modelBuilder.Entity<ThuocTinhEmail>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK_EmailAttributes_1");
 
@@ -474,7 +474,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_EmailAttributes_Customers");
         });
 
-        modelBuilder.Entity<EmailMaketting>(entity =>
+        modelBuilder.Entity<EmailTiepThi>(entity =>
         {
             entity.HasKey(e => e.EmailId);
 
@@ -490,7 +490,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_EmailMaketting_Accounts");
         });
 
-        modelBuilder.Entity<FacebookPage>(entity =>
+        modelBuilder.Entity<TrangFacebook>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK_Facebook");
 
@@ -501,7 +501,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.TokenAccount).HasColumnName("token_account");
         });
 
-        modelBuilder.Entity<GitAttribute>(entity =>
+        modelBuilder.Entity<ThuocTinhQuaTang>(entity =>
         {
             entity.HasOne(d => d.Discount).WithMany(p => p.GitAttributes)
                 .HasForeignKey(d => d.DiscountId)
@@ -512,7 +512,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_GitAttributes_ProductGift");
         });
 
-        modelBuilder.Entity<Guest>(entity =>
+        modelBuilder.Entity<KhachVangLai>(entity =>
         {
             entity.Property(e => e.GuestId).HasColumnName("GuestID");
             entity.Property(e => e.NgayTao).HasColumnType("datetime");
@@ -525,7 +525,7 @@ public partial class DbMarketsContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<HistoryDiscount>(entity =>
+        modelBuilder.Entity<LichSuKhuyenMai>(entity =>
         {
             entity.ToTable("HistoryDiscount");
 
@@ -536,17 +536,17 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_HistoryDiscount_Discount");
         });
 
-        modelBuilder.Entity<ImageServer>(entity =>
+        modelBuilder.Entity<MayChuHinhAnh>(entity =>
         {
             entity.ToTable("ImageServer");
         });
 
-        modelBuilder.Entity<LeverCustommerPtt>(entity =>
+        modelBuilder.Entity<CapDoKhachHang>(entity =>
         {
             entity.ToTable("LeverCustommerPTT");
         });
 
-        modelBuilder.Entity<Order>(entity =>
+        modelBuilder.Entity<DonHang>(entity =>
         {
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.CodstatusId).HasColumnName("CODstatusID");
@@ -767,7 +767,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_ProductThumbs_Products");
         });
 
-        modelBuilder.Entity<Province>(entity =>
+        modelBuilder.Entity<Tinh>(entity =>
         {
             entity.HasKey(e => e.ProvinceId).HasName("PK__Province__FD0A6FA3F17E00B8");
 
@@ -902,7 +902,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_Video_Brands");
         });
 
-        modelBuilder.Entity<Ward>(entity =>
+        modelBuilder.Entity<Xa>(entity =>
         {
             entity.HasKey(e => e.WardId).HasName("PK__Wards__C6BD9BEAAFC290EC");
 

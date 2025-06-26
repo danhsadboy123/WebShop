@@ -90,7 +90,7 @@ namespace WebShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                Customer customer = new Customer
+                KhachHang customer = new KhachHang
                 {
                     HoTen = adminCustomerCreateVM.HoTen,
                     Birthday = adminCustomerCreateVM.Birthday,
@@ -104,7 +104,7 @@ namespace WebShop.Areas.Admin.Controllers
                 };
                 _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();
-                AccountAddress accountAddress = new AccountAddress
+                DiaChiTaiKhoan accountAddress = new DiaChiTaiKhoan
                 {
                     CustomerId = customer.CustomerId,
                     UserName = customer.HoTen,
@@ -143,7 +143,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,HoTen,Birthday,Avatar,Address,Email,SoDienThoai,LocationId,District,Ward,NgayTao,MatKhau,Salt,LanDangNhapCuoi,KichHoat")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,HoTen,Birthday,Avatar,Address,Email,SoDienThoai,LocationId,District,Ward,NgayTao,MatKhau,Salt,LanDangNhapCuoi,KichHoat")] KhachHang customer)
         {
             if (id != customer.CustomerId)
             {

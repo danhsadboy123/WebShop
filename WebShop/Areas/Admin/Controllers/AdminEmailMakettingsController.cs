@@ -72,7 +72,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmailId,AcountId,Title,Body,NgayTao,CustomDate")] EmailMaketting emailMaketting, string url)
+        public async Task<IActionResult> Create([Bind("EmailId,AcountId,Title,Body,NgayTao,CustomDate")] EmailTiepThi emailMaketting, string url)
         {
 
             if (ModelState.IsValid)
@@ -104,7 +104,7 @@ namespace WebShop.Areas.Admin.Controllers
                 customer = customer.Where(c => c.HoTen.Contains(search));
             }
 
-            PagedList<Customer> models = new PagedList<Customer>(customer, pageNumber, pageSize);
+            PagedList<KhachHang> models = new PagedList<KhachHang>(customer, pageNumber, pageSize);
             ViewBag.Search = search;
             ViewBag.CurrentPage = pageNumber;
 
@@ -395,7 +395,7 @@ namespace WebShop.Areas.Admin.Controllers
                 customer = customer.Where(x => x.LeverId == leveruser);
 
             }
-            PagedList<CustomerPotentail> models = new PagedList<CustomerPotentail>(customer, pageNumber, pageSize);
+            PagedList<KhachHangTiemNang> models = new PagedList<KhachHangTiemNang>(customer, pageNumber, pageSize);
 
             ViewBag.CurrentPage = pageNumber;
             ViewBag.admin = HttpContext.Session.GetString("MaTaiKhoan");
@@ -513,7 +513,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, string url, [Bind("EmailId,AcountId,Title,Body,NgayTao,CustomDate")] EmailMaketting emailMaketting)
+        public async Task<IActionResult> Edit(int id, string url, [Bind("EmailId,AcountId,Title,Body,NgayTao,CustomDate")] EmailTiepThi emailMaketting)
         {
             if (id != emailMaketting.EmailId)
             {

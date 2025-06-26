@@ -5,7 +5,7 @@ namespace WebShop.Areas.Admin.Models
 {
     public class AdminNotificationSettingVM
     {
-        public List<EmailMaketting> emails { get; set; }
-        public List<CardTemplate> cardTemplates { get; set; }
+        public List<EmailTiepThi> emails { get; set; }
+        public List<MauThe> cardTemplates { get; set; }
     }
 }

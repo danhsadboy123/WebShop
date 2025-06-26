@@ -168,7 +168,7 @@ namespace WebShop.Controllers
                 .Where(x => x.Published == true)
                 .OrderBy(x => x.Ordering)                 
                 .FirstOrDefault();
-            List<CategoryAttribute> attributes = new List<CategoryAttribute>(); 
+            List<DanhMucThuocTinh> attributes = new List<DanhMucThuocTinh>(); 
             foreach (var item in lsCats.CategoryAttributes)
             {
                 var itemcat = _context.CategoryAttributes.Where(c => c.CategoryAttributeId == item.CategoryAttributeId)

@@ -75,11 +75,11 @@ public partial class Product
 
     public int? BrandGroup { get; set; }
 
-    public virtual ICollection<AttributesPrice> AttributesPrices { get; set; } = new List<AttributesPrice>();
+    public virtual ICollection<GiaThuocTinh> AttributesPrices { get; set; } = new List<GiaThuocTinh>();
 
-    public virtual Brand Brand { get; set; }
+    public virtual ThuongHieu Brand { get; set; }
 
-    public virtual ICollection<DiscountAddProduct> DiscountAddProducts { get; set; } = new List<DiscountAddProduct>();
+    public virtual ICollection<KhuyenMaiThemSanPham> DiscountAddProducts { get; set; } = new List<KhuyenMaiThemSanPham>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 

@@ -3,8 +3,8 @@
 @inject WebShop.Services.IPageInfoService PageInfoService;
 
 @{
-    Brand brand = ViewBag.Brand;
-    List<AttributesPrice> priceP = ViewBag.price;
+    ThuongHieu brand = ViewBag.Brand;
+    List<GiaThuocTinh> priceP = ViewBag.price;
     Layout = "~/Views/Shared/_Layout.cshtml";
     int PageCurrent = ViewBag.CurrentPage;
     int PageNext = PageCurrent + 1;

@@ -12,7 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebShop.Areas.Admin.Models;
 using WebShop.Models;
-using Attribute = WebShop.Models.Attribute;
+using ThuocTinh = WebShop.Models.ThuocTinh;
 
 namespace WebShop.Areas.Admin.Controllers
 {
@@ -45,7 +45,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AttributeId, Name,NameEn,Ordering,KichHoat")] Attribute attribute)
+        public async Task<IActionResult> Create([Bind("AttributeId, Name,NameEn,Ordering,KichHoat")] ThuocTinh attribute)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace WebShop.Areas.Admin.Controllers
                     List<string> cats = Request.Form["categoryAttributes"].ToList();
                     foreach (var c in cats)
                     {
-                        var newCategoryAttribute = new CategoryAttribute
+                        var newCategoryAttribute = new DanhMucThuocTinh
                         {
                             CatId = Convert.ToInt32(c),
                             AttributeId = attribute.AttributeId,
@@ -114,7 +114,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AttributeId, Name,NameEn,Ordering,KichHoat")] Attribute attribute)
+        public async Task<IActionResult> Edit(int id, [Bind("AttributeId, Name,NameEn,Ordering,KichHoat")] ThuocTinh attribute)
         {
             if (id != attribute.AttributeId)
             {
@@ -133,7 +133,7 @@ namespace WebShop.Areas.Admin.Controllers
                      List<string> cats = Request.Form["categoryAttributes"].ToList();
                     foreach (var c in cats)
                     {
-                        var newCategoryAttribute = new CategoryAttribute
+                        var newCategoryAttribute = new DanhMucThuocTinh
                         {
                             CatId = Convert.ToInt32(c),
                             AttributeId = attribute.AttributeId,
@@ -198,7 +198,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
 
                 // Tạo một giá trị mới
-                var attributeValue = new AttributesPrice
+                var attributeValue = new GiaThuocTinh
                 {
                     AttributeId = attributeId,
                     Price = newValue,

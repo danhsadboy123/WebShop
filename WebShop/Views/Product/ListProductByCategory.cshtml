@@ -3,11 +3,11 @@
 @inject WebShop.Services.IPageInfoService PageInfoService;
 @{
     List<Banner> lsBanner = ViewBag.Banner;
-    Category category = ViewBag.CurrentCat;
+    DanhMuc category = ViewBag.CurrentCat;
     List<Slide> slide = ViewBag.Slides;
-    List<Brand> brands = ViewBag.Brands;
-    List<WebShop.Models.Attribute> attrs = ViewBag.Attrs;
-    List<AttributesPrice> priceP = ViewBag.price;
+    List<ThuongHieu> brands = ViewBag.Brands;
+    List<WebShop.Models.ThuocTinh> attrs = ViewBag.Attrs;
+    List<GiaThuocTinh> priceP = ViewBag.price;
     List<Slide> slides = ViewBag.Slider;
     Layout = "~/Views/Shared/_Layout.cshtml";
     int PageCurrent = ViewBag.CurrentPage;
@@ -15,7 +15,7 @@
     ViewData["Title"] = category.Title;
     ViewData["MoTa"] = category.MetaDesc;
     ViewData["Keywords"] = category.MetaKey;
-    BrandGroup brandg = ViewBag.groupbrand;
+    NhomThuongHieu brandg = ViewBag.groupbrand;
 }
 
 @section Styles{ 

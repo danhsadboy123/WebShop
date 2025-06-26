@@ -7,7 +7,7 @@ namespace WebShop.ModelViews
 {
     public class CategoryView
     {
-        public Category category { get; set; }
-        public List<CategoryAttribute> categoryAttributes { get; set; } 
+        public DanhMuc category { get; set; }
+        public List<DanhMucThuocTinh> categoryAttributes { get; set; } 
     }
 }

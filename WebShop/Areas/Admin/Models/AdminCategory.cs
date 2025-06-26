@@ -5,8 +5,8 @@ namespace WebShop.Areas.Admin.Models
 {
     public class AdminCate
     {       
-        public List<CategoryAttribute> catebutes { get; set; }
-        public List<CategoryAttribute> catebutesAdd { get; set; }
+        public List<DanhMucThuocTinh> catebutes { get; set; }
+        public List<DanhMucThuocTinh> catebutesAdd { get; set; }
 
     }
 }

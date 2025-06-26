@@ -27,7 +27,7 @@ public partial class TaiKhoan
 
     public DateTime? NgayTao { get; set; }
 
-    public virtual ICollection<EmailMaketting> EmailMakettings { get; set; } = new List<EmailMaketting>();
+    public virtual ICollection<EmailTiepThi> EmailMakettings { get; set; } = new List<EmailTiepThi>();
 
     public virtual VaiTro VaiTro { get; set; }
 }

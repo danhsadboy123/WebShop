@@ -11,7 +11,7 @@ namespace WebShop.ModelViews
 
         public List<ProductHomeVM> Products { get; set; }
         public QuangCao quangcao { get; set; }
-        public List<Discount> lsDiscount { get; set; }
+        public List<KhuyenMai> lsDiscount { get; set; }
 
 
 

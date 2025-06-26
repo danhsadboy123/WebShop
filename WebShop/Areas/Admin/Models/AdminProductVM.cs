@@ -80,11 +80,11 @@ namespace WebShop.Areas.Admin.Models
         [Required(ErrorMessage = "Vui lòng nhập tồn kho")]
         public int? UnitsInStock { get; set; }
 
-        public virtual ICollection<AttributesPrice> AttributesPrices { get; set; } = new List<AttributesPrice>();
+        public virtual ICollection<GiaThuocTinh> AttributesPrices { get; set; } = new List<GiaThuocTinh>();
 
-        public virtual Brand Brand { get; set; }
+        public virtual ThuongHieu Brand { get; set; }
 
-        public virtual Category Cat { get; set; }
+        public virtual DanhMuc Cat { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 

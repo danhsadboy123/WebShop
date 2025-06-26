@@ -38,7 +38,7 @@ namespace WebShop.Areas.Admin.Controllers
         public IActionResult Index(int TransactStatusID = 0)
         {
             var orderVM = new AdminOrderVM();
-            List<Order> lsOrders = new List<Order>();
+            List<DonHang> lsOrders = new List<DonHang>();
             if (TransactStatusID != 0)
             {
                 lsOrders = _context.Orders
@@ -208,7 +208,7 @@ namespace WebShop.Areas.Admin.Controllers
             return Json(new { success = "Ok" });
         }
 
-        public IActionResult SendEmail(Guest tk, string address, List<OrderDetail> listO,int EmailId,string code)
+        public IActionResult SendEmail(KhachVangLai tk, string address, List<OrderDetail> listO,int EmailId,string code)
         {
             var address1 = "";
             if (address != null)
@@ -354,7 +354,7 @@ namespace WebShop.Areas.Admin.Controllers
             return body;
         }
 
-        public IActionResult SendEmail1(Customer tk, List<OrderDetail> listO, int EmailId, string code)
+        public IActionResult SendEmail1(KhachHang tk, List<OrderDetail> listO, int EmailId, string code)
         {
             var address = "";
             var systemW = _context.SystemWebs.FirstOrDefault();
@@ -539,7 +539,7 @@ namespace WebShop.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Details(int id, [Bind("OrderId,CustomerId,OrderDate,ShipDate,TransactStatusId,Deleted,Paid,PaymentDate,TotalMoney,PaymentId,Note,Address,LocationId,District,Ward")] Order order)
+        public async Task<IActionResult> Details(int id, [Bind("OrderId,CustomerId,OrderDate,ShipDate,TransactStatusId,Deleted,Paid,PaymentDate,TotalMoney,PaymentId,Note,Address,LocationId,District,Ward")] DonHang order)
         {
             if (id != order.OrderId)
             {
@@ -605,7 +605,7 @@ namespace WebShop.Areas.Admin.Controllers
                 var taikhoanID = HttpContext.Session.GetString("CustomerOD");
                 var khachhang = _context.Customers.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID));
                 var address = _context.AccountAddresses.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID) && x.IsDefault == true);
-                Order order = new Order();
+                DonHang order = new DonHang();
 
                 //Khoi tao don hang
                 if (taikhoanID != null)
@@ -787,7 +787,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,CustomerId,OrderDate,ShipDate,TransactStatusId,Deleted,Paid,PaymentDate,TotalMoney,PaymentId,Note,Address,LocationId,District,Ward")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,CustomerId,OrderDate,ShipDate,TransactStatusId,Deleted,Paid,PaymentDate,TotalMoney,PaymentId,Note,Address,LocationId,District,Ward")] DonHang order)
         {
             if (id != order.OrderId)
             {

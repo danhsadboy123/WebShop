@@ -21,7 +21,7 @@ namespace WebShop.Controllers
         {
 
             //var lsCats = HttpContext.Session.GetObjectFromJson<List<CategoryViewModel>>("lsCats");
-            var lsCats = HttpContext.Session.GetObjectFromJson<List<Category>>("lsCats");
+            var lsCats = HttpContext.Session.GetObjectFromJson<List<DanhMuc>>("lsCats");
 
             base.OnActionExecuting(context);
             if (lsCats == null)

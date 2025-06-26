@@ -189,7 +189,7 @@ namespace WebShop.Controllers
                 {
                     text = "";
                     string salt = Utilities.GetRandomKey();                    
-                    Customer khachhang = new Customer
+                    KhachHang khachhang = new KhachHang
                     {
                         HoTen = taikhoan.HoTen,
                         SoDienThoai = taikhoan.SoDienThoai.Trim().ToLower(),
@@ -242,7 +242,7 @@ namespace WebShop.Controllers
             }
         }
 
-        public IActionResult SendEmail(Customer tk)
+        public IActionResult SendEmail(KhachHang tk)
         {
             var systemW = _context.SystemWebs.FirstOrDefault();
             var Admin = _context.PageInfos.FirstOrDefault();

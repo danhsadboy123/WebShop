@@ -15,5 +15,5 @@ public partial class ProductGift
 
     public int? Price { get; set; }
 
-    public virtual ICollection<GitAttribute> GitAttributes { get; set; } = new List<GitAttribute>();
+    public virtual ICollection<ThuocTinhQuaTang> GitAttributes { get; set; } = new List<ThuocTinhQuaTang>();
 }

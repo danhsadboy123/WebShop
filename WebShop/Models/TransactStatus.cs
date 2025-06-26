@@ -11,5 +11,5 @@ public partial class TransactStatus
 
     public string MoTa { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<DonHang> Orders { get; set; } = new List<DonHang>();
 }

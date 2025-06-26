@@ -1,5 +1,5 @@
 ﻿
-@model WebShop.Models.Discount
+@model WebShop.Models.KhuyenMai
 @using Microsoft.AspNetCore.Html;
 @using System.Formats;
 
@@ -8,7 +8,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
     var product = ViewBag.product;
     var customer = ViewBag.customer;
-    List<GitAttribute> Gift = ViewBag.Gift;
+    List<ThuocTinhQuaTang> Gift = ViewBag.Gift;
 
 }
 @section Styles{

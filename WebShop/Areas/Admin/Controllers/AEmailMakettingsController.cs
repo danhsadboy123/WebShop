@@ -59,7 +59,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmailId,AcountId,Title,ContentName,Body,NgayTao,CustomDate,EmailEvent,KichHoat,Input")] EmailMaketting emailMaketting)
+        public async Task<IActionResult> Create([Bind("EmailId,AcountId,Title,ContentName,Body,NgayTao,CustomDate,EmailEvent,KichHoat,Input")] EmailTiepThi emailMaketting)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmailId,AcountId,Title,ContentName,Body,NgayTao,CustomDate,EmailEvent,KichHoat,Input")] EmailMaketting emailMaketting)
+        public async Task<IActionResult> Edit(int id, [Bind("EmailId,AcountId,Title,ContentName,Body,NgayTao,CustomDate,EmailEvent,KichHoat,Input")] EmailTiepThi emailMaketting)
         {
             if (id != emailMaketting.EmailId)
             {

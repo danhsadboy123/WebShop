@@ -5,13 +5,13 @@ namespace WebShop.Models;
 
 public partial class Banner
 {
-    public int Id { get; set; }
+    public int Ma { get; set; }
 
-    public int CatId { get; set; }
+    public int MaDanhMuc { get; set; }
 
-    public string Banner1 { get; set; }
+    public string HinhAnh { get; set; }
 
-    public bool? Status { get; set; }
+    public bool? TrangThai { get; set; }
 
-    public virtual Category Cat { get; set; }
+    public virtual DanhMuc DanhMuc { get; set; }
 }

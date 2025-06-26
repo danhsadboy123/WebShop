@@ -1,14 +1,14 @@
 @using NPOI.OpenXmlFormats.Wordprocessing;
-@model WebShop.Models.Category
+@model WebShop.Models.DanhMuc
 @using System.Security.Claims;
 
 @{
     List<Banner> lsBanner = ViewBag.lsBanner;
     ViewData["Title"] = "Tạo mới danh mục sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    List<CategoryAttribute> CateAttribute = ViewBag.atrr;
-    List<BrandGroup> brandGroups = ViewBag.brandg;
-    List<Brand> lsbrand = ViewBag.lsbrand;
+    List<DanhMucThuocTinh> CateAttribute = ViewBag.atrr;
+    List<NhomThuongHieu> brandGroups = ViewBag.brandg;
+    List<ThuongHieu> lsbrand = ViewBag.lsbrand;
     var admin = ViewBag.admin;
 }
 @section Styles{
@@ -308,7 +308,7 @@
             }            
             <a asp-area="Admin" asp-action="Create" asp-controller="AdminAttributes" class="btn btn-primary btn-tone" style="margin-top:1rem">Thêm thuộc tính khác</a> <br />
             @{
-                List<CategoryAttribute> cateattb = ViewBag.cate;  
+                List<DanhMucThuocTinh> cateattb = ViewBag.cate;  
                 
                 foreach(var itemcates in cateattb.GroupBy(c=>c.Name))
                 {

@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Danh sách sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    List<Category> listcate = ViewBag.AllCategories;
+    List<DanhMuc> listcate = ViewBag.AllCategories;
     List<Product> proOption = ViewBag.proOption;
 }
  
@@ -380,7 +380,7 @@
                 <div class="table-responsive" style="overflow-y:scroll; height:250px;">
                     @if (ViewBag.AllCategories != null)
                     {
-                        List<Category> category = ViewBag.AllCategories;
+                        List<DanhMuc> category = ViewBag.AllCategories;
                         <table class="table">
                             <thead>
                                 <tr>

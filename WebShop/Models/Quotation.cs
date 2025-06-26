@@ -19,7 +19,7 @@ public partial class Quotation
 
     public bool? Confirmed { get; set; }
 
-    public virtual Customer Customer { get; set; }
+    public virtual KhachHang Customer { get; set; }
 
     public virtual ICollection<QuotationDetail> QuotationDetails { get; set; } = new List<QuotationDetail>();
 }

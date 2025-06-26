@@ -16,7 +16,7 @@ using WebShop.Areas.Admin.Models;
 using WebShop.Extension;
 using WebShop.Models;
 using WebShop.ModelViews;
-using Attribute = WebShop.Models.Attribute;
+using Attribute = WebShop.Models.ThuocTinh;
 
 namespace WebShop.Controllers
 {
@@ -126,7 +126,7 @@ namespace WebShop.Controllers
                 // Truy vấn các thương hiệu liên quan
                 var brands = danhmuc.CategoryBrands
                     .Where(cb => cb.CatId == danhmuc.CatId)
-                    .Select(cb => new Brand
+                    .Select(cb => new ThuongHieu
                     {
                         BrandName = cb.Brand.BrandName,
                         BrandId = cb.Brand.BrandId
@@ -269,13 +269,13 @@ namespace WebShop.Controllers
                 var section = HttpContext.Session.Get<searchAlias>("searchAlias")
                               ?? new searchAlias
                               {
-                                  brand = new List<Brand>() // Khởi tạo danh sách brand
+                                  brand = new List<ThuongHieu>() // Khởi tạo danh sách brand
                               };
 
                 // Thêm thương hiệu vào danh sách nếu chưa có
                 if (!section.brand.Any(b => b.BrandId == brand.BrandId))
                 {
-                    section.brand.Add(new Brand
+                    section.brand.Add(new ThuongHieu
                     {
                         BrandId = brand.BrandId,
                         BrandName = brand.BrandName
@@ -284,7 +284,7 @@ namespace WebShop.Controllers
 
                 // Cập nhật danh mục
                 var cate = _context.Categories.FirstOrDefault(c => c.CatId == cateid);
-                section.brandGroup = cate != null ? new BrandGroup
+                section.brandGroup = cate != null ? new NhomThuongHieu
                 {
                     // Cấu hình BrandGroup ở đây nếu cần
                     // Ví dụ: Name = cate.CategoryName
@@ -337,7 +337,7 @@ namespace WebShop.Controllers
             var dataAttribute =_context.AttributesPrices.Where(ap=>ap.AttributesPriceId ==id).FirstOrDefault();
             var section = HttpContext.Session.Get<searchAlias>(alias);
             // listprice
-            List<AttributesPrice> pricelist = new List<AttributesPrice>();
+            List<GiaThuocTinh> pricelist = new List<GiaThuocTinh>();
             
             bool checkidp = false;
             if (section.attrp != null)
@@ -372,7 +372,7 @@ namespace WebShop.Controllers
         {
             var section = HttpContext.Session.Get<searchAlias>(alias);
             // listprice
-            List<Brand> brandlist = new List<Brand>();
+            List<ThuongHieu> brandlist = new List<ThuongHieu>();
             bool checkidp = false;
             if (section.brand != null)
             {
@@ -423,7 +423,7 @@ namespace WebShop.Controllers
             var cate = _context.Categories.Where(c => c.Alias == alias).FirstOrDefault();
             var group = _context.BrandGroups.Where(c => c.Id == groupid).FirstOrDefault();
             // listprice
-            List<Brand> brandlist = new List<Brand>();
+            List<ThuongHieu> brandlist = new List<ThuongHieu>();
             bool checkidp = false;
             if (section.brand != null)
             {
@@ -484,7 +484,7 @@ namespace WebShop.Controllers
             var section = HttpContext.Session.Get<searchAlias>(alias) ?? new searchAlias();
 
             // Danh sách giá thuộc tính nếu chưa có tron session thì tạo mới
-            List<AttributesPrice> pricelist = section.attrp ?? new List<AttributesPrice>();
+            List<GiaThuocTinh> pricelist = section.attrp ?? new List<GiaThuocTinh>();
 
             // Kiểm tra xem id thuộc tính có tồn tại trong danh sách của section hay không
             bool checkidp = pricelist.Any(pr => pr.AttributesPriceId == id);
@@ -692,9 +692,9 @@ namespace WebShop.Controllers
             }
         }
         // Phương thức để lấy danh sách breadcrumb
-        public List<Category> GetBreadcrumbCategories(int? categoryId)
+        public List<DanhMuc> GetBreadcrumbCategories(int? categoryId)
         {
-            List<Category> breadcrumb = new List<Category>();
+            List<DanhMuc> breadcrumb = new List<DanhMuc>();
             var category = _context.Categories.Find(categoryId);
             while (category != null)
             {
@@ -865,7 +865,7 @@ namespace WebShop.Controllers
         //}
 
         // Phương thức đệ quy để lấy danh sách các CatId của các danh mục con của danh mục cha
-        private void GetDescendantCategoryIds(Category category, List<Category> allCategories, ref List<int> descendantCategoryIds)
+        private void GetDescendantCategoryIds(DanhMuc category, List<DanhMuc> allCategories, ref List<int> descendantCategoryIds)
         {
             if (category != null)
             {
