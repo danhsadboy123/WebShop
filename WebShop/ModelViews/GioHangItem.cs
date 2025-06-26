@@ -6,11 +6,11 @@ namespace WebShop.ModelViews
 {
     public class GioHangItem
     {
-        public SanPham product { get; set; }
-        public int amount { get; set; }
-        public double TotalMoney => amount * product.SalePrice.Value;
-        public double CartTotalMoney { get; set; }
-        public List<QuaTangSanPham> ProductGift { get; set; }       
+        public SanPham sanPham { get; set; }
+        public int soLuong { get; set; }
+        public double tongTien => soLuong * sanPham.GiaBan.Value;
+        public double tongTienGioHang { get; set; }
+        public List<QuaTangSanPham> QuaTangSanPham { get; set; }       
 
     }
 }

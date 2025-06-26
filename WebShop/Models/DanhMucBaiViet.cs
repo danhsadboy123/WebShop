@@ -5,13 +5,13 @@ namespace WebShop.Models;
 
 public partial class DanhMucBaiViet
 {
-    public int PostCatId { get; set; }
+    public int MaDanhMucBaiViet { get; set; }
 
-    public string PostCatName { get; set; }
+    public string TenDanhMucBaiViet { get; set; }
 
-    public DateTime? DateCreated { get; set; }
+    public DateTime? NgayTao { get; set; }
 
-    public DateTime? DateModified { get; set; }
+    public DateTime? NgayCapNhat { get; set; }
 
-    public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
+    public virtual ICollection<BaiViet> BaiViet { get; set; } = new List<BaiViet>();
 }

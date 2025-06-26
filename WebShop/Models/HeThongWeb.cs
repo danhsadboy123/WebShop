@@ -13,7 +13,7 @@ public partial class HeThongWeb
 
     public string Name { get; set; }
 
-    public int? Post { get; set; }
+    public int? BaiViet { get; set; }
 
     public string EmailSmtp { get; set; }
 

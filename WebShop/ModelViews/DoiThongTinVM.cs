@@ -6,7 +6,7 @@ namespace WebShop.ModelViews
     public class DoiThongTinVM
     {
         [Key]
-        public int CustomerId { get; set; }
+        public int maKhachHang { get; set; }
         public string HoTen { get; set; }
         public string Email { get; set; }
         public string SoDienThoai { get; set; }

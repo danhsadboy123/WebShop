@@ -9,7 +9,7 @@ namespace WebShop.ModelViews
         public List<GiaThuocTinh> attrp { get; set; } = new List<GiaThuocTinh>(); // Khởi tạo danh sách
         public List<ThuongHieu> brand { get; set; } = new List<ThuongHieu>(); // Khởi tạo danh sách
         public NhomThuongHieu brandGroup { get; set; }
-        public string Alias { get; set; }
+        public string TenRutGon { get; set; }
         public string sort { get; set; }
         public int top { get; set; }
     }

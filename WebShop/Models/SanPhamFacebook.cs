@@ -7,7 +7,7 @@ public partial class SanPhamFacebook
 {
     public int Id { get; set; }
 
-    public int? ProductId { get; set; }
+    public int? MaSanPham { get; set; }
 
     public string Link { get; set; }
 

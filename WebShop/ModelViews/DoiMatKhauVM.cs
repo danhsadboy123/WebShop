@@ -6,7 +6,7 @@ namespace WebShop.ModelViews
     public class DoiMatKhauVM
     {
         [Key]
-        public int CustomerId { get; set; }
+        public int maKhachHang { get; set; }
 
         [Display(Name ="Mật khẩu hiện tại")]
         [Required(ErrorMessage ="Vui lòng nhập mật khẩu hiện tại")]

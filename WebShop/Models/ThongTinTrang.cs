@@ -7,13 +7,13 @@ public partial class ThongTinTrang
 {
     public int Id { get; set; }
 
-    public string Title { get; set; }
+    public string TieuDe { get; set; }
 
     public string Domain { get; set; }
 
-    public string MetaDesc { get; set; }
+    public string MoTaSeo { get; set; }
 
-    public string MetaKey { get; set; }
+    public string TuKhoaSeo { get; set; }
 
     public string Robots { get; set; }
 

@@ -7,12 +7,12 @@ namespace WebShop.ModelViews
 {
     public class MuaHangVM
     {
-        public int orderId { get; set; }
+        public int maDonHang { get; set; }
 
-        public int CustomerId { get; set; }
-        public int GuestId { get; set; }
+        public int maKhachHang { get; set; }
+        public int maKhachVangLai { get; set; }
 
-        public bool IsLoggedIn { get; set; }
+        public bool daDangNhap { get; set; }
 
         [Required(ErrorMessage = "*Vui long nhap Ho va Ten")]
         [RegularExpression(@"^[\p{L}\s]+$", ErrorMessage = "Ten nguoi nhan khong hop le")]
@@ -26,28 +26,28 @@ namespace WebShop.ModelViews
         [RegularExpression(@"^(0[3|5|7|8|9])[0-9]{8}$", ErrorMessage = "So dien thoai khong hop le")]
         public string SoDienThoai { get; set; }
 
-        public List<DiaChiTaiKhoan> Addresses { get; set; }
+        public List<DiaChiTaiKhoan> danhSachDiaChi { get; set; }
 
         [Required(ErrorMessage = "*Vui long nhap dia chi nhan hang")]
-        public string Address { get; set; }
+        public string diaChi { get; set; }
 
         [Required(ErrorMessage = "*Vui long chon Tinh/Thanh")]
-        public int TinhThanh { get; set; }
+        public int tinhThanh { get; set; }
 
         [Required(ErrorMessage = "*Vui long chon Quan/Huyen")]
-        public int QuanHuyen { get; set; }
+        public int quanHuyen { get; set; }
 
         [Required(ErrorMessage = "*Vui long chon Phuong/Xa")]
-        public int PhuongXa { get; set; }
+        public int phuongXa { get; set; }
 
-        public int PaymentID { get; set; }
+        public int maPhuongThucThanhToan { get; set; }
 
-        public string Companyname { get; set; }
-        public string NumberCom { get; set; }
-        public string AddressCom { get; set; }
-        public string Note { get; set; }
-        public bool CheckEmail { get; set; }
-        public string Code { get; set; }
-        public string NotePay { get; set; }
+        public string tenCongTy { get; set; }
+        public string maSoCongTy { get; set; }
+        public string diaChiCongTy { get; set; }
+        public string ghiChu { get; set; }
+        public bool kiemTraEmail { get; set; }
+        public string maCode { get; set; }
+        public string ghiChuThanhToan { get; set; }
     }
 }

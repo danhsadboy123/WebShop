@@ -4,6 +4,6 @@
     {
         public int AttributeId { get; set; }
         public string AttributeName { get; set; }
-        public string Price { get; set; }
+        public string Gia { get; set; }
     }
 }

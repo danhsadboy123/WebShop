@@ -9,7 +9,7 @@ public partial class SanPhamThemKhachHang
 
     public int? CustomerId { get; set; }
 
-    public int? ProductId { get; set; }
+    public int? MaSanPham { get; set; }
 
     public int? Stock { get; set; }
 
@@ -19,5 +19,5 @@ public partial class SanPhamThemKhachHang
 
     public virtual NhaCungCapKhachHang Customer { get; set; }
 
-    public virtual Product Product { get; set; }
+    public virtual SanPham SanPham { get; set; }
 }

@@ -5,35 +5,35 @@ namespace WebShop.Models;
 
 public partial class TinDang
 {
-    public int PostId { get; set; }
+    public int MaBaiViet { get; set; }
 
-    public string Title { get; set; }
+    public string TieuDe { get; set; }
 
-    public string Scontents { get; set; }
+    public string NoiDungNgan { get; set; }
 
-    public string Contents { get; set; }
+    public string NoiDung { get; set; }
 
-    public string Thumb { get; set; }
+    public string AnhNho { get; set; }
 
-    public bool Published { get; set; }
+    public bool DaXuatBan { get; set; }
 
-    public string Alias { get; set; }
+    public string TenRutGon { get; set; }
 
-    public DateTime? CreatedDate { get; set; }
+    public DateTime? NgayTao { get; set; }
 
-    public string Author { get; set; }
+    public string TacGia { get; set; }
 
     public int? MaTaiKhoan { get; set; }
 
     public int? CatId { get; set; }
 
-    public bool IsHot { get; set; }
+    public bool LaNong { get; set; }
 
-    public bool IsNewfeed { get; set; }
+    public bool LaTinMoi { get; set; }
 
-    public string MetaKey { get; set; }
+    public string TuKhoaSeo { get; set; }
 
-    public string MetaDesc { get; set; }
+    public string MoTaSeo { get; set; }
 
-    public int? Views { get; set; }
+    public int? LuotXem { get; set; }
 }

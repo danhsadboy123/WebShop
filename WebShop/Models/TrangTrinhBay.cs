@@ -9,9 +9,9 @@ public partial class TrangTrinhBay
 
     public int? CatId { get; set; }
 
-    public string Thumb { get; set; }
+    public string AnhNho { get; set; }
 
-    public string Alias { get; set; }
+    public string TenRutGon { get; set; }
 
     public string SlideName { get; set; }
 
@@ -21,7 +21,7 @@ public partial class TrangTrinhBay
 
     public bool Bottom { get; set; }
 
-    public bool HomeFlag { get; set; }
+    public bool HienThiTrangChu { get; set; }
 
     public int? Ordering { get; set; }
 

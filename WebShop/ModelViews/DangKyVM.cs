@@ -7,7 +7,7 @@ namespace WebShop.ModelViews
     public class DangKyVM
     {
         [Key]
-        public int CustomerId { get; set; }
+        public int maKhachHang { get; set; }
 
         [Display(Name ="Họ và Tên")]
         [Required(ErrorMessage ="Vui lòng nhập Họ Tên")]

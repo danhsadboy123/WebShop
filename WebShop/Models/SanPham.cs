@@ -5,89 +5,89 @@ namespace WebShop.Models;
 
 public partial class SanPham
 {
-    public int ProductId { get; set; }
+    public int MaSanPham { get; set; }
 
-    public string ProductName { get; set; }
+    public string TenSanPham { get; set; }
 
-    public string ProductNameEn { get; set; }
+    public string TenSanPhamTiengAnh { get; set; }
 
-    public string ProductCode { get; set; }
+    public string MaCode { get; set; }
 
-    public string ShortDesc { get; set; }
+    public string MoTaNgan { get; set; }
 
-    public string ShortDescEn { get; set; }
+    public string MoTaNganTiengAnh { get; set; }
 
     public string MoTa { get; set; }
 
-    public string DescriptionEn { get; set; }
+    public string MoTaTiengAnh { get; set; }
 
-    public string ConfigInformation { get; set; }
+    public string ThongTinCauHinh { get; set; }
 
-    public string ConfigInformationEn { get; set; }
+    public string ThongTinCauHinhTiengAnh { get; set; }
 
-    public string Gift { get; set; }
+    public string QuaTang { get; set; }
 
-    public string GiftEn { get; set; }
+    public string QuaTangTiengAnh { get; set; }
 
-    public int? Warranty { get; set; }
+    public int? BaoHanh { get; set; }
 
-    public string WarrantyNote { get; set; }
+    public string GhiChuBaoHanh { get; set; }
 
-    public string WarrantyNoteEn { get; set; }
+    public string GhiChuBaoHanhTiengAnh { get; set; }
 
-    public int? Price { get; set; }
+    public int? Gia { get; set; }
 
-    public int? SalePrice { get; set; }
+    public int? GiaBan { get; set; }
 
-    public int? BrandId { get; set; }
+    public int? MaThuongHieu { get; set; }
 
-    public string Avatar { get; set; }
+    public string AnhDaiDien { get; set; }
 
-    public string Video { get; set; }
+    public string PhimAnh { get; set; }
 
-    public DateTime? DateCreated { get; set; }
+    public DateTime? NgayTao { get; set; }
 
-    public DateTime? DateModified { get; set; }
+    public DateTime? NgayCapNhat { get; set; }
 
-    public bool BestSellers { get; set; }
+    public bool BanChay { get; set; }
 
-    public bool HomeFlag { get; set; }
+    public bool HienThiTrangChu { get; set; }
 
     public bool KichHoat { get; set; }
 
-    public string Title { get; set; }
+    public string TieuDe { get; set; }
 
-    public string TitleEn { get; set; }
+    public string TieuDeTiengAnh { get; set; }
 
-    public string Alias { get; set; }
+    public string TenRutGon { get; set; }
 
-    public string MetaDesc { get; set; }
+    public string MoTaSeo { get; set; }
 
-    public string MetaDescEn { get; set; }
+    public string MoTaSeoTiengAnh { get; set; }
 
-    public string MetaKey { get; set; }
+    public string TuKhoaSeo { get; set; }
 
-    public string MetaKeyEn { get; set; }
+    public string TuKhoaSeoTiengAnh { get; set; }
 
-    public int? UnitsInStock { get; set; }
+    public int? SoLuongTon { get; set; }
 
-    public string ProductOption { get; set; }
+    public string TuyChonSanPham { get; set; }
 
-    public int? BrandGroup { get; set; }
+    public int? NhomThuongHieu { get; set; }
 
-    public virtual ICollection<GiaThuocTinh> AttributesPrices { get; set; } = new List<GiaThuocTinh>();
+    public virtual ICollection<GiaThuocTinh> GiaThuocTinh { get; set; } = new List<GiaThuocTinh>();
 
-    public virtual ThuongHieu Brand { get; set; }
+    public virtual ThuongHieu ThuongHieu { get; set; }
 
-    public virtual ICollection<KhuyenMaiThemSanPham> DiscountAddProducts { get; set; } = new List<KhuyenMaiThemSanPham>();
+    public virtual ICollection<KhuyenMaiThemSanPham> KhuyenMaiThemSanPham { get; set; } = new List<KhuyenMaiThemSanPham>();
 
-    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+    public virtual ICollection<ChiTietDonHang> ChiTietDonHang { get; set; } = new List<ChiTietDonHang>();
 
-    public virtual ICollection<ProductAddCusPro> ProductAddCusPros { get; set; } = new List<ProductAddCusPro>();
+    public virtual ICollection<SanPhamThemKhachHang> SanPhamThemKhachHang { get; set; } = new List<SanPhamThemKhachHang>();
 
-    public virtual ICollection<ProductCategory> ProductCategories { get; set; } = new List<ProductCategory>();
+    public virtual ICollection<DanhMucSanPham> DanhMucSanPham { get; set; } = new List<DanhMucSanPham>();
 
-    public virtual ICollection<ProductThumb> ProductThumbs { get; set; } = new List<ProductThumb>();
+    public virtual ICollection<AnhSanPham> AnhSanPham { get; set; } = new List<AnhSanPham>();
 
-    public virtual ICollection<QuotationDetail> QuotationDetails { get; set; } = new List<QuotationDetail>();
+    public virtual ICollection<ChiTietBaoGia> ChiTietBaoGia { get; set; } = new List<ChiTietBaoGia>();
 }

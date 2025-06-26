@@ -55,7 +55,7 @@ public partial class DanhMuc
 
     public string TenThuongHieu { get; set; }
 
-    public virtual ICollection<Banner> Banners { get; set; } = new List<Banner>();
+    public virtual ICollection<BangQuangCao> Banners { get; set; } = new List<BangQuangCao>();
 
     public virtual ICollection<DanhMucThuocTinh> DanhMucThuocTinhs { get; set; } = new List<DanhMucThuocTinh>();
 
@@ -67,5 +67,5 @@ public partial class DanhMuc
 
     public virtual ICollection<SanPhamDanhMuc> SanPhamDanhMucs { get; set; } = new List<SanPhamDanhMuc>();
 
-    public virtual ICollection<Slide> Slides { get; set; } = new List<Slide>();
+    public virtual ICollection<TrangTrinhBay> Slides { get; set; } = new List<TrangTrinhBay>();
 }

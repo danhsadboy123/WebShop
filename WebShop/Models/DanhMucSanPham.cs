@@ -9,11 +9,11 @@ public partial class DanhMucSanPham
 
     public int? CatId { get; set; }
 
-    public int? ProductId { get; set; }
+    public int? MaSanPham { get; set; }
 
     public virtual DanhMuc Cat { get; set; }
 
-    public virtual Product Product { get; set; }
+    public virtual SanPham SanPham { get; set; }
    
 
 }

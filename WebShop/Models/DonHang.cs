@@ -57,9 +57,9 @@ public partial class DonHang
 
     public virtual KhachVangLai KhachVangLai { get; set; }
 
-    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+    public virtual ICollection<ChiTietDonHang> ChiTietDonHang { get; set; } = new List<ChiTietDonHang>();
 
-    public virtual PaymentStatus PaymentStatus { get; set; }
+    public virtual TrangThaiThanhToan TrangThaiThanhToan { get; set; }
 
-    public virtual ICollection<ShippingAddress> ShippingAddresses { get; set; } = new List<ShippingAddress>();
+    public virtual ICollection<DiaChiGiaoHang> DiaChiGiaoHang { get; set; } = new List<DiaChiGiaoHang>();
 }

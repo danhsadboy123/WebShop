@@ -19,5 +19,5 @@ public partial class ThuongHieu
 
     public virtual ICollection<SanPham> SanPhams { get; set; } = new List<SanPham>();
 
-    public virtual ICollection<Video> Videos { get; set; } = new List<Video>();
+    public virtual ICollection<PhimAnh> Videos { get; set; } = new List<PhimAnh>();
 }

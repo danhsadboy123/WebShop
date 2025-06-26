@@ -9,7 +9,7 @@ public partial class ChiTietDonHang
 
     public int? OrderId { get; set; }
 
-    public int? ProductId { get; set; }
+    public int? MaSanPham { get; set; }
 
     public int? OrderNumber { get; set; }
 
@@ -21,9 +21,9 @@ public partial class ChiTietDonHang
 
     public DateTime? NgayTao { get; set; }
 
-    public int? Price { get; set; }
+    public int? Gia { get; set; }
 
     public virtual DonHang Order { get; set; }
 
-    public virtual Product Product { get; set; }
+    public virtual SanPham SanPham { get; set; }
 }

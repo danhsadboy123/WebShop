@@ -7,7 +7,7 @@ public partial class PhimAnh
 {
     public int Id { get; set; }
 
-    public int BrandId { get; set; }
+    public int MaThuongHieu { get; set; }
 
     public string Image { get; set; }
 
@@ -17,5 +17,5 @@ public partial class PhimAnh
 
     public int? Sort { get; set; }
 
-    public virtual ThuongHieu Brand { get; set; }
+    public virtual ThuongHieu ThuongHieu { get; set; }
 }

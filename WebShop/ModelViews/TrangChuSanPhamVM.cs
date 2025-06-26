@@ -7,9 +7,9 @@ namespace WebShop.ModelViews
 {
     public class TrangChuSanPhamVM
     {
-        public DanhMuc category { get; set; }  
-        public List<SanPham> lsProducts { get; set; } 
-        public List<DanhMucThuongHieu> ctebrands { get; set; }     
-        public BangQuangCao Banner { get; set; }
+        public DanhMuc danhMuc { get; set; }  
+        public List<SanPham> danhSachSanPham { get; set; } 
+        public List<DanhMucThuongHieu> danhSachThuongHieu { get; set; }     
+        public BangQuangCao BangQuangCao { get; set; }
     }
 }

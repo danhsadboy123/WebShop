@@ -3,10 +3,10 @@ namespace WebShop.ModelViews
 {
     public class TimKiemSanPhamVM
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public int? Price { get; set; }
-        public string Thumb { get; set; }
-        public string Alias { get; set; }
+        public int MaSanPham { get; set; }
+        public string TenSanPham { get; set; }
+        public int? Gia { get; set; }
+        public string AnhNho { get; set; }
+        public string TenRutGon { get; set; }
     }
 }

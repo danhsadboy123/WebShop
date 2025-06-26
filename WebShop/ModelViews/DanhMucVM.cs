@@ -7,7 +7,7 @@ namespace WebShop.ModelViews
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public string Alias { get; set; }
+        public string TenRutGon { get; set; }
         public string Icon { get; set; }
         public bool? ThumbShow { get; set; } 
         public string BannerThumb { get; set; }
@@ -21,7 +21,7 @@ namespace WebShop.ModelViews
     {
         public int AttributeId { get; set; }
         public string AttributeName { get; set; }
-        public string Alias { get; set; }
+        public string TenRutGon { get; set; }
 
         public List<AttributePriceViewModel> AttributesPrices { get; set; } = new List<AttributePriceViewModel>();
     }
@@ -37,7 +37,7 @@ namespace WebShop.ModelViews
     public class AttributePriceViewModel
     {
         public int PriceId { get; set; }
-        public string Price { get; set; }
+        public string Gia { get; set; }
         public int AttributeId { get; set; }
     }
     public class SlideVM
@@ -46,9 +46,9 @@ namespace WebShop.ModelViews
 
         public int? CatId { get; set; }
 
-        public string Thumb { get; set; }
+        public string AnhNho { get; set; }
 
-        public string Alias { get; set; }
+        public string TenRutGon { get; set; }
 
         public string SlideName { get; set; }
 

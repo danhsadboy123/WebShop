@@ -7,7 +7,7 @@ namespace WebShop.ModelViews
 {
     public class DanhMucView
     {
-        public DanhMuc category { get; set; }
+        public DanhMuc danhMuc { get; set; }
         public List<DanhMucThuocTinh> categoryAttributes { get; set; } 
     }
 }

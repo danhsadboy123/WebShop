@@ -21,5 +21,5 @@ public partial class BaoGia
 
     public virtual KhachHang Customer { get; set; }
 
-    public virtual ICollection<QuotationDetail> QuotationDetails { get; set; } = new List<QuotationDetail>();
+    public virtual ICollection<ChiTietBaoGia> ChiTietBaoGia { get; set; } = new List<ChiTietBaoGia>();
 }

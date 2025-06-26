@@ -5,53 +5,53 @@ namespace WebShop.Models;
 
 public partial class BaiViet
 {
-    public int PostId { get; set; }
+    public int MaBaiViet { get; set; }
 
-    public string Title { get; set; }
+    public string TieuDe { get; set; }
 
-    public string TitleEn { get; set; }
+    public string TieuDeTiengAnh { get; set; }
 
-    public string Scontents { get; set; }
+    public string NoiDungNgan { get; set; }
 
-    public string ScontentsEn { get; set; }
+    public string NoiDungNganTiengAnh { get; set; }
 
-    public string Contents { get; set; }
+    public string NoiDung { get; set; }
 
-    public string ContentsEn { get; set; }
+    public string NoiDungTiengAnh { get; set; }
 
-    public string Thumb { get; set; }
+    public string AnhNho { get; set; }
 
-    public bool Published { get; set; }
+    public bool DaXuatBan { get; set; }
 
-    public string Alias { get; set; }
+    public string TenRutGon { get; set; }
 
-    public string AliasEn { get; set; }
+    public string TenRutGonTiengAnh { get; set; }
 
-    public DateTime? CreatedDate { get; set; }
+    public DateTime? NgayTao { get; set; }
 
-    public string Author { get; set; }
+    public string TacGia { get; set; }
 
     public int? MaTaiKhoan { get; set; }
 
-    public int? PostCatId { get; set; }
+    public int? MaDanhMucBaiViet { get; set; }
 
-    public bool IsHot { get; set; }
+    public bool LaNong { get; set; }
 
-    public bool IsNewfeed { get; set; }
+    public bool LaTinMoi { get; set; }
 
-    public string TitleSeo { get; set; }
+    public string TieuDeSeo { get; set; }
 
-    public string TitleSeoEn { get; set; }
+    public string TieuDeSeoTiengAnh { get; set; }
 
-    public string MetaKey { get; set; }
+    public string TuKhoaSeo { get; set; }
 
-    public string MetaKeyEn { get; set; }
+    public string TuKhoaSeoTiengAnh { get; set; }
 
-    public string MetaDesc { get; set; }
+    public string MoTaSeo { get; set; }
 
-    public string MetaDescEn { get; set; }
+    public string MoTaSeoTiengAnh { get; set; }
 
-    public int? Views { get; set; }
+    public int? LuotXem { get; set; }
 
-    public virtual PostCategory PostCat { get; set; }
+    public virtual DanhMucBaiViet DanhMucBaiViet { get; set; }
 }

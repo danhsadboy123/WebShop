@@ -226,16 +226,16 @@ public partial class DbMarketsContext : DbContext
                 .HasForeignKey(d => d.AttributeId)
                 .HasConstraintName("FK_AttributesPrices_Attributes");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.AttributesPrices)
+            entity.HasOne(d => d.SanPham).WithMany(p => p.AttributesPrices)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK_AttributesPrices_Products");
         });
 
-        modelBuilder.Entity<Banner>(entity =>
+        modelBuilder.Entity<BangQuangCao>(entity =>
         {
-            entity.ToTable("Banner");
+            entity.ToTable("BangQuangCao");
 
-            entity.Property(e => e.Banner1).HasColumnName("Banner");
+            entity.Property(e => e.Banner1).HasColumnName("BangQuangCao");
 
             entity.HasOne(d => d.Cat).WithMany(p => p.Banners)
                 .HasForeignKey(d => d.CatId)
@@ -440,7 +440,7 @@ public partial class DbMarketsContext : DbContext
                 .HasForeignKey(d => d.DiscountId)
                 .HasConstraintName("FK_DiscountAddProducts_Discount");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.DiscountAddProducts)
+            entity.HasOne(d => d.SanPham).WithMany(p => p.DiscountAddProducts)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK_DiscountAddProducts_Products");
         });
@@ -507,7 +507,7 @@ public partial class DbMarketsContext : DbContext
                 .HasForeignKey(d => d.DiscountId)
                 .HasConstraintName("FK_GitAttributes_Discount");
 
-            entity.HasOne(d => d.ProductGift).WithMany(p => p.GitAttributes)
+            entity.HasOne(d => d.QuaTangSanPham).WithMany(p => p.GitAttributes)
                 .HasForeignKey(d => d.ProductGiftId)
                 .HasConstraintName("FK_GitAttributes_ProductGift");
         });
@@ -580,13 +580,13 @@ public partial class DbMarketsContext : DbContext
                 .HasForeignKey(d => d.GuestId)
                 .HasConstraintName("FK_Orders_Guests");
 
-            entity.HasOne(d => d.PaymentStatus).WithMany(p => p.Orders)
+            entity.HasOne(d => d.TrangThaiThanhToan).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.PaymentStatusId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Orders_PaymentStatus");
         });
 
-        modelBuilder.Entity<OrderDetail>(entity =>
+        modelBuilder.Entity<ChiTietDonHang>(entity =>
         {
             entity.Property(e => e.OrderDetailId).HasColumnName("OrderDetailID");
             entity.Property(e => e.NgayTao).HasColumnType("datetime");
@@ -597,12 +597,12 @@ public partial class DbMarketsContext : DbContext
                 .HasForeignKey(d => d.OrderId)
                 .HasConstraintName("FK_OrderDetails_Orders");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
+            entity.HasOne(d => d.SanPham).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK_OrderDetails_Products");
         });
 
-        modelBuilder.Entity<Page>(entity =>
+        modelBuilder.Entity<TrangWeb>(entity =>
         {
             entity.Property(e => e.PageId).HasColumnName("PageID");
             entity.Property(e => e.Alias).HasMaxLength(250);
@@ -614,7 +614,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.Title).HasMaxLength(250);
         });
 
-        modelBuilder.Entity<PageInfo>(entity =>
+        modelBuilder.Entity<ThongTinTrang>(entity =>
         {
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
@@ -627,15 +627,15 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.Robots).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<PaymentStatus>(entity =>
+        modelBuilder.Entity<TrangThaiThanhToan>(entity =>
         {
-            entity.ToTable("PaymentStatus");
+            entity.ToTable("TrangThaiThanhToan");
 
             entity.Property(e => e.PaymentStatusId).HasColumnName("PaymentStatusID");
             entity.Property(e => e.Status).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<Post>(entity =>
+        modelBuilder.Entity<BaiViet>(entity =>
         {
             entity.HasKey(e => e.PostId).HasName("PK_tblTinTucs");
 
@@ -675,11 +675,11 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_Posts_PostCategory");
         });
 
-        modelBuilder.Entity<PostCategory>(entity =>
+        modelBuilder.Entity<DanhMucBaiViet>(entity =>
         {
             entity.HasKey(e => e.PostCatId);
 
-            entity.ToTable("PostCategory");
+            entity.ToTable("DanhMucBaiViet");
 
             entity.Property(e => e.PostCatId).HasColumnName("PostCatID");
             entity.Property(e => e.DateCreated).HasColumnType("datetime");
@@ -687,7 +687,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.PostCatName).HasMaxLength(255);
         });
 
-        modelBuilder.Entity<Product>(entity =>
+        modelBuilder.Entity<SanPham>(entity =>
         {
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.BrandId).HasColumnName("BrandID");
@@ -710,20 +710,20 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_Products_Brands");
         });
 
-        modelBuilder.Entity<ProductAddCusPro>(entity =>
+        modelBuilder.Entity<SanPhamThemKhachHang>(entity =>
         {
-            entity.ToTable("ProductAddCusPro");
+            entity.ToTable("SanPhamThemKhachHang");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.ProductAddCusPros)
                 .HasForeignKey(d => d.CustomerId)
                 .HasConstraintName("FK_ProductAddCusPro_CustomerSupplier");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.ProductAddCusPros)
+            entity.HasOne(d => d.SanPham).WithMany(p => p.ProductAddCusPros)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK_ProductAddCusPro_Products");
         });
 
-        modelBuilder.Entity<ProductCategory>(entity =>
+        modelBuilder.Entity<DanhMucSanPham>(entity =>
         {
             entity.HasKey(e => e.ProductCatId);
 
@@ -735,26 +735,26 @@ public partial class DbMarketsContext : DbContext
                 .HasForeignKey(d => d.CatId)
                 .HasConstraintName("FK_ProductCategories_Categories");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.ProductCategories)
+            entity.HasOne(d => d.SanPham).WithMany(p => p.ProductCategories)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK_ProductCategories_Products");
         });
 
-        modelBuilder.Entity<ProductFacebook>(entity =>
+        modelBuilder.Entity<SanPhamFacebook>(entity =>
         {
-            entity.ToTable("ProductFacebook");
+            entity.ToTable("SanPhamFacebook");
 
             entity.Property(e => e.CeateAdd).HasColumnType("datetime");
         });
 
-        modelBuilder.Entity<ProductGift>(entity =>
+        modelBuilder.Entity<QuaTangSanPham>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK_ProductDift");
 
-            entity.ToTable("ProductGift");
+            entity.ToTable("QuaTangSanPham");
         });
 
-        modelBuilder.Entity<ProductThumb>(entity =>
+        modelBuilder.Entity<AnhSanPham>(entity =>
         {
             entity.HasKey(e => e.ImageId).HasName("PK_Product_Thumb");
 
@@ -762,7 +762,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.Alias).HasMaxLength(250);
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.ProductThumbs)
+            entity.HasOne(d => d.SanPham).WithMany(p => p.ProductThumbs)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK_ProductThumbs_Products");
         });
@@ -791,7 +791,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.UrlLink).HasMaxLength(250);
         });
 
-        modelBuilder.Entity<Quotation>(entity =>
+        modelBuilder.Entity<BaoGia>(entity =>
         {
             entity.Property(e => e.QuotationId).HasColumnName("QuotationID");
             entity.Property(e => e.NgayTao).HasColumnType("datetime");
@@ -805,18 +805,18 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_Quotations_Customers");
         });
 
-        modelBuilder.Entity<QuotationDetail>(entity =>
+        modelBuilder.Entity<ChiTietBaoGia>(entity =>
         {
             entity.Property(e => e.QuotationDetailId).HasColumnName("QuotationDetailID");
             entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.QuotationId).HasColumnName("QuotationID");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.QuotationDetails)
+            entity.HasOne(d => d.SanPham).WithMany(p => p.QuotationDetails)
                 .HasForeignKey(d => d.ProductId)
                 .HasConstraintName("FK_QuotationDetails_Products");
 
-            entity.HasOne(d => d.Quotation).WithMany(p => p.QuotationDetails)
+            entity.HasOne(d => d.BaoGia).WithMany(p => p.QuotationDetails)
                 .HasForeignKey(d => d.QuotationId)
                 .HasConstraintName("FK_QuotationDetails_Quotations");
         });
@@ -828,7 +828,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.TenVaiTro).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<Shipper>(entity =>
+        modelBuilder.Entity<NguoiGiaoHang>(entity =>
         {
             entity.Property(e => e.ShipperId).HasColumnName("ShipperID");
             entity.Property(e => e.Company).HasMaxLength(150);
@@ -839,11 +839,11 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.ShipperName).HasMaxLength(150);
         });
 
-        modelBuilder.Entity<ShippingAddress>(entity =>
+        modelBuilder.Entity<DiaChiGiaoHang>(entity =>
         {
             entity.HasKey(e => e.ShippingAdressId);
 
-            entity.ToTable("ShippingAddress");
+            entity.ToTable("DiaChiGiaoHang");
 
             entity.Property(e => e.ShippingAdressId).HasColumnName("ShippingAdressID");
             entity.Property(e => e.DistrictId).HasColumnName("DistrictID");
@@ -870,7 +870,7 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_ShippingAddress_Wards");
         });
 
-        modelBuilder.Entity<Slide>(entity =>
+        modelBuilder.Entity<TrangTrinhBay>(entity =>
         {
             entity.HasKey(e => e.SlideId).HasName("PK_Table_1");
 
@@ -882,19 +882,19 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_Slides_Categories");
         });
 
-        modelBuilder.Entity<SystemWeb>(entity =>
+        modelBuilder.Entity<HeThongWeb>(entity =>
         {
-            entity.ToTable("SystemWeb");
+            entity.ToTable("HeThongWeb");
 
             entity.Property(e => e.EmailSmtp).HasColumnName("EmailSMTP");
             entity.Property(e => e.PassSmtp).HasColumnName("PassSMTP");
         });
 
-        modelBuilder.Entity<Video>(entity =>
+        modelBuilder.Entity<PhimAnh>(entity =>
         {
-            entity.ToTable("Video");
+            entity.ToTable("PhimAnh");
 
-            entity.Property(e => e.Video1).HasColumnName("Video");
+            entity.Property(e => e.Video1).HasColumnName("PhimAnh");
 
             entity.HasOne(d => d.Brand).WithMany(p => p.Videos)
                 .HasForeignKey(d => d.BrandId)

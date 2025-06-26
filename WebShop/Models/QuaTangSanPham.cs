@@ -9,11 +9,11 @@ public partial class QuaTangSanPham
 
     public string Name { get; set; }
 
-    public string Avatar { get; set; }
+    public string AnhDaiDien { get; set; }
 
-    public string Alias { get; set; }
+    public string TenRutGon { get; set; }
 
-    public int? Price { get; set; }
+    public int? Gia { get; set; }
 
     public virtual ICollection<ThuocTinhQuaTang> GitAttributes { get; set; } = new List<ThuocTinhQuaTang>();
 }
