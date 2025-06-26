@@ -45,7 +45,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-action="Index" asp-controller="AdminSettings" asp-area="Admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Cấu hình</a>
             <a asp-action="Notification" asp-controller="AdminSettings" asp-area="Admin" class="breadcrumb-item"> Thông báo</a>
-            <span class="breadcrumb-item active">
+            <span class="breadcrumb-item KichHoat">
                 @if (Model != null)
                 {
                     @Model.Title;
@@ -63,7 +63,7 @@
                 <input type="hidden" asp-for="EmailId" />
                 <input asp-for="ContentName" type="hidden" class="form-control" />
                 <input asp-for="EmailEvent" type="hidden" class="form-control" />
-                <input asp-for="Active" type="hidden" class="form-control" />
+                <input asp-for="KichHoat" type="hidden" class="form-control" />
                 <input asp-for="Input" type="hidden" class="form-control" />
                 <input asp-for="AcountId" type="hidden" class="form-control" />
             <div class="row mb-4">

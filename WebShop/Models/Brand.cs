@@ -9,7 +9,7 @@ public partial class Brand
 
     public string BrandName { get; set; }
 
-    public string Description { get; set; }
+    public string MoTa { get; set; }
 
     public string Thumb { get; set; }
 

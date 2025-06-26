@@ -120,7 +120,7 @@
   };
   var ClassName = {
     CAROUSEL: 'carousel',
-    ACTIVE: 'active',
+    KichHoat: 'KichHoat',
     SLIDE: 'slide',
     RIGHT: 'carousel-item-right',
     LEFT: 'carousel-item-left',
@@ -130,8 +130,8 @@
     POINTER_EVENT: 'pointer-event'
   };
   var Selector = {
-    ACTIVE: '.active',
-    ACTIVE_ITEM: '.active.carousel-item',
+    KichHoat: '.KichHoat',
+    ACTIVE_ITEM: '.KichHoat.carousel-item',
     ITEM: '.carousel-item',
     ITEM_IMG: '.carousel-item img',
     NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
@@ -451,13 +451,13 @@
 
     _proto._setActiveIndicatorElement = function _setActiveIndicatorElement(element) {
       if (this._indicatorsElement) {
-        var indicators = [].slice.call(this._indicatorsElement.querySelectorAll(Selector.ACTIVE));
-        $(indicators).removeClass(ClassName.ACTIVE);
+        var indicators = [].slice.call(this._indicatorsElement.querySelectorAll(Selector.KichHoat));
+        $(indicators).removeClass(ClassName.KichHoat);
 
         var nextIndicator = this._indicatorsElement.children[this._getItemIndex(element)];
 
         if (nextIndicator) {
-          $(nextIndicator).addClass(ClassName.ACTIVE);
+          $(nextIndicator).addClass(ClassName.KichHoat);
         }
       }
     };
@@ -488,7 +488,7 @@
         eventDirectionName = Direction.RIGHT;
       }
 
-      if (nextElement && $(nextElement).hasClass(ClassName.ACTIVE)) {
+      if (nextElement && $(nextElement).hasClass(ClassName.KichHoat)) {
         this._isSliding = false;
         return;
       }
@@ -535,16 +535,16 @@
 
         var transitionDuration = Util.getTransitionDurationFromElement(activeElement);
         $(activeElement).one(Util.TRANSITION_END, function () {
-          $(nextElement).removeClass(directionalClassName + " " + orderClassName).addClass(ClassName.ACTIVE);
-          $(activeElement).removeClass(ClassName.ACTIVE + " " + orderClassName + " " + directionalClassName);
+          $(nextElement).removeClass(directionalClassName + " " + orderClassName).addClass(ClassName.KichHoat);
+          $(activeElement).removeClass(ClassName.KichHoat + " " + orderClassName + " " + directionalClassName);
           _this4._isSliding = false;
           setTimeout(function () {
             return $(_this4._element).trigger(slidEvent);
           }, 0);
         }).emulateTransitionEnd(transitionDuration);
       } else {
-        $(activeElement).removeClass(ClassName.ACTIVE);
-        $(nextElement).addClass(ClassName.ACTIVE);
+        $(activeElement).removeClass(ClassName.KichHoat);
+        $(nextElement).addClass(ClassName.KichHoat);
         this._isSliding = false;
         $(this._element).trigger(slidEvent);
       }

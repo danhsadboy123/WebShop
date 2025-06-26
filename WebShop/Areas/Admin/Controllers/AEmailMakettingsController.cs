@@ -50,7 +50,7 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/AEmailMakettings/Create
         public IActionResult Create()
         {
-            ViewData["AcountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId");
+            ViewData["AcountId"] = new SelectList(_context.TaiKhoans, "MaTaiKhoan", "MaTaiKhoan");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmailId,AcountId,Title,ContentName,Body,CreateDate,CustomDate,EmailEvent,Active,Input")] EmailMaketting emailMaketting)
+        public async Task<IActionResult> Create([Bind("EmailId,AcountId,Title,ContentName,Body,NgayTao,CustomDate,EmailEvent,KichHoat,Input")] EmailMaketting emailMaketting)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace WebShop.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AcountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", emailMaketting.AcountId);
+            ViewData["AcountId"] = new SelectList(_context.TaiKhoans, "MaTaiKhoan", "MaTaiKhoan", emailMaketting.AcountId);
             return View(emailMaketting);
         }
 
@@ -84,7 +84,7 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["AcountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", emailMaketting.AcountId);
+            ViewData["AcountId"] = new SelectList(_context.TaiKhoans, "MaTaiKhoan", "MaTaiKhoan", emailMaketting.AcountId);
             return View(emailMaketting);
         }
 
@@ -93,7 +93,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmailId,AcountId,Title,ContentName,Body,CreateDate,CustomDate,EmailEvent,Active,Input")] EmailMaketting emailMaketting)
+        public async Task<IActionResult> Edit(int id, [Bind("EmailId,AcountId,Title,ContentName,Body,NgayTao,CustomDate,EmailEvent,KichHoat,Input")] EmailMaketting emailMaketting)
         {
             if (id != emailMaketting.EmailId)
             {
@@ -120,7 +120,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AcountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", emailMaketting.AcountId);
+            ViewData["AcountId"] = new SelectList(_context.TaiKhoans, "MaTaiKhoan", "MaTaiKhoan", emailMaketting.AcountId);
             return View(emailMaketting);
         }
 

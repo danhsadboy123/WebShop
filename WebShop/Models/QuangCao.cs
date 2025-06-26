@@ -17,7 +17,7 @@ public partial class QuangCao
 
     public string UrlLink { get; set; }
 
-    public bool Active { get; set; }
+    public bool KichHoat { get; set; }
 
-    public DateTime? CreateDate { get; set; }
+    public DateTime? NgayTao { get; set; }
 }

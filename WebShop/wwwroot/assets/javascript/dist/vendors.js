@@ -737,7 +737,7 @@
                                 radio: !0,
                                 checkbox: !0,
                                 file: !0,
-                                password: !0,
+                                MatKhau: !0,
                                 image: !0
                             }) r.pseudos[t] = ce(t);
                         for (t in {
@@ -2590,7 +2590,7 @@
                     return r && g.extend(!0, e, r), e
                 }
                 xt.href = ut.href, g.extend({
-                    active: 0,
+                    KichHoat: 0,
                     lastModified: {},
                     etag: {},
                     ajaxSettings: {
@@ -2689,7 +2689,7 @@
                             }
                         }
                         if (p.data && p.processData && "string" != typeof p.data && (p.data = g.param(p.data, p.traditional)), wt(vt, p, t, C), 2 === w) return C;
-                        for (f in (l = g.event && p.global) && 0 == g.active++ && g.event.trigger("ajaxStart"), p.type = p.type.toUpperCase(), p.hasContent = !ht.test(p.type), i = p.url, p.hasContent || (p.data && (i = p.url += (lt.test(i) ? "&" : "?") + p.data, delete p.data), !1 === p.cache && (p.url = pt.test(i) ? i.replace(pt, "$1_=" + ct++) : i + (lt.test(i) ? "&" : "?") + "_=" + ct++)), p.ifModified && (g.lastModified[i] && C.setRequestHeader("If-Modified-Since", g.lastModified[i]), g.etag[i] && C.setRequestHeader("If-None-Match", g.etag[i])), (p.data && p.hasContent && !1 !== p.contentType || t.contentType) && C.setRequestHeader("Content-Type", p.contentType), C.setRequestHeader("Accept", p.dataTypes[0] && p.accepts[p.dataTypes[0]] ? p.accepts[p.dataTypes[0]] + ("*" !== p.dataTypes[0] ? ", " + yt + "; q=0.01" : "") : p.accepts["*"]), p.headers) C.setRequestHeader(f, p.headers[f]);
+                        for (f in (l = g.event && p.global) && 0 == g.KichHoat++ && g.event.trigger("ajaxStart"), p.type = p.type.toUpperCase(), p.hasContent = !ht.test(p.type), i = p.url, p.hasContent || (p.data && (i = p.url += (lt.test(i) ? "&" : "?") + p.data, delete p.data), !1 === p.cache && (p.url = pt.test(i) ? i.replace(pt, "$1_=" + ct++) : i + (lt.test(i) ? "&" : "?") + "_=" + ct++)), p.ifModified && (g.lastModified[i] && C.setRequestHeader("If-Modified-Since", g.lastModified[i]), g.etag[i] && C.setRequestHeader("If-None-Match", g.etag[i])), (p.data && p.hasContent && !1 !== p.contentType || t.contentType) && C.setRequestHeader("Content-Type", p.contentType), C.setRequestHeader("Accept", p.dataTypes[0] && p.accepts[p.dataTypes[0]] ? p.accepts[p.dataTypes[0]] + ("*" !== p.dataTypes[0] ? ", " + yt + "; q=0.01" : "") : p.accepts["*"]), p.headers) C.setRequestHeader(f, p.headers[f]);
                         if (p.beforeSend && (!1 === p.beforeSend.call(d, C, p) || 2 === w)) return C.abort();
                         for (f in T = "abort", {
                                 success: 1,
@@ -2762,7 +2762,7 @@
                                     state: "success",
                                     data: t
                                 }
-                            }(p, b, C, c), c ? (p.ifModified && ((T = C.getResponseHeader("Last-Modified")) && (g.lastModified[i] = T), (T = C.getResponseHeader("etag")) && (g.etag[i] = T)), 204 === e || "HEAD" === p.type ? k = "nocontent" : 304 === e ? k = "notmodified" : (k = b.state, f = b.data, c = !(x = b.error))) : (x = k, !e && k || (k = "error", e < 0 && (e = 0))), C.status = e, C.statusText = (t || k) + "", c ? v.resolveWith(d, [f, k, C]) : v.rejectWith(d, [C, k, x]), C.statusCode(y), y = void 0, l && h.trigger(c ? "ajaxSuccess" : "ajaxError", [C, p, c ? f : x]), m.fireWith(d, [C, k]), l && (h.trigger("ajaxComplete", [C, p]), --g.active || g.event.trigger("ajaxStop")))
+                            }(p, b, C, c), c ? (p.ifModified && ((T = C.getResponseHeader("Last-Modified")) && (g.lastModified[i] = T), (T = C.getResponseHeader("etag")) && (g.etag[i] = T)), 204 === e || "HEAD" === p.type ? k = "nocontent" : 304 === e ? k = "notmodified" : (k = b.state, f = b.data, c = !(x = b.error))) : (x = k, !e && k || (k = "error", e < 0 && (e = 0))), C.status = e, C.statusText = (t || k) + "", c ? v.resolveWith(d, [f, k, C]) : v.rejectWith(d, [C, k, x]), C.statusCode(y), y = void 0, l && h.trigger(c ? "ajaxSuccess" : "ajaxError", [C, p, c ? f : x]), m.fireWith(d, [C, k]), l && (h.trigger("ajaxComplete", [C, p]), --g.KichHoat || g.event.trigger("ajaxStop")))
                         }
                         return C
                     },
@@ -2891,7 +2891,7 @@
                     if (h.cors || Dt && !e.crossDomain) return {
                         send: function(i, o) {
                             var s, a = e.xhr();
-                            if (a.open(e.type, e.url, e.async, e.username, e.password), e.xhrFields)
+                            if (a.open(e.type, e.url, e.async, e.username, e.MatKhau), e.xhrFields)
                                 for (s in e.xhrFields) a[s] = e.xhrFields[s];
                             for (s in e.mimeType && a.overrideMimeType && a.overrideMimeType(e.mimeType), e.crossDomain || i["X-Requested-With"] || (i["X-Requested-With"] = "XMLHttpRequest"), i) a.setRequestHeader(s, i[s]);
                             t = function(e) {

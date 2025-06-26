@@ -289,7 +289,7 @@
 			'host'                : 'Host', // added 18.04.2012
 			'port'                : 'Port', // added 18.04.2012
 			'user'                : 'User', // added 18.04.2012
-			'pass'                : 'Password', // added 18.04.2012
+			'pass'                : 'MatKhau', // added 18.04.2012
 			
 			/********************************** mimetypes **********************************/
 			'kindUnknown'     : 'Ukjent',

@@ -11,7 +11,7 @@ public partial class CustomerProject
 
     public string Address { get; set; }
 
-    public string Description { get; set; }
+    public string MoTa { get; set; }
 
     public DateTime? YearOn { get; set; }
 

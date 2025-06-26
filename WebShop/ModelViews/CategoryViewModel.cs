@@ -30,7 +30,7 @@ namespace WebShop.ModelViews
     {
         public int BrandId { get; set; }
         public string BrandName { get; set; }
-        public string Description { get; set; }
+        public string MoTa { get; set; }
         public string Image { get; set; }
     }
 
@@ -52,7 +52,7 @@ namespace WebShop.ModelViews
 
         public string SlideName { get; set; }
 
-        public bool Active { get; set; } 
+        public bool KichHoat { get; set; } 
         public int? Ordering { get; set; }
 
         public virtual Category Cat { get; set; }

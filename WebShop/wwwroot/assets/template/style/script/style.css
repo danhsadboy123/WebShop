@@ -232,7 +232,7 @@ iframe {
     color: #888
 }
 
-.green, .p-item:hover .p-name, .global-header-top-group .header-content-holder a:hover, .header-menu-group a:hover, .header-menu-group .cat-2, .header-right-group a:hover, .header-right-group .text b, .global-footer-container a:hover, .home-collection-group .btn-collection:hover, .product-page .cat-list-group a:hover, .product-filter-container a:hover .title, .product-filter-container .current, .product-detail-page .pd-offer-list a, .product-detail-page .static-item .item-list a:hover, .product-detail-page .pd-tab-group a:hover, .product-detail-page .pd-tab-group a.active {
+.green, .p-item:hover .p-name, .global-header-top-group .header-content-holder a:hover, .header-menu-group a:hover, .header-menu-group .cat-2, .header-right-group a:hover, .header-right-group .text b, .global-footer-container a:hover, .home-collection-group .btn-collection:hover, .product-page .cat-list-group a:hover, .product-filter-container a:hover .title, .product-filter-container .current, .product-detail-page .pd-offer-list a, .product-detail-page .static-item .item-list a:hover, .product-detail-page .pd-tab-group a:hover, .product-detail-page .pd-tab-group a.KichHoat {
     color: #0066b3
 }
 
@@ -938,14 +938,14 @@ iframe {
     overflow: hidden;
 }
 
-.hotline-phone-ring-wrap {
+.hotline-SoDienThoai-ring-wrap {
     position: fixed;
     bottom: 0;
     left: 0;
     z-index: 999
 }
 
-    .hotline-phone-ring-wrap:hover .hotline-bar {
+    .hotline-SoDienThoai-ring-wrap:hover .hotline-bar {
         -webkit-transition: all .5s;
         transition: all .5s;
         width: 230px;
@@ -953,7 +953,7 @@ iframe {
         opacity: 1
     }
 
-    .hotline-phone-ring-wrap .hotline-bar {
+    .hotline-SoDienThoai-ring-wrap .hotline-bar {
         position: absolute;
         background: -webkit-gradient(linear,left top,right top,from(#f37021),to(#f39221));
         background: linear-gradient(90deg,#f37021,#f39221);
@@ -981,7 +981,7 @@ iframe {
         align-items: center
     }
 
-        .hotline-phone-ring-wrap .hotline-bar > a {
+        .hotline-SoDienThoai-ring-wrap .hotline-bar > a {
             color: #fff;
             text-decoration: none;
             font-weight: 300;
@@ -992,14 +992,14 @@ iframe {
             line-height: 1.2
         }
 
-        .hotline-phone-ring-wrap .hotline-bar .text-hotline {
+        .hotline-SoDienThoai-ring-wrap .hotline-bar .text-hotline {
             font-size: 24px;
             font-weight: 500;
             display: block;
             white-space: nowrap
         }
 
-.hotline-phone-ring {
+.hotline-SoDienThoai-ring {
     position: relative;
     visibility: visible;
     background-color: transparent;
@@ -1016,7 +1016,7 @@ iframe {
     display: block
 }
 
-.hotline-phone-ring-circle {
+.hotline-SoDienThoai-ring-circle {
     width: 100px;
     height: 100px;
     top: 0;
@@ -1034,7 +1034,7 @@ iframe {
     opacity: .3
 }
 
-.hotline-phone-ring-circle-fill {
+.hotline-SoDienThoai-ring-circle-fill {
     width: 80px;
     height: 80px;
     top: 10px;
@@ -1050,7 +1050,7 @@ iframe {
     transform-origin: 50% 50%
 }
 
-.hotline-phone-ring-img-circle {
+.hotline-SoDienThoai-ring-img-circle {
     background: -webkit-gradient(linear,left top,left bottom,from(#f37021),to(#f39221));
     background: linear-gradient(#f37021,#f39221);
     width: 60px;
@@ -1076,7 +1076,7 @@ iframe {
     border: 1px solid #f37021
 }
 
-    .hotline-phone-ring-img-circle .pps-btn-img {
+    .hotline-SoDienThoai-ring-img-circle .pps-btn-img {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -1089,11 +1089,11 @@ iframe {
         justify-content: center
     }
 
-    .hotline-phone-ring-img-circle a {
+    .hotline-SoDienThoai-ring-img-circle a {
         color: #fff
     }
 
-.hotline-bar > a:active, .hotline-bar > a:hover {
+.hotline-bar > a:KichHoat, .hotline-bar > a:hover {
     color: #fff
 }
 
@@ -1332,11 +1332,11 @@ iframe {
         background: rgba(0,34,24,0.5)
     }
 
-    .custom-dots .owl-dots .owl-dot.active span, .custom-dots .owl-dots .owl-dot:hover span {
+    .custom-dots .owl-dots .owl-dot.KichHoat span, .custom-dots .owl-dots .owl-dot:hover span {
         background: #CFEAC1
     }
 
-    .custom-dots .owl-dots .owl-dot.active span {
+    .custom-dots .owl-dots .owl-dot.KichHoat span {
         width: 38px
     }
 
@@ -1694,7 +1694,7 @@ iframe {
         background-position: -7px -3px;
     }
 
-    .global-header-top-group .icon-phone {
+    .global-header-top-group .icon-SoDienThoai {
         background-position: -47px -4px;
         margin-right: 5px
     }
@@ -1907,7 +1907,7 @@ iframe {
         filter: brightness(0);
     }
 
-body.active::before {
+body.KichHoat::before {
     content: '';
     position: fixed;
     top: 0;
@@ -2048,7 +2048,7 @@ body.active::before {
     height: 40px;
 }
 
-.header-right-group .icon-phone {
+.header-right-group .icon-SoDienThoai {
     background: url(../../../../images/icons/icons8-call-100.png) no-repeat;
     background-size: 40px;
     margin: 0 12px 0 12px;
@@ -2403,7 +2403,7 @@ body.active::before {
         background-position: -259px -6px
     }
 
-    .footer-info-group .icon-phone {
+    .footer-info-group .icon-SoDienThoai {
         background-position: -261px -37px
     }
 
@@ -2448,7 +2448,7 @@ body.active::before {
             background-position: -195px -294px
         }
 
-        .footer-info-group .footer-social-media .icon-phone {
+        .footer-info-group .footer-social-media .icon-SoDienThoai {
             background-position: -231px -294px
         }
 
@@ -2502,7 +2502,7 @@ body.active::before {
     transition: .3s all
 }
 
-    .global-fixed-bottom-container.active {
+    .global-fixed-bottom-container.KichHoat {
         right: 10px
     }
 
@@ -2522,7 +2522,7 @@ body.active::before {
             transform: scale(1.1)
         }
 
-    .global-fixed-bottom-container .icon-phone {
+    .global-fixed-bottom-container .icon-SoDienThoai {
         background-position: -8px -221px
     }
 
@@ -3050,7 +3050,7 @@ body.active::before {
     background-position: -228px -93px
 }
 
-    .product-page .icon-list.active, .product-page .icon-list:hover {
+    .product-page .icon-list.KichHoat, .product-page .icon-list:hover {
         background-position: -228px -125px
     }
 
@@ -3058,7 +3058,7 @@ body.active::before {
     background-position: -228px -158px
 }
 
-    .product-page .icon-grid.active, .product-page .icon-grid:hover {
+    .product-page .icon-grid.KichHoat, .product-page .icon-grid:hover {
         background-position: -228px -191px
     }
 
@@ -3110,7 +3110,7 @@ body.active::before {
     margin: auto 0 auto auto;
 }
 
-    .product-filter-container .toggle-filter.active {
+    .product-filter-container .toggle-filter.KichHoat {
         -webkit-transform: rotate(180deg);
         transform: rotate(180deg);
     }
@@ -3387,7 +3387,7 @@ body.active::before {
     flex-wrap: wrap
 }
 
-    .product-detail-page .pd-variant-group-holder.active .item:nth-child(n+9) {
+    .product-detail-page .pd-variant-group-holder.KichHoat .item:nth-child(n+9) {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex
@@ -3766,7 +3766,7 @@ body.active::before {
         background-position: -185px -349px
     }
 
-    .product-detail-page .static-item .icon-phone {
+    .product-detail-page .static-item .icon-SoDienThoai {
         background-position: -293px -35px
     }
 
@@ -3803,7 +3803,7 @@ body.active::before {
             transition: .25s all
         }
 
-        .product-detail-page .pd-tab-group a:hover::after, .product-detail-page .pd-tab-group a.active::after {
+        .product-detail-page .pd-tab-group a:hover::after, .product-detail-page .pd-tab-group a.KichHoat::after {
             background: #0066b3;
             width: 100%;
             -webkit-transform: .25s all;
@@ -4428,7 +4428,7 @@ body.active::before {
             color: #ee2d24;
         }
 
-    .cart-send-page .cart-detail-group .offer-group .active span {
+    .cart-send-page .cart-detail-group .offer-group .KichHoat span {
         display: block;
     }
 
@@ -5081,7 +5081,7 @@ body.active::before {
     font-size: 10px;
 }
 
-.cart-customer-container .payment .active .payment-detail {
+.cart-customer-container .payment .KichHoat .payment-detail {
     display: block !important;
     white-space: pre-wrap;
 }
@@ -6042,9 +6042,9 @@ body.active::before {
     background-size: 25px
 }
 
-.global-header-top-group .icon-phone {
+.global-header-top-group .icon-SoDienThoai {
     background-position: -7px -3px;
-    background: url(../../../../images/icons/icon-phone.png) no-repeat;
+    background: url(../../../../images/icons/icon-SoDienThoai.png) no-repeat;
     background-size: 25px
 }
 
@@ -6203,7 +6203,7 @@ body.active::before {
             height: 36px
         }
 
-        .header-right-group .icon-phone {
+        .header-right-group .icon-SoDienThoai {
             background: url(../../../../images/icons/icons8-call-100.png) no-repeat;
             background-size: 30px;
         }
@@ -6412,7 +6412,7 @@ body.active::before {
         background-position: -312px -9px
     }
 
-    .footer-info-group .icon-phone {
+    .footer-info-group .icon-SoDienThoai {
         background-position: -314px -45px
     }
 
@@ -6581,7 +6581,7 @@ body.active::before {
         background-position: -232px -163px
     }
 
-        .product-page .icon-grid:hover, .product-page .icon-grid.active {
+        .product-page .icon-grid:hover, .product-page .icon-grid.KichHoat {
             background-position: -232px -196px
         }
 
@@ -6589,7 +6589,7 @@ body.active::before {
         background-position: -232px -95px
     }
 
-        .product-page .icon-list:hover, .product-page .icon-list.active {
+        .product-page .icon-list:hover, .product-page .icon-list.KichHoat {
             background-position: -232px -128px
         }
 

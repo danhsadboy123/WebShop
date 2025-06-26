@@ -9,7 +9,7 @@ public partial class HistoryDiscount
 
     public int? DiscountId { get; set; }
 
-    public string Description { get; set; }
+    public string MoTa { get; set; }
 
     public DateTime? TimeCreate { get; set; }
 

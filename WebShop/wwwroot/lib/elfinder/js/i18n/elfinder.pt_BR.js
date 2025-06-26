@@ -485,7 +485,7 @@
 			'add'             : 'Adicionar', // from v2.1.41 added 7.8.2018
 			'theme'           : 'Tema', // from v2.1.43 added 19.10.2018
 			'default'         : 'Padrão', // from v2.1.43 added 19.10.2018
-			'description'     : 'Descrição', // from v2.1.43 added 19.10.2018
+			'MoTa'     : 'Descrição', // from v2.1.43 added 19.10.2018
 			'website'         : 'Site da internet', // from v2.1.43 added 19.10.2018
 			'author'          : 'Autor', // from v2.1.43 added 19.10.2018
 			'email'           : 'Email', // from v2.1.43 added 19.10.2018

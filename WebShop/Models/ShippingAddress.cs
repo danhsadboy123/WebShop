@@ -11,7 +11,7 @@ public partial class ShippingAddress
 
     public string Name { get; set; }
 
-    public string Phone { get; set; }
+    public string SoDienThoai { get; set; }
 
     public int? ProvinceId { get; set; }
 

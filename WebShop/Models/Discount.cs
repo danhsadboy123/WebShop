@@ -15,7 +15,7 @@ public partial class Discount
 
     public string Image { get; set; }
 
-    public string Description { get; set; }
+    public string MoTa { get; set; }
 
     public DateTime? TimeOn { get; set; }
 

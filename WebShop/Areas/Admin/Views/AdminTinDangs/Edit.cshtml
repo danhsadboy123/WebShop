@@ -19,7 +19,7 @@
             <div class="header-sub-title">
                 <nav class="breadcrumb breadcrumb-dash">
                     <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-                    <span class="breadcrumb-item active">Chỉnh sửa bài viết</span>
+                    <span class="breadcrumb-item KichHoat">Chỉnh sửa bài viết</span>
                 </nav>
             </div>
             <div style="float:right">
@@ -38,7 +38,7 @@
         <div class="card-header" style="border-bottom:none">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#project-details-tasks">Thông tin bài viết</a>
+                    <a class="nav-link KichHoat" data-toggle="tab" href="#project-details-tasks">Thông tin bài viết</a>
                 </li>
             </ul>
         </div>
@@ -95,7 +95,7 @@
                     <input type="text" class="form-control" id="Scontents" asp-for="Scontents" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <label class="font-weight-semibold" for="productFit">Short Description</label>
+                    <label class="font-weight-semibold" for="productFit">Short MoTa</label>
                     <input type="text" class="form-control" id="Scontents" asp-for="ScontentsEn">
                 </div>
             </div>
@@ -105,7 +105,7 @@
                     <textarea class="summernote" asp-for="Contents" id="Contents"></textarea>
                 </div>
                 <div class="form-group col-md-6">
-                    <label class="font-weight-semibold" for="productFit">Description</label>
+                    <label class="font-weight-semibold" for="productFit">MoTa</label>
                     <textarea class="summernote" id="Contents" asp-for="ContentsEn"></textarea>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                     <input type="text" class="form-control" asp-for="MetaDesc" style="max-width: 700px;">
                 </div>
                 <div class="form-group col-md-6">
-                    <label class="font-weight-semibold" for="productColors">SEO Description</label>
+                    <label class="font-weight-semibold" for="productColors">SEO MoTa</label>
                     <input type="text" class="form-control" asp-for="MetaDescEn" style="max-width: 700px;">
                 </div>
             </div>

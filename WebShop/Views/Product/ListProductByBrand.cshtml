@@ -9,7 +9,7 @@
     int PageCurrent = ViewBag.CurrentPage;
     int PageNext = PageCurrent + 1;
     ViewData["Title"] = "Thương hiệu " + brand.BrandName;
-    ViewData["Description"] = brand.Description;
+    ViewData["MoTa"] = brand.MoTa;
     ViewData["Keywords"] = brand.BrandName + "giá tốt nhất thị trường, sản phẩm đến từ thường hiệu" + brand.BrandName;
 
 }
@@ -607,13 +607,13 @@
                 }
 
                 $("#js-show-filter").click(function () {
-                    $("#js-filter-height").addClass("active");
+                    $("#js-filter-height").addClass("KichHoat");
                     $("#js-hide-filter").show();
                     $(this).hide();
                 });
 
                 $("#js-hide-filter").click(function () {
-                    $("#js-filter-height").removeClass("active");
+                    $("#js-filter-height").removeClass("KichHoat");
                     $("#js-show-filter").show();
                     $(this).hide();
                 });
@@ -633,7 +633,7 @@
 
                 $(".js-toggle-filter").click(function () {
                     $(this).parents(".filter-item").find(".filter-list").toggleClass("show-filter");
-                    $(this).toggleClass("active");
+                    $(this).toggleClass("KichHoat");
                 });
             };
         });

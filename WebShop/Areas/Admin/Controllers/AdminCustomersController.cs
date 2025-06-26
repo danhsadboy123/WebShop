@@ -92,22 +92,22 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 Customer customer = new Customer
                 {
-                    FullName = adminCustomerCreateVM.FullName,
+                    HoTen = adminCustomerCreateVM.HoTen,
                     Birthday = adminCustomerCreateVM.Birthday,
                     Email = adminCustomerCreateVM.Email,
-                    Phone = adminCustomerCreateVM.Phone,
-                    Active = true,
+                    SoDienThoai = adminCustomerCreateVM.SoDienThoai,
+                    KichHoat = true,
                     Gender = adminCustomerCreateVM.Gender,
                     Note = adminCustomerCreateVM.Note,
                     CompanyName = adminCustomerCreateVM.CompanyName,
-                    CreateDate = DateTime.Now,
+                    NgayTao = DateTime.Now,
                 };
                 _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();
                 AccountAddress accountAddress = new AccountAddress
                 {
                     CustomerId = customer.CustomerId,
-                    UserName = customer.FullName,
+                    UserName = customer.HoTen,
                     ProvinceId = adminCustomerCreateVM.ProvinceId,
                     DistrictId = adminCustomerCreateVM.DistrictId,
                     WardId = adminCustomerCreateVM.WardId,
@@ -143,7 +143,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,FullName,Birthday,Avatar,Address,Email,Phone,LocationId,District,Ward,CreateDate,Password,Salt,LastLogin,Active")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,HoTen,Birthday,Avatar,Address,Email,SoDienThoai,LocationId,District,Ward,NgayTao,MatKhau,Salt,LanDangNhapCuoi,KichHoat")] Customer customer)
         {
             if (id != customer.CustomerId)
             {

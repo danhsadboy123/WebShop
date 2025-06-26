@@ -26,7 +26,7 @@
 				opacity: 1;
 			}
 
-			&.active {
+			&.KichHoat {
 				border: 0px;
 				background-color: transparent;
 				border-bottom: 2px solid $tabs-theme-color;
@@ -59,7 +59,7 @@
 
 		&:hover,
 		&:focus,
-		&:active {
+		&:KichHoat {
 			border-color: transparent;
 		}
 	}
@@ -83,7 +83,7 @@
 			>a {
 				padding: 10px $tabs-toggler-padding-x;
 
-				&.active {
+				&.KichHoat {
 
 					&.nav-link {
 						border-bottom: 0px;
@@ -153,7 +153,7 @@
 		
 		
 		>a {
-			&.active {
+			&.KichHoat {
 				color: $white;
 				border-color: $tabs-theme-color;
 				background-color: $tabs-theme-color;

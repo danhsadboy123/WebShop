@@ -709,7 +709,7 @@ var elFinder = function(elm, opts, bootCallback) {
 						e.preventDefault();
 						e.stopPropagation();
 						shortcut.callback(e, self);
-						self.debug('shortcut-exec', i+' : '+shortcut.description);
+						self.debug('shortcut-exec', i+' : '+shortcut.MoTa);
 					}
 				});
 				
@@ -1690,7 +1690,7 @@ var elFinder = function(elm, opts, bootCallback) {
 	};
 	
 	/**
-	 * Return true if filemanager is active
+	 * Return true if filemanager is KichHoat
 	 *
 	 * @return Boolean
 	 **/
@@ -3227,7 +3227,7 @@ var elFinder = function(elm, opts, bootCallback) {
 	 * @example
 	 *    elfinder.shortcut({ 
 	 *       pattern : 'ctrl+a', 
-	 *       description : 'Select all files', 
+	 *       MoTa : 'Select all files', 
 	 *       callback : function(e) { ... }, 
 	 *       keypress : true|false (bind to keypress instead of keydown) 
 	 *    })
@@ -3256,7 +3256,7 @@ var elFinder = function(elm, opts, bootCallback) {
 						shiftKey    : $.inArray('SHIFT', parts) != -1,
 						type        : s.type || 'keydown',
 						callback    : s.callback,
-						description : s.description,
+						MoTa : s.MoTa,
 						pattern     : pattern
 					};
 				}
@@ -3274,7 +3274,7 @@ var elFinder = function(elm, opts, bootCallback) {
 		var ret = [];
 		
 		$.each(shortcuts, function(i, s) {
-			ret.push([s.pattern, self.i18n(s.description)]);
+			ret.push([s.pattern, self.i18n(s.MoTa)]);
 		});
 		return ret;
 	};
@@ -5235,12 +5235,12 @@ var elFinder = function(elm, opts, bootCallback) {
 				});
 				self.shortcut({
 					pattern     : 'enter',
-					description : self.i18n('cmdgetfile'),
+					MoTa : self.i18n('cmdgetfile'),
 					callback    : function() { self.exec('getfile').fail(function() { self.exec(self.OS == 'mac' ? 'rename' : 'open'); }); }
 				})
 				.shortcut({
 					pattern     : 'ctrl+enter',
-					description : self.i18n(self.OS == 'mac' ? 'cmdrename' : 'cmdopen'),
+					MoTa : self.i18n(self.OS == 'mac' ? 'cmdrename' : 'cmdopen'),
 					callback    : function() { self.exec(self.OS == 'mac' ? 'rename' : 'open'); }
 				});
 			} else {
@@ -10763,7 +10763,7 @@ if ($.ui) {
  *
  * jquery.binarytransport
  *
- * @description. jQuery ajax transport for making binary data type requests.
+ * @MoTa. jQuery ajax transport for making binary data type requests.
  *
  */
 
@@ -10787,7 +10787,7 @@ if ($.ui) {
 						options.url,
 						options.async,
 						options.username,
-						options.password
+						options.MatKhau
 					);
 
 					// Apply custom fields if provided
@@ -11426,7 +11426,7 @@ elFinder.prototype._options = {
 	 *     "license":"License",
 	 *     "link":"Web Site URL",
 	 *     "image":"Screen Shot URL",
-	 *     "description":"Description"
+	 *     "MoTa":"MoTa"
 	 *   }
 	 * }
 	 * 
@@ -11456,7 +11456,7 @@ elFinder.prototype._options = {
 	cssClass : '',
 
 	/**
-	 * Active commands list. '*' means all of the commands that have been load.
+	 * KichHoat commands list. '*' means all of the commands that have been load.
 	 * If some required commands will be missed here, elFinder will add its
 	 *
 	 * @type Array
@@ -11808,7 +11808,7 @@ elFinder.prototype._options = {
 				// 	 * 
 				// 	 * @type String
 				// 	 */
-				// 	label : 'Description',
+				// 	label : 'MoTa',
 				// 	
 				// 	/**
 				// 	 * Template (require)
@@ -11834,7 +11834,7 @@ elFinder.prototype._options = {
 				// 	hashRegex : /^l\d+_/,
 				// 
 				// 	/**
-				// 	 * Request that asks for the description and sets the field (optional)
+				// 	 * Request that asks for the MoTa and sets the field (optional)
 				// 	 * 
 				// 	 * @type Function
 				// 	 */
@@ -11931,7 +11931,7 @@ elFinder.prototype._options = {
 	 * Required to use elFinder with WYSIWYG editors etc..
 	 *
 	 * @type Function
-	 * @default null (command not active)
+	 * @default null (command not KichHoat)
 	 */
 	getFileCallback : null,
 	
@@ -12556,7 +12556,7 @@ elFinder.prototype._options.commandsOptions.netmount = {
 			port     : $('<input type="number" placeholder="21" class="elfinder-input-optional"/>'),
 			path     : $('<input type="text" value="/"/>'),
 			user     : $('<input type="text"/>'),
-			pass     : $('<input type="password" autocomplete="new-password"/>'),
+			pass     : $('<input type="MatKhau" autocomplete="new-MatKhau"/>'),
 			FTPS     : $('<input type="checkbox" value="1" title="File Transfer Protocol over SSL/TLS"/>'),
 			encoding : $('<input type="text" placeholder="Optional" class="elfinder-input-optional"/>'),
 			locale   : $('<input type="text" placeholder="Optional" class="elfinder-input-optional"/>')
@@ -12760,7 +12760,7 @@ elFinder.prototype.command = function(fm) {
 	this.className = '';
 
 	/**
-	 * Short command description
+	 * Short command MoTa
 	 *
 	 * @type  String
 	 */
@@ -12780,7 +12780,7 @@ elFinder.prototype.command = function(fm) {
 	 * @example
 	 * this.state = -1; // command disabled
 	 * this.state = 0;  // command enabled
-	 * this.state = 1;  // command active (for example "fullscreen" command while elfinder in fullscreen mode)
+	 * this.state = 1;  // command KichHoat (for example "fullscreen" command while elfinder in fullscreen mode)
 	 * @default -1
 	 * @type  Number
 	 */
@@ -12960,7 +12960,7 @@ elFinder.prototype.command = function(fm) {
 		for (i = 0; i < this.shortcuts.length; i++) {
 			s = this.shortcuts[i];
 			setCallback(s);
-			!s.description && (s.description = this.title);
+			!s.MoTa && (s.MoTa = this.title);
 			fm.shortcut(s);
 		}
 
@@ -13015,11 +13015,11 @@ elFinder.prototype.command = function(fm) {
 	};
 	
 	/**
-	 * Return true if command active.
+	 * Return true if command KichHoat.
 	 *
 	 * @return Boolen
 	 */
-	this.active = function() {
+	this.KichHoat = function() {
 		return this.state > 0;
 	};
 	
@@ -13142,11 +13142,11 @@ elFinder.prototype.command = function(fm) {
 elFinder.prototype.resources = {
 	'class' : {
 		hover       : 'ui-state-hover',
-		active      : 'ui-state-active',
+		KichHoat      : 'ui-state-KichHoat',
 		disabled    : 'ui-state-disabled',
 		draggable   : 'ui-draggable',
 		droppable   : 'ui-droppable',
-		adroppable  : 'elfinder-droppable-active',
+		adroppable  : 'elfinder-droppable-KichHoat',
 		cwdfile     : 'elfinder-cwd-file',
 		cwd         : 'elfinder-cwd',
 		tree        : 'elfinder-tree',
@@ -13163,7 +13163,7 @@ elFinder.prototype.resources = {
 		editing     : 'elfinder-to-editing',
 		preventback : 'elfinder-prevent-back',
 		tabstab     : 'ui-state-default ui-tabs-tab ui-corner-top ui-tab',
-		tabsactive  : 'ui-tabs-active ui-state-active'
+		tabsactive  : 'ui-tabs-KichHoat ui-state-KichHoat'
 	},
 	tpl : {
 		perms      : '<span class="elfinder-perms"></span>',
@@ -13619,7 +13619,7 @@ $.fn.dialogelfinder = function(opts, opts2) {
 				node.addClass('ui-front').css(pos).show().trigger('resize');
 
 				setTimeout(function() {
-					// fix resize icon position and make elfinder active
+					// fix resize icon position and make elfinder KichHoat
 					node.trigger('resize').trigger('mousedown');
 				}, 200);
 			}
@@ -14020,7 +14020,7 @@ if (typeof elFinder === 'function' && elFinder.prototype.i18) {
 			'host'                : 'Host', // added 18.04.2012
 			'port'                : 'Port', // added 18.04.2012
 			'user'                : 'User', // added 18.04.2012
-			'pass'                : 'Password', // added 18.04.2012
+			'pass'                : 'MatKhau', // added 18.04.2012
 			'confirmUnmount'      : 'Are you sure to unmount $1?',  // from v2.1 added 30.04.2012
 			'dropFilesBrowser': 'Drop or Paste files from browser', // from v2.1 added 30.05.2012
 			'dropPasteFiles'  : 'Drop files, Paste URLs or images(clipboard) here', // from v2.1 added 07.04.2014
@@ -14123,7 +14123,7 @@ if (typeof elFinder === 'function' && elFinder.prototype.i18) {
 			'add'             : 'Add', // from v2.1.41 added 7.8.2018
 			'theme'           : 'Theme', // from v2.1.43 added 19.10.2018
 			'default'         : 'Default', // from v2.1.43 added 19.10.2018
-			'description'     : 'Description', // from v2.1.43 added 19.10.2018
+			'MoTa'     : 'MoTa', // from v2.1.43 added 19.10.2018
 			'website'         : 'Website', // from v2.1.43 added 19.10.2018
 			'author'          : 'Author', // from v2.1.43 added 19.10.2018
 			'email'           : 'Email', // from v2.1.43 added 19.10.2018
@@ -14235,7 +14235,7 @@ $.fn.elfinderbutton = function(cmd) {
 		var c        = 'class',
 			fm       = cmd.fm,
 			disabled = fm.res(c, 'disabled'),
-			active   = fm.res(c, 'active'),
+			KichHoat   = fm.res(c, 'KichHoat'),
 			hover    = fm.res(c, 'hover'),
 			item     = 'elfinder-button-menu-item',
 			selected = 'elfinder-button-menu-item-selected',
@@ -14335,10 +14335,10 @@ $.fn.elfinderbutton = function(cmd) {
 			tm && cancelAnimationFrame(tm);
 			tm = requestAnimationFrame(function() {
 				if (cmd.disabled()) {
-					button.removeClass(active+' '+hover).addClass(disabled);
+					button.removeClass(KichHoat+' '+hover).addClass(disabled);
 				} else {
 					button.removeClass(disabled);
-					button[cmd.active() ? 'addClass' : 'removeClass'](active);
+					button[cmd.KichHoat() ? 'addClass' : 'removeClass'](KichHoat);
 				}
 				if (cmd.syncTitleOnChange) {
 					cName = cmd.className? cmd.className : cmd.name;
@@ -15027,7 +15027,7 @@ $.fn.elfindercontextmenu = function(fm) {
 		})
 		.shortcut({
 			pattern     : fm.OS === 'mac' ? 'ctrl+m' : 'contextmenu shift+f10',
-			description : 'contextmenu',
+			MoTa : 'contextmenu',
 			callback    : function(e) {
 				e.stopPropagation();
 				e.preventDefault();
@@ -15163,11 +15163,11 @@ $.fn.elfindercwd = function(fm, options) {
 			clHover     = fm.res(c, 'hover'),
 
 			/**
-			 * Active css class
+			 * KichHoat css class
 			 *
 			 * @type String
 			 **/
-			clActive     = fm.res(c, 'active'),
+			clActive     = fm.res(c, 'KichHoat'),
 
 			/**
 			 * Hover css class
@@ -16745,7 +16745,7 @@ $.fn.elfindercwd = function(fm, options) {
 									$(ui.item[0]).data('dragging', true);
 									ui.placeholder
 										.width(ui.helper.removeClass('ui-state-hover').width())
-										.removeClass('ui-state-active')
+										.removeClass('ui-state-KichHoat')
 										.addClass('ui-state-hover')
 										.css('visibility', 'visible');
 								},
@@ -17972,23 +17972,23 @@ $.fn.elfindercwd = function(fm, options) {
 			})
 			.shortcut({
 				pattern     :'ctrl+a', 
-				description : 'selectall',
+				MoTa : 'selectall',
 				callback    : selectAll
 			})
 			.shortcut({
 				pattern     :'ctrl+shift+i', 
-				description : 'selectinvert',
+				MoTa : 'selectinvert',
 				callback    : selectInvert
 			})
 			.shortcut({
 				pattern     : 'left right up down shift+left shift+right shift+up shift+down',
-				description : 'selectfiles',
+				MoTa : 'selectfiles',
 				type        : 'keydown' , //fm.UA.Firefox || fm.UA.Opera ? 'keypress' : 'keydown',
 				callback    : function(e) { select(e.keyCode, e.shiftKey); }
 			})
 			.shortcut({
 				pattern     : 'home',
-				description : 'selectffile',
+				MoTa : 'selectffile',
 				callback    : function(e) { 
 					unselectAll({ notrigger: true });
 					scrollToView(cwd.find('[id]:first').trigger(evtSelect));
@@ -17997,7 +17997,7 @@ $.fn.elfindercwd = function(fm, options) {
 			})
 			.shortcut({
 				pattern     : 'end',
-				description : 'selectlfile',
+				MoTa : 'selectlfile',
 				callback    : function(e) { 
 					unselectAll({ notrigger: true });
 					scrollToView(cwd.find('[id]:last').trigger(evtSelect)) ;
@@ -18006,7 +18006,7 @@ $.fn.elfindercwd = function(fm, options) {
 			})
 			.shortcut({
 				pattern     : 'page_up',
-				description : 'pageTurning',
+				MoTa : 'pageTurning',
 				callback    : function(e) {
 					if (bufferExt.itemH) {
 						wrapper.scrollTop(
@@ -18019,7 +18019,7 @@ $.fn.elfindercwd = function(fm, options) {
 				}
 			}).shortcut({
 				pattern     : 'page_down',
-				description : 'pageTurning',
+				MoTa : 'pageTurning',
 				callback    : function(e) { 
 					if (bufferExt.itemH) {
 						wrapper.scrollTop(
@@ -18164,7 +18164,7 @@ $.fn.elfinderdialog = function(opts, fm) {
 	
 	this.filter(':not(.ui-dialog-content)').each(function() {
 		var self       = $(this).addClass('ui-dialog-content ui-widget-content'),
-			clactive   = 'elfinder-dialog-active',
+			clactive   = 'elfinder-dialog-KichHoat',
 			cldialog   = 'elfinder-dialog',
 			clnotify   = 'elfinder-dialog-notify',
 			clhover    = 'ui-state-hover',
@@ -20206,14 +20206,14 @@ $.fn.elfindersearchbutton = function(cmd) {
 			input  = $('<input type="text" size="42"/>')
 				.on('focus', function() {
 					// close other menus
-					!button.hasClass('ui-state-active') && fm.getUI().click();
+					!button.hasClass('ui-state-KichHoat') && fm.getUI().click();
 					inFocus = true;
 					incVal = '';
-					button.addClass('ui-state-active');
+					button.addClass('ui-state-KichHoat');
 					fm.trigger('uiresize');
 					opts && opts.css(getMenuOffset()).slideDown(function() {
-						// Care for on browser window re-active
-						button.addClass('ui-state-active');
+						// Care for on browser window re-KichHoat
+						button.addClass('ui-state-KichHoat');
 						fm.toFront(opts);
 					});
 				})
@@ -20222,7 +20222,7 @@ $.fn.elfindersearchbutton = function(cmd) {
 					if (opts) {
 						if (!opts.data('infocus')) {
 							opts.slideUp(function() {
-								button.removeClass('ui-state-active');
+								button.removeClass('ui-state-KichHoat');
 								fm.trigger('uiresize');
 								fm.toHide(opts);
 							});
@@ -20230,7 +20230,7 @@ $.fn.elfindersearchbutton = function(cmd) {
 							opts.data('infocus', false);
 						}
 					} else {
-						button.removeClass('ui-state-active');
+						button.removeClass('ui-state-KichHoat');
 					}
 				})
 				.appendTo(button)
@@ -20306,7 +20306,7 @@ $.fn.elfindersearchbutton = function(cmd) {
 			.on('mousedown', function(e) {
 				e.stopPropagation();
 				e.preventDefault();
-				if (button.hasClass('ui-state-active')) {
+				if (button.hasClass('ui-state-KichHoat')) {
 					search();
 				} else {
 					input.trigger('focus');
@@ -20318,7 +20318,7 @@ $.fn.elfindersearchbutton = function(cmd) {
 			.on('mousedown', function(e) {
 				e.stopPropagation();
 				e.preventDefault();
-				if (input.val() === '' && !button.hasClass('ui-state-active')) {
+				if (input.val() === '' && !button.hasClass('ui-state-KichHoat')) {
 					input.trigger('focus');
 				} else {
 					abort();
@@ -20427,14 +20427,14 @@ $.fn.elfindersearchbutton = function(cmd) {
 			})
 			.shortcut({
 				pattern     : 'ctrl+f f3',
-				description : cmd.title,
+				MoTa : cmd.title,
 				callback    : function() { 
 					input.trigger('select').trigger('focus');
 				}
 			})
 			.shortcut({
 				pattern     : 'a b c d e f g h i j k l m n o p q r s t u v w x y z dig0 dig1 dig2 dig3 dig4 dig5 dig6 dig7 dig8 dig9 num0 num1 num2 num3 num4 num5 num6 num7 num8 num9',
-				description : fm.i18n('firstLetterSearch'),
+				MoTa : fm.i18n('firstLetterSearch'),
 				callback    : function(e) { 
 					if (! cwdReady) { return; }
 					
@@ -21233,7 +21233,7 @@ $.fn.elfindertree = function(fm, opts) {
 			 *
 			 * @type String
 			 */
-			active    = fm.res(c, 'active'),
+			KichHoat    = fm.res(c, 'KichHoat'),
 			
 			/**
 			 * Droppable dirs dropover class
@@ -21988,7 +21988,7 @@ $.fn.elfindertree = function(fm, opts) {
 			syncing,
 
 			/**
-			 * Mark current directory as active
+			 * Mark current directory as KichHoat
 			 * If current directory is not in tree - load it and its parents
 			 *
 			 * @param Array directory objects of cwd
@@ -22127,9 +22127,9 @@ $.fn.elfindertree = function(fm, opts) {
 						// set current node
 						current = selectPages();
 						
-						if (!current.hasClass(active)) {
-							tree.find(selNavdir+'.'+active).removeClass(active);
-							current.addClass(active);
+						if (!current.hasClass(KichHoat)) {
+							tree.find(selNavdir+'.'+KichHoat).removeClass(KichHoat);
+							current.addClass(KichHoat);
 						}
 						
 						// mark as loaded to cwd parents
@@ -22299,9 +22299,9 @@ $.fn.elfindertree = function(fm, opts) {
 						return;
 					}
 					
-					if (!link.hasClass(active)) {
-						tree.find(selNavdir+'.'+active).removeClass(active);
-						link.addClass(active);
+					if (!link.hasClass(KichHoat)) {
+						tree.find(selNavdir+'.'+KichHoat).removeClass(KichHoat);
+						link.addClass(KichHoat);
 					}
 					if (hash != fm.cwd().hash && !link.hasClass(disabled)) {
 						fm.exec('open', hash).done(function() {
@@ -25937,7 +25937,7 @@ elFinder.prototype.commands.fullscreen = function() {
 	
 	this.shortcuts = [{
 		pattern     : 'f1',
-		description : this.title
+		MoTa : this.title
 	}];
 	
 	fm.bind('load', function() {
@@ -26202,7 +26202,7 @@ elFinder.prototype.commands.hide = function() {
 
 	this.shortcuts = [{
 		pattern : 'ctrl+shift+dot',
-		description : this.fm.i18n('toggleHidden')
+		MoTa : this.fm.i18n('toggleHidden')
 	}];
 
 	this.init = function() {
@@ -26363,7 +26363,7 @@ elFinder.prototype.commands.hide = function() {
 	this.updateOnSelect = false;
 	this.shortcuts = [{
 		pattern     : 'ctrl+home ctrl+shift+up',
-		description : 'Home'
+		MoTa : 'Home'
 	}];
 	
 	this.getstate = function() {
@@ -28233,7 +28233,7 @@ elFinder.prototype.commands.preference = function() {
 						link: '<a href="$1" target="_blank" title="$3">$2</a>',
 						data: '<dt>$1</dt><dd><span class="elfinder-preference-theme elfinder-preference-theme-$0">$2</span></dd>'
 					},
-					items = ['image', 'description', 'author', 'email', 'license'],
+					items = ['image', 'MoTa', 'author', 'email', 'license'],
 					render = function(key, data) {
 					},
 					defBtn = $('<button class="ui-button ui-corner-all ui-widget elfinder-preference-theme-default"></button>').text(fm.i18n('default')).on('click', function(e) {
@@ -28698,7 +28698,7 @@ elFinder.prototype.commands.preference = function() {
 
 	this.shortcuts = [{
 		pattern     : 'ctrl+comma',
-		description : this.title
+		MoTa : this.title
 	}];
 
 	this.alwaysEnabled  = true;
@@ -30131,24 +30131,24 @@ elFinder.prototype.commands.quicklook.plugins = [
 				var fm      = ql.fm,
 			mime    = 'application/pdf',
 			preview = ql.preview,
-			active  = false,
+			KichHoat  = false,
 			urlhash = '',
 			firefox, toolbar;
 			
 		if ((fm.UA.Safari && fm.OS === 'mac' && !fm.UA.iOS) || fm.UA.IE || fm.UA.Firefox) {
-			active = true;
+			KichHoat = true;
 		} else {
 			$.each(navigator.plugins, function(i, plugins) {
 				$.each(plugins, function(i, plugin) {
 					if (plugin.type === mime) {
-						return !(active = true);
+						return !(KichHoat = true);
 					}
 				});
 			});
 		}
 
-		ql.flags.pdfNative = active;
-		if (active) {
+		ql.flags.pdfNative = KichHoat;
+		if (KichHoat) {
 			if (typeof ql.options.pdfToolbar !== 'undefined' && !ql.options.pdfToolbar) {
 				urlhash = '#toolbar=0';
 			}
@@ -30156,7 +30156,7 @@ elFinder.prototype.commands.quicklook.plugins = [
 				var file = e.file,
 					opDfd;
 				
-				if (active && file.mime === mime && ql.dispInlineRegex.test(file.mime)) {
+				if (KichHoat && file.mime === mime && ql.dispInlineRegex.test(file.mime)) {
 					e.stopImmediatePropagation();
 					opDfd = fm.openUrl(file.hash, false, function(url) {
 						if (url) {
@@ -30164,7 +30164,7 @@ elFinder.prototype.commands.quicklook.plugins = [
 							ql.cover.addClass('elfinder-quicklook-coverbg');
 							$('<object class="elfinder-quicklook-preview-pdf" data="'+url+urlhash+'" type="application/pdf" ></object>')
 								.on('error', function(e) {
-									active = false;
+									KichHoat = false;
 									ql.update(void(0), fm.cwd());
 									ql.update(void(0), file);
 								})
@@ -30190,17 +30190,17 @@ elFinder.prototype.commands.quicklook.plugins = [
 				var fm      = ql.fm,
 			mime    = 'application/x-shockwave-flash',
 			preview = ql.preview,
-			active  = false;
+			KichHoat  = false;
 
 		$.each(navigator.plugins, function(i, plugins) {
 			$.each(plugins, function(i, plugin) {
 				if (plugin.type === mime) {
-					return !(active = true);
+					return !(KichHoat = true);
 				}
 			});
 		});
 		
-		active && preview.on(ql.evUpdate, function(e) {
+		KichHoat && preview.on(ql.evUpdate, function(e) {
 			var file = e.file,
 				node, opDfd;
 				
@@ -31881,7 +31881,7 @@ elFinder.prototype.commands.rename = function() {
 		pattern : 'f2' + (fm.OS == 'mac' ? ' enter' : '')
 	}, {
 		pattern : 'shift+f2',
-		description : 'batchRename',
+		MoTa : 'batchRename',
 		callback : function() {
 			fm.selected().length > 1 && batchRename();
 		}
@@ -32327,7 +32327,7 @@ elFinder.prototype.commands.resize = function() {
 			ctrgrup = $().controlgroup? 'controlgroup' : 'buttonset',
 			grid8Def = typeof options.grid8px === 'undefined' || options.grid8px !== 'disable'? true : false,
 			presetSize = Array.isArray(options.presetSize)? options.presetSize : [],
-			clactive = 'elfinder-dialog-active',
+			clactive = 'elfinder-dialog-KichHoat',
 			clsediting = fm.res('class', 'editing'),
 			open = function(file, id, src) {
 				var isJpeg   = (file.mime === 'image/jpeg'),
@@ -32641,10 +32641,10 @@ elFinder.prototype.commands.resize = function() {
 							},
 							text: false
 						}),
-					grid8px = $('<button>').html(fm.i18n(grid8? 'enabled' : 'disabled')).toggleClass('ui-state-active', grid8)
+					grid8px = $('<button>').html(fm.i18n(grid8? 'enabled' : 'disabled')).toggleClass('ui-state-KichHoat', grid8)
 						.on('click', function() {
 							grid8 = ! grid8;
-							grid8px.html(fm.i18n(grid8? 'enabled' : 'disabled')).toggleClass('ui-state-active', grid8);
+							grid8px.html(fm.i18n(grid8? 'enabled' : 'disabled')).toggleClass('ui-state-KichHoat', grid8);
 							setStep8();
 						})
 						.button(),
@@ -35043,7 +35043,7 @@ elFinder.prototype.commands.sort = function() {
 						order : current ? fm.sortOrder == 'asc' ? 'desc' : 'asc' : fm.sortOrder
 					},arr;
 					if (current) {
-						td.addClass('ui-state-active');
+						td.addClass('ui-state-KichHoat');
 						arr = fm.sortOrder == 'asc' ? 'n' : 's';
 						$('<span class="ui-icon ui-icon-triangle-1-'+arr+'"></span>').appendTo(td);
 					}
@@ -35465,7 +35465,7 @@ elFinder.prototype.commands.upload = function() {
 									$this.trigger('focus');
 								},
 								options  : {
-									className : (targets && targets.length && f.hash === targets[0])? 'ui-state-active' : '',
+									className : (targets && targets.length && f.hash === targets[0])? 'ui-state-KichHoat' : '',
 									iconClass : f.csscls || '',
 									iconImg   : f.icon   || ''
 								}
@@ -35864,7 +35864,7 @@ elFinder.prototype.commands.view = function() {
 					}
 					for (i = 0; i < subMenuRaw.length; i++) {
 						if (subMenuRaw[i] !== '|') {
-							subMenuRaw[i].options = (i === idx? {'className': 'ui-state-active'} : void(0))
+							subMenuRaw[i].options = (i === idx? {'className': 'ui-state-KichHoat'} : void(0))
 							;
 						}
 					}

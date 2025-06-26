@@ -785,7 +785,7 @@ var permissionOptions = {
  * @function
  * @param {Array} permissions Permissions allowed for user, "print", "modify", "copy" and "annot-forms".
  * @param {String} userPassword Permissions apply to this user. Leaving this empty means the document
- *                              is not password protected but viewer has the above permissions.
+ *                              is not MatKhau protected but viewer has the above permissions.
  * @param {String} ownerPassword Owner has full functionalities to the file.
  * @param {String} fileId As hex string, should be same as the file ID in the trailer.
  * @example
@@ -865,8 +865,8 @@ PDFSecurity.prototype.hexToBytes = function (hex) {
  *
  * @name processOwnerPassword
  * @function
- * @param {String} paddedUserPassword Byte string of padded user password
- * @param {String} paddedOwnerPassword Byte string of padded owner password
+ * @param {String} paddedUserPassword Byte string of padded user MatKhau
+ * @param {String} paddedOwnerPassword Byte string of padded owner MatKhau
  * @returns {String}
  */
 
@@ -1140,12 +1140,12 @@ function TilingPattern(boundingBox, xStep, yStep, gState, matrix) {
  * @param {number} [options.userUnit=1.0] Not to be confused with the base unit. Please inform yourself before you use it.
  * @param {string[]} [options.hotfixes] An array of strings to enable hotfixes such as correct pixel scaling.
  * @param {Object} [options.encryption]
- * @param {string} [options.encryption.userPassword] Password for the user bound by the given permissions list.
+ * @param {string} [options.encryption.userPassword] MatKhau for the user bound by the given permissions list.
  * @param {string} [options.encryption.ownerPassword] Both userPassword and ownerPassword should be set for proper authentication.
  * @param {string[]} [options.encryption.userPermissions] Array of permissions "print", "modify", "copy", "annot-forms", accessible by the user.
  * @param {number|"smart"} [options.floatPrecision=16]
  * @returns {jsPDF} jsPDF-instance
- * @description
+ * @MoTa
  * ```
  * {
  *  orientation: 'p',
@@ -2420,7 +2420,7 @@ function jsPDF(options) {
     beginNewRenderTarget(pattern.boundingBox[0], pattern.boundingBox[1], pattern.boundingBox[2] - pattern.boundingBox[0], pattern.boundingBox[3] - pattern.boundingBox[1], pattern.matrix);
   };
   /**
-   * Ends a tiling pattern and sets the render target to the one active before {@link API.beginTilingPattern} has been called.
+   * Ends a tiling pattern and sets the render target to the one KichHoat before {@link API.beginTilingPattern} has been called.
    *
    * Only available in "advanced" API mode.
    *
@@ -4076,7 +4076,7 @@ function jsPDF(options) {
    *
    * @memberof jsPDF#
    * @name setPage
-   * @param {number} page Switch the active page to the page number specified (indexed starting at 1).
+   * @param {number} page Switch the KichHoat page to the page number specified (indexed starting at 1).
    * @example
    * doc = jsPDF()
    * doc.addPage()
@@ -4780,7 +4780,7 @@ function jsPDF(options) {
    * @param {string} rule Only possible value is 'evenodd'
    * @returns {jsPDF}
    * @memberof jsPDF#
-   * @description All .clip() after calling drawing ops with a style argument of null.
+   * @MoTa All .clip() after calling drawing ops with a style argument of null.
    */
 
 
@@ -4801,7 +4801,7 @@ function jsPDF(options) {
    * @instance
    * @returns {jsPDF}
    * @memberof jsPDF#
-   * @description Modify the current clip path by intersecting it with the current path using the even-odd rule. Note
+   * @MoTa Modify the current clip path by intersecting it with the current path using the even-odd rule. Note
    * that this will NOT consume the current path. In order to only use this path for clipping call
    * {@link API.discardPath} afterwards.
    */
@@ -5509,7 +5509,7 @@ function jsPDF(options) {
   };
   /**
    * Returns an object - a tree of fontName to fontStyle relationships available to
-   * active PDF document.
+   * KichHoat PDF document.
    *
    * @public
    * @function
@@ -9027,7 +9027,7 @@ var AcroFormTextField = function AcroFormTextField() {
     }
   });
   /**
-   * (PDF 1.5) May be set only if the MaxLen entry is present in the text field dictionary (see Table 229) and if the Multiline, Password, and FileSelect flags are clear. If set, the field shall be automatically divided into as many equally spaced positions, or combs, as the value of MaxLen, and the text is laid out into those combs.
+   * (PDF 1.5) May be set only if the MaxLen entry is present in the text field dictionary (see Table 229) and if the Multiline, MatKhau, and FileSelect flags are clear. If set, the field shall be automatically divided into as many equally spaced positions, or combs, as the value of MaxLen, and the text is laid out into those combs.
    *
    * @name AcroFormTextField#comb
    * @type {boolean}
@@ -9117,14 +9117,14 @@ inherit(AcroFormTextField, AcroFormField);
 var AcroFormPasswordField = function AcroFormPasswordField() {
   AcroFormTextField.call(this);
   /**
-   * If set, the field is intended for entering a secure password that should not be echoed visibly to the screen. Characters typed from the keyboard shall instead be echoed in some unreadable form, such as asterisks or bullet characters.
-   * NOTE To protect password confidentiality, readers should never store the value of the text field in the PDF file if this flag is set.
+   * If set, the field is intended for entering a secure MatKhau that should not be echoed visibly to the screen. Characters typed from the keyboard shall instead be echoed in some unreadable form, such as asterisks or bullet characters.
+   * NOTE To protect MatKhau confidentiality, readers should never store the value of the text field in the PDF file if this flag is set.
    *
-   * @name AcroFormTextField#password
+   * @name AcroFormTextField#MatKhau
    * @type {boolean}
    */
 
-  Object.defineProperty(this, "password", {
+  Object.defineProperty(this, "MatKhau", {
     enumerable: true,
     configurable: true,
     get: function get() {
@@ -9138,7 +9138,7 @@ var AcroFormPasswordField = function AcroFormPasswordField() {
       }
     }
   });
-  this.password = true;
+  this.MatKhau = true;
 };
 
 inherit(AcroFormPasswordField, AcroFormTextField); // Contains Methods for creating standard appearances
@@ -12885,7 +12885,7 @@ function parseFontFamily(input) {
    * Sets the line dash pattern used when stroking lines.
    * @name setLineDash
    * @function
-   * @description It uses an array of values that specify alternating lengths of lines and gaps which describe the pattern.
+   * @MoTa It uses an array of values that specify alternating lengths of lines and gaps which describe the pattern.
    */
 
 
@@ -12918,7 +12918,7 @@ function parseFontFamily(input) {
    *
    * @name stroke
    * @function
-   * @description The stroke() method actually draws the path you have defined with all those moveTo() and lineTo() methods. The default color is black.
+   * @MoTa The stroke() method actually draws the path you have defined with all those moveTo() and lineTo() methods. The default color is black.
    */
 
 
@@ -12930,7 +12930,7 @@ function parseFontFamily(input) {
    *
    * @name beginPath
    * @function
-   * @description The beginPath() method begins a path, or resets the current path.
+   * @MoTa The beginPath() method begins a path, or resets the current path.
    */
 
 
@@ -12968,7 +12968,7 @@ function parseFontFamily(input) {
    *
    * @name closePath
    * @function
-   * @description The closePath() method creates a path from the current point back to the starting point.
+   * @MoTa The closePath() method creates a path from the current point back to the starting point.
    */
 
 
@@ -12997,7 +12997,7 @@ function parseFontFamily(input) {
    * @function
    * @param x The x-coordinate of where to create the line to
    * @param y The y-coordinate of where to create the line to
-   * @description The lineTo() method adds a new point and creates a line TO that point FROM the last specified point in the canvas (this method does not draw the line).
+   * @MoTa The lineTo() method adds a new point and creates a line TO that point FROM the last specified point in the canvas (this method does not draw the line).
    */
 
 
@@ -13020,7 +13020,7 @@ function parseFontFamily(input) {
    *
    * @name clip
    * @function
-   * @description The clip() method clips a region of any shape and size from the original canvas.
+   * @MoTa The clip() method clips a region of any shape and size from the original canvas.
    */
 
 
@@ -13037,7 +13037,7 @@ function parseFontFamily(input) {
    * @param cpy {Number} The y-coordinate of the Bézier control point
    * @param x {Number} The x-coordinate of the ending point
    * @param y {Number} The y-coordinate of the ending point
-   * @description The quadraticCurveTo() method adds a point to the current path by using the specified control points that represent a quadratic Bézier curve.<br /><br /> A quadratic Bézier curve requires two points. The first point is a control point that is used in the quadratic Bézier calculation and the second point is the ending point for the curve. The starting point for the curve is the last point in the current path. If a path does not exist, use the beginPath() and moveTo() methods to define a starting point.
+   * @MoTa The quadraticCurveTo() method adds a point to the current path by using the specified control points that represent a quadratic Bézier curve.<br /><br /> A quadratic Bézier curve requires two points. The first point is a control point that is used in the quadratic Bézier calculation and the second point is the ending point for the curve. The starting point for the curve is the last point in the current path. If a path does not exist, use the beginPath() and moveTo() methods to define a starting point.
    */
 
 
@@ -13069,7 +13069,7 @@ function parseFontFamily(input) {
    * @param cp2y {Number} The y-coordinate of the second Bézier control point
    * @param x {Number} The x-coordinate of the ending point
    * @param y {Number} The y-coordinate of the ending point
-   * @description The bezierCurveTo() method adds a point to the current path by using the specified control points that represent a cubic Bézier curve. <br /><br />A cubic bezier curve requires three points. The first two points are control points that are used in the cubic Bézier calculation and the last point is the ending point for the curve.  The starting point for the curve is the last point in the current path. If a path does not exist, use the beginPath() and moveTo() methods to define a starting point.
+   * @MoTa The bezierCurveTo() method adds a point to the current path by using the specified control points that represent a cubic Bézier curve. <br /><br />A cubic bezier curve requires three points. The first two points are control points that are used in the cubic Bézier calculation and the last point is the ending point for the curve.  The starting point for the curve is the last point in the current path. If a path does not exist, use the beginPath() and moveTo() methods to define a starting point.
    */
 
 
@@ -13104,7 +13104,7 @@ function parseFontFamily(input) {
    * @param startAngle {Number} The starting angle, in radians (0 is at the 3 o'clock position of the arc's circle)
    * @param endAngle {Number} The ending angle, in radians
    * @param counterclockwise {Boolean} Optional. Specifies whether the drawing should be counterclockwise or clockwise. False is default, and indicates clockwise, while true indicates counter-clockwise.
-   * @description The arc() method creates an arc/curve (used to create circles, or parts of circles).
+   * @MoTa The arc() method creates an arc/curve (used to create circles, or parts of circles).
    */
 
 
@@ -13150,7 +13150,7 @@ function parseFontFamily(input) {
    * @param x2 {Number} The x-coordinate of the second tangent
    * @param y2 {Number} The y-coordinate of the second tangent
    * @param radius The radius of the arc
-   * @description The arcTo() method creates an arc/curve between two tangents on the canvas.
+   * @MoTa The arcTo() method creates an arc/curve between two tangents on the canvas.
    */
   // eslint-disable-next-line no-unused-vars
 
@@ -13167,7 +13167,7 @@ function parseFontFamily(input) {
    * @param y {Number} The y-coordinate of the upper-left corner of the rectangle
    * @param w {Number} The width of the rectangle, in pixels
    * @param h {Number} The height of the rectangle, in pixels
-   * @description The rect() method creates a rectangle.
+   * @MoTa The rect() method creates a rectangle.
    */
 
 
@@ -13194,7 +13194,7 @@ function parseFontFamily(input) {
    * @param y {Number} The y-coordinate of the upper-left corner of the rectangle
    * @param w {Number} The width of the rectangle, in pixels
    * @param h {Number} The height of the rectangle, in pixels
-   * @description The fillRect() method draws a "filled" rectangle. The default color of the fill is black.
+   * @MoTa The fillRect() method draws a "filled" rectangle. The default color of the fill is black.
    */
 
 
@@ -13241,7 +13241,7 @@ function parseFontFamily(input) {
    * @param y {Number} The y-coordinate of the upper-left corner of the rectangle
    * @param w {Number} The width of the rectangle, in pixels
    * @param h {Number} The height of the rectangle, in pixels
-   * @description The strokeRect() method draws a rectangle (no fill). The default color of the stroke is black.
+   * @MoTa The strokeRect() method draws a rectangle (no fill). The default color of the stroke is black.
    */
 
 
@@ -13268,7 +13268,7 @@ function parseFontFamily(input) {
    * @param y {Number} The y-coordinate of the upper-left corner of the rectangle
    * @param w {Number} The width of the rectangle to clear, in pixels
    * @param h {Number} The height of the rectangle to clear, in pixels
-   * @description We cannot clear PDF commands that were already written to PDF, so we use white instead. <br />
+   * @MoTa We cannot clear PDF commands that were already written to PDF, so we use white instead. <br />
    * As a special case, read a special flag (ignoreClearRect) and do nothing if it is set.
    * This results in all calls to clearRect() to do nothing, and keep the canvas transparent.
    * This flag is stored in the save/restore context and is managed the same way as other drawing states.
@@ -13481,7 +13481,7 @@ function parseFontFamily(input) {
    * @param x {Number} The x coordinate where to start painting the text (relative to the canvas)
    * @param y {Number} The y coordinate where to start painting the text (relative to the canvas)
    * @param maxWidth {Number} Optional. The maximum allowed width of the text, in pixels
-   * @description The fillText() method draws filled text on the canvas. The default color of the text is black.
+   * @MoTa The fillText() method draws filled text on the canvas. The default color of the text is black.
    */
 
 
@@ -13519,7 +13519,7 @@ function parseFontFamily(input) {
    * @param x {Number} The x coordinate where to start painting the text (relative to the canvas)
    * @param y {Number} The y coordinate where to start painting the text (relative to the canvas)
    * @param maxWidth {Number} Optional. The maximum allowed width of the text, in pixels
-   * @description The strokeText() method draws text (with no fill) on the canvas. The default color of the text is black.
+   * @MoTa The strokeText() method draws text (with no fill) on the canvas. The default color of the text is black.
    */
 
 
@@ -13553,7 +13553,7 @@ function parseFontFamily(input) {
    * @name measureText
    * @function
    * @param text {String} The text to be measured
-   * @description The measureText() method returns an object that contains the width of the specified text, in pixels.
+   * @MoTa The measureText() method returns an object that contains the width of the specified text, in pixels.
    * @returns {Number}
    */
 
@@ -13595,7 +13595,7 @@ function parseFontFamily(input) {
    * @function
    * @param scalewidth {Number} Scales the width of the current drawing (1=100%, 0.5=50%, 2=200%, etc.)
    * @param scaleheight {Number} Scales the height of the current drawing (1=100%, 0.5=50%, 2=200%, etc.)
-   * @description The scale() method scales the current drawing, bigger or smaller.
+   * @MoTa The scale() method scales the current drawing, bigger or smaller.
    */
 
 
@@ -13614,7 +13614,7 @@ function parseFontFamily(input) {
    * @name rotate
    * @function
    * @param angle {Number} The rotation angle, in radians.
-   * @description To calculate from degrees to radians: degrees*Math.PI/180. <br />
+   * @MoTa To calculate from degrees to radians: degrees*Math.PI/180. <br />
    * Example: to rotate 5 degrees, specify the following: 5*Math.PI/180
    */
 
@@ -13635,7 +13635,7 @@ function parseFontFamily(input) {
    * @function
    * @param x {Number} The value to add to horizontal (x) coordinates
    * @param y {Number} The value to add to vertical (y) coordinates
-   * @description The translate() method remaps the (0,0) position on the canvas.
+   * @MoTa The translate() method remaps the (0,0) position on the canvas.
    */
 
 
@@ -13659,7 +13659,7 @@ function parseFontFamily(input) {
    * @param d {Number} Vertical scaling
    * @param e {Number} Horizontal moving
    * @param f {Number} Vertical moving
-   * @description Each object on the canvas has a current transformation matrix.<br /><br />The transform() method replaces the current transformation matrix. It multiplies the current transformation matrix with the matrix described by:<br /><br /><br /><br />a    c    e<br /><br />b    d    f<br /><br />0    0    1<br /><br />In other words, the transform() method lets you scale, rotate, move, and skew the current context.
+   * @MoTa Each object on the canvas has a current transformation matrix.<br /><br />The transform() method replaces the current transformation matrix. It multiplies the current transformation matrix with the matrix described by:<br /><br /><br /><br />a    c    e<br /><br />b    d    f<br /><br />0    0    1<br /><br />In other words, the transform() method lets you scale, rotate, move, and skew the current context.
    */
 
 
@@ -13683,7 +13683,7 @@ function parseFontFamily(input) {
    * @param d {Number} Vertical scaling
    * @param e {Number} Horizontal moving
    * @param f {Number} Vertical moving
-   * @description Each object on the canvas has a current transformation matrix. <br /><br />The setTransform() method resets the current transform to the identity matrix, and then runs transform() with the same arguments.<br /><br />In other words, the setTransform() method lets you scale, rotate, move, and skew the current context.
+   * @MoTa Each object on the canvas has a current transformation matrix. <br /><br />The setTransform() method resets the current transform to the identity matrix, and then runs transform() with the same arguments.<br /><br />In other words, the setTransform() method lets you scale, rotate, move, and skew the current context.
    */
 
 
@@ -24743,8 +24743,8 @@ WebPDecoder.prototype.getData = function () {
 
   var postPutResources = function postPutResources() {
     var xmpmeta_beginning = '<x:xmpmeta xmlns:x="adobe:ns:meta/">';
-    var rdf_beginning = '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description rdf:about="" xmlns:jspdf="' + this.internal.__metadata__.namespaceuri + '"><jspdf:metadata>';
-    var rdf_ending = "</jspdf:metadata></rdf:Description></rdf:RDF>";
+    var rdf_beginning = '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:MoTa rdf:about="" xmlns:jspdf="' + this.internal.__metadata__.namespaceuri + '"><jspdf:metadata>';
+    var rdf_ending = "</jspdf:metadata></rdf:MoTa></rdf:RDF>";
     var xmpmeta_ending = "</x:xmpmeta>";
     var utf8_xmpmeta_beginning = unescape(encodeURIComponent(xmpmeta_beginning));
     var utf8_rdf_beginning = unescape(encodeURIComponent(rdf_beginning));
@@ -25259,7 +25259,7 @@ WebPDecoder.prototype.getData = function () {
    *
    * Initializes Bidi engine
    *
-   * @param {Object} See 'setOptions' below for detailed description.
+   * @param {Object} See 'setOptions' below for detailed MoTa.
    * options are cashed between invocation of 'doBidiReorder' method
    *
    * sample usage pattern of BidiEngine:
@@ -27095,7 +27095,7 @@ var NameTable = function (_super) {
     this.trademark = strings[7];
     this.manufacturer = strings[8];
     this.designer = strings[9];
-    this.description = strings[10];
+    this.MoTa = strings[10];
     this.vendorUrl = strings[11];
     this.designerUrl = strings[12];
     this.license = strings[13];

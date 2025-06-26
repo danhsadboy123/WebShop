@@ -1244,10 +1244,10 @@ readers do not read off random characters that represent icons */
 .fa-list-squares::before {
   content: "\f03a"; }
 
-.fa-square-phone-flip::before {
+.fa-square-SoDienThoai-flip::before {
   content: "\f87b"; }
 
-.fa-phone-square-alt::before {
+.fa-SoDienThoai-square-alt::before {
   content: "\f87b"; }
 
 .fa-cart-plus::before {
@@ -1871,7 +1871,7 @@ readers do not read off random characters that represent icons */
 .fa-hourglass-1::before {
   content: "\f251"; }
 
-.fa-blender-phone::before {
+.fa-blender-SoDienThoai::before {
   content: "\f6b6"; }
 
 .fa-building-wheat::before {
@@ -3284,10 +3284,10 @@ readers do not read off random characters that represent icons */
 .fa-bridge::before {
   content: "\e4c8"; }
 
-.fa-phone-flip::before {
+.fa-SoDienThoai-flip::before {
   content: "\f879"; }
 
-.fa-phone-alt::before {
+.fa-SoDienThoai-alt::before {
   content: "\f879"; }
 
 .fa-truck-front::before {
@@ -3401,7 +3401,7 @@ readers do not read off random characters that represent icons */
 .fa-sad-cry::before {
   content: "\f5b3"; }
 
-.fa-audio-description::before {
+.fa-audio-MoTa::before {
   content: "\f29e"; }
 
 .fa-person-military-to-person::before {
@@ -3563,7 +3563,7 @@ readers do not read off random characters that represent icons */
 .fa-grin-tears::before {
   content: "\f588"; }
 
-.fa-phone::before {
+.fa-SoDienThoai::before {
   content: "\f095"; }
 
 .fa-calendar-xmark::before {
@@ -3770,10 +3770,10 @@ readers do not read off random characters that represent icons */
 .fa-tanakh::before {
   content: "\f827"; }
 
-.fa-phone-volume::before {
+.fa-SoDienThoai-volume::before {
   content: "\f2a0"; }
 
-.fa-volume-control-phone::before {
+.fa-volume-control-SoDienThoai::before {
   content: "\f2a0"; }
 
 .fa-hat-cowboy-side::before {
@@ -4385,7 +4385,7 @@ readers do not read off random characters that represent icons */
 .fa-mobile-android::before {
   content: "\f3ce"; }
 
-.fa-mobile-phone::before {
+.fa-mobile-SoDienThoai::before {
   content: "\f3ce"; }
 
 .fa-face-meh::before {
@@ -4763,7 +4763,7 @@ readers do not read off random characters that represent icons */
 .fa-star-of-life::before {
   content: "\f621"; }
 
-.fa-phone-slash::before {
+.fa-SoDienThoai-slash::before {
   content: "\f3dd"; }
 
 .fa-paint-roller::before {
@@ -5186,10 +5186,10 @@ readers do not read off random characters that represent icons */
 .fa-gun::before {
   content: "\e19b"; }
 
-.fa-square-phone::before {
+.fa-square-SoDienThoai::before {
   content: "\f098"; }
 
-.fa-phone-square::before {
+.fa-SoDienThoai-square::before {
   content: "\f098"; }
 
 .fa-plus::before {

@@ -49,7 +49,7 @@ class FormValidation {
                 },
                 inputPasswordConfirm: {
                     required: true,
-                    equalTo: '#password'
+                    equalTo: '#MatKhau'
                 },
                 inputDigit: {
                     required: true,

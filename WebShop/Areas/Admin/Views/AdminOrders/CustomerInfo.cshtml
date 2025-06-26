@@ -1,11 +1,11 @@
 ﻿@model WebShop.Models.Customer
 <div class="card-body">
-    <a target="_blank" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@Model.CustomerId">@Model.FullName</a>
+    <a target="_blank" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@Model.CustomerId">@Model.HoTen</a>
     <a style="float:right" class="btn" id="cancelBtn" onclick="onCancel()">
         X
     </a>
     <p class="m-b-0 text-muted mt-2">@Model.Email</p>
-    <p class="m-b-0 muted mt-2">@Model.Phone</p>
+    <p class="m-b-0 muted mt-2">@Model.SoDienThoai</p>
     @if (Model.CompanyName != null)
     {
         <p class="m-b-0 muted mt-2">@Model.CompanyName</p>
@@ -24,7 +24,7 @@
         var strQuanHuyen = shippingAddress.District.Type + " " + shippingAddress.District.DistrictName;
         var strPhuongXa = shippingAddress.Ward.Type + " " + shippingAddress.Ward.WardName;
         <a href="javascript:void(0)">@shippingAddress.UserName</a>
-        <p class="m-b-0 text-muted mt-2">@shippingAddress.Phone</p>
+        <p class="m-b-0 text-muted mt-2">@shippingAddress.SoDienThoai</p>
         <h5 class="m-b-0 m-t-10">Địa chỉ giao hàng</h5>
         <p class="m-b-0 mt-2">@shippingAddress.Content, @strPhuongXa, @strQuanHuyen, @strThanhPho</p>
     }

@@ -45,7 +45,7 @@
     <None Remove="Enums\" />
     <None Remove="Areas\Admin\Views\Search\" />
     <None Remove="ModelViews\" />
-    <None Remove="Views\Accounts\" />
+    <None Remove="Views\TaiKhoans\" />
     <None Remove="Views\Home\gphdxvwf.jhf~" />
     <None Remove="Views\ShoppingCart\" />
     <None Remove="Controllers\Components\" />

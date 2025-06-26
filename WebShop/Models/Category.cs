@@ -11,7 +11,7 @@ public partial class Category
 
     public string CatNameEn { get; set; }
 
-    public string Description { get; set; }
+    public string MoTa { get; set; }
 
     public string DescriptionEn { get; set; }
 

@@ -59,7 +59,7 @@
 /* We use html here because we need a greater specificity to make sure disabled
 works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
-html .ui-button.ui-state-disabled:active {
+html .ui-button.ui-state-disabled:KichHoat {
 	border: 1px solid #cdc3b7;
 	background: #ede4d4 url("images/ui-bg_glass_70_ede4d4_1x400.png") 50% 50% repeat-x;
 	font-weight: normal;
@@ -105,25 +105,25 @@ a.ui-button:focus {
 .ui-visual-focus {
 	box-shadow: 0 0 3px 1px rgb(94, 158, 214);
 }
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active,
-a.ui-button:active,
-.ui-button:active,
-.ui-button.ui-state-active:hover {
+.ui-state-KichHoat,
+.ui-widget-content .ui-state-KichHoat,
+.ui-widget-header .ui-state-KichHoat,
+a.ui-button:KichHoat,
+.ui-button:KichHoat,
+.ui-button.ui-state-KichHoat:hover {
 	border: 1px solid #e0cfc2;
 	background: #f4f0ec url("images/ui-bg_highlight-hard_100_f4f0ec_1x100.png") 50% 50% repeat-x;
 	font-weight: normal;
 	color: #b85700;
 }
 .ui-icon-background,
-.ui-state-active .ui-icon-background {
+.ui-state-KichHoat .ui-icon-background {
 	border: #e0cfc2;
 	background-color: #b85700;
 }
-.ui-state-active a,
-.ui-state-active a:link,
-.ui-state-active a:visited {
+.ui-state-KichHoat a,
+.ui-state-KichHoat a:link,
+.ui-state-KichHoat a:visited {
 	color: #b85700;
 	text-decoration: none;
 }
@@ -207,8 +207,8 @@ a.ui-button:active,
 .ui-button:focus .ui-icon {
 	background-image: url("images/ui-icons_f08000_256x240.png");
 }
-.ui-state-active .ui-icon,
-.ui-button:active .ui-icon {
+.ui-state-KichHoat .ui-icon,
+.ui-button:KichHoat .ui-icon {
 	background-image: url("images/ui-icons_f35f07_256x240.png");
 }
 .ui-state-highlight .ui-icon,

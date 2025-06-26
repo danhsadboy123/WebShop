@@ -484,7 +484,7 @@
 			'add'             : 'Dodaj', // from v2.1.41 added 7.8.2018
 			'theme'           : 'Motyw', // from v2.1.43 added 19.10.2018
 			'default'         : 'Domyślnie', // from v2.1.43 added 19.10.2018
-			'description'     : 'Opis', // from v2.1.43 added 19.10.2018
+			'MoTa'     : 'Opis', // from v2.1.43 added 19.10.2018
 			'website'         : 'Witryna', // from v2.1.43 added 19.10.2018
 			'author'          : 'Autor', // from v2.1.43 added 19.10.2018
 			'email'           : 'E-mail', // from v2.1.43 added 19.10.2018

@@ -13,7 +13,7 @@ public partial class Quotation
 
     public decimal? Vat { get; set; }
 
-    public DateTime? CreateDate { get; set; }
+    public DateTime? NgayTao { get; set; }
 
     public string Note { get; set; }
 

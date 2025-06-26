@@ -71,11 +71,11 @@
 					obj = $this.data('smartmenus');
 
 					function onInit() {
-						// set Bootstrap's "active" class to SmartMenus "current" items (should someone decide to enable markCurrentItem: true)
+						// set Bootstrap's "KichHoat" class to SmartMenus "current" items (should someone decide to enable markCurrentItem: true)
 						$this.find('a.current').each(function() {
 							var $this = $(this);
 							// dropdown items require the class to be set to the A's while for nav items it should be set to the parent LI's
-							($this.hasClass('dropdown-item') ? $this : $this.parent()).addClass('active');
+							($this.hasClass('dropdown-item') ? $this : $this.parent()).addClass('KichHoat');
 						});
 						// parent items fixes
 						$this.find('a.has-submenu').each(function() {
@@ -96,7 +96,7 @@
 					function onBeforeDestroy() {
 						$this.find('a.current').each(function() {
 							var $this = $(this);
-							($this.hasClass('active') ? $this : $this.parent()).removeClass('active');
+							($this.hasClass('KichHoat') ? $this : $this.parent()).removeClass('KichHoat');
 						});
 						$this.find('a.has-submenu').each(function() {
 							var $this = $(this);

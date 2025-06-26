@@ -24,8 +24,8 @@ table.dataTable thead th,
 table.dataTable tfoot th {
   font-weight: bold;
 }
-table.dataTable thead th:active,
-table.dataTable thead td:active {
+table.dataTable thead th:KichHoat,
+table.dataTable thead td:KichHoat {
   outline: none;
 }
 table.dataTable thead .sorting_asc,
@@ -337,7 +337,7 @@ table.dataTable td {
   color: #333 !important;
   border: 1px solid transparent;
 }
-.dataTables_wrapper .dataTables_paginate .fg-button:active {
+.dataTables_wrapper .dataTables_paginate .fg-button:KichHoat {
   outline: none;
 }
 .dataTables_wrapper .dataTables_paginate .fg-button:first-child {

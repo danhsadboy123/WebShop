@@ -7,7 +7,7 @@ public partial class Customer
 {
     public int CustomerId { get; set; }
 
-    public string FullName { get; set; }
+    public string HoTen { get; set; }
 
     public DateTime? Birthday { get; set; }
 
@@ -15,17 +15,17 @@ public partial class Customer
 
     public string Email { get; set; }
 
-    public string Phone { get; set; }
+    public string SoDienThoai { get; set; }
 
-    public DateTime? CreateDate { get; set; }
+    public DateTime? NgayTao { get; set; }
 
-    public string Password { get; set; }
+    public string MatKhau { get; set; }
 
     public string Salt { get; set; }
 
-    public DateTime? LastLogin { get; set; }
+    public DateTime? LanDangNhapCuoi { get; set; }
 
-    public bool Active { get; set; }
+    public bool KichHoat { get; set; }
 
     public bool? Gender { get; set; }
 

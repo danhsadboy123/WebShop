@@ -15,7 +15,7 @@ public partial class CustomerPotentail
 
     public string Address { get; set; }
 
-    public int? Phone { get; set; }
+    public int? SoDienThoai { get; set; }
 
     public int? Checked { get; set; }
 

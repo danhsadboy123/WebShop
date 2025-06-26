@@ -13,7 +13,7 @@ public partial class CustomerSupplier
 
     public string Company { get; set; }
 
-    public int? Phone { get; set; }
+    public int? SoDienThoai { get; set; }
 
     public string Email { get; set; }
 

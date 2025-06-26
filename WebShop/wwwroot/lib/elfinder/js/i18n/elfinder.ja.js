@@ -484,7 +484,7 @@
 			'add'             : '追加', // from v2.1.41 added 7.8.2018
 			'theme'           : 'テーマ', // from v2.1.43 added 19.10.2018
 			'default'         : 'デフォルト', // from v2.1.43 added 19.10.2018
-			'description'     : '説明', // from v2.1.43 added 19.10.2018
+			'MoTa'     : '説明', // from v2.1.43 added 19.10.2018
 			'website'         : 'ウェブサイト', // from v2.1.43 added 19.10.2018
 			'author'          : '作者', // from v2.1.43 added 19.10.2018
 			'email'           : 'Email', // from v2.1.43 added 19.10.2018

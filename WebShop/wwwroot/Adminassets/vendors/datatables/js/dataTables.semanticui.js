@@ -132,7 +132,7 @@ DataTable.ext.renderer.pageButton.semanticUI = function ( settings, host, idx, b
 					default:
 						btnDisplay = button + 1;
 						btnClass = page === button ?
-							'active' : '';
+							'KichHoat' : '';
 						break;
 				}
 

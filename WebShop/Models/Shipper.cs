@@ -9,7 +9,7 @@ public partial class Shipper
 
     public string ShipperName { get; set; }
 
-    public string Phone { get; set; }
+    public string SoDienThoai { get; set; }
 
     public string Company { get; set; }
 

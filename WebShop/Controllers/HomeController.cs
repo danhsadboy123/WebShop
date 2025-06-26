@@ -58,7 +58,7 @@ namespace WebShop.Controllers
                                                         category = cat,
                                                         lsProducts = cat.ProductCategories
                                                             .Select(pc => pc.Product)
-                                                            .Where(pc => pc.Active && pc.HomeFlag && pc.BestSellers)
+                                                            .Where(pc => pc.KichHoat && pc.HomeFlag && pc.BestSellers)
                                                             .OrderByDescending(pc => pc.DateCreated)
                                                             .Take(8)
                                                             .ToList(),
@@ -85,7 +85,7 @@ namespace WebShop.Controllers
                         && d.Code == null)
             .Take(2)
             .ToList();
-            var slider = _context.Slides.Where(s => s.Active == true && s.HomeFlag == true &&s.Right==true && s.CatId == null).Take(2).OrderBy(s=>s.Ordering).ToList(); 
+            var slider = _context.Slides.Where(s => s.KichHoat == true && s.HomeFlag == true &&s.Right==true && s.CatId == null).Take(2).OrderBy(s=>s.Ordering).ToList(); 
             ViewBag.Slider = slider;  
 
             ViewBag.discounts = discounts;  
@@ -117,13 +117,13 @@ namespace WebShop.Controllers
                                 SalePrice = pc.Product.SalePrice,
                                 Price = pc.Product.Price,
                                 HomeFlag = pc.Product.HomeFlag,  // Thêm thuộc tính này
-                                Active = pc.Product.Active,      // Thêm thuộc tính này
+                                KichHoat = pc.Product.KichHoat,      // Thêm thuộc tính này
                                 BestSellers = pc.Product.BestSellers, // Thêm thuộc tính này
                                 DateCreated = pc.Product.DateCreated, // Thêm thuộc tính này
                                 UnitsInStock=pc.Product.UnitsInStock,
                                 Alias = pc.Product.Alias
                             })
-                            .Where(pc => pc.Active ==true && pc.HomeFlag == true && pc.BestSellers == true)
+                            .Where(pc => pc.KichHoat ==true && pc.HomeFlag == true && pc.BestSellers == true)
                             .OrderByDescending(pc => pc.DateCreated)
                             .Take(8)
                             .ToList(),
@@ -283,7 +283,7 @@ namespace WebShop.Controllers
                                                     category = cat,
                                                     lsProducts = cat.ProductCategories
                                                         .Select(pc => pc.Product)
-                                                        .Where(pc => pc.Active && pc.HomeFlag && pc.BestSellers)
+                                                        .Where(pc => pc.KichHoat && pc.HomeFlag && pc.BestSellers)
                                                         .OrderByDescending(pc => pc.DateCreated)
                                                         .Take(15)
                                                         .ToList(),

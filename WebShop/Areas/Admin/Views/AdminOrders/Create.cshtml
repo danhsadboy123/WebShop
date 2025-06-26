@@ -85,7 +85,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Đơn hàng</a>
-            <span class="breadcrumb-item active">Tạo đơn hàng</span>
+            <span class="breadcrumb-item KichHoat">Tạo đơn hàng</span>
         </nav>
     </div>
 </div>
@@ -185,7 +185,7 @@
                                             <tr>
                                                 <td style="border-bottom: 1px solid #dee2e6; border-top:none;">
                                                     <div data-customerid="@item.CustomerId" class="customerDiv">
-                                                        <strong>@item.FullName</strong>
+                                                        <strong>@item.HoTen</strong>
                                                         <p>@item.Email</p>
                                                     </div>
                                                 </td>
@@ -201,7 +201,7 @@
         </div>
     </div>
 </form>
-<div id="paid-modal" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="paid-modal" class="modal fade bd-example-modal-xl" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -239,7 +239,7 @@
         </div>
     </div>
 </div>
-<div id="skip-pay-modal" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="skip-pay-modal" class="modal fade bd-example-modal-xl" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">

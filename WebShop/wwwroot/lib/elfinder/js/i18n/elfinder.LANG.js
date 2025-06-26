@@ -387,7 +387,7 @@
 			'host'                : 'Host', // added 18.04.2012
 			'port'                : 'Port', // added 18.04.2012
 			'user'                : 'User', // added 18.04.2012
-			'pass'                : 'Password', // added 18.04.2012
+			'pass'                : 'MatKhau', // added 18.04.2012
 			'confirmUnmount'      : 'Are you unmount $1?',  // from v2.1 added 30.04.2012
 			'dropFilesBrowser': 'Drop or Paste files from browser', // from v2.1 added 30.05.2012
 			'dropPasteFiles'  : 'Drop files, Paste URLs or images(clipboard) here', // from v2.1 added 07.04.2014
@@ -490,7 +490,7 @@
 			'add'             : 'Add', // from v2.1.41 added 7.8.2018
 			'theme'           : 'Theme', // from v2.1.43 added 19.10.2018
 			'default'         : 'Default', // from v2.1.43 added 19.10.2018
-			'description'     : 'Description', // from v2.1.43 added 19.10.2018
+			'MoTa'     : 'MoTa', // from v2.1.43 added 19.10.2018
 			'website'         : 'Website', // from v2.1.43 added 19.10.2018
 			'author'          : 'Author', // from v2.1.43 added 19.10.2018
 			'email'           : 'Email', // from v2.1.43 added 19.10.2018

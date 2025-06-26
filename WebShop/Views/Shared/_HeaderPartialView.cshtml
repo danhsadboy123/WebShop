@@ -1,7 +1,7 @@
 ﻿@inject WebShop.Services.IPageInfoService PageInfoService;
 @{
     var userName = ViewData["Username"]?.ToString();
-    var role = ViewData["Role"]?.ToString();
+    var VaiTro = ViewData["VaiTro"]?.ToString();
     List<WebShop.Models.Category> lsCat = ViewBag.lsCat ?? new List<WebShop.Models.Category>();
 }
 <link href="~/novazone/css/reponeheader.css" rel="stylesheet" />
@@ -68,7 +68,7 @@
         </div>
         <div class="col-lg-3 col-6 text-right">
             <p class="m-0">Chăm sóc khách hàng</p>
-            <h5 class="m-0">@(PageInfoService.GetPageInfo()?.Phone ?? "0848967333")</h5>
+            <h5 class="m-0">@(PageInfoService.GetPageInfo()?.SoDienThoai ?? "0848967333")</h5>
         </div>
     </div>
 </div>

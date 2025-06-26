@@ -7,9 +7,9 @@ namespace WebShop.ModelViews
     {
         [Key]
         public int CustomerId { get; set; }
-        public string FullName { get; set; }
+        public string HoTen { get; set; }
         public string Email { get; set; }
-        public string Phone { get; set; }
+        public string SoDienThoai { get; set; }
         public DateTime Birthday { get; set; }
         public bool Gender { get; set; }
     }

@@ -13,7 +13,7 @@ public partial class CategoryAttribute
 
     public string Name { get; set; }
 
-    public bool? Active { get; set; }
+    public bool? KichHoat { get; set; }
 
     public bool? Show { get; set; }
 

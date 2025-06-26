@@ -11,14 +11,14 @@
     position: relative;
     flex: 1 1 auto;
 
-    // Bring the hover, focused, and "active" buttons to the front to overlay
+    // Bring the hover, focused, and "KichHoat" buttons to the front to overlay
     // the borders properly
     @include hover {
       z-index: 1;
     }
     &:focus,
-    &:active,
-    &.active {
+    &:KichHoat,
+    &.KichHoat {
       z-index: 1;
     }
   }
@@ -93,9 +93,9 @@
 
 
 // The clickable button for toggling the menu
-// Set the same inset shadow as the :active state
+// Set the same inset shadow as the :KichHoat state
 .btn-group.show .dropdown-toggle {
-  @include box-shadow($btn-active-box-shadow);
+  @include box-shadow($btn-KichHoat-box-shadow);
 
   // Show no shadow for `.btn-link` since it has no other button styles.
   &.btn-link {

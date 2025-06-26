@@ -70,7 +70,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Đơn hàng</a>
-            <span class="breadcrumb-item active">#@Model.OrderId</span>
+            <span class="breadcrumb-item KichHoat">#@Model.OrderId</span>
         </nav>
     </div>
 </div>
@@ -198,7 +198,7 @@
                 </div>
             </div>
             <div class="card-footer check1s">
-                <div id="checkedoderload1" class="spinner-border text-primary" role="status">
+                <div id="checkedoderload1" class="spinner-border text-primary" VaiTro="status">
                     <span class="sr-only"></span>
                 </div>
                 @if (Model.DeliveryStatusId == 2)
@@ -344,7 +344,7 @@
                 </div>
             </div>
             <div class="card-footer" id="check2ss">
-                <div id="checkedoderload2" class="spinner-border text-primary" role="status">
+                <div id="checkedoderload2" class="spinner-border text-primary" VaiTro="status">
                     <span class="sr-only"></span>
                 </div>
                 @if (Model.PaymentStatusId == 1)
@@ -386,7 +386,7 @@
             </div>
             <div class="card-body">
                 <div class="d-flex align-items-center" id="checkedoder">
-                    <div id="checkedoderload" class="spinner-border text-primary" role="status">
+                    <div id="checkedoderload" class="spinner-border text-primary" VaiTro="status">
                         <span class="sr-only"></span>
                     </div>
                     @if (Model.Confirmed == false)
@@ -412,15 +412,15 @@
             <div class="card-body">
                 @if (Model.CustomerId != null)
                 {
-                    <a target="_blank" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@Model.Customer.CustomerId">@Model.Customer.FullName</a>
+                    <a target="_blank" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@Model.Customer.CustomerId">@Model.Customer.HoTen</a>
                     <p class="m-b-0 text-muted mt-2">@Model.Customer.Email</p>
-                    <p class="m-b-0 muted mt-2">@Model.Customer.Phone</p>
+                    <p class="m-b-0 muted mt-2">@Model.Customer.SoDienThoai</p>
                 }
                 else if(Model.GuestId !=null)
                 {
-                    <a href="javascript:void(0)">@Model.Guest.FullName</a>
+                    <a href="javascript:void(0)">@Model.Guest.HoTen</a>
                     <p class="m-b-0 text-muted mt-2">@Model.Guest.Email</p>
-                    <p class="m-b-0 muted mt-2">@Model.Guest.Phone</p>
+                    <p class="m-b-0 muted mt-2">@Model.Guest.SoDienThoai</p>
                 }
                 else{
                     <p class="m-b-0 text-muted mt-2">Chưa có thông tin khách hàng</p>
@@ -439,7 +439,7 @@
                     var strQuanHuyen = "";
                     var strPhuongXa = "";
                     var Name = "";
-                    var Phone = "";
+                    var SoDienThoai = "";
                     var Address = "";
                     if (shippingAddress != null)
                     {
@@ -447,17 +447,17 @@
                         strQuanHuyen = shippingAddress.District.Type + " " + shippingAddress.District.DistrictName;
                         strPhuongXa = shippingAddress.Ward.Type + " " + shippingAddress.Ward.WardName;
                         Name = shippingAddress.Name;
-                        Phone = @shippingAddress.Phone;
+                        SoDienThoai = @shippingAddress.SoDienThoai;
                         Address = shippingAddress.Address;
                     } 
                     <a href="javascript:void(0)">@Name</a>
-                    <p class="m-b-0 text-muted mt-2">@Phone</p>
+                    <p class="m-b-0 text-muted mt-2">@SoDienThoai</p>
                     <h5 class="m-b-0 m-t-10">Địa chỉ giao hàng</h5>
                     <p class="m-b-0 mt-2">@Address, @strPhuongXa, @strQuanHuyen, @strThanhPho</p>
                     <hr />
                     <button class="btn btn-primary" data-toggle="modal" data-target="#changeShippingModal">Thay đổi thông tin giao hàng</button>
-                    <div class="modal fade" id="changeShippingModal" tabindex="-1" role="dialog" aria-labelledby="changeShippingModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                    <div class="modal fade" id="changeShippingModal" tabindex="-1" VaiTro="dialog" aria-labelledby="changeShippingModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" VaiTro="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="changeShippingModalLabel">Thay đổi thông tin giao hàng</h5>
@@ -473,11 +473,11 @@
                                         </div>
                                         <div>
                                             <label>Số điện thoại</label>
-                                            <input class="form-control" value="@Phone" />
+                                            <input class="form-control" value="@SoDienThoai" />
                                         </div>
                                         <div>
                                             <label>Số điện thoại</label>
-                                            <input class="form-control" value="@Phone" />
+                                            <input class="form-control" value="@SoDienThoai" />
                                         </div>
                                     </form>
                                 </div>
@@ -514,7 +514,7 @@
         </div>
     </div>
 </div>
-<div id="modal-header" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="modal-header" class="modal fade" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         </div>

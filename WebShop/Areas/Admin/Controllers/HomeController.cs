@@ -21,7 +21,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebShop.Areas.Admin.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    //[Authorize(VaiTros = "Admin")]
     [Area("Admin")]
     [Route("/Admin", Name = "AdminIndex")]
     //[Authorize]
@@ -39,7 +39,7 @@ namespace WebShop.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var taikhoanID = HttpContext.Session.GetString("AccountId");
+            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
             if (taikhoanID == null) return RedirectToAction("AdminLogin", "Account", new { Area = "Admin" });
 
             //var latestOrders = _context.Orders
@@ -70,12 +70,12 @@ namespace WebShop.Areas.Admin.Controllers
         [Route("configuation", Name = ("Cấu hình"))]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangePageInfos(int id, [Bind("Id,Title,Domain,Profile,MetaDesc,MetaKey,Robots,GoogleSiteVerification,FacebookAppId,FacebookPage,GoogleTracking,Image,Phone,Email,Address,AddressMap,HeaderCode,FoodterCode")] PageInfo pageInfo, Microsoft.AspNetCore.Http.IFormFile Image, Microsoft.AspNetCore.Http.IFormFile OGImage)
+        public async Task<IActionResult> ChangePageInfos(int id, [Bind("Id,Title,Domain,Profile,MetaDesc,MetaKey,Robots,GoogleSiteVerification,FacebookAppId,FacebookPage,GoogleTracking,Image,SoDienThoai,Email,Address,AddressMap,HeaderCode,FoodterCode")] PageInfo pageInfo, Microsoft.AspNetCore.Http.IFormFile Image, Microsoft.AspNetCore.Http.IFormFile OGImage)
         {
 
 
-            var taikhoanID = HttpContext.Session.GetString("AccountId");
-            var Admin = _context.Accounts.Where(x => x.AccountId == Int32.Parse(taikhoanID)).First();
+            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
+            var Admin = _context.TaiKhoans.Where(x => x.MaTaiKhoan == Int32.Parse(taikhoanID)).First();
             if (id != pageInfo.Id)
             {
                 return NotFound();
@@ -102,7 +102,7 @@ namespace WebShop.Areas.Admin.Controllers
                 if (string.IsNullOrEmpty(pageInfo.OgImage)) pageInfo.OgImage = "default.png";
                 try
                 {
-                    if (Admin.RoleId == 1)
+                    if (Admin.MaVaiTro == 1)
                     {
                         _context.Update(pageInfo);
                     }
@@ -122,7 +122,7 @@ namespace WebShop.Areas.Admin.Controllers
                         value.FacebookPage = pageInfo.FacebookPage;
                         value.GoogleTracking = pageInfo.GoogleTracking;
                         value.Image = pageInfo.Image;
-                        value.Phone = pageInfo.Phone;
+                        value.SoDienThoai = pageInfo.SoDienThoai;
                         value.Email = pageInfo.Email;
                         value.Address = pageInfo.Address;
                         _context.Update(value);
@@ -146,7 +146,7 @@ namespace WebShop.Areas.Admin.Controllers
         [Route("Settingfull")]
         public IActionResult Settingfull()
         {
-            var taikhoanID = HttpContext.Session.GetString("AccountId");
+            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
             if (taikhoanID == null) return RedirectToAction("AdminLogin", "Account", new { Area = "Admin" });
 
             return View();

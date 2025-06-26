@@ -45,7 +45,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-action="Index" asp-controller="AdminSettings" asp-area="Admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Cấu hình</a>
             <a asp-action="Notification" asp-controller="AdminSettings" asp-area="Admin" class="breadcrumb-item"> Thông báo</a>
-            <span class="breadcrumb-item active">
+            <span class="breadcrumb-item KichHoat">
                 @if (Model != null)
                 {
                     @Model.Title
@@ -61,8 +61,8 @@
             <form asp-action="EditCartTemplate" class="row">
                 <input type="hidden" asp-for="CardTemplateId" />
                 <input type="hidden" asp-for="Type" />
-                <input type="hidden" asp-for="CreateDate" />
-                <input type="hidden" asp-for="Description" />
+                <input type="hidden" asp-for="NgayTao" />
+                <input type="hidden" asp-for="MoTa" />
                 <div class="row mb-4">
                     <div class="col-12 text-right">
                         <div class="d-inline-block">

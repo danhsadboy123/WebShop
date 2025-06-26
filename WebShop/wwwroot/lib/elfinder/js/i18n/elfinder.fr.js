@@ -413,7 +413,7 @@
 			'editingFile'     : 'Modification d\'un fichier.', // from v2.1.13 added 6.3.2016
 			'hasSelected'     : 'Vous avez sélectionné $1 éléments.', // from v2.1.13 added 6.3.2016
 			'hasClipboard'    : 'Vous avez $1 éléments dans le presse-papier.', // from v2.1.13 added 6.3.2016
-			'incSearchOnly'   : 'Recherche incrémentale disponible uniquement pour la vue active.', // from v2.1.13 added 6.30.2016
+			'incSearchOnly'   : 'Recherche incrémentale disponible uniquement pour la vue KichHoat.', // from v2.1.13 added 6.30.2016
 			'reinstate'       : 'Rétablir', // from v2.1.15 added 3.8.2016
 			'complete'        : '$1 complété', // from v2.1.15 added 21.8.2016
 			'contextmenu'     : 'Menu contextuel', // from v2.1.15 added 9.9.2016
@@ -483,7 +483,7 @@
 			'add'             : 'Add', // from v2.1.41 added 7.8.2018
 			'theme'           : 'Theme', // from v2.1.43 added 19.10.2018
 			'default'         : 'Default', // from v2.1.43 added 19.10.2018
-			'description'     : 'Description', // from v2.1.43 added 19.10.2018
+			'MoTa'     : 'MoTa', // from v2.1.43 added 19.10.2018
 			'website'         : 'Website', // from v2.1.43 added 19.10.2018
 			'author'          : 'Author', // from v2.1.43 added 19.10.2018
 			'email'           : 'Email', // from v2.1.43 added 19.10.2018

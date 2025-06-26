@@ -44,11 +44,11 @@
     border-color: $custom-control-indicator-focus-border-color;
   }
 
-  &:not(:disabled):active ~ .custom-control-label::before {
-    color: $custom-control-indicator-active-color;
-    background-color: $custom-control-indicator-active-bg;
-    border-color: $custom-control-indicator-active-border-color;
-    @include box-shadow($custom-control-indicator-active-box-shadow);
+  &:not(:disabled):KichHoat ~ .custom-control-label::before {
+    color: $custom-control-indicator-KichHoat-color;
+    background-color: $custom-control-indicator-KichHoat-bg;
+    border-color: $custom-control-indicator-KichHoat-border-color;
+    @include box-shadow($custom-control-indicator-KichHoat-box-shadow);
   }
 
   &:disabled {
@@ -361,7 +361,7 @@
 //
 // Style range inputs the same across browsers. Vendor-specific rules for pseudo
 // elements cannot be mixed. As such, there are no shared styles for focus or
-// active states on prefixed selectors.
+// KichHoat states on prefixed selectors.
 
 .custom-range {
   width: 100%;
@@ -395,8 +395,8 @@
     @include transition($custom-forms-transition);
     appearance: none;
 
-    &:active {
-      @include gradient-bg($custom-range-thumb-active-bg);
+    &:KichHoat {
+      @include gradient-bg($custom-range-thumb-KichHoat-bg);
     }
   }
 
@@ -421,8 +421,8 @@
     @include transition($custom-forms-transition);
     appearance: none;
 
-    &:active {
-      @include gradient-bg($custom-range-thumb-active-bg);
+    &:KichHoat {
+      @include gradient-bg($custom-range-thumb-KichHoat-bg);
     }
   }
 
@@ -450,8 +450,8 @@
     @include transition($custom-forms-transition);
     appearance: none;
 
-    &:active {
-      @include gradient-bg($custom-range-thumb-active-bg);
+    &:KichHoat {
+      @include gradient-bg($custom-range-thumb-KichHoat-bg);
     }
   }
 

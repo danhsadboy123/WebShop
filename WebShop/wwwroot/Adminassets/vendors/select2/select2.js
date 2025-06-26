@@ -702,7 +702,7 @@ the specific language governing permissions and limitations under the Apache Lic
             this.liveRegion = $('.select2-hidden-accessible');
             if (this.liveRegion.length == 0) {
                 this.liveRegion = $("<span>", {
-                        role: "status",
+                        VaiTro: "status",
                         "aria-live": "polite"
                     })
                     .addClass("select2-hidden-accessible")
@@ -1113,12 +1113,12 @@ the specific language governing permissions and limitations under the Apache Lic
                             if (disabled) { node.addClass("select2-disabled"); }
                             if (compound) { node.addClass("select2-result-with-children"); }
                             node.addClass(self.opts.formatResultCssClass(result));
-                            node.attr("role", "presentation");
+                            node.attr("VaiTro", "presentation");
 
                             label=$(document.createElement("div"));
                             label.addClass("select2-result-label");
                             label.attr("id", "select2-result-label-" + nextUid());
-                            label.attr("role", "option");
+                            label.attr("VaiTro", "option");
 
                             formatted=opts.formatResult(result, label, query, self.opts.escapeMarkup);
                             if (formatted!==undefined) {
@@ -1546,7 +1546,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 orient = "orientationchange."+cid,
                 mask;
 
-            this.container.addClass("select2-dropdown-open").addClass("select2-container-active");
+            this.container.addClass("select2-dropdown-open").addClass("select2-container-KichHoat");
 
             this.clearDropdownAlignmentPreference();
 
@@ -1594,7 +1594,7 @@ the specific language governing permissions and limitations under the Apache Lic
             this.dropdown.show();
             this.positionDropdown();
 
-            this.dropdown.addClass("select2-drop-active");
+            this.dropdown.addClass("select2-drop-KichHoat");
 
             // attach listeners to events that can change the position of the container and thus require
             // the position of the dropdown to be updated as well so it does not come unglued from the container
@@ -1623,18 +1623,18 @@ the specific language governing permissions and limitations under the Apache Lic
             this.clearDropdownAlignmentPreference();
 
             $("#select2-drop-mask").hide();
-            this.dropdown.removeAttr("id"); // only the active dropdown has the select2-drop id
+            this.dropdown.removeAttr("id"); // only the KichHoat dropdown has the select2-drop id
             this.dropdown.hide();
-            this.container.removeClass("select2-dropdown-open").removeClass("select2-container-active");
+            this.container.removeClass("select2-dropdown-open").removeClass("select2-container-KichHoat");
             this.results.empty();
 
             // Now that the dropdown is closed, unbind the global document mousemove event
             $document.off("mousemove.select2Event");
 
             this.clearSearch();
-            this.search.removeClass("select2-active");
+            this.search.removeClass("select2-KichHoat");
 
-            // Remove the aria active descendant for highlighted element
+            // Remove the aria KichHoat descendant for highlighted element
             this.search.removeAttr("aria-activedescendant");
             this.opts.element.trigger($.Event("select2-close"));
         },
@@ -1764,7 +1764,7 @@ the specific language governing permissions and limitations under the Apache Lic
             choice = $(choices[index]);
             choice.addClass("select2-highlighted");
 
-            // ensure assistive technology can determine the active choice
+            // ensure assistive technology can determine the KichHoat choice
             this.search.attr("aria-activedescendant", choice.find(".select2-result-label").attr("id"));
 
             this.ensureHighlightVisible();
@@ -1820,7 +1820,7 @@ the specific language governing permissions and limitations under the Apache Lic
             below = more.offset().top - results.offset().top - results.height();
 
             if (below <= this.opts.loadMorePadding) {
-                more.addClass("select2-active");
+                more.addClass("select2-KichHoat");
                 this.opts.query({
                         element: this.opts.element,
                         term: term,
@@ -1884,7 +1884,7 @@ the specific language governing permissions and limitations under the Apache Lic
             }
 
             function postRender() {
-                search.removeClass("select2-active");
+                search.removeClass("select2-KichHoat");
                 self.positionDropdown();
                 if (results.find('.select2-no-results,.select2-selection-limit,.select2-searching').length) {
                     self.liveRegion.text(results.text());
@@ -1933,7 +1933,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 render("<li class='select2-searching'>" + evaluate(opts.formatSearching, opts.element) + "</li>");
             }
 
-            search.addClass("select2-active");
+            search.addClass("select2-KichHoat");
 
             this.removeHighlight();
 
@@ -1961,7 +1961,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
                 // ignore a response if the select2 has been closed before it was received
                 if (!this.opened()) {
-                    this.search.removeClass("select2-active");
+                    this.search.removeClass("select2-KichHoat");
                     return;
                 }
 
@@ -2022,7 +2022,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 this.selectHighlighted({noFocus: true});
 
             this.close();
-            this.container.removeClass("select2-container-active");
+            this.container.removeClass("select2-container-KichHoat");
             // synonymous to .is(':focus'), which is available in jquery >= 1.6
             if (this.search[0] === document.activeElement) { this.search.blur(); }
             this.clearSearch();
@@ -2140,17 +2140,17 @@ the specific language governing permissions and limitations under the Apache Lic
             }).html([
                 "<a href='javascript:void(0)' class='select2-choice' tabindex='-1'>",
                 "   <span class='select2-chosen'>&#160;</span><abbr class='select2-search-choice-close'></abbr>",
-                "   <span class='select2-arrow' role='presentation'><b role='presentation'></b></span>",
+                "   <span class='select2-arrow' VaiTro='presentation'><b VaiTro='presentation'></b></span>",
                 "</a>",
                 "<label for='' class='select2-offscreen'></label>",
-                "<input class='select2-focusser select2-offscreen' type='text' aria-haspopup='true' role='button' />",
+                "<input class='select2-focusser select2-offscreen' type='text' aria-haspopup='true' VaiTro='button' />",
                 "<div class='select2-drop select2-display-none'>",
                 "   <div class='select2-search'>",
                 "       <label for='' class='select2-offscreen'></label>",
-                "       <input type='text' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' class='select2-input' role='combobox' aria-expanded='true'",
+                "       <input type='text' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' class='select2-input' VaiTro='combobox' aria-expanded='true'",
                 "       aria-autocomplete='list' />",
                 "   </div>",
-                "   <ul class='select2-results' role='listbox'>",
+                "   <ul class='select2-results' VaiTro='listbox'>",
                 "   </ul>",
                 "</div>"].join(""));
             return container;
@@ -2227,7 +2227,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
         // single
         isFocused: function () {
-            return this.container.hasClass("select2-container-active");
+            return this.container.hasClass("select2-container-KichHoat");
         },
 
         // single
@@ -2403,7 +2403,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 // Prevent IE from generating a click event on the body
                 reinsertElement(selection);
 
-                if (!this.container.hasClass("select2-container-active")) {
+                if (!this.container.hasClass("select2-container-KichHoat")) {
                     this.opts.element.trigger($.Event("select2-focus"));
                 }
 
@@ -2427,21 +2427,21 @@ the specific language governing permissions and limitations under the Apache Lic
             }));
 
             this.focusser.on("focus", this.bind(function(){
-                if (!this.container.hasClass("select2-container-active")) {
+                if (!this.container.hasClass("select2-container-KichHoat")) {
                     this.opts.element.trigger($.Event("select2-focus"));
                 }
-                this.container.addClass("select2-container-active");
+                this.container.addClass("select2-container-KichHoat");
             })).on("blur", this.bind(function() {
                 if (!this.opened()) {
-                    this.container.removeClass("select2-container-active");
+                    this.container.removeClass("select2-container-KichHoat");
                     this.opts.element.trigger($.Event("select2-blur"));
                 }
             }));
             this.search.on("focus", this.bind(function(){
-                if (!this.container.hasClass("select2-container-active")) {
+                if (!this.container.hasClass("select2-container-KichHoat")) {
                     this.opts.element.trigger($.Event("select2-focus"));
                 }
-                this.container.addClass("select2-container-active");
+                this.container.addClass("select2-container-KichHoat");
             }));
 
             this.initContainerWidth();
@@ -3017,7 +3017,7 @@ the specific language governing permissions and limitations under the Apache Lic
             );
 
             this.search.on("blur", this.bind(function(e) {
-                this.container.removeClass("select2-container-active");
+                this.container.removeClass("select2-container-KichHoat");
                 this.search.removeClass("select2-focused");
                 this.selectChoice(null);
                 if (!this.opened()) this.clearSearch();
@@ -3033,7 +3033,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 }
                 this.selectChoice(null);
                 this.clearPlaceholder();
-                if (!this.container.hasClass("select2-container-active")) {
+                if (!this.container.hasClass("select2-container-KichHoat")) {
                     this.opts.element.trigger($.Event("select2-focus"));
                 }
                 this.open();
@@ -3043,11 +3043,11 @@ the specific language governing permissions and limitations under the Apache Lic
 
             this.container.on("focus", selector, this.bind(function () {
                 if (!this.isInterfaceEnabled()) return;
-                if (!this.container.hasClass("select2-container-active")) {
+                if (!this.container.hasClass("select2-container-KichHoat")) {
                     this.opts.element.trigger($.Event("select2-focus"));
                 }
-                this.container.addClass("select2-container-active");
-                this.dropdown.addClass("select2-drop-active");
+                this.container.addClass("select2-container-KichHoat");
+                this.dropdown.addClass("select2-drop-KichHoat");
                 this.clearPlaceholder();
             }));
 
@@ -3276,8 +3276,8 @@ the specific language governing permissions and limitations under the Apache Lic
                   this.focusSearch();
               })).on("focus", this.bind(function () {
                   if (!this.isInterfaceEnabled()) return;
-                  this.container.addClass("select2-container-active");
-                  this.dropdown.addClass("select2-drop-active");
+                  this.container.addClass("select2-container-KichHoat");
+                  this.dropdown.addClass("select2-drop-KichHoat");
               }));
             }
 

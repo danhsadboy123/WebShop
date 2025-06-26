@@ -1,6 +1,6 @@
 // Button variants
 //
-// Easily pump out default styles, as well as :hover, :focus, :active,
+// Easily pump out default styles, as well as :hover, :focus, :KichHoat,
 // and disabled options for all buttons
 
 @mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
@@ -25,7 +25,7 @@
     }
   }
 
-  // Disabled comes first so active can properly restyle
+  // Disabled comes first so KichHoat can properly restyle
   &.disabled,
   &:disabled {
     color: color-yiq($background);
@@ -37,20 +37,20 @@
     }
   }
 
-  &:not(:disabled):not(.disabled):active,
-  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):KichHoat,
+  &:not(:disabled):not(.disabled).KichHoat,
   .show > &.dropdown-toggle {
     color: color-yiq($active-background);
     background-color: $active-background;
     @if $enable-gradients {
-      background-image: none; // Remove the gradient for the pressed/active state
+      background-image: none; // Remove the gradient for the pressed/KichHoat state
     }
     border-color: $active-border;
 
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
-      @if $enable-shadows and $btn-active-box-shadow != none {
-        box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+      @if $enable-shadows and $btn-KichHoat-box-shadow != none {
+        box-shadow: $btn-KichHoat-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
       } @else {
         box-shadow: 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
       }
@@ -79,8 +79,8 @@
     background-color: transparent;
   }
 
-  &:not(:disabled):not(.disabled):active,
-  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):KichHoat,
+  &:not(:disabled):not(.disabled).KichHoat,
   .show > &.dropdown-toggle {
     color: color-yiq($active-background);
     background-color: $active-background;
@@ -88,8 +88,8 @@
 
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
-      @if $enable-shadows and $btn-active-box-shadow != none {
-        box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($color, .5);
+      @if $enable-shadows and $btn-KichHoat-box-shadow != none {
+        box-shadow: $btn-KichHoat-box-shadow, 0 0 0 $btn-focus-width rgba($color, .5);
       } @else {
         box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
       }

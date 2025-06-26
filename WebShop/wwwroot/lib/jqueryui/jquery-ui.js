@@ -31,7 +31,7 @@ var version = $.ui.version = "1.12.1";
 
 //>>label: Widget
 //>>group: Core
-//>>description: Provides a factory for creating stateful widgets with a common API.
+//>>MoTa: Provides a factory for creating stateful widgets with a common API.
 //>>docs: http://api.jqueryui.com/jQuery.widget/
 //>>demos: http://jqueryui.com/widget/
 
@@ -68,7 +68,7 @@ $.widget = function( name, base, prototype ) {
 
 	var namespace = name.split( "." )[ 0 ];
 	name = name.split( "." )[ 1 ];
-	var fullName = namespace + "-" + name;
+	var HoTen = namespace + "-" + name;
 
 	if ( !prototype ) {
 		prototype = base;
@@ -80,8 +80,8 @@ $.widget = function( name, base, prototype ) {
 	}
 
 	// Create selector for plugin
-	$.expr[ ":" ][ fullName.toLowerCase() ] = function( elem ) {
-		return !!$.data( elem, fullName );
+	$.expr[ ":" ][ HoTen.toLowerCase() ] = function( elem ) {
+		return !!$.data( elem, HoTen );
 	};
 
 	$[ namespace ] = $[ namespace ] || {};
@@ -160,7 +160,7 @@ $.widget = function( name, base, prototype ) {
 		constructor: constructor,
 		namespace: namespace,
 		widgetName: name,
-		widgetFullName: fullName
+		widgetFullName: HoTen
 	} );
 
 	// If this widget is being redefined then we need to find all widgets that
@@ -220,7 +220,7 @@ $.widget.extend = function( target ) {
 };
 
 $.widget.bridge = function( name, object ) {
-	var fullName = object.prototype.widgetFullName || name;
+	var HoTen = object.prototype.widgetFullName || name;
 	$.fn[ name ] = function( options ) {
 		var isMethodCall = typeof options === "string";
 		var args = widgetSlice.call( arguments, 1 );
@@ -235,7 +235,7 @@ $.widget.bridge = function( name, object ) {
 			} else {
 				this.each( function() {
 					var methodValue;
-					var instance = $.data( this, fullName );
+					var instance = $.data( this, HoTen );
 
 					if ( options === "instance" ) {
 						returnValue = instance;
@@ -271,14 +271,14 @@ $.widget.bridge = function( name, object ) {
 			}
 
 			this.each( function() {
-				var instance = $.data( this, fullName );
+				var instance = $.data( this, HoTen );
 				if ( instance ) {
 					instance.option( options || {} );
 					if ( instance._init ) {
 						instance._init();
 					}
 				} else {
-					$.data( this, fullName, new object( options, this ) );
+					$.data( this, HoTen, new object( options, this ) );
 				}
 			} );
 		}
@@ -756,7 +756,7 @@ var widget = $.widget;
 
 //>>label: Position
 //>>group: Core
-//>>description: Positions elements relative to other elements.
+//>>MoTa: Positions elements relative to other elements.
 //>>docs: http://api.jqueryui.com/position/
 //>>demos: http://jqueryui.com/position/
 
@@ -1242,7 +1242,7 @@ var position = $.ui.position;
 
 //>>label: :data Selector
 //>>group: Core
-//>>description: Selects elements which have data stored under the specified key.
+//>>MoTa: Selects elements which have data stored under the specified key.
 //>>docs: http://api.jqueryui.com/data-selector/
 
 
@@ -1271,7 +1271,7 @@ var data = $.extend( $.expr[ ":" ], {
 
 //>>label: disableSelection
 //>>group: Core
-//>>description: Disable selection of text content within the set of matched elements.
+//>>MoTa: Disable selection of text content within the set of matched elements.
 //>>docs: http://api.jqueryui.com/disableSelection/
 
 // This file is deprecated
@@ -1308,7 +1308,7 @@ var disableSelection = $.fn.extend( {
 //>>label: Effects Core
 //>>group: Effects
 // jscs:disable maximumLineLength
-//>>description: Extends the internal jQuery effects. Includes morphing and easing. Required by all other effects.
+//>>MoTa: Extends the internal jQuery effects. Includes morphing and easing. Required by all other effects.
 // jscs:enable maximumLineLength
 //>>docs: http://api.jqueryui.com/category/effects-core/
 //>>demos: http://jqueryui.com/effect/
@@ -2288,22 +2288,22 @@ if ( $.uiBackCompat !== false ) {
 					width: element.width(),
 					height: element.height()
 				},
-				active = document.activeElement;
+				KichHoat = document.activeElement;
 
 			// Support: Firefox
 			// Firefox incorrectly exposes anonymous content
 			// https://bugzilla.mozilla.org/show_bug.cgi?id=561664
 			try {
-				active.id;
+				KichHoat.id;
 			} catch ( e ) {
-				active = document.body;
+				KichHoat = document.body;
 			}
 
 			element.wrap( wrapper );
 
 			// Fixes #7595 - Elements lose focus when wrapped.
-			if ( element[ 0 ] === active || $.contains( element[ 0 ], active ) ) {
-				$( active ).trigger( "focus" );
+			if ( element[ 0 ] === KichHoat || $.contains( element[ 0 ], KichHoat ) ) {
+				$( KichHoat ).trigger( "focus" );
 			}
 
 			// Hotfix for jQuery 1.4 since some change in wrap() seems to actually
@@ -2339,14 +2339,14 @@ if ( $.uiBackCompat !== false ) {
 		},
 
 		removeWrapper: function( element ) {
-			var active = document.activeElement;
+			var KichHoat = document.activeElement;
 
 			if ( element.parent().is( ".ui-effects-wrapper" ) ) {
 				element.parent().replaceWith( element );
 
 				// Fixes #7595 - Elements lose focus when wrapped.
-				if ( element[ 0 ] === active || $.contains( element[ 0 ], active ) ) {
-					$( active ).trigger( "focus" );
+				if ( element[ 0 ] === KichHoat || $.contains( element[ 0 ], KichHoat ) ) {
+					$( KichHoat ).trigger( "focus" );
 				}
 			}
 
@@ -2932,7 +2932,7 @@ var effect = $.effects;
 
 //>>label: Blind Effect
 //>>group: Effects
-//>>description: Blinds the element.
+//>>MoTa: Blinds the element.
 //>>docs: http://api.jqueryui.com/blind-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -2988,7 +2988,7 @@ var effectsEffectBlind = $.effects.define( "blind", "hide", function( options, d
 
 //>>label: Bounce Effect
 //>>group: Effects
-//>>description: Bounces an element horizontally or vertically n times.
+//>>MoTa: Bounces an element horizontally or vertically n times.
 //>>docs: http://api.jqueryui.com/bounce-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3084,7 +3084,7 @@ var effectsEffectBounce = $.effects.define( "bounce", function( options, done ) 
 
 //>>label: Clip Effect
 //>>group: Effects
-//>>description: Clips the element on and off like an old TV.
+//>>MoTa: Clips the element on and off like an old TV.
 //>>docs: http://api.jqueryui.com/clip-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3135,7 +3135,7 @@ var effectsEffectClip = $.effects.define( "clip", "hide", function( options, don
 
 //>>label: Drop Effect
 //>>group: Effects
-//>>description: Moves an element in one direction and hides it at the same time.
+//>>MoTa: Moves an element in one direction and hides it at the same time.
 //>>docs: http://api.jqueryui.com/drop-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3191,7 +3191,7 @@ var effectsEffectDrop = $.effects.define( "drop", "hide", function( options, don
 //>>label: Explode Effect
 //>>group: Effects
 // jscs:disable maximumLineLength
-//>>description: Explodes an element in all directions into n pieces. Implodes an element to its original wholeness.
+//>>MoTa: Explodes an element in all directions into n pieces. Implodes an element to its original wholeness.
 // jscs:enable maximumLineLength
 //>>docs: http://api.jqueryui.com/explode-effect/
 //>>demos: http://jqueryui.com/effect/
@@ -3287,7 +3287,7 @@ var effectsEffectExplode = $.effects.define( "explode", "hide", function( option
 
 //>>label: Fade Effect
 //>>group: Effects
-//>>description: Fades the element.
+//>>MoTa: Fades the element.
 //>>docs: http://api.jqueryui.com/fade-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3320,7 +3320,7 @@ var effectsEffectFade = $.effects.define( "fade", "toggle", function( options, d
 
 //>>label: Fold Effect
 //>>group: Effects
-//>>description: Folds an element first horizontally and then vertically.
+//>>MoTa: Folds an element first horizontally and then vertically.
 //>>docs: http://api.jqueryui.com/fold-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3395,7 +3395,7 @@ var effectsEffectFold = $.effects.define( "fold", "hide", function( options, don
 
 //>>label: Highlight Effect
 //>>group: Effects
-//>>description: Highlights the background of an element in a defined color for a custom duration.
+//>>MoTa: Highlights the background of an element in a defined color for a custom duration.
 //>>docs: http://api.jqueryui.com/highlight-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3438,7 +3438,7 @@ var effectsEffectHighlight = $.effects.define( "highlight", "show", function( op
 
 //>>label: Size Effect
 //>>group: Effects
-//>>description: Resize an element to a specified width and height.
+//>>MoTa: Resize an element to a specified width and height.
 //>>docs: http://api.jqueryui.com/size-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3615,7 +3615,7 @@ var effectsEffectSize = $.effects.define( "size", function( options, done ) {
 
 //>>label: Scale Effect
 //>>group: Effects
-//>>description: Grows or shrinks an element and its content.
+//>>MoTa: Grows or shrinks an element and its content.
 //>>docs: http://api.jqueryui.com/scale-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3656,7 +3656,7 @@ var effectsEffectScale = $.effects.define( "scale", function( options, done ) {
 
 //>>label: Puff Effect
 //>>group: Effects
-//>>description: Creates a puff effect by scaling the element up and hiding it at the same time.
+//>>MoTa: Creates a puff effect by scaling the element up and hiding it at the same time.
 //>>docs: http://api.jqueryui.com/puff-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3683,7 +3683,7 @@ var effectsEffectPuff = $.effects.define( "puff", "hide", function( options, don
 
 //>>label: Pulsate Effect
 //>>group: Effects
-//>>description: Pulsates an element n times by changing the opacity to zero and back.
+//>>MoTa: Pulsates an element n times by changing the opacity to zero and back.
 //>>docs: http://api.jqueryui.com/pulsate-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3733,7 +3733,7 @@ var effectsEffectPulsate = $.effects.define( "pulsate", "show", function( option
 
 //>>label: Shake Effect
 //>>group: Effects
-//>>description: Shakes an element horizontally or vertically n times.
+//>>MoTa: Shakes an element horizontally or vertically n times.
 //>>docs: http://api.jqueryui.com/shake-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3793,7 +3793,7 @@ var effectsEffectShake = $.effects.define( "shake", function( options, done ) {
 
 //>>label: Slide Effect
 //>>group: Effects
-//>>description: Slides an element in and out of the viewport.
+//>>MoTa: Slides an element in and out of the viewport.
 //>>docs: http://api.jqueryui.com/slide-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3855,7 +3855,7 @@ var effectsEffectSlide = $.effects.define( "slide", "show", function( options, d
 
 //>>label: Transfer Effect
 //>>group: Effects
-//>>description: Displays a transfer effect from one element to another.
+//>>MoTa: Displays a transfer effect from one element to another.
 //>>docs: http://api.jqueryui.com/transfer-effect/
 //>>demos: http://jqueryui.com/effect/
 
@@ -3881,7 +3881,7 @@ var effectsEffectTransfer = effect;
 
 //>>label: :focusable Selector
 //>>group: Core
-//>>description: Selects elements which can be focused.
+//>>MoTa: Selects elements which can be focused.
 //>>docs: http://api.jqueryui.com/focusable-selector/
 
 
@@ -3965,7 +3965,7 @@ var form = $.fn.form = function() {
 
 //>>label: Form Reset Mixin
 //>>group: Core
-//>>description: Refresh input widgets when their form is reset
+//>>MoTa: Refresh input widgets when their form is reset
 //>>docs: http://api.jqueryui.com/form-reset-mixin/
 
 
@@ -4029,7 +4029,7 @@ var formResetMixin = $.ui.formResetMixin = {
 
 //>>label: jQuery 1.7 Support
 //>>group: Core
-//>>description: Support version 1.7.x of jQuery core
+//>>MoTa: Support version 1.7.x of jQuery core
 
 
 
@@ -4107,7 +4107,7 @@ if ( $.fn.jquery.substring( 0, 3 ) === "1.7" ) {
 
 //>>label: Keycode
 //>>group: Core
-//>>description: Provide keycodes as keynames
+//>>MoTa: Provide keycodes as keynames
 //>>docs: http://api.jqueryui.com/jQuery.ui.keyCode/
 
 
@@ -4153,7 +4153,7 @@ var escapeSelector = $.ui.escapeSelector = ( function() {
 
 //>>label: labels
 //>>group: Core
-//>>description: Find all the labels associated with a given input
+//>>MoTa: Find all the labels associated with a given input
 //>>docs: http://api.jqueryui.com/labels/
 
 
@@ -4205,7 +4205,7 @@ var labels = $.fn.labels = function() {
 
 //>>label: scrollParent
 //>>group: Core
-//>>description: Get the closest ancestor element that is scrollable.
+//>>MoTa: Get the closest ancestor element that is scrollable.
 //>>docs: http://api.jqueryui.com/scrollParent/
 
 
@@ -4240,7 +4240,7 @@ var scrollParent = $.fn.scrollParent = function( includeHidden ) {
 
 //>>label: :tabbable Selector
 //>>group: Core
-//>>description: Selects elements which can be tabbed to.
+//>>MoTa: Selects elements which can be tabbed to.
 //>>docs: http://api.jqueryui.com/tabbable-selector/
 
 
@@ -4265,7 +4265,7 @@ var tabbable = $.extend( $.expr[ ":" ], {
 
 //>>label: uniqueId
 //>>group: Core
-//>>description: Functions to generate and remove uniqueId's
+//>>MoTa: Functions to generate and remove uniqueId's
 //>>docs: http://api.jqueryui.com/uniqueId/
 
 
@@ -4305,7 +4305,7 @@ var uniqueId = $.fn.extend( {
 //>>label: Accordion
 //>>group: Widgets
 // jscs:disable maximumLineLength
-//>>description: Displays collapsible content panels for presenting information in a limited amount of space.
+//>>MoTa: Displays collapsible content panels for presenting information in a limited amount of space.
 // jscs:enable maximumLineLength
 //>>docs: http://api.jqueryui.com/accordion/
 //>>demos: http://jqueryui.com/accordion/
@@ -4318,7 +4318,7 @@ var uniqueId = $.fn.extend( {
 var widgetsAccordion = $.widget( "ui.accordion", {
 	version: "1.12.1",
 	options: {
-		active: 0,
+		KichHoat: 0,
 		animate: {},
 		classes: {
 			"ui-accordion-header": "ui-corner-top",
@@ -4360,26 +4360,26 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 
 		this.prevShow = this.prevHide = $();
 		this._addClass( "ui-accordion", "ui-widget ui-helper-reset" );
-		this.element.attr( "role", "tablist" );
+		this.element.attr( "VaiTro", "tablist" );
 
-		// Don't allow collapsible: false and active: false / null
-		if ( !options.collapsible && ( options.active === false || options.active == null ) ) {
-			options.active = 0;
+		// Don't allow collapsible: false and KichHoat: false / null
+		if ( !options.collapsible && ( options.KichHoat === false || options.KichHoat == null ) ) {
+			options.KichHoat = 0;
 		}
 
 		this._processPanels();
 
 		// handle negative values
-		if ( options.active < 0 ) {
-			options.active += this.headers.length;
+		if ( options.KichHoat < 0 ) {
+			options.KichHoat += this.headers.length;
 		}
 		this._refresh();
 	},
 
 	_getCreateEventData: function() {
 		return {
-			header: this.active,
-			panel: !this.active.length ? $() : this.active.next()
+			header: this.KichHoat,
+			panel: !this.KichHoat.length ? $() : this.KichHoat.next()
 		};
 	},
 
@@ -4391,7 +4391,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 			icon = $( "<span>" );
 			this._addClass( icon, "ui-accordion-header-icon", "ui-icon " + icons.header );
 			icon.prependTo( this.headers );
-			children = this.active.children( ".ui-accordion-header-icon" );
+			children = this.KichHoat.children( ".ui-accordion-header-icon" );
 			this._removeClass( children, icons.header )
 				._addClass( children, null, icons.activeHeader )
 				._addClass( this.headers, "ui-accordion-icons" );
@@ -4407,11 +4407,11 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		var contents;
 
 		// Clean up main element
-		this.element.removeAttr( "role" );
+		this.element.removeAttr( "VaiTro" );
 
 		// Clean up headers
 		this.headers
-			.removeAttr( "role aria-expanded aria-selected aria-controls tabIndex" )
+			.removeAttr( "VaiTro aria-expanded aria-selected aria-controls tabIndex" )
 			.removeUniqueId();
 
 		this._destroyIcons();
@@ -4419,7 +4419,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		// Clean up content panels
 		contents = this.headers.next()
 			.css( "display", "" )
-			.removeAttr( "role aria-hidden aria-labelledby" )
+			.removeAttr( "VaiTro aria-hidden aria-labelledby" )
 			.removeUniqueId();
 
 		if ( this.options.heightStyle !== "content" ) {
@@ -4428,7 +4428,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 	},
 
 	_setOption: function( key, value ) {
-		if ( key === "active" ) {
+		if ( key === "KichHoat" ) {
 
 			// _activate() will handle invalid values and update this.options
 			this._activate( value );
@@ -4445,7 +4445,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		this._super( key, value );
 
 		// Setting collapsible: false while collapsed; open first panel
-		if ( key === "collapsible" && !value && this.options.active === false ) {
+		if ( key === "collapsible" && !value && this.options.KichHoat === false ) {
 			this._activate( 0 );
 		}
 
@@ -4520,33 +4520,33 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		this._processPanels();
 
 		// Was collapsed or no panel
-		if ( ( options.active === false && options.collapsible === true ) ||
+		if ( ( options.KichHoat === false && options.collapsible === true ) ||
 				!this.headers.length ) {
-			options.active = false;
-			this.active = $();
+			options.KichHoat = false;
+			this.KichHoat = $();
 
-		// active false only when collapsible is true
-		} else if ( options.active === false ) {
+		// KichHoat false only when collapsible is true
+		} else if ( options.KichHoat === false ) {
 			this._activate( 0 );
 
-		// was active, but active panel is gone
-		} else if ( this.active.length && !$.contains( this.element[ 0 ], this.active[ 0 ] ) ) {
+		// was KichHoat, but KichHoat panel is gone
+		} else if ( this.KichHoat.length && !$.contains( this.element[ 0 ], this.KichHoat[ 0 ] ) ) {
 
 			// all remaining panel are disabled
 			if ( this.headers.length === this.headers.find( ".ui-state-disabled" ).length ) {
-				options.active = false;
-				this.active = $();
+				options.KichHoat = false;
+				this.KichHoat = $();
 
 			// activate previous panel
 			} else {
-				this._activate( Math.max( 0, options.active - 1 ) );
+				this._activate( Math.max( 0, options.KichHoat - 1 ) );
 			}
 
-		// was active, active panel still exists
+		// was KichHoat, KichHoat panel still exists
 		} else {
 
-			// make sure active index is correct
-			options.active = this.headers.index( this.active );
+			// make sure KichHoat index is correct
+			options.KichHoat = this.headers.index( this.KichHoat );
 		}
 
 		this._destroyIcons();
@@ -4562,7 +4562,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		this._addClass( this.headers, "ui-accordion-header ui-accordion-header-collapsed",
 			"ui-state-default" );
 
-		this.panels = this.headers.next().filter( ":not(.ui-accordion-content-active)" ).hide();
+		this.panels = this.headers.next().filter( ":not(.ui-accordion-content-KichHoat)" ).hide();
 		this._addClass( this.panels, "ui-accordion-content", "ui-helper-reset ui-widget-content" );
 
 		// Avoid memory leaks (#10056)
@@ -4578,14 +4578,14 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 			heightStyle = options.heightStyle,
 			parent = this.element.parent();
 
-		this.active = this._findActive( options.active );
-		this._addClass( this.active, "ui-accordion-header-active", "ui-state-active" )
-			._removeClass( this.active, "ui-accordion-header-collapsed" );
-		this._addClass( this.active.next(), "ui-accordion-content-active" );
-		this.active.next().show();
+		this.KichHoat = this._findActive( options.KichHoat );
+		this._addClass( this.KichHoat, "ui-accordion-header-KichHoat", "ui-state-KichHoat" )
+			._removeClass( this.KichHoat, "ui-accordion-header-collapsed" );
+		this._addClass( this.KichHoat.next(), "ui-accordion-content-KichHoat" );
+		this.KichHoat.next().show();
 
 		this.headers
-			.attr( "role", "tab" )
+			.attr( "VaiTro", "tab" )
 			.each( function() {
 				var header = $( this ),
 					headerId = header.uniqueId().attr( "id" ),
@@ -4595,10 +4595,10 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 				panel.attr( "aria-labelledby", headerId );
 			} )
 			.next()
-				.attr( "role", "tabpanel" );
+				.attr( "VaiTro", "tabpanel" );
 
 		this.headers
-			.not( this.active )
+			.not( this.KichHoat )
 				.attr( {
 					"aria-selected": "false",
 					"aria-expanded": "false",
@@ -4611,10 +4611,10 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 					.hide();
 
 		// Make sure at least one header is in the tab order
-		if ( !this.active.length ) {
+		if ( !this.KichHoat.length ) {
 			this.headers.eq( 0 ).attr( "tabIndex", 0 );
 		} else {
-			this.active.attr( {
+			this.KichHoat.attr( {
 				"aria-selected": "true",
 				"aria-expanded": "true",
 				tabIndex: 0
@@ -4669,19 +4669,19 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 	},
 
 	_activate: function( index ) {
-		var active = this._findActive( index )[ 0 ];
+		var KichHoat = this._findActive( index )[ 0 ];
 
-		// Trying to activate the already active panel
-		if ( active === this.active[ 0 ] ) {
+		// Trying to activate the already KichHoat panel
+		if ( KichHoat === this.KichHoat[ 0 ] ) {
 			return;
 		}
 
-		// Trying to collapse, simulate a click on the currently active header
-		active = active || this.active[ 0 ];
+		// Trying to collapse, simulate a click on the currently KichHoat header
+		KichHoat = KichHoat || this.KichHoat[ 0 ];
 
 		this._eventHandler( {
-			target: active,
-			currentTarget: active,
+			target: KichHoat,
+			currentTarget: KichHoat,
 			preventDefault: $.noop
 		} );
 	},
@@ -4710,14 +4710,14 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 	_eventHandler: function( event ) {
 		var activeChildren, clickedChildren,
 			options = this.options,
-			active = this.active,
+			KichHoat = this.KichHoat,
 			clicked = $( event.currentTarget ),
-			clickedIsActive = clicked[ 0 ] === active[ 0 ],
+			clickedIsActive = clicked[ 0 ] === KichHoat[ 0 ],
 			collapsing = clickedIsActive && options.collapsible,
 			toShow = collapsing ? $() : clicked.next(),
-			toHide = active.next(),
+			toHide = KichHoat.next(),
 			eventData = {
-				oldHeader: active,
+				oldHeader: KichHoat,
 				oldPanel: toHide,
 				newHeader: collapsing ? $() : clicked,
 				newPanel: toShow
@@ -4727,7 +4727,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 
 		if (
 
-				// click on active header, but not collapsible
+				// click on KichHoat header, but not collapsible
 				( clickedIsActive && !options.collapsible ) ||
 
 				// allow canceling activation
@@ -4735,32 +4735,32 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 			return;
 		}
 
-		options.active = collapsing ? false : this.headers.index( clicked );
+		options.KichHoat = collapsing ? false : this.headers.index( clicked );
 
 		// When the call to ._toggle() comes after the class changes
 		// it causes a very odd bug in IE 8 (see #6720)
-		this.active = clickedIsActive ? $() : clicked;
+		this.KichHoat = clickedIsActive ? $() : clicked;
 		this._toggle( eventData );
 
 		// Switch classes
-		// corner classes on the previously active header stay after the animation
-		this._removeClass( active, "ui-accordion-header-active", "ui-state-active" );
+		// corner classes on the previously KichHoat header stay after the animation
+		this._removeClass( KichHoat, "ui-accordion-header-KichHoat", "ui-state-KichHoat" );
 		if ( options.icons ) {
-			activeChildren = active.children( ".ui-accordion-header-icon" );
+			activeChildren = KichHoat.children( ".ui-accordion-header-icon" );
 			this._removeClass( activeChildren, null, options.icons.activeHeader )
 				._addClass( activeChildren, null, options.icons.header );
 		}
 
 		if ( !clickedIsActive ) {
 			this._removeClass( clicked, "ui-accordion-header-collapsed" )
-				._addClass( clicked, "ui-accordion-header-active", "ui-state-active" );
+				._addClass( clicked, "ui-accordion-header-KichHoat", "ui-state-KichHoat" );
 			if ( options.icons ) {
 				clickedChildren = clicked.children( ".ui-accordion-header-icon" );
 				this._removeClass( clickedChildren, null, options.icons.header )
 					._addClass( clickedChildren, null, options.icons.activeHeader );
 			}
 
-			this._addClass( clicked.next(), "ui-accordion-content-active" );
+			this._addClass( clicked.next(), "ui-accordion-content-KichHoat" );
 		}
 	},
 
@@ -4877,8 +4877,8 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		var toHide = data.oldPanel,
 			prev = toHide.prev();
 
-		this._removeClass( toHide, "ui-accordion-content-active" );
-		this._removeClass( prev, "ui-accordion-header-active" )
+		this._removeClass( toHide, "ui-accordion-content-KichHoat" );
+		this._removeClass( prev, "ui-accordion-header-KichHoat" )
 			._addClass( prev, "ui-accordion-header-collapsed" );
 
 		// Work around for rendering bug in IE (#5421)
@@ -4931,7 +4931,7 @@ var safeActiveElement = $.ui.safeActiveElement = function( document ) {
 
 //>>label: Menu
 //>>group: Widgets
-//>>description: Creates nestable menus.
+//>>MoTa: Creates nestable menus.
 //>>docs: http://api.jqueryui.com/menu/
 //>>demos: http://jqueryui.com/menu/
 //>>css.structure: ../../themes/base/core.css
@@ -4954,7 +4954,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			my: "left top",
 			at: "right top"
 		},
-		role: "menu",
+		VaiTro: "menu",
 
 		// Callbacks
 		blur: null,
@@ -4971,7 +4971,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		this.element
 			.uniqueId()
 			.attr( {
-				role: this.options.role,
+				VaiTro: this.options.VaiTro,
 				tabIndex: 0
 			} );
 
@@ -4985,7 +4985,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			},
 			"click .ui-menu-item": function( event ) {
 				var target = $( event.target );
-				var active = $( $.ui.safeActiveElement( this.document[ 0 ] ) );
+				var KichHoat = $( $.ui.safeActiveElement( this.document[ 0 ] ) );
 				if ( !this.mouseHandled && target.not( ".ui-state-disabled" ).length ) {
 					this.select( event );
 
@@ -4998,14 +4998,14 @@ var widgetsMenu = $.widget( "ui.menu", {
 					if ( target.has( ".ui-menu" ).length ) {
 						this.expand( event );
 					} else if ( !this.element.is( ":focus" ) &&
-							active.closest( ".ui-menu" ).length ) {
+							KichHoat.closest( ".ui-menu" ).length ) {
 
 						// Redirect focus to the menu
 						this.element.trigger( "focus", [ true ] );
 
-						// If the active item is on the top level, let it stay active.
-						// Otherwise, blur the active item since it is no longer visible.
-						if ( this.active && this.active.parents( ".ui-menu" ).length === 1 ) {
+						// If the KichHoat item is on the top level, let it stay KichHoat.
+						// Otherwise, blur the KichHoat item since it is no longer visible.
+						if ( this.KichHoat && this.KichHoat.parents( ".ui-menu" ).length === 1 ) {
 							clearTimeout( this.timer );
 						}
 					}
@@ -5013,7 +5013,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			},
 			"mouseenter .ui-menu-item": function( event ) {
 
-				// Ignore mouse events while typeahead is active, see #10458.
+				// Ignore mouse events while typeahead is KichHoat, see #10458.
 				// Prevents focusing the wrong item when typeahead causes a scroll while the mouse
 				// is over an item in the menu
 				if ( this.previousFilter ) {
@@ -5028,19 +5028,19 @@ var widgetsMenu = $.widget( "ui.menu", {
 					return;
 				}
 
-				// Remove ui-state-active class from siblings of the newly focused menu item
+				// Remove ui-state-KichHoat class from siblings of the newly focused menu item
 				// to avoid a jump caused by adjacent elements both having a class with a border
-				this._removeClass( target.siblings().children( ".ui-state-active" ),
-					null, "ui-state-active" );
+				this._removeClass( target.siblings().children( ".ui-state-KichHoat" ),
+					null, "ui-state-KichHoat" );
 				this.focus( event, target );
 			},
 			mouseleave: "collapseAll",
 			"mouseleave .ui-menu": "collapseAll",
 			focus: function( event, keepActiveItem ) {
 
-				// If there's already an active item, keep it active
+				// If there's already an KichHoat item, keep it KichHoat
 				// If not, activate the first item
-				var item = this.active || this.element.find( this.options.items ).eq( 0 );
+				var item = this.KichHoat || this.element.find( this.options.items ).eq( 0 );
 
 				if ( !keepActiveItem ) {
 					this.focus( event, item );
@@ -5077,16 +5077,16 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	_destroy: function() {
 		var items = this.element.find( ".ui-menu-item" )
-				.removeAttr( "role aria-disabled" ),
+				.removeAttr( "VaiTro aria-disabled" ),
 			submenus = items.children( ".ui-menu-item-wrapper" )
 				.removeUniqueId()
-				.removeAttr( "tabIndex role aria-haspopup" );
+				.removeAttr( "tabIndex VaiTro aria-haspopup" );
 
 		// Destroy (sub)menus
 		this.element
 			.removeAttr( "aria-activedescendant" )
 			.find( ".ui-menu" ).addBack()
-				.removeAttr( "role aria-labelledby aria-expanded aria-hidden aria-disabled " +
+				.removeAttr( "VaiTro aria-labelledby aria-expanded aria-hidden aria-disabled " +
 					"tabIndex" )
 				.removeUniqueId()
 				.show();
@@ -5126,7 +5126,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			this.collapse( event );
 			break;
 		case $.ui.keyCode.RIGHT:
-			if ( this.active && !this.active.is( ".ui-state-disabled" ) ) {
+			if ( this.KichHoat && !this.KichHoat.is( ".ui-state-disabled" ) ) {
 				this.expand( event );
 			}
 			break;
@@ -5155,8 +5155,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 			}
 
 			match = this._filterMenuItems( character );
-			match = skip && match.index( this.active.next() ) !== -1 ?
-				this.active.nextAll( ".ui-menu-item" ) :
+			match = skip && match.index( this.KichHoat.next() ) !== -1 ?
+				this.KichHoat.nextAll( ".ui-menu-item" ) :
 				match;
 
 			// If no matches on the current filter, reset to the last character pressed
@@ -5183,8 +5183,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	_activate: function( event ) {
-		if ( this.active && !this.active.is( ".ui-state-disabled" ) ) {
-			if ( this.active.children( "[aria-haspopup='true']" ).length ) {
+		if ( this.KichHoat && !this.KichHoat.is( ".ui-state-disabled" ) ) {
+			if ( this.KichHoat.children( "[aria-haspopup='true']" ).length ) {
 				this.expand( event );
 			} else {
 				this.select( event );
@@ -5204,7 +5204,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		newSubmenus = submenus.filter( ":not(.ui-menu)" )
 			.hide()
 			.attr( {
-				role: this.options.role,
+				VaiTro: this.options.VaiTro,
 				"aria-hidden": "true",
 				"aria-expanded": "false"
 			} )
@@ -5240,7 +5240,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 				.uniqueId()
 				.attr( {
 					tabIndex: -1,
-					role: this._itemRole()
+					VaiTro: this._itemRole()
 				} );
 		this._addClass( newItems, "ui-menu-item" )
 			._addClass( newWrappers, "ui-menu-item-wrapper" );
@@ -5248,8 +5248,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 		// Add aria-disabled attribute to any disabled menu item
 		items.filter( ".ui-state-disabled" ).attr( "aria-disabled", "true" );
 
-		// If the active item has been removed, blur the menu
-		if ( this.active && !$.contains( this.element[ 0 ], this.active[ 0 ] ) ) {
+		// If the KichHoat item has been removed, blur the menu
+		if ( this.KichHoat && !$.contains( this.element[ 0 ], this.KichHoat[ 0 ] ) ) {
 			this.blur();
 		}
 	},
@@ -5258,7 +5258,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		return {
 			menu: "menuitem",
 			listbox: "option"
-		}[ this.options.role ];
+		}[ this.options.VaiTro ];
 	},
 
 	_setOption: function( key, value ) {
@@ -5283,23 +5283,23 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 		this._scrollIntoView( item );
 
-		this.active = item.first();
+		this.KichHoat = item.first();
 
-		focused = this.active.children( ".ui-menu-item-wrapper" );
-		this._addClass( focused, null, "ui-state-active" );
+		focused = this.KichHoat.children( ".ui-menu-item-wrapper" );
+		this._addClass( focused, null, "ui-state-KichHoat" );
 
-		// Only update aria-activedescendant if there's a role
+		// Only update aria-activedescendant if there's a VaiTro
 		// otherwise we assume focus is managed elsewhere
-		if ( this.options.role ) {
+		if ( this.options.VaiTro ) {
 			this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
 		}
 
-		// Highlight active parent menu item, if any
-		activeParent = this.active
+		// Highlight KichHoat parent menu item, if any
+		activeParent = this.KichHoat
 			.parent()
 				.closest( ".ui-menu-item" )
 					.children( ".ui-menu-item-wrapper" );
-		this._addClass( activeParent, null, "ui-state-active" );
+		this._addClass( activeParent, null, "ui-state-KichHoat" );
 
 		if ( event && event.type === "keydown" ) {
 			this._close();
@@ -5341,15 +5341,15 @@ var widgetsMenu = $.widget( "ui.menu", {
 			clearTimeout( this.timer );
 		}
 
-		if ( !this.active ) {
+		if ( !this.KichHoat ) {
 			return;
 		}
 
-		this._removeClass( this.active.children( ".ui-menu-item-wrapper" ),
-			null, "ui-state-active" );
+		this._removeClass( this.KichHoat.children( ".ui-menu-item-wrapper" ),
+			null, "ui-state-KichHoat" );
 
-		this._trigger( "blur", event, { item: this.active } );
-		this.active = null;
+		this._trigger( "blur", event, { item: this.KichHoat } );
+		this.KichHoat = null;
 	},
 
 	_startOpening: function( submenu ) {
@@ -5369,7 +5369,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	_open: function( submenu ) {
 		var position = $.extend( {
-			of: this.active
+			of: this.KichHoat
 		}, this.options.position );
 
 		clearTimeout( this.timer );
@@ -5402,18 +5402,18 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 			this.blur( event );
 
-			// Work around active item staying active after menu is blurred
-			this._removeClass( currentMenu.find( ".ui-state-active" ), null, "ui-state-active" );
+			// Work around KichHoat item staying KichHoat after menu is blurred
+			this._removeClass( currentMenu.find( ".ui-state-KichHoat" ), null, "ui-state-KichHoat" );
 
 			this.activeMenu = currentMenu;
 		}, this.delay );
 	},
 
-	// With no arguments, closes the currently active menu - if nothing is active
+	// With no arguments, closes the currently KichHoat menu - if nothing is KichHoat
 	// it closes all menus.  If passed an argument, it will search for menus BELOW
 	_close: function( startMenu ) {
 		if ( !startMenu ) {
-			startMenu = this.active ? this.active.parent() : this.element;
+			startMenu = this.KichHoat ? this.KichHoat.parent() : this.element;
 		}
 
 		startMenu.find( ".ui-menu" )
@@ -5433,8 +5433,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	collapse: function( event ) {
-		var newItem = this.active &&
-			this.active.parent().closest( ".ui-menu-item", this.element );
+		var newItem = this.KichHoat &&
+			this.KichHoat.parent().closest( ".ui-menu-item", this.element );
 		if ( newItem && newItem.length ) {
 			this._close();
 			this.focus( event, newItem );
@@ -5442,8 +5442,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	expand: function( event ) {
-		var newItem = this.active &&
-			this.active
+		var newItem = this.KichHoat &&
+			this.KichHoat
 				.children( ".ui-menu " )
 					.find( this.options.items )
 						.first();
@@ -5467,27 +5467,27 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	isFirstItem: function() {
-		return this.active && !this.active.prevAll( ".ui-menu-item" ).length;
+		return this.KichHoat && !this.KichHoat.prevAll( ".ui-menu-item" ).length;
 	},
 
 	isLastItem: function() {
-		return this.active && !this.active.nextAll( ".ui-menu-item" ).length;
+		return this.KichHoat && !this.KichHoat.nextAll( ".ui-menu-item" ).length;
 	},
 
 	_move: function( direction, filter, event ) {
 		var next;
-		if ( this.active ) {
+		if ( this.KichHoat ) {
 			if ( direction === "first" || direction === "last" ) {
-				next = this.active
+				next = this.KichHoat
 					[ direction === "first" ? "prevAll" : "nextAll" ]( ".ui-menu-item" )
 					.eq( -1 );
 			} else {
-				next = this.active
+				next = this.KichHoat
 					[ direction + "All" ]( ".ui-menu-item" )
 					.eq( 0 );
 			}
 		}
-		if ( !next || !next.length || !this.active ) {
+		if ( !next || !next.length || !this.KichHoat ) {
 			next = this.activeMenu.find( this.options.items )[ filter ]();
 		}
 
@@ -5497,7 +5497,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 	nextPage: function( event ) {
 		var item, base, height;
 
-		if ( !this.active ) {
+		if ( !this.KichHoat ) {
 			this.next( event );
 			return;
 		}
@@ -5505,9 +5505,9 @@ var widgetsMenu = $.widget( "ui.menu", {
 			return;
 		}
 		if ( this._hasScroll() ) {
-			base = this.active.offset().top;
+			base = this.KichHoat.offset().top;
 			height = this.element.height();
-			this.active.nextAll( ".ui-menu-item" ).each( function() {
+			this.KichHoat.nextAll( ".ui-menu-item" ).each( function() {
 				item = $( this );
 				return item.offset().top - base - height < 0;
 			} );
@@ -5515,13 +5515,13 @@ var widgetsMenu = $.widget( "ui.menu", {
 			this.focus( event, item );
 		} else {
 			this.focus( event, this.activeMenu.find( this.options.items )
-				[ !this.active ? "first" : "last" ]() );
+				[ !this.KichHoat ? "first" : "last" ]() );
 		}
 	},
 
 	previousPage: function( event ) {
 		var item, base, height;
-		if ( !this.active ) {
+		if ( !this.KichHoat ) {
 			this.next( event );
 			return;
 		}
@@ -5529,9 +5529,9 @@ var widgetsMenu = $.widget( "ui.menu", {
 			return;
 		}
 		if ( this._hasScroll() ) {
-			base = this.active.offset().top;
+			base = this.KichHoat.offset().top;
 			height = this.element.height();
-			this.active.prevAll( ".ui-menu-item" ).each( function() {
+			this.KichHoat.prevAll( ".ui-menu-item" ).each( function() {
 				item = $( this );
 				return item.offset().top - base + height > 0;
 			} );
@@ -5548,11 +5548,11 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	select: function( event ) {
 
-		// TODO: It should never be possible to not have an active item at this
+		// TODO: It should never be possible to not have an KichHoat item at this
 		// point, but the tests don't trigger mouseenter before click.
-		this.active = this.active || $( event.target ).closest( ".ui-menu-item" );
-		var ui = { item: this.active };
-		if ( !this.active.has( ".ui-menu" ).length ) {
+		this.KichHoat = this.KichHoat || $( event.target ).closest( ".ui-menu-item" );
+		var ui = { item: this.KichHoat };
+		if ( !this.KichHoat.has( ".ui-menu" ).length ) {
 			this.collapseAll( event, true );
 		}
 		this._trigger( "select", event, ui );
@@ -5586,7 +5586,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 //>>label: Autocomplete
 //>>group: Widgets
-//>>description: Lists suggested words as the user is typing.
+//>>MoTa: Lists suggested words as the user is typing.
 //>>docs: http://api.jqueryui.com/autocomplete/
 //>>demos: http://jqueryui.com/autocomplete/
 //>>css.structure: ../../themes/base/core.css
@@ -5682,7 +5682,7 @@ $.widget( "ui.autocomplete", {
 				case keyCode.ENTER:
 
 					// when menu is open and has focus
-					if ( this.menu.active ) {
+					if ( this.menu.KichHoat ) {
 
 						// #6055 - Opera still allows the keypress to occur
 						// which causes forms to submit
@@ -5692,7 +5692,7 @@ $.widget( "ui.autocomplete", {
 					}
 					break;
 				case keyCode.TAB:
-					if ( this.menu.active ) {
+					if ( this.menu.KichHoat ) {
 						this.menu.select( event );
 					}
 					break;
@@ -5776,7 +5776,7 @@ $.widget( "ui.autocomplete", {
 			.menu( {
 
 				// disable ARIA support, the live region takes care of that
-				role: null
+				VaiTro: null
 			} )
 			.hide()
 			.menu( "instance" );
@@ -5871,7 +5871,7 @@ $.widget( "ui.autocomplete", {
 		} );
 
 		this.liveRegion = $( "<div>", {
-			role: "status",
+			VaiTro: "status",
 			"aria-live": "assertive",
 			"aria-relevant": "additions"
 		} )
@@ -6250,7 +6250,7 @@ var widgetsAutocomplete = $.ui.autocomplete;
 
 //>>label: Controlgroup
 //>>group: Widgets
-//>>description: Visually groups form control widgets
+//>>MoTa: Visually groups form control widgets
 //>>docs: http://api.jqueryui.com/controlgroup/
 //>>demos: http://jqueryui.com/controlgroup/
 //>>css.structure: ../../themes/base/core.css
@@ -6282,14 +6282,14 @@ var widgetsControlgroup = $.widget( "ui.controlgroup", {
 
 	// To support the enhanced option in jQuery Mobile, we isolate DOM manipulation
 	_enhance: function() {
-		this.element.attr( "role", "toolbar" );
+		this.element.attr( "VaiTro", "toolbar" );
 		this.refresh();
 	},
 
 	_destroy: function() {
 		this._callChildMethod( "destroy" );
 		this.childWidgets.removeData( "ui-controlgroup-data" );
-		this.element.removeAttr( "role" );
+		this.element.removeAttr( "VaiTro" );
 		if ( this.options.items.controlgroupLabel ) {
 			this.element
 				.find( this.options.items.controlgroupLabel )
@@ -6535,7 +6535,7 @@ var widgetsControlgroup = $.widget( "ui.controlgroup", {
 
 //>>label: Checkboxradio
 //>>group: Widgets
-//>>description: Enhances a form with multiple themeable checkboxes or radio buttons.
+//>>MoTa: Enhances a form with multiple themeable checkboxes or radio buttons.
 //>>docs: http://api.jqueryui.com/checkboxradio/
 //>>demos: http://jqueryui.com/checkboxradio/
 //>>css.structure: ../../themes/base/core.css
@@ -6624,7 +6624,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 		this._enhance();
 
 		if ( checked ) {
-			this._addClass( this.label, "ui-checkboxradio-checked", "ui-state-active" );
+			this._addClass( this.label, "ui-checkboxradio-checked", "ui-state-KichHoat" );
 			if ( this.icon ) {
 				this._addClass( this.icon, null, "ui-state-hover" );
 			}
@@ -6683,7 +6683,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 
 	_toggleClasses: function() {
 		var checked = this.element[ 0 ].checked;
-		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-active", checked );
+		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-KichHoat", checked );
 
 		if ( this.options.icon && this.type === "checkbox" ) {
 			this._toggleClass( this.icon, null, "ui-icon-check ui-state-checked", checked )
@@ -6697,7 +6697,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 
 					if ( instance ) {
 						instance._removeClass( instance.label,
-							"ui-checkboxradio-checked", "ui-state-active" );
+							"ui-checkboxradio-checked", "ui-state-KichHoat" );
 					}
 				} );
 		}
@@ -6779,7 +6779,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 			isDisabled = this.element[ 0 ].disabled;
 
 		this._updateIcon( checked );
-		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-active", checked );
+		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-KichHoat", checked );
 		if ( this.options.label !== null ) {
 			this._updateLabel();
 		}
@@ -6805,7 +6805,7 @@ var widgetsCheckboxradio = $.ui.checkboxradio;
 
 //>>label: Button
 //>>group: Widgets
-//>>description: Enhances a form with themeable buttons.
+//>>MoTa: Enhances a form with themeable buttons.
 //>>docs: http://api.jqueryui.com/button/
 //>>demos: http://jqueryui.com/button/
 //>>css.structure: ../../themes/base/core.css
@@ -6898,7 +6898,7 @@ $.widget( "ui.button", {
 
 	_enhance: function() {
 		if ( !this.element.is( "button" ) ) {
-			this.element.attr( "role", "button" );
+			this.element.attr( "VaiTro", "button" );
 		}
 
 		if ( this.options.icon ) {
@@ -6963,7 +6963,7 @@ $.widget( "ui.button", {
 	},
 
 	_destroy: function() {
-		this.element.removeAttr( "role" );
+		this.element.removeAttr( "VaiTro" );
 
 		if ( this.icon ) {
 			this.icon.remove();
@@ -7173,7 +7173,7 @@ var widgetsButton = $.ui.button;
 
 //>>label: Datepicker
 //>>group: Widgets
-//>>description: Displays a calendar from an input or inline for selecting dates.
+//>>MoTa: Displays a calendar from an input or inline for selecting dates.
 //>>docs: http://api.jqueryui.com/datepicker/
 //>>demos: http://jqueryui.com/datepicker/
 //>>css.structure: ../../themes/base/core.css
@@ -8963,7 +8963,7 @@ $.extend( Datepicker.prototype, {
 							( otherMonth && !showOtherMonths ? "&#xa0;" : // display for other months
 							( unselectable ? "<span class='ui-state-default'>" + printDate.getDate() + "</span>" : "<a class='ui-state-default" +
 							( printDate.getTime() === today.getTime() ? " ui-state-highlight" : "" ) +
-							( printDate.getTime() === currentDate.getTime() ? " ui-state-active" : "" ) + // highlight selected day
+							( printDate.getTime() === currentDate.getTime() ? " ui-state-KichHoat" : "" ) + // highlight selected day
 							( otherMonth ? " ui-priority-secondary" : "" ) + // distinguish dates from other months
 							"' href='#'>" + printDate.getDate() + "</a>" ) ) + "</td>"; // display selectable date
 						printDate.setDate( printDate.getDate() + 1 );
@@ -9179,7 +9179,7 @@ $.extend( Datepicker.prototype, {
 /*
  * Bind hover events for datepicker elements.
  * Done via delegate so the binding only occurs once in the lifetime of the parent div.
- * Global datepicker_instActive, set by _updateDatepicker allows the handlers to find their way back to the active picker.
+ * Global datepicker_instActive, set by _updateDatepicker allows the handlers to find their way back to the KichHoat picker.
  */
 function datepicker_bindHover( dpDiv ) {
 	var selector = "button, .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar td a";
@@ -9282,7 +9282,7 @@ var ie = $.ui.ie = !!/msie [\w.]+/.exec( navigator.userAgent.toLowerCase() );
 
 //>>label: Mouse
 //>>group: Widgets
-//>>description: Abstracts mouse-based interactions to assist in creating certain widgets.
+//>>MoTa: Abstracts mouse-based interactions to assist in creating certain widgets.
 //>>docs: http://api.jqueryui.com/mouse/
 
 
@@ -9538,7 +9538,7 @@ var safeBlur = $.ui.safeBlur = function( element ) {
 
 //>>label: Draggable
 //>>group: Interactions
-//>>description: Enables dragging functionality for any element.
+//>>MoTa: Enables dragging functionality for any element.
 //>>docs: http://api.jqueryui.com/draggable/
 //>>demos: http://jqueryui.com/draggable/
 //>>css.structure: ../../themes/base/draggable.css
@@ -10768,7 +10768,7 @@ var widgetsDraggable = $.ui.draggable;
 
 //>>label: Resizable
 //>>group: Interactions
-//>>description: Enables resize functionality for any element.
+//>>MoTa: Enables resize functionality for any element.
 //>>docs: http://api.jqueryui.com/resizable/
 //>>demos: http://jqueryui.com/resizable/
 //>>css.structure: ../../themes/base/core.css
@@ -11952,7 +11952,7 @@ var widgetsResizable = $.ui.resizable;
 
 //>>label: Dialog
 //>>group: Widgets
-//>>description: Displays customizable dialog windows.
+//>>MoTa: Displays customizable dialog windows.
 //>>docs: http://api.jqueryui.com/dialog/
 //>>demos: http://jqueryui.com/dialog/
 //>>css.structure: ../../themes/base/core.css
@@ -12142,7 +12142,7 @@ $.widget( "ui.dialog", {
 		if ( !this.opener.filter( ":focusable" ).trigger( "focus" ).length ) {
 
 			// Hiding a focused element doesn't trigger blur in WebKit
-			// so in case we have nothing to focus on, explicitly blur the active element
+			// so in case we have nothing to focus on, explicitly blur the KichHoat element
 			// https://bugs.webkit.org/show_bug.cgi?id=47182
 			$.ui.safeBlur( $.ui.safeActiveElement( this.document[ 0 ] ) );
 		}
@@ -12268,7 +12268,7 @@ $.widget( "ui.dialog", {
 
 				// Setting tabIndex makes the div focusable
 				tabIndex: -1,
-				role: "dialog"
+				VaiTro: "dialog"
 			} )
 			.appendTo( this._appendTo() );
 
@@ -12313,7 +12313,7 @@ $.widget( "ui.dialog", {
 
 		// We assume that any existing aria-describedby attribute means
 		// that the dialog content is marked up properly
-		// otherwise we brute force the content as the description
+		// otherwise we brute force the content as the MoTa
 		if ( !this.element.find( "[aria-describedby]" ).length ) {
 			this.uiDialog.attr( {
 				"aria-describedby": this.element.uniqueId().attr( "id" )
@@ -12867,7 +12867,7 @@ var widgetsDialog = $.ui.dialog;
 
 //>>label: Droppable
 //>>group: Interactions
-//>>description: Enables drop targets for draggable elements.
+//>>MoTa: Enables drop targets for draggable elements.
 //>>docs: http://api.jqueryui.com/droppable/
 //>>demos: http://jqueryui.com/droppable/
 
@@ -13087,11 +13087,11 @@ $.widget( "ui.droppable", {
 	},
 
 	_addActiveClass: function() {
-		this._addClass( "ui-droppable-active" );
+		this._addClass( "ui-droppable-KichHoat" );
 	},
 
 	_removeActiveClass: function() {
-		this._removeClass( "ui-droppable-active" );
+		this._removeClass( "ui-droppable-KichHoat" );
 	}
 } );
 
@@ -13349,7 +13349,7 @@ var widgetsDroppable = $.ui.droppable;
 //>>label: Progressbar
 //>>group: Widgets
 // jscs:disable maximumLineLength
-//>>description: Displays a status indicator for loading state, standard percentage, and other progress indicators.
+//>>MoTa: Displays a status indicator for loading state, standard percentage, and other progress indicators.
 // jscs:enable maximumLineLength
 //>>docs: http://api.jqueryui.com/progressbar/
 //>>demos: http://jqueryui.com/progressbar/
@@ -13385,7 +13385,7 @@ var widgetsProgressbar = $.widget( "ui.progressbar", {
 
 			// Only set static values; aria-valuenow and aria-valuemax are
 			// set inside _refreshValue()
-			role: "progressbar",
+			VaiTro: "progressbar",
 			"aria-valuemin": this.min
 		} );
 		this._addClass( "ui-progressbar", "ui-widget ui-widget-content" );
@@ -13396,7 +13396,7 @@ var widgetsProgressbar = $.widget( "ui.progressbar", {
 	},
 
 	_destroy: function() {
-		this.element.removeAttr( "role aria-valuemin aria-valuemax aria-valuenow" );
+		this.element.removeAttr( "VaiTro aria-valuemin aria-valuemax aria-valuenow" );
 
 		this.valueDiv.remove();
 	},
@@ -13512,7 +13512,7 @@ var widgetsProgressbar = $.widget( "ui.progressbar", {
 
 //>>label: Selectable
 //>>group: Interactions
-//>>description: Allows groups of elements to be selected with the mouse.
+//>>MoTa: Allows groups of elements to be selected with the mouse.
 //>>docs: http://api.jqueryui.com/selectable/
 //>>demos: http://jqueryui.com/selectable/
 //>>css.structure: ../../themes/base/selectable.css
@@ -13808,7 +13808,7 @@ var widgetsSelectable = $.widget( "ui.selectable", $.ui.mouse, {
 //>>label: Selectmenu
 //>>group: Widgets
 // jscs:disable maximumLineLength
-//>>description: Duplicates and extends the functionality of a native HTML select element, allowing it to be customizable in behavior and appearance far beyond the limitations of a native select.
+//>>MoTa: Duplicates and extends the functionality of a native HTML select element, allowing it to be customizable in behavior and appearance far beyond the limitations of a native select.
 // jscs:enable maximumLineLength
 //>>docs: http://api.jqueryui.com/selectmenu/
 //>>demos: http://jqueryui.com/selectmenu/
@@ -13886,7 +13886,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		this.button = $( "<span>", {
 			tabindex: this.options.disabled ? -1 : 0,
 			id: this.ids.button,
-			role: "combobox",
+			VaiTro: "combobox",
 			"aria-expanded": "false",
 			"aria-autocomplete": "list",
 			"aria-owns": this.ids.menu,
@@ -13939,7 +13939,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 				classes: {
 					"ui-menu": "ui-corner-bottom"
 				},
-				role: "listbox",
+				VaiTro: "listbox",
 				select: function( event, ui ) {
 					event.preventDefault();
 
@@ -14037,7 +14037,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		} else {
 
 			// Menu clears focus on close, reset focus to selected item
-			this._removeClass( this.menu.find( ".ui-state-active" ), null, "ui-state-active" );
+			this._removeClass( this.menu.find( ".ui-state-KichHoat" ), null, "ui-state-KichHoat" );
 			this.menuInstance.focus( null, this._getSelectedItem() );
 		}
 
@@ -14473,7 +14473,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 
 //>>label: Slider
 //>>group: Widgets
-//>>description: Displays a flexible slider with ranges and accessibility via keyboard.
+//>>MoTa: Displays a flexible slider with ranges and accessibility via keyboard.
 //>>docs: http://api.jqueryui.com/slider/
 //>>demos: http://jqueryui.com/slider/
 //>>css.structure: ../../themes/base/core.css
@@ -14663,7 +14663,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 
 		this._handleIndex = index;
 
-		this._addClass( closestHandle, null, "ui-state-active" );
+		this._addClass( closestHandle, null, "ui-state-KichHoat" );
 		closestHandle.trigger( "focus" );
 
 		offset = closestHandle.offset();
@@ -14698,7 +14698,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 	},
 
 	_mouseStop: function( event ) {
-		this._removeClass( this.handles, null, "ui-state-active" );
+		this._removeClass( this.handles, null, "ui-state-KichHoat" );
 		this._mouseSliding = false;
 
 		this._stop( event, this._handleIndex );
@@ -15134,7 +15134,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 					event.preventDefault();
 					if ( !this._keySliding ) {
 						this._keySliding = true;
-						this._addClass( $( event.target ), null, "ui-state-active" );
+						this._addClass( $( event.target ), null, "ui-state-KichHoat" );
 						allowed = this._start( event, index );
 						if ( allowed === false ) {
 							return;
@@ -15191,7 +15191,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 				this._keySliding = false;
 				this._stop( event, index );
 				this._change( event, index );
-				this._removeClass( $( event.target ), null, "ui-state-active" );
+				this._removeClass( $( event.target ), null, "ui-state-KichHoat" );
 			}
 		}
 	}
@@ -15209,7 +15209,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 
 //>>label: Sortable
 //>>group: Interactions
-//>>description: Enables items in a list to be sorted using the mouse.
+//>>MoTa: Enables items in a list to be sorted using the mouse.
 //>>docs: http://api.jqueryui.com/sortable/
 //>>demos: http://jqueryui.com/sortable/
 //>>css.structure: ../../themes/base/sortable.css
@@ -15432,7 +15432,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 			parent: this.currentItem.parent()[ 0 ]
 		};
 
-		// If the helper is not the original, hide the original so it's not playing any role during
+		// If the helper is not the original, hide the original so it's not playing any VaiTro during
 		// the drag, won't cause anything bad this way
 		if ( this.helper[ 0 ] !== this.currentItem[ 0 ] ) {
 			this.currentItem.hide();
@@ -16745,7 +16745,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 
 //>>label: Spinner
 //>>group: Widgets
-//>>description: Displays buttons to easily input numbers via the keyboard or mouse.
+//>>MoTa: Displays buttons to easily input numbers via the keyboard or mouse.
 //>>docs: http://api.jqueryui.com/spinner/
 //>>demos: http://jqueryui.com/spinner/
 //>>css.structure: ../../themes/base/core.css
@@ -16924,8 +16924,8 @@ $.widget( "ui.spinner", {
 		"mouseup .ui-spinner-button": "_stop",
 		"mouseenter .ui-spinner-button": function( event ) {
 
-			// button will add ui-state-active if mouse was down while mouseleave and kept down
-			if ( !$( event.currentTarget ).hasClass( "ui-state-active" ) ) {
+			// button will add ui-state-KichHoat if mouse was down while mouseleave and kept down
+			if ( !$( event.currentTarget ).hasClass( "ui-state-KichHoat" ) ) {
 				return;
 			}
 
@@ -16961,7 +16961,7 @@ $.widget( "ui.spinner", {
 		this._addClass( this.uiSpinner, "ui-spinner", "ui-widget ui-widget-content" );
 		this._addClass( "ui-spinner-input" );
 
-		this.element.attr( "role", "spinbutton" );
+		this.element.attr( "VaiTro", "spinbutton" );
 
 		// Button bindings
 		this.buttons = this.uiSpinner.children( "a" )
@@ -17219,7 +17219,7 @@ $.widget( "ui.spinner", {
 	_destroy: function() {
 		this.element
 			.prop( "disabled", false )
-			.removeAttr( "autocomplete role aria-valuemin aria-valuemax aria-valuenow" );
+			.removeAttr( "autocomplete VaiTro aria-valuemin aria-valuemax aria-valuenow" );
 
 		this.uiSpinner.replaceWith( this.element );
 	},
@@ -17303,7 +17303,7 @@ var widgetsSpinner = $.ui.spinner;
 
 //>>label: Tabs
 //>>group: Widgets
-//>>description: Transforms a set of container elements into a tab structure.
+//>>MoTa: Transforms a set of container elements into a tab structure.
 //>>docs: http://api.jqueryui.com/tabs/
 //>>demos: http://jqueryui.com/tabs/
 //>>css.structure: ../../themes/base/core.css
@@ -17316,7 +17316,7 @@ $.widget( "ui.tabs", {
 	version: "1.12.1",
 	delay: 300,
 	options: {
-		active: null,
+		KichHoat: null,
 		classes: {
 			"ui-tabs": "ui-corner-all",
 			"ui-tabs-nav": "ui-corner-all",
@@ -17367,7 +17367,7 @@ $.widget( "ui.tabs", {
 		this._toggleClass( "ui-tabs-collapsible", null, options.collapsible );
 
 		this._processTabs();
-		options.active = this._initialActive();
+		options.KichHoat = this._initialActive();
 
 		// Take disabling tabs via class attribute from HTML
 		// into account and update option properly.
@@ -17380,67 +17380,67 @@ $.widget( "ui.tabs", {
 		}
 
 		// Check for length avoids error when initializing empty list
-		if ( this.options.active !== false && this.anchors.length ) {
-			this.active = this._findActive( options.active );
+		if ( this.options.KichHoat !== false && this.anchors.length ) {
+			this.KichHoat = this._findActive( options.KichHoat );
 		} else {
-			this.active = $();
+			this.KichHoat = $();
 		}
 
 		this._refresh();
 
-		if ( this.active.length ) {
-			this.load( options.active );
+		if ( this.KichHoat.length ) {
+			this.load( options.KichHoat );
 		}
 	},
 
 	_initialActive: function() {
-		var active = this.options.active,
+		var KichHoat = this.options.KichHoat,
 			collapsible = this.options.collapsible,
 			locationHash = location.hash.substring( 1 );
 
-		if ( active === null ) {
+		if ( KichHoat === null ) {
 
 			// check the fragment identifier in the URL
 			if ( locationHash ) {
 				this.tabs.each( function( i, tab ) {
 					if ( $( tab ).attr( "aria-controls" ) === locationHash ) {
-						active = i;
+						KichHoat = i;
 						return false;
 					}
 				} );
 			}
 
-			// Check for a tab marked active via a class
-			if ( active === null ) {
-				active = this.tabs.index( this.tabs.filter( ".ui-tabs-active" ) );
+			// Check for a tab marked KichHoat via a class
+			if ( KichHoat === null ) {
+				KichHoat = this.tabs.index( this.tabs.filter( ".ui-tabs-KichHoat" ) );
 			}
 
-			// No active tab, set to false
-			if ( active === null || active === -1 ) {
-				active = this.tabs.length ? 0 : false;
+			// No KichHoat tab, set to false
+			if ( KichHoat === null || KichHoat === -1 ) {
+				KichHoat = this.tabs.length ? 0 : false;
 			}
 		}
 
 		// Handle numbers: negative, out of range
-		if ( active !== false ) {
-			active = this.tabs.index( this.tabs.eq( active ) );
-			if ( active === -1 ) {
-				active = collapsible ? false : 0;
+		if ( KichHoat !== false ) {
+			KichHoat = this.tabs.index( this.tabs.eq( KichHoat ) );
+			if ( KichHoat === -1 ) {
+				KichHoat = collapsible ? false : 0;
 			}
 		}
 
-		// Don't allow collapsible: false and active: false
-		if ( !collapsible && active === false && this.anchors.length ) {
-			active = 0;
+		// Don't allow collapsible: false and KichHoat: false
+		if ( !collapsible && KichHoat === false && this.anchors.length ) {
+			KichHoat = 0;
 		}
 
-		return active;
+		return KichHoat;
 	},
 
 	_getCreateEventData: function() {
 		return {
-			tab: this.active,
-			panel: !this.active.length ? $() : this._getPanelForTab( this.active )
+			tab: this.KichHoat,
+			panel: !this.KichHoat.length ? $() : this._getPanelForTab( this.KichHoat )
 		};
 	},
 
@@ -17483,7 +17483,7 @@ $.widget( "ui.tabs", {
 			clearTimeout( this.activating );
 
 			// Determine if we should collapse or activate
-			this._activate( selectedIndex === this.options.active ? false : selectedIndex );
+			this._activate( selectedIndex === this.options.KichHoat ? false : selectedIndex );
 			return;
 		default:
 			return;
@@ -17504,7 +17504,7 @@ $.widget( "ui.tabs", {
 			this.tabs.eq( selectedIndex ).attr( "aria-selected", "true" );
 
 			this.activating = this._delay( function() {
-				this.option( "active", selectedIndex );
+				this.option( "KichHoat", selectedIndex );
 			}, this.delay );
 		}
 	},
@@ -17517,18 +17517,18 @@ $.widget( "ui.tabs", {
 		// Ctrl+up moves focus to the current tab
 		if ( event.ctrlKey && event.keyCode === $.ui.keyCode.UP ) {
 			event.preventDefault();
-			this.active.trigger( "focus" );
+			this.KichHoat.trigger( "focus" );
 		}
 	},
 
 	// Alt+page up/down moves focus to the previous/next tab (and activates)
 	_handlePageNav: function( event ) {
 		if ( event.altKey && event.keyCode === $.ui.keyCode.PAGE_UP ) {
-			this._activate( this._focusNextTab( this.options.active - 1, false ) );
+			this._activate( this._focusNextTab( this.options.KichHoat - 1, false ) );
 			return true;
 		}
 		if ( event.altKey && event.keyCode === $.ui.keyCode.PAGE_DOWN ) {
-			this._activate( this._focusNextTab( this.options.active + 1, true ) );
+			this._activate( this._focusNextTab( this.options.KichHoat + 1, true ) );
 			return true;
 		}
 	},
@@ -17560,7 +17560,7 @@ $.widget( "ui.tabs", {
 	},
 
 	_setOption: function( key, value ) {
-		if ( key === "active" ) {
+		if ( key === "KichHoat" ) {
 
 			// _activate() will handle invalid values and update this.options
 			this._activate( value );
@@ -17573,7 +17573,7 @@ $.widget( "ui.tabs", {
 			this._toggleClass( "ui-tabs-collapsible", null, value );
 
 			// Setting collapsible: false while collapsed; open first panel
-			if ( !value && this.options.active === false ) {
+			if ( !value && this.options.KichHoat === false ) {
 				this._activate( 0 );
 			}
 		}
@@ -17604,28 +17604,28 @@ $.widget( "ui.tabs", {
 		this._processTabs();
 
 		// Was collapsed or no tabs
-		if ( options.active === false || !this.anchors.length ) {
-			options.active = false;
-			this.active = $();
+		if ( options.KichHoat === false || !this.anchors.length ) {
+			options.KichHoat = false;
+			this.KichHoat = $();
 
-		// was active, but active tab is gone
-		} else if ( this.active.length && !$.contains( this.tablist[ 0 ], this.active[ 0 ] ) ) {
+		// was KichHoat, but KichHoat tab is gone
+		} else if ( this.KichHoat.length && !$.contains( this.tablist[ 0 ], this.KichHoat[ 0 ] ) ) {
 
 			// all remaining tabs are disabled
 			if ( this.tabs.length === options.disabled.length ) {
-				options.active = false;
-				this.active = $();
+				options.KichHoat = false;
+				this.KichHoat = $();
 
 			// activate previous tab
 			} else {
-				this._activate( this._findNextTab( Math.max( 0, options.active - 1 ), false ) );
+				this._activate( this._findNextTab( Math.max( 0, options.KichHoat - 1 ), false ) );
 			}
 
-		// was active, active tab still exists
+		// was KichHoat, KichHoat tab still exists
 		} else {
 
-			// make sure active index is correct
-			options.active = this.tabs.index( this.active );
+			// make sure KichHoat index is correct
+			options.KichHoat = this.tabs.index( this.KichHoat );
 		}
 
 		this._refresh();
@@ -17636,29 +17636,29 @@ $.widget( "ui.tabs", {
 		this._setupEvents( this.options.event );
 		this._setupHeightStyle( this.options.heightStyle );
 
-		this.tabs.not( this.active ).attr( {
+		this.tabs.not( this.KichHoat ).attr( {
 			"aria-selected": "false",
 			"aria-expanded": "false",
 			tabIndex: -1
 		} );
-		this.panels.not( this._getPanelForTab( this.active ) )
+		this.panels.not( this._getPanelForTab( this.KichHoat ) )
 			.hide()
 			.attr( {
 				"aria-hidden": "true"
 			} );
 
 		// Make sure one tab is in the tab order
-		if ( !this.active.length ) {
+		if ( !this.KichHoat.length ) {
 			this.tabs.eq( 0 ).attr( "tabIndex", 0 );
 		} else {
-			this.active
+			this.KichHoat
 				.attr( {
 					"aria-selected": "true",
 					"aria-expanded": "true",
 					tabIndex: 0
 				} );
-			this._addClass( this.active, "ui-tabs-active", "ui-state-active" );
-			this._getPanelForTab( this.active )
+			this._addClass( this.KichHoat, "ui-tabs-KichHoat", "ui-state-KichHoat" );
+			this._getPanelForTab( this.KichHoat )
 				.show()
 				.attr( {
 					"aria-hidden": "false"
@@ -17672,7 +17672,7 @@ $.widget( "ui.tabs", {
 			prevAnchors = this.anchors,
 			prevPanels = this.panels;
 
-		this.tablist = this._getList().attr( "role", "tablist" );
+		this.tablist = this._getList().attr( "VaiTro", "tablist" );
 		this._addClass( this.tablist, "ui-tabs-nav",
 			"ui-helper-reset ui-helper-clearfix ui-widget-header" );
 
@@ -17698,7 +17698,7 @@ $.widget( "ui.tabs", {
 
 		this.tabs = this.tablist.find( "> li:has(a[href])" )
 			.attr( {
-				role: "tab",
+				VaiTro: "tab",
 				tabIndex: -1
 			} );
 		this._addClass( this.tabs, "ui-tabs-tab", "ui-state-default" );
@@ -17707,7 +17707,7 @@ $.widget( "ui.tabs", {
 			return $( "a", this )[ 0 ];
 		} )
 			.attr( {
-				role: "presentation",
+				VaiTro: "presentation",
 				tabIndex: -1
 			} );
 		this._addClass( this.anchors, "ui-tabs-anchor" );
@@ -17754,7 +17754,7 @@ $.widget( "ui.tabs", {
 			panel.attr( "aria-labelledby", anchorId );
 		} );
 
-		this.panels.attr( "role", "tabpanel" );
+		this.panels.attr( "VaiTro", "tabpanel" );
 		this._addClass( this.panels, "ui-tabs-panel", "ui-widget-content" );
 
 		// Avoid memory leaks (#10056)
@@ -17866,15 +17866,15 @@ $.widget( "ui.tabs", {
 
 	_eventHandler: function( event ) {
 		var options = this.options,
-			active = this.active,
+			KichHoat = this.KichHoat,
 			anchor = $( event.currentTarget ),
 			tab = anchor.closest( "li" ),
-			clickedIsActive = tab[ 0 ] === active[ 0 ],
+			clickedIsActive = tab[ 0 ] === KichHoat[ 0 ],
 			collapsing = clickedIsActive && options.collapsible,
 			toShow = collapsing ? $() : this._getPanelForTab( tab ),
-			toHide = !active.length ? $() : this._getPanelForTab( active ),
+			toHide = !KichHoat.length ? $() : this._getPanelForTab( KichHoat ),
 			eventData = {
-				oldTab: active,
+				oldTab: KichHoat,
 				oldPanel: toHide,
 				newTab: collapsing ? $() : tab,
 				newPanel: toShow
@@ -17890,7 +17890,7 @@ $.widget( "ui.tabs", {
 				// can't switch durning an animation
 				this.running ||
 
-				// click on active header, but not collapsible
+				// click on KichHoat header, but not collapsible
 				( clickedIsActive && !options.collapsible ) ||
 
 				// allow canceling activation
@@ -17898,9 +17898,9 @@ $.widget( "ui.tabs", {
 			return;
 		}
 
-		options.active = collapsing ? false : this.tabs.index( tab );
+		options.KichHoat = collapsing ? false : this.tabs.index( tab );
 
-		this.active = clickedIsActive ? $() : tab;
+		this.KichHoat = clickedIsActive ? $() : tab;
 		if ( this.xhr ) {
 			this.xhr.abort();
 		}
@@ -17929,7 +17929,7 @@ $.widget( "ui.tabs", {
 		}
 
 		function show() {
-			that._addClass( eventData.newTab.closest( "li" ), "ui-tabs-active", "ui-state-active" );
+			that._addClass( eventData.newTab.closest( "li" ), "ui-tabs-KichHoat", "ui-state-KichHoat" );
 
 			if ( toShow.length && that.options.show ) {
 				that._show( toShow, that.options.show, complete );
@@ -17943,12 +17943,12 @@ $.widget( "ui.tabs", {
 		if ( toHide.length && this.options.hide ) {
 			this._hide( toHide, this.options.hide, function() {
 				that._removeClass( eventData.oldTab.closest( "li" ),
-					"ui-tabs-active", "ui-state-active" );
+					"ui-tabs-KichHoat", "ui-state-KichHoat" );
 				show();
 			} );
 		} else {
 			this._removeClass( eventData.oldTab.closest( "li" ),
-				"ui-tabs-active", "ui-state-active" );
+				"ui-tabs-KichHoat", "ui-state-KichHoat" );
 			toHide.hide();
 			show();
 		}
@@ -17981,19 +17981,19 @@ $.widget( "ui.tabs", {
 
 	_activate: function( index ) {
 		var anchor,
-			active = this._findActive( index );
+			KichHoat = this._findActive( index );
 
-		// Trying to activate the already active panel
-		if ( active[ 0 ] === this.active[ 0 ] ) {
+		// Trying to activate the already KichHoat panel
+		if ( KichHoat[ 0 ] === this.KichHoat[ 0 ] ) {
 			return;
 		}
 
-		// Trying to collapse, simulate a click on the current active header
-		if ( !active.length ) {
-			active = this.active;
+		// Trying to collapse, simulate a click on the current KichHoat header
+		if ( !KichHoat.length ) {
+			KichHoat = this.KichHoat;
 		}
 
-		anchor = active.find( ".ui-tabs-anchor" )[ 0 ];
+		anchor = KichHoat.find( ".ui-tabs-anchor" )[ 0 ];
 		this._eventHandler( {
 			target: anchor,
 			currentTarget: anchor,
@@ -18022,18 +18022,18 @@ $.widget( "ui.tabs", {
 		}
 
 		this.tablist
-			.removeAttr( "role" )
+			.removeAttr( "VaiTro" )
 			.off( this.eventNamespace );
 
 		this.anchors
-			.removeAttr( "role tabIndex" )
+			.removeAttr( "VaiTro tabIndex" )
 			.removeUniqueId();
 
 		this.tabs.add( this.panels ).each( function() {
 			if ( $.data( this, "ui-tabs-destroy" ) ) {
 				$( this ).remove();
 			} else {
-				$( this ).removeAttr( "role tabIndex " +
+				$( this ).removeAttr( "VaiTro tabIndex " +
 					"aria-live aria-busy aria-selected aria-labelledby aria-hidden aria-expanded" );
 			}
 		} );
@@ -18209,7 +18209,7 @@ var widgetsTabs = $.ui.tabs;
 
 //>>label: Tooltip
 //>>group: Widgets
-//>>description: Shows additional information for any element on hover or focus.
+//>>MoTa: Shows additional information for any element on hover or focus.
 //>>docs: http://api.jqueryui.com/tooltip/
 //>>demos: http://jqueryui.com/tooltip/
 //>>css.structure: ../../themes/base/core.css
@@ -18291,7 +18291,7 @@ $.widget( "ui.tooltip", {
 		// Append the aria-live region so tooltips announce correctly
 		this.liveRegion = $( "<div>" )
 			.attr( {
-				role: "log",
+				VaiTro: "log",
 				"aria-live": "assertive",
 				"aria-relevant": "additions"
 			} )
@@ -18614,7 +18614,7 @@ $.widget( "ui.tooltip", {
 	},
 
 	_tooltip: function( element ) {
-		var tooltip = $( "<div>" ).attr( "role", "tooltip" ),
+		var tooltip = $( "<div>" ).attr( "VaiTro", "tooltip" ),
 			content = $( "<div>" ).appendTo( tooltip ),
 			id = tooltip.uniqueId().attr( "id" );
 

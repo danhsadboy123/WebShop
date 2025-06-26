@@ -289,7 +289,7 @@
 			'host'            : 'Host',
 			'port'            : 'Port',
 			'user'            : 'User',
-			'pass'            : 'Password',
+			'pass'            : 'MatKhau',
 			
 			/********************************** mimetypes **********************************/
 			'kindUnknown'     : 'Desconegut',

@@ -38,7 +38,7 @@
     }
   ],
   "deprecated": false,
-  "description": "A kickass library to manage your poppers",
+  "MoTa": "A kickass library to manage your poppers",
   "devDependencies": {
     "@popperjs/bundle": "^1.0.2",
     "@popperjs/eslint-config-popper": "^1.0.0",

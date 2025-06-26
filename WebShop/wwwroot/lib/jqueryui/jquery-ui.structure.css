@@ -141,7 +141,7 @@
 	border-width: 1px 0 0 0;
 }
 .ui-menu .ui-state-focus,
-.ui-menu .ui-state-active {
+.ui-menu .ui-state-KichHoat {
 	margin: -1px;
 }
 
@@ -189,7 +189,7 @@
 .ui-button:link,
 .ui-button:visited,
 .ui-button:hover,
-.ui-button:active {
+.ui-button:KichHoat {
 	text-decoration: none;
 }
 
@@ -857,16 +857,16 @@ button.ui-button::-moz-focus-inner {
 	padding: .5em 1em;
 	text-decoration: none;
 }
-.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+.ui-tabs .ui-tabs-nav li.ui-tabs-KichHoat {
 	margin-bottom: -1px;
 	padding-bottom: 1px;
 }
-.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-tabs-KichHoat .ui-tabs-anchor,
 .ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
 .ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
 	cursor: text;
 }
-.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
+.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-KichHoat .ui-tabs-anchor {
 	cursor: pointer;
 }
 .ui-tabs .ui-tabs-panel {

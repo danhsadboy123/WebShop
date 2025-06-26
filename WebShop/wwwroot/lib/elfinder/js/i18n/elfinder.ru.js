@@ -485,7 +485,7 @@
 			'add'             : 'Добавить', // from v2.1.41 added 7.8.2018
 			'theme'           : 'Тема', // from v2.1.43 added 19.10.2018
 			'default'         : 'По умолчанию', // from v2.1.43 added 19.10.2018
-			'description'     : 'Описание', // from v2.1.43 added 19.10.2018
+			'MoTa'     : 'Описание', // from v2.1.43 added 19.10.2018
 			'website'         : 'Веб-сайт', // from v2.1.43 added 19.10.2018
 			'author'          : 'Автор', // from v2.1.43 added 19.10.2018
 			'email'           : 'Email', // from v2.1.43 added 19.10.2018

@@ -39,32 +39,32 @@
 		}
 	}	
 }
-.datepicker table tr td span.active:active, 
-.datepicker table tr td span.active:hover:active, 
-.datepicker table tr td span.active.disabled:active, 
-.datepicker table tr td span.active.disabled:hover:active, 
-.datepicker table tr td span.active.active, 
-.datepicker table tr td span.active:hover.active, 
-.datepicker table tr td span.active.disabled.active, 
-.datepicker table tr td span.active.disabled:hover.active,
-.datepicker table tr td span.active.active:hover,
-.datepicker table tr td span.active:hover.active:hover,
-.datepicker table tr td.active:active,
-.datepicker table tr td.active.highlighted:active, 
-.datepicker table tr td.active.active, 
-.datepicker table tr td.active.highlighted.active,
-.datepicker table tr td.active:active:hover, 
-.datepicker table tr td.active.highlighted:active:hover, 
-.datepicker table tr td.active.active:hover, 
-.datepicker table tr td.active.highlighted.active:hover, 
-.datepicker table tr td.active:active:focus, 
-.datepicker table tr td.active.highlighted:active:focus, 
-.datepicker table tr td.active.active:focus, 
-.datepicker table tr td.active.highlighted.active:focus, 
-.datepicker table tr td.active:active.focus, 
-.datepicker table tr td.active.highlighted:active.focus, 
-.datepicker table tr td.active.active.focus, 
-.datepicker table tr td.active.highlighted.active.focus {
+.datepicker table tr td span.KichHoat:KichHoat, 
+.datepicker table tr td span.KichHoat:hover:KichHoat, 
+.datepicker table tr td span.KichHoat.disabled:KichHoat, 
+.datepicker table tr td span.KichHoat.disabled:hover:KichHoat, 
+.datepicker table tr td span.KichHoat.KichHoat, 
+.datepicker table tr td span.KichHoat:hover.KichHoat, 
+.datepicker table tr td span.KichHoat.disabled.KichHoat, 
+.datepicker table tr td span.KichHoat.disabled:hover.KichHoat,
+.datepicker table tr td span.KichHoat.KichHoat:hover,
+.datepicker table tr td span.KichHoat:hover.KichHoat:hover,
+.datepicker table tr td.KichHoat:KichHoat,
+.datepicker table tr td.KichHoat.highlighted:KichHoat, 
+.datepicker table tr td.KichHoat.KichHoat, 
+.datepicker table tr td.KichHoat.highlighted.KichHoat,
+.datepicker table tr td.KichHoat:KichHoat:hover, 
+.datepicker table tr td.KichHoat.highlighted:KichHoat:hover, 
+.datepicker table tr td.KichHoat.KichHoat:hover, 
+.datepicker table tr td.KichHoat.highlighted.KichHoat:hover, 
+.datepicker table tr td.KichHoat:KichHoat:focus, 
+.datepicker table tr td.KichHoat.highlighted:KichHoat:focus, 
+.datepicker table tr td.KichHoat.KichHoat:focus, 
+.datepicker table tr td.KichHoat.highlighted.KichHoat:focus, 
+.datepicker table tr td.KichHoat:KichHoat.focus, 
+.datepicker table tr td.KichHoat.highlighted:KichHoat.focus, 
+.datepicker table tr td.KichHoat.KichHoat.focus, 
+.datepicker table tr td.KichHoat.highlighted.KichHoat.focus {
 	color: $white;
     background: $brand-primary;
     border-color: transparent;
@@ -110,7 +110,7 @@
 	    height: 40px;
 	    padding: 0 6px 0 35px;
 
-	    &.active {
+	    &.KichHoat {
 	    	border-radius: 0px;
 	    	border-color: lighten($brand-primary, 20%);		
 	    }
@@ -143,7 +143,7 @@
 			color: $brand-primary;
 		}
 
-		&.active {
+		&.KichHoat {
 			background-color: $brand-primary;
 		    border-color: transparent;
 		    color: $white;

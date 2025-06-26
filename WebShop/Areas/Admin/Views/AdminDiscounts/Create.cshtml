@@ -123,9 +123,9 @@
                     <div class="">
                         <div class="omni-layout-card card-default">                            
                             <div class="form-group omni-layout-card--section">
-                                <label asp-for="Description" class="control-label">Mô tả Khuyến mãi</label>
-                                    <textarea id="Description" class="summernote" asp-for="Description"></textarea>
-                                <span asp-validation-for="Description" class="text-danger"></span> 
+                                <label asp-for="MoTa" class="control-label">Mô tả Khuyến mãi</label>
+                                    <textarea id="MoTa" class="summernote" asp-for="MoTa"></textarea>
+                                <span asp-validation-for="MoTa" class="text-danger"></span> 
                             </div>
                         </div>
                     </div>
@@ -591,7 +591,7 @@
                             +'<div class="avatar avatar-image" >'
                             + '<img src="'+origin+'/adminassets/images/avatars/thumb-1.jpg"/></div>'
                             +'<div class="m-l-10">'
-                            + '<div class="m-b-0 text-dark font-weight-semibold"> ' + data[item].fullName + ' </div>'
+                            + '<div class="m-b-0 text-dark font-weight-semibold"> ' + data[item].HoTen + ' </div>'
                             + '<div class="m-b-0 opacity-07 font-size-13">' + data[item].email + '</div></div></div>'
                             +'<div style="display:flex;align-items:center">'
                             +'<i class="fa-solid fa-plus fa-beat-fade"></i> </div></li>';
@@ -606,7 +606,7 @@
                     + '<div class="avatar avatar-image" >'
                     + '<img src="' + origin + '/adminassets/images/avatars/thumb-1.jpg"/></div>'
                     + '<div class="m-l-10">'
-                    + '<div class="m-b-0 text-dark font-weight-semibold"> ' + data[item].fullName + ' </div>'
+                    + '<div class="m-b-0 text-dark font-weight-semibold"> ' + data[item].HoTen + ' </div>'
                     + '<div class="m-b-0 opacity-07 font-size-13">' + data[item].email + '</div></div></div>'
                     + '<div style="display:flex;align-items:center">'
                     + '<i onclick="itemcustomerdelete(' + data[item].customerId + ')" class="fa-solid fa-trash"></i></div></li>';
@@ -1091,7 +1091,7 @@
         
         
         // xu ly valy add
-        var Discount = { Name: $('#Name').val(), Gift: true, Image: $('#Image').val(), Description: $('#Description').val(), TimeOn: $('#TimeOn').val(), TimeOff: $('#TimeOff').val(), ShowWeb: true, MaxApply: $('#MaxApply').val(), Startus: "", Discount1: $('#Discount1').val(), ConditionCheck: true, Money: $('#Money').val(), ProductCount: $("#ProductCount").val(), Sum: $('#Sum').val() };
+        var Discount = { Name: $('#Name').val(), Gift: true, Image: $('#Image').val(), MoTa: $('#MoTa').val(), TimeOn: $('#TimeOn').val(), TimeOff: $('#TimeOff').val(), ShowWeb: true, MaxApply: $('#MaxApply').val(), Startus: "", Discount1: $('#Discount1').val(), ConditionCheck: true, Money: $('#Money').val(), ProductCount: $("#ProductCount").val(), Sum: $('#Sum').val() };
         function CheckAddDiscount(){
             var check =false;
             if ($("#ShowWeb").is(':checked')){
@@ -1137,7 +1137,7 @@
             //Discount.ConditionCheck: true
             Discount.Name = $('#Name').val();
             Discount.Image= $('#Image').val();
-            Discount.Description= $('#Description').val();
+            Discount.MoTa= $('#MoTa').val();
             Discount.TimeOn= $('#TimeOn').val();
             Discount.TimeOff= $('#TimeOff').val();
             Discount.MaxApply= $('#MaxApply').val();
@@ -1183,7 +1183,7 @@
                         Name: Discount.Name,
                         Gift: Discount.Gift,
                         Image: Discount.Image,
-                        Description: Discount.Description,
+                        MoTa: Discount.MoTa,
                         TimeOn: Discount.TimeOn,
                         TimeOff: Discount.TimeOff,
                         ShowWeb: Discount.ShowWeb,

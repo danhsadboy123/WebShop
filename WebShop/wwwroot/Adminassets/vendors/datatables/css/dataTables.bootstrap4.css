@@ -73,8 +73,8 @@ table.dataTable thead > tr > td.sorting_desc,
 table.dataTable thead > tr > td.sorting {
   padding-right: 30px;
 }
-table.dataTable thead > tr > th:active,
-table.dataTable thead > tr > td:active {
+table.dataTable thead > tr > th:KichHoat,
+table.dataTable thead > tr > td:KichHoat {
   outline: none;
 }
 table.dataTable thead .sorting,

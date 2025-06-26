@@ -13,7 +13,7 @@
     <title>Báo giá sản phẩm Công ty TNHH Novazone</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="MoTa" content="">
     <meta name="revisit-after" content="2 days">
     <meta name="ROBOTS" content="INDEX, FOLLOW">
     <meta name="author" content="CÔNG TY TNHH NOVAZONE">
@@ -206,7 +206,7 @@
         <div style="background: #fff; color: #000;white-space: nowrap;margin-top:10px">
             <p>
                 <b>To (Kính gửi)           :</b>
-                @if (ViewBag.Fullname != null) {@ViewBag.Fullname}
+                @if (ViewBag.HoTen != null) {@ViewBag.HoTen}
             </p>
 
             <p><b>Address (Địa chỉ)       :</b>
@@ -222,14 +222,14 @@
                 }
             </p>
             <p><b>Contact (Người liên hệ) :</b> 
-                @if (ViewBag.Fullname != null)
+                @if (ViewBag.HoTen != null)
                 {
-                    @ViewBag.Fullname
+                    @ViewBag.HoTen
                 } </p>
-            <p><b>Phone (Số điện thoại)   :</b>
-                @if (ViewBag.Phone != null)
+            <p><b>SoDienThoai (Số điện thoại)   :</b>
+                @if (ViewBag.SoDienThoai != null)
                 {
-                    @ViewBag.Phone
+                    @ViewBag.SoDienThoai
                 }
             </p>
         </div>
@@ -469,7 +469,7 @@
                 <p><b>Yours Sincerely:</b> </p>
                 <p>Name: Yumi Truong </p>
                 <p>Email: hello@novazone.com.vn</p>
-                <p>Phone: 0937 963 779 </p>
+                <p>SoDienThoai: 0937 963 779 </p>
                 </div> 
                 <div class="in-bao-gia-footer-right">
                 <p>Customer's confirmation (Xác nhận đặt hàng) </p>

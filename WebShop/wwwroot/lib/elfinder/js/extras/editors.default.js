@@ -2366,8 +2366,8 @@
 									disabled = '',
 									nozip = false,
 									opts, btn, elm;
-								if (o.description) {
-									f.attr('title', fm.i18n(o.description));
+								if (o.MoTa) {
+									f.attr('title', fm.i18n(o.MoTa));
 								}
 								if (o.pattern) {
 									f.data('pattern', o.pattern);
@@ -2605,7 +2605,7 @@
 				}
 				if (set.useTabs) {
 					if (idxs[mode]) {
-						btns.tabs('option', 'active', idxs[mode]);
+						btns.tabs('option', 'KichHoat', idxs[mode]);
 					}
 				} else {
 					cl = Object.keys(set.conv).length;

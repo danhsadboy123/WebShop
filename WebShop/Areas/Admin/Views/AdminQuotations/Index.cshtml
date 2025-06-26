@@ -27,7 +27,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <span class="breadcrumb-item active">Quản lý báo giá</span>
+            <span class="breadcrumb-item KichHoat">Quản lý báo giá</span>
         </nav>
     </div>
 </div>
@@ -62,7 +62,7 @@
         <h5>Danh sách báo giá</h5>
     </div>
     <div class="card-body">
-            <div class="table-responsive tab-pane fade show active">
+            <div class="table-responsive tab-pane fade show KichHoat">
                 <table id="data-table" class="table table-hover e-commerce-table" style="width:100%">
                     <thead>
                         <tr>
@@ -84,10 +84,10 @@
                             <tr>
                                 <td>#@item.QuotationId</td>
                                 <td>
-                                    @item.Customer.FullName
+                                    @item.Customer.HoTen
                                 </td>
                                 <td>@item.Customer.CompanyName</td>
-                                <td>@item.Customer.Phone</td>
+                                <td>@item.Customer.SoDienThoai</td>
                                 <td>
                                     @if (item.Confirmed == true)
                                     {
@@ -105,7 +105,7 @@
                                     }
                                 </td>
                                 <td>@item.TotalMoney.Value.ToString("#,##0") đ</td>
-                                <td>@item.CreateDate</td>
+                                <td>@item.NgayTao</td>
                                 <td>
                                     <a class="btn btn-secondary btn-tone m-r-5"  asp-area="Admin" asp-controller="AdminQuotations" asp-action="Edit" asp-route-id="@item.QuotationId" asp-route-curPage="@ViewBag.CurrentPage">
                                         <i class="anticon anticon-edit"></i>
@@ -122,7 +122,7 @@
             </div>
     </div>
 </div>
-<div id="delete-pd-md" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="delete-pd-md" class="modal fade" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">

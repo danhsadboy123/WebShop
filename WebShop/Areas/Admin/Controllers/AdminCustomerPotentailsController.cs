@@ -101,7 +101,7 @@ namespace WebShop.Areas.Admin.Controllers
 
         public IActionResult CheckedSendmail(int Id)
         {
-            //Id,Name,Email,Address,Phone,Checked
+            //Id,Name,Email,Address,SoDienThoai,Checked
             var cusP = _context.CustomerPotentails.Where(i => i.Id == Id).First();
 
 
@@ -148,7 +148,7 @@ namespace WebShop.Areas.Admin.Controllers
                         var phoneString = workSheet.Cells[row, 6].Value?.ToString();
                         if (!string.IsNullOrEmpty(phoneString) && int.TryParse(phoneString, out int phoneint))
                         {
-                            customer.Phone = phoneint;
+                            customer.SoDienThoai = phoneint;
                         }
                         customer.LeverId = LeverID;
                         customer.Checked = 0;
@@ -196,7 +196,7 @@ namespace WebShop.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([Bind("Name,Email,CompannyName,Address,Phone,LeverId")] CustomerPotentail customerPotentail)
+        public IActionResult Create([Bind("Name,Email,CompannyName,Address,SoDienThoai,LeverId")] CustomerPotentail customerPotentail)
         {
             string pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|" + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)" + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
             var regex = new Regex(pattern, RegexOptions.IgnoreCase);
@@ -229,7 +229,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 
-        public IActionResult Edit([Bind("Id,Name,CompannyName,Address,Phone")] CustomerPotentail customerPotentail)
+        public IActionResult Edit([Bind("Id,Name,CompannyName,Address,SoDienThoai")] CustomerPotentail customerPotentail)
         {
             if (customerPotentail.Id == null)
             {

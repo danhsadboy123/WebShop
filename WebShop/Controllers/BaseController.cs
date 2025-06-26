@@ -46,7 +46,7 @@ namespace WebShop.Controllers
             //            ThumbShow = cat.ThumbShow,
             //            BannerThumb = cat.BannerThumb,
             //            Attributes = cat.CategoryAttributes
-            //                .Where(ca => ca.Active == true)
+            //                .Where(ca => ca.KichHoat == true)
             //                .OrderBy(ca => ca.Attribute.Ordering)
             //                .Select(ca => new AttributeViewModel
             //                {
@@ -63,19 +63,19 @@ namespace WebShop.Controllers
             //                }).ToList(),
 
             //            Brands = cat.CategoryBrands
-            //                .Where(cb => cb.Active == true)
+            //                .Where(cb => cb.KichHoat == true)
             //                .Select(cb => new BrandViewModel
             //                {
             //                    BrandId = cb.Brand.BrandId,
             //                    BrandName = cb.Brand.BrandName,
-            //                    Description = cb.Brand.Description,
+            //                    MoTa = cb.Brand.MoTa,
             //                    Image = cb.Brand.Thumb
             //                })
             //                .Take(18)
             //                .ToList(),
 
             //            Slides = _context.Slides
-            //                .Where(s => s.CatId == cat.CatId && s.Active == true)
+            //                .Where(s => s.CatId == cat.CatId && s.KichHoat == true)
             //                .OrderBy(s => s.Ordering)
             //                .Select(s => new SlideVM
             //                {
@@ -83,7 +83,7 @@ namespace WebShop.Controllers
             //                    Thumb = s.Thumb,
             //                    Alias = s.Alias,
             //                    SlideName = s.SlideName,
-            //                    Active = s.Active
+            //                    KichHoat = s.KichHoat
             //                }).ToList(),
             //        })
             //        .ToList();

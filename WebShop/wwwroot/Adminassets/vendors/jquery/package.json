@@ -63,7 +63,7 @@
   },
   "dependencies": {},
   "deprecated": false,
-  "description": "JavaScript library for DOM operations",
+  "MoTa": "JavaScript library for DOM operations",
   "devDependencies": {
     "@babel/core": "7.3.3",
     "@babel/plugin-transform-for-of": "7.2.0",

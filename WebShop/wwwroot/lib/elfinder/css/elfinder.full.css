@@ -561,7 +561,7 @@ div.elfinder-cwd-wrapper-list tr.ui-state-default td span.ui-icon {
     padding: .5em .5em;
 }
 
-.elfinder-dialog .ui-tabs-active a {
+.elfinder-dialog .ui-tabs-KichHoat a {
     background: inherit;
 }
 
@@ -1273,7 +1273,7 @@ div.elfinder {
     cursor: default;
 }
 
-.elfinder .elfinder-contextmenu-item.ui-state-active {
+.elfinder .elfinder-contextmenu-item.ui-state-KichHoat {
     border: none;
 }
 
@@ -1523,7 +1523,7 @@ div.elfinder {
     display: inline-block;
 }
 
-.elfinder-droppable-active .elfinder-cwd.elfinder-table-header-sticky table {
+.elfinder-droppable-KichHoat .elfinder-cwd.elfinder-table-header-sticky table {
     border-top: 2px solid transparent;
 }
 
@@ -1532,8 +1532,8 @@ div.elfinder {
     position: relative;
 }
 
-/* container active on dropenter */
-.elfinder .elfinder-cwd-wrapper.elfinder-droppable-active {
+/* container KichHoat on dropenter */
+.elfinder .elfinder-cwd-wrapper.elfinder-droppable-KichHoat {
     outline: 2px solid #8cafed;
     outline-offset: -2px;
 }
@@ -1631,7 +1631,7 @@ div.elfinder {
     position: relative;
 }
 
-.elfinder-cwd-view-icons .elfinder-cwd-file .ui-state-active {
+.elfinder-cwd-view-icons .elfinder-cwd-file .ui-state-KichHoat {
     border: none;
 }
 
@@ -1871,7 +1871,7 @@ div.elfinder {
 
 /* volume icon of root in folder */
 .elfinder-navbar-root-local .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-local.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-local.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-local td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_local.svg");
     background-image: url("../img/volume_icon_local.png") \9;
@@ -1879,12 +1879,12 @@ div.elfinder {
     background-size: contain;
 }
 
-.elfinder-cwd .elfinder-navbar-root-local.elfinder-droppable-active .elfinder-cwd-icon {
+.elfinder-cwd .elfinder-navbar-root-local.elfinder-droppable-KichHoat .elfinder-cwd-icon {
     background-position: 1px -1px;
 }
 
 .elfinder-navbar-root-trash .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-trash.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-trash.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-trash td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_trash.svg");
     background-image: url("../img/volume_icon_trash.png") \9;
@@ -1892,12 +1892,12 @@ div.elfinder {
     background-size: contain;
 }
 
-.elfinder-cwd .elfinder-navbar-root-trash.elfinder-droppable-active .elfinder-cwd-icon {
+.elfinder-cwd .elfinder-navbar-root-trash.elfinder-droppable-KichHoat .elfinder-cwd-icon {
     background-position: 1px -1px;
 }
 
 .elfinder-navbar-root-ftp .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-ftp.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-ftp.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-ftp td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_ftp.svg");
     background-image: url("../img/volume_icon_ftp.png") \9;
@@ -1905,12 +1905,12 @@ div.elfinder {
     background-size: contain;
 }
 
-.elfinder-cwd .elfinder-navbar-root-ftp.elfinder-droppable-active .elfinder-cwd-icon {
+.elfinder-cwd .elfinder-navbar-root-ftp.elfinder-droppable-KichHoat .elfinder-cwd-icon {
     background-position: 1px -1px;
 }
 
 .elfinder-navbar-root-sql .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-sql.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-sql.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-sql td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_sql.svg");
     background-image: url("../img/volume_icon_sql.png") \9;
@@ -1918,12 +1918,12 @@ div.elfinder {
     background-size: contain;
 }
 
-.elfinder-cwd .elfinder-navbar-root-sql.elfinder-droppable-active .elfinder-cwd-icon {
+.elfinder-cwd .elfinder-navbar-root-sql.elfinder-droppable-KichHoat .elfinder-cwd-icon {
     background-position: 1px -1px;
 }
 
 .elfinder-navbar-root-dropbox .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-dropbox.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-dropbox.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-dropbox td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_dropbox.svg");
     background-image: url("../img/volume_icon_dropbox.png") \9;
@@ -1931,12 +1931,12 @@ div.elfinder {
     background-size: contain;
 }
 
-.elfinder-cwd .elfinder-navbar-root-dropbox.elfinder-droppable-active .elfinder-cwd-icon {
+.elfinder-cwd .elfinder-navbar-root-dropbox.elfinder-droppable-KichHoat .elfinder-cwd-icon {
     background-position: 1px -1px;
 }
 
 .elfinder-navbar-root-googledrive .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-googledrive.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-googledrive.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-googledrive td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_googledrive.svg");
     background-image: url("../img/volume_icon_googledrive.png") \9;
@@ -1945,7 +1945,7 @@ div.elfinder {
 }
 
 .elfinder-navbar-root-onedrive .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-onedrive.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-onedrive.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-onedrive td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_onedrive.svg");
     background-image: url("../img/volume_icon_onedrive.png") \9;
@@ -1954,7 +1954,7 @@ div.elfinder {
 }
 
 .elfinder-navbar-root-box .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-box.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-box.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-box td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_box.svg");
     background-image: url("../img/volume_icon_box.png") \9;
@@ -1963,7 +1963,7 @@ div.elfinder {
 }
 
 .elfinder-navbar-root-zip .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-zip.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-zip.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-zip td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_zip.svg");
     background-image: url("../img/volume_icon_zip.png") \9;
@@ -1971,14 +1971,14 @@ div.elfinder {
     background-size: contain;
 }
 
-.elfinder-cwd .elfinder-navbar-root-googledrive.elfinder-droppable-active .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-onedrive.elfinder-droppable-active .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-box.elfinder-droppable-active .elfinder-cwd-icon {
+.elfinder-cwd .elfinder-navbar-root-googledrive.elfinder-droppable-KichHoat .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-onedrive.elfinder-droppable-KichHoat .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-box.elfinder-droppable-KichHoat .elfinder-cwd-icon {
     background-position: 1px -1px;
 }
 
 .elfinder-navbar-root-network .elfinder-cwd-icon,
-.elfinder-cwd .elfinder-navbar-root-network.elfinder-droppable-active .elfinder-cwd-icon,
+.elfinder-cwd .elfinder-navbar-root-network.elfinder-droppable-KichHoat .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-network td .elfinder-cwd-icon {
     background-image: url("../img/volume_icon_network.svg");
     background-image: url("../img/volume_icon_network.png") \9;
@@ -1986,7 +1986,7 @@ div.elfinder {
     background-size: contain;
 }
 
-.elfinder-cwd .elfinder-navbar-root-network.elfinder-droppable-active .elfinder-cwd-icon {
+.elfinder-cwd .elfinder-navbar-root-network.elfinder-droppable-KichHoat .elfinder-cwd-icon {
     background-position: 1px -1px;
 }
 
@@ -2096,11 +2096,11 @@ div.elfinder {
 }
 
 /* "opened folder" icon on dragover */
-.elfinder-cwd .elfinder-droppable-active .elfinder-cwd-icon {
+.elfinder-cwd .elfinder-droppable-KichHoat .elfinder-cwd-icon {
     background-position: 0 -100px;
 }
 
-.elfinder-cwd .elfinder-droppable-active {
+.elfinder-cwd .elfinder-droppable-KichHoat {
     outline: 2px solid #8cafed;
     outline-offset: -2px;
 }
@@ -2442,7 +2442,7 @@ div.elfinder {
     background-color: white;
 }
 
-.elfinder-droppable-active + .elfinder-cwd-wrapper-list.elfinder-cwd-fixheader:before {
+.elfinder-droppable-KichHoat + .elfinder-cwd-wrapper-list.elfinder-cwd-fixheader:before {
     background-color: #8cafed;
 }
 
@@ -2496,7 +2496,7 @@ div.elfinder {
     padding-bottom: 8px;
 }
 
-.elfinder .elfinder-cwd table thead td.ui-state-active {
+.elfinder .elfinder-cwd table thead td.ui-state-KichHoat {
     background: #ebf1f6;
     background: -moz-linear-gradient(top, #ebf1f6 0%, #abd3ee 50%, #89c3eb 51%, #d5ebfb 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ebf1f6), color-stop(50%, #abd3ee), color-stop(51%, #89c3eb), color-stop(100%, #d5ebfb));
@@ -3645,8 +3645,8 @@ button.elfinder-info-button {
     margin-left: 20px;
 }
 
-.ui-state-active .elfinder-navbar-arrow {
-    background-image: url("../img/arrows-active.png");
+.ui-state-KichHoat .elfinder-navbar-arrow {
+    background-image: url("../img/arrows-KichHoat.png");
 }
 
 /* collapsed/expanded arrow view */
@@ -3765,9 +3765,9 @@ button.elfinder-info-button {
     background-image: url("../img/volume_icon_network.png") \9;
 }
 
-/* icon in active/hove/dropactive state */
-.ui-state-active .elfinder-navbar-icon,
-.elfinder-droppable-active .elfinder-navbar-icon,
+/* icon in KichHoat/hove/dropactive state */
+.ui-state-KichHoat .elfinder-navbar-icon,
+.elfinder-droppable-KichHoat .elfinder-navbar-icon,
 .ui-state-hover .elfinder-navbar-icon {
     background-position: 0 -32px;
 }
@@ -3890,7 +3890,7 @@ button.elfinder-info-button {
     padding: 0;
 }
 
-.elfinder-places.elfinder-droppable-active {
+.elfinder-places.elfinder-droppable-KichHoat {
     /*border:1px solid #8cafed;*/
 }
 
@@ -4520,7 +4520,7 @@ embed.elfinder-quicklook-preview-audio {
 }
 
 .elfinder-statusbar span.ui-state-hover,
-.elfinder-statusbar span.ui-state-active {
+.elfinder-statusbar span.ui-state-KichHoat {
     border: none;
 }
 
@@ -4591,7 +4591,7 @@ embed.elfinder-quicklook-preview-audio {
 }
 
 .elfinder-workzone-path .elfinder-path span.ui-state-hover,
-.elfinder-workzone-path .elfinder-path span.ui-state-active {
+.elfinder-workzone-path .elfinder-path span.ui-state-KichHoat {
     border: none;
 }
 
@@ -5217,7 +5217,7 @@ embed.elfinder-quicklook-preview-audio {
     overflow: visible;
 }
 
-.elfinder .elfinder-button-search.ui-state-active {
+.elfinder .elfinder-button-search.ui-state-KichHoat {
     width: 220px;
 }
 

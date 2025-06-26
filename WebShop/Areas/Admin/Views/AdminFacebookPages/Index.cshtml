@@ -103,7 +103,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <span class="breadcrumb-item active">Facebook maketting</span>
+            <span class="breadcrumb-item KichHoat">Facebook maketting</span>
         </nav>
     </div>
 </div>
@@ -151,35 +151,35 @@
                 <input id="inputText" name="keyword" style="margin-bottom:0px" type="text" class="form-control" placeholder="Vui lòng nhập">
                 <i class="suffix-icon anticon anticon-search opacity-04"></i>
             </div>
-                <ul class="nav nav-tabs nav-justified" id="myTabJustified" role="tablist">
+                <ul class="nav nav-tabs nav-justified" id="myTabJustified" VaiTro="tablist">
                     <li class="nav-item">
                     @if (ViewBag.ckeck == "All" || ViewBag.ckeck==null)
                         {
-                        <a class="nav-link active" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
+                        <a class="nav-link KichHoat" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
                     }
                     else
                     {
-                        <a class="nav-link" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
+                        <a class="nav-link" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
                     }
                 </li>
                     <li class="nav-item">
                     @if (ViewBag.ckeck == "yesFacebook")
                     {
-                        <a class="nav-link active" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
+                        <a class="nav-link KichHoat" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
                     }
                     else
                     {
-                        <a class="nav-link" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
+                        <a class="nav-link" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
                     }
                 </li>
                     <li class="nav-item">
                     @if (ViewBag.ckeck == "noFacebook")
                     {
-                        <a class="nav-link active" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
+                        <a class="nav-link KichHoat" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
                     }
                     else
                     {
-                        <a class="nav-link" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
+                        <a class="nav-link" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
                     }
                     </li>
                 </ul>
@@ -216,7 +216,7 @@
                                                     data-saleprice="@item.SalePrice" 
                                                     data-price="@item.Price" 
                                                     data-stock="@item.UnitsInStock"
-                                                    data-description="@item.ShortDesc"
+                                                    data-MoTa="@item.ShortDesc"
                                                     data-url="@url"
                                                     class="checkItem" type="checkbox">
                                             </td>
@@ -230,7 +230,7 @@
 
                                     @*<td style="font-size:10px;text-align:center">@item.Price.ToString("#,##0")đ-@item.SalePrice.ToString("#,##0")đ</td>              *@
                                     <td style="display:flex;justify-content:space-between">
-                                                @if (item.Active == true)
+                                                @if (item.KichHoat == true)
                                                 {
                                                     <div class="d-flex align-items-center">
                                                         <p class="badge badge-success badge-dot m-r-10"></p>
@@ -589,7 +589,7 @@
         }        
         const listProduct =[];
         class itempro {
-            constructor(id, name, avatar, model, saleprice, price, stock, description,media_fbid,url) {
+            constructor(id, name, avatar, model, saleprice, price, stock, MoTa,media_fbid,url) {
                 this.id = id;
                 this.name = name;
                 this.avatar = avatar;
@@ -597,7 +597,7 @@
                 this.saleprice =saleprice;
                 this.price = price;
                 this.stock = stock;
-                this.description = description;
+                this.MoTa = MoTa;
                 this.media_fbid = media_fbid;
                 this.url = url;
             }
@@ -615,7 +615,7 @@
                             $(this).attr('data-saleprice'),
                             $(this).attr('data-price'),
                             $(this).attr('data-stock'),
-                            $(this).attr('data-description'),
+                            $(this).attr('data-MoTa'),
                             null,
                             $(this).attr('data-url')
                             );
@@ -641,7 +641,7 @@
                             $(this).attr('data-saleprice'),
                             $(this).attr('data-price'),
                             $(this).attr('data-stock'),
-                            $(this).attr('data-description'),
+                            $(this).attr('data-MoTa'),
                             null,
                             $(this).attr('data-url')
                             );
@@ -663,7 +663,7 @@
                         $(this).attr('data-saleprice'),
                         $(this).attr('data-price'),
                         $(this).attr('data-stock'),
-                        $(this).attr('data-description'),
+                        $(this).attr('data-MoTa'),
                         null,
                         $(this).attr('data-url')
                         );
@@ -694,7 +694,7 @@
                         $(this).attr('data-saleprice'),
                         $(this).attr('data-price'),
                         $(this).attr('data-stock'),
-                        $(this).attr('data-description'));
+                        $(this).attr('data-MoTa'));
                     listProduct.splice($.inArray(item,listProduct),1);
                 }
             });       

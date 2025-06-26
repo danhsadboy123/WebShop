@@ -8,7 +8,7 @@ namespace WebShop.Areas.Admin.Models
         public DateTime? CODTransferDate { get; set; }
         public string ClientOrderCode { get; set; }
         public decimal ConvertedWeight { get; set; }
-        public string Description { get; set; }
+        public string MoTa { get; set; }
         public OrderFee Fee { get; set; }
         public decimal Height { get; set; }
         public bool IsPartialReturn { get; set; }

@@ -38,7 +38,7 @@ namespace WebShop.Areas.Admin.Controllers
         [AllowAnonymous]
         public IActionResult AdminLogin(string returnUrl = null)
         {
-            var taikhoanID = HttpContext.Session.GetString("AccountId");
+            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
             if (taikhoanID != null) return RedirectToAction("Index", "Home", new { Area = "Admin" });
             return View();
         }
@@ -50,8 +50,8 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Account kh = _context.Accounts
-                    .Include(p => p.Role)
+                    TaiKhoan kh = _context.TaiKhoans
+                    .Include(p => p.VaiTro)
                     .SingleOrDefault(p => p.Email.ToLower() == model.UserName.ToLower().Trim());
 
                     
@@ -61,11 +61,11 @@ namespace WebShop.Areas.Admin.Controllers
                         return View(model);
 
                     }
-                    if(kh.Role.RoleId == 1)
+                    if(kh.VaiTro.MaVaiTro == 1)
                     {
-                        string pass = model.Password.Trim();
+                        string pass = model.MatKhau.Trim();
                         // + kh.Salt.Trim()
-                        if (kh.Password.Trim() != pass)
+                        if (kh.MatKhau.Trim() != pass)
                         {
                             ViewBag.Error = "Thông tin đăng nhập chưa chính xác";
                             return View(model);
@@ -73,9 +73,9 @@ namespace WebShop.Areas.Admin.Controllers
                     }
                     else
                     {
-                        string pass = (model.Password.Trim() + kh.Salt.Trim()).ToMD5();
+                        string pass = (model.MatKhau.Trim() + kh.Salt.Trim()).ToMD5();
                         // + kh.Salt.Trim()
-                        if (kh.Password.Trim() != pass)
+                        if (kh.MatKhau.Trim() != pass)
                         {
                             ViewBag.Error = "Thông tin đăng nhập chưa chính xác";
                             return View(model);
@@ -84,22 +84,22 @@ namespace WebShop.Areas.Admin.Controllers
                     //đăng nhập thành công
 
                     //ghi nhận thời gian đăng nhập
-                    kh.LastLogin = DateTime.Now;
+                    kh.LanDangNhapCuoi = DateTime.Now;
                     _context.Update(kh);
                     await _context.SaveChangesAsync();
 
                     //identity
                     //luuw seccion Makh
-                    HttpContext.Session.SetString("AccountId", kh.AccountId.ToString());
+                    HttpContext.Session.SetString("MaTaiKhoan", kh.MaTaiKhoan.ToString());
 
                     //identity
                     var userClaims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, kh.FullName),
+                        new Claim(ClaimTypes.Name, kh.HoTen),
                         new Claim(ClaimTypes.Email, kh.Email),
-                        new Claim("AccountId", kh.AccountId.ToString()),
-                        new Claim("RoleId", kh.RoleId.ToString()),
-                        new Claim(ClaimTypes.Role, kh.Role.RoleName)
+                        new Claim("MaTaiKhoan", kh.MaTaiKhoan.ToString()),
+                        new Claim("MaVaiTro", kh.MaVaiTro.ToString()),
+new Claim("VaiTro", kh.VaiTro.TenVaiTro)
                     };
                     var grandmaIdentity = new ClaimsIdentity(userClaims, "User Identity");
                     var userPrincipal = new ClaimsPrincipal(new[] { grandmaIdentity });
@@ -120,7 +120,7 @@ namespace WebShop.Areas.Admin.Controllers
             try
             {
                 HttpContext.SignOutAsync();
-                HttpContext.Session.Remove("AccountId");
+                HttpContext.Session.Remove("MaTaiKhoan");
                 return RedirectToAction("AdminLogin", "Account", new { Area = "Admin" });
             }
             catch

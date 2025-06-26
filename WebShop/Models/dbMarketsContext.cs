@@ -17,7 +17,7 @@ public partial class DbMarketsContext : DbContext
     {
     }
 
-    public virtual DbSet<Account> Accounts { get; set; }
+    public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
 
     public virtual DbSet<AccountAddress> AccountAddresses { get; set; }
 
@@ -113,7 +113,7 @@ public partial class DbMarketsContext : DbContext
 
     public virtual DbSet<QuotationDetail> QuotationDetails { get; set; }
 
-    public virtual DbSet<Role> Roles { get; set; }
+    public virtual DbSet<VaiTro> VaiTros { get; set; }
 
     public virtual DbSet<Shipper> Shippers { get; set; }
 
@@ -140,24 +140,24 @@ public partial class DbMarketsContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Account>(entity =>
+        modelBuilder.Entity<TaiKhoan>(entity =>
         {
-            entity.Property(e => e.AccountId).HasColumnName("AccountID");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.MaTaiKhoan).HasColumnName("MaTaiKhoan");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.Email).HasMaxLength(50);
-            entity.Property(e => e.FullName).HasMaxLength(150);
-            entity.Property(e => e.LastLogin).HasColumnType("datetime");
-            entity.Property(e => e.Password).HasMaxLength(50);
-            entity.Property(e => e.Phone)
+            entity.Property(e => e.HoTen).HasMaxLength(150);
+            entity.Property(e => e.LanDangNhapCuoi).HasColumnType("datetime");
+            entity.Property(e => e.MatKhau).HasMaxLength(50);
+            entity.Property(e => e.SoDienThoai)
                 .HasMaxLength(12)
                 .IsUnicode(false);
-            entity.Property(e => e.RoleId).HasColumnName("RoleID");
+            entity.Property(e => e.MaVaiTro).HasColumnName("MaVaiTro");
             entity.Property(e => e.Salt)
                 .HasMaxLength(10)
                 .IsFixedLength();
 
-            entity.HasOne(d => d.Role).WithMany(p => p.Accounts)
-                .HasForeignKey(d => d.RoleId)
+            entity.HasOne(d => d.VaiTro).WithMany(p => p.TaiKhoans)
+                .HasForeignKey(d => d.MaVaiTro)
                 .HasConstraintName("FK_Accounts_Roles");
         });
 
@@ -172,7 +172,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.DistrictId).HasColumnName("DistrictID");
             entity.Property(e => e.GuestId).HasColumnName("GuestID");
-            entity.Property(e => e.Phone).HasMaxLength(10);
+            entity.Property(e => e.SoDienThoai).HasMaxLength(10);
             entity.Property(e => e.ProvinceId).HasColumnName("ProvinceID");
             entity.Property(e => e.UserName).HasMaxLength(20);
             entity.Property(e => e.WardId).HasColumnName("WardID");
@@ -261,7 +261,7 @@ public partial class DbMarketsContext : DbContext
         modelBuilder.Entity<CardTemplate>(entity =>
         {
             entity.Property(e => e.CardTemplateId).HasColumnName("CardTemplateID");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.DateModified).HasColumnType("datetime");
             entity.Property(e => e.Title).HasMaxLength(50);
         });
@@ -319,7 +319,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.CategoryBrandId).HasColumnName("CategoryBrandID");
             entity.Property(e => e.BrandId).HasColumnName("BrandID");
             entity.Property(e => e.CatId).HasColumnName("CatID");
-            entity.Property(e => e.Description).HasMaxLength(50);
+            entity.Property(e => e.MoTa).HasMaxLength(50);
             entity.Property(e => e.Name).HasMaxLength(50);
 
             entity.HasOne(d => d.Brand).WithMany(p => p.CategoryBrands)
@@ -346,14 +346,14 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.Avatar).HasMaxLength(255);
             entity.Property(e => e.Birthday).HasColumnType("datetime");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.Email)
                 .HasMaxLength(150)
                 .IsFixedLength();
-            entity.Property(e => e.FullName).HasMaxLength(255);
-            entity.Property(e => e.LastLogin).HasColumnType("datetime");
-            entity.Property(e => e.Password).HasMaxLength(50);
-            entity.Property(e => e.Phone)
+            entity.Property(e => e.HoTen).HasMaxLength(255);
+            entity.Property(e => e.LanDangNhapCuoi).HasColumnType("datetime");
+            entity.Property(e => e.MatKhau).HasMaxLength(50);
+            entity.Property(e => e.SoDienThoai)
                 .HasMaxLength(12)
                 .IsUnicode(false);
             entity.Property(e => e.Salt)
@@ -482,7 +482,7 @@ public partial class DbMarketsContext : DbContext
 
             entity.Property(e => e.EmailId).HasColumnName("EmailID");
             entity.Property(e => e.AcountId).HasColumnName("AcountID");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.CustomDate).HasColumnType("datetime");
 
             entity.HasOne(d => d.Acount).WithMany(p => p.EmailMakettings)
@@ -515,12 +515,12 @@ public partial class DbMarketsContext : DbContext
         modelBuilder.Entity<Guest>(entity =>
         {
             entity.Property(e => e.GuestId).HasColumnName("GuestID");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.Email)
                 .HasMaxLength(150)
                 .IsFixedLength();
-            entity.Property(e => e.FullName).HasMaxLength(255);
-            entity.Property(e => e.Phone)
+            entity.Property(e => e.HoTen).HasMaxLength(255);
+            entity.Property(e => e.SoDienThoai)
                 .HasMaxLength(12)
                 .IsUnicode(false);
         });
@@ -557,7 +557,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.PaymentDate).HasColumnType("datetime");
             entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
             entity.Property(e => e.PaymentStatusId).HasColumnName("PaymentStatusID");
-            entity.Property(e => e.Phone)
+            entity.Property(e => e.SoDienThoai)
                 .HasMaxLength(10)
                 .IsFixedLength();
             entity.Property(e => e.ShipDate).HasColumnType("datetime");
@@ -589,7 +589,7 @@ public partial class DbMarketsContext : DbContext
         modelBuilder.Entity<OrderDetail>(entity =>
         {
             entity.Property(e => e.OrderDetailId).HasColumnName("OrderDetailID");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
@@ -623,7 +623,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.FacebookAppId).HasMaxLength(50);
             entity.Property(e => e.FacebookPage).HasMaxLength(50);
             entity.Property(e => e.GoogleSiteVerification).HasMaxLength(50);
-            entity.Property(e => e.Phone).HasMaxLength(50);
+            entity.Property(e => e.SoDienThoai).HasMaxLength(50);
             entity.Property(e => e.Robots).HasMaxLength(50);
         });
 
@@ -640,7 +640,7 @@ public partial class DbMarketsContext : DbContext
             entity.HasKey(e => e.PostId).HasName("PK_tblTinTucs");
 
             entity.Property(e => e.PostId).HasColumnName("PostID");
-            entity.Property(e => e.AccountId).HasColumnName("AccountID");
+            entity.Property(e => e.MaTaiKhoan).HasColumnName("MaTaiKhoan");
             entity.Property(e => e.Alias).HasMaxLength(255);
             entity.Property(e => e.AliasEn)
                 .HasMaxLength(255)
@@ -781,7 +781,7 @@ public partial class DbMarketsContext : DbContext
         modelBuilder.Entity<QuangCao>(entity =>
         {
             entity.Property(e => e.QuangCaoId).HasColumnName("QuangCaoID");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.ImageBg)
                 .HasMaxLength(250)
                 .HasColumnName("ImageBG");
@@ -794,7 +794,7 @@ public partial class DbMarketsContext : DbContext
         modelBuilder.Entity<Quotation>(entity =>
         {
             entity.Property(e => e.QuotationId).HasColumnName("QuotationID");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.Vat)
                 .HasColumnType("decimal(10, 2)")
@@ -808,7 +808,7 @@ public partial class DbMarketsContext : DbContext
         modelBuilder.Entity<QuotationDetail>(entity =>
         {
             entity.Property(e => e.QuotationDetailId).HasColumnName("QuotationDetailID");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.QuotationId).HasColumnName("QuotationID");
 
@@ -821,18 +821,18 @@ public partial class DbMarketsContext : DbContext
                 .HasConstraintName("FK_QuotationDetails_Quotations");
         });
 
-        modelBuilder.Entity<Role>(entity =>
+        modelBuilder.Entity<VaiTro>(entity =>
         {
-            entity.Property(e => e.RoleId).HasColumnName("RoleID");
-            entity.Property(e => e.Description).HasMaxLength(50);
-            entity.Property(e => e.RoleName).HasMaxLength(50);
+            entity.Property(e => e.MaVaiTro).HasColumnName("MaVaiTro");
+            entity.Property(e => e.MoTa).HasMaxLength(50);
+            entity.Property(e => e.TenVaiTro).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Shipper>(entity =>
         {
             entity.Property(e => e.ShipperId).HasColumnName("ShipperID");
             entity.Property(e => e.Company).HasMaxLength(150);
-            entity.Property(e => e.Phone)
+            entity.Property(e => e.SoDienThoai)
                 .HasMaxLength(10)
                 .IsFixedLength();
             entity.Property(e => e.ShipDate).HasColumnType("datetime");
@@ -849,7 +849,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.DistrictId).HasColumnName("DistrictID");
             entity.Property(e => e.Name).HasMaxLength(255);
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
-            entity.Property(e => e.Phone).HasMaxLength(255);
+            entity.Property(e => e.SoDienThoai).HasMaxLength(255);
             entity.Property(e => e.ProvinceId).HasColumnName("ProvinceID");
             entity.Property(e => e.WardId).HasColumnName("WardID");
 

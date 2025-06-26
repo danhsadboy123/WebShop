@@ -68,10 +68,10 @@ namespace WebShop.Controllers
                     {
                         guest = new Guest
                         {
-                            FullName = model.FullName,
-                            Phone = model.Phone.Trim().ToLower(),
+                            HoTen = model.HoTen,
+                            SoDienThoai = model.SoDienThoai.Trim().ToLower(),
                             Email = model.Email.Trim().ToLower(),
-                            CreateDate = DateTime.Now
+                            NgayTao = DateTime.Now
                         };
                         _context.Guests.Add(guest);
                         _context.SaveChanges();
@@ -81,7 +81,7 @@ namespace WebShop.Controllers
                     var order = new Order
                     {
                         GuestId = guest?.GuestId, // Có thể là null nếu khách hàng đã đăng nhập
-                        Phone = guest?.Phone,
+                        SoDienThoai = guest?.SoDienThoai,
                         OrderDate = DateTime.Now,
                         DeliveryStatusId = 1,
                         PaymentStatusId = 1,
@@ -106,7 +106,7 @@ namespace WebShop.Controllers
                             Amount = item.amount,
                             Discount = 0,
                             TotalMoney = item.amount * (item.product.SalePrice > 0 ? item.product.SalePrice : item.product.Price),
-                            CreateDate = DateTime.Now,
+                            NgayTao = DateTime.Now,
                             Price = (item.product.SalePrice > 0 ? item.product.SalePrice : item.product.Price)
                         };
                         _context.OrderDetails.Add(orderDetail);
@@ -116,8 +116,8 @@ namespace WebShop.Controllers
                     var shippingAddress = new ShippingAddress
                     {
                         OrderId = order.OrderId,
-                        Name = guest?.FullName,
-                        Phone = guest?.Phone,
+                        Name = guest?.HoTen,
+                        SoDienThoai = guest?.SoDienThoai,
                         ProvinceId = model.ProvinceId,
                         WardId = model.WardId,
                         DistrictId = model.DistrictId,
@@ -129,8 +129,8 @@ namespace WebShop.Controllers
                     // Cam kết giao dịch
                     transaction.Commit(); 
                     model.OrderType = "Thanh toán VN Pay cho đơn hàng " + order.Code;
-                    model.OrderDescription = "Khách hàng "+ model.FullName+ " thanh toán VN Pay cho đơn hàng " + order.Code;
-                    model.Name = "Khách hàng " + model.FullName + " thanh toán VN Pay cho đơn hàng " + order.Code;
+                    model.OrderDescription = "Khách hàng "+ model.HoTen+ " thanh toán VN Pay cho đơn hàng " + order.Code;
+                    model.Name = "Khách hàng " + model.HoTen + " thanh toán VN Pay cho đơn hàng " + order.Code;
                     HttpContext.Session.SetInt32("CurrentOrderId", order.OrderId); 
                     var url = _vnPayService.CreatePaymentUrl(model, HttpContext);
                     return Ok(url);

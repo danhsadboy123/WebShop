@@ -19,7 +19,7 @@ $enable-rounded: false;
 
 $btn-focus-box-shadow: none;
 
-$btn-active-box-shadow: none;
+$btn-KichHoat-box-shadow: none;
 
 $input-btn-focus-box-shadow: none;
 
@@ -85,7 +85,7 @@ $input-placeholder-color: #999999;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
+.navbar-dark .navbar-nav .nav-link.KichHoat {
     color: $primary;
 }
 
@@ -120,7 +120,7 @@ $input-placeholder-color: #999999;
     transition: .5s;
 }
 
-.carousel-indicators .active {
+.carousel-indicators .KichHoat {
     width: 30px;
     background: #FFFFFF;
 }

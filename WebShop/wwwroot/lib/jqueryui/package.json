@@ -1,7 +1,7 @@
 {
     "name": "jqueryui",
     "version": "1.11.1",
-    "description": "A curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.",
+    "MoTa": "A curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.",
     "main": "jquery-ui.js",
     "homepage": "http://jqueryui.com",
     "author": {

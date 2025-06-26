@@ -642,12 +642,12 @@ html.resize #tooltip * {
     margin: 0 5px 0 0;
 }
 
-.pd-addon-group .item.active {
+.pd-addon-group .item.KichHoat {
     color: #243a76;
     font-weight: 500;
 }
 
-.pd-addon-group .item.active i::before {
+.pd-addon-group .item.KichHoat i::before {
     content: '\f14a';
 }
 

@@ -257,7 +257,7 @@
 					.removeDataSM('parent-a')
 					.removeDataSM('level')
 					.removeDataSM('beforefirstshowfired')
-					.removeAttr('role')
+					.removeAttr('VaiTro')
 					.removeAttr('aria-hidden')
 					.removeAttr('aria-labelledby')
 					.removeAttr('aria-expanded');
@@ -454,7 +454,7 @@
 				if (!this.isCollapsible() || hideDeeperSubs) {
 					this.menuHideSubMenus(!this.activatedItems[level - 1] || this.activatedItems[level - 1][0] != $a[0] ? level - 1 : level);
 				}
-				// save new active item for this level
+				// save new KichHoat item for this level
 				this.activatedItems[level - 1] = $a;
 				if (this.$root.triggerHandler('activate.smapi', $a[0]) === false) {
 					return;
@@ -690,7 +690,7 @@
 					});
 					$ul.attr({
 						id: ulId,
-						'role': 'group',
+						'VaiTro': 'group',
 						'aria-hidden': 'true',
 						'aria-labelledby': aId,
 						'aria-expanded': 'false'

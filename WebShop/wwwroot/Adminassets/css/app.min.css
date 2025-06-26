@@ -1686,15 +1686,15 @@ pre {
         background-color: #b9bbbe
     }
 
-.table-active, .table-active > th, .table-active > td {
+.table-KichHoat, .table-KichHoat > th, .table-KichHoat > td {
     background-color: rgba(0,0,0,0.075)
 }
 
-.table-hover .table-active:hover {
+.table-hover .table-KichHoat:hover {
     background-color: rgba(0,0,0,0.075)
 }
 
-    .table-hover .table-active:hover > td, .table-hover .table-active:hover > th {
+    .table-hover .table-KichHoat:hover > td, .table-hover .table-KichHoat:hover > th {
         background-color: rgba(0,0,0,0.075)
     }
 
@@ -2342,13 +2342,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #007bff
     }
 
-    .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    .btn-primary:not(:disabled):not(.disabled):KichHoat, .btn-primary:not(:disabled):not(.disabled).KichHoat, .show > .btn-primary.dropdown-toggle {
         color: #fff;
         background-color: #0062cc;
         border-color: #005cbf
     }
 
-        .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+        .btn-primary:not(:disabled):not(.disabled):KichHoat:focus, .btn-primary:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-primary.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(38,143,255,0.5)
         }
 
@@ -2374,13 +2374,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #6c757d
     }
 
-    .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+    .btn-secondary:not(:disabled):not(.disabled):KichHoat, .btn-secondary:not(:disabled):not(.disabled).KichHoat, .show > .btn-secondary.dropdown-toggle {
         color: #fff;
         background-color: #545b62;
         border-color: #4e555b
     }
 
-        .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-secondary.dropdown-toggle:focus {
+        .btn-secondary:not(:disabled):not(.disabled):KichHoat:focus, .btn-secondary:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-secondary.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(130,138,145,0.5)
         }
 
@@ -2406,13 +2406,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #28a745
     }
 
-    .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle {
+    .btn-success:not(:disabled):not(.disabled):KichHoat, .btn-success:not(:disabled):not(.disabled).KichHoat, .show > .btn-success.dropdown-toggle {
         color: #fff;
         background-color: #1e7e34;
         border-color: #1c7430
     }
 
-        .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus, .show > .btn-success.dropdown-toggle:focus {
+        .btn-success:not(:disabled):not(.disabled):KichHoat:focus, .btn-success:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-success.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(72,180,97,0.5)
         }
 
@@ -2438,13 +2438,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #17a2b8
     }
 
-    .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
+    .btn-info:not(:disabled):not(.disabled):KichHoat, .btn-info:not(:disabled):not(.disabled).KichHoat, .show > .btn-info.dropdown-toggle {
         color: #fff;
         background-color: #117a8b;
         border-color: #10707f
     }
 
-        .btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .show > .btn-info.dropdown-toggle:focus {
+        .btn-info:not(:disabled):not(.disabled):KichHoat:focus, .btn-info:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-info.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(58,176,195,0.5)
         }
 
@@ -2470,13 +2470,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #ffc107
     }
 
-    .btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active, .show > .btn-warning.dropdown-toggle {
+    .btn-warning:not(:disabled):not(.disabled):KichHoat, .btn-warning:not(:disabled):not(.disabled).KichHoat, .show > .btn-warning.dropdown-toggle {
         color: #212529;
         background-color: #d39e00;
         border-color: #c69500
     }
 
-        .btn-warning:not(:disabled):not(.disabled):active:focus, .btn-warning:not(:disabled):not(.disabled).active:focus, .show > .btn-warning.dropdown-toggle:focus {
+        .btn-warning:not(:disabled):not(.disabled):KichHoat:focus, .btn-warning:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-warning.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(222,170,12,0.5)
         }
 
@@ -2502,13 +2502,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #dc3545
     }
 
-    .btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active, .show > .btn-danger.dropdown-toggle {
+    .btn-danger:not(:disabled):not(.disabled):KichHoat, .btn-danger:not(:disabled):not(.disabled).KichHoat, .show > .btn-danger.dropdown-toggle {
         color: #fff;
         background-color: #bd2130;
         border-color: #b21f2d
     }
 
-        .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-danger.dropdown-toggle:focus {
+        .btn-danger:not(:disabled):not(.disabled):KichHoat:focus, .btn-danger:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-danger.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(225,83,97,0.5)
         }
 
@@ -2534,13 +2534,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #f8f9fa
     }
 
-    .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active, .show > .btn-light.dropdown-toggle {
+    .btn-light:not(:disabled):not(.disabled):KichHoat, .btn-light:not(:disabled):not(.disabled).KichHoat, .show > .btn-light.dropdown-toggle {
         color: #212529;
         background-color: #dae0e5;
         border-color: #d3d9df
     }
 
-        .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus, .show > .btn-light.dropdown-toggle:focus {
+        .btn-light:not(:disabled):not(.disabled):KichHoat:focus, .btn-light:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-light.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(216,217,219,0.5)
         }
 
@@ -2566,13 +2566,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #343a40
     }
 
-    .btn-dark:not(:disabled):not(.disabled):active, .btn-dark:not(:disabled):not(.disabled).active, .show > .btn-dark.dropdown-toggle {
+    .btn-dark:not(:disabled):not(.disabled):KichHoat, .btn-dark:not(:disabled):not(.disabled).KichHoat, .show > .btn-dark.dropdown-toggle {
         color: #fff;
         background-color: #1d2124;
         border-color: #171a1d
     }
 
-        .btn-dark:not(:disabled):not(.disabled):active:focus, .btn-dark:not(:disabled):not(.disabled).active:focus, .show > .btn-dark.dropdown-toggle:focus {
+        .btn-dark:not(:disabled):not(.disabled):KichHoat:focus, .btn-dark:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-dark.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(82,88,93,0.5)
         }
 
@@ -2596,13 +2596,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+    .btn-outline-primary:not(:disabled):not(.disabled):KichHoat, .btn-outline-primary:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-primary.dropdown-toggle {
         color: #fff;
         background-color: #007bff;
         border-color: #007bff
     }
 
-        .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+        .btn-outline-primary:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-primary:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.5)
         }
 
@@ -2626,13 +2626,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active, .show > .btn-outline-secondary.dropdown-toggle {
+    .btn-outline-secondary:not(:disabled):not(.disabled):KichHoat, .btn-outline-secondary:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-secondary.dropdown-toggle {
         color: #fff;
         background-color: #6c757d;
         border-color: #6c757d
     }
 
-        .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
+        .btn-outline-secondary:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-secondary:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(108,117,125,0.5)
         }
 
@@ -2656,13 +2656,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
+    .btn-outline-success:not(:disabled):not(.disabled):KichHoat, .btn-outline-success:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-success.dropdown-toggle {
         color: #fff;
         background-color: #28a745;
         border-color: #28a745
     }
 
-        .btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-success.dropdown-toggle:focus {
+        .btn-outline-success:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-success:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-success.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(40,167,69,0.5)
         }
 
@@ -2686,13 +2686,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-info:not(:disabled):not(.disabled):active, .btn-outline-info:not(:disabled):not(.disabled).active, .show > .btn-outline-info.dropdown-toggle {
+    .btn-outline-info:not(:disabled):not(.disabled):KichHoat, .btn-outline-info:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-info.dropdown-toggle {
         color: #fff;
         background-color: #17a2b8;
         border-color: #17a2b8
     }
 
-        .btn-outline-info:not(:disabled):not(.disabled):active:focus, .btn-outline-info:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-info.dropdown-toggle:focus {
+        .btn-outline-info:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-info:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-info.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(23,162,184,0.5)
         }
 
@@ -2716,13 +2716,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-warning:not(:disabled):not(.disabled):active, .btn-outline-warning:not(:disabled):not(.disabled).active, .show > .btn-outline-warning.dropdown-toggle {
+    .btn-outline-warning:not(:disabled):not(.disabled):KichHoat, .btn-outline-warning:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-warning.dropdown-toggle {
         color: #212529;
         background-color: #ffc107;
         border-color: #ffc107
     }
 
-        .btn-outline-warning:not(:disabled):not(.disabled):active:focus, .btn-outline-warning:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-warning.dropdown-toggle:focus {
+        .btn-outline-warning:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-warning:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-warning.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(255,193,7,0.5)
         }
 
@@ -2746,13 +2746,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-danger:not(:disabled):not(.disabled):active, .btn-outline-danger:not(:disabled):not(.disabled).active, .show > .btn-outline-danger.dropdown-toggle {
+    .btn-outline-danger:not(:disabled):not(.disabled):KichHoat, .btn-outline-danger:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-danger.dropdown-toggle {
         color: #fff;
         background-color: #dc3545;
         border-color: #dc3545
     }
 
-        .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .btn-outline-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-danger.dropdown-toggle:focus {
+        .btn-outline-danger:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-danger:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-danger.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(220,53,69,0.5)
         }
 
@@ -2776,13 +2776,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-light:not(:disabled):not(.disabled):active, .btn-outline-light:not(:disabled):not(.disabled).active, .show > .btn-outline-light.dropdown-toggle {
+    .btn-outline-light:not(:disabled):not(.disabled):KichHoat, .btn-outline-light:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-light.dropdown-toggle {
         color: #212529;
         background-color: #f8f9fa;
         border-color: #f8f9fa
     }
 
-        .btn-outline-light:not(:disabled):not(.disabled):active:focus, .btn-outline-light:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-light.dropdown-toggle:focus {
+        .btn-outline-light:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-light:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-light.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(248,249,250,0.5)
         }
 
@@ -2806,13 +2806,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-dark:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active, .show > .btn-outline-dark.dropdown-toggle {
+    .btn-outline-dark:not(:disabled):not(.disabled):KichHoat, .btn-outline-dark:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-dark.dropdown-toggle {
         color: #fff;
         background-color: #343a40;
         border-color: #343a40
     }
 
-        .btn-outline-dark:not(:disabled):not(.disabled):active:focus, .btn-outline-dark:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-dark.dropdown-toggle:focus {
+        .btn-outline-dark:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-dark:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-dark.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(52,58,64,0.5)
         }
 
@@ -3113,7 +3113,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         background-color: #f8f9fa
     }
 
-    .dropdown-item.active, .dropdown-item:active {
+    .dropdown-item.KichHoat, .dropdown-item:KichHoat {
         color: #fff;
         text-decoration: none;
         background-color: #007bff
@@ -3159,7 +3159,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
             z-index: 1
         }
 
-        .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn.active {
+        .btn-group > .btn:focus, .btn-group > .btn:KichHoat, .btn-group > .btn.KichHoat, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:KichHoat, .btn-group-vertical > .btn.KichHoat {
             z-index: 1
         }
 
@@ -3409,7 +3409,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         border-color: #80bdff
     }
 
-    .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+    .custom-control-input:not(:disabled):KichHoat ~ .custom-control-label::before {
         color: #fff;
         background-color: #b3d7ff;
         border-color: #b3d7ff
@@ -3705,7 +3705,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 }
 
-.custom-range::-webkit-slider-thumb:active {
+.custom-range::-webkit-slider-thumb:KichHoat {
     background-color: #b3d7ff
 }
 
@@ -3736,7 +3736,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 }
 
-.custom-range::-moz-range-thumb:active {
+.custom-range::-moz-range-thumb:KichHoat {
     background-color: #b3d7ff
 }
 
@@ -3769,7 +3769,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 }
 
-.custom-range::-ms-thumb:active {
+.custom-range::-ms-thumb:KichHoat {
     background-color: #b3d7ff
 }
 
@@ -3871,7 +3871,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
             border-color: transparent
         }
 
-        .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+        .nav-tabs .nav-link.KichHoat, .nav-tabs .nav-item.show .nav-link {
             color: #495057;
             background-color: #fff;
             border-color: #dee2e6 #dee2e6 #fff
@@ -3887,7 +3887,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     border-radius: 0.25rem
 }
 
-    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    .nav-pills .nav-link.KichHoat, .nav-pills .show > .nav-link {
         color: #fff;
         background-color: #007bff
     }
@@ -3907,7 +3907,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     display: none
 }
 
-.tab-content > .active {
+.tab-content > .KichHoat {
     display: block
 }
 
@@ -4210,7 +4210,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         color: rgba(0,0,0,0.3)
     }
 
-    .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .KichHoat > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.KichHoat {
         color: rgba(0,0,0,0.9)
     }
 
@@ -4255,7 +4255,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         color: rgba(255,255,255,0.25)
     }
 
-    .navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.active {
+    .navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .KichHoat > .nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.KichHoat {
         color: #fff
     }
 
@@ -4551,7 +4551,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         text-decoration: none
     }
 
-.breadcrumb-item.active {
+.breadcrumb-item.KichHoat {
     color: #6c757d
 }
 
@@ -4599,7 +4599,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     border-bottom-right-radius: 0.25rem
 }
 
-.page-item.active .page-link {
+.page-item.KichHoat .page-link {
     z-index: 1;
     color: #fff;
     background-color: #007bff;
@@ -5055,7 +5055,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #f8f9fa
     }
 
-    .list-group-item-action:active {
+    .list-group-item-action:KichHoat {
         color: #212529;
         background-color: #e9ecef
     }
@@ -5086,7 +5086,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #fff
     }
 
-    .list-group-item.active {
+    .list-group-item.KichHoat {
         z-index: 2;
         color: #fff;
         background-color: #007bff;
@@ -5240,7 +5240,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #9fcdff
     }
 
-    .list-group-item-primary.list-group-item-action.active {
+    .list-group-item-primary.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #004085;
         border-color: #004085
@@ -5256,7 +5256,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #c8cbcf
     }
 
-    .list-group-item-secondary.list-group-item-action.active {
+    .list-group-item-secondary.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #383d41;
         border-color: #383d41
@@ -5272,7 +5272,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #b1dfbb
     }
 
-    .list-group-item-success.list-group-item-action.active {
+    .list-group-item-success.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #155724;
         border-color: #155724
@@ -5288,7 +5288,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #abdde5
     }
 
-    .list-group-item-info.list-group-item-action.active {
+    .list-group-item-info.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #0c5460;
         border-color: #0c5460
@@ -5304,7 +5304,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #ffe8a1
     }
 
-    .list-group-item-warning.list-group-item-action.active {
+    .list-group-item-warning.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #856404;
         border-color: #856404
@@ -5320,7 +5320,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #f1b0b7
     }
 
-    .list-group-item-danger.list-group-item-action.active {
+    .list-group-item-danger.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #721c24;
         border-color: #721c24
@@ -5336,7 +5336,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #ececf6
     }
 
-    .list-group-item-light.list-group-item-action.active {
+    .list-group-item-light.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #818182;
         border-color: #818182
@@ -5352,7 +5352,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #b9bbbe
     }
 
-    .list-group-item-dark.list-group-item-action.active {
+    .list-group-item-dark.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #1b1e21;
         border-color: #1b1e21
@@ -5958,16 +5958,16 @@ a.close.disabled {
     }
 }
 
-.carousel-item.active, .carousel-item-next, .carousel-item-prev {
+.carousel-item.KichHoat, .carousel-item-next, .carousel-item-prev {
     display: block
 }
 
-    .carousel-item-next:not(.carousel-item-left), .active.carousel-item-right {
+    .carousel-item-next:not(.carousel-item-left), .KichHoat.carousel-item-right {
         -webkit-transform: translateX(100%);
         transform: translateX(100%)
     }
 
-    .carousel-item-prev:not(.carousel-item-right), .active.carousel-item-left {
+    .carousel-item-prev:not(.carousel-item-right), .KichHoat.carousel-item-left {
         -webkit-transform: translateX(-100%);
         transform: translateX(-100%)
     }
@@ -5979,19 +5979,19 @@ a.close.disabled {
     transform: none
 }
 
-    .carousel-fade .carousel-item.active, .carousel-fade .carousel-item-next.carousel-item-left, .carousel-fade .carousel-item-prev.carousel-item-right {
+    .carousel-fade .carousel-item.KichHoat, .carousel-fade .carousel-item-next.carousel-item-left, .carousel-fade .carousel-item-prev.carousel-item-right {
         z-index: 1;
         opacity: 1
     }
 
-.carousel-fade .active.carousel-item-left, .carousel-fade .active.carousel-item-right {
+.carousel-fade .KichHoat.carousel-item-left, .carousel-fade .KichHoat.carousel-item-right {
     z-index: 0;
     opacity: 0;
     transition: 0s 0.6s opacity
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .carousel-fade .active.carousel-item-left, .carousel-fade .active.carousel-item-right {
+    .carousel-fade .KichHoat.carousel-item-left, .carousel-fade .KichHoat.carousel-item-right {
         transition: none
     }
 }
@@ -6084,7 +6084,7 @@ a.close.disabled {
     }
 }
 
-.carousel-indicators .active {
+.carousel-indicators .KichHoat {
     opacity: 1
 }
 
@@ -7479,7 +7479,7 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
     border: 0
 }
 
-.sr-only-focusable:active, .sr-only-focusable:focus {
+.sr-only-focusable:KichHoat, .sr-only-focusable:focus {
     position: static;
     width: auto;
     height: auto;
@@ -9725,13 +9725,13 @@ a.text-dark:hover, a.text-dark:focus {
     }
 }
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast: KichHoat), (-ms-high-contrast: none) {
     .ps-container {
         overflow: auto !important
     }
 }
 
-.ps-container.ps-active-x > .ps-scrollbar-x-rail, .ps-container.ps-active-y > .ps-scrollbar-y-rail {
+.ps-container.ps-KichHoat-x > .ps-scrollbar-x-rail, .ps-container.ps-KichHoat-y > .ps-scrollbar-y-rail {
     display: block;
     background-color: transparent
 }
@@ -9774,7 +9774,7 @@ a.text-dark:hover, a.text-dark:focus {
         height: 6px
     }
 
-    .ps-container > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x, .ps-container > .ps-scrollbar-x-rail:active > .ps-scrollbar-x {
+    .ps-container > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x, .ps-container > .ps-scrollbar-x-rail:KichHoat > .ps-scrollbar-x {
         height: 11px
     }
 
@@ -9796,7 +9796,7 @@ a.text-dark:hover, a.text-dark:focus {
         width: 6px
     }
 
-    .ps-container > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y, .ps-container > .ps-scrollbar-y-rail:active > .ps-scrollbar-y {
+    .ps-container > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y, .ps-container > .ps-scrollbar-y-rail:KichHoat > .ps-scrollbar-y {
         width: 11px
     }
 
@@ -9854,7 +9854,7 @@ a.text-dark:hover, a.text-dark:focus {
     -ms-transition: all 0.2s ease
 }
 
-    .noUi-handle:active {
+    .noUi-handle:KichHoat {
         transform: scale(1.4);
         -webkit-transform: scale(1.4);
         -moz-transform: scale(1.4);
@@ -10011,17 +10011,17 @@ div.dataTables_wrapper div.dataTables_filter input {
         color: rgba(0,0,0,0.25)
     }
 
-.select2-container-active.select2-container {
+.select2-container-KichHoat.select2-container {
     border: 1px solid #3f87f5;
     border-radius: .25rem;
     box-shadow: 0 0 0 2px rgba(63,135,245,0.2)
 }
 
-    .select2-container-active.select2-container .select2-choice, .select2-container-active.select2-container .select2-choices {
+    .select2-container-KichHoat.select2-container .select2-choice, .select2-container-KichHoat.select2-container .select2-choices {
         box-shadow: none
     }
 
-.select2-drop-active {
+.select2-drop-KichHoat {
     border: 0px
 }
 
@@ -10030,7 +10030,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     box-shadow: 0 2px 8px rgba(0,0,0,0.15)
 }
 
-    .select2-drop.select2-drop-above.select2-drop-active {
+    .select2-drop.select2-drop-above.select2-drop-KichHoat {
         border-top: 0px
     }
 
@@ -10137,7 +10137,7 @@ div.dataTables_wrapper div.dataTables_filter input {
             color: rgba(83,83,95,0.25)
         }
 
-        .datepicker table tr td span.active:active, .datepicker table tr td span.active:hover:active, .datepicker table tr td span.active.disabled:active, .datepicker table tr td span.active.disabled:hover:active, .datepicker table tr td span.active.active, .datepicker table tr td span.active:hover.active, .datepicker table tr td span.active.disabled.active, .datepicker table tr td span.active.disabled:hover.active, .datepicker table tr td span.active.active:hover, .datepicker table tr td span.active:hover.active:hover, .datepicker table tr td.active:active, .datepicker table tr td.active.highlighted:active, .datepicker table tr td.active.active, .datepicker table tr td.active.highlighted.active, .datepicker table tr td.active:active:hover, .datepicker table tr td.active.highlighted:active:hover, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.highlighted.active:hover, .datepicker table tr td.active:active:focus, .datepicker table tr td.active.highlighted:active:focus, .datepicker table tr td.active.active:focus, .datepicker table tr td.active.highlighted.active:focus, .datepicker table tr td.active:active.focus, .datepicker table tr td.active.highlighted:active.focus, .datepicker table tr td.active.active.focus, .datepicker table tr td.active.highlighted.active.focus {
+        .datepicker table tr td span.KichHoat:KichHoat, .datepicker table tr td span.KichHoat:hover:KichHoat, .datepicker table tr td span.KichHoat.disabled:KichHoat, .datepicker table tr td span.KichHoat.disabled:hover:KichHoat, .datepicker table tr td span.KichHoat.KichHoat, .datepicker table tr td span.KichHoat:hover.KichHoat, .datepicker table tr td span.KichHoat.disabled.KichHoat, .datepicker table tr td span.KichHoat.disabled:hover.KichHoat, .datepicker table tr td span.KichHoat.KichHoat:hover, .datepicker table tr td span.KichHoat:hover.KichHoat:hover, .datepicker table tr td.KichHoat:KichHoat, .datepicker table tr td.KichHoat.highlighted:KichHoat, .datepicker table tr td.KichHoat.KichHoat, .datepicker table tr td.KichHoat.highlighted.KichHoat, .datepicker table tr td.KichHoat:KichHoat:hover, .datepicker table tr td.KichHoat.highlighted:KichHoat:hover, .datepicker table tr td.KichHoat.KichHoat:hover, .datepicker table tr td.KichHoat.highlighted.KichHoat:hover, .datepicker table tr td.KichHoat:KichHoat:focus, .datepicker table tr td.KichHoat.highlighted:KichHoat:focus, .datepicker table tr td.KichHoat.KichHoat:focus, .datepicker table tr td.KichHoat.highlighted.KichHoat:focus, .datepicker table tr td.KichHoat:KichHoat.focus, .datepicker table tr td.KichHoat.highlighted:KichHoat.focus, .datepicker table tr td.KichHoat.KichHoat.focus, .datepicker table tr td.KichHoat.highlighted.KichHoat.focus {
             color: #fff;
             background: #3f87f5;
             border-color: transparent
@@ -10179,7 +10179,7 @@ div.dataTables_wrapper div.dataTables_filter input {
         padding: 0 6px 0 35px
     }
 
-        .daterangepicker .input-mini.active {
+        .daterangepicker .input-mini.KichHoat {
             border-radius: 0px;
             border-color: #a0c4fa
         }
@@ -10205,13 +10205,13 @@ div.dataTables_wrapper div.dataTables_filter input {
             color: #3f87f5
         }
 
-        .daterangepicker td.active {
+        .daterangepicker td.KichHoat {
             background-color: #3f87f5;
             border-color: transparent;
             color: #fff
         }
 
-            .daterangepicker td.active:hover {
+            .daterangepicker td.KichHoat:hover {
                 background-color: #3f87f5;
                 border-color: transparent;
                 color: #fff
@@ -10761,7 +10761,7 @@ div.dataTables_wrapper div.dataTables_filter input {
         height: 100%
     }
 
-    .ql-snow.ql-toolbar button:active:hover, .ql-snow .ql-toolbar button:active:hover {
+    .ql-snow.ql-toolbar button:KichHoat:hover, .ql-snow .ql-toolbar button:KichHoat:hover {
         outline: none
     }
 
@@ -10774,28 +10774,28 @@ div.dataTables_wrapper div.dataTables_filter input {
     background-color: rgba(63,135,245,0.15)
 }
 
-.ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, .ql-snow.ql-toolbar .ql-picker-label.ql-active, .ql-snow .ql-toolbar .ql-picker-label.ql-active {
+.ql-snow.ql-toolbar button.ql-KichHoat, .ql-snow .ql-toolbar button.ql-KichHoat, .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat, .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat {
     color: #3f87f5
 }
 
-    .ql-snow.ql-toolbar button:hover .ql-fill, .ql-snow .ql-toolbar button:hover .ql-fill, .ql-snow.ql-toolbar button:focus .ql-fill, .ql-snow .ql-toolbar button:focus .ql-fill, .ql-snow.ql-toolbar button.ql-active .ql-fill, .ql-snow .ql-toolbar button.ql-active .ql-fill, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill, .ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill, .ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill, .ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+    .ql-snow.ql-toolbar button:hover .ql-fill, .ql-snow .ql-toolbar button:hover .ql-fill, .ql-snow.ql-toolbar button:focus .ql-fill, .ql-snow .ql-toolbar button:focus .ql-fill, .ql-snow.ql-toolbar button.ql-KichHoat .ql-fill, .ql-snow .ql-toolbar button.ql-KichHoat .ql-fill, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill, .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat .ql-fill, .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat .ql-fill, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill, .ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill, .ql-snow.ql-toolbar button.ql-KichHoat .ql-stroke.ql-fill, .ql-snow .ql-toolbar button.ql-KichHoat .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
         fill: #3f87f5
     }
 
-    .ql-snow.ql-toolbar button:hover .ql-stroke, .ql-snow .ql-toolbar button:hover .ql-stroke, .ql-snow.ql-toolbar button:focus .ql-stroke, .ql-snow .ql-toolbar button:focus .ql-stroke, .ql-snow.ql-toolbar button.ql-active .ql-stroke, .ql-snow .ql-toolbar button.ql-active .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow.ql-toolbar button:hover .ql-stroke-miter, .ql-snow .ql-toolbar button:hover .ql-stroke-miter, .ql-snow.ql-toolbar button:focus .ql-stroke-miter, .ql-snow .ql-toolbar button:focus .ql-stroke-miter, .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter, .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+    .ql-snow.ql-toolbar button:hover .ql-stroke, .ql-snow .ql-toolbar button:hover .ql-stroke, .ql-snow.ql-toolbar button:focus .ql-stroke, .ql-snow .ql-toolbar button:focus .ql-stroke, .ql-snow.ql-toolbar button.ql-KichHoat .ql-stroke, .ql-snow .ql-toolbar button.ql-KichHoat .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow.ql-toolbar button:hover .ql-stroke-miter, .ql-snow .ql-toolbar button:hover .ql-stroke-miter, .ql-snow.ql-toolbar button:focus .ql-stroke-miter, .ql-snow .ql-toolbar button:focus .ql-stroke-miter, .ql-snow.ql-toolbar button.ql-KichHoat .ql-stroke-miter, .ql-snow .ql-toolbar button.ql-KichHoat .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
         stroke: #3f87f5
     }
 
 @media (pointer: coarse) {
-    .ql-snow.ql-toolbar button:hover:not(.ql-active), .ql-snow .ql-toolbar button:hover:not(.ql-active) {
+    .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat), .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) {
         color: #53535f
     }
 
-        .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-fill, .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill, .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
+        .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat) .ql-fill, .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) .ql-fill, .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke.ql-fill, .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke.ql-fill {
             fill: #53535f
         }
 
-        .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke, .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke, .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter, .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
+        .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke, .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke, .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke-miter, .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke-miter {
             stroke: #53535f
         }
 }
@@ -10882,11 +10882,11 @@ div.dataTables_wrapper div.dataTables_filter input {
         display: none
     }
 
-    .ql-snow .ql-direction.ql-active svg:last-child {
+    .ql-snow .ql-direction.ql-KichHoat svg:last-child {
         display: inline
     }
 
-    .ql-snow .ql-direction.ql-active svg:first-child {
+    .ql-snow .ql-direction.ql-KichHoat svg:first-child {
         display: none
     }
 
@@ -12250,7 +12250,7 @@ a {
         color: #2a2a2a !important
     }
 
-    a.text-gray.active {
+    a.text-gray.KichHoat {
         color: #3f87f5 !important
     }
 
@@ -12258,7 +12258,7 @@ a {
         color: #3f87f5 !important
     }
 
-    a.text-dark.active {
+    a.text-dark.KichHoat {
         color: #3f87f5 !important
     }
 
@@ -12266,7 +12266,7 @@ a {
         color: #2a2a2a !important
     }
 
-    a.text-muted.active {
+    a.text-muted.KichHoat {
         color: #3f87f5 !important
     }
 
@@ -15365,15 +15365,15 @@ iframe {
         border-color: #3f87f5
     }
 
-    .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active {
+    .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat {
         background-color: rgba(63,135,245,0.15)
     }
 
-        .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active a {
+        .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat a {
             color: #3f87f5
         }
 
-        .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active:after {
+        .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat:after {
             transform: scaleY(1);
             -webkit-transform: scaleY(1);
             -moz-transform: scaleY(1);
@@ -15478,63 +15478,63 @@ iframe {
     }
 }
 
-.is-primary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active {
+.is-primary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat {
     background-color: rgba(63,135,245,0.15)
 }
 
-    .is-primary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active:after {
+    .is-primary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat:after {
         border-color: #3f87f5
     }
 
-    .is-primary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active a {
+    .is-primary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat a {
         color: #3f87f5
     }
 
-.is-secondary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active {
+.is-secondary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat {
     background-color: rgba(136,108,255,0.15)
 }
 
-    .is-secondary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active:after {
+    .is-secondary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat:after {
         border-color: #886cff
     }
 
-    .is-secondary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active a {
+    .is-secondary .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat a {
         color: #886cff
     }
 
-.is-success .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active {
+.is-success .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat {
     background-color: rgba(0,201,167,0.15)
 }
 
-    .is-success .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active:after {
+    .is-success .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat:after {
         border-color: #00c9a7
     }
 
-    .is-success .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active a {
+    .is-success .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat a {
         color: #00c9a7
     }
 
-.is-danger .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active {
+.is-danger .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat {
     background-color: rgba(222,68,54,0.15)
 }
 
-    .is-danger .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active:after {
+    .is-danger .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat:after {
         border-color: #de4436
     }
 
-    .is-danger .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active a {
+    .is-danger .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat a {
         color: #de4436
     }
 
-.is-custom .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active {
+.is-custom .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat {
     background-color: rgba(255,255,255,0.15)
 }
 
-    .is-custom .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active:after {
+    .is-custom .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat:after {
         border-color: #fff
     }
 
-    .is-custom .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active a {
+    .is-custom .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat a {
         color: #fff
     }
 
@@ -15574,15 +15574,15 @@ iframe {
         color: #fff
     }
 
-    .is-side-nav-dark .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active {
+    .is-side-nav-dark .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat {
         background-color: transparent
     }
 
-        .is-side-nav-dark .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active:after {
+        .is-side-nav-dark .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat:after {
             border-color: transparent
         }
 
-        .is-side-nav-dark .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.active a {
+        .is-side-nav-dark .side-nav .side-nav-inner .side-nav-menu > li.dropdown ul.dropdown-menu > li.KichHoat a {
             color: #fff
         }
 
@@ -15671,12 +15671,12 @@ iframe {
             border-radius: .25rem
         }
 
-            .header .nav-wrap .nav-left li > a:hover, .header .nav-wrap .nav-left li > a:focus, .header .nav-wrap .nav-left li > a:active, .header .nav-wrap .nav-left li nz-dropdown > a:hover, .header .nav-wrap .nav-left li nz-dropdown > a:focus, .header .nav-wrap .nav-left li nz-dropdown > a:active, .header .nav-wrap .nav-right li > a:hover, .header .nav-wrap .nav-right li > a:focus, .header .nav-wrap .nav-right li > a:active, .header .nav-wrap .nav-right li nz-dropdown > a:hover, .header .nav-wrap .nav-right li nz-dropdown > a:focus, .header .nav-wrap .nav-right li nz-dropdown > a:active {
+            .header .nav-wrap .nav-left li > a:hover, .header .nav-wrap .nav-left li > a:focus, .header .nav-wrap .nav-left li > a:KichHoat, .header .nav-wrap .nav-left li nz-dropdown > a:hover, .header .nav-wrap .nav-left li nz-dropdown > a:focus, .header .nav-wrap .nav-left li nz-dropdown > a:KichHoat, .header .nav-wrap .nav-right li > a:hover, .header .nav-wrap .nav-right li > a:focus, .header .nav-wrap .nav-right li > a:KichHoat, .header .nav-wrap .nav-right li nz-dropdown > a:hover, .header .nav-wrap .nav-right li nz-dropdown > a:focus, .header .nav-wrap .nav-right li nz-dropdown > a:KichHoat {
                 color: #3f87f5;
                 background-color: rgba(63,135,245,0.1)
             }
 
-                .header .nav-wrap .nav-left li > a:hover .ant-badge, .header .nav-wrap .nav-left li > a:focus .ant-badge, .header .nav-wrap .nav-left li > a:active .ant-badge, .header .nav-wrap .nav-left li nz-dropdown > a:hover .ant-badge, .header .nav-wrap .nav-left li nz-dropdown > a:focus .ant-badge, .header .nav-wrap .nav-left li nz-dropdown > a:active .ant-badge, .header .nav-wrap .nav-right li > a:hover .ant-badge, .header .nav-wrap .nav-right li > a:focus .ant-badge, .header .nav-wrap .nav-right li > a:active .ant-badge, .header .nav-wrap .nav-right li nz-dropdown > a:hover .ant-badge, .header .nav-wrap .nav-right li nz-dropdown > a:focus .ant-badge, .header .nav-wrap .nav-right li nz-dropdown > a:active .ant-badge {
+                .header .nav-wrap .nav-left li > a:hover .ant-badge, .header .nav-wrap .nav-left li > a:focus .ant-badge, .header .nav-wrap .nav-left li > a:KichHoat .ant-badge, .header .nav-wrap .nav-left li nz-dropdown > a:hover .ant-badge, .header .nav-wrap .nav-left li nz-dropdown > a:focus .ant-badge, .header .nav-wrap .nav-left li nz-dropdown > a:KichHoat .ant-badge, .header .nav-wrap .nav-right li > a:hover .ant-badge, .header .nav-wrap .nav-right li > a:focus .ant-badge, .header .nav-wrap .nav-right li > a:KichHoat .ant-badge, .header .nav-wrap .nav-right li nz-dropdown > a:hover .ant-badge, .header .nav-wrap .nav-right li nz-dropdown > a:focus .ant-badge, .header .nav-wrap .nav-right li nz-dropdown > a:KichHoat .ant-badge {
                     color: #3f87f5
                 }
 
@@ -15780,12 +15780,12 @@ iframe {
         color: rgba(255,255,255,0.8)
     }
 
-        .is-primary .header .nav-left li > a:hover, .is-primary .header .nav-left li > a:focus, .is-primary .header .nav-left li > a:active, .is-primary .header .nav-left li nz-dropdown > a:hover, .is-primary .header .nav-left li nz-dropdown > a:focus, .is-primary .header .nav-left li nz-dropdown > a:active, .is-primary .header .nav-right li > a:hover, .is-primary .header .nav-right li > a:focus, .is-primary .header .nav-right li > a:active, .is-primary .header .nav-right li nz-dropdown > a:hover, .is-primary .header .nav-right li nz-dropdown > a:focus, .is-primary .header .nav-right li nz-dropdown > a:active, .is-secondary .header .nav-left li > a:hover, .is-secondary .header .nav-left li > a:focus, .is-secondary .header .nav-left li > a:active, .is-secondary .header .nav-left li nz-dropdown > a:hover, .is-secondary .header .nav-left li nz-dropdown > a:focus, .is-secondary .header .nav-left li nz-dropdown > a:active, .is-secondary .header .nav-right li > a:hover, .is-secondary .header .nav-right li > a:focus, .is-secondary .header .nav-right li > a:active, .is-secondary .header .nav-right li nz-dropdown > a:hover, .is-secondary .header .nav-right li nz-dropdown > a:focus, .is-secondary .header .nav-right li nz-dropdown > a:active, .is-success .header .nav-left li > a:hover, .is-success .header .nav-left li > a:focus, .is-success .header .nav-left li > a:active, .is-success .header .nav-left li nz-dropdown > a:hover, .is-success .header .nav-left li nz-dropdown > a:focus, .is-success .header .nav-left li nz-dropdown > a:active, .is-success .header .nav-right li > a:hover, .is-success .header .nav-right li > a:focus, .is-success .header .nav-right li > a:active, .is-success .header .nav-right li nz-dropdown > a:hover, .is-success .header .nav-right li nz-dropdown > a:focus, .is-success .header .nav-right li nz-dropdown > a:active, .is-danger .header .nav-left li > a:hover, .is-danger .header .nav-left li > a:focus, .is-danger .header .nav-left li > a:active, .is-danger .header .nav-left li nz-dropdown > a:hover, .is-danger .header .nav-left li nz-dropdown > a:focus, .is-danger .header .nav-left li nz-dropdown > a:active, .is-danger .header .nav-right li > a:hover, .is-danger .header .nav-right li > a:focus, .is-danger .header .nav-right li > a:active, .is-danger .header .nav-right li nz-dropdown > a:hover, .is-danger .header .nav-right li nz-dropdown > a:focus, .is-danger .header .nav-right li nz-dropdown > a:active, .is-custom .header .nav-left li > a:hover, .is-custom .header .nav-left li > a:focus, .is-custom .header .nav-left li > a:active, .is-custom .header .nav-left li nz-dropdown > a:hover, .is-custom .header .nav-left li nz-dropdown > a:focus, .is-custom .header .nav-left li nz-dropdown > a:active, .is-custom .header .nav-right li > a:hover, .is-custom .header .nav-right li > a:focus, .is-custom .header .nav-right li > a:active, .is-custom .header .nav-right li nz-dropdown > a:hover, .is-custom .header .nav-right li nz-dropdown > a:focus, .is-custom .header .nav-right li nz-dropdown > a:active {
+        .is-primary .header .nav-left li > a:hover, .is-primary .header .nav-left li > a:focus, .is-primary .header .nav-left li > a:KichHoat, .is-primary .header .nav-left li nz-dropdown > a:hover, .is-primary .header .nav-left li nz-dropdown > a:focus, .is-primary .header .nav-left li nz-dropdown > a:KichHoat, .is-primary .header .nav-right li > a:hover, .is-primary .header .nav-right li > a:focus, .is-primary .header .nav-right li > a:KichHoat, .is-primary .header .nav-right li nz-dropdown > a:hover, .is-primary .header .nav-right li nz-dropdown > a:focus, .is-primary .header .nav-right li nz-dropdown > a:KichHoat, .is-secondary .header .nav-left li > a:hover, .is-secondary .header .nav-left li > a:focus, .is-secondary .header .nav-left li > a:KichHoat, .is-secondary .header .nav-left li nz-dropdown > a:hover, .is-secondary .header .nav-left li nz-dropdown > a:focus, .is-secondary .header .nav-left li nz-dropdown > a:KichHoat, .is-secondary .header .nav-right li > a:hover, .is-secondary .header .nav-right li > a:focus, .is-secondary .header .nav-right li > a:KichHoat, .is-secondary .header .nav-right li nz-dropdown > a:hover, .is-secondary .header .nav-right li nz-dropdown > a:focus, .is-secondary .header .nav-right li nz-dropdown > a:KichHoat, .is-success .header .nav-left li > a:hover, .is-success .header .nav-left li > a:focus, .is-success .header .nav-left li > a:KichHoat, .is-success .header .nav-left li nz-dropdown > a:hover, .is-success .header .nav-left li nz-dropdown > a:focus, .is-success .header .nav-left li nz-dropdown > a:KichHoat, .is-success .header .nav-right li > a:hover, .is-success .header .nav-right li > a:focus, .is-success .header .nav-right li > a:KichHoat, .is-success .header .nav-right li nz-dropdown > a:hover, .is-success .header .nav-right li nz-dropdown > a:focus, .is-success .header .nav-right li nz-dropdown > a:KichHoat, .is-danger .header .nav-left li > a:hover, .is-danger .header .nav-left li > a:focus, .is-danger .header .nav-left li > a:KichHoat, .is-danger .header .nav-left li nz-dropdown > a:hover, .is-danger .header .nav-left li nz-dropdown > a:focus, .is-danger .header .nav-left li nz-dropdown > a:KichHoat, .is-danger .header .nav-right li > a:hover, .is-danger .header .nav-right li > a:focus, .is-danger .header .nav-right li > a:KichHoat, .is-danger .header .nav-right li nz-dropdown > a:hover, .is-danger .header .nav-right li nz-dropdown > a:focus, .is-danger .header .nav-right li nz-dropdown > a:KichHoat, .is-custom .header .nav-left li > a:hover, .is-custom .header .nav-left li > a:focus, .is-custom .header .nav-left li > a:KichHoat, .is-custom .header .nav-left li nz-dropdown > a:hover, .is-custom .header .nav-left li nz-dropdown > a:focus, .is-custom .header .nav-left li nz-dropdown > a:KichHoat, .is-custom .header .nav-right li > a:hover, .is-custom .header .nav-right li > a:focus, .is-custom .header .nav-right li > a:KichHoat, .is-custom .header .nav-right li nz-dropdown > a:hover, .is-custom .header .nav-right li nz-dropdown > a:focus, .is-custom .header .nav-right li nz-dropdown > a:KichHoat {
             color: #fff;
             background-color: rgba(255,255,255,0.15)
         }
 
-            .is-primary .header .nav-left li > a:hover .ant-badge, .is-primary .header .nav-left li > a:focus .ant-badge, .is-primary .header .nav-left li > a:active .ant-badge, .is-primary .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-primary .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-primary .header .nav-left li nz-dropdown > a:active .ant-badge, .is-primary .header .nav-right li > a:hover .ant-badge, .is-primary .header .nav-right li > a:focus .ant-badge, .is-primary .header .nav-right li > a:active .ant-badge, .is-primary .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-primary .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-primary .header .nav-right li nz-dropdown > a:active .ant-badge, .is-secondary .header .nav-left li > a:hover .ant-badge, .is-secondary .header .nav-left li > a:focus .ant-badge, .is-secondary .header .nav-left li > a:active .ant-badge, .is-secondary .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-secondary .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-secondary .header .nav-left li nz-dropdown > a:active .ant-badge, .is-secondary .header .nav-right li > a:hover .ant-badge, .is-secondary .header .nav-right li > a:focus .ant-badge, .is-secondary .header .nav-right li > a:active .ant-badge, .is-secondary .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-secondary .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-secondary .header .nav-right li nz-dropdown > a:active .ant-badge, .is-success .header .nav-left li > a:hover .ant-badge, .is-success .header .nav-left li > a:focus .ant-badge, .is-success .header .nav-left li > a:active .ant-badge, .is-success .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-success .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-success .header .nav-left li nz-dropdown > a:active .ant-badge, .is-success .header .nav-right li > a:hover .ant-badge, .is-success .header .nav-right li > a:focus .ant-badge, .is-success .header .nav-right li > a:active .ant-badge, .is-success .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-success .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-success .header .nav-right li nz-dropdown > a:active .ant-badge, .is-danger .header .nav-left li > a:hover .ant-badge, .is-danger .header .nav-left li > a:focus .ant-badge, .is-danger .header .nav-left li > a:active .ant-badge, .is-danger .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-danger .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-danger .header .nav-left li nz-dropdown > a:active .ant-badge, .is-danger .header .nav-right li > a:hover .ant-badge, .is-danger .header .nav-right li > a:focus .ant-badge, .is-danger .header .nav-right li > a:active .ant-badge, .is-danger .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-danger .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-danger .header .nav-right li nz-dropdown > a:active .ant-badge, .is-custom .header .nav-left li > a:hover .ant-badge, .is-custom .header .nav-left li > a:focus .ant-badge, .is-custom .header .nav-left li > a:active .ant-badge, .is-custom .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-custom .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-custom .header .nav-left li nz-dropdown > a:active .ant-badge, .is-custom .header .nav-right li > a:hover .ant-badge, .is-custom .header .nav-right li > a:focus .ant-badge, .is-custom .header .nav-right li > a:active .ant-badge, .is-custom .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-custom .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-custom .header .nav-right li nz-dropdown > a:active .ant-badge {
+            .is-primary .header .nav-left li > a:hover .ant-badge, .is-primary .header .nav-left li > a:focus .ant-badge, .is-primary .header .nav-left li > a:KichHoat .ant-badge, .is-primary .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-primary .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-primary .header .nav-left li nz-dropdown > a:KichHoat .ant-badge, .is-primary .header .nav-right li > a:hover .ant-badge, .is-primary .header .nav-right li > a:focus .ant-badge, .is-primary .header .nav-right li > a:KichHoat .ant-badge, .is-primary .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-primary .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-primary .header .nav-right li nz-dropdown > a:KichHoat .ant-badge, .is-secondary .header .nav-left li > a:hover .ant-badge, .is-secondary .header .nav-left li > a:focus .ant-badge, .is-secondary .header .nav-left li > a:KichHoat .ant-badge, .is-secondary .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-secondary .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-secondary .header .nav-left li nz-dropdown > a:KichHoat .ant-badge, .is-secondary .header .nav-right li > a:hover .ant-badge, .is-secondary .header .nav-right li > a:focus .ant-badge, .is-secondary .header .nav-right li > a:KichHoat .ant-badge, .is-secondary .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-secondary .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-secondary .header .nav-right li nz-dropdown > a:KichHoat .ant-badge, .is-success .header .nav-left li > a:hover .ant-badge, .is-success .header .nav-left li > a:focus .ant-badge, .is-success .header .nav-left li > a:KichHoat .ant-badge, .is-success .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-success .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-success .header .nav-left li nz-dropdown > a:KichHoat .ant-badge, .is-success .header .nav-right li > a:hover .ant-badge, .is-success .header .nav-right li > a:focus .ant-badge, .is-success .header .nav-right li > a:KichHoat .ant-badge, .is-success .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-success .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-success .header .nav-right li nz-dropdown > a:KichHoat .ant-badge, .is-danger .header .nav-left li > a:hover .ant-badge, .is-danger .header .nav-left li > a:focus .ant-badge, .is-danger .header .nav-left li > a:KichHoat .ant-badge, .is-danger .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-danger .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-danger .header .nav-left li nz-dropdown > a:KichHoat .ant-badge, .is-danger .header .nav-right li > a:hover .ant-badge, .is-danger .header .nav-right li > a:focus .ant-badge, .is-danger .header .nav-right li > a:KichHoat .ant-badge, .is-danger .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-danger .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-danger .header .nav-right li nz-dropdown > a:KichHoat .ant-badge, .is-custom .header .nav-left li > a:hover .ant-badge, .is-custom .header .nav-left li > a:focus .ant-badge, .is-custom .header .nav-left li > a:KichHoat .ant-badge, .is-custom .header .nav-left li nz-dropdown > a:hover .ant-badge, .is-custom .header .nav-left li nz-dropdown > a:focus .ant-badge, .is-custom .header .nav-left li nz-dropdown > a:KichHoat .ant-badge, .is-custom .header .nav-right li > a:hover .ant-badge, .is-custom .header .nav-right li > a:focus .ant-badge, .is-custom .header .nav-right li > a:KichHoat .ant-badge, .is-custom .header .nav-right li nz-dropdown > a:hover .ant-badge, .is-custom .header .nav-right li nz-dropdown > a:focus .ant-badge, .is-custom .header .nav-right li nz-dropdown > a:KichHoat .ant-badge {
                 color: #fff
             }
 
@@ -17173,7 +17173,7 @@ ul.icons-list li:hover {
     content: "\e087"
 }
 
-.anticon-phone:before {
+.anticon-SoDienThoai:before {
     content: "\e088"
 }
 
@@ -18229,7 +18229,7 @@ ul.icons-list li:hover {
     content: "\f373"
 }
 
-.fa-audio-description:before {
+.fa-audio-MoTa:before {
     content: "\f29e"
 }
 
@@ -18421,7 +18421,7 @@ ul.icons-list li:hover {
     content: "\f517"
 }
 
-.fa-blender-phone:before {
+.fa-blender-SoDienThoai:before {
     content: "\f6b6"
 }
 
@@ -19209,7 +19209,7 @@ ul.icons-list li:hover {
     content: "\f09d"
 }
 
-.fa-critical-role:before {
+.fa-critical-VaiTro:before {
     content: "\f6c9"
 }
 
@@ -21513,27 +21513,27 @@ ul.icons-list li:hover {
     content: "\f511"
 }
 
-.fa-phone:before {
+.fa-SoDienThoai:before {
     content: "\f095"
 }
 
-.fa-phone-alt:before {
+.fa-SoDienThoai-alt:before {
     content: "\f879"
 }
 
-.fa-phone-slash:before {
+.fa-SoDienThoai-slash:before {
     content: "\f3dd"
 }
 
-.fa-phone-square:before {
+.fa-SoDienThoai-square:before {
     content: "\f098"
 }
 
-.fa-phone-square-alt:before {
+.fa-SoDienThoai-square-alt:before {
     content: "\f87b"
 }
 
-.fa-phone-volume:before {
+.fa-SoDienThoai-volume:before {
     content: "\f2a0"
 }
 
@@ -23488,7 +23488,7 @@ ul.icons-list li:hover {
     width: 1px
 }
 
-.sr-only-focusable:active, .sr-only-focusable:focus {
+.sr-only-focusable:KichHoat, .sr-only-focusable:focus {
     clip: auto;
     height: auto;
     margin: 0;
@@ -23564,7 +23564,7 @@ ul.icons-list li:hover {
         content: ">"
     }
 
-    .breadcrumb .breadcrumb-item.active {
+    .breadcrumb .breadcrumb-item.KichHoat {
         color: #53535f;
         font-weight:bold;
     }
@@ -23603,7 +23603,7 @@ ul.icons-list li:hover {
         border-color: #edf2f9
     }
 
-        .btn.disabled.active, .btn.disabled:active, .btn.disabled:focus, .btn.disabled:hover, .btn[disabled].active, .btn[disabled]:active, .btn[disabled]:focus, .btn[disabled]:hover {
+        .btn.disabled.KichHoat, .btn.disabled:KichHoat, .btn.disabled:focus, .btn.disabled:hover, .btn[disabled].KichHoat, .btn[disabled]:KichHoat, .btn[disabled]:focus, .btn[disabled]:hover {
             color: rgba(83,83,95,0.25);
             background-color: #f1f2f3;
             border-color: #edf2f9
@@ -23632,13 +23632,13 @@ a.btn {
     border-color: #1a71ff
 }
 
-    .btn-default:hover, .btn-default:focus, .btn-default:active {
+    .btn-default:hover, .btn-default:focus, .btn-default:KichHoat {
         background-color: #1a71ff;
         border-color: #ededed;
         color: #fff !important;
     }
 
-        .btn-default:active:hover, .btn-default:active:focus, .btn-default.active:hover, .btn-default.active:focus {
+        .btn-default:KichHoat:hover, .btn-default:KichHoat:focus, .btn-default.KichHoat:hover, .btn-default.KichHoat:focus {
             background-color: #1a71ff;
             border-color: #ededed;
             color: #fff !important;
@@ -23657,28 +23657,28 @@ a.btn {
         border-color: #5796f6
     }
 
-    .btn-primary:active {
+    .btn-primary:KichHoat {
         color: #fff;
         background-color: #2778f4;
         border-color: #2778f4
     }
 
-    .btn-primary.active {
+    .btn-primary.KichHoat {
         color: #fff;
         background-color: #2778f4;
         border-color: #2778f4
     }
 
-        .btn-primary.active:hover, .btn-primary.active:focus {
+        .btn-primary.KichHoat:hover, .btn-primary.KichHoat:focus {
             background-color: #2778f4;
             border-color: #2778f4
         }
 
-    .btn-primary:not([disabled]):not(.disabled):active:focus, .btn-primary:not([disabled]):not(.disabled).active:focus {
+    .btn-primary:not([disabled]):not(.disabled):KichHoat:focus, .btn-primary:not([disabled]):not(.disabled).KichHoat:focus {
         box-shadow: none
     }
 
-    .btn-primary:not([disabled]):not(.disabled):active:active, .btn-primary:not([disabled]):not(.disabled).active:active {
+    .btn-primary:not([disabled]):not(.disabled):KichHoat:KichHoat, .btn-primary:not([disabled]):not(.disabled).KichHoat:KichHoat {
         color: #fff;
         background-color: #2778f4;
         border-color: #2778f4
@@ -23691,7 +23691,7 @@ a.btn {
         font-weight: 500
     }
 
-        .btn-primary.btn-tone:hover, .btn-primary.btn-tone:focus, .btn-primary.btn-tone:active {
+        .btn-primary.btn-tone:hover, .btn-primary.btn-tone:focus, .btn-primary.btn-tone:KichHoat {
             background-color: #3f87f5 !important;
             border-color: #3f87f5;
             color: #fff
@@ -23703,7 +23703,7 @@ a.btn {
         border-color: #edf2f9
     }
 
-        .btn-primary.disabled.active, .btn-primary.disabled:active, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary[disabled].active, .btn-primary[disabled]:active, .btn-primary[disabled]:hover, .btn-primary[disabled]:focus {
+        .btn-primary.disabled.KichHoat, .btn-primary.disabled:KichHoat, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary[disabled].KichHoat, .btn-primary[disabled]:KichHoat, .btn-primary[disabled]:hover, .btn-primary[disabled]:focus {
             color: rgba(83,83,95,0.25);
             background-color: #f1f2f3;
             border-color: #edf2f9
@@ -23730,28 +23730,28 @@ a.btn {
         border-color: #9d86ff
     }
 
-    .btn-secondary:active {
+    .btn-secondary:KichHoat {
         color: #fff;
         background-color: #7353ff;
         border-color: #7353ff
     }
 
-    .btn-secondary.active {
+    .btn-secondary.KichHoat {
         color: #fff;
         background-color: #7353ff;
         border-color: #7353ff
     }
 
-        .btn-secondary.active:hover, .btn-secondary.active:focus {
+        .btn-secondary.KichHoat:hover, .btn-secondary.KichHoat:focus {
             background-color: #7353ff;
             border-color: #7353ff
         }
 
-    .btn-secondary:not([disabled]):not(.disabled):active:focus, .btn-secondary:not([disabled]):not(.disabled).active:focus {
+    .btn-secondary:not([disabled]):not(.disabled):KichHoat:focus, .btn-secondary:not([disabled]):not(.disabled).KichHoat:focus {
         box-shadow: none
     }
 
-    .btn-secondary:not([disabled]):not(.disabled):active:active, .btn-secondary:not([disabled]):not(.disabled).active:active {
+    .btn-secondary:not([disabled]):not(.disabled):KichHoat:KichHoat, .btn-secondary:not([disabled]):not(.disabled).KichHoat:KichHoat {
         color: #fff;
         background-color: #7353ff;
         border-color: #7353ff
@@ -23764,7 +23764,7 @@ a.btn {
         font-weight: 500
     }
 
-        .btn-secondary.btn-tone:hover, .btn-secondary.btn-tone:focus, .btn-secondary.btn-tone:active {
+        .btn-secondary.btn-tone:hover, .btn-secondary.btn-tone:focus, .btn-secondary.btn-tone:KichHoat {
             background-color: #886cff !important;
             border-color: #886cff;
             color: #fff
@@ -23776,7 +23776,7 @@ a.btn {
         border-color: #edf2f9
     }
 
-        .btn-secondary.disabled.active, .btn-secondary.disabled:active, .btn-secondary.disabled:hover, .btn-secondary.disabled:focus, .btn-secondary[disabled].active, .btn-secondary[disabled]:active, .btn-secondary[disabled]:hover, .btn-secondary[disabled]:focus {
+        .btn-secondary.disabled.KichHoat, .btn-secondary.disabled:KichHoat, .btn-secondary.disabled:hover, .btn-secondary.disabled:focus, .btn-secondary[disabled].KichHoat, .btn-secondary[disabled]:KichHoat, .btn-secondary[disabled]:hover, .btn-secondary[disabled]:focus {
             color: rgba(83,83,95,0.25);
             background-color: #f1f2f3;
             border-color: #edf2f9
@@ -23803,28 +23803,28 @@ a.btn {
         border-color: #00e3bc
     }
 
-    .btn-success:active {
+    .btn-success:KichHoat {
         color: #fff;
         background-color: #00b092;
         border-color: #00b092
     }
 
-    .btn-success.active {
+    .btn-success.KichHoat {
         color: #fff;
         background-color: #00b092;
         border-color: #00b092
     }
 
-        .btn-success.active:hover, .btn-success.active:focus {
+        .btn-success.KichHoat:hover, .btn-success.KichHoat:focus {
             background-color: #00b092;
             border-color: #00b092
         }
 
-    .btn-success:not([disabled]):not(.disabled):active:focus, .btn-success:not([disabled]):not(.disabled).active:focus {
+    .btn-success:not([disabled]):not(.disabled):KichHoat:focus, .btn-success:not([disabled]):not(.disabled).KichHoat:focus {
         box-shadow: none
     }
 
-    .btn-success:not([disabled]):not(.disabled):active:active, .btn-success:not([disabled]):not(.disabled).active:active {
+    .btn-success:not([disabled]):not(.disabled):KichHoat:KichHoat, .btn-success:not([disabled]):not(.disabled).KichHoat:KichHoat {
         color: #fff;
         background-color: #00b092;
         border-color: #00b092
@@ -23837,7 +23837,7 @@ a.btn {
         font-weight: 500;
     }
 
-        .btn-success.btn-tone:hover, .btn-success.btn-tone:focus, .btn-success.btn-tone:active {
+        .btn-success.btn-tone:hover, .btn-success.btn-tone:focus, .btn-success.btn-tone:KichHoat {
             background-color: #00c9a7 !important;
             border-color: #00c9a7;
             color: #fff
@@ -23849,7 +23849,7 @@ a.btn {
         border-color: #edf2f9
     }
 
-        .btn-success.disabled.active, .btn-success.disabled:active, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success[disabled].active, .btn-success[disabled]:active, .btn-success[disabled]:hover, .btn-success[disabled]:focus {
+        .btn-success.disabled.KichHoat, .btn-success.disabled:KichHoat, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success[disabled].KichHoat, .btn-success[disabled]:KichHoat, .btn-success[disabled]:hover, .btn-success[disabled]:focus {
             color: rgba(83,83,95,0.25);
             background-color: #f1f2f3;
             border-color: #edf2f9
@@ -23876,28 +23876,28 @@ a.btn {
         border-color: #0ee1fd
     }
 
-    .btn-info:active {
+    .btn-info:KichHoat {
         color: #fff;
         background-color: #02bdd6;
         border-color: #02bdd6
     }
 
-    .btn-info.active {
+    .btn-info.KichHoat {
         color: #fff;
         background-color: #02bdd6;
         border-color: #02bdd6
     }
 
-        .btn-info.active:hover, .btn-info.active:focus {
+        .btn-info.KichHoat:hover, .btn-info.KichHoat:focus {
             background-color: #02bdd6;
             border-color: #02bdd6
         }
 
-    .btn-info:not([disabled]):not(.disabled):active:focus, .btn-info:not([disabled]):not(.disabled).active:focus {
+    .btn-info:not([disabled]):not(.disabled):KichHoat:focus, .btn-info:not([disabled]):not(.disabled).KichHoat:focus {
         box-shadow: none
     }
 
-    .btn-info:not([disabled]):not(.disabled):active:active, .btn-info:not([disabled]):not(.disabled).active:active {
+    .btn-info:not([disabled]):not(.disabled):KichHoat:KichHoat, .btn-info:not([disabled]):not(.disabled).KichHoat:KichHoat {
         color: #fff;
         background-color: #02bdd6;
         border-color: #02bdd6
@@ -23910,7 +23910,7 @@ a.btn {
         font-weight: 500
     }
 
-        .btn-info.btn-tone:hover, .btn-info.btn-tone:focus, .btn-info.btn-tone:active {
+        .btn-info.btn-tone:hover, .btn-info.btn-tone:focus, .btn-info.btn-tone:KichHoat {
             background-color: #02d3ef !important;
             border-color: #02d3ef;
             color: #fff
@@ -23922,7 +23922,7 @@ a.btn {
         border-color: #edf2f9
     }
 
-        .btn-info.disabled.active, .btn-info.disabled:active, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info[disabled].active, .btn-info[disabled]:active, .btn-info[disabled]:hover, .btn-info[disabled]:focus {
+        .btn-info.disabled.KichHoat, .btn-info.disabled:KichHoat, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info[disabled].KichHoat, .btn-info[disabled]:KichHoat, .btn-info[disabled]:hover, .btn-info[disabled]:focus {
             color: rgba(83,83,95,0.25);
             background-color: #f1f2f3;
             border-color: #edf2f9
@@ -23949,28 +23949,28 @@ a.btn {
         border-color: #ffc721
     }
 
-    .btn-warning:active {
+    .btn-warning:KichHoat {
         color: #fff;
         background-color: #edb100;
         border-color: #edb100
     }
 
-    .btn-warning.active {
+    .btn-warning.KichHoat {
         color: #fff;
         background-color: #edb100;
         border-color: #edb100
     }
 
-        .btn-warning.active:hover, .btn-warning.active:focus {
+        .btn-warning.KichHoat:hover, .btn-warning.KichHoat:focus {
             background-color: #edb100;
             border-color: #edb100
         }
 
-    .btn-warning:not([disabled]):not(.disabled):active:focus, .btn-warning:not([disabled]):not(.disabled).active:focus {
+    .btn-warning:not([disabled]):not(.disabled):KichHoat:focus, .btn-warning:not([disabled]):not(.disabled).KichHoat:focus {
         box-shadow: none
     }
 
-    .btn-warning:not([disabled]):not(.disabled):active:active, .btn-warning:not([disabled]):not(.disabled).active:active {
+    .btn-warning:not([disabled]):not(.disabled):KichHoat:KichHoat, .btn-warning:not([disabled]):not(.disabled).KichHoat:KichHoat {
         color: #fff;
         background-color: #edb100;
         border-color: #edb100
@@ -23983,7 +23983,7 @@ a.btn {
         font-weight: 500
     }
 
-        .btn-warning.btn-tone:hover, .btn-warning.btn-tone:focus, .btn-warning.btn-tone:active {
+        .btn-warning.btn-tone:hover, .btn-warning.btn-tone:focus, .btn-warning.btn-tone:KichHoat {
             background-color: #ffc107 !important;
             border-color: #ffc107;
             color: #fff
@@ -23995,7 +23995,7 @@ a.btn {
         border-color: #edf2f9
     }
 
-        .btn-warning.disabled.active, .btn-warning.disabled:active, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning[disabled].active, .btn-warning[disabled]:active, .btn-warning[disabled]:hover, .btn-warning[disabled]:focus {
+        .btn-warning.disabled.KichHoat, .btn-warning.disabled:KichHoat, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning[disabled].KichHoat, .btn-warning[disabled]:KichHoat, .btn-warning[disabled]:hover, .btn-warning[disabled]:focus {
             color: rgba(83,83,95,0.25);
             background-color: #f1f2f3;
             border-color: #edf2f9
@@ -24022,28 +24022,28 @@ a.btn {
         border-color: #e2584c
     }
 
-    .btn-danger:active {
+    .btn-danger:KichHoat {
         color: #fff;
         background-color: #d73223;
         border-color: #d73223
     }
 
-    .btn-danger.active {
+    .btn-danger.KichHoat {
         color: #fff;
         background-color: #d73223;
         border-color: #d73223
     }
 
-        .btn-danger.active:hover, .btn-danger.active:focus {
+        .btn-danger.KichHoat:hover, .btn-danger.KichHoat:focus {
             background-color: #d73223;
             border-color: #d73223
         }
 
-    .btn-danger:not([disabled]):not(.disabled):active:focus, .btn-danger:not([disabled]):not(.disabled).active:focus {
+    .btn-danger:not([disabled]):not(.disabled):KichHoat:focus, .btn-danger:not([disabled]):not(.disabled).KichHoat:focus {
         box-shadow: none
     }
 
-    .btn-danger:not([disabled]):not(.disabled):active:active, .btn-danger:not([disabled]):not(.disabled).active:active {
+    .btn-danger:not([disabled]):not(.disabled):KichHoat:KichHoat, .btn-danger:not([disabled]):not(.disabled).KichHoat:KichHoat {
         color: #fff;
         background-color: #d73223;
         border-color: #d73223
@@ -24056,7 +24056,7 @@ a.btn {
         font-weight: 500
     }
 
-        .btn-danger.btn-tone:hover, .btn-danger.btn-tone:focus, .btn-danger.btn-tone:active {
+        .btn-danger.btn-tone:hover, .btn-danger.btn-tone:focus, .btn-danger.btn-tone:KichHoat {
             background-color: #de4436 !important;
             border-color: #de4436;
             color: #fff
@@ -24068,7 +24068,7 @@ a.btn {
         border-color: #edf2f9
     }
 
-        .btn-danger.disabled.active, .btn-danger.disabled:active, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger[disabled].active, .btn-danger[disabled]:active, .btn-danger[disabled]:hover, .btn-danger[disabled]:focus {
+        .btn-danger.disabled.KichHoat, .btn-danger.disabled:KichHoat, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger[disabled].KichHoat, .btn-danger[disabled]:KichHoat, .btn-danger[disabled]:hover, .btn-danger[disabled]:focus {
             color: rgba(83,83,95,0.25);
             background-color: #f1f2f3;
             border-color: #edf2f9
@@ -24087,12 +24087,12 @@ a.btn {
     line-height: 1.25
 }
 
-    .btn-group > .btn.btn-default.active {
+    .btn-group > .btn.btn-default.KichHoat {
         border-color: #3f87f5;
         color: #3f87f5
     }
 
-        .btn-group > .btn.btn-default.active:hover, .btn-group > .btn.btn-default.active:focus {
+        .btn-group > .btn.btn-default.KichHoat:hover, .btn-group > .btn.btn-default.KichHoat:focus {
             background-color: #fff
         }
 
@@ -24105,7 +24105,7 @@ a.btn {
     border-color: transparent
 }
 
-    .btn-hover:hover, .btn-hover:focus, .btn-hover.active {
+    .btn-hover:hover, .btn-hover:focus, .btn-hover.KichHoat {
         background-color: rgba(63,135,245,0.1);
         color: #3f87f5;
         border-color: transparent
@@ -24385,7 +24385,7 @@ a.card {
     -ms-transition: all 0.4s ease-in-out
 }
 
-    .card-collapse-btn.active {
+    .card-collapse-btn.KichHoat {
         transform: rotate(180deg);
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
@@ -24402,13 +24402,13 @@ a.card {
     border: 1px solid #edf2f9
 }
 
-    .list-group-item.active {
+    .list-group-item.KichHoat {
         color: #3f87f5;
         background-color: rgba(63,135,245,0.1);
         border-color: rgba(63,135,245,0.1)
     }
 
-        .list-group-item.active h1, .list-group-item.active h2, .list-group-item.active h3, .list-group-item.active h4, .list-group-item.active h5, .list-group-item.active h6, .list-group-item.active p {
+        .list-group-item.KichHoat h1, .list-group-item.KichHoat h2, .list-group-item.KichHoat h3, .list-group-item.KichHoat h4, .list-group-item.KichHoat h5, .list-group-item.KichHoat h6, .list-group-item.KichHoat p {
             color: #3f87f5
         }
 
@@ -24422,12 +24422,12 @@ a.card {
             color: rgba(83,83,95,0.35)
         }
 
-.list-group-item-action:not(.active):hover, .list-group-item-action:not(.active):focus {
+.list-group-item-action:not(.KichHoat):hover, .list-group-item-action:not(.KichHoat):focus {
     color: #2a2a2a;
     background-color: #fafafa
 }
 
-.list-group-item-action:not(.active):active {
+.list-group-item-action:not(.KichHoat):KichHoat {
     background-color: #ededed
 }
 
@@ -24786,17 +24786,17 @@ a.badge-purple:hover, a.badge-purple:focus {
     border-color: transparent
 }
 
-.page-item.active .page-link {
+.page-item.KichHoat .page-link {
     background: #3f87f5;
     border-color: transparent
 }
 
-.pagination .page-item.active .page-link {
+.pagination .page-item.KichHoat .page-link {
     background: #0066b3;
     border-color: transparent
 }
 
-    .pagination .page-item.active .page-link:hover {
+    .pagination .page-item.KichHoat .page-link:hover {
         color: #fff
     }
 
@@ -25330,7 +25330,7 @@ a.badge-purple:hover, a.badge-purple:focus {
             background-color: transparent
         }
 
-    .dropdown-item.active {
+    .dropdown-item.KichHoat {
         background-color: #fafafa;
         color: #2a2a2a;
         font-weight: 500
@@ -25472,21 +25472,21 @@ a.badge-purple:hover, a.badge-purple:focus {
                 opacity: 1
             }
 
-            .nav-tabs > li > a.active {
+            .nav-tabs > li > a.KichHoat {
                 border: 0px;
                 background-color: transparent;
                 border-bottom: 2px solid #1a71ff;
                 font-weight: 500
             }
 
-                .nav-tabs > li > a.active:hover, .nav-tabs > li > a.active:focus {
+                .nav-tabs > li > a.KichHoat:hover, .nav-tabs > li > a.KichHoat:focus {
                     border: 0px;
                     background-color: transparent;
                     border-bottom: 2px solid #1a71ff;
                     opacity: 1
                 }
 
-                .nav-tabs > li > a.active.nav-link {
+                .nav-tabs > li > a.KichHoat.nav-link {
                     border-bottom: 3px solid #1a71ff;
                     color: #1a71ff;
                     font-weight: 500;
@@ -25501,7 +25501,7 @@ a.badge-purple:hover, a.badge-purple:focus {
         border-top-right-radius: 0px
     }
 
-        .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus, .nav-tabs .nav-link:active {
+        .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus, .nav-tabs .nav-link:KichHoat {
             border-color: transparent
         }
 
@@ -25524,7 +25524,7 @@ a.badge-purple:hover, a.badge-purple:focus {
             padding: 10px 20px
         }
 
-            .nav-tabs.flex-column > li > a.active.nav-link {
+            .nav-tabs.flex-column > li > a.KichHoat.nav-link {
                 border-bottom: 0px;
                 border-right: 2px solid #3f87f5
             }
@@ -25570,7 +25570,7 @@ a.badge-purple:hover, a.badge-purple:focus {
         opacity: 1
     }
 
-    .nav-pills > li > a.active {
+    .nav-pills > li > a.KichHoat {
         color: #fff;
         border-color: #3f87f5;
         background-color: #3f87f5;
@@ -25578,7 +25578,7 @@ a.badge-purple:hover, a.badge-purple:focus {
         opacity: 1
     }
 
-        .nav-pills > li > a.active:hover, .nav-pills > li > a.active:focus {
+        .nav-pills > li > a.KichHoat:hover, .nav-pills > li > a.KichHoat:focus {
             color: #fff;
             border-color: #3f87f5;
             background-color: #3f87f5;
@@ -25586,7 +25586,7 @@ a.badge-purple:hover, a.badge-purple:focus {
             opacity: 1
         }
 
-        .nav-pills > li > a.active.nav-link {
+        .nav-pills > li > a.KichHoat.nav-link {
             color: #fff;
             background-color: #3f87f5;
             border-color: #3f87f5
@@ -25739,12 +25739,12 @@ a.badge-purple:hover, a.badge-purple:focus {
             color: #3f87f5
         }
 
-    .menu.nav .nav-item .sidebar-link:active, .menu.nav .nav-item .sidebar-link.active {
+    .menu.nav .nav-item .sidebar-link:KichHoat, .menu.nav .nav-item .sidebar-link.KichHoat {
         color: #3f87f5;
         background-color: rgba(63,135,245,0.1)
     }
 
-            .menu.nav .nav-item .nav-link.active:after {
+            .menu.nav .nav-item .nav-link.KichHoat:after {
                 -webkit-transform: scaleY(1);
                 transform: scaleY(1);
                 opacity: 1
@@ -26239,12 +26239,12 @@ a.badge-purple:hover, a.badge-purple:focus {
             left: 25px
         }
 
-    .switch input[type=checkbox]:checked:active:not(:disabled) + label:after {
+    .switch input[type=checkbox]:checked:KichHoat:not(:disabled) + label:after {
         width: 24px;
         left: 22px
     }
 
-    .switch input[type=checkbox]:not(:checked):active:not(:disabled) + label:after {
+    .switch input[type=checkbox]:not(:checked):KichHoat:not(:disabled) + label:after {
         width: 24px
     }
 
@@ -26698,12 +26698,12 @@ div.is-invalid {
         -ms-transition: all 0.3s ease
     }
 
-        .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file:hover, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file:focus, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file:active, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file.active {
+        .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file:hover, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file:focus, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file:KichHoat, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file.KichHoat {
             border-color: transparent;
             box-shadow: 0px 7px 25px rgba(18,38,63,0.1)
         }
 
-        .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file:focus, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file.active {
+        .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file:focus, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper .file.KichHoat {
             background-color: #f9fbfd
         }
 
@@ -26739,7 +26739,7 @@ div.is-invalid {
                     font-size: 30px !important
                 }
 
-            .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper.list-view .file:hover, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper.list-view .file:focus, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper.list-view .file:active, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper.list-view .file.active {
+            .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper.list-view .file:hover, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper.list-view .file:focus, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper.list-view .file:KichHoat, .file-manager-wrapper .file-manager-content .file-manager-content-body .file-manager-content-files .file-wrapper.list-view .file.KichHoat {
                 background-color: #f9fbfd;
                 border-bottom: 1px solid #edf2f9;
                 box-shadow: none
@@ -27001,7 +27001,7 @@ div.is-invalid {
         border-bottom: 1px solid #edf2f9
     }
 
-    .chat.chat-app .chat-list .chat-user-list .chat-list-item:hover, .chat.chat-app .chat-list .chat-user-list .chat-list-item.active {
+    .chat.chat-app .chat-list .chat-user-list .chat-list-item:hover, .chat.chat-app .chat-list .chat-user-list .chat-list-item.KichHoat {
         background-color: #fafbfe
     }
 

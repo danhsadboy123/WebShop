@@ -4,7 +4,7 @@
 @{
     var pageInfo = PageInfoService.GetPageInfo();
     ViewData["Title"] = pageInfo?.Title ?? "Novazone - Trang chủ";
-    ViewData["Description"] = pageInfo?.MetaDesc ?? "Khám phá sản phẩm chất lượng tại Novazone";
+    ViewData["MoTa"] = pageInfo?.MetaDesc ?? "Khám phá sản phẩm chất lượng tại Novazone";
     ViewData["Keywords"] = pageInfo?.MetaKey ?? "Novazone, sản phẩm, mua sắm";
 }
 
@@ -88,7 +88,7 @@
                                         }
                                         else
                                         {
-                                            <span style="color: #0074da"><i class="fas fa-phone fa-flip-horizontal"></i> Đặt hàng</span>
+                                            <span style="color: #0074da"><i class="fas fa-SoDienThoai fa-flip-horizontal"></i> Đặt hàng</span>
                                         }
                                     </div>
                                 </div>

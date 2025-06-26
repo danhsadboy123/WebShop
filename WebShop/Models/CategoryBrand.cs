@@ -13,9 +13,9 @@ public partial class CategoryBrand
 
     public string Name { get; set; }
 
-    public string Description { get; set; }
+    public string MoTa { get; set; }
 
-    public bool? Active { get; set; }
+    public bool? KichHoat { get; set; }
 
     public bool? Topbrand { get; set; }
 

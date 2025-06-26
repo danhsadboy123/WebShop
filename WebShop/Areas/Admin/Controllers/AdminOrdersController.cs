@@ -73,7 +73,7 @@ namespace WebShop.Areas.Admin.Controllers
                 OrderDate = HttpContext.Session.Get<bool?>("OrderDate") ?? true,
                 CustomerName = HttpContext.Session.Get<bool?>("CustomerName") ?? true,
                 Email = HttpContext.Session.Get<bool?>("Email") ?? false,
-                Phone = HttpContext.Session.Get<bool?>("Phone") ?? false,
+                SoDienThoai = HttpContext.Session.Get<bool?>("SoDienThoai") ?? false,
                 PaymentStatus = HttpContext.Session.Get<bool?>("PaymentStatus") ?? true,
                 DeliverStatus = HttpContext.Session.Get<bool?>("DeliverStatus") ?? true,
                 CodStatus = HttpContext.Session.Get<bool?>("CodStatus") ?? true,
@@ -236,7 +236,7 @@ namespace WebShop.Areas.Admin.Controllers
                         try
                         {
                             var optionEmail = _context.EmailMakettings.Where(i => i.EmailId == EmailId).FirstOrDefault();
-                            var text = textcover(optionEmail.Body, tk.FullName, tk.Email, tk.Phone.ToString(), address1, "", listO,code);
+                            var text = textcover(optionEmail.Body, tk.HoTen, tk.Email, tk.SoDienThoai.ToString(), address1, "", listO,code);
                             email.Bcc.Add(MailboxAddress.Parse(tk.Email));
                             email.To.Add(MailboxAddress.Parse(tk.Email));
                             email.Subject = optionEmail.Title;
@@ -268,7 +268,7 @@ namespace WebShop.Areas.Admin.Controllers
 
             return Json(new { succses = "Ok" });
         }
-        public string textcover(string body, string Name, string Email, string Phone, string Address, string CompanyName, List<OrderDetail> Order, string code)
+        public string textcover(string body, string Name, string Email, string SoDienThoai, string Address, string CompanyName, List<OrderDetail> Order, string code)
         {
             var id = "";
             int totalOriginalPrice = 0;
@@ -344,7 +344,7 @@ namespace WebShop.Areas.Admin.Controllers
                            .Replace("TenCongTyKH", CompanyName)
                            .Replace("EmailKH", Email)
                            .Replace("DiaChiKH", Address)
-                           .Replace("SDTKH", Phone)
+                           .Replace("SDTKH", SoDienThoai)
                            .Replace("MDH", code)
                            .Replace("PTTT", "Thanh toán tại công ty, Thanh toán khi nhận hàng, Thanh toán chuyển khoản ngân hàng")
                            .Replace("PTVC", "Giao hàng nhanh")
@@ -382,7 +382,7 @@ namespace WebShop.Areas.Admin.Controllers
                         try
                         {
                             var optionEmail = _context.EmailMakettings.Where(i => i.EmailEvent == EmailId).FirstOrDefault();
-                            var text = textcover(optionEmail.Body, tk.FullName, tk.Email, tk.Phone.ToString(), address, "", listO,code);
+                            var text = textcover(optionEmail.Body, tk.HoTen, tk.Email, tk.SoDienThoai.ToString(), address, "", listO,code);
                             email.Bcc.Add(MailboxAddress.Parse(tk.Email));
                             email.To.Add(MailboxAddress.Parse(tk.Email));
                             email.Subject = optionEmail.Title;
@@ -629,7 +629,7 @@ namespace WebShop.Areas.Admin.Controllers
                 order.OrderDate = DateTime.Now;
                 if(address != null)
                 {
-                    order.Phone = address.Phone;
+                    order.SoDienThoai = address.SoDienThoai;
                 }
                 order.DeliveryStatusId = 1;//Don hang moi
                 order.Confirmed = false;
@@ -648,7 +648,7 @@ namespace WebShop.Areas.Admin.Controllers
                     ShippingAddress shippingAdress = new ShippingAddress();
                     shippingAdress.OrderId = order.OrderId;
                     shippingAdress.Name = address.UserName;
-                    shippingAdress.Phone = address.Phone;
+                    shippingAdress.SoDienThoai = address.SoDienThoai;
                     shippingAdress.Address = address.Content;
                     shippingAdress.ProvinceId = address.ProvinceId;
                     shippingAdress.DistrictId = address.DistrictId;
@@ -665,7 +665,7 @@ namespace WebShop.Areas.Admin.Controllers
                     orderDetail.Amount = item.amount;
                     orderDetail.TotalMoney = order.TotalMoney;
                     orderDetail.Price = item.product.SalePrice;
-                    orderDetail.CreateDate = DateTime.Now;
+                    orderDetail.NgayTao = DateTime.Now;
                     _context.OrderDetails.Add(orderDetail);
                 }
                 _context.SaveChanges();
@@ -711,7 +711,7 @@ namespace WebShop.Areas.Admin.Controllers
         //            order.GuestId = null;
         //            order.Draft = true;
         //            order.OrderDate = DateTime.Now;
-        //            order.Phone = address.Phone;
+        //            order.SoDienThoai = address.SoDienThoai;
         //            order.DeliveryStatusId = 1;//Don hang moi
         //            order.Confirmed = false;
         //            order.PaymentStatusId = 1;
@@ -727,7 +727,7 @@ namespace WebShop.Areas.Admin.Controllers
         //            ShippingAddress shippingAdress = new ShippingAddress();
         //            shippingAdress.OrderId = order.OrderId;
         //            shippingAdress.Name = address.UserName;
-        //            shippingAdress.Phone = address.Phone;
+        //            shippingAdress.SoDienThoai = address.SoDienThoai;
         //            shippingAdress.Address = address.Content;
         //            shippingAdress.ProvinceId = address.ProvinceId;
         //            shippingAdress.DistrictId = address.DistrictId;
@@ -744,7 +744,7 @@ namespace WebShop.Areas.Admin.Controllers
         //                orderDetail.Amount = item.amount;
         //                orderDetail.TotalMoney = order.TotalMoney;
         //                orderDetail.Price = item.product.SalePrice;
-        //                orderDetail.CreateDate = DateTime.Now;
+        //                orderDetail.NgayTao = DateTime.Now;
         //                _context.OrderDetails.Add(orderDetail);
         //            }
         //            _context.SaveChanges();
@@ -902,11 +902,11 @@ namespace WebShop.Areas.Admin.Controllers
             var htmlContent = "";
             if (order.CustomerId == null)
             {
-                htmlContent = textCoverWarranty(cardTemplate.HtmlContent, shippingAddress.Name, shippingAddress.Phone, address, "", orderDate, orderDetails);
+                htmlContent = textCoverWarranty(cardTemplate.HtmlContent, shippingAddress.Name, shippingAddress.SoDienThoai, address, "", orderDate, orderDetails);
             }
             else
             {
-                htmlContent = textCoverWarranty(cardTemplate.HtmlContent, shippingAddress.Name, shippingAddress.Phone, address, order.Customer.CompanyName, orderDate, orderDetails);
+                htmlContent = textCoverWarranty(cardTemplate.HtmlContent, shippingAddress.Name, shippingAddress.SoDienThoai, address, order.Customer.CompanyName, orderDate, orderDetails);
             }
 
             ViewBag.BBBG = htmlContent;
@@ -921,7 +921,7 @@ namespace WebShop.Areas.Admin.Controllers
         //{
         //    return PartialView("AAA");
         //}
-        public string textCoverWarranty(string body, string Name, string Phone, string Address, string CompannyName, string orderDate , List<OrderDetail> Order)
+        public string textCoverWarranty(string body, string Name, string SoDienThoai, string Address, string CompannyName, string orderDate , List<OrderDetail> Order)
         {
             var url = HttpContext.Request.Host;
             string date = DateTime.Now.Day.ToString();
@@ -947,7 +947,7 @@ namespace WebShop.Areas.Admin.Controllers
                 Str = Str.Replace("HovaTenKH", Name);
                 Str = Str.Replace("TenCongTyKH", CompannyName);
                 Str = Str.Replace("DiaChiKH", Address);
-                Str = Str.Replace("SDTKH", Phone);
+                Str = Str.Replace("SDTKH", SoDienThoai);
                 Str = Str.Replace("SOPBH", orderDate);
                 Str = Str.Replace("DateTimeNow", dateTimeNow); 
                 /// forea san pham da mua thanh cong chuyen thanh text                
@@ -970,7 +970,7 @@ namespace WebShop.Areas.Admin.Controllers
             HttpContext.Session.Set("OrderDate", checkboxOrder.OrderDate);
             HttpContext.Session.Set("CustomerName", checkboxOrder.CustomerName);
             HttpContext.Session.Set("Email", checkboxOrder.Email);
-            HttpContext.Session.Set("Phone", checkboxOrder.Phone);
+            HttpContext.Session.Set("SoDienThoai", checkboxOrder.SoDienThoai);
             HttpContext.Session.Set("PaymentStatus", checkboxOrder.PaymentStatus);
             HttpContext.Session.Set("DeliverStatus", checkboxOrder.DeliverStatus);
             HttpContext.Session.Set("CodStatus", checkboxOrder.CodStatus);

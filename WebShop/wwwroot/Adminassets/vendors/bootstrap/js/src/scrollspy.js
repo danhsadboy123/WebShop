@@ -42,12 +42,12 @@ const Event = {
 const ClassName = {
   DROPDOWN_ITEM : 'dropdown-item',
   DROPDOWN_MENU : 'dropdown-menu',
-  ACTIVE        : 'active'
+  KichHoat        : 'KichHoat'
 }
 
 const Selector = {
   DATA_SPY        : '[data-spy="scroll"]',
-  ACTIVE          : '.active',
+  KichHoat          : '.KichHoat',
   NAV_LIST_GROUP  : '.nav, .list-group',
   NAV_LINKS       : '.nav-link',
   NAV_ITEMS       : '.nav-item',
@@ -249,16 +249,16 @@ class ScrollSpy {
     const $link = $([].slice.call(document.querySelectorAll(queries.join(','))))
 
     if ($link.hasClass(ClassName.DROPDOWN_ITEM)) {
-      $link.closest(Selector.DROPDOWN).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE)
-      $link.addClass(ClassName.ACTIVE)
+      $link.closest(Selector.DROPDOWN).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.KichHoat)
+      $link.addClass(ClassName.KichHoat)
     } else {
-      // Set triggered link as active
-      $link.addClass(ClassName.ACTIVE)
-      // Set triggered links parents as active
+      // Set triggered link as KichHoat
+      $link.addClass(ClassName.KichHoat)
+      // Set triggered links parents as KichHoat
       // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
-      $link.parents(Selector.NAV_LIST_GROUP).prev(`${Selector.NAV_LINKS}, ${Selector.LIST_ITEMS}`).addClass(ClassName.ACTIVE)
+      $link.parents(Selector.NAV_LIST_GROUP).prev(`${Selector.NAV_LINKS}, ${Selector.LIST_ITEMS}`).addClass(ClassName.KichHoat)
       // Handle special case when .nav-link is inside .nav-item
-      $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_ITEMS).children(Selector.NAV_LINKS).addClass(ClassName.ACTIVE)
+      $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_ITEMS).children(Selector.NAV_LINKS).addClass(ClassName.KichHoat)
     }
 
     $(this._scrollElement).trigger(Event.ACTIVATE, {
@@ -268,8 +268,8 @@ class ScrollSpy {
 
   _clear() {
     [].slice.call(document.querySelectorAll(this._selector))
-      .filter((node) => node.classList.contains(ClassName.ACTIVE))
-      .forEach((node) => node.classList.remove(ClassName.ACTIVE))
+      .filter((node) => node.classList.contains(ClassName.KichHoat))
+      .forEach((node) => node.classList.remove(ClassName.KichHoat))
   }
 
   // Static

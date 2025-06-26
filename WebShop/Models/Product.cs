@@ -17,7 +17,7 @@ public partial class Product
 
     public string ShortDescEn { get; set; }
 
-    public string Description { get; set; }
+    public string MoTa { get; set; }
 
     public string DescriptionEn { get; set; }
 
@@ -53,7 +53,7 @@ public partial class Product
 
     public bool HomeFlag { get; set; }
 
-    public bool Active { get; set; }
+    public bool KichHoat { get; set; }
 
     public string Title { get; set; }
 

@@ -234,7 +234,7 @@ button, select {
     text-transform: none
 }
 
-[role="button"] {
+[VaiTro="button"] {
     cursor: pointer
 }
 
@@ -1847,15 +1847,15 @@ pre {
         background-color: #bcbec1
     }
 
-.table-active, .table-active > th, .table-active > td {
+.table-KichHoat, .table-KichHoat > th, .table-KichHoat > td {
     background-color: rgba(0,0,0,.075)
 }
 
-.table-hover .table-active:hover {
+.table-hover .table-KichHoat:hover {
     background-color: rgba(0,0,0,.075)
 }
 
-    .table-hover .table-active:hover > td, .table-hover .table-active:hover > th {
+    .table-hover .table-KichHoat:hover > td, .table-hover .table-KichHoat:hover > th {
         background-color: rgba(0,0,0,.075)
     }
 
@@ -2462,13 +2462,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #FFD333
     }
 
-    .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    .btn-primary:not(:disabled):not(.disabled):KichHoat, .btn-primary:not(:disabled):not(.disabled).KichHoat, .show > .btn-primary.dropdown-toggle {
         color: #212529;
         background-color: #ffc800;
         border-color: #f2be00
     }
 
-        .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+        .btn-primary:not(:disabled):not(.disabled):KichHoat:focus, .btn-primary:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-primary.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(222,185,50,.5)
         }
 
@@ -2497,13 +2497,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #F5F5F5
     }
 
-    .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+    .btn-secondary:not(:disabled):not(.disabled):KichHoat, .btn-secondary:not(:disabled):not(.disabled).KichHoat, .show > .btn-secondary.dropdown-toggle {
         color: #212529;
         background-color: gainsboro;
         border-color: #d5d5d5
     }
 
-        .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-secondary.dropdown-toggle:focus {
+        .btn-secondary:not(:disabled):not(.disabled):KichHoat:focus, .btn-secondary:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-secondary.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(213,214,214,.5)
         }
 
@@ -2532,13 +2532,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #28a745
     }
 
-    .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle {
+    .btn-success:not(:disabled):not(.disabled):KichHoat, .btn-success:not(:disabled):not(.disabled).KichHoat, .show > .btn-success.dropdown-toggle {
         color: #fff;
         background-color: #1e7e34;
         border-color: #1c7430
     }
 
-        .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus, .show > .btn-success.dropdown-toggle:focus {
+        .btn-success:not(:disabled):not(.disabled):KichHoat:focus, .btn-success:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-success.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(72,180,97,.5)
         }
 
@@ -2567,13 +2567,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #17a2b8
     }
 
-    .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
+    .btn-info:not(:disabled):not(.disabled):KichHoat, .btn-info:not(:disabled):not(.disabled).KichHoat, .show > .btn-info.dropdown-toggle {
         color: #fff;
         background-color: #117a8b;
         border-color: #10707f
     }
 
-        .btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .show > .btn-info.dropdown-toggle:focus {
+        .btn-info:not(:disabled):not(.disabled):KichHoat:focus, .btn-info:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-info.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(58,176,195,.5)
         }
 
@@ -2602,13 +2602,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #ffc107
     }
 
-    .btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active, .show > .btn-warning.dropdown-toggle {
+    .btn-warning:not(:disabled):not(.disabled):KichHoat, .btn-warning:not(:disabled):not(.disabled).KichHoat, .show > .btn-warning.dropdown-toggle {
         color: #212529;
         background-color: #d39e00;
         border-color: #c69500
     }
 
-        .btn-warning:not(:disabled):not(.disabled):active:focus, .btn-warning:not(:disabled):not(.disabled).active:focus, .show > .btn-warning.dropdown-toggle:focus {
+        .btn-warning:not(:disabled):not(.disabled):KichHoat:focus, .btn-warning:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-warning.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(222,170,12,.5)
         }
 
@@ -2637,13 +2637,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #dc3545
     }
 
-    .btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active, .show > .btn-danger.dropdown-toggle {
+    .btn-danger:not(:disabled):not(.disabled):KichHoat, .btn-danger:not(:disabled):not(.disabled).KichHoat, .show > .btn-danger.dropdown-toggle {
         color: #fff;
         background-color: #bd2130;
         border-color: #b21f2d
     }
 
-        .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-danger.dropdown-toggle:focus {
+        .btn-danger:not(:disabled):not(.disabled):KichHoat:focus, .btn-danger:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-danger.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(225,83,97,.5)
         }
 
@@ -2672,13 +2672,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #FFF
     }
 
-    .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active, .show > .btn-light.dropdown-toggle {
+    .btn-light:not(:disabled):not(.disabled):KichHoat, .btn-light:not(:disabled):not(.disabled).KichHoat, .show > .btn-light.dropdown-toggle {
         color: #212529;
         background-color: #e6e6e6;
         border-color: #dfdfdf
     }
 
-        .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus, .show > .btn-light.dropdown-toggle:focus {
+        .btn-light:not(:disabled):not(.disabled):KichHoat:focus, .btn-light:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-light.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(222,222,223,.5)
         }
 
@@ -2707,13 +2707,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         border-color: #3D464D
     }
 
-    .btn-dark:not(:disabled):not(.disabled):active, .btn-dark:not(:disabled):not(.disabled).active, .show > .btn-dark.dropdown-toggle {
+    .btn-dark:not(:disabled):not(.disabled):KichHoat, .btn-dark:not(:disabled):not(.disabled).KichHoat, .show > .btn-dark.dropdown-toggle {
         color: #fff;
         background-color: #262c31;
         border-color: #212629
     }
 
-        .btn-dark:not(:disabled):not(.disabled):active:focus, .btn-dark:not(:disabled):not(.disabled).active:focus, .show > .btn-dark.dropdown-toggle:focus {
+        .btn-dark:not(:disabled):not(.disabled):KichHoat:focus, .btn-dark:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-dark.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(90,98,104,.5)
         }
 
@@ -2737,13 +2737,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+    .btn-outline-primary:not(:disabled):not(.disabled):KichHoat, .btn-outline-primary:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-primary.dropdown-toggle {
         color: #212529;
         background-color: #FFD333;
         border-color: #FFD333
     }
 
-        .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+        .btn-outline-primary:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-primary:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(255,211,51,.5)
         }
 
@@ -2767,13 +2767,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active, .show > .btn-outline-secondary.dropdown-toggle {
+    .btn-outline-secondary:not(:disabled):not(.disabled):KichHoat, .btn-outline-secondary:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-secondary.dropdown-toggle {
         color: #212529;
         background-color: #F5F5F5;
         border-color: #F5F5F5
     }
 
-        .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
+        .btn-outline-secondary:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-secondary:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(245,245,245,.5)
         }
 
@@ -2797,13 +2797,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
+    .btn-outline-success:not(:disabled):not(.disabled):KichHoat, .btn-outline-success:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-success.dropdown-toggle {
         color: #fff;
         background-color: #28a745;
         border-color: #28a745
     }
 
-        .btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-success.dropdown-toggle:focus {
+        .btn-outline-success:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-success:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-success.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(40,167,69,.5)
         }
 
@@ -2827,13 +2827,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-info:not(:disabled):not(.disabled):active, .btn-outline-info:not(:disabled):not(.disabled).active, .show > .btn-outline-info.dropdown-toggle {
+    .btn-outline-info:not(:disabled):not(.disabled):KichHoat, .btn-outline-info:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-info.dropdown-toggle {
         color: #fff;
         background-color: #17a2b8;
         border-color: #17a2b8
     }
 
-        .btn-outline-info:not(:disabled):not(.disabled):active:focus, .btn-outline-info:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-info.dropdown-toggle:focus {
+        .btn-outline-info:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-info:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-info.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(23,162,184,.5)
         }
 
@@ -2857,13 +2857,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-warning:not(:disabled):not(.disabled):active, .btn-outline-warning:not(:disabled):not(.disabled).active, .show > .btn-outline-warning.dropdown-toggle {
+    .btn-outline-warning:not(:disabled):not(.disabled):KichHoat, .btn-outline-warning:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-warning.dropdown-toggle {
         color: #212529;
         background-color: #ffc107;
         border-color: #ffc107
     }
 
-        .btn-outline-warning:not(:disabled):not(.disabled):active:focus, .btn-outline-warning:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-warning.dropdown-toggle:focus {
+        .btn-outline-warning:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-warning:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-warning.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(255,193,7,.5)
         }
 
@@ -2887,13 +2887,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-danger:not(:disabled):not(.disabled):active, .btn-outline-danger:not(:disabled):not(.disabled).active, .show > .btn-outline-danger.dropdown-toggle {
+    .btn-outline-danger:not(:disabled):not(.disabled):KichHoat, .btn-outline-danger:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-danger.dropdown-toggle {
         color: #fff;
         background-color: #dc3545;
         border-color: #dc3545
     }
 
-        .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .btn-outline-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-danger.dropdown-toggle:focus {
+        .btn-outline-danger:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-danger:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-danger.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(220,53,69,.5)
         }
 
@@ -2917,13 +2917,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-light:not(:disabled):not(.disabled):active, .btn-outline-light:not(:disabled):not(.disabled).active, .show > .btn-outline-light.dropdown-toggle {
+    .btn-outline-light:not(:disabled):not(.disabled):KichHoat, .btn-outline-light:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-light.dropdown-toggle {
         color: #212529;
         background-color: #FFF;
         border-color: #FFF
     }
 
-        .btn-outline-light:not(:disabled):not(.disabled):active:focus, .btn-outline-light:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-light.dropdown-toggle:focus {
+        .btn-outline-light:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-light:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-light.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(255,255,255,.5)
         }
 
@@ -2947,13 +2947,13 @@ a.btn.disabled, fieldset:disabled a.btn {
         background-color: transparent
     }
 
-    .btn-outline-dark:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active, .show > .btn-outline-dark.dropdown-toggle {
+    .btn-outline-dark:not(:disabled):not(.disabled):KichHoat, .btn-outline-dark:not(:disabled):not(.disabled).KichHoat, .show > .btn-outline-dark.dropdown-toggle {
         color: #fff;
         background-color: #3D464D;
         border-color: #3D464D
     }
 
-        .btn-outline-dark:not(:disabled):not(.disabled):active:focus, .btn-outline-dark:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-dark.dropdown-toggle:focus {
+        .btn-outline-dark:not(:disabled):not(.disabled):KichHoat:focus, .btn-outline-dark:not(:disabled):not(.disabled).KichHoat:focus, .show > .btn-outline-dark.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(61,70,77,.5)
         }
 
@@ -3252,7 +3252,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         background-color: #f8f9fa
     }
 
-    .dropdown-item.active, .dropdown-item:active {
+    .dropdown-item.KichHoat, .dropdown-item:KichHoat {
         color: #fff;
         text-decoration: none;
         background-color: #FFD333
@@ -3298,7 +3298,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
             z-index: 1
         }
 
-        .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn.active {
+        .btn-group > .btn:focus, .btn-group > .btn:KichHoat, .btn-group > .btn.KichHoat, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:KichHoat, .btn-group-vertical > .btn.KichHoat {
             z-index: 1
         }
 
@@ -3501,7 +3501,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         border-color: #ffefb3
     }
 
-    .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+    .custom-control-input:not(:disabled):KichHoat ~ .custom-control-label::before {
         color: #fff;
         background-color: #fffae6;
         border-color: #fffae6
@@ -3786,7 +3786,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 }
 
-.custom-range::-webkit-slider-thumb:active {
+.custom-range::-webkit-slider-thumb:KichHoat {
     background-color: #fffae6
 }
 
@@ -3814,7 +3814,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 }
 
-.custom-range::-moz-range-thumb:active {
+.custom-range::-moz-range-thumb:KichHoat {
     background-color: #fffae6
 }
 
@@ -3845,7 +3845,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 }
 
-.custom-range::-ms-thumb:active {
+.custom-range::-ms-thumb:KichHoat {
     background-color: #fffae6
 }
 
@@ -3943,7 +3943,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
             border-color: transparent
         }
 
-        .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+        .nav-tabs .nav-link.KichHoat, .nav-tabs .nav-item.show .nav-link {
             color: #495057;
             background-color: #F5F5F5;
             border-color: #dee2e6 #dee2e6 #F5F5F5
@@ -3953,7 +3953,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         margin-top: -1px
     }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+.nav-pills .nav-link.KichHoat, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #FFD333
 }
@@ -3973,7 +3973,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     display: none
 }
 
-.tab-content > .active {
+.tab-content > .KichHoat {
     display: block
 }
 
@@ -4275,7 +4275,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         color: rgba(0,0,0,.3)
     }
 
-    .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .KichHoat > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.KichHoat {
         color: rgba(0,0,0,.9)
     }
 
@@ -4320,7 +4320,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         color: rgba(255,255,255,.25)
     }
 
-    .navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.active {
+    .navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .KichHoat > .nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.KichHoat {
         color: #000
     }
 
@@ -4551,7 +4551,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
             text-decoration: none
         }
 
-    .breadcrumb-item.active {
+    .breadcrumb-item.KichHoat {
         color: #6c757d
     }
 
@@ -4590,7 +4590,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     margin-left: 0
 }
 
-.page-item.active .page-link {
+.page-item.KichHoat .page-link {
     z-index: 3;
     color: #fff;
     background-color: #FFD333;
@@ -5011,7 +5011,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #f8f9fa
     }
 
-    .list-group-item-action:active {
+    .list-group-item-action:KichHoat {
         color: #6C757D;
         background-color: #e9ecef
     }
@@ -5030,7 +5030,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #fff
     }
 
-    .list-group-item.active {
+    .list-group-item.KichHoat {
         z-index: 2;
         color: #fff;
         background-color: #FFD333;
@@ -5041,7 +5041,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         border-top-width: 0
     }
 
-        .list-group-item + .list-group-item.active {
+        .list-group-item + .list-group-item.KichHoat {
             margin-top: -1px;
             border-top-width: 1px
         }
@@ -5050,7 +5050,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     flex-direction: row
 }
 
-    .list-group-horizontal > .list-group-item.active {
+    .list-group-horizontal > .list-group-item.KichHoat {
         margin-top: 0
     }
 
@@ -5059,7 +5059,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         border-left-width: 0
     }
 
-        .list-group-horizontal > .list-group-item + .list-group-item.active {
+        .list-group-horizontal > .list-group-item + .list-group-item.KichHoat {
             margin-left: -1px;
             border-left-width: 1px
         }
@@ -5069,7 +5069,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         flex-direction: row
     }
 
-        .list-group-horizontal-sm > .list-group-item.active {
+        .list-group-horizontal-sm > .list-group-item.KichHoat {
             margin-top: 0
         }
 
@@ -5078,7 +5078,7 @@ a.badge-dark:focus, a.badge-dark.focus {
             border-left-width: 0
         }
 
-            .list-group-horizontal-sm > .list-group-item + .list-group-item.active {
+            .list-group-horizontal-sm > .list-group-item + .list-group-item.KichHoat {
                 margin-left: -1px;
                 border-left-width: 1px
             }
@@ -5089,7 +5089,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         flex-direction: row
     }
 
-        .list-group-horizontal-md > .list-group-item.active {
+        .list-group-horizontal-md > .list-group-item.KichHoat {
             margin-top: 0
         }
 
@@ -5098,7 +5098,7 @@ a.badge-dark:focus, a.badge-dark.focus {
             border-left-width: 0
         }
 
-            .list-group-horizontal-md > .list-group-item + .list-group-item.active {
+            .list-group-horizontal-md > .list-group-item + .list-group-item.KichHoat {
                 margin-left: -1px;
                 border-left-width: 1px
             }
@@ -5109,7 +5109,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         flex-direction: row
     }
 
-        .list-group-horizontal-lg > .list-group-item.active {
+        .list-group-horizontal-lg > .list-group-item.KichHoat {
             margin-top: 0
         }
 
@@ -5118,7 +5118,7 @@ a.badge-dark:focus, a.badge-dark.focus {
             border-left-width: 0
         }
 
-            .list-group-horizontal-lg > .list-group-item + .list-group-item.active {
+            .list-group-horizontal-lg > .list-group-item + .list-group-item.KichHoat {
                 margin-left: -1px;
                 border-left-width: 1px
             }
@@ -5129,7 +5129,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         flex-direction: row
     }
 
-        .list-group-horizontal-xl > .list-group-item.active {
+        .list-group-horizontal-xl > .list-group-item.KichHoat {
             margin-top: 0
         }
 
@@ -5138,7 +5138,7 @@ a.badge-dark:focus, a.badge-dark.focus {
             border-left-width: 0
         }
 
-            .list-group-horizontal-xl > .list-group-item + .list-group-item.active {
+            .list-group-horizontal-xl > .list-group-item + .list-group-item.KichHoat {
                 margin-left: -1px;
                 border-left-width: 1px
             }
@@ -5162,7 +5162,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #ffeead
     }
 
-    .list-group-item-primary.list-group-item-action.active {
+    .list-group-item-primary.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #856e1b;
         border-color: #856e1b
@@ -5178,7 +5178,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #efefef
     }
 
-    .list-group-item-secondary.list-group-item-action.active {
+    .list-group-item-secondary.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #7f7f7f;
         border-color: #7f7f7f
@@ -5194,7 +5194,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #b1dfbb
     }
 
-    .list-group-item-success.list-group-item-action.active {
+    .list-group-item-success.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #155724;
         border-color: #155724
@@ -5210,7 +5210,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #abdde5
     }
 
-    .list-group-item-info.list-group-item-action.active {
+    .list-group-item-info.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #0c5460;
         border-color: #0c5460
@@ -5226,7 +5226,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #ffe8a1
     }
 
-    .list-group-item-warning.list-group-item-action.active {
+    .list-group-item-warning.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #856404;
         border-color: #856404
@@ -5242,7 +5242,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #f1b0b7
     }
 
-    .list-group-item-danger.list-group-item-action.active {
+    .list-group-item-danger.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #721c24;
         border-color: #721c24
@@ -5258,7 +5258,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #f2f2f2
     }
 
-    .list-group-item-light.list-group-item-action.active {
+    .list-group-item-light.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #858585;
         border-color: #858585
@@ -5274,7 +5274,7 @@ a.badge-dark:focus, a.badge-dark.focus {
         background-color: #bcbec1
     }
 
-    .list-group-item-dark.list-group-item-action.active {
+    .list-group-item-dark.list-group-item-action.KichHoat {
         color: #fff;
         background-color: #202428;
         border-color: #202428
@@ -5869,15 +5869,15 @@ a.close.disabled {
     }
 }
 
-.carousel-item.active, .carousel-item-next, .carousel-item-prev {
+.carousel-item.KichHoat, .carousel-item-next, .carousel-item-prev {
     display: block
 }
 
-    .carousel-item-next:not(.carousel-item-left), .active.carousel-item-right {
+    .carousel-item-next:not(.carousel-item-left), .KichHoat.carousel-item-right {
         transform: translateX(100%)
     }
 
-    .carousel-item-prev:not(.carousel-item-right), .active.carousel-item-left {
+    .carousel-item-prev:not(.carousel-item-right), .KichHoat.carousel-item-left {
         transform: translateX(-100%)
     }
 
@@ -5887,19 +5887,19 @@ a.close.disabled {
     transform: none
 }
 
-    .carousel-fade .carousel-item.active, .carousel-fade .carousel-item-next.carousel-item-left, .carousel-fade .carousel-item-prev.carousel-item-right {
+    .carousel-fade .carousel-item.KichHoat, .carousel-fade .carousel-item-next.carousel-item-left, .carousel-fade .carousel-item-prev.carousel-item-right {
         z-index: 1;
         opacity: 1
     }
 
-.carousel-fade .active.carousel-item-left, .carousel-fade .active.carousel-item-right {
+.carousel-fade .KichHoat.carousel-item-left, .carousel-fade .KichHoat.carousel-item-right {
     z-index: 0;
     opacity: 0;
     transition: opacity 0s 0.6s
 }
 
 @media (prefers-reduced-motion:reduce) {
-    .carousel-fade .active.carousel-item-left, .carousel-fade .active.carousel-item-right {
+    .carousel-fade .KichHoat.carousel-item-left, .carousel-fade .KichHoat.carousel-item-right {
         transition: none
     }
 }
@@ -5992,7 +5992,7 @@ a.close.disabled {
     }
 }
 
-.carousel-indicators .active {
+.carousel-indicators .KichHoat {
     opacity: 1
 }
 
@@ -7377,7 +7377,7 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
     border: 0
 }
 
-.sr-only-focusable:active, .sr-only-focusable:focus {
+.sr-only-focusable:KichHoat, .sr-only-focusable:focus {
     position: static;
     width: auto;
     height: auto;
@@ -9662,7 +9662,7 @@ a.text-dark:hover, a.text-dark:focus {
     outline: none
 }
 
-    .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active {
+    .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.KichHoat {
         color: #FFD333
     }
 
@@ -9696,7 +9696,7 @@ a.text-dark:hover, a.text-dark:focus {
     transition: .5s
 }
 
-.carousel-indicators .active {
+.carousel-indicators .KichHoat {
     width: 30px;
     background: #FFF
 }

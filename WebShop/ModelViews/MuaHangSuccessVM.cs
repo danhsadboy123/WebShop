@@ -8,8 +8,8 @@ namespace WebShop.ModelViews
     {
         public int DonHangID { get; set; }         // Mã đơn hàng
         public Order Order { get; set; }           // Thông tin đơn hàng
-        public string FullName { get; set; }       // Họ tên khách hàng
-        public string Phone { get; set; }          // Số điện thoại khách hàng
+        public string HoTen { get; set; }       // Họ tên khách hàng
+        public string SoDienThoai { get; set; }          // Số điện thoại khách hàng
         public string Address { get; set; }        // Địa chỉ giao hàng
         public string PhuongXa { get; set; }       // Phường/Xã
         public string QuanHuyen { get; set; }      // Quận/Huyện

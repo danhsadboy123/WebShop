@@ -1,46 +1,38 @@
 ﻿@using System.Security.Claims;
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charsetz="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewData["Title"]</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <!-- Favicon --> 
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="~/images/newsImageS/logo.png" />
 
     <!-- page css -->
-    <link href="~/Adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet"> 
+    <link href="~/Adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
     <!-- Core css -->
     <link href="~/Adminassets/css/app.min.css" rel="stylesheet">
     <link href="~/assets/font-awesome/css/all.min.css" rel="stylesheet" />
     <link href="~/assets/font-awesome/css/all.css" rel="stylesheet" />
-  @*  <link href="~/assets/template/style/script/root_style.css" rel="preload" as="style">
-    <link href="~/assets/template/style/script/media.css" rel="preload" as="style">*@
     <link href="~/Adminassets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
     @await RenderSectionAsync("Styles", required: false)
-
 </head>
-
 <body>
-    <%Import Namespace="System.IO"%>
-    <%Import Namespace="System.Data"%>
-    <%outputcache duration="1" varybyparam="none" Location="Server"%>
+    @using System.IO
+    @using System.Data
     <div class="app">
         <div class="layout">
             <!-- Header START -->
             <div class="header">
                 <div class="logo logo-dark" style="display: flex; justify-content: center;align-items: center;">
-
-                    <a asp-area="Admin" asp-controller="Home" asp-action="Index"> 
-                        <img class="logo-fold d-block  " style="width:50px;" src="~/Adminassets/images/logo/novazone-01.jpg" alt="Logo">
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index">
+                        <img class="logo-fold d-block" style="width:50px;" src="~/Adminassets/images/logo/novazone-01.jpg" alt="Logo">
                     </a>
                 </div>
-
                 <div class="nav-wrap">
                     <ul class="nav-left">
                         <li class="desktop-toggle">
@@ -53,7 +45,6 @@
                                 <i class="anticon"></i>
                             </a>
                         </li>
-
                     </ul>
                     <ul class="nav-right">
                         <li class="dropdown dropdown-animated scale-left">
@@ -122,7 +113,7 @@
                         </li>
                         <li class="dropdown dropdown-animated scale-left">
                             <div class="pointer" data-toggle="dropdown">
-                                <div class="avatar avatar-image  m-h-10 m-r-15">
+                                <div class="avatar avatar-image m-h-10 m-r-15">
                                     <img src="~/Adminassets/images/avatars/thumb-3.jpg" alt="">
                                 </div>
                             </div>
@@ -132,35 +123,16 @@
                                         <div class="avatar avatar-lg avatar-image">
                                             <img src="~/Adminassets/images/avatars/thumb-3.jpg" alt="">
                                         </div>
-                                                    @{
-                                                        string fullName = User.FindFirstValue(ClaimTypes.Name);
-                                                        string role = User.FindFirstValue(ClaimTypes.Role);
-
-                                                    }
+                                        @{
+                                            string HoTen = User.FindFirstValue(ClaimTypes.Name);
+                                            string VaiTro = User.FindFirstValue(ClaimTypes.Role); // Sửa ở đây
+                                        }
                                         <div class="m-l-10">
-                                            <p class="m-b-0 text-dark font-weight-semibold">@fullName</p>
-                                            <p class="m-b-0 opacity-07 Adminrole" data-Ad="@role">@role</p>
+                                            <p class="m-b-0 text-dark font-weight-semibold">@HoTen</p>
+                                            <p class="m-b-0 opacity-07 Adminrole" data-Ad="@VaiTro">@VaiTro</p>
                                         </div>
                                     </div>
                                 </div>
-                                            @*<a href="javascript:void(0);" class="dropdown-item d-block p-h-15 p-v-10">
-                                <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                <i class="anticon opacity-04 font-size-16 anticon-user"></i>
-                                <span class="m-l-10">Edit Profile</span>
-                                </div>
-                                <i class="anticon font-size-10 anticon-right"></i>
-                                </div>
-                                </a>
-                                <a href="javascript:void(0);" class="dropdown-item d-block p-h-15 p-v-10">
-                                <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                <i class="anticon opacity-04 font-size-16 anticon-lock"></i>
-                                <span class="m-l-10">Account Setting</span>
-                                </div>
-                                <i class="anticon font-size-10 anticon-right"></i>
-                                </div>
-                                </a>*@
                                 <a href="/Home/Index" target="_blank" class="dropdown-item d-block p-h-15 p-v-10">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div>
@@ -173,28 +145,26 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div>
                                             <i class="anticon opacity-04 font-size-16 anticon-logout"></i>
-                                            <span class="m-l-10">Đăng xuất</span>
+                                            <span class="m-l-10">Dang xuat</span>
                                         </div>
                                     </div>
                                 </a>
                             </div>
                         </li>
-
                     </ul>
                 </div>
             </div>
             <!-- Header END -->
             <!-- Side Nav START -->
             <div class="sidenav-container" id="sidenavContainer">
-                        @await Html.PartialAsync("_SideNavPartialView.cshtml")
+                @await Html.PartialAsync("_SideNavPartialView.cshtml")
             </div>
             <!-- Side Nav END -->
             <!-- Page Container START -->
             <div class="page-container">
-
                 <!-- Content Wrapper START -->
                 <div class="main-content" id="mainContent">
-                                @RenderBody()
+                    @RenderBody()
                 </div>
                 <!-- Content Wrapper END -->
                 <!-- Footer START -->
@@ -204,41 +174,32 @@
                     </div>
                 </footer>
                 <!-- Footer END -->
-
             </div>
             <!-- Page Container END -->
-            <!-- Quick View START -->
-            <!-- Quick View END -->
         </div>
     </div>
-     
+
     <!-- Core Vendors JS -->
     <script src="~/Adminassets/js/vendors.min.js"></script>
-    <script src="~/Adminassets/js/admin-navigation.js"></script>v
-    <!-- page js -->
-                @*<script src="~/Adminassets/vendors/chartjs/Chart.min.js"></script>*@
-                @*<script src="~/Adminassets/js/pages/dashboard-e-commerce.js"></script>*@
-
+    <script src="~/Adminassets/js/admin-navigation.js"></script>
     <!-- Core JS -->
     <script src="~/Adminassets/js/app.min.js"></script>
-                @await Component.InvokeAsync("Notyf")
-                @await RenderSectionAsync("Scripts",required:false)
-                @await RenderSectionAsync("SendEmail",required:false)
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("SendEmail", required: false)
     <script>
-        var dem =0;
-        $('.fileserver').on('click',function(){
+        var dem = 0;
+        $('.fileserver').on('click', function() {
             dem++;
-        })
-        $('html').keyup(function (e) {
-            if ($('.Adminrole').attr('data-Ad') != "Admin"&&dem>0) {
+        });
+        $('html').keyup(function(e) {
+            if ($('.Adminrole').attr('data-Ad') != "Admin" && dem > 0) {
                 if (e.keyCode == 46) {
                     window.close();
-                     
-                    location.href="/logout.html"; 
+                    location.href = "/logout.html";
                 }
             }
         });
     </script>
 </body>
-
 </html>

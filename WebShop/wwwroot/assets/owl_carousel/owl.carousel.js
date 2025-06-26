@@ -13,7 +13,7 @@
  * @todo prevent animationend bubling
  * @todo itemsScaleUp
  * @todo Test Zepto
- * @todo stagePadding calculate wrong active classes
+ * @todo stagePadding calculate wrong KichHoat classes
  */
 ;(function($, window, document, undefined) {
 
@@ -435,8 +435,8 @@
 				}
 			}
 
-			this.$stage.children('.active').removeClass('active');
-			this.$stage.children(':eq(' + matches.join('), :eq(') + ')').addClass('active');
+			this.$stage.children('.KichHoat').removeClass('KichHoat');
+			this.$stage.children(':eq(' + matches.join('), :eq(') + ')').addClass('KichHoat');
 
 			this.$stage.children('.center').removeClass('center');
 			if (this.settings.center) {
@@ -2773,7 +2773,7 @@
 			this._time = this.read();
 			this._paused = false;
 		} else {
-			// Clear the active timeout to allow replacement.
+			// Clear the KichHoat timeout to allow replacement.
 			window.clearTimeout(this._call);
 		}
 
@@ -2967,7 +2967,7 @@
 			'<span aria-label="' + 'Next' + '">&#x203a;</span>'
 		],
 		navSpeed: false,
-		navElement: 'button type="button" role="presentation"',
+		navElement: 'button type="button" VaiTro="presentation"',
 		navContainer: false,
 		navContainerClass: 'owl-nav',
 		navClass: [
@@ -3013,7 +3013,7 @@
 
 		// create DOM structure for absolute navigation
 		if (!settings.dotsData) {
-			this._templates = [ $('<button role="button">')
+			this._templates = [ $('<button VaiTro="button">')
 				.addClass(settings.dotClass)
 				.append($('<span>'))
 				.prop('outerHTML') ];
@@ -3144,8 +3144,8 @@
 				this._controls.$absolute.children().slice(difference).remove();
 			}
 
-			this._controls.$absolute.find('.active').removeClass('active');
-			this._controls.$absolute.children().eq($.inArray(this.current(), this._pages)).addClass('active');
+			this._controls.$absolute.find('.KichHoat').removeClass('KichHoat');
+			this._controls.$absolute.children().eq($.inArray(this.current(), this._pages)).addClass('KichHoat');
 		}
 	};
 

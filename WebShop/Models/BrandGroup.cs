@@ -13,7 +13,7 @@ public partial class BrandGroup
 
     public string Name { get; set; }
 
-    public string Description { get; set; }
+    public string MoTa { get; set; }
 
     public bool? Status { get; set; }
 

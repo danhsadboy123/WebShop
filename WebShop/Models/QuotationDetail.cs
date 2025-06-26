@@ -17,7 +17,7 @@ public partial class QuotationDetail
 
     public int? Price { get; set; }
 
-    public DateTime? CreateDate { get; set; }
+    public DateTime? NgayTao { get; set; }
 
     public virtual Product Product { get; set; }
 

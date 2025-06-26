@@ -1,7 +1,7 @@
 {
   "name":
   "ivaynberg/select2",
-  "description": "Select2 is a jQuery based replacement for select boxes.",
+  "MoTa": "Select2 is a jQuery based replacement for select boxes.",
   "version": "3.5.5",
   "type": "component",
   "homepage": "http://ivaynberg.github.io/select2/",

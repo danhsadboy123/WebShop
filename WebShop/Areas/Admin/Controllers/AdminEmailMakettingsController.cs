@@ -60,8 +60,8 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/AdminEmailMakettings/Create
         public IActionResult Create(string url)
         {
-            var taikhoanID = HttpContext.Session.GetString("AccountId");
-            ViewBag.Account = _context.Accounts.Where(c => c.AccountId == int.Parse(taikhoanID)).FirstOrDefault();
+            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
+            ViewBag.Account = _context.TaiKhoans.Where(c => c.MaTaiKhoan == int.Parse(taikhoanID)).FirstOrDefault();
             ViewBag.ImageServer = _context.ImageServers.ToList();
             ViewBag.Url = url;
             return View();
@@ -72,7 +72,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmailId,AcountId,Title,Body,CreateDate,CustomDate")] EmailMaketting emailMaketting, string url)
+        public async Task<IActionResult> Create([Bind("EmailId,AcountId,Title,Body,NgayTao,CustomDate")] EmailMaketting emailMaketting, string url)
         {
 
             if (ModelState.IsValid)
@@ -85,7 +85,7 @@ namespace WebShop.Areas.Admin.Controllers
                     return RedirectToAction(url);
                 }
             }
-            ViewData["AcountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", emailMaketting.AcountId);
+            ViewData["AcountId"] = new SelectList(_context.TaiKhoans, "MaTaiKhoan", "MaTaiKhoan", emailMaketting.AcountId);
             return View(emailMaketting);
         }
         // nguyen code email
@@ -96,12 +96,12 @@ namespace WebShop.Areas.Admin.Controllers
             var pageSize = 20;
             var lsCustomers = _context.Customers
                 .AsNoTracking()
-                .OrderByDescending(x => x.CreateDate);
+                .OrderByDescending(x => x.NgayTao);
             var customer = from a in lsCustomers select (a);
             if (search != null)
             {
                 search = search.ToLower();
-                customer = customer.Where(c => c.FullName.Contains(search));
+                customer = customer.Where(c => c.HoTen.Contains(search));
             }
 
             PagedList<Customer> models = new PagedList<Customer>(customer, pageNumber, pageSize);
@@ -145,7 +145,7 @@ namespace WebShop.Areas.Admin.Controllers
                                 address = addressid.Content + "/" + addressid.Ward.WardName + "/" + addressid.District.DistrictName + "/" + addressid.Province.ProvinceName;
                             }
                             var optionEmail = _context.EmailMakettings.Find(int.Parse(OptionEmailID));
-                            var text = textcover(optionEmail.Body, customer.FullName, customer.Email, customer.Phone.ToString(), address, "");
+                            var text = textcover(optionEmail.Body, customer.HoTen, customer.Email, customer.SoDienThoai.ToString(), address, "");
 
                             email.Bcc.Add(MailboxAddress.Parse(customer.Email));
                             email.To.Add(MailboxAddress.Parse(customer.Email));
@@ -233,7 +233,7 @@ namespace WebShop.Areas.Admin.Controllers
                             /// kiem tra ton tai chuoi
                             if (HovaTenKH == "1")
                             {
-                                HovaTenKH = item.FullName;
+                                HovaTenKH = item.HoTen;
                             }
                             if (DiaChiKH == "1")
                             {
@@ -255,7 +255,7 @@ namespace WebShop.Areas.Admin.Controllers
                             }
                             if (SDTKH == "1")
                             {
-                                SDTKH = item.Phone;
+                                SDTKH = item.SoDienThoai;
                             }
                             text = textcover(optionEmail.Body, HovaTenKH, item.Email, SDTKH.ToString(), DiaChiKH, "");
                             if (item.Email != null)
@@ -356,7 +356,7 @@ namespace WebShop.Areas.Admin.Controllers
             return Json(new { success = "OK" });
         }
         // email potentail
-        public string textcover(string body, string Name, string Email, string Phone, string Address, string CompannyName)
+        public string textcover(string body, string Name, string Email, string SoDienThoai, string Address, string CompannyName)
         {
             var text = "";
 
@@ -367,7 +367,7 @@ namespace WebShop.Areas.Admin.Controllers
                 Str = Str.Replace("TenCongTyKH", CompannyName);
                 Str = Str.Replace("EmailKH", Email);
                 Str = Str.Replace("DiaChiKH", Address);
-                Str = Str.Replace("SDTKH", Phone);
+                Str = Str.Replace("SDTKH", SoDienThoai);
                 text = Str;
             }
 
@@ -398,7 +398,7 @@ namespace WebShop.Areas.Admin.Controllers
             PagedList<CustomerPotentail> models = new PagedList<CustomerPotentail>(customer, pageNumber, pageSize);
 
             ViewBag.CurrentPage = pageNumber;
-            ViewBag.admin = HttpContext.Session.GetString("AccountId");
+            ViewBag.admin = HttpContext.Session.GetString("MaTaiKhoan");
             // danh sach mail
             ViewBag.itemEmail = HttpContext.Session.GetString("option");
             ViewBag.checksave = HttpContext.Session.GetString("checksave");
@@ -454,7 +454,7 @@ namespace WebShop.Areas.Admin.Controllers
                         email.Subject = systemW.Name + " " + optionEmail.Title;
                         foreach (var item in customer)
                         {
-                            var text = textcover(optionEmail.Body, item.Name, item.Email, item.Phone.ToString(), item.Address, item.CompannyName);
+                            var text = textcover(optionEmail.Body, item.Name, item.Email, item.SoDienThoai.ToString(), item.Address, item.CompannyName);
                             email.Bcc.Add(MailboxAddress.Parse(item.Email.ToString()));
                             email.To.Add(MailboxAddress.Parse(item.Email.ToString()));
                             email.Body = new TextPart(TextFormat.Html)
@@ -501,10 +501,10 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var taikhoanID = HttpContext.Session.GetString("AccountId");
+            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
             ViewBag.ImageServer = _context.ImageServers.ToList();
             ViewBag.Url = url;
-            ViewBag.Account = _context.Accounts.Where(c => c.AccountId == int.Parse(taikhoanID)).FirstOrDefault();
+            ViewBag.Account = _context.TaiKhoans.Where(c => c.MaTaiKhoan == int.Parse(taikhoanID)).FirstOrDefault();
             return View(emailMaketting);
         }
 
@@ -513,7 +513,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, string url, [Bind("EmailId,AcountId,Title,Body,CreateDate,CustomDate")] EmailMaketting emailMaketting)
+        public async Task<IActionResult> Edit(int id, string url, [Bind("EmailId,AcountId,Title,Body,NgayTao,CustomDate")] EmailMaketting emailMaketting)
         {
             if (id != emailMaketting.EmailId)
             {
@@ -540,7 +540,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 return RedirectToAction(url);
             }
-            ViewData["AcountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", emailMaketting.AcountId);
+            ViewData["AcountId"] = new SelectList(_context.TaiKhoans, "MaTaiKhoan", "MaTaiKhoan", emailMaketting.AcountId);
             return View(emailMaketting);
         }
 

@@ -16,7 +16,7 @@ using WebShop.Models;
 namespace WebShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class AdminAccountsController : Controller
     {
         private readonly DbMarketsContext _context;
@@ -31,12 +31,12 @@ namespace WebShop.Areas.Admin.Controllers
         
         public async Task<IActionResult> Index()
         {
-            ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "RoleId", "Description");
+            ViewData["QuyenTruyCap"] = new SelectList(_context.VaiTros, "MaVaiTro", "MoTa");
             List<SelectListItem> lsTrangThai = new List<SelectListItem>();
             lsTrangThai.Add(new SelectListItem() { Text = "Hoạt động", Value = "1" });
             lsTrangThai.Add(new SelectListItem() { Text = "Khóa", Value = "0" });
             ViewData["lsTrangThai"] = lsTrangThai;
-            var dbMarketsContext = _context.Accounts.Include(a => a.Role);
+            var dbMarketsContext = _context.TaiKhoans.Include(a => a.VaiTro);
             return View(await dbMarketsContext.ToListAsync());
         }
         
@@ -48,9 +48,9 @@ namespace WebShop.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts
-                .Include(a => a.Role)
-                .FirstOrDefaultAsync(m => m.AccountId == id);
+            var account = await _context.TaiKhoans
+                .Include(a => a.VaiTro)
+                .FirstOrDefaultAsync(m => m.MaTaiKhoan == id);
             if (account == null)
             {
                 return NotFound();
@@ -62,7 +62,7 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/AdminAccounts/Create
         public IActionResult Create()
         {
-            ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "RoleId", "RoleName");
+            ViewData["QuyenTruyCap"] = new SelectList(_context.VaiTros, "MaVaiTro", "TenVaiTro");
             return View();
         }
 
@@ -71,26 +71,26 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AccountId,Phone,Email,Password,Salt,Active,FullName,RoleId,LastLogin,CreateDate")] Account account)
+        public async Task<IActionResult> Create([Bind("MaTaiKhoan,SoDienThoai,Email,MatKhau,Salt,KichHoat,HoTen,MaVaiTro,LanDangNhapCuoi,NgayTao")] TaiKhoan account)
         {
             if (ModelState.IsValid)
             {
                 string salt = Utilities.GetRandomKey();
                 account.Salt = salt;
-                account.Password = (account.Password + salt.Trim()).ToMD5();
-                account.CreateDate = DateTime.Now;
+                account.MatKhau = (account.MatKhau + salt.Trim()).ToMD5();
+                account.NgayTao = DateTime.Now;
                 _context.Add(account);
                 await _context.SaveChangesAsync();
                 _notyfService.Success("Tạo mới tài khoản thành công");
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "RoleId", "RoleName", account.RoleId);
+            ViewData["QuyenTruyCap"] = new SelectList(_context.VaiTros, "MaVaiTro", "TenVaiTro", account.MaVaiTro);
             return View(account);
         }
         //ChangePassword
         public IActionResult ChangePassword()
         {
-            ViewData["QuyenTruyCap"] = new SelectList(_context.Roles, "RoleId", "RoleName");
+            ViewData["QuyenTruyCap"] = new SelectList(_context.VaiTros, "MaVaiTro", "TenVaiTro");
             return View();
         }
 
@@ -99,17 +99,17 @@ namespace WebShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var taikhoan = _context.Accounts.AsNoTracking().SingleOrDefault(x => x.Email == model.Email);
-                if (taikhoan == null) return RedirectToAction("Login", "Accounts");
+                var taikhoan = _context.TaiKhoans.AsNoTracking().SingleOrDefault(x => x.Email == model.Email);
+                if (taikhoan == null) return RedirectToAction("Login", "TaiKhoans");
                 var pass = (model.PasswordNow.Trim() + taikhoan.Salt.Trim()).ToMD5();
                 {
-                    string passnew = (model.Password.Trim() + taikhoan.Salt.Trim()).ToMD5();
-                    taikhoan.Password = passnew;
-                    taikhoan.LastLogin = DateTime.Now;
+                    string passnew = (model.MatKhau.Trim() + taikhoan.Salt.Trim()).ToMD5();
+                    taikhoan.MatKhau = passnew;
+                    taikhoan.LanDangNhapCuoi = DateTime.Now;
                     _context.Update(taikhoan);
                     _context.SaveChanges();
                     _notyfService.Success("Đổi mật khẩu thành công");
-                    return RedirectToAction("Login", "Accounts", new { Area = "Admin" });
+                    return RedirectToAction("Login", "TaiKhoans", new { Area = "Admin" });
                 }
             }
 
@@ -125,12 +125,12 @@ namespace WebShop.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts.FindAsync(id);
+            var account = await _context.TaiKhoans.FindAsync(id);
             if (account == null)
             {
                 return NotFound();
             }
-            ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleName", account.RoleId);
+            ViewData["MaVaiTro"] = new SelectList(_context.VaiTros, "MaVaiTro", "TenVaiTro", account.MaVaiTro);
             return View(account);
         }
 
@@ -139,9 +139,9 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AccountId,Phone,Email,Password,Salt,Active,FullName,RoleId,LastLogin,CreateDate")] Account account)
+        public async Task<IActionResult> Edit(int id, [Bind("MaTaiKhoan,SoDienThoai,Email,MatKhau,Salt,KichHoat,HoTen,MaVaiTro,LanDangNhapCuoi,NgayTao")] TaiKhoan account)
         {
-            if (id != account.AccountId)
+            if (id != account.MaTaiKhoan)
             {
                 return NotFound();
             }
@@ -155,7 +155,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AccountExists(account.AccountId))
+                    if (!AccountExists(account.MaTaiKhoan))
                     {
                         return NotFound();
                     }
@@ -166,7 +166,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleName", account.RoleId);
+            ViewData["MaVaiTro"] = new SelectList(_context.VaiTros, "MaVaiTro", "TenVaiTro", account.MaVaiTro);
             return View(account);
         }
 
@@ -178,9 +178,9 @@ namespace WebShop.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts
-                .Include(a => a.Role)
-                .FirstOrDefaultAsync(m => m.AccountId == id);
+            var account = await _context.TaiKhoans
+                .Include(a => a.VaiTro)
+                .FirstOrDefaultAsync(m => m.MaTaiKhoan == id);
             if (account == null)
             {
                 return NotFound();
@@ -194,15 +194,15 @@ namespace WebShop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var account = await _context.Accounts.FindAsync(id);
-            _context.Accounts.Remove(account);
+            var account = await _context.TaiKhoans.FindAsync(id);
+            _context.TaiKhoans.Remove(account);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AccountExists(int id)
         {
-            return _context.Accounts.Any(e => e.AccountId == id);
+            return _context.TaiKhoans.Any(e => e.MaTaiKhoan == id);
         }
 
     }

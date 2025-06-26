@@ -72,7 +72,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <span class="breadcrumb-item active">Quản lý đơn hàng</span>
+            <span class="breadcrumb-item KichHoat">Quản lý đơn hàng</span>
         </nav>
     </div>
 </div>
@@ -125,7 +125,7 @@
                 if (ViewBag.check == null)
                 {
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(1)" href="#project-details-tasks">Tất cả</a>
+                        <a class="nav-link KichHoat" data-toggle="tab" onclick="CheckSearch(1)" href="#project-details-tasks">Tất cả</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" onclick="CheckSearch(2)" href="#project-details-comments">Đơn hàng mới</a>
@@ -141,7 +141,7 @@
                     if (id == "1")
                     {
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(1)" href="#project-details-tasks">Tất cả</a>
+                            <a class="nav-link KichHoat" data-toggle="tab" onclick="CheckSearch(1)" href="#project-details-tasks">Tất cả</a>
                         </li>
                     }
                     else
@@ -153,7 +153,7 @@
                     if (id == "2")
                     {
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(2)" href="#project-details-comments">Đơn hàng mới</a>
+                            <a class="nav-link KichHoat" data-toggle="tab" onclick="CheckSearch(2)" href="#project-details-comments">Đơn hàng mới</a>
                         </li>
                     }
                     else
@@ -165,7 +165,7 @@
                     if (id == "3")
                     {
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(3)" href="#project-details-attachment">Chưa giao hàng</a>
+                            <a class="nav-link KichHoat" data-toggle="tab" onclick="CheckSearch(3)" href="#project-details-attachment">Chưa giao hàng</a>
                         </li>
                     }
                     else
@@ -177,7 +177,7 @@
                     if (id == "4")
                     {
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" onclick="CheckSearch(4)" href="#project-details-attachment">Chưa thanh toán</a>
+                            <a class="nav-link KichHoat" data-toggle="tab" onclick="CheckSearch(4)" href="#project-details-attachment">Chưa thanh toán</a>
                         </li>
                     }
                     else
@@ -221,7 +221,7 @@
                                     <label for="checkbox4">Email khách hàng</label>
                                 </a>
                                 <a class="checkbox col-md-6">
-                                    <input id="checkbox5" class="checkitembox" data-column="4" type="checkbox" asp-for="CheckboxOrder.Phone">
+                                    <input id="checkbox5" class="checkitembox" data-column="4" type="checkbox" asp-for="CheckboxOrder.SoDienThoai">
                                     <label for="checkbox5">SĐT khách hàng</label>
                                 </a>
                                 <a class="checkbox col-md-6">
@@ -293,14 +293,14 @@
                                
                                 @if(item.Customer == null)
                                 {
-                                    <td>@item.Guest.FullName</td>
+                                    <td>@item.Guest.HoTen</td>
                                     <td>@item.Guest.Email</td>
-                                    <td>@item.Guest.Phone</td>
+                                    <td>@item.Guest.SoDienThoai</td>
                                 }
                                 else{
-                                    <td>@item.Customer.FullName</td>
+                                    <td>@item.Customer.HoTen</td>
                                     <td>@item.Customer.Email</td>
-                                    <td>@item.Customer.Phone</td>
+                                    <td>@item.Customer.SoDienThoai</td>
                                 }
                                 <td>
                                      
@@ -405,7 +405,7 @@
         </div>
     </div>
 </div>
-<div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
 

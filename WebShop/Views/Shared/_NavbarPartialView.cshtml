@@ -56,10 +56,10 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="/" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/" ? "active" : "")" style="font-weight: bold;">Trang chủ</a>
-                        <a href="/danh-sach-san-pham-Novazone" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/danh-sach-san-pham-Novazone" ? "active" : "")">Sản phẩm</a>
-                        <a href="/about" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/about" ? "active" : "")">Về chúng tôi</a>
-                        <a asp-action="Contact" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Liên hệ</a>
+                        <a href="/" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/" ? "KichHoat" : "")" style="font-weight: bold;">Trang chủ</a>
+                        <a href="/danh-sach-san-pham-Novazone" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/danh-sach-san-pham-Novazone" ? "KichHoat" : "")">Sản phẩm</a>
+                        <a href="/about" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/about" ? "KichHoat" : "")">Về chúng tôi</a>
+                        <a asp-action="Contact" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "KichHoat" : "")">Liên hệ</a>
                     </div>
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                         <a href="/cart" class="btn px-0 ml-3">

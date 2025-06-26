@@ -49,7 +49,7 @@
   };
   var ClassName = {
     DROPDOWN_MENU: 'dropdown-menu',
-    ACTIVE: 'active',
+    KichHoat: 'KichHoat',
     DISABLED: 'disabled',
     FADE: 'fade',
     SHOW: 'show'
@@ -57,11 +57,11 @@
   var Selector = {
     DROPDOWN: '.dropdown',
     NAV_LIST_GROUP: '.nav, .list-group',
-    ACTIVE: '.active',
-    ACTIVE_UL: '> li > .active',
+    KichHoat: '.KichHoat',
+    ACTIVE_UL: '> li > .KichHoat',
     DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
     DROPDOWN_TOGGLE: '.dropdown-toggle',
-    DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
+    DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .KichHoat'
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -84,7 +84,7 @@
     _proto.show = function show() {
       var _this = this;
 
-      if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $(this._element).hasClass(ClassName.ACTIVE) || $(this._element).hasClass(ClassName.DISABLED)) {
+      if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $(this._element).hasClass(ClassName.KichHoat) || $(this._element).hasClass(ClassName.DISABLED)) {
         return;
       }
 
@@ -94,7 +94,7 @@
       var selector = Util.getSelectorFromElement(this._element);
 
       if (listElement) {
-        var itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.ACTIVE;
+        var itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.KichHoat;
         previous = $.makeArray($(listElement).find(itemSelector));
         previous = previous[previous.length - 1];
       }
@@ -149,39 +149,39 @@
     _proto._activate = function _activate(element, container, callback) {
       var _this2 = this;
 
-      var activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? $(container).find(Selector.ACTIVE_UL) : $(container).children(Selector.ACTIVE);
-      var active = activeElements[0];
-      var isTransitioning = callback && active && $(active).hasClass(ClassName.FADE);
+      var activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? $(container).find(Selector.ACTIVE_UL) : $(container).children(Selector.KichHoat);
+      var KichHoat = activeElements[0];
+      var isTransitioning = callback && KichHoat && $(KichHoat).hasClass(ClassName.FADE);
 
       var complete = function complete() {
-        return _this2._transitionComplete(element, active, callback);
+        return _this2._transitionComplete(element, KichHoat, callback);
       };
 
-      if (active && isTransitioning) {
-        var transitionDuration = Util.getTransitionDurationFromElement(active);
-        $(active).removeClass(ClassName.SHOW).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+      if (KichHoat && isTransitioning) {
+        var transitionDuration = Util.getTransitionDurationFromElement(KichHoat);
+        $(KichHoat).removeClass(ClassName.SHOW).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
       } else {
         complete();
       }
     };
 
-    _proto._transitionComplete = function _transitionComplete(element, active, callback) {
-      if (active) {
-        $(active).removeClass(ClassName.ACTIVE);
-        var dropdownChild = $(active.parentNode).find(Selector.DROPDOWN_ACTIVE_CHILD)[0];
+    _proto._transitionComplete = function _transitionComplete(element, KichHoat, callback) {
+      if (KichHoat) {
+        $(KichHoat).removeClass(ClassName.KichHoat);
+        var dropdownChild = $(KichHoat.parentNode).find(Selector.DROPDOWN_ACTIVE_CHILD)[0];
 
         if (dropdownChild) {
-          $(dropdownChild).removeClass(ClassName.ACTIVE);
+          $(dropdownChild).removeClass(ClassName.KichHoat);
         }
 
-        if (active.getAttribute('role') === 'tab') {
-          active.setAttribute('aria-selected', false);
+        if (KichHoat.getAttribute('VaiTro') === 'tab') {
+          KichHoat.setAttribute('aria-selected', false);
         }
       }
 
-      $(element).addClass(ClassName.ACTIVE);
+      $(element).addClass(ClassName.KichHoat);
 
-      if (element.getAttribute('role') === 'tab') {
+      if (element.getAttribute('VaiTro') === 'tab') {
         element.setAttribute('aria-selected', true);
       }
 
@@ -196,7 +196,7 @@
 
         if (dropdownElement) {
           var dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(Selector.DROPDOWN_TOGGLE));
-          $(dropdownToggleList).addClass(ClassName.ACTIVE);
+          $(dropdownToggleList).addClass(ClassName.KichHoat);
         }
 
         element.setAttribute('aria-expanded', true);

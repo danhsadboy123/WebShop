@@ -499,8 +499,8 @@ if (typeof Object.create !== "function") {
                 if ($(this).data("owl-roundPages") === $(base.$owlItems[base.currentItem]).data("owl-roundPages")) {
                     base.paginationWrapper
                         .find(".owl-page")
-                        .removeClass("active");
-                    $(this).addClass("active");
+                        .removeClass("KichHoat");
+                    $(this).addClass("KichHoat");
                 }
             });
         },
@@ -1259,14 +1259,14 @@ if (typeof Object.create !== "function") {
                 i;
 
             if (base.options.addClassActive === true) {
-                base.$owlItems.removeClass("active");
+                base.$owlItems.removeClass("KichHoat");
             }
             base.visibleItems = [];
             for (i = base.currentItem; i < base.currentItem + base.options.items; i += 1) {
                 base.visibleItems.push(i);
 
                 if (base.options.addClassActive === true) {
-                    $(base.$owlItems[i]).addClass("active");
+                    $(base.$owlItems[i]).addClass("KichHoat");
                 }
             }
             base.owl.visibleItems = base.visibleItems;

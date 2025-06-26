@@ -29,7 +29,7 @@
         <nav class="breadcrumb breadcrumb-dash">
         <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
         <a class="breadcrumb-item">Chăm sóc khách hàng</a>
-        <span class="breadcrumb-item active">Khách hàng hệ thống</span>
+        <span class="breadcrumb-item KichHoat">Khách hàng hệ thống</span>
         </nav>
     </div>
 </div>
@@ -77,7 +77,7 @@
                 <div class="d-md-flex">              
                     <div class="m-b-15">
                         <a style="color:white" class="btn btn-secondary" id="ClickAllEmail" onclick="SendAllEmail()"><i class="fa-sharp fa-regular fa-paper-plane"></i> <span>Gửi thư tất cả</span></a>
-                        <div id="loadAllEmail" class="spinner-border text-primary" role="status">
+                        <div id="loadAllEmail" class="spinner-border text-primary" VaiTro="status">
                             <span class="sr-only"></span>
                         </div>
                         <span id="errEmail">Liên hệ Sunhitech lỗi gửi email</span>
@@ -114,18 +114,18 @@
                                     <td>
                                         <div class="d-flex align-items-center">
  
-                                            <h6 class="m-b-0 m-l-10">@item.FullName</h6>
+                                            <h6 class="m-b-0 m-l-10">@item.HoTen</h6>
                                         </div>
                                     </td>
                                     <td>@item.Email</td>
-                                    <td>@item.Phone</td>
+                                    <td>@item.SoDienThoai</td>
                                     <td>@item.Birthday</td>
                                     <td>
-                                        @if (item.Active)
+                                        @if (item.KichHoat)
                                         {
                                             <div class="d-flex align-items-center">
                                                 <div class="badge badge-success badge-dot m-r-10"></div>
-                                                <div>Active</div>
+                                                <div>KichHoat</div>
                                             </div>
                                         }
                                         else
@@ -139,7 +139,7 @@
                                     <td class="d-flex align-items-center">
                                         <a class="btn btn-secondary btn-tone m-r-5 @item.CustomerId" id="@item.CustomerId+click" onclick=OneSend(@item.CustomerId) ><i class="anticon anticon-mail"></i></a>
                                         
-                                        <div id="@item.CustomerId" class="spinner-border text-primary" role="status">
+                                        <div id="@item.CustomerId" class="spinner-border text-primary" VaiTro="status">
                                             <span class="sr-only"></span>
                                         </div>
                                         
@@ -156,7 +156,7 @@
         </div>
     </div>
 </div>
-<div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
         </div>

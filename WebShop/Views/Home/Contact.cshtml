@@ -3,7 +3,7 @@
 @{
     var pageInfo = PageInfoService.GetPageInfo();
     ViewData["Title"] = "Liên hệ Novazone";
-    ViewData["Description"] = pageInfo?.MetaDesc ?? "Liên hệ với Novazone để được hỗ trợ tốt nhất";
+    ViewData["MoTa"] = pageInfo?.MetaDesc ?? "Liên hệ với Novazone để được hỗ trợ tốt nhất";
     ViewData["Keywords"] = pageInfo?.MetaKey ?? "liên hệ, novazone, hỗ trợ khách hàng";
 }
 
@@ -13,7 +13,7 @@
         <div class="col-12">
             <nav class="breadcrumb bg-light mb-4">
                 <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
-                <span class="breadcrumb-item active">Liên hệ</span>
+                <span class="breadcrumb-item KichHoat">Liên hệ</span>
             </nav>
         </div>
     </div>
@@ -65,7 +65,7 @@
             <div class="bg-light p-30">
                 <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>@(pageInfo?.Address ?? "Đang cập nhật")</p>
                 <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>@(pageInfo?.Email ?? "info@novazone.co")</p>
-                <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>@(pageInfo?.Phone ?? "0848967333")</p>
+                <p class="mb-2"><i class="fa fa-SoDienThoai-alt text-primary mr-3"></i>@(pageInfo?.SoDienThoai ?? "0848967333")</p>
             </div>
         </div>
     </div>

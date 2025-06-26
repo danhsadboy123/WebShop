@@ -46,9 +46,9 @@
                         <div class="omni-layout-card card-default">
                             <div class="omni-layout-card--section">
                                 <div><label>Mô tả</label>
-                                    @if (Model.Description != null)
+                                    @if (Model.MoTa != null)
                                     {
-                                        @(new HtmlString(Model.Description.ToString()))
+                                        @(new HtmlString(Model.MoTa.ToString()))
                                         
                                     }
                                 </div>
@@ -253,7 +253,7 @@
                                             <div class="timeline-body">
                                                 <div class="timeline__message-container">
                                                     <div class="timeline__inner-message">
-                                                        <p class="mb-2">@item.Description   | <span>@item.TimeCreate</span></p>
+                                                        <p class="mb-2">@item.MoTa   | <span>@item.TimeCreate</span></p>
                                                     </div>
                                                 </div>
 
@@ -329,7 +329,7 @@
                                         if (check == 0)
                                         {
                                              
-                                            <span class="mt-2"> @item.Description vào @item.TimeCreate</span>
+                                            <span class="mt-2"> @item.MoTa vào @item.TimeCreate</span>
                                         }
                                         check=1; 
                                     }

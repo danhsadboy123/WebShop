@@ -136,7 +136,7 @@
             cursor: pointer
         }
 
-            .cart-content-2021 .cart-col-product .fake-checkbox.active {
+            .cart-content-2021 .cart-col-product .fake-checkbox.KichHoat {
                 border-color: #0b74e5;
                 background-color: #0b74e5
             }
@@ -155,7 +155,7 @@
                 transition: transform .3s ease 0s
             }
 
-            .cart-content-2021 .cart-col-product .fake-checkbox.active::after {
+            .cart-content-2021 .cart-col-product .fake-checkbox.KichHoat::after {
                 transform: scale(1) rotate(-45deg)
             }
 
@@ -353,7 +353,7 @@
             color: #4281f8
         }
 
-    .box-cart-address .bca-n-name-phone {
+    .box-cart-address .bca-n-name-SoDienThoai {
         width: 100%;
         float: left;
         margin: 0 0 10px;
@@ -362,7 +362,7 @@
         color: #000
     }
 
-        .box-cart-address .bca-n-name-phone span.c-chia {
+        .box-cart-address .bca-n-name-SoDienThoai span.c-chia {
             font-weight: 300;
             margin: 0 15px
         }
@@ -554,21 +554,21 @@
                     display: none
                 }
 
-                .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.active .bar {
+                .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.KichHoat .bar {
                     background: #30327c
                 }
 
-                    .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.active .bar.notline {
+                    .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.KichHoat .bar.notline {
                         background: #ebebeb
                     }
 
-                .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.active .circle {
+                .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.KichHoat .circle {
                     background: #30327c;
                     border: 1px solid #30327c;
                     color: #fff
                 }
 
-        .cart-2021-b2 .header-cart-b2 .phone-cart {
+        .cart-2021-b2 .header-cart-b2 .SoDienThoai-cart {
             width: 180px;
             float: left;
             display: -webkit-box;
@@ -582,7 +582,7 @@
             border-radius: 23px
         }
 
-            .cart-2021-b2 .header-cart-b2 .phone-cart .icon-c {
+            .cart-2021-b2 .header-cart-b2 .SoDienThoai-cart .icon-c {
                 width: 40px;
                 height: 40px;
                 float: left;
@@ -595,12 +595,12 @@
                 color: #fff
             }
 
-            .cart-2021-b2 .header-cart-b2 .phone-cart .txt {
+            .cart-2021-b2 .header-cart-b2 .SoDienThoai-cart .txt {
                 width: calc(100% - 50px);
                 float: left
             }
 
-            .cart-2021-b2 .header-cart-b2 .phone-cart .txt1 {
+            .cart-2021-b2 .header-cart-b2 .SoDienThoai-cart .txt1 {
                 width: 100%;
                 float: left;
                 font-size: 14px;
@@ -608,7 +608,7 @@
                 color: #000
             }
 
-            .cart-2021-b2 .header-cart-b2 .phone-cart .txt2 {
+            .cart-2021-b2 .header-cart-b2 .SoDienThoai-cart .txt2 {
                 width: 100%;
                 float: left;
                 font-size: 18px;
@@ -941,7 +941,7 @@
                 font-size: 14px
             }
 
-            .cart-2021-b2-content-ct .list-cart-add .item-c .list-active {
+            .cart-2021-b2-content-ct .list-cart-add .item-c .list-KichHoat {
                 width: 100%;
                 float: left;
                 margin-top: 15px;
@@ -953,7 +953,7 @@
                 align-items: center
             }
 
-                .cart-2021-b2-content-ct .list-cart-add .item-c .list-active a {
+                .cart-2021-b2-content-ct .list-cart-add .item-c .list-KichHoat a {
                     float: left;
                     padding: 0 15px;
                     line-height: 32px;
@@ -965,7 +965,7 @@
                     margin-right: 5px
                 }
 
-                    .cart-2021-b2-content-ct .list-cart-add .item-c .list-active a.select-add {
+                    .cart-2021-b2-content-ct .list-cart-add .item-c .list-KichHoat a.select-add {
                         color: #fff;
                         background: #464646;
                         border: 1px solid #464646
@@ -979,12 +979,12 @@
                     display: block
                 }
 
-                .cart-2021-b2-content-ct .list-cart-add .item-c.default .list-active a.select-add {
+                .cart-2021-b2-content-ct .list-cart-add .item-c.default .list-KichHoat a.select-add {
                     background: #30327c;
                     border: 1px solid #30327c
                 }
 
-                .cart-2021-b2-content-ct .list-cart-add .item-c.default .list-active a.delete-add {
+                .cart-2021-b2-content-ct .list-cart-add .item-c.default .list-KichHoat a.delete-add {
                     display: none
                 }
 
@@ -1013,7 +1013,7 @@
         display: none
     }
 
-        .cart-2021-b2-content-ct .box-add-new-address-cart.active {
+        .cart-2021-b2-content-ct .box-add-new-address-cart.KichHoat {
             display: block
         }
 
@@ -1056,7 +1056,7 @@
     display: none
 }
 
-    .popup-delate-address-cart.active {
+    .popup-delate-address-cart.KichHoat {
         display: block
     }
 
@@ -1135,7 +1135,7 @@
     display: none
 }
 
-    .bg-h-pop.active {
+    .bg-h-pop.KichHoat {
         display: block
     }
 
@@ -1156,7 +1156,7 @@
     transition: .5s
 }
 
-    .complete-h-pop.active {
+    .complete-h-pop.KichHoat {
         right: 0;
         -webkit-transition: .5s;
         transition: .5s
@@ -1179,7 +1179,7 @@
     transition: .5s
 }
 
-    .complete-h-pop-2.active {
+    .complete-h-pop-2.KichHoat {
         right: 0;
         -webkit-transition: .5s;
         transition: .5s
@@ -1559,7 +1559,7 @@
     display: none
 }
 
-    .popup-not-select-cart.active {
+    .popup-not-select-cart.KichHoat {
         display: block
     }
 
@@ -1596,7 +1596,7 @@
     display: none
 }
 
-    .bg-popup-not-select-cart.active {
+    .bg-popup-not-select-cart.KichHoat {
         display: block
     }
 
@@ -1620,11 +1620,11 @@
     position: relative
 }
 
-    .inputCheckboxFake.active {
+    .inputCheckboxFake.KichHoat {
         background: #233b76
     }
 
-        .inputCheckboxFake.active ::after {
+        .inputCheckboxFake.KichHoat ::after {
             content: '\f00c';
             font-family: 'Font Awesome 5 Pro';
             font-weight: 400;

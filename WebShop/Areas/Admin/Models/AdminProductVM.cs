@@ -24,7 +24,7 @@ namespace WebShop.Areas.Admin.Models
 
         public string Gift_EN { get; set; }
 
-        public string Description { get; set; }
+        public string MoTa { get; set; }
 
         public string Description_EN { get; set; }
 
@@ -57,7 +57,7 @@ namespace WebShop.Areas.Admin.Models
 
         public bool HomeFlag { get; set; }
 
-        public bool Active { get; set; }
+        public bool KichHoat { get; set; }
 
         public string Title { get; set; }
 

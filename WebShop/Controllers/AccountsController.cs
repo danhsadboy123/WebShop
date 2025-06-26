@@ -69,13 +69,13 @@ namespace WebShop.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult ValidatePhone(string Phone)
+        public IActionResult ValidatePhone(string SoDienThoai)
         {
             try
             {
-                var khachhang = _context.Customers.AsNoTracking().SingleOrDefault(x => x.Phone.ToLower() == Phone.ToLower());
+                var khachhang = _context.Customers.AsNoTracking().SingleOrDefault(x => x.SoDienThoai.ToLower() == SoDienThoai.ToLower());
                 if (khachhang != null)
-                    return Json(data: "Số điện thoại : " + Phone + "đã được sử dụng");
+                    return Json(data: "Số điện thoại : " + SoDienThoai + "đã được sử dụng");
                 return Json(data: true);                
             }
             catch
@@ -113,9 +113,9 @@ namespace WebShop.Controllers
                 if(khachhang!= null)
                 {
                     model.CustomerId = khachhang.CustomerId;
-                    model.FullName = khachhang.FullName;
+                    model.HoTen = khachhang.HoTen;
                     model.Email = khachhang.Email;
-                    model.Phone = khachhang.Phone;
+                    model.SoDienThoai = khachhang.SoDienThoai;
                     if (khachhang.Birthday != null)
                     {
                         model.Birthday = (DateTime)khachhang.Birthday;
@@ -147,9 +147,9 @@ namespace WebShop.Controllers
                 if (khachhang != null)
                 {
                     khachhang.CustomerId = changeInfoViewModel.CustomerId;
-                    khachhang.FullName = changeInfoViewModel.FullName;
+                    khachhang.HoTen = changeInfoViewModel.HoTen;
                     khachhang.Email = changeInfoViewModel.Email;
-                    khachhang.Phone = changeInfoViewModel.Phone;
+                    khachhang.SoDienThoai = changeInfoViewModel.SoDienThoai;
                     if (khachhang.Birthday != null)
                     {
                         khachhang.Birthday = (DateTime)changeInfoViewModel.Birthday;
@@ -191,13 +191,13 @@ namespace WebShop.Controllers
                     string salt = Utilities.GetRandomKey();                    
                     Customer khachhang = new Customer
                     {
-                        FullName = taikhoan.FullName,
-                        Phone = taikhoan.Phone.Trim().ToLower(),
+                        HoTen = taikhoan.HoTen,
+                        SoDienThoai = taikhoan.SoDienThoai.Trim().ToLower(),
                         Email = taikhoan.Email.Trim().ToLower(),
-                        Password = (taikhoan.Password + salt.Trim()).ToMD5(),
-                        Active = true,
+                        MatKhau = (taikhoan.MatKhau + salt.Trim()).ToMD5(),
+                        KichHoat = true,
                         Salt = salt,
-                        CreateDate = DateTime.Now
+                        NgayTao = DateTime.Now
                     };
                     try
                     {
@@ -210,7 +210,7 @@ namespace WebShop.Controllers
                         //Identity
                         var claims = new List<Claim>
                         {
-                            new Claim(ClaimTypes.Name,khachhang.FullName),
+                            new Claim(ClaimTypes.Name,khachhang.HoTen),
                             new Claim("CustomerId", khachhang.CustomerId.ToString())
                         };
                         ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "login");
@@ -224,7 +224,7 @@ namespace WebShop.Controllers
                     catch 
                     {
 
-                        return RedirectToAction("Register", "Accounts");
+                        return RedirectToAction("Register", "TaiKhoans");
                     }
                 }
                 else
@@ -264,7 +264,7 @@ namespace WebShop.Controllers
                         try
                         {
                             var optionEmail = _context.EmailMakettings.Where(i => i.EmailEvent == 3).FirstOrDefault();
-                            var text = textcover(optionEmail.Body, tk.FullName, tk.Email, tk.Phone.ToString(),"", "");
+                            var text = textcover(optionEmail.Body, tk.HoTen, tk.Email, tk.SoDienThoai.ToString(),"", "");
                             email.Bcc.Add(MailboxAddress.Parse(tk.Email));
                             email.To.Add(MailboxAddress.Parse(tk.Email));
                             email.Subject = optionEmail.Title;
@@ -295,7 +295,7 @@ namespace WebShop.Controllers
             return Json(new { succses = "Ok" });
         }
 
-        public string textcover(string body, string Name, string Email, string Phone, string Address, string CompannyName)
+        public string textcover(string body, string Name, string Email, string SoDienThoai, string Address, string CompannyName)
         {
             var text = "";
 
@@ -306,7 +306,7 @@ namespace WebShop.Controllers
                 Str = Str.Replace("TenCongTyKH", CompannyName);
                 Str = Str.Replace("EmailKH", Email);
                 Str = Str.Replace("DiaChiKH", Address);
-                Str = Str.Replace("SDTKH", Phone);
+                Str = Str.Replace("SDTKH", SoDienThoai);
                 text = Str;
             }
 
@@ -320,7 +320,7 @@ namespace WebShop.Controllers
             var taikhoanID = HttpContext.Session.GetString("CustomerId");
             if (taikhoanID != null)
             {
-                return RedirectToAction("AccountInfo", "Accounts");   
+                return RedirectToAction("AccountInfo", "TaiKhoans");   
             }
             return View();
         }
@@ -344,17 +344,17 @@ namespace WebShop.Controllers
                         _notyfService.Warning("Thông tin đăng nhập chưa chính xác");
                         return View(customer);
                     }
-                    string pass = (customer.Password + khachhang.Salt.Trim()).ToMD5();
-                    if(khachhang.Password != pass)
+                    string pass = (customer.MatKhau + khachhang.Salt.Trim()).ToMD5();
+                    if(khachhang.MatKhau != pass)
                     {
                         _notyfService.Warning("Thông tin đăng nhập chưa chính xác");
                         return View(customer);
                     }
                     //kiem tra xem account co bi disable hay khong
 
-                    if (khachhang.Active == false)
+                    if (khachhang.KichHoat == false)
                     {
-                        return RedirectToAction("ThongBao", "Accounts");
+                        return RedirectToAction("ThongBao", "TaiKhoans");
                     }
 
                     //Luu Session MaKh
@@ -364,7 +364,7 @@ namespace WebShop.Controllers
                     //Identity
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, khachhang.FullName),
+                        new Claim(ClaimTypes.Name, khachhang.HoTen),
                         new Claim("CustomerId", khachhang.CustomerId.ToString())
                     };
                     ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "login");
@@ -373,7 +373,7 @@ namespace WebShop.Controllers
                     _notyfService.Success("Đăng nhập thành công");
                     if (string.IsNullOrEmpty(returnUrl))
                     {
-                        return RedirectToAction("AccountInfo", "Accounts");
+                        return RedirectToAction("AccountInfo", "TaiKhoans");
                     }
                     else
                     {
@@ -404,30 +404,30 @@ namespace WebShop.Controllers
                 var taikhoanID = HttpContext.Session.GetString("CustomerId");
                 if (taikhoanID == null)
                 {
-                    return RedirectToAction("Login", "Accounts");
+                    return RedirectToAction("Login", "TaiKhoans");
                 }
                 if (ModelState.IsValid)
                 {
                     var taikhoan = _context.Customers.Find(Convert.ToInt32(taikhoanID));
-                    if (taikhoan == null) return RedirectToAction("Login", "Accounts");
+                    if (taikhoan == null) return RedirectToAction("Login", "TaiKhoans");
                     var pass = (model.PasswordNow.Trim() + taikhoan.Salt.Trim()).ToMD5();
                     {
-                        string passnew = (model.Password.Trim() + taikhoan.Salt.Trim()).ToMD5();
-                        taikhoan.Password = passnew;
+                        string passnew = (model.MatKhau.Trim() + taikhoan.Salt.Trim()).ToMD5();
+                        taikhoan.MatKhau = passnew;
                         _context.Update(taikhoan);
                         _context.SaveChanges();
                         _notyfService.Success("Đổi mật khẩu thành công");
-                        return RedirectToAction("Dashboard", "Accounts");
+                        return RedirectToAction("Dashboard", "TaiKhoans");
                     }
                 }
             }
             catch 
             {
                 _notyfService.Success("Thay đổi mật khẩu không thành công");
-                return RedirectToAction("Dashboard", "Accounts");
+                return RedirectToAction("Dashboard", "TaiKhoans");
             }
             _notyfService.Success("Thay đổi mật khẩu không thành công");
-            return RedirectToAction("Dashboard", "Accounts");
+            return RedirectToAction("Dashboard", "TaiKhoans");
         }
     }
 }

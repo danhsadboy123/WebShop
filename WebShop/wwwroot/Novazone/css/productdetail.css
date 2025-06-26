@@ -669,7 +669,7 @@ body {
             margin: auto
         }
 
-    .static-html-group #js-product-description img {
+    .static-html-group #js-product-MoTa img {
         display: block;
         margin: 15px auto;
         width: auto;
@@ -1101,20 +1101,20 @@ body {
     font-weight: 600;
 }
 
-.filter-content-general .filter-item.active .filter-title {
+.filter-content-general .filter-item.KichHoat .filter-title {
     display: block
 }
 
-.filter-content-general .filter-item.active .btn-view {
+.filter-content-general .filter-item.KichHoat .btn-view {
     font-size: 0
 }
 
-    .filter-content-general .filter-item.active .btn-view::before {
+    .filter-content-general .filter-item.KichHoat .btn-view::before {
         content: "Thu gọn";
         font-size: 13px
     }
 
-    .filter-content-general .filter-item.active .btn-view::after {
+    .filter-content-general .filter-item.KichHoat .btn-view::after {
         content: "\f106";
         font-family: "Open Sans", Arial, sans-serif, "Font Awesome 5 Pro";
         font-size: 11px;
@@ -1170,7 +1170,7 @@ body {
         content: none
     }
 
-.filter-container .filter-description {
+.filter-container .filter-MoTa {
     display: none;
     background: rgba(0,0,0,0.8);
     border-radius: 8px;
@@ -1185,7 +1185,7 @@ body {
     margin-top: 10px
 }
 
-    .filter-container .filter-description.show {
+    .filter-container .filter-MoTa.show {
         display: block
     }
 
@@ -1210,11 +1210,11 @@ body {
             margin: 12px 10px 0 0
         }
 
-        .filter-box-group .brand-filter-list.active a {
+        .filter-box-group .brand-filter-list.KichHoat a {
             display: block !important
         }
 
-        .filter-box-group .brand-filter-list.active .btn-view-cat::before {
+        .filter-box-group .brand-filter-list.KichHoat .btn-view-cat::before {
             content: "Thu gọn \f106"
         }
 
@@ -1324,7 +1324,7 @@ body {
             font-size: 13px
         }
 
-.filter-container .item-active {
+.filter-container .item-KichHoat {
     z-index: 999;
 }
 
@@ -1379,7 +1379,7 @@ body {
     display: none
 }
 
-.product-detail-page .blue, .product-detail-page .pd-offer-group .item a:hover, .pd-offer-group .item .product-detail-page a:hover, .product-detail-page .pd-store-group .item:hover, .pd-store-group .product-detail-page .item:hover, .product-detail-page .pd-addon-group label.active .item-icon, .pd-addon-group label.active .product-detail-page .item-icon, .product-detail-page .pd-addon-group .group-title, .pd-addon-group .product-detail-page .group-title {
+.product-detail-page .blue, .product-detail-page .pd-offer-group .item a:hover, .pd-offer-group .item .product-detail-page a:hover, .product-detail-page .pd-store-group .item:hover, .pd-store-group .product-detail-page .item:hover, .product-detail-page .pd-addon-group label.KichHoat .item-icon, .pd-addon-group label.KichHoat .product-detail-page .item-icon, .product-detail-page .pd-addon-group .group-title, .pd-addon-group .product-detail-page .group-title {
     color: #288ad6
 }
 
@@ -1495,7 +1495,7 @@ body {
     margin-bottom: 15px;
 }
 
-    .product-detail-page .accordion-contianer .active, .product-detail-page .accordion-contianer .accordion:hover {
+    .product-detail-page .accordion-contianer .KichHoat, .product-detail-page .accordion-contianer .accordion:hover {
         background-color: #ccc;
     }
 
@@ -1514,7 +1514,7 @@ body {
     margin-left: 5px;
 }
 
-.product-detail-page .accordion-contianer .accordion.active:after {
+.product-detail-page .accordion-contianer .accordion.KichHoat:after {
     content: "\2796";
 }
 
@@ -1707,7 +1707,7 @@ body {
     align-items: center;
 }
 
-    .pd-img-gallery .item.active, .pd-img-gallery .item:hover {
+    .pd-img-gallery .item.KichHoat, .pd-img-gallery .item:hover {
         box-shadow: unset;
         border: 1px solid #edf2fa;
         box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
@@ -1793,12 +1793,12 @@ body {
     font-weight: 700;
 }
 
-.pd-summary-group.active .btn-summary::before {
+.pd-summary-group.KichHoat .btn-summary::before {
     content: "Thu gọn"
 }
  
 
-.pd-summary-group.active .item {
+.pd-summary-group.KichHoat .item {
     display: block !important
 }
 
@@ -2037,7 +2037,7 @@ del.pd-market-price {
         align-items: baseline
     }
 
-        .pd-addon-group label.active .item-icon::before {
+        .pd-addon-group label.KichHoat .item-icon::before {
             content: "\f14a";
             font-weight: 900
         }
@@ -2066,20 +2066,20 @@ del.pd-market-price {
     color: #333e48
 }
 
-.pd-store-group.active .item {
+.pd-store-group.KichHoat .item {
     display: block !important
 }
 
-.pd-store-group.active .pd-store-btn a {
+.pd-store-group.KichHoat .pd-store-btn a {
     font-size: 0
 }
 
-    .pd-store-group.active .pd-store-btn a::before {
+    .pd-store-group.KichHoat .pd-store-btn a::before {
         content: "Thu gọn";
         font-size: 13px
     }
 
-    .pd-store-group.active .pd-store-btn a::after {
+    .pd-store-group.KichHoat .pd-store-btn a::after {
         content: none
     }
 
@@ -2186,7 +2186,7 @@ del.pd-market-price {
             content: none !important
         }
 
-    .pd-offer-group .item.active .pd-btn-offer::before {
+    .pd-offer-group .item.KichHoat .pd-btn-offer::before {
         content: "Thu gọn"
     }
 
@@ -2616,7 +2616,7 @@ del.pd-market-price {
     display: block;
 }
 
-.product-attribute-group .attribute-list.active a:nth-child(n+16) {
+.product-attribute-group .attribute-list.KichHoat a:nth-child(n+16) {
     display: block !important;
 }
 
@@ -2643,11 +2643,11 @@ del.pd-market-price {
         font-weight: 600;
     }
 
-.product-attribute-group .attribute-list.active .attr-item {
+.product-attribute-group .attribute-list.KichHoat .attr-item {
     display: block !important;
 }
 
-.product-attribute-group .attribute-list.active .btn-show-attr::before {
+.product-attribute-group .attribute-list.KichHoat .btn-show-attr::before {
     content: "Thu gọn \f106";
 }
 
@@ -2709,7 +2709,7 @@ del.pd-market-price {
         height: 20px;
     }
 
-    .pd-offer-group .item-other .km-title.active::after {
+    .pd-offer-group .item-other .km-title.KichHoat::after {
         content: "\f0d8"
     }
 

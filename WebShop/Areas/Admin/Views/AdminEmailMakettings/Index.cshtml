@@ -12,7 +12,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
             <a class="breadcrumb-item">Chăm sóc khách hàng</a>
-            <span class="breadcrumb-item active">Danh sách thư</span>
+            <span class="breadcrumb-item KichHoat">Danh sách thư</span>
         </nav>
         <div class="col-lg-4 text-right">
             <a class="btn btn-primary" asp-action="Create"><i class="anticon anticon-plus m-r-5"></i><span>Tạo thư</span></a>
@@ -28,7 +28,7 @@
                 <div class="card"  >
                     <div class="card-header">
                         <p>Loại thư: @Html.DisplayFor(modelItem => item.Title)</p>
-                        <p> Người Tạo: @Html.DisplayFor(modelItem => item.Acount.FullName)</p>
+                        <p> Người Tạo: @Html.DisplayFor(modelItem => item.Acount.HoTen)</p>
                     </div>
                     <div class="card-body">
                         <div>                          

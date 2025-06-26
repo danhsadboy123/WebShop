@@ -115,7 +115,7 @@ pre[class*="language-"] {
 	cursor: help;
 }
 
-@media screen and (-ms-high-contrast: active) {
+@media screen and (-ms-high-contrast: KichHoat) {
 	code[class*="language-"],
 	pre[class*="language-"] {
 		color: windowText;

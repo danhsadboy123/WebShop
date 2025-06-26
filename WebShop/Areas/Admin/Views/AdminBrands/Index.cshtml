@@ -25,7 +25,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <span class="breadcrumb-item active">Quản lý thương hiệu</span>
+            <span class="breadcrumb-item KichHoat">Quản lý thương hiệu</span>
         </nav>
     </div>
 </div>
@@ -82,7 +82,7 @@
                                     </div>                                                                        
                                 </td> 
                                 <td>@item.Products.Count()</td>
-                                <td>@item.Description</td>
+                                <td>@item.MoTa</td>
                                 <td>
                                     @{
                                         var catitem = "";
@@ -92,7 +92,7 @@
                                         }
                                      }
                                   @*  <button type="button" class="btn btn-primary EditBrand" data-cate="@catitem" data-id="@item.BrandId"       
-                                    data-src="@item.Thumb"  data-id="@item.BrandId" data-des="@item.Description" data-name="@item.BrandName" data-toggle="modal" data-target="#exampleModalScrollable">
+                                    data-src="@item.Thumb"  data-id="@item.BrandId" data-des="@item.MoTa" data-name="@item.BrandName" data-toggle="modal" data-target="#exampleModalScrollable">
                                         <i class="anticon anticon-edit"></i>
                                     </button>*@
                                     <a class="btn btn-secondary btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" asp-controller="AdminBrands" asp-action="Edit" asp-route-id="@item.BrandId" asp-route-page="@ViewBag.CurrentPage">
@@ -136,8 +136,8 @@
                             <input class="form-control BrandName" name="BrandName" placeholder="Tên thương hiệu"/>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="Description"></label>
-                            <input class="form-control Description" name="Description" placeholder="Nội dung" />
+                            <label class="control-label" for="MoTa"></label>
+                            <input class="form-control MoTa" name="MoTa" placeholder="Nội dung" />
                         </div>
                         <div class="form-group">
                             <label class="control-label">Danh mục</label>
@@ -185,7 +185,7 @@
             console.log(id);
             $('.BrandId').val(id);
             $('.BrandName').val(name);
-            $('.Description').val(des);
+            $('.MoTa').val(des);
             $('.Thumbs').attr('src', src);
             $('.Thumb').val(src);
             var itemarr = catecheck.split(' ');
@@ -208,7 +208,7 @@
         $('.SaveBrand').on('click',function(){
             var id = $('.BrandId').val();
             var BrandName= $('.BrandName').val();
-            var Description =$('.Description').val();          
+            var MoTa =$('.MoTa').val();          
             var Thumb =$('.Thumb').val();
             var itemc = $('.itemcate');
             var cate =[];
@@ -217,7 +217,7 @@
                     cate.push($(item2).attr('data-id'))
                 }
             })
-            console.log(cate, id, BrandName, Description, Thumb, Thumb);
+            console.log(cate, id, BrandName, MoTa, Thumb, Thumb);
         }) 
         $(document).ready(function () {
             var table = $('#data-table').DataTable({

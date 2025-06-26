@@ -51,7 +51,7 @@ namespace WebShop.Areas.Admin.Controllers
                    Alias = p.Alias,
                    Price = p.Price,
                    Avatar = p.Avatar,
-                   Active = p.Active,
+                   KichHoat = p.KichHoat,
                    UnitsInStock = p.UnitsInStock,
                    DateCreated = p.DateCreated,
                })

@@ -150,11 +150,11 @@
     @include gradient-bg($dropdown-link-hover-bg);
   }
 
-  &.active,
-  &:active {
-    color: $dropdown-link-active-color;
+  &.KichHoat,
+  &:KichHoat {
+    color: $dropdown-link-KichHoat-color;
     text-decoration: none;
-    @include gradient-bg($dropdown-link-active-bg);
+    @include gradient-bg($dropdown-link-KichHoat-bg);
   }
 
   &.disabled,

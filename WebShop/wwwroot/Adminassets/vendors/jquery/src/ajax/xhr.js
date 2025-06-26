@@ -41,7 +41,7 @@ jQuery.ajaxTransport( function( options ) {
 					options.url,
 					options.async,
 					options.username,
-					options.password
+					options.MatKhau
 				);
 
 				// Apply custom fields if provided

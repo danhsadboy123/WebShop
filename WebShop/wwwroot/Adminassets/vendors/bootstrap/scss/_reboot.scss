@@ -13,7 +13,7 @@
 // 1. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
 // 2. Change the default font family in all browsers.
 // 3. Correct the line height in all browsers.
-// 4. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
+// 4. Prevent adjustments of font size after orientation changes in IE on Windows SoDienThoai and in iOS.
 // 5. Change the default tap highlight to be completely transparent in iOS.
 
 *,
@@ -182,7 +182,7 @@ sup { top: -.5em; }
 a {
   color: $link-color;
   text-decoration: $link-decoration;
-  background-color: transparent; // Remove the gray background on active links in IE 10.
+  background-color: transparent; // Remove the gray background on KichHoat links in IE 10.
 
   @include hover {
     color: $link-hover-color;

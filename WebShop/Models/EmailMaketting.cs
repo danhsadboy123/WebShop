@@ -17,15 +17,15 @@ public partial class EmailMaketting
 
     public string Body { get; set; }
 
-    public DateTime? CreateDate { get; set; }
+    public DateTime? NgayTao { get; set; }
 
     public DateTime? CustomDate { get; set; }
 
     public int? EmailEvent { get; set; }
 
-    public int? Active { get; set; }
+    public int? KichHoat { get; set; }
 
     public int? Input { get; set; }
 
-    public virtual Account Acount { get; set; }
+    public virtual TaiKhoan Acount { get; set; }
 }

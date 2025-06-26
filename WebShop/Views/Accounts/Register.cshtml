@@ -9,7 +9,7 @@
             <nav class="breadcrumb bg-light mb-30">
                 <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
                 <a class="breadcrumb-item text-dark" href="#">Tài khoản</a>
-                <span class="breadcrumb-item active">Đăng ký</span>
+                <span class="breadcrumb-item KichHoat">Đăng ký</span>
             </nav>
         </div>
     </div>
@@ -24,13 +24,13 @@
                     <form method="post">
                         <div class="form-group">
                             <label>Nhập tên của bạn </label>
-                            <input class="form-control" type="text" asp-for="FullName" placeholder="Nhập tên của bạn">
-                            <span asp-validation-for="FullName" class="text-danger"></span>
+                            <input class="form-control" type="text" asp-for="HoTen" placeholder="Nhập tên của bạn">
+                            <span asp-validation-for="HoTen" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label>Nhập số điện thoại</label>
-                            <input class="form-control" type="text" asp-for="Phone" placeholder="Nhập số điện thoại">
-                            <span asp-validation-for="Phone" class="text-danger"></span>
+                            <input class="form-control" type="text" asp-for="SoDienThoai" placeholder="Nhập số điện thoại">
+                            <span asp-validation-for="SoDienThoai" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label>địa chỉ Email</label>
@@ -39,12 +39,12 @@
                         </div>
                         <div class=" form-group">
                             <label>Nhập mật khẩu</label>
-                            <input class="form-control" type="password" asp-for="Password" placeholder="Nhập mật khẩu">
-                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <input class="form-control" type="MatKhau" asp-for="MatKhau" placeholder="Nhập mật khẩu">
+                            <span asp-validation-for="MatKhau" class="text-danger"></span>
                         </div>
                         <div class=" form-group">
                             <label>Nhập lại mật khẩu</label>
-                            <input class="form-control" type="password" asp-for="ConfirmPassword" placeholder="Nhập mật khẩu">
+                            <input class="form-control" type="MatKhau" asp-for="ConfirmPassword" placeholder="Nhập mật khẩu">
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
                         <div class="form-group">

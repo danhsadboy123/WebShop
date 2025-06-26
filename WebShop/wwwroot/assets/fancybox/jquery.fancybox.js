@@ -179,7 +179,7 @@
     baseClass: "",
 
     // Base template for layout
-    baseTpl: '<div class="fancybox-container" role="dialog" tabindex="-1">' +
+    baseTpl: '<div class="fancybox-container" VaiTro="dialog" tabindex="-1">' +
       '<div class="fancybox-bg"></div>' +
       '<div class="fancybox-inner">' +
       '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
@@ -237,7 +237,7 @@
     // Try to focus on the first focusable element after opening
     autoFocus: true,
 
-    // Put focus back to active element after closing
+    // Put focus back to KichHoat element after closing
     backFocus: true,
 
     // Do not let user to focus on element outside modal content
@@ -570,7 +570,7 @@
       // Hide scrollbars
       // ===============
 
-      $("body").addClass("fancybox-active");
+      $("body").addClass("fancybox-KichHoat");
 
       if (
         !$.fancybox.getInstance() &&
@@ -1196,7 +1196,7 @@
           );
         });
       } else if (duration && current.opts.transitionEffect) {
-        // Set transition effect for previously active slide
+        // Set transition effect for previously KichHoat slide
         prop = "fancybox-animated fancybox-fx-" + current.opts.transitionEffect;
 
         previous.$slide.addClass("fancybox-slide--" + (previous.pos > current.pos ? "next" : "previous"));
@@ -2909,7 +2909,7 @@
       if (instance) {
         instance.activate();
       } else {
-        $("body").removeClass("fancybox-active compensate-for-scrollbar");
+        $("body").removeClass("fancybox-KichHoat compensate-for-scrollbar");
 
         $("#fancybox-style-noscroll").remove();
       }
@@ -3355,7 +3355,7 @@
 
     instance = $.fancybox.open(items, opts, index);
 
-    // Save last active element
+    // Save last KichHoat element
     instance.$trigger = $target;
   }
 
@@ -3796,7 +3796,7 @@
 
   var isClickable = function ($el) {
     if (
-      $el.is('a,area,button,[role="button"],input,label,select,summary,textarea,video,audio,iframe') ||
+      $el.is('a,area,button,[VaiTro="button"],input,label,select,summary,textarea,video,audio,iframe') ||
       $.isFunction($el.get(0).onclick) ||
       $el.data("selectable")
     ) {
@@ -4837,7 +4837,7 @@
     }
   });
 
-  // Page Visibility API to pause slideshow when window is not active
+  // Page Visibility API to pause slideshow when window is not KichHoat
   $(document).on("visibilitychange", function () {
     var instance = $.fancybox.getInstance(),
       SlideShow = instance && instance.SlideShow;
@@ -5034,7 +5034,7 @@
   "use strict";
 
   var CLASS = "fancybox-thumbs",
-    CLASS_ACTIVE = CLASS + "-active";
+    CLASS_ACTIVE = CLASS + "-KichHoat";
 
   // Make sure there are default values
   $.fancybox.defaults = $.extend(
@@ -5307,7 +5307,7 @@
         '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m456 133c-14 7-31 11-47 13 17-10 30-27 37-46-15 10-34 16-52 20-61-62-157-7-141 75-68-3-129-35-169-85-22 37-11 86 26 109-13 0-26-4-37-9 0 39 28 72 65 80-12 3-25 4-37 2 10 33 41 57 77 57-42 30-77 38-122 34 170 111 378-32 359-208 16-11 30-25 41-42z" /></svg>' +
         "<span>Twitter</span>" +
         "</a>" +
-        '<a class="fancybox-share__button fancybox-share__button--pt" href="https://www.pinterest.com/pin/create/button/?url={{url}}&description={{descr}}&media={{media}}">' +
+        '<a class="fancybox-share__button fancybox-share__button--pt" href="https://www.pinterest.com/pin/create/button/?url={{url}}&MoTa={{descr}}&media={{media}}">' +
         '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m265 56c-109 0-164 78-164 144 0 39 15 74 47 87 5 2 10 0 12-5l4-19c2-6 1-8-3-13-9-11-15-25-15-45 0-58 43-110 113-110 62 0 96 38 96 88 0 67-30 122-73 122-24 0-42-19-36-44 6-29 20-60 20-81 0-19-10-35-31-35-25 0-44 26-44 60 0 21 7 36 7 36l-30 125c-8 37-1 83 0 87 0 3 4 4 5 2 2-3 32-39 42-75l16-64c8 16 31 29 56 29 74 0 124-67 124-157 0-69-58-132-146-132z" fill="#fff"/></svg>' +
         "<span>Pinterest</span>" +
         "</a>" +

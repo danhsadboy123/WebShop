@@ -74,9 +74,9 @@ namespace WebShop.Controllers
                     {
                         customer.Gender = true;
                     }
-                    customer.Phone = Phone1;    
+                    customer.SoDienThoai = Phone1;    
                     customer.Email = Email1;
-                    customer.FullName = FullName1;
+                    customer.HoTen = FullName1;
                     _context.Customers.Update(customer);
                     _context.SaveChanges();
                     success = true;
@@ -96,7 +96,7 @@ namespace WebShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateAddress([Bind("AddressId,CustomerId,GuestId,Phone,UserName,ProvinceId,DistrictId,WardId,Content,IsDefault")] AccountAddress accountAddress)
+        public async Task<IActionResult> CreateAddress([Bind("AddressId,CustomerId,GuestId,SoDienThoai,UserName,ProvinceId,DistrictId,WardId,Content,IsDefault")] AccountAddress accountAddress)
         {
             try
             {
@@ -150,7 +150,7 @@ namespace WebShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AddressId,CustomerId,GuestId,Phone,UserName,ProvinceId,DistrictId,WardId,Content,IsDefault")] AccountAddress accountAddress)
+        public async Task<IActionResult> Edit(int id, [Bind("AddressId,CustomerId,GuestId,SoDienThoai,UserName,ProvinceId,DistrictId,WardId,Content,IsDefault")] AccountAddress accountAddress)
         {
             if (id != accountAddress.AddressId)
             {

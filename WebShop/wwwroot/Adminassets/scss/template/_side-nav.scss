@@ -186,7 +186,7 @@
 									border-color: $brand-primary;
 								}
 
-								&.active {
+								&.KichHoat {
 									background-color: rgba($brand-primary, 0.15);
 
 									a {
@@ -342,7 +342,7 @@
 
 		.side-nav .side-nav-inner .side-nav-menu>li.dropdown ul.dropdown-menu>li {
 
-			&.active {
+			&.KichHoat {
 				background-color: rgba(nth($theme, 2), 0.15);
 
 				&:after {
@@ -357,7 +357,7 @@
     }
 }
 
-@mixin side-nav-dark-item-active {
+@mixin side-nav-dark-item-KichHoat {
 	color: $white;
 
 	.icon-holder {
@@ -388,14 +388,14 @@
 						color: $side-nav-dark-text;
 
 						&:hover {
-							@include side-nav-dark-item-active()
+							@include side-nav-dark-item-KichHoat()
 						}
 					}
 
 					&.dropdown {
 						&.open {
 							> a {
-								@include side-nav-dark-item-active()
+								@include side-nav-dark-item-KichHoat()
 							}
 						}
 					}
@@ -416,7 +416,7 @@
 										}
 									}
 
-									&.active {
+									&.KichHoat {
 										background-color: transparent;
 						
 										&:after {

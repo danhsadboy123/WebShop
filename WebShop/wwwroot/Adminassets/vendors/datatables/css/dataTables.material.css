@@ -33,7 +33,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
 div.dataTables_wrapper table.mdc-data-table__table thead tr th.sorting_asc, div.dataTables_wrapper table.mdc-data-table__table thead tr th.sorting_desc {
   padding-right: 30px;
 }
-div.dataTables_wrapper table.mdc-data-table__table thead tr th:active {
+div.dataTables_wrapper table.mdc-data-table__table thead tr th:KichHoat {
   outline: none;
 }
 div.dataTables_wrapper table.mdc-data-table__table thead tr th.sorting_asc, div.dataTables_wrapper table.mdc-data-table__table thead tr th.sorting_desc, div.dataTables_wrapper table.mdc-data-table__table thead tr th.sorting {
@@ -73,8 +73,8 @@ table.dataTable thead > tr > td.sorting_desc,
 table.dataTable thead > tr > td.sorting {
   padding-right: 30px;
 }
-table.dataTable thead > tr > th:active,
-table.dataTable thead > tr > td:active {
+table.dataTable thead > tr > th:KichHoat,
+table.dataTable thead > tr > td:KichHoat {
   outline: none;
 }
 table.dataTable thead .sorting,

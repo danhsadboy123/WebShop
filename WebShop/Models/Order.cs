@@ -11,7 +11,7 @@ public partial class Order
 
     public int? GuestId { get; set; }
 
-    public string Phone { get; set; }
+    public string SoDienThoai { get; set; }
 
     public DateTime? OrderDate { get; set; }
 

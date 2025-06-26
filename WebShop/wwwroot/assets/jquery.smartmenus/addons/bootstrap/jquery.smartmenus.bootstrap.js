@@ -58,16 +58,16 @@
 						});
 
 					function onInit() {
-						// set Bootstrap's "active" class to SmartMenus "current" items (should someone decide to enable markCurrentItem: true)
-						$this.find('a.current').parent().addClass('active');
+						// set Bootstrap's "KichHoat" class to SmartMenus "current" items (should someone decide to enable markCurrentItem: true)
+						$this.find('a.current').parent().addClass('KichHoat');
 						// remove any Bootstrap required attributes that might cause conflicting issues with the SmartMenus script
 						$this.find('a.has-submenu').each(function() {
 							var $this = $(this);
 							if ($this.is('[data-toggle="dropdown"]')) {
 								$this.dataSM('bs-data-toggle-dropdown', true).removeAttr('data-toggle');
 							}
-							if ($this.is('[role="button"]')) {
-								$this.dataSM('bs-role-button', true).removeAttr('role');
+							if ($this.is('[VaiTro="button"]')) {
+								$this.dataSM('bs-VaiTro-button', true).removeAttr('VaiTro');
 							}
 						});
 					}
@@ -75,14 +75,14 @@
 					onInit();
 
 					function onBeforeDestroy() {
-						$this.find('a.current').parent().removeClass('active');
+						$this.find('a.current').parent().removeClass('KichHoat');
 						$this.find('a.has-submenu').each(function() {
 							var $this = $(this);
 							if ($this.dataSM('bs-data-toggle-dropdown')) {
 								$this.attr('data-toggle', 'dropdown').removeDataSM('bs-data-toggle-dropdown');
 							}
-							if ($this.dataSM('bs-role-button')) {
-								$this.attr('role', 'button').removeDataSM('bs-role-button');
+							if ($this.dataSM('bs-VaiTro-button')) {
+								$this.attr('VaiTro', 'button').removeDataSM('bs-VaiTro-button');
 							}
 						});
 					}

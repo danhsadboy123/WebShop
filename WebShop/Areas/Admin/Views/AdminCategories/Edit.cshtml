@@ -73,7 +73,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
             <a asp-area="Admin" asp-controller="AdminCategories" asp-action="Index" class="breadcrumb-item">Danh mục sản phẩm</a>
-            <span class="breadcrumb-item active">Sửa danh mục: @Model.CatName</span>
+            <span class="breadcrumb-item KichHoat">Sửa danh mục: @Model.CatName</span>
         </nav>
     </div>
 </div>
@@ -221,11 +221,11 @@
 
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="font-weight-semibold" for="Description">Mô tả</label>
-                        <textarea class="form-control" asp-for="Description"></textarea>
+                        <label class="font-weight-semibold" for="MoTa">Mô tả</label>
+                        <textarea class="form-control" asp-for="MoTa"></textarea>
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="font-weight-semibold" for="Description">Description</label>
+                        <label class="font-weight-semibold" for="MoTa">MoTa</label>
                         <textarea class="form-control" asp-for="DescriptionEn"></textarea>
                     </div>
                 </div>
@@ -245,7 +245,7 @@
                         <input type="text" class="form-control" asp-for="MetaDesc">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="font-weight-semibold" for="MetaDesc">SEO Description</label>
+                        <label class="font-weight-semibold" for="MetaDesc">SEO MoTa</label>
                         <input type="text" class="form-control" asp-for="MetaDescEn">
                     </div>
                 </div>
@@ -369,7 +369,7 @@
                                 <a class="btn btn-secondary btn-tone m-r-5 checkin" data-id="@brand.CategoryBrandId" data-check="false" title="Chỉnh sửa">
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </a>
-                                @if (User.Claims.Any(c => c.Type == "RoleId" && c.Value == "1"))
+                                @if (User.Claims.Any(c => c.Type == "MaVaiTro" && c.Value == "1"))
                                 {                                   
                                     @if (@brand.Brand.Products.Count() == 0)
                                     {                                    
@@ -403,7 +403,7 @@
                                         <a class="btn btn-secondary btn-tone editgroup" data-id="@brandg.Id" data-name="@brand.Name"  title="Chỉnh sửa">
                                             <i class="anticon anticon-edit"></i>
                                         </a>
-                                        @if (User.Claims.Any(c => c.Type == "RoleId" && c.Value == "1"))
+                                        @if (User.Claims.Any(c => c.Type == "MaVaiTro" && c.Value == "1"))
                                         {                                            
                                             <a id="delete-button" class="btn btn-danger btn-tone deletegroup" data-id="@brandg.Id" data-name="@brand.Name" title="Xóa nhóm sản phẩm">
                                                 <i class="anticon anticon-delete"></i>
@@ -453,8 +453,8 @@
         </div>
     </div>
 </div>
-<div class="modal fade  bd-example-modal-xl" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog  modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
+<div class="modal fade  bd-example-modal-xl" id="exampleModalCenter" tabindex="-1" VaiTro="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog  modal-xl modal-dialog-centered modal-dialog-scrollable" VaiTro="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Hiển thị tim kiếm trên trang</h5>
@@ -597,8 +597,8 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="bannerModal" tabindex="-1" role="dialog" aria-labelledby="bannerModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="bannerModal" tabindex="-1" VaiTro="dialog" aria-labelledby="bannerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" VaiTro="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="bannerModalLabel">Thêm Banner</h5>
@@ -625,7 +625,7 @@
 
 
 <div class="modal modal-left fade" id="side-modal-left">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" VaiTro="document">
         <div class="modal-content">
             <div class="side-modal-wrapper">
                 <div class="vertical-align">

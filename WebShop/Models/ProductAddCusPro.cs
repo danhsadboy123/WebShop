@@ -13,7 +13,7 @@ public partial class ProductAddCusPro
 
     public int? Stock { get; set; }
 
-    public string Description { get; set; }
+    public string MoTa { get; set; }
 
     public string Address { get; set; }
 
