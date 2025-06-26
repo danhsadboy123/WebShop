@@ -463,8 +463,8 @@ wwwroot\Adminassets\vendors\bootstrap\scss\_spinners.scss
 wwwroot\Adminassets\vendors\bootstrap\scss\_tables.scss
 wwwroot\Adminassets\vendors\bootstrap\scss\_toasts.scss
 wwwroot\Adminassets\vendors\bootstrap\scss\_tooltip.scss
-wwwroot\Adminassets\vendors\bootstrap\scss\_transitions.scss
 wwwroot\Adminassets\vendors\bootstrap\scss\_type.scss
+wwwroot\Adminassets\vendors\bootstrap\scss\_transitions.scss
 wwwroot\Adminassets\vendors\bootstrap\scss\_utilities.scss
 wwwroot\Adminassets\vendors\bootstrap\scss\_variables.scss
 wwwroot\Adminassets\vendors\bootstrap\scss\bootstrap.scss
@@ -688,8 +688,8 @@ wwwroot\Adminassets\vendors\jquery\src\var\isWindow.js
 wwwroot\Adminassets\vendors\jquery\src\var\ObjectFunctionString.js
 wwwroot\Adminassets\vendors\jquery\src\var\pnum.js
 wwwroot\Adminassets\vendors\jquery\src\var\push.js
-wwwroot\Adminassets\vendors\jquery\src\var\rcheckableType.js
 wwwroot\Adminassets\vendors\jquery\src\var\rcssNum.js
+wwwroot\Adminassets\vendors\jquery\src\var\rcheckableType.js
 wwwroot\Adminassets\vendors\jquery\src\var\rnothtmlwhite.js
 wwwroot\Adminassets\vendors\jquery\src\var\slice.js
 wwwroot\Adminassets\vendors\jquery\src\var\support.js
@@ -797,10 +797,10 @@ wwwroot\Adminassets\vendors\jquery-validation\localization\messages_sr_lat.js
 wwwroot\Adminassets\vendors\jquery-validation\localization\messages_sr_lat.min.js
 wwwroot\Adminassets\vendors\jquery-validation\localization\messages_sv.js
 wwwroot\Adminassets\vendors\jquery-validation\localization\messages_sv.min.js
-wwwroot\Adminassets\vendors\jquery-validation\localization\messages_th.js
-wwwroot\Adminassets\vendors\jquery-validation\localization\messages_th.min.js
 wwwroot\Adminassets\vendors\jquery-validation\localization\messages_tj.js
 wwwroot\Adminassets\vendors\jquery-validation\localization\messages_tj.min.js
+wwwroot\Adminassets\vendors\jquery-validation\localization\messages_th.js
+wwwroot\Adminassets\vendors\jquery-validation\localization\messages_th.min.js
 wwwroot\Adminassets\vendors\jquery-validation\localization\messages_tr.js
 wwwroot\Adminassets\vendors\jquery-validation\localization\messages_tr.min.js
 wwwroot\Adminassets\vendors\jquery-validation\localization\messages_uk.js
@@ -1214,7 +1214,6 @@ wwwroot\images\brand\BullGuard.png
 wwwroot\images\brand\Cadivi.png
 wwwroot\images\brand\canon.png
 wwwroot\images\brand\Casper.png
-wwwroot\images\brand\Chuwi.png
 wwwroot\images\brand\cisco.png
 wwwroot\images\brand\colorful.png
 wwwroot\images\brand\Comfee.png
@@ -1228,6 +1227,7 @@ wwwroot\images\brand\Cotell.png
 wwwroot\images\brand\creative.png
 wwwroot\images\brand\Crucial.png
 wwwroot\images\brand\cyberpower.png
+wwwroot\images\brand\Chuwi.png
 wwwroot\images\brand\dahua.png
 wwwroot\images\brand\Daikin.png
 wwwroot\images\brand\dalite.png
@@ -1273,9 +1273,6 @@ wwwroot\images\brand\Funiki.png
 wwwroot\images\brand\Gainward.png
 wwwroot\images\brand\Geil.png
 wwwroot\images\brand\Genius.png
-wwwroot\images\brand\Gigabit.png
-wwwroot\images\brand\gigabite.png
-wwwroot\images\brand\Gipco.png
 wwwroot\images\brand\global.png
 wwwroot\images\brand\godex.png
 wwwroot\images\brand\GoldenField.png
@@ -1284,6 +1281,9 @@ wwwroot\images\brand\gopro.png
 wwwroot\images\brand\grandstream.png
 wwwroot\images\brand\grandview.png
 wwwroot\images\brand\GSkill.png
+wwwroot\images\brand\Gigabit.png
+wwwroot\images\brand\gigabite.png
+wwwroot\images\brand\Gipco.png
 wwwroot\images\brand\Hafele.png
 wwwroot\images\brand\Harman Kardon.png
 wwwroot\images\brand\Harman.png
@@ -1368,10 +1368,10 @@ wwwroot\images\brand\palit.png
 wwwroot\images\brand\panasonic.png
 wwwroot\images\brand\pantum.png
 wwwroot\images\brand\PenDriver.png
-wwwroot\images\brand\Philips.png
 wwwroot\images\brand\pisen.png
 wwwroot\images\brand\Plantronics.png
 wwwroot\images\brand\prolink.png
+wwwroot\images\brand\Philips.png
 wwwroot\images\brand\Questek.png
 wwwroot\images\brand\rapoo.png
 wwwroot\images\brand\razer.png
@@ -1392,9 +1392,9 @@ wwwroot\images\brand\sennheiser.png
 wwwroot\images\brand\shangchen.png
 wwwroot\images\brand\sharp.png
 wwwroot\images\brand\Silicon.png
-wwwroot\images\brand\Singpc.png
 wwwroot\images\brand\Sino.png
 wwwroot\images\brand\Sinoamigo.png
+wwwroot\images\brand\Singpc.png
 wwwroot\images\brand\sony.png
 wwwroot\images\brand\Soul.png
 wwwroot\images\brand\soundmax.png
@@ -1410,14 +1410,14 @@ wwwroot\images\brand\Tako.png
 wwwroot\images\brand\TCL.png
 wwwroot\images\brand\tenda.png
 wwwroot\images\brand\TerraMaster.png
-wwwroot\images\brand\thermaltake.png
-wwwroot\images\brand\thronmax.png
 wwwroot\images\brand\tiandy.png
 wwwroot\images\brand\Tiiross.png
 wwwroot\images\brand\Topcash.png
 wwwroot\images\brand\toshiba.png
 wwwroot\images\brand\totolink.png
 wwwroot\images\brand\TP-Link.png
+wwwroot\images\brand\thermaltake.png
+wwwroot\images\brand\thronmax.png
 wwwroot\images\brand\Transcend.png
 wwwroot\images\brand\Trenmicro.png
 wwwroot\images\brand\Ubiquiti.png
@@ -1497,8 +1497,8 @@ wwwroot\images\icons\laptop copy.png
 wwwroot\images\icons\laptop.png
 wwwroot\images\icons\linkienmaytinh.jpg
 wwwroot\images\icons\monitor.png
-wwwroot\images\icons\photocopier.png
 wwwroot\images\icons\projector.png
+wwwroot\images\icons\photocopier.png
 wwwroot\images\icons\qr-code.png
 wwwroot\images\icons\school.png
 wwwroot\images\icons\server.png
@@ -1717,11 +1717,11 @@ wwwroot\lib\elfinder\img\quicklook-icons.png
 wwwroot\lib\elfinder\img\resize.png
 wwwroot\lib\elfinder\img\spinner-mini.gif
 wwwroot\lib\elfinder\img\toolbar.png
-wwwroot\lib\elfinder\img\trashmesh.png
 wwwroot\lib\elfinder\img\tui-icon-a.svg
 wwwroot\lib\elfinder\img\tui-icon-b.svg
 wwwroot\lib\elfinder\img\tui-icon-c.svg
 wwwroot\lib\elfinder\img\tui-icon-d.svg
+wwwroot\lib\elfinder\img\trashmesh.png
 wwwroot\lib\elfinder\img\ui-icons_ffffff_256x240.png
 wwwroot\lib\elfinder\img\volume_icon_box.png
 wwwroot\lib\elfinder\img\volume_icon_box.svg
@@ -2392,8 +2392,8 @@ wwwroot\Novazone\scss\bootstrap\scss\_spinners.scss
 wwwroot\Novazone\scss\bootstrap\scss\_tables.scss
 wwwroot\Novazone\scss\bootstrap\scss\_toasts.scss
 wwwroot\Novazone\scss\bootstrap\scss\_tooltip.scss
-wwwroot\Novazone\scss\bootstrap\scss\_transitions.scss
 wwwroot\Novazone\scss\bootstrap\scss\_type.scss
+wwwroot\Novazone\scss\bootstrap\scss\_transitions.scss
 wwwroot\Novazone\scss\bootstrap\scss\_utilities.scss
 wwwroot\Novazone\scss\bootstrap\scss\_variables.scss
 wwwroot\Novazone\scss\bootstrap\scss\bootstrap.scss
