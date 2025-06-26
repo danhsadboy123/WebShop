@@ -9,693 +9,693 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebShop
 build_property.RootNamespace = WebShop
-build_property.ProjectDir = C:\Users\Novazone\Desktop\AD\WebShop\WebShop\
+build_property.ProjectDir = C:\Users\Sunhitech\Desktop\DATNAD\WebShop\WebShop\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\Novazone\Desktop\AD\WebShop\WebShop
+build_property.MSBuildProjectDirectory = C:\Users\Sunhitech\Desktop\DATNAD\WebShop\WebShop
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 7.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Account/AdminLogin.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Account/AdminLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxBZG1pbkxvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAccounts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BY2NvdW50c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/AddValue.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/AddValue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BdHRyaWJ1dGVzXEFkZFZhbHVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BdHRyaWJ1dGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BdHRyaWJ1dGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BdHRyaWJ1dGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BdHRyaWJ1dGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminAttributes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5BdHRyaWJ1dGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5CcmFuZHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5CcmFuZHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5CcmFuZHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5CcmFuZHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminBrands/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5CcmFuZHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCategories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DYXRlZ29yaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lckJyYW5kc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lckJyYW5kc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lckJyYW5kc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lckJyYW5kc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerBrands/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lckJyYW5kc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclByb2plY3RzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclByb2plY3RzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclByb2plY3RzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclByb2plY3RzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerProjects/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclByb2plY3RzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclN1cHBsaWVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclN1cHBsaWVyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclN1cHBsaWVyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclN1cHBsaWVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomerSuppliers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lclN1cHBsaWVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminCustomers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5DdXN0b21lcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5EaXNjb3VudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/CreateGift.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/CreateGift.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5EaXNjb3VudHNcQ3JlYXRlR2lmdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5EaXNjb3VudHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5EaXNjb3VudHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminDiscounts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5EaXNjb3VudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbWFpbE1ha2V0dGluZ3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/CustumerPotentailSendEmail.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/CustumerPotentailSendEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbWFpbE1ha2V0dGluZ3NcQ3VzdHVtZXJQb3RlbnRhaWxTZW5kRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/CustumerSendEmail.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/CustumerSendEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbWFpbE1ha2V0dGluZ3NcQ3VzdHVtZXJTZW5kRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbWFpbE1ha2V0dGluZ3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbWFpbE1ha2V0dGluZ3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbWFpbE1ha2V0dGluZ3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbWFpbE1ha2V0dGluZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/ListEmailCusP.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/ListEmailCusP.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbWFpbE1ha2V0dGluZ3NcTGlzdEVtYWlsQ3VzUC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/ListEmailCustomer.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminEmailMakettings/ListEmailCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5FbWFpbE1ha2V0dGluZ3NcTGlzdEVtYWlsQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminFacebookPages/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminFacebookPages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5GYWNlYm9va1BhZ2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminImageServers/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminImageServers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbWFnZVNlcnZlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminImageServers/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminImageServers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5JbWFnZVNlcnZlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/AAA.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/AAA.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5PcmRlcnNcQUFBLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5PcmRlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/CustomerInfo.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/CustomerInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5PcmRlcnNcQ3VzdG9tZXJJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5PcmRlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5PcmRlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5PcmRlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/PrintWarranty.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/PrintWarranty.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5PcmRlcnNcUHJpbnRXYXJyYW50eS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Transports.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminOrders/Transports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5PcmRlcnNcVHJhbnNwb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QYWdlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QYWdlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QYWdlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QYWdlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminPages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QYWdlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminProducts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Qcm9kdWN0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminQuotations/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminQuotations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5RdW90YXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminQuotations/CustomerInfo.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminQuotations/CustomerInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5RdW90YXRpb25zXEN1c3RvbWVySW5mby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminQuotations/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminQuotations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5RdW90YXRpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminQuotations/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminQuotations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5RdW90YXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminRoles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Sb2xlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSettings/DetaileditEmail.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSettings/DetaileditEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TZXR0aW5nc1xEZXRhaWxlZGl0RW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSettings/EditCartTemplate.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSettings/EditCartTemplate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TZXR0aW5nc1xFZGl0Q2FydFRlbXBsYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSettings/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSettings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TZXR0aW5nc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSettings/Notification.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSettings/Notification.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TZXR0aW5nc1xOb3RpZmljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TbGlkZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TbGlkZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TbGlkZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TbGlkZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSlides/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TbGlkZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSMS/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSMS/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TTVNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TeXN0ZW1XZWJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TeXN0ZW1XZWJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TeXN0ZW1XZWJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TeXN0ZW1XZWJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminSystemWebs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5TeXN0ZW1XZWJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Create.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UaW5EYW5nc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UaW5EYW5nc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UaW5EYW5nc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UaW5EYW5nc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/AdminTinDangs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5UaW5EYW5nc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Home/ChangePageInfos.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Home/ChangePageInfos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDaGFuZ2VQYWdlSW5mb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Home/DraftOrder.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Home/DraftOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxEcmFmdE9yZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Home/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Search/ListBrandsSearchPartial.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Search/ListBrandsSearchPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RCcmFuZHNTZWFyY2hQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Search/ListCategoriesSearchPartial.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Search/ListCategoriesSearchPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXExpc3RDYXRlZ29yaWVzU2VhcmNoUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Search/OrderProductsSearchPartial.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Search/OrderProductsSearchPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXE9yZGVyUHJvZHVjdHNTZWFyY2hQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Search/QuotationProductsSearchPartial.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Search/QuotationProductsSearchPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VhcmNoXFF1b3RhdGlvblByb2R1Y3RzU2VhcmNoUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/category/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcY2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/ProductOrderDetails/Default.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/ProductOrderDetails/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdE9yZGVyRGV0YWlsc1xEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/ProductOrder/Default.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/ProductOrder/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdE9yZGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/ProductQuotationDetails/Default.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/ProductQuotationDetails/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdFF1b3RhdGlvbkRldGFpbHNcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/ProductQuotation/Default.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Shared/Components/ProductQuotation/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdFF1b3RhdGlvblxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Shared/Error.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Shared/_SideNavPartialView.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Shared/_SideNavPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9TaWRlTmF2UGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/AccountAddresses/CreateAddress.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/AccountAddresses/CreateAddress.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudEFkZHJlc3Nlc1xDcmVhdGVBZGRyZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/AccountAddresses/Delete.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/AccountAddresses/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudEFkZHJlc3Nlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/AccountAddresses/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/AccountAddresses/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudEFkZHJlc3Nlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/AccountAddresses/Edit.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/AccountAddresses/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudEFkZHJlc3Nlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/AccountAddresses/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/AccountAddresses/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudEFkZHJlc3Nlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Accounts/AccountInfo.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Accounts/AccountInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcQWNjb3VudEluZm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Accounts/Login.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Accounts/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Accounts/Register.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Accounts/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Accounts/_ChangePasswordPartialView.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Accounts/_ChangePasswordPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcX0NoYW5nZVBhc3N3b3JkUGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Blog/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Blog/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Blog/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Checkout/EnterInfor.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Checkout/EnterInfor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcRW50ZXJJbmZvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Checkout/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Checkout/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Checkout/OrderSuccess.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Checkout/OrderSuccess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcT3JkZXJTdWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Checkout/PaySuccess.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Checkout/PaySuccess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcUGF5U3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Checkout/PrintQuotation.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Checkout/PrintQuotation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcUHJpbnRRdW90YXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Checkout/Success.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Checkout/Success.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/DonHang/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/DonHang/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uSGFuZ1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/DonHang/LookUp.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/DonHang/LookUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uSGFuZ1xMb29rVXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Home/About.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Home/Contact.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Home/Discounts.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Home/Discounts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaXNjb3VudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Home/Index.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Home/Products.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Home/Products.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Page/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Page/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Product/Details.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Product/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Product/ListProductByBrand.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Product/ListProductByBrand.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0UHJvZHVjdEJ5QnJhbmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Product/ListProductByCategory.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Product/ListProductByCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0UHJvZHVjdEJ5Q2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Search/ListProductsSearchPartial.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Search/ListProductsSearchPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXExpc3RQcm9kdWN0c1NlYXJjaFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/Components/HeaderCart/Default.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/Components/HeaderCart/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSGVhZGVyQ2FydFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/Components/MenuHeader/Default.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/Components/MenuHeader/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudUhlYWRlclxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/Components/MobileNav/Default.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/Components/MobileNav/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTW9iaWxlTmF2XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/Components/NumberCart/Default.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/Components/NumberCart/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTnVtYmVyQ2FydFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/Error.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/OrderSuccess.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/OrderSuccess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE9yZGVyU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/_CarouselPartialView.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/_CarouselPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYXJvdXNlbFBhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/_CategoriesAndAttributesPartial.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/_CategoriesAndAttributesPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYXRlZ29yaWVzQW5kQXR0cmlidXRlc1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/_FooterPartialView.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/_FooterPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXJQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/_HeaderPartialView.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/_HeaderPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXJQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/_Layout.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/_ListProductByBrandPartialView.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/_ListProductByBrandPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MaXN0UHJvZHVjdEJ5QnJhbmRQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/_ListProductPartialView.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/_ListProductPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MaXN0UHJvZHVjdFBhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/_NavbarPartialView.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/_NavbarPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXJQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/_ViewImports.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Novazone/Desktop/AD/WebShop/WebShop/Views/_ViewStart.cshtml]
+[C:/Users/Sunhitech/Desktop/DATNAD/WebShop/WebShop/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

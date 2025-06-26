@@ -27,7 +27,7 @@ public partial class DbMarketsContext : DbContext
 
     public virtual DbSet<GiaThuocTinh> AttributesPrices { get; set; }
 
-    public virtual DbSet<Banner> Banners { get; set; }
+    public virtual DbSet<BangQuangCao> Banners { get; set; }
 
     public virtual DbSet<ThuongHieu> Brands { get; set; }
 
@@ -81,49 +81,49 @@ public partial class DbMarketsContext : DbContext
 
     public virtual DbSet<DonHang> Orders { get; set; }
 
-    public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+    public virtual DbSet<ChiTietDonHang> OrderDetails { get; set; }
 
-    public virtual DbSet<Page> Pages { get; set; }
+    public virtual DbSet<TrangWeb> Pages { get; set; }
 
-    public virtual DbSet<PageInfo> PageInfos { get; set; }
+    public virtual DbSet<ThongTinTrang> PageInfos { get; set; }
 
-    public virtual DbSet<PaymentStatus> PaymentStatuses { get; set; }
+    public virtual DbSet<TrangThaiThanhToan> PaymentStatuses { get; set; }
 
-    public virtual DbSet<Post> Posts { get; set; }
+    public virtual DbSet<BaiViet> Posts { get; set; }
 
-    public virtual DbSet<PostCategory> PostCategories { get; set; }
+    public virtual DbSet<DanhMucBaiViet> PostCategories { get; set; }
 
-    public virtual DbSet<Product> Products { get; set; }
+    public virtual DbSet<SanPham> Products { get; set; }
 
-    public virtual DbSet<ProductAddCusPro> ProductAddCusPros { get; set; }
+    public virtual DbSet<SanPhamThemKhachHang> ProductAddCusPros { get; set; }
 
-    public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+    public virtual DbSet<DanhMucSanPham> ProductCategories { get; set; }
 
-    public virtual DbSet<ProductFacebook> ProductFacebooks { get; set; }
+    public virtual DbSet<SanPhamFacebook> ProductFacebooks { get; set; }
 
-    public virtual DbSet<ProductGift> ProductGifts { get; set; }
+    public virtual DbSet<QuaTangSanPham> ProductGifts { get; set; }
 
-    public virtual DbSet<ProductThumb> ProductThumbs { get; set; }
+    public virtual DbSet<AnhSanPham> ProductThumbs { get; set; }
 
     public virtual DbSet<Tinh> Provinces { get; set; }
 
     public virtual DbSet<QuangCao> QuangCaos { get; set; }
 
-    public virtual DbSet<Quotation> Quotations { get; set; }
+    public virtual DbSet<BaoGia> Quotations { get; set; }
 
-    public virtual DbSet<QuotationDetail> QuotationDetails { get; set; }
+    public virtual DbSet<ChiTietBaoGia> QuotationDetails { get; set; }
 
     public virtual DbSet<VaiTro> VaiTros { get; set; }
 
-    public virtual DbSet<Shipper> Shippers { get; set; }
+    public virtual DbSet<NguoiGiaoHang> Shippers { get; set; }
 
-    public virtual DbSet<ShippingAddress> ShippingAddresses { get; set; }
+    public virtual DbSet<DiaChiGiaoHang> ShippingAddresses { get; set; }
 
-    public virtual DbSet<Slide> Slides { get; set; }
+    public virtual DbSet<TrangTrinhBay> Slides { get; set; }
 
-    public virtual DbSet<SystemWeb> SystemWebs { get; set; }
+    public virtual DbSet<HeThongWeb> SystemWebs { get; set; }
 
-    public virtual DbSet<Video> Videos { get; set; }
+    public virtual DbSet<PhimAnh> Videos { get; set; }
 
     public virtual DbSet<Xa> Wards { get; set; }
 
