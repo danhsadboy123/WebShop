@@ -45,12 +45,12 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AttributeId, Name,NameEn,Ordering,KichHoat")] ThuocTinh attribute)
+        public async Task<IActionResult> Create([Bind("MaThuocTinh, Name,NameEn,Ordering,KichHoat")] ThuocTinh attribute)
         {
             if (ModelState.IsValid)
             {
-               var check = _context.Attributes.FirstOrDefault(a => a.Name.ToLower() == attribute.Name.ToLower());
-                var check2 = _context.Attributes.FirstOrDefault(a => a.NameEn.ToLower() == attribute.NameEn.ToLower());
+               var check = _context.Attributes.FirstOrDefault(a => a.Ten.ToLower() == attribute.Ten.ToLower());
+                var check2 = _context.Attributes.FirstOrDefault(a => a.TenTiengAnh.ToLower() == attribute.TenTiengAnh.ToLower());
 
                 if (check == null&& check2==null)
                 {
@@ -63,9 +63,9 @@ namespace WebShop.Areas.Admin.Controllers
                     {
                         var newCategoryAttribute = new DanhMucThuocTinh
                         {
-                            CatId = Convert.ToInt32(c),
-                            AttributeId = attribute.AttributeId,
-                            Name = attribute.Name,
+                            MaDanhMuc = Convert.ToInt32(c),
+                            MaThuocTinh = attribute.MaThuocTinh,
+                            Ten = attribute.Ten,
                             KichHoat = attribute.KichHoat,
                         };
                         _context.CategoryAttributes.Add(newCategoryAttribute);
@@ -89,9 +89,9 @@ namespace WebShop.Areas.Admin.Controllers
         public IActionResult Edit(int? id)
         {
             var attribute = _context.Attributes
-                .Include(b => b.CategoryAttributes)
-                .ThenInclude(cb => cb.Cat)
-                .FirstOrDefault(b => b.AttributeId == id);
+                .Include(b => b.DanhMucThuocTinhs)
+                .ThenInclude(cb => cb.DanhMuc)
+                .FirstOrDefault(b => b.MaThuocTinh == id);
 
             if (attribute == null)
             {
@@ -99,7 +99,7 @@ namespace WebShop.Areas.Admin.Controllers
                 return NotFound();
             }
             // Lấy danh sách các danh mục đã được chọn cho thuộc tính
-            var selectedCategories = attribute.CategoryAttributes.Select(cb => cb.Cat).ToList();
+            var selectedCategories = attribute.DanhMucThuocTinhs.Select(cb => cb.DanhMuc).ToList();
 
             // Lấy danh sách các danh mục từ cơ sở dữ liệu
             var allCategories = _context.Categories.ToList();
@@ -114,9 +114,9 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AttributeId, Name,NameEn,Ordering,KichHoat")] ThuocTinh attribute)
+        public async Task<IActionResult> Edit(int id, [Bind("MaThuocTinh, Name,NameEn,Ordering,KichHoat")] ThuocTinh attribute)
         {
-            if (id != attribute.AttributeId)
+            if (id != attribute.MaThuocTinh)
             {
                 return NotFound();
             }
@@ -127,7 +127,7 @@ namespace WebShop.Areas.Admin.Controllers
                     //Xóa các bảng ghi categoryAttribute cũ
                     var categoryAttribute = _context.CategoryAttributes
                            .AsNoTracking()
-                           .Where(x => x.AttributeId == id).ToList();
+                           .Where(x => x.MaThuocTinh == id).ToList();
 
                     _context.CategoryAttributes.RemoveRange(categoryAttribute);
                      List<string> cats = Request.Form["categoryAttributes"].ToList();
@@ -135,9 +135,9 @@ namespace WebShop.Areas.Admin.Controllers
                     {
                         var newCategoryAttribute = new DanhMucThuocTinh
                         {
-                            CatId = Convert.ToInt32(c),
-                            AttributeId = attribute.AttributeId,
-                            Name = attribute.Name,
+                            MaDanhMuc = Convert.ToInt32(c),
+                            MaThuocTinh = attribute.MaThuocTinh,
+                            Ten = attribute.Ten,
                             KichHoat = attribute.KichHoat,
                         };
                         _context.CategoryAttributes.Add(newCategoryAttribute);
@@ -149,7 +149,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AttributeExists(attribute.AttributeId))
+                    if (!AttributeExists(attribute.MaThuocTinh))
                     {
                         return NotFound();
                     }
@@ -165,7 +165,7 @@ namespace WebShop.Areas.Admin.Controllers
         public IActionResult Details(int? id)
         {
             // Truy vấn thuộc tính từ cơ sở dữ liệu
-            var attribute = _context.Attributes.FirstOrDefault(a => a.AttributeId == id);
+            var attribute = _context.Attributes.FirstOrDefault(a => a.MaThuocTinh == id);
 
             if (attribute == null)
             {
@@ -174,8 +174,8 @@ namespace WebShop.Areas.Admin.Controllers
 
             // Lấy danh sách giá trị thuộc tính
             var attributeValues = _context.AttributesPrices
-                                .Where(av => av.AttributeId == id && av.ProductId == null)
-                                .OrderByDescending(x=> x.AttributesPriceId)
+                                .Where(av => av.MaThuocTinh == id && av.MaSanPham == null)
+                                .OrderByDescending(x=> x.MaGiaThuocTinh)
                                 .ToList();
             // Truyền thông tin thuộc tính và giá trị vào view
             var viewModel = new AttributeValueVM
@@ -190,7 +190,7 @@ namespace WebShop.Areas.Admin.Controllers
             try 
             {
                 // Truy vấn thuộc tính từ cơ sở dữ liệu
-                var attribute = _context.Attributes.FirstOrDefault(a => a.AttributeId == attributeId);
+                var attribute = _context.Attributes.FirstOrDefault(a => a.MaThuocTinh == attributeId);
 
                 if (attribute == null)
                 {
@@ -200,8 +200,8 @@ namespace WebShop.Areas.Admin.Controllers
                 // Tạo một giá trị mới
                 var attributeValue = new GiaThuocTinh
                 {
-                    AttributeId = attributeId,
-                    Price = newValue,
+                    MaThuocTinh = attributeId,
+                    Gia = newValue,
                     KichHoat = true
                 };
 
@@ -225,7 +225,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
 
             var attPrice = await _context.AttributesPrices
-                .FirstOrDefaultAsync(m => m.AttributesPriceId == id);
+                .FirstOrDefaultAsync(m => m.MaGiaThuocTinh == id);
             if (attPrice == null)
             {
                 return NotFound();
@@ -234,7 +234,7 @@ namespace WebShop.Areas.Admin.Controllers
 
             await _context.SaveChangesAsync();
             _notyfService.Success("Xóa thành công");
-            return RedirectToAction(nameof(Details), new { id = attPrice.AttributeId });
+            return RedirectToAction(nameof(Details), new { id = attPrice.MaThuocTinh });
         }
         public async Task<IActionResult> Delete(int? id)
         {
@@ -244,7 +244,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
 
             var attribute = await _context.Attributes
-                .FirstOrDefaultAsync(m => m.AttributeId == id);
+                .FirstOrDefaultAsync(m => m.MaThuocTinh == id);
             if (attribute == null)
             {
                 return NotFound();
@@ -264,13 +264,13 @@ namespace WebShop.Areas.Admin.Controllers
                 return NotFound();
             }
             // Lấy danh sách các giá trị của thuộc tính
-            var attributeprice = await _context.AttributesPrices.Where(x => x.AttributeId == attribute.AttributeId).ToListAsync();
+            var attributeprice = await _context.AttributesPrices.Where(x => x.MaThuocTinh == attribute.MaThuocTinh).ToListAsync();
 
             // Xóa giá trị thuộc tính
             _context.AttributesPrices.RemoveRange(attributeprice);
 
             // Lấy danh sách các bảng ghi categoryattribute
-            var categoryattribute = await _context.CategoryAttributes.Where(x => x.AttributeId == attribute.AttributeId).ToListAsync();
+            var categoryattribute = await _context.CategoryAttributes.Where(x => x.MaThuocTinh == attribute.MaThuocTinh).ToListAsync();
 
             // Xóa các bảng ghi categoryattribute
             _context.CategoryAttributes.RemoveRange(categoryattribute);
@@ -283,7 +283,7 @@ namespace WebShop.Areas.Admin.Controllers
         }
         private bool AttributeExists(int id)
         {
-            return _context.Attributes.Any(e => e.AttributeId == id);
+            return _context.Attributes.Any(e => e.MaThuocTinh == id);
         }
     }
 }

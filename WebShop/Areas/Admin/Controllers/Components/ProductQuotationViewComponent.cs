@@ -12,7 +12,7 @@ namespace WebShop.Areas.Admin.Controllers.Component
     {
         public IViewComponentResult Invoke()
         {
-            var cart = HttpContext.Session.Get<List<CartItem>>("BaoGia");
+            var cart = HttpContext.Session.Get<List<GioHangItem>>("BaoGia");
             return View(cart);
         }
     }

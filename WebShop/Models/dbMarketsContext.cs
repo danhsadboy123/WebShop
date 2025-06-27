@@ -18,114 +18,60 @@ public partial class DbMarketsContext : DbContext
     }
 
     public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
-
     public virtual DbSet<DiaChiTaiKhoan> DiaChiTaiKhoans { get; set; }
-
-    public virtual DbSet<ThuocTinh> Attributes { get; set; }
-
-    public virtual DbSet<ThuocTinhTiemNang> AttributesPotentails { get; set; }
-
-    public virtual DbSet<GiaThuocTinh> AttributesPrices { get; set; }
-
-    public virtual DbSet<BangQuangCao> Banners { get; set; }
-
-    public virtual DbSet<ThuongHieu> Brands { get; set; }
-
-    public virtual DbSet<NhomThuongHieu> BrandGroups { get; set; }
-
-    public virtual DbSet<MauThe> CardTemplates { get; set; }
-
-    public virtual DbSet<DanhMuc> Categories { get; set; }
-
-    public virtual DbSet<DanhMucThuocTinh> CategoryAttributes { get; set; }
-
-    public virtual DbSet<DanhMucThuongHieu> CategoryBrands { get; set; }
-
-    public virtual DbSet<TrangThaiThanhToan> Codstatuses { get; set; }
-
-    public virtual DbSet<KhachHang> Customers { get; set; }
-
-    public virtual DbSet<KhachHangThuongHieu> CustomerBrands { get; set; }
-
-    public virtual DbSet<KhachHangTiemNang> CustomerPotentails { get; set; }
-
-    public virtual DbSet<DuAnKhachHang> CustomerProjects { get; set; }
-
-    public virtual DbSet<NhaCungCapKhachHang> CustomerSuppliers { get; set; }
-
-    public virtual DbSet<TrangThaiGiaoHang> DeliveryStatuses { get; set; }
-
-    public virtual DbSet<KhuyenMai> Discounts { get; set; }
-
-    public virtual DbSet<KhuyenMaiThemKhachHang> DiscountAddCustomers { get; set; }
-
-    public virtual DbSet<KhuyenMaiThemSanPham> DiscountAddProducts { get; set; }
-
-    public virtual DbSet<Huyen> Districts { get; set; }
-
-    public virtual DbSet<ThuocTinhEmail> EmailAttributes { get; set; }
-
-    public virtual DbSet<EmailTiepThi> EmailMakettings { get; set; }
-
-    public virtual DbSet<TrangFacebook> FacebookPages { get; set; }
-
-    public virtual DbSet<ThuocTinhQuaTang> GitAttributes { get; set; }
-
-    public virtual DbSet<KhachVangLai> Guests { get; set; }
-
-    public virtual DbSet<LichSuKhuyenMai> HistoryDiscounts { get; set; }
-
-    public virtual DbSet<MayChuHinhAnh> ImageServers { get; set; }
-
-    public virtual DbSet<CapDoKhachHang> LeverCustommerPtts { get; set; }
-
-    public virtual DbSet<DonHang> Orders { get; set; }
-
-    public virtual DbSet<ChiTietDonHang> OrderDetails { get; set; }
-
-    public virtual DbSet<TrangWeb> Pages { get; set; }
-
-    public virtual DbSet<ThongTinTrang> PageInfos { get; set; }
-
-    public virtual DbSet<TrangThaiThanhToan> PaymentStatuses { get; set; }
-
-    public virtual DbSet<BaiViet> Posts { get; set; }
-
-    public virtual DbSet<DanhMucBaiViet> PostCategories { get; set; }
-
-    public virtual DbSet<SanPham> Products { get; set; }
-
-    public virtual DbSet<SanPhamThemKhachHang> ProductAddCusPros { get; set; }
-
-    public virtual DbSet<DanhMucSanPham> ProductCategories { get; set; }
-
-    public virtual DbSet<SanPhamFacebook> ProductFacebooks { get; set; }
-
-    public virtual DbSet<QuaTangSanPham> ProductGifts { get; set; }
-
-    public virtual DbSet<AnhSanPham> ProductThumbs { get; set; }
-
-    public virtual DbSet<Tinh> Provinces { get; set; }
-
+    public virtual DbSet<ThuocTinh> ThuocTinhs { get; set; }
+    public virtual DbSet<ThuocTinhTiemNang> ThuocTinhTiemNangs { get; set; }
+    public virtual DbSet<GiaThuocTinh> GiaThuocTinhs { get; set; }
+    public virtual DbSet<BangQuangCao> BangQuangCaos { get; set; }
+    public virtual DbSet<ThuongHieu> ThuongHieus { get; set; }
+    public virtual DbSet<NhomThuongHieu> NhomThuongHieus { get; set; }
+    public virtual DbSet<MauThe> MauThes { get; set; }
+    public virtual DbSet<DanhMuc> DanhMucs { get; set; }
+    public virtual DbSet<DanhMucThuocTinh> DanhMucThuocTinhs { get; set; }
+    public virtual DbSet<DanhMucThuongHieu> DanhMucThuongHieus { get; set; }
+    public virtual DbSet<TrangThaiThanhToan> TrangThaiThanhToans { get; set; } // Used for Codstatuses
+    public virtual DbSet<KhachHang> KhachHangs { get; set; }
+    public virtual DbSet<KhachHangThuongHieu> KhachHangThuongHieus { get; set; }
+    public virtual DbSet<KhachHangTiemNang> KhachHangTiemNangs { get; set; }
+    public virtual DbSet<DuAnKhachHang> DuAnKhachHangs { get; set; }
+    public virtual DbSet<NhaCungCapKhachHang> NhaCungCapKhachHangs { get; set; }
+    public virtual DbSet<TrangThaiGiaoHang> TrangThaiGiaoHangs { get; set; }
+    public virtual DbSet<KhuyenMai> KhuyenMais { get; set; }
+    public virtual DbSet<KhuyenMaiThemKhachHang> KhuyenMaiThemKhachHangs { get; set; }
+    public virtual DbSet<KhuyenMaiThemSanPham> KhuyenMaiThemSanPhams { get; set; }
+    public virtual DbSet<Huyen> Huyens { get; set; }
+    public virtual DbSet<ThuocTinhEmail> ThuocTinhEmails { get; set; }
+    public virtual DbSet<EmailTiepThi> EmailTiepThis { get; set; }
+    public virtual DbSet<TrangFacebook> TrangFacebooks { get; set; }
+    public virtual DbSet<ThuocTinhQuaTang> ThuocTinhQuaTangs { get; set; }
+    public virtual DbSet<KhachVangLai> KhachVangLais { get; set; }
+    public virtual DbSet<LichSuKhuyenMai> LichSuKhuyenMais { get; set; }
+    public virtual DbSet<MayChuHinhAnh> MayChuHinhAnhs { get; set; }
+    public virtual DbSet<CapDoKhachHang> CapDoKhachHangs { get; set; }
+    public virtual DbSet<DonHang> DonHangs { get; set; }
+    public virtual DbSet<ChiTietDonHang> ChiTietDonHangs { get; set; }
+    public virtual DbSet<TrangWeb> TrangWebs { get; set; }
+    public virtual DbSet<ThongTinTrang> ThongTinTrangs { get; set; }
+    //public virtual DbSet<TrangThaiThanhToan> TrangThaiThanhToans { get; set; } // Used for PaymentStatuses
+    public virtual DbSet<BaiViet> BaiViets { get; set; }
+    public virtual DbSet<DanhMucBaiViet> DanhMucBaiViets { get; set; }
+    public virtual DbSet<SanPham> SanPhams { get; set; }
+    public virtual DbSet<SanPhamThemKhachHang> SanPhamThemKhachHangs { get; set; }
+    public virtual DbSet<DanhMucSanPham> DanhMucSanPhams { get; set; }
+    public virtual DbSet<SanPhamFacebook> SanPhamFacebooks { get; set; }
+    public virtual DbSet<QuaTangSanPham> QuaTangSanPhams { get; set; }
+    public virtual DbSet<AnhSanPham> AnhSanPhams { get; set; }
+    public virtual DbSet<Tinh> Tinhs { get; set; }
     public virtual DbSet<QuangCao> QuangCaos { get; set; }
-
-    public virtual DbSet<BaoGia> Quotations { get; set; }
-
-    public virtual DbSet<ChiTietBaoGia> QuotationDetails { get; set; }
-
+    public virtual DbSet<BaoGia> BaoGias { get; set; }
+    public virtual DbSet<ChiTietBaoGia> ChiTietBaoGias { get; set; }
     public virtual DbSet<VaiTro> VaiTros { get; set; }
-
-    public virtual DbSet<NguoiGiaoHang> Shippers { get; set; }
-
-    public virtual DbSet<DiaChiGiaoHang> ShippingAddresses { get; set; }
-
-    public virtual DbSet<TrangTrinhBay> Slides { get; set; }
-
-    public virtual DbSet<HeThongWeb> SystemWebs { get; set; }
-
-    public virtual DbSet<PhimAnh> Videos { get; set; }
-
-    public virtual DbSet<Xa> Wards { get; set; }
+    public virtual DbSet<NguoiGiaoHang> NguoiGiaoHangs { get; set; }
+    public virtual DbSet<DiaChiGiaoHang> DiaChiGiaoHangs { get; set; }
+    public virtual DbSet<TrangTrinhBay> TrangTrinhBays { get; set; }
+    public virtual DbSet<HeThongWeb> HeThongWebs { get; set; }
+    public virtual DbSet<PhimAnh> PhimAnhs { get; set; }
+    public virtual DbSet<Xa> Xas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -177,57 +123,57 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.TenNguoiDung).HasMaxLength(20);
             entity.Property(e => e.MaXa).HasColumnName("WardID");
 
-            entity.HasOne(d => d.KhachHang).WithMany(p => p.AccountAddresses)
+            entity.HasOne(d => d.KhachHang).WithMany(p => p.DiaChiTaiKhoans)
                 .HasForeignKey(d => d.MaKhachHang)
                 .HasConstraintName("FK_AccountAddress_Customers");
 
-            entity.HasOne(d => d.Tinh).WithMany(p => p.AccountAddresses)
+            entity.HasOne(d => d.Tinh).WithMany(p => p.DiaChiTaiKhoans)
                 .HasForeignKey(d => d.MaTinh)
                 .HasConstraintName("FK_AccountAddress_Districts");
 
-            entity.HasOne(d => d.KhachVangLai).WithMany(p => p.AccountAddresses)
+            entity.HasOne(d => d.KhachVangLai).WithMany(p => p.DiaChiTaiKhoans)
                 .HasForeignKey(d => d.MaKhachVangLai)
                 .HasConstraintName("FK_AccountAddress_Guests");
 
-            entity.HasOne(d => d.Tinh).WithMany(p => p.AccountAddresses)
+            entity.HasOne(d => d.Tinh).WithMany(p => p.DiaChiTaiKhoans)
                 .HasForeignKey(d => d.MaTinh)
                 .HasConstraintName("FK_AccountAddress_Provinces");
 
-            entity.HasOne(d => d.Xa).WithMany(p => p.AccountAddresses)
+            entity.HasOne(d => d.Xa).WithMany(p => p.DiaChiTaiKhoans)
                 .HasForeignKey(d => d.MaXa)
                 .HasConstraintName("FK_AccountAddress_Wards");
         });
 
         modelBuilder.Entity<ThuocTinh>(entity =>
         {
-            entity.Property(e => e.AttributeId).HasColumnName("AttributeID");
-            entity.Property(e => e.NameEn).HasColumnName("Name_EN");
+            entity.Property(e => e.MaThuocTinh).HasColumnName("MaThuocTinh");
+            entity.Property(e => e.TenTiengAnh).HasColumnName("Name_EN");
         });
 
         modelBuilder.Entity<ThuocTinhTiemNang>(entity =>
         {
             entity.ToTable("AttributesPotentail");
 
-            entity.Property(e => e.TimeSend).HasColumnType("datetime");
+            entity.Property(e => e.ThoiGianGui).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Potentail).WithMany(p => p.AttributesPotentails)
-                .HasForeignKey(d => d.PotentailId)
+            entity.HasOne(d => d.TiemNang).WithMany(p => p.ThuocTinhTiemNangs)
+                .HasForeignKey(d => d.MaTiemNang)
                 .HasConstraintName("FK_AttributesPotentail_CustomerPotentail");
         });
 
         modelBuilder.Entity<GiaThuocTinh>(entity =>
         {
-            entity.Property(e => e.AttributesPriceId).HasColumnName("AttributesPriceID");
-            entity.Property(e => e.AttributeId).HasColumnName("AttributeID");
-            entity.Property(e => e.PriceEn).HasColumnName("Price_EN");
-            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+            entity.Property(e => e.MaGiaThuocTinh).HasColumnName("AttributesPriceID");
+            entity.Property(e => e.MaThuocTinh).HasColumnName("MaThuocTinh");
+            entity.Property(e => e.GiaEn).HasColumnName("Price_EN");
+            entity.Property(e => e.MaSanPham).HasColumnName("ProductID");
 
-            entity.HasOne(d => d.Attribute).WithMany(p => p.AttributesPrices)
-                .HasForeignKey(d => d.AttributeId)
+            entity.HasOne(d => d.ThuocTinh).WithMany(p => p.GiaThuocTinhs)
+                .HasForeignKey(d => d.MaThuocTinh)
                 .HasConstraintName("FK_AttributesPrices_Attributes");
 
-            entity.HasOne(d => d.SanPham).WithMany(p => p.AttributesPrices)
-                .HasForeignKey(d => d.ProductId)
+            entity.HasOne(d => d.SanPham).WithMany(p => p.GiaThuocTinh)
+                .HasForeignKey(d => d.MaSanPham)
                 .HasConstraintName("FK_AttributesPrices_Products");
         });
 
@@ -301,12 +247,12 @@ public partial class DbMarketsContext : DbContext
         modelBuilder.Entity<DanhMucThuocTinh>(entity =>
         {
             entity.Property(e => e.CategoryAttributeId).HasColumnName("CategoryAttributeID");
-            entity.Property(e => e.AttributeId).HasColumnName("AttributeID");
+            entity.Property(e => e.MaThuocTinh).HasColumnName("MaThuocTinh");
             entity.Property(e => e.CatId).HasColumnName("CatID");
             entity.Property(e => e.Name).HasMaxLength(50);
 
             entity.HasOne(d => d.Attribute).WithMany(p => p.CategoryAttributes)
-                .HasForeignKey(d => d.AttributeId)
+                .HasForeignKey(d => d.MaThuocTinh)
                 .HasConstraintName("FK_CategoryAttributes_Attributes");
 
             entity.HasOne(d => d.Cat).WithMany(p => p.CategoryAttributes)
@@ -853,7 +799,7 @@ public partial class DbMarketsContext : DbContext
             entity.Property(e => e.ProvinceId).HasColumnName("ProvinceID");
             entity.Property(e => e.WardId).HasColumnName("WardID");
 
-            entity.HasOne(d => d.District).WithMany(p => p.ShippingAddresses)
+            entity.HasOne(d => d.District).WithMany(p => p.DiaChiGiaoHangs)
                 .HasForeignKey(d => d.DistrictId)
                 .HasConstraintName("FK_ShippingAddress_Districts");
 
@@ -896,8 +842,8 @@ public partial class DbMarketsContext : DbContext
 
             entity.Property(e => e.Video1).HasColumnName("PhimAnh");
 
-            entity.HasOne(d => d.Brand).WithMany(p => p.Videos)
-                .HasForeignKey(d => d.BrandId)
+            entity.HasOne(d => d.ThuongHieu).WithMany(p => p.Videos)
+                .HasForeignKey(d => d.MaThuongHieu)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Video_Brands");
         });

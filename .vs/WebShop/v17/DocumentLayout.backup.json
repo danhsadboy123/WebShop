@@ -3,115 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\views\\sanpham\\chitiet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\sanpham\\chitiet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\modelviews\\muahangvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\modelviews\\muahangvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\views\\taikhoan\\_changepasswordpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\taikhoan\\_changepasswordpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\modelviews\\muahangthanhcongvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\modelviews\\muahangthanhcongvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\services\\ivnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\services\\ivnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\modelviews\\dangnhapvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\modelviews\\dangnhapvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\models\\phuongthucthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\phuongthucthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\migrations\\20250626050946_data1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\migrations\\20250626050946_data1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\controllers\\adminrolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminrolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\controllers\\adminsettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminsettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\controllers\\adminaccountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminaccountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\models\\admincategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\models\\admincategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Novazone\\Desktop\\New folder (11)\\WebShop\\WebShop\\Migrations\\20250626042935_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\controllers\\admindiscountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\admindiscountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\controllers\\adminattributescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminattributescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\controllers\\adminemailmakettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminemailmakettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\controllers\\admincategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\admincategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\wwwroot\\novazone\\css\\reponeheader.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\novazone\\css\\reponeheader.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\controllers\\adminquotationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminquotationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\enums\\cachekeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\enums\\cachekeys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\wwwroot\\novazone\\lib\\owlcarousel\\assets\\owl.carousel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\novazone\\lib\\owlcarousel\\assets\\owl.carousel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\wwwroot\\css\\print.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\css\\print.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\areas\\admin\\views\\adminorders\\aaa.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\views\\adminorders\\aaa.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\modelviews\\danhmucview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\modelviews\\danhmucview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\sunhitech\\desktop\\datnad\\webshop\\webshop\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -125,37 +30,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ChiTiet.cshtml",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Views\\SanPham\\ChiTiet.cshtml",
-              "RelativeDocumentMoniker": "WebShop\\Views\\SanPham\\ChiTiet.cshtml",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Views\\SanPham\\ChiTiet.cshtml",
-              "RelativeToolTip": "WebShop\\Views\\SanPham\\ChiTiet.cshtml",
-              "ViewState": "AgIAAGoCAAAAAAAAAAApwHwCAACaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-26T12:45:45.191Z",
+              "Title": "MuaHangVM.cs",
+              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\ModelViews\\MuaHangVM.cs",
+              "RelativeDocumentMoniker": "WebShop\\ModelViews\\MuaHangVM.cs",
+              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\ModelViews\\MuaHangVM.cs",
+              "RelativeToolTip": "WebShop\\ModelViews\\MuaHangVM.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:33:44.12Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_ChangePasswordPartialView.cshtml",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Views\\TaiKhoan\\_ChangePasswordPartialView.cshtml",
-              "RelativeDocumentMoniker": "WebShop\\Views\\TaiKhoan\\_ChangePasswordPartialView.cshtml",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Views\\TaiKhoan\\_ChangePasswordPartialView.cshtml",
-              "RelativeToolTip": "WebShop\\Views\\TaiKhoan\\_ChangePasswordPartialView.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-26T12:45:25.266Z",
+              "Title": "MuaHangThanhCongVM.cs",
+              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
+              "RelativeDocumentMoniker": "WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
+              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
+              "RelativeToolTip": "WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:33:05.724Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DangNhapVM.cs",
+              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\ModelViews\\DangNhapVM.cs",
+              "RelativeDocumentMoniker": "WebShop\\ModelViews\\DangNhapVM.cs",
+              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\ModelViews\\DangNhapVM.cs",
+              "RelativeToolTip": "WebShop\\ModelViews\\DangNhapVM.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:33:00.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -163,328 +81,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IVnPayService.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Services\\IVnPayService.cs",
-              "RelativeDocumentMoniker": "WebShop\\Services\\IVnPayService.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Services\\IVnPayService.cs",
-              "RelativeToolTip": "WebShop\\Services\\IVnPayService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAABAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "DanhMucView.cs",
+              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\ModelViews\\DanhMucView.cs",
+              "RelativeDocumentMoniker": "WebShop\\ModelViews\\DanhMucView.cs",
+              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\ModelViews\\DanhMucView.cs",
+              "RelativeToolTip": "WebShop\\ModelViews\\DanhMucView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T12:06:54.482Z",
+              "WhenOpened": "2025-06-26T13:32:54.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PhuongThucThanhToan.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Models\\PhuongThucThanhToan.cs",
-              "RelativeDocumentMoniker": "WebShop\\Models\\PhuongThucThanhToan.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Models\\PhuongThucThanhToan.cs",
-              "RelativeToolTip": "WebShop\\Models\\PhuongThucThanhToan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T12:20:54.079Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "20250626050946_data1.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Migrations\\20250626050946_data1.cs",
-              "RelativeDocumentMoniker": "WebShop\\Migrations\\20250626050946_data1.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Migrations\\20250626050946_data1.cs",
-              "RelativeToolTip": "WebShop\\Migrations\\20250626050946_data1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T05:09:46.799Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAtwBMAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-26T04:55:27.885Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AdminRolesController.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminRolesController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminRolesController.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminRolesController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminRolesController.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAAwJcAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T04:52:57.885Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAgwGQAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T04:52:14.061Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AdminSettingsController.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminSettingsController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminSettingsController.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminSettingsController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminSettingsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T04:53:19.949Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AdminAccountsController.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T04:50:16.109Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "20250626042935_data.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\New folder (11)\\WebShop\\WebShop\\Migrations\\20250626042935_data.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\Novazone\\Desktop\\New folder (11)\\WebShop\\WebShop\\Migrations\\20250626042935_data.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\New folder (11)\\WebShop\\WebShop\\Migrations\\20250626042935_data.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\Novazone\\Desktop\\New folder (11)\\WebShop\\WebShop\\Migrations\\20250626042935_data.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T04:29:35.91Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AdminCategory.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Models\\AdminCategory.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Models\\AdminCategory.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Models\\AdminCategory.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Models\\AdminCategory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T01:37:59.404Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AdminEmailMakettingsController.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminEmailMakettingsController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminEmailMakettingsController.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminEmailMakettingsController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminEmailMakettingsController.cs",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAIwKUAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T12:52:03.21Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Program.cs",
-              "RelativeDocumentMoniker": "WebShop\\Program.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Program.cs",
-              "RelativeToolTip": "WebShop\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T11:13:42.945Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Startup.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Startup.cs",
-              "RelativeDocumentMoniker": "WebShop\\Startup.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Startup.cs",
-              "RelativeToolTip": "WebShop\\Startup.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T11:13:45.249Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "AdminDiscountsController.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminDiscountsController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminDiscountsController.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminDiscountsController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminDiscountsController.cs",
-              "ViewState": "AgIAAN4CAAAAAAAAAAAnwOcCAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T12:51:24.146Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\appsettings.json",
-              "RelativeDocumentMoniker": "WebShop\\appsettings.json",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\appsettings.json",
-              "RelativeToolTip": "WebShop\\appsettings.json",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-07T06:12:38.913Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AdminAttributesController.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
-              "ViewState": "AgIAABsBAAAAAAAAAMBcwCEBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T12:52:09.574Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AdminCategoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminCategoriesController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminCategoriesController.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminCategoriesController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminCategoriesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T12:41:30.302Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "owl.carousel.js",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js",
-              "RelativeDocumentMoniker": "WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js",
-              "RelativeToolTip": "WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.js",
-              "ViewState": "AgIAAOgAAAAAAAAAAAAAAOgAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-04T11:29:25.695Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "owl.carousel.css",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css",
-              "RelativeDocumentMoniker": "WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css",
-              "RelativeToolTip": "WebShop\\wwwroot\\assets\\owl_carousel\\owl.carousel.css",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAABwAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-04T11:29:17.807Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "owl.carousel.css",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\Novazone\\lib\\owlcarousel\\assets\\owl.carousel.css",
-              "RelativeDocumentMoniker": "WebShop\\wwwroot\\Novazone\\lib\\owlcarousel\\assets\\owl.carousel.css",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\Novazone\\lib\\owlcarousel\\assets\\owl.carousel.css",
-              "RelativeToolTip": "WebShop\\wwwroot\\Novazone\\lib\\owlcarousel\\assets\\owl.carousel.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABXAQAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-04T11:29:21.601Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "reponeHeader.css",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\Novazone\\css\\reponeHeader.css",
-              "RelativeDocumentMoniker": "WebShop\\wwwroot\\Novazone\\css\\reponeHeader.css",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\Novazone\\css\\reponeHeader.css",
-              "RelativeToolTip": "WebShop\\wwwroot\\Novazone\\css\\reponeHeader.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-07T06:22:47.727Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "AdminQuotationsController.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminQuotationsController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminQuotationsController.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminQuotationsController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminQuotationsController.cs",
-              "ViewState": "AgIAAIcCAAAAAAAAAAAvwJQCAABaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T11:29:35.349Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "CacheKeys.cs",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Enums\\CacheKeys.cs",
-              "RelativeDocumentMoniker": "WebShop\\Enums\\CacheKeys.cs",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Enums\\CacheKeys.cs",
-              "RelativeToolTip": "WebShop\\Enums\\CacheKeys.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T11:30:32.558Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "print.css",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\css\\print.css",
-              "RelativeDocumentMoniker": "WebShop\\wwwroot\\css\\print.css",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\css\\print.css",
-              "RelativeToolTip": "WebShop\\wwwroot\\css\\print.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwkAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-04T11:29:16.463Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "AAA.cshtml",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Views\\AdminOrders\\AAA.cshtml",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Views\\AdminOrders\\AAA.cshtml",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Areas\\Admin\\Views\\AdminOrders\\AAA.cshtml",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Views\\AdminOrders\\AAA.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T11:21:37.567Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "WebShop\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "WebShop\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-04T11:17:46.664Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
               "Title": "VnPayService.cs",
               "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Services\\VnPayService.cs",
               "RelativeDocumentMoniker": "WebShop\\Services\\VnPayService.cs",
               "ToolTip": "C:\\Users\\Sunhitech\\Desktop\\DATNAD\\WebShop\\WebShop\\Services\\VnPayService.cs",
               "RelativeToolTip": "WebShop\\Services\\VnPayService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwA8AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T11:13:39.342Z"
+              "WhenOpened": "2025-04-04T11:13:39.342Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -13,7 +13,7 @@ namespace WebShop.Areas.Admin.Controllers.Component
         public IViewComponentResult Invoke(int vat)
         {
             ViewBag.vat = vat;
-            var cart = HttpContext.Session.Get<List<CartItem>>("BaoGia");
+            var cart = HttpContext.Session.Get<List<GioHangItem>>("BaoGia");
             return View(cart);
         }
     }

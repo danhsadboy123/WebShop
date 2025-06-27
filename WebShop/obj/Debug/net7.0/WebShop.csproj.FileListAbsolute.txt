@@ -2388,3 +2388,16 @@ C:\Users\Novazone\Desktop\New folder (11)\WebShop\WebShop\obj\Debug\net7.0\WebSh
 C:\Users\Novazone\Desktop\New folder (11)\WebShop\WebShop\obj\Debug\net7.0\WebShop.genruntimeconfig.cache
 C:\Users\Novazone\Desktop\New folder (11)\WebShop\WebShop\obj\Debug\net7.0\ref\WebShop.dll
 C:\Users\Novazone\Desktop\New folder (11)\WebShop\WebShop\obj\Debug\net7.0\staticwebassets.upToDateCheck.txt
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.csproj.AssemblyReference.cache
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.AssemblyInfoInputs.cache
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.AssemblyInfo.cs
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.csproj.CoreCompileInputs.cache
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.RazorAssemblyInfo.cache
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.RazorAssemblyInfo.cs
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.sourcelink.json
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.dll
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\refint\WebShop.dll
+C:\Users\Novazone\Desktop\Đồ án\WebShop\WebShop\obj\Debug\net7.0\WebShop.pdb

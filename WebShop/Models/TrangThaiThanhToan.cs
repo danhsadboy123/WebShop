@@ -5,11 +5,11 @@ namespace WebShop.Models;
 
 public partial class TrangThaiThanhToan
 {
-    public int PaymentStatusId { get; set; }
+    public int MaTrangThaiThanhToan { get; set; }
 
-    public string Status { get; set; }
+    public string TrangThai { get; set; }
 
     public string MoTa { get; set; }
 
-    public virtual ICollection<DonHang> Orders { get; set; } = new List<DonHang>();
+    public virtual ICollection<DonHang> DonHangs { get; set; } = new List<DonHang>();
 }
