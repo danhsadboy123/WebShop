@@ -1,89 +1,93 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\",
+  "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\models\\dbmarketscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\dbmarketscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\views\\accounts\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\views\\accounts\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\models\\trangweb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\trangweb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\models\\trangthaithanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\trangthaithanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\areas\\admin\\controllers\\adminattributespotentailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminattributespotentailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\models\\khachhangtiemnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\models\\khachhangtiemnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\khachhangtiemnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\models\\thuoctinhtiemnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\models\\dbmarketscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\dbmarketscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\models\\trangweb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\trangweb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\models\\trangthaithanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\trangthaithanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\areas\\admin\\controllers\\adminattributespotentailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminattributespotentailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\models\\thuoctinhtiemnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\thuoctinhtiemnang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\areas\\admin\\controllers\\adminattributescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\areas\\admin\\controllers\\adminattributescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminattributescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\areas\\admin\\controllers\\adminajaxcontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\areas\\admin\\controllers\\adminajaxcontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminajaxcontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\areas\\admin\\controllers\\adminaccountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\areas\\admin\\controllers\\adminaccountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\adminaccountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\areas\\admin\\controllers\\components\\productquotationviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\areas\\admin\\controllers\\components\\productquotationviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\components\\productquotationviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\areas\\admin\\controllers\\components\\productquotationdetailsviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\areas\\admin\\controllers\\components\\productquotationdetailsviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\components\\productquotationdetailsviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\areas\\admin\\controllers\\components\\productorderviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\areas\\admin\\controllers\\components\\productorderviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\components\\productorderviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\areas\\admin\\controllers\\components\\productorderdetailsviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\areas\\admin\\controllers\\components\\productorderdetailsviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\areas\\admin\\controllers\\components\\productorderdetailsviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\models\\thuoctinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\models\\thuoctinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\models\\thuoctinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\services\\ivnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\services\\ivnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\services\\ivnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\modelviews\\muahangvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\modelviews\\muahangvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\modelviews\\muahangvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\modelviews\\muahangthanhcongvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\modelviews\\muahangthanhcongvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\modelviews\\muahangthanhcongvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\modelviews\\dangnhapvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\modelviews\\dangnhapvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\modelviews\\dangnhapvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\novazone\\desktop\\\u0111\u1ED3 \u00E1n\\webshop\\webshop\\modelviews\\danhmucview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|c:\\users\\pc\\onedrive\\desktop\\ad\\webshop\\webshop\\modelviews\\danhmucview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B4793B5-A168-48C0-B87D-266D1B78143D}|WebShop\\WebShop.csproj|solutionrelative:webshop\\modelviews\\danhmucview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -94,54 +98,65 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Views\\Accounts\\Login.cshtml",
+              "RelativeDocumentMoniker": "WebShop\\Views\\Accounts\\Login.cshtml",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Views\\Accounts\\Login.cshtml",
+              "RelativeToolTip": "WebShop\\Views\\Accounts\\Login.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-01T14:41:30.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TrangWeb.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\TrangWeb.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\TrangWeb.cs",
               "RelativeDocumentMoniker": "WebShop\\Models\\TrangWeb.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\TrangWeb.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\TrangWeb.cs",
               "RelativeToolTip": "WebShop\\Models\\TrangWeb.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:57:49.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:57:49.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TrangThaiThanhToan.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\TrangThaiThanhToan.cs",
+              "RelativeDocumentMoniker": "WebShop\\Models\\TrangThaiThanhToan.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\TrangThaiThanhToan.cs",
+              "RelativeToolTip": "WebShop\\Models\\TrangThaiThanhToan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T05:56:46.647Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TrangThaiThanhToan.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\TrangThaiThanhToan.cs",
-              "RelativeDocumentMoniker": "WebShop\\Models\\TrangThaiThanhToan.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\TrangThaiThanhToan.cs",
-              "RelativeToolTip": "WebShop\\Models\\TrangThaiThanhToan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:56:46.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "dbMarketsContext.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\dbMarketsContext.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\dbMarketsContext.cs",
               "RelativeDocumentMoniker": "WebShop\\Models\\dbMarketsContext.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\dbMarketsContext.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\dbMarketsContext.cs",
               "RelativeToolTip": "WebShop\\Models\\dbMarketsContext.cs",
-              "ViewState": "AgIAADkDAAAAAAAAAAAwwFIDAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAOwBAAAAAAAAAAAwwDoDAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-27T05:53:15.781Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "KhachHangTiemNang.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\KhachHangTiemNang.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\KhachHangTiemNang.cs",
               "RelativeDocumentMoniker": "WebShop\\Models\\KhachHangTiemNang.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\KhachHangTiemNang.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\KhachHangTiemNang.cs",
               "RelativeToolTip": "WebShop\\Models\\KhachHangTiemNang.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -150,180 +165,167 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ThuocTinhTiemNang.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\ThuocTinhTiemNang.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\ThuocTinhTiemNang.cs",
               "RelativeDocumentMoniker": "WebShop\\Models\\ThuocTinhTiemNang.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\ThuocTinhTiemNang.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\ThuocTinhTiemNang.cs",
               "RelativeToolTip": "WebShop\\Models\\ThuocTinhTiemNang.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:48:37.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:48:37.361Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AdminAttributesPotentailsController.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesPotentailsController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesPotentailsController.cs",
               "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminAttributesPotentailsController.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesPotentailsController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesPotentailsController.cs",
               "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminAttributesPotentailsController.cs",
               "ViewState": "AgIAALYAAAAAAAAAAAAswMIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:47:36.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ProductQuotationViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationViewComponent.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationViewComponent.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationViewComponent.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationViewComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:47:25.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:47:36.903Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "ProductQuotationDetailsViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationDetailsViewComponent.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationDetailsViewComponent.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationDetailsViewComponent.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationDetailsViewComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA7AAAAAAAAAA==",
+              "Title": "ProductQuotationViewComponent.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationViewComponent.cs",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationViewComponent.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationViewComponent.cs",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationViewComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:47:18.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:47:25.355Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "ProductOrderViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderViewComponent.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderViewComponent.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderViewComponent.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderViewComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA/AAAAAAAAAA==",
+              "Title": "ProductQuotationDetailsViewComponent.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationDetailsViewComponent.cs",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationDetailsViewComponent.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationDetailsViewComponent.cs",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductQuotationDetailsViewComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:47:12.329Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AdminAttributesController.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
-              "ViewState": "AgIAANIAAAAAAAAAAAAqwOMAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:41:35.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:47:18.274Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "ProductOrderDetailsViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderDetailsViewComponent.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderDetailsViewComponent.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderDetailsViewComponent.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderDetailsViewComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABLAAAAAAAAAA==",
+              "Title": "ProductOrderViewComponent.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderViewComponent.cs",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderViewComponent.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderViewComponent.cs",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderViewComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:45:24.759Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:47:12.329Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "AdminAjaxContentController.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAjaxContentController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminAjaxContentController.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAjaxContentController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminAjaxContentController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AdminAttributesController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminAttributesController.cs",
+              "ViewState": "AgIAANIAAAAAAAAAAAAqwOMAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:45:11.73Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAqwDYAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:41:01.53Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AdminAccountsController.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
-              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
-              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAmwBUAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:41:19.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:41:35.314Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "ThuocTinh.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\ThuocTinh.cs",
-              "RelativeDocumentMoniker": "WebShop\\Models\\ThuocTinh.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Models\\ThuocTinh.cs",
-              "RelativeToolTip": "WebShop\\Models\\ThuocTinh.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ProductOrderDetailsViewComponent.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderDetailsViewComponent.cs",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderDetailsViewComponent.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderDetailsViewComponent.cs",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\Components\\ProductOrderDetailsViewComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:42:04.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:45:24.759Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IVnPayService.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Services\\IVnPayService.cs",
-              "RelativeDocumentMoniker": "WebShop\\Services\\IVnPayService.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Services\\IVnPayService.cs",
-              "RelativeToolTip": "WebShop\\Services\\IVnPayService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "AdminAjaxContentController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAjaxContentController.cs",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminAjaxContentController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAjaxContentController.cs",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminAjaxContentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T05:39:52.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:45:11.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAqwDYAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T05:41:01.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminAccountsController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
+              "RelativeDocumentMoniker": "WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
+              "RelativeToolTip": "WebShop\\Areas\\Admin\\Controllers\\AdminAccountsController.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAmwBUAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T05:41:19.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ThuocTinh.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\ThuocTinh.cs",
+              "RelativeDocumentMoniker": "WebShop\\Models\\ThuocTinh.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Models\\ThuocTinh.cs",
+              "RelativeToolTip": "WebShop\\Models\\ThuocTinh.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T05:42:04.138Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "MuaHangVM.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\ModelViews\\MuaHangVM.cs",
-              "RelativeDocumentMoniker": "WebShop\\ModelViews\\MuaHangVM.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\ModelViews\\MuaHangVM.cs",
-              "RelativeToolTip": "WebShop\\ModelViews\\MuaHangVM.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Title": "IVnPayService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Services\\IVnPayService.cs",
+              "RelativeDocumentMoniker": "WebShop\\Services\\IVnPayService.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Services\\IVnPayService.cs",
+              "RelativeToolTip": "WebShop\\Services\\IVnPayService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T13:33:44.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-27T05:39:52.729Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
+              "Title": "MuaHangVM.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\ModelViews\\MuaHangVM.cs",
+              "RelativeDocumentMoniker": "WebShop\\ModelViews\\MuaHangVM.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\ModelViews\\MuaHangVM.cs",
+              "RelativeToolTip": "WebShop\\ModelViews\\MuaHangVM.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:33:44.12Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "MuaHangThanhCongVM.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
               "RelativeDocumentMoniker": "WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
               "RelativeToolTip": "WebShop\\ModelViews\\MuaHangThanhCongVM.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAgwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -331,11 +333,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "DangNhapVM.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\ModelViews\\DangNhapVM.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\ModelViews\\DangNhapVM.cs",
               "RelativeDocumentMoniker": "WebShop\\ModelViews\\DangNhapVM.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\ModelViews\\DangNhapVM.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\ModelViews\\DangNhapVM.cs",
               "RelativeToolTip": "WebShop\\ModelViews\\DangNhapVM.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -343,11 +345,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "DanhMucView.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\ModelViews\\DanhMucView.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\ModelViews\\DanhMucView.cs",
               "RelativeDocumentMoniker": "WebShop\\ModelViews\\DanhMucView.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\ModelViews\\DanhMucView.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\ModelViews\\DanhMucView.cs",
               "RelativeToolTip": "WebShop\\ModelViews\\DanhMucView.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -355,16 +357,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "VnPayService.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Services\\VnPayService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Services\\VnPayService.cs",
               "RelativeDocumentMoniker": "WebShop\\Services\\VnPayService.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\\u0110\u1ED3 \u00E1n\\WebShop\\WebShop\\Services\\VnPayService.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\AD\\WebShop\\WebShop\\Services\\VnPayService.cs",
               "RelativeToolTip": "WebShop\\Services\\VnPayService.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAowB4AAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T11:13:39.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T11:13:39.342Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 384,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
