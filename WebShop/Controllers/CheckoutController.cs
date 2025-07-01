@@ -1105,7 +1105,7 @@ namespace WebShop.Controllers
 
             worksheet.Cells["A9:H9"].Merge = true;
             worksheet.Row(9).Height = 60;
-            worksheet.Cells["A9"].Value = "We highly appreciate your interests in and keep working with our bussiness. Please find the below our quotation which we think serves you best in terms of price and liability. (Công ty Novazone đánh giá cao sự quan tâm và hợp tác kinh doanh của Quí khách. Quí khách vui lòng xem bảng báo giá sau đây mà Công ty Novazone cho rằng sẽ đáp ứng Quí khách tốt nhất trong bảng báo giá và trách nhiệm).";
+            worksheet.Cells["A9"].Value = "We highly appreciate your interests in and keep working with our bussiness. Please find the below our quotation which we think serves you best in terms of price and liability. (Công ty laplopstore đánh giá cao sự quan tâm và hợp tác kinh doanh của Quí khách. Quí khách vui lòng xem bảng báo giá sau đây mà Công ty laplopstore cho rằng sẽ đáp ứng Quí khách tốt nhất trong bảng báo giá và trách nhiệm).";
 
             var cell1 = worksheet.Cells["A9:H9"];
             cell1.Style.Border.Bottom.Style = ExcelBorderStyle.Dotted;
@@ -1304,7 +1304,7 @@ namespace WebShop.Controllers
 
 
 
-            worksheet.Cells[string.Format("A{0}", row + 8)].Value = "Novazone hy vọng tiếp tục cung cấp các dịch vụ thỏa đáng đến Quí Khách";
+            worksheet.Cells[string.Format("A{0}", row + 8)].Value = "laplopstore hy vọng tiếp tục cung cấp các dịch vụ thỏa đáng đến Quí Khách";
             worksheet.Cells[row + 8, 1, row + 8, 8].Merge = true;//xóa
             worksheet.Cells[row + 8, 1, row + 8, 8].Style.VerticalAlignment = ExcelVerticalAlignment.Center;//canh giữa theo chiều dọc
             worksheet.Cells[row + 8, 1, row + 8, 8].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;//canh giữa theo chiều ngang

@@ -47,7 +47,7 @@
             <nav class="navbar navbar-expand-lg  navbar-dark py-3 py-lg-0 px-0" style="background-color:#edf1f9">
                 <a href="/" class="text-decoration-none d-block d-lg-none">
                     <h1 class=" text-primary px-2" style="font-weight:bold;font-size: 3rem;">
-                        Novazone
+                        laplopstore
                     </h1>
 
                 </a>
@@ -57,7 +57,7 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <a href="/" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/" ? "KichHoat" : "")" style="font-weight: bold;">Trang chủ</a>
-                        <a href="/danh-sach-san-pham-Novazone" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/danh-sach-san-pham-Novazone" ? "KichHoat" : "")">Sản phẩm</a>
+                        <a href="/danh-sach-san-pham-Novazone" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/danh-sach-san-pham-laplopstore" ? "KichHoat" : "")">Sản phẩm</a>
                         <a href="/about" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.HttpContext.Request.Path == "/about" ? "KichHoat" : "")">Về chúng tôi</a>
                         <a asp-action="Contact" style="font-weight: bold;" class="nav-item nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "KichHoat" : "")">Liên hệ</a>
                     </div>

@@ -457,7 +457,7 @@ namespace WebShop.Areas.Admin.Controllers
 
             worksheet.Cells["A9:H9"].Merge = true;
             worksheet.Row(9).Height = 60;
-            worksheet.Cells["A9"].Value = "We highly appreciate your interests in and keep working with our bussiness. Please find the below our quotation which we think serves you best in terms of price and liability. (Công ty Novazone đánh giá cao sự quan tâm và hợp tác kinh doanh của Quí khách. Quí khách vui lòng xem bảng báo giá sau đây mà Công ty Novazone cho rằng sẽ đáp ứng Quí khách tốt nhất trong bảng báo giá và trách nhiệm).";
+            worksheet.Cells["A9"].Value = "We highly appreciate your interests in and keep working with our bussiness. Please find the below our quotation which we think serves you best in terms of price and liability. (Công ty laplopstore đánh giá cao sự quan tâm và hợp tác kinh doanh của Quí khách. Quí khách vui lòng xem bảng báo giá sau đây mà Công ty laplopstore cho rằng sẽ đáp ứng Quí khách tốt nhất trong bảng báo giá và trách nhiệm).";
 
             var cell1 = worksheet.Cells["A9:H9"];
             cell1.Style.Border.Bottom.Style = ExcelBorderStyle.Dotted;
@@ -477,10 +477,10 @@ namespace WebShop.Areas.Admin.Controllers
             var date = DateTime.Now.ToString("dd/MM/yyyy");
 
             //Điền dữ liệu
-            worksheet.Cells["D1"].Value = "CÔNG TY TNHH NOVAZONE";
+            worksheet.Cells["D1"].Value = "CÔNG TY TNHH laplopstore";
             worksheet.Cells["D2"].Value = "Địa chỉ: 11A Hồng Hà, Phường 2, Quận Tân Bình, TP. HCM";
             worksheet.Cells["D3"].Value = "Tel: 0848967333 ";
-            worksheet.Cells["D4"].Value = "Email: hello@novazone.com.vn - Website: www.novazone.co";
+            worksheet.Cells["D4"].Value = "Email: hello@laplopstore.com.vn - Website: www.laplopstore.co";
 
             worksheet.Cells["A7"].Value = "QUOTATION (BẢNG BÁO GIÁ)";
 
@@ -658,7 +658,7 @@ namespace WebShop.Areas.Admin.Controllers
             worksheet.Cells[row + 5, 1, row + 5, 8].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
             worksheet.Cells[row + 5, 1, row + 5, 8].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
 
-            worksheet.Cells[string.Format("A{0}", row + 6)].Value = "CÔNG TY TNHH NOVAZONE\nSố TK: 6927977777 Ngân Hàng TMCP QUÂN ĐỘI MB BANK - CN HCM \nSố TK : Trương Quang Viên -  9273437777 Ngân Hàng Vietcombank -  CN Vạn Phúc ";
+            worksheet.Cells[string.Format("A{0}", row + 6)].Value = "CÔNG TY TNHH laplopstore\nSố TK: 6927977777 Ngân Hàng TMCP QUÂN ĐỘI MB BANK - CN HCM \nSố TK : Trương Quang Viên -  9273437777 Ngân Hàng Vietcombank -  CN Vạn Phúc ";
             worksheet.Cells[row + 6, 1, row + 6, 8].Merge = true;
             worksheet.Cells[string.Format("A{0}", row + 6)].Style.Font.Bold = true;
             worksheet.Row(row + 6).Height = 60;
@@ -674,7 +674,7 @@ namespace WebShop.Areas.Admin.Controllers
 
 
 
-            worksheet.Cells[string.Format("A{0}", row + 8)].Value = "Novazone hy vọng tiếp tục cung cấp các dịch vụ thỏa đáng đến Quí Khách";
+            worksheet.Cells[string.Format("A{0}", row + 8)].Value = "laplopstore hy vọng tiếp tục cung cấp các dịch vụ thỏa đáng đến Quí Khách";
             worksheet.Cells[row + 8, 1, row + 8, 8].Merge = true;//xóa
             worksheet.Cells[row + 8, 1, row + 8, 8].Style.VerticalAlignment = ExcelVerticalAlignment.Center;//canh giữa theo chiều dọc
             worksheet.Cells[row + 8, 1, row + 8, 8].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;//canh giữa theo chiều ngang
@@ -723,7 +723,7 @@ namespace WebShop.Areas.Admin.Controllers
 
             //worksheet.Cells[string.Format("A{0}", row+7)].Value = "Để biết thêm chi tiết, vui lòng liên hệ";
             //worksheet.Cells[string.Format("A{0}", row + 8)].Value = "Hotline: 0937 963 779 (8h00-21h30 hàng ngày)";
-            //worksheet.Cells[string.Format("E{0}", row + 8)].Value = "NOVAZONE CHÂN THÀNH CẢM ƠN QUÝ KHÁCH";
+            //worksheet.Cells[string.Format("E{0}", row + 8)].Value = "laplopstore CHÂN THÀNH CẢM ƠN QUÝ KHÁCH";
 
             //worksheet.Cells[string.Format("E{0}", row + 8)].Style.Font.Bold = true;
             //worksheet.Cells[string.Format("E{0}", row + 8)].Style.Font.Size = 15;
