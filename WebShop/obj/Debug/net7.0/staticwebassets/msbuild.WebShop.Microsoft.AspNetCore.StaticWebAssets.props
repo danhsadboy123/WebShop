@@ -29592,6 +29592,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slides\slide-2.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slides\slide-trang-chu.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>WebShop</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/WebShop</BasePath>
+      <RelativePath>images/slides/slide-trang-chu.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>o3tpxl3oaz</Fingerprint>
+      <Integrity>lMT46085jY9P0dcyyKF61L26SGky5Cij5IjRF5tzaPU=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slides\slide-trang-chu.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\slides\slide1.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>WebShop</SourceId>
@@ -41466,8 +41484,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>3jvnac68ts</Fingerprint>
-      <Integrity>oabVqFDJrLDaBBgElcwxf8D5IBHP6bQa0kXOnfy3+VU=</Integrity>
+      <Fingerprint>ch020g3xnw</Fingerprint>
+      <Integrity>EOH5iWHgG9DJzQuvfFa4rAVqRkybv3FbO8kCaa4lyaw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Novazone\css\About.css'))</OriginalItemSpec>
@@ -41646,8 +41664,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>jq41seynkk</Fingerprint>
-      <Integrity>O0LPdIZkg8wcBN5Yy81Xh0yYdKHvkJT4kQ1IrkONsgw=</Integrity>
+      <Fingerprint>on3b95sb8m</Fingerprint>
+      <Integrity>REQ2Y/zSzhBlEreM2GzweYhTrC7u1SlQTfkNIQtoCSQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Novazone\css\style.css'))</OriginalItemSpec>
@@ -41664,8 +41682,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>2lzesd4v2b</Fingerprint>
-      <Integrity>WmQ5UJ18MDvxLe3l2XGJxmygXQKgq/AmLbg8T2LOTdQ=</Integrity>
+      <Fingerprint>9mpsr2luzl</Fingerprint>
+      <Integrity>T3wThjPS51/DR/YyHk/dWIcQbfSKNmZegebaO397nGA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Novazone\css\style.min.css'))</OriginalItemSpec>
@@ -44130,8 +44148,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>xor84xilre</Fingerprint>
-      <Integrity>z7lGavV3duOJP1NceFE/+z7YFHworvL3B1QNMek6Km8=</Integrity>
+      <Fingerprint>3y1o2zp5r0</Fingerprint>
+      <Integrity>252jffGy5blvP+GfjOd/bywFyMuV1aAXVdf/7DGSfFc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Novazone\scss\style.scss'))</OriginalItemSpec>

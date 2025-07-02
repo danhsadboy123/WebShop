@@ -10,7 +10,7 @@ body {
 }
 
 .btn-primary {
-    background-color: #FFD333;
+    background-color: #16bcdc;
     border: none;
 }
 
@@ -32,7 +32,7 @@ body {
     font-size: 2rem;
     font-weight: bold;
     font-family: "Roboto", sans-serif;
-    color: #FFD333;
+    color: #16bcdc;
 }
 
 .row {

@@ -290,17 +290,18 @@
                                     <td><span style="color: #1a71ff;">@item.OrderId</span></td>
                                 }
                                 <td>@item.OrderDate</td>
-                               
-                                @if(item.Customer == null)
+
+                                @if (item.Guest != null)
                                 {
                                     <td>@item.Guest.FullName</td>
                                     <td>@item.Guest.Email</td>
                                     <td>@item.Guest.Phone</td>
                                 }
-                                else{
-                                    <td>@item.Customer.FullName</td>
-                                    <td>@item.Customer.Email</td>
-                                    <td>@item.Customer.Phone</td>
+                                else
+                                {
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                 }
                                 <td>
                                      

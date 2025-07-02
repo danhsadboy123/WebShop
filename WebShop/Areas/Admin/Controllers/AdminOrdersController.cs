@@ -117,11 +117,12 @@ namespace WebShop.Areas.Admin.Controllers
         }
         // GET: Admin/AdminOrders/Details/5
         public async Task<IActionResult> Details(int? id)
-        { 
+        {
             if (id == null)
             {
                 return NotFound();
             }
+
             var order = await _context.Orders
                 .Include(o => o.Customer)
                 .Include(o => o.Guest)
@@ -129,25 +130,40 @@ namespace WebShop.Areas.Admin.Controllers
                 .Include(o => o.Codstatus)
                 .Include(o => o.PaymentStatus)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
-            var discount = _context.Discounts.Where(c=>c.Code ==order.Code).FirstOrDefault();
+
             if (order == null)
             {
                 return NotFound();
             }
-            var shippingAddress = _context.ShippingAddresses
+
+            // Debug: Kiểm tra dữ liệu
+            if (order.Customer == null && order.CustomerId != null)
+            {
+                // Log hoặc throw exception để kiểm tra
+                System.Diagnostics.Debug.WriteLine($"Customer not found for CustomerId: {order.CustomerId}");
+            }
+            if (order.Guest == null && order.GuestId != null)
+            {
+                System.Diagnostics.Debug.WriteLine($"Guest not found for GuestId: {order.GuestId}");
+            }
+
+            var discount = order.Code != null ? await _context.Discounts.FirstOrDefaultAsync(c => c.Code == order.Code) : null;
+            var shippingAddress = await _context.ShippingAddresses
                 .Include(x => x.Province)
                 .Include(x => x.District)
                 .Include(x => x.Ward)
-                .FirstOrDefault(o => o.OrderId == order.OrderId);
+                .FirstOrDefaultAsync(o => o.OrderId == order.OrderId);
 
-            var orderDetails = _context.OrderDetails
-                .Include(x =>x.Product)
+            var orderDetails = await _context.OrderDetails
+                .Include(x => x.Product)
                 .AsNoTracking()
                 .Where(x => x.OrderId == order.OrderId)
                 .OrderBy(x => x.OrderDetailId)
-                .ToList();
+                .ToListAsync();
+
             ViewBag.ChiTiet = orderDetails;
             ViewBag.DiaChi = shippingAddress;
+
             return View(order);
         }
         // gui email

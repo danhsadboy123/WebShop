@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "22yu8841Bho=",
+  "dgSpecHash": "u9qLTKXA9zs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Novazone\\Desktop\\New folder (13)\\WebShop\\WebShop\\WebShop.csproj",
+  "projectFilePath": "C:\\Users\\Novazone\\Desktop\\ĐẤ\\WebShop\\WebShop\\WebShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Novazone\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\Novazone\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",

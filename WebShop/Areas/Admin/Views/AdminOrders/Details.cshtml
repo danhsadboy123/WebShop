@@ -410,19 +410,20 @@
                 </div>
             </div>
             <div class="card-body">
-                @if (Model.CustomerId != null)
+                @if (Model.CustomerId != null && Model.Customer != null)
                 {
                     <a target="_blank" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@Model.Customer.CustomerId">@Model.Customer.FullName</a>
                     <p class="m-b-0 text-muted mt-2">@Model.Customer.Email</p>
-                    <p class="m-b-0 muted mt-2">@Model.Customer.Phone</p>
+                    <p class="m-b-0 text-muted mt-2">@Model.Customer.Phone</p> 
                 }
-                else if(Model.GuestId !=null)
+                else if (Model.GuestId != null && Model.Guest != null)
                 {
                     <a href="javascript:void(0)">@Model.Guest.FullName</a>
                     <p class="m-b-0 text-muted mt-2">@Model.Guest.Email</p>
-                    <p class="m-b-0 muted mt-2">@Model.Guest.Phone</p>
+                    <p class="m-b-0 text-muted mt-2">@Model.Guest.Phone</p> 
                 }
-                else{
+                else
+                {
                     <p class="m-b-0 text-muted mt-2">Chưa có thông tin khách hàng</p>
                 }
             </div>

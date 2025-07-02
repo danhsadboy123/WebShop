@@ -1658,6 +1658,7 @@ wwwroot\images\slides\slide6.png
 wwwroot\images\slides\slide7.png
 wwwroot\images\slides\slide8.png
 wwwroot\images\slides\slide9.png
+wwwroot\images\slides\slide-trang-chu.png
 wwwroot\images\slides\thiet-bi-am-thanh.jpg
 wwwroot\images\slides\thiet-bi-am-thanhhome.jpg
 wwwroot\images\slides\thiet-bi-luu-tru.png
