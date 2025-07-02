@@ -1,0 +1,34 @@
+﻿@model Ecommerce_WatchShop.Models.SanPham
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="MaSanPham" />
+
+    <div class="form-group">
+        <label asp-for="TenSanPham" class="control-label"></label>
+        <input asp-for="TenSanPham" class="form-control" />
+        <span asp-validation-for="TenSanPham" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Gia" class="control-label"></label>
+        <input asp-for="Gia" class="form-control" />
+        <span asp-validation-for="Gia" class="text-danger"></span>
+    </div>
+
+    <!-- Các trường khác -->
+
+    <div class="form-group">
+        <label>Ảnh sản phẩm</label>
+        <input type="file" name="imageFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cập nhật sản phẩm</button>
+</form>
+
+<a href="@Url.Action("Index")">Trở lại danh sách sản phẩm</a>

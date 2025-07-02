@@ -1,0 +1,266 @@
+﻿@{
+    ViewData["Title"] = "Thanh toán";
+}
+@model Ecommerce_WatchShop.Models.ViewModels.CheckoutValidationVM
+
+<!-- ...:::: Start Breadcrumb Section:::... -->
+<div class="breadcrumb-section breadcrumb-bg-color--golden">
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="breadcrumb-title">Thanh Toán</h3>
+                    <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                        <nav aria-label="breadcrumb">
+                            <ul>
+                                <li><a asp-controller="Home" asp-action="Index">Trang Chủ</a></li>
+                                <li><a asp-controller="Cart" asp-action="Cart">Giỏ Hàng</a></li>
+                                <li class="active" aria-current="page">Thanh Toán</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- ...:::: End Breadcrumb Section:::... -->
+<div class="checkout-section">
+    <div class="container">
+        <div class="checkout_form">
+            <div class="row">
+                <!-- User Details -->
+                <div class="col-lg-6 col-md-6">
+                    <form method="post" asp-action="Checkout">
+                        <h3>CHI TIẾT ĐƠN HÀNG</h3>
+                        <div class="col-12">
+                            <div class="default-form-box">
+                                <label>Họ Tên <span>*</span></label>
+                                <input asp-for="@Model.CheckoutVM.FullName" class="form-control" required>
+                                <span asp-validation-for="@Model.CheckoutVM.FullName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="default-form-box">
+                                <label>Số điện thoại</label>
+                                <input asp-for="@Model.CheckoutVM.Phone" class="form-control" required>
+                                <span asp-validation-for="@Model.CheckoutVM.Phone" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="default-form-box">
+                                <label>Email</label>
+                                <input asp-for="@Model.CheckoutVM.Email" class="form-control" required>
+                                <span asp-validation-for="@Model.CheckoutVM.Email" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="default-form-box">
+                                <label>Địa chỉ<span>*</span></label>
+                                <input asp-for="@Model.CheckoutVM.Address" class="form-control" required>
+                                <span asp-validation-for="@Model.CheckoutVM.Address" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="default-form-box">
+                                    <label>Tỉnh/Thành phố<span>*</span></label>
+                                    <select id="tinh" name="tinh" title="Chọn Tỉnh Thành">
+                                        <option value="">Tỉnh Thành</option>
+                                    </select>
+                                    <span asp-validation-for="@Model.CheckoutVM.Province" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="default-form-box">
+                                    <label>Quận/Huyện<span>*</span></label>
+                                    <select id="quan" name="quan" title="Chọn Quận Huyện">
+                                        <option value="">Quận Huyện</option>
+                                    </select>
+                                    <span asp-validation-for="@Model.CheckoutVM.District" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="default-form-box">
+                                    <label>Xã/Phường<span>*</span></label>
+                                    <select id="phuong" name="phuong" title="Chọn Phường Xã">
+                                        <option value="">Phường Xã</option>
+                                    </select>
+                                    <span asp-validation-for="@Model.CheckoutVM.Ward" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="result" class="text-success mt-3"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12" style="margin-top: 30px">
+                                <h3>Phương thức thanh toán</h3>
+                                <div class="panel-default">
+                                    <label class="checkbox-default" for="currencyCod" data-bs-toggle="collapse"
+                                        data-bs-target="#methodCod">
+                                        <input type="radio" asp-for="@Model.CheckoutVM.PaymentMethod" value="COD"
+                                            required>
+                                        <span>Thanh toán khi nhận hàng (COD)</span>
+                                    </label>
+                                </div>
+                                <div class="panel-default">
+                                    <label class="checkbox-default" for="currencyPaypal" data-bs-toggle="collapse"
+                                        data-bs-target="#methodPaypal" required>
+                                        <input type="radio" asp-for="@Model.CheckoutVM.PaymentMethod" value="Momo">
+                                        <span>Ví Momo</span>
+                                    </label>
+                                </div>
+                                <input type="hidden" name="TotalAmount"
+                                    value="@Model.CartRequest.Sum(item => item.Quantity * item.Price)" />
+
+                                <div class="order_button pt-3">
+                                    <button class="btn btn-md btn-black-default-hover" type="submit">
+                                        Thanh toán
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Cart Summary -->
+                <div class="col-lg-6 col-md-6">
+                    <h3>ĐƠN HÀNG CỦA BẠN</h3>
+                    <div class="order_table table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Tổng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.CartRequest != null && Model.CartRequest.Any())
+                                {
+                                    @foreach (var item in Model.CartRequest)
+                                    {
+                                        <tr>
+                                            <td>@item.ProductName <strong>× @item.Quantity</strong></td>
+                                            <td>@string.Format("{0:C}", item.Quantity * item.Price)</td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="2">Không có sản phẩm trong giỏ hàng.</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                @if (Model.CartRequest != null && Model.CartRequest.Any())
+                                {
+                                    var total = Model.CartRequest.Sum(item => item.Quantity * item.Price);
+                                    <tr>
+                                        <th>Tổng giỏ hàng</th>
+                                        <td>@string.Format("{0:C}", total)</td>
+                                    </tr>
+                                }
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const provinceApi = "https://vn-public-apis.fpo.vn/provinces/getAll?limit=-1";
+            const districtApiByProvince = "https://vn-public-apis.fpo.vn/districts/getByProvince";
+            const wardApiByDistrict = "https://vn-public-apis.fpo.vn/wards/getByDistrict";
+
+            var callAPI = (api, params, select) => {
+                return axios.get(api, { params })
+                    .then((response) => {
+                        if (response.data.success) {
+                            renderData(response.data.data, select);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching data: ", error);
+                    });
+            }
+
+            // Lấy danh sách tỉnh/thành phố
+            callAPI(provinceApi, null, "tinh");
+
+            // Lấy danh sách huyện theo tỉnh
+            var callApiDistrict = (provinceCode) => {
+                const url = `${districtApiByProvince}?provinceCode=${provinceCode}&limit=-1`;
+                return callAPI(url, null, "quan");
+            }
+
+            // Lấy danh sách xã theo huyện
+            var callApiWard = (districtCode) => {
+                const url = `${wardApiByDistrict}?districtCode=${districtCode}&limit=-1`;
+                return callAPI(url, null, "phuong");
+            }
+
+            // Hiển thị dữ liệu vào dropdown
+            var renderData = (array, select) => {
+                let row = '<option value="">Chọn</option>';
+                array.forEach(element => {
+                    row += `<option value="${element.code}">${element.name_with_type || element.name}</option>`;
+                });
+                document.querySelector("#" + select).innerHTML = row;
+            }
+
+            // Xử lý sự kiện khi người dùng chọn Tỉnh, Huyện, Xã
+            $("#tinh").change(() => {
+                const provinceCode = $("#tinh").val();
+                if (provinceCode) {
+                    callApiDistrict(provinceCode);
+                } else {
+                    $("#quan").html('<option value="">Chọn</option>');
+                    $("#phuong").html('<option value="">Chọn</option>');
+                }
+                printResult();
+            });
+
+            $("#quan").change(() => {
+                const districtCode = $("#quan").val();
+                if (districtCode) {
+                    callApiWard(districtCode);
+                } else {
+                    $("#phuong").html('<option value="">Chọn</option>');
+                }
+                printResult();
+            });
+
+            $("#phuong").change(() => {
+                printResult();
+            });
+
+            // In ra kết quả
+            var printResult = () => {
+                if ($("#tinh").val() && $("#quan").val() && $("#phuong").val()) {
+                    let result = $("#tinh option:selected").text() +
+                        " | " + $("#quan option:selected").text() +
+                        " | " + $("#phuong option:selected").text();
+                    $("#result").text(result);
+                }
+            }
+        });
+
+
+
+    </script>
+}
