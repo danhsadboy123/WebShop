@@ -418,8 +418,8 @@
     float: left;
     height: 100%;
   }
-  .ql-snow.ql-toolbar button:KichHoat:hover,
-  .ql-snow .ql-toolbar button:KichHoat:hover {
+  .ql-snow.ql-toolbar button:active:hover,
+  .ql-snow .ql-toolbar button:active:hover {
     outline: none;
   }
   .ql-snow.ql-toolbar input.ql-image[type=file],
@@ -439,22 +439,22 @@
     color: $brand-primary;
     background-color: rgba($brand-primary, 0.15);
   }
-  .ql-snow.ql-toolbar button.ql-KichHoat,
-  .ql-snow .ql-toolbar button.ql-KichHoat,
-  .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat,
-  .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat{
+  .ql-snow.ql-toolbar button.ql-active,
+  .ql-snow .ql-toolbar button.ql-active,
+  .ql-snow.ql-toolbar .ql-picker-label.ql-active,
+  .ql-snow .ql-toolbar .ql-picker-label.ql-active{
     color: $brand-primary;
   }
   .ql-snow.ql-toolbar button:hover .ql-fill,
   .ql-snow .ql-toolbar button:hover .ql-fill,
   .ql-snow.ql-toolbar button:focus .ql-fill,
   .ql-snow .ql-toolbar button:focus .ql-fill,
-  .ql-snow.ql-toolbar button.ql-KichHoat .ql-fill,
-  .ql-snow .ql-toolbar button.ql-KichHoat .ql-fill,
+  .ql-snow.ql-toolbar button.ql-active .ql-fill,
+  .ql-snow .ql-toolbar button.ql-active .ql-fill,
   .ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,
   .ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill,
-  .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat .ql-fill,
-  .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat .ql-fill,
+  .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+  .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,
   .ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,
   .ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill,
   .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
@@ -463,12 +463,12 @@
   .ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill,
   .ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill,
   .ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill,
-  .ql-snow.ql-toolbar button.ql-KichHoat .ql-stroke.ql-fill,
-  .ql-snow .ql-toolbar button.ql-KichHoat .ql-stroke.ql-fill,
+  .ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+  .ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,
   .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
   .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
-  .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke.ql-fill,
-  .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke.ql-fill,
+  .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+  .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
   .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
   .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
   .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
@@ -479,12 +479,12 @@
   .ql-snow .ql-toolbar button:hover .ql-stroke,
   .ql-snow.ql-toolbar button:focus .ql-stroke,
   .ql-snow .ql-toolbar button:focus .ql-stroke,
-  .ql-snow.ql-toolbar button.ql-KichHoat .ql-stroke,
-  .ql-snow .ql-toolbar button.ql-KichHoat .ql-stroke,
+  .ql-snow.ql-toolbar button.ql-active .ql-stroke,
+  .ql-snow .ql-toolbar button.ql-active .ql-stroke,
   .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
   .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
-  .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke,
-  .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke,
+  .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+  .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
   .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
   .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
   .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
@@ -493,12 +493,12 @@
   .ql-snow .ql-toolbar button:hover .ql-stroke-miter,
   .ql-snow.ql-toolbar button:focus .ql-stroke-miter,
   .ql-snow .ql-toolbar button:focus .ql-stroke-miter,
-  .ql-snow.ql-toolbar button.ql-KichHoat .ql-stroke-miter,
-  .ql-snow .ql-toolbar button.ql-KichHoat .ql-stroke-miter,
+  .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+  .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
   .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
   .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
-  .ql-snow.ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke-miter,
-  .ql-snow .ql-toolbar .ql-picker-label.ql-KichHoat .ql-stroke-miter,
+  .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+  .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
   .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
   .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
   .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
@@ -506,20 +506,20 @@
     stroke: $brand-primary;
   }
   @media (pointer: coarse) {
-    .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat),
-    .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) {
+    .ql-snow.ql-toolbar button:hover:not(.ql-active),
+    .ql-snow .ql-toolbar button:hover:not(.ql-active) {
       color: $gray;
     }
-    .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat) .ql-fill,
-    .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) .ql-fill,
-    .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke.ql-fill,
-    .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke.ql-fill {
+    .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-fill,
+    .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill,
+    .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
       fill: $gray;
     }
-    .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke,
-    .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke,
-    .ql-snow.ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke-miter,
-    .ql-snow .ql-toolbar button:hover:not(.ql-KichHoat) .ql-stroke-miter {
+    .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+    .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+    .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,
+    .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
       stroke: $gray;
     }
   }
@@ -589,10 +589,10 @@
   .ql-snow .ql-direction svg:last-child {
     display: none;
   }
-  .ql-snow .ql-direction.ql-KichHoat svg:last-child {
+  .ql-snow .ql-direction.ql-active svg:last-child {
     display: inline;
   }
-  .ql-snow .ql-direction.ql-KichHoat svg:first-child {
+  .ql-snow .ql-direction.ql-active svg:first-child {
     display: none;
   }
   .ql-snow .ql-editor h1 {

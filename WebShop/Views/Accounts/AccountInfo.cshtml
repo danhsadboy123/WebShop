@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "AccountInfo";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<DonHang> DanhSachDonHang = ViewBag.DonHang;
+    List<Order> DanhSachDonHang = ViewBag.DonHang;
     //WebShop.ModelViews.ChangePasswordViewModel changePassword = new WebShop.ModelViews.ChangePasswordViewModel();
 }
 <link rel="stylesheet" href="~/Adminassets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
@@ -45,7 +45,7 @@
         <div class="header-sub-title">
             <nav class="breadcrumb breadcrumb-dash">
                 <a href="/" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-                <span class="breadcrumb-item KichHoat">Tài khoản</span>
+                <span class="breadcrumb-item active">Tài khoản</span>
             </nav>
         </div>
     </div>
@@ -58,13 +58,13 @@
                     <img src="~/images/icons/icons8-user-64.png" alt="taikhoan" class="loading" data-was-processed="true">
                     <div style="margin-left:8px; margin-top:8px">
                         <span class="txt-ac-1">Tài khoản của</span>
-                        <h6>@Model.HoTen</h6>
+                        <h6>@Model.FullName</h6>
                     </div>
                 </div>
                 <div class="tab-container">
                     <ul class="menu nav flex-column">
                         <li class="nav-item">
-                            <a href="#profile-tab" class="nav-link KichHoat" data-toggle="tab">
+                            <a href="#profile-tab" class="nav-link active" data-toggle="tab">
                                 <i class="anticon anticon-inbox"></i>
                                 <span>Thông tin tài khoản</span>
                             </a>
@@ -82,7 +82,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#MatKhau-tab" class="nav-link " data-toggle="tab">
+                            <a href="#password-tab" class="nav-link " data-toggle="tab">
                                 <i class="anticon anticon-star"></i>
                                 <span>Thay đổi mật khẩu</span>
                             </a>
@@ -101,10 +101,10 @@
                 </a>
             </div>
             <div class="tab-content" style="width:100%">
-                <div id="profile-tab" class="tab-pane KichHoat show">
+                <div id="profile-tab" class="tab-pane active show">
                     <div class="ac-ct-info">
                         <div class="box-cus-info-2021">
-                            <form asp-controller="TaiKhoans" asp-action="AccountInfo" method="post">
+                            <form asp-controller="Accounts" asp-action="AccountInfo" method="post">
                                 <input hidden asp-for="CustomerId" />
                                 <div class="title-ac-2021">Thông tin chung</div>
                                 <div class="box-cus-info-2021-ct" id="box-info">
@@ -114,7 +114,7 @@
                                                 <td>Họ và tên:</td>
                                                 <td>
                                                     <span>
-                                                       @Model.HoTen
+                                                       @Model.FullName
                                                     </span>
                                                 </td>
                                             </tr>
@@ -130,7 +130,7 @@
                                                 <td>Số điện thoại:</td>
                                                 <td>
                                                     <span>
-                                                        @Model.SoDienThoai
+                                                        @Model.Phone
                                                     </span>
                                                 </td>
                                             </tr>
@@ -172,7 +172,7 @@
                                                 <td>Họ và tên:</td>
                                                 <td>
                                                     <span>
-                                                        <input type="text" value="@Model.HoTen" class="form-control FullName1" asp-for="HoTen">
+                                                        <input type="text" value="@Model.FullName" class="form-control FullName1" asp-for="FullName">
                                                     </span>
                                                 </td>
                                             </tr>
@@ -188,7 +188,7 @@
                                                 <td>Số điện thoại:</td>
                                                 <td>
                                                     <span>
-                                                        <input type="text" value="@Model.SoDienThoai" class="form-control Phone1" readonly="" asp-for="SoDienThoai">
+                                                        <input type="text" value="@Model.Phone" class="form-control Phone1" readonly="" asp-for="Phone">
                                                     </span>
                                                 </td>
                                             </tr>
@@ -315,7 +315,7 @@
                 </div>
                 <div id="addresses-tab" class="tab-pane">
                 </div>
-                <div id="MatKhau-tab" class="tab-pane">
+                <div id="password-tab" class="tab-pane">
                 </div>
             </div>
 
@@ -326,7 +326,7 @@
         <img src="~/images/icons/icons8-user-64.png" alt="taikhoan" class="loading" data-was-processed="true">
         <div class="header-ac-2021-ct">
         <span class="txt-ac-1">Tài khoản của</span>
-        <span class="txt-ac-2">@Model.HoTen</span>
+        <span class="txt-ac-2">@Model.FullName</span>
         </div>
         </div>
         <div class="list-ac-2021">
@@ -360,7 +360,7 @@
         <div class="item-ac">
         <label>Họ tên</label>
         <div class="item-ac-ct">
-        <input type="text"  class="inputText" asp-for="HoTen">
+        <input type="text"  class="inputText" asp-for="FullName">
         <div class="item-ac-ct-note"></div>
         </div>
         </div>
@@ -375,7 +375,7 @@
         <label>Số điện thoại</label>
         <div class="item-ac-ct">
         <div class="item-input-ac">
-        <input type="text" class="inputText" readonly="" asp-for="SoDienThoai">
+        <input type="text" class="inputText" readonly="" asp-for="Phone">
         </div>
         <div class="item-ac-ct-note" id="js-sms-result"></div>
         </div>
@@ -453,7 +453,7 @@
     }
 </section>
 
-<div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
         </div>

@@ -106,24 +106,24 @@
                                         <div class="form-group">
                                             <div class="input-affix m-b-10">
                                                 <i class="prefix-icon anticon anticon-lock"></i>
-                                                <input type="MatKhau" class="form-control passW" asp-for="MatKhau" placeholder="Mật khẩu">
-                                                <span class="toggle-MatKhau-icon" onclick="togglePasswordVisibility()">
+                                                <input type="password" class="form-control passW" asp-for="Password" placeholder="Mật khẩu">
+                                                <span class="toggle-password-icon" onclick="togglePasswordVisibility()">
                                                     <i class="suffix-icon anticon anticon-eye"></i>
                                                 </span>
                                             </div>
-                                            <span asp-validation-for="MatKhau" class="text-danger"></span>
+                                            <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
                                         <br />
                                         <script>
                                             function togglePasswordVisibility() {
                                                 var passwordInput = $(".passW").attr('type');                                             
-                                                if (passwordInput == "MatKhau"){
+                                                if (passwordInput == "password"){
                                                     $(".passW").attr('type','text');
                                                     $('.suffix-icon').removeClass("anticon-eye");
                                                     $('.suffix-icon').addClass("anticon-eye-invisible");
 
                                                 }else{
-                                                    $(".passW").attr('type', 'MatKhau');
+                                                    $(".passW").attr('type', 'password');
                                                     $('.suffix-icon').removeClass("anticon-eye-invisible");
                                                     $('.suffix-icon').addClass("anticon-eye ");
                                                 } 

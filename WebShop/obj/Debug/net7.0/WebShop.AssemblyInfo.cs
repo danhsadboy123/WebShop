@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebShop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ef71e525572df4855220a49f80b9273062b54e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0913a3cff22907b6c7859601760d7872d566c319")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebShop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebShop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

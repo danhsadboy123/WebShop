@@ -9,9 +9,9 @@
     List<WebShop.ModelViews.AttributePriceDto> lsAttribute = ViewBag.attrbutePrices;
     List<Product> listprooption = ViewBag.listprooption;
     List<ProductThumb> productThumbs = ViewBag.Images;
-    List<KhuyenMai> discountsls = ViewBag.discountHome;
+    List<Discount> discountsls = ViewBag.discountHome;
     ViewData["Title"] = Model.Title;
-    ViewData["MoTa"] = Model.MetaDesc;
+    ViewData["Description"] = Model.MetaDesc;
     ViewData["Keywords"] = Model.MetaKey;
     
     var ogImage = Model?.Avatar != null
@@ -176,7 +176,7 @@
             background-color: rgba(255, 255, 255, 0.5);
         }
 
-        .carousel-indicators .KichHoat {
+        .carousel-indicators .active {
             background-color: #fff;
         }
 
@@ -289,7 +289,7 @@
             <nav class="breadcrumb bg-light mb-30">
                 <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
                 <a class="breadcrumb-item text-dark" href="/@ViewBag.BreadcrumbCategories.Alias">@ViewBag.BreadcrumbCategories.CatName</a>
-                <a class="breadcrumb-item KichHoat" href="/">@Model.ProductName</a>
+                <a class="breadcrumb-item active" href="/">@Model.ProductName</a>
             </nav>
         </div>
     </div>
@@ -401,7 +401,7 @@
                         }
 
                     </div>
-                    <a href="javascript:void(0)" class="btn-summary" onclick="$('#js-pd-summary').toggleClass('KichHoat')"></a>
+                    <a href="javascript:void(0)" class="btn-summary" onclick="$('#js-pd-summary').toggleClass('active')"></a>
 
                 </div>
             }
@@ -492,7 +492,7 @@
 
                     <div class="pd-store-list" id="js-store-list">
                         <p class="item">
-                            <span class="sdtchinhanh"><i class="fas fa-SoDienThoai-alt"></i> @PageInfoService.GetPageInfo().SoDienThoai</span> -
+                            <span class="sdtchinhanh"><i class="fas fa-phone-alt"></i> @PageInfoService.GetPageInfo().Phone</span> -
                             <a href="#" class="js-store-item" data-erp="Ton101" target="_blank" title="@PageInfoService.GetPageInfo().Address">
                                 <i class="fas fa-map-marker-alt"></i>
                                 @PageInfoService.GetPageInfo().Address
@@ -540,7 +540,7 @@
 
 
                     </div>                     <p class="item" id="camketpr">
-                        <i class="fas fa-SoDienThoai-alt"></i> CAM KẾT GIÁ CẠNH TRANH NHẤT, HÃY GỌI @PageInfoService.GetPageInfo().SoDienThoai  
+                        <i class="fas fa-phone-alt"></i> CAM KẾT GIÁ CẠNH TRANH NHẤT, HÃY GỌI @PageInfoService.GetPageInfo().Phone  
                     </p>
 
                 </div>
@@ -551,7 +551,7 @@
                 <p class="group-title"><i class="fas fa-user-headset" style="margin-right:5px"></i> Liên hệ mua hàng</p>
                 <div class="pd-offer-list">
                     <div class="item item-other js-other-offer">
-                        <p style="margin-top: 0"><i class="fas fa-SoDienThoai fa-flip-horizontal"></i> Liên hệ qua số điện thoại/zalo:<b> @PageInfoService.GetPageInfo().SoDienThoai</b> </p>
+                        <p style="margin-top: 0"><i class="fas fa-phone fa-flip-horizontal"></i> Liên hệ qua số điện thoại/zalo:<b> @PageInfoService.GetPageInfo().Phone</b> </p>
                          
                     </div> 
                 </div>
@@ -588,10 +588,10 @@
         </h2>
 
         <div class="static-html-group js-static-container">
-            @if (Model.MoTa != "<p><br></p>" || Model.MoTa!=null)
+            @if (Model.Description != "<p><br></p>" || Model.Description!=null)
             {
                 <div class="content">
-                    @Html.Raw(Model.MoTa)
+                    @Html.Raw(Model.Description)
                 </div>
                 <div class="static-btn-group">
                     <a href="javascript:void(0)" class="js-showmore-button" style="display: block;">Xem thêm </a>
@@ -609,8 +609,8 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1"  VaiTro="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" VaiTro="document">
+<div class="modal fade" id="exampleModal" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h6 class="modal-title" id="exampleModalLabel">Thông số kỹ thuật @Model.ProductName</h6>
@@ -705,7 +705,7 @@
                                         }
                                         else
                                         {
-                                            <span style="color:#0074da"><i class="fas fa-SoDienThoai fa-flip-horizontal"></i> Đặt hàng</span>
+                                            <span style="color:#0074da"><i class="fas fa-phone fa-flip-horizontal"></i> Đặt hàng</span>
                                         }
                                     </div>
                                 </div>
@@ -796,7 +796,7 @@
                                         }
                                         else
                                         {
-                                            <span style="color:#0074da"><i class="fas fa-SoDienThoai fa-flip-horizontal"></i> Đặt hàng</span>
+                                            <span style="color:#0074da"><i class="fas fa-phone fa-flip-horizontal"></i> Đặt hàng</span>
                                         }
                                     </div>
                                 </div>
@@ -855,15 +855,15 @@
                     <div class="carousel-inner">
                         @for (int i = 0; i < productThumbs.Count; i++)
                         {
-                            <div class="carousel-item @(i == 0 ? "KichHoat" : "")">
+                            <div class="carousel-item @(i == 0 ? "active" : "")">
                                 <img src="https://novazone.co/@productThumbs[i].Alias" class="d-block w-100 rounded" alt="Product Image">
                             </div>
                         }
                     </div>
-                    <a class="carousel-control-prev custom-carousel-control" href="#carouselExample" VaiTro="button" data-slide="prev">
+                    <a class="carousel-control-prev custom-carousel-control" href="#carouselExample" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     </a>
-                    <a class="carousel-control-next custom-carousel-control" href="#carouselExample" VaiTro="button" data-slide="next">
+                    <a class="carousel-control-next custom-carousel-control" href="#carouselExample" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -1008,14 +1008,14 @@
             }
             //hien thi them mo ta san pham
 
-            var MoTa = document.getElementById("pd-decs");
+            var description = document.getElementById("pd-decs");
             var expandButton = document.getElementById("expandDescription");
             var collapseButton = document.getElementById("collapseDescription");
 
-            if (MoTa) {
+            if (description) {
                 expandButton.addEventListener("click", function () {
                     // Xóa giới hạn chiều cao, cho phép hiển thị toàn bộ nội dung
-                    MoTa.style.maxHeight = "none";
+                    description.style.maxHeight = "none";
                     // Ẩn nút "Xem thêm"
                     expandButton.style.display = "none";
                     // Hiển thị nút "Thu gọn"
@@ -1024,7 +1024,7 @@
 
                 collapseButton.addEventListener("click", function () {
                     // Giới hạn lại chiều cao để thu gọn phần mô tả
-                    MoTa.style.maxHeight = "800px";
+                    description.style.maxHeight = "800px";
                     // Hiển thị nút "Xem thêm"
                     expandButton.style.display = "block";
                     // Ẩn nút "Thu gọn"

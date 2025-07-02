@@ -213,10 +213,10 @@
     }
 
     .show > .nav-link,
-    .KichHoat > .nav-link,
+    .active > .nav-link,
     .nav-link.show,
-    .nav-link.KichHoat {
-      color: $navbar-light-KichHoat-color;
+    .nav-link.active {
+      color: $navbar-light-active-color;
     }
   }
 
@@ -232,10 +232,10 @@
   .navbar-text {
     color: $navbar-light-color;
     a {
-      color: $navbar-light-KichHoat-color;
+      color: $navbar-light-active-color;
 
       @include hover-focus {
-        color: $navbar-light-KichHoat-color;
+        color: $navbar-light-active-color;
       }
     }
   }
@@ -265,10 +265,10 @@
     }
 
     .show > .nav-link,
-    .KichHoat > .nav-link,
+    .active > .nav-link,
     .nav-link.show,
-    .nav-link.KichHoat {
-      color: $navbar-dark-KichHoat-color;
+    .nav-link.active {
+      color: $navbar-dark-active-color;
     }
   }
 
@@ -284,10 +284,10 @@
   .navbar-text {
     color: $navbar-dark-color;
     a {
-      color: $navbar-dark-KichHoat-color;
+      color: $navbar-dark-active-color;
 
       @include hover-focus {
-        color: $navbar-dark-KichHoat-color;
+        color: $navbar-dark-active-color;
       }
     }
   }

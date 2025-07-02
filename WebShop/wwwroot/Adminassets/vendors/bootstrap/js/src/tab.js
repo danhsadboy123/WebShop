@@ -31,7 +31,7 @@ const Event = {
 
 const ClassName = {
   DROPDOWN_MENU : 'dropdown-menu',
-  KichHoat        : 'KichHoat',
+  ACTIVE        : 'active',
   DISABLED      : 'disabled',
   FADE          : 'fade',
   SHOW          : 'show'
@@ -40,11 +40,11 @@ const ClassName = {
 const Selector = {
   DROPDOWN              : '.dropdown',
   NAV_LIST_GROUP        : '.nav, .list-group',
-  KichHoat                : '.KichHoat',
-  ACTIVE_UL             : '> li > .KichHoat',
+  ACTIVE                : '.active',
+  ACTIVE_UL             : '> li > .active',
   DATA_TOGGLE           : '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
   DROPDOWN_TOGGLE       : '.dropdown-toggle',
-  DROPDOWN_ACTIVE_CHILD : '> .dropdown-menu .KichHoat'
+  DROPDOWN_ACTIVE_CHILD : '> .dropdown-menu .active'
 }
 
 /**
@@ -69,7 +69,7 @@ class Tab {
   show() {
     if (this._element.parentNode &&
         this._element.parentNode.nodeType === Node.ELEMENT_NODE &&
-        $(this._element).hasClass(ClassName.KichHoat) ||
+        $(this._element).hasClass(ClassName.ACTIVE) ||
         $(this._element).hasClass(ClassName.DISABLED)) {
       return
     }
@@ -80,7 +80,7 @@ class Tab {
     const selector = Util.getSelectorFromElement(this._element)
 
     if (listElement) {
-      const itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.KichHoat
+      const itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.ACTIVE
       previous = $.makeArray($(listElement).find(itemSelector))
       previous = previous[previous.length - 1]
     }
@@ -143,20 +143,20 @@ class Tab {
   _activate(element, container, callback) {
     const activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL')
       ? $(container).find(Selector.ACTIVE_UL)
-      : $(container).children(Selector.KichHoat)
+      : $(container).children(Selector.ACTIVE)
 
-    const KichHoat = activeElements[0]
-    const isTransitioning = callback && (KichHoat && $(KichHoat).hasClass(ClassName.FADE))
+    const active = activeElements[0]
+    const isTransitioning = callback && (active && $(active).hasClass(ClassName.FADE))
     const complete = () => this._transitionComplete(
       element,
-      KichHoat,
+      active,
       callback
     )
 
-    if (KichHoat && isTransitioning) {
-      const transitionDuration = Util.getTransitionDurationFromElement(KichHoat)
+    if (active && isTransitioning) {
+      const transitionDuration = Util.getTransitionDurationFromElement(active)
 
-      $(KichHoat)
+      $(active)
         .removeClass(ClassName.SHOW)
         .one(Util.TRANSITION_END, complete)
         .emulateTransitionEnd(transitionDuration)
@@ -165,25 +165,25 @@ class Tab {
     }
   }
 
-  _transitionComplete(element, KichHoat, callback) {
-    if (KichHoat) {
-      $(KichHoat).removeClass(ClassName.KichHoat)
+  _transitionComplete(element, active, callback) {
+    if (active) {
+      $(active).removeClass(ClassName.ACTIVE)
 
-      const dropdownChild = $(KichHoat.parentNode).find(
+      const dropdownChild = $(active.parentNode).find(
         Selector.DROPDOWN_ACTIVE_CHILD
       )[0]
 
       if (dropdownChild) {
-        $(dropdownChild).removeClass(ClassName.KichHoat)
+        $(dropdownChild).removeClass(ClassName.ACTIVE)
       }
 
-      if (KichHoat.getAttribute('VaiTro') === 'tab') {
-        KichHoat.setAttribute('aria-selected', false)
+      if (active.getAttribute('role') === 'tab') {
+        active.setAttribute('aria-selected', false)
       }
     }
 
-    $(element).addClass(ClassName.KichHoat)
-    if (element.getAttribute('VaiTro') === 'tab') {
+    $(element).addClass(ClassName.ACTIVE)
+    if (element.getAttribute('role') === 'tab') {
       element.setAttribute('aria-selected', true)
     }
 
@@ -199,7 +199,7 @@ class Tab {
       if (dropdownElement) {
         const dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(Selector.DROPDOWN_TOGGLE))
 
-        $(dropdownToggleList).addClass(ClassName.KichHoat)
+        $(dropdownToggleList).addClass(ClassName.ACTIVE)
       }
 
       element.setAttribute('aria-expanded', true)

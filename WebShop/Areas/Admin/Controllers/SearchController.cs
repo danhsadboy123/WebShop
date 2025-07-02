@@ -69,7 +69,7 @@ namespace WebShop.Areas.Admin.Controllerst
         }
         public IActionResult FindCategory(string keyword)
         {
-            List<DanhMuc> ls = new List<DanhMuc>();
+            List<Category> ls = new List<Category>();
             if (string.IsNullOrEmpty(keyword) || keyword.Length < 1)
             {
                 ls = _context.Categories.AsNoTracking()
@@ -94,7 +94,7 @@ namespace WebShop.Areas.Admin.Controllerst
         }
         public IActionResult FindBrand(string keyword)
         {
-            List<ThuongHieu> ls = new List<ThuongHieu>();
+            List<Brand> ls = new List<Brand>();
             if (string.IsNullOrEmpty(keyword) || keyword.Length < 1)
             {
                 ls = _context.Brands.AsNoTracking()

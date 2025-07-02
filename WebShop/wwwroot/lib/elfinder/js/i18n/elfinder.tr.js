@@ -486,7 +486,7 @@
 			'add'             : 'Ekle', // from v2.1.41 added 7.8.2018
 			'theme'           : 'Tema', // from v2.1.43 added 19.10.2018
 			'default'         : 'Varsayılan', // from v2.1.43 added 19.10.2018
-			'MoTa'     : 'Açıklama', // from v2.1.43 added 19.10.2018
+			'description'     : 'Açıklama', // from v2.1.43 added 19.10.2018
 			'website'         : 'Websayfası', // from v2.1.43 added 19.10.2018
 			'author'          : 'Yazar', // from v2.1.43 added 19.10.2018
 			'email'           : 'E-mail', // from v2.1.43 added 19.10.2018

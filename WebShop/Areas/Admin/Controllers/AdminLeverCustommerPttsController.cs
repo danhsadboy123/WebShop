@@ -65,7 +65,7 @@ namespace WebShop.Areas.Admin.Controllers
             var value = _context.LeverCustommerPtts.Where(x=>x.NameLever==Namelerver).ToList();
             if (value.Count() == 0)
             {
-                var lever = new CapDoKhachHang();
+                var lever = new LeverCustommerPtt();
                 lever.NameLever = Namelerver;
                 success = "Ok";
                 _context.Add(lever);
@@ -130,7 +130,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameLever")] CapDoKhachHang leverCustommerPtt)
+        public async Task<IActionResult> Create([Bind("Id,NameLever")] LeverCustommerPtt leverCustommerPtt)
         {
             if (ModelState.IsValid)
             {
@@ -162,7 +162,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameLever")] CapDoKhachHang leverCustommerPtt)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameLever")] LeverCustommerPtt leverCustommerPtt)
         {
             if (id != leverCustommerPtt.Id)
             {

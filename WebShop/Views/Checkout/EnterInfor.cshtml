@@ -15,7 +15,7 @@
             <nav class="breadcrumb bg-light mb-30">
                 <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
                 <a class="breadcrumb-item text-dark" href="#">Giỏ hàng</a>
-                <span class="breadcrumb-item KichHoat">Mua hàng</span>
+                <span class="breadcrumb-item active">Mua hàng</span>
             </nav>
         </div>
     </div>
@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>Họ và tên </label>
-                            <input class="form-control" type="text" id="HoTen" placeholder="Nhập họ tên ">
+                            <input class="form-control" type="text" id="Fullname" placeholder="Nhập họ tên ">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>E-mail</label>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Số điện thoại</label>
-                            <input class="form-control" type="text" id="SoDienThoai" placeholder="+123 456 789">
+                            <input class="form-control" type="text" id="Phone" placeholder="+123 456 789">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Thành phố</label>
@@ -288,12 +288,12 @@ else
             var ProvinceId = $('#ProvinceId').val();
             var DistrictId = $('#DistrictId').val();
             var WardId = $('#WardId').val();
-            var HoTen = $('#HoTen').val();
+            var Fullname = $('#Fullname').val();
             var Email = $('#Email').val();
-            var SoDienThoai = $('#SoDienThoai').val();
+            var Phone = $('#Phone').val();
             var Address = $('#Address').val(); // Nếu có trường địa chỉ
 
-            console.log(ProvinceId, DistrictId, WardId, HoTen, Email, SoDienThoai);
+            console.log(ProvinceId, DistrictId, WardId, Fullname, Email, Phone);
 
            
          // Biểu thức chính quy cho email và số điện thoại
@@ -301,14 +301,14 @@ else
             var phoneRegex = /^(0[0-9]{9})$/;
 
 
-            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && HoTen !== "" && emailRegex.test(Email) && phoneRegex.test(SoDienThoai)) {
+            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && Fullname !== "" && emailRegex.test(Email) && phoneRegex.test(Phone)) {
                 $.ajax({
                     url: "/PrintQuotation", // Đường dẫn đến action
                     type: "GET",
                     data: {
                         code: '', // Nếu có mã giảm giá, bạn có thể lấy từ một input
-                        HoTen: HoTen,
-                        SoDienThoai: SoDienThoai,
+                        FullName: Fullname,
+                        Phone: Phone,
                         Email: Email,
                         ProvinceId: ProvinceId,
                         DistrictId: DistrictId,
@@ -318,7 +318,7 @@ else
                     success: function(response) {
                         //console.log(response); 
                         // Tạo URL với các tham số cần thiết
-                        var url = `/PrintQuotation?code=&HoTen=${encodeURIComponent(HoTen)}&SoDienThoai=${encodeURIComponent(SoDienThoai)}&Email=${encodeURIComponent(Email)}&ProvinceId=${ProvinceId}&DistrictId=${DistrictId}&WardId=${WardId}&Address=${encodeURIComponent(Address)}`;
+                        var url = `/PrintQuotation?code=&FullName=${encodeURIComponent(Fullname)}&Phone=${encodeURIComponent(Phone)}&Email=${encodeURIComponent(Email)}&ProvinceId=${ProvinceId}&DistrictId=${DistrictId}&WardId=${WardId}&Address=${encodeURIComponent(Address)}`;
 
                         // Mở URL trong cửa sổ mới
                         window.open(url, '_blank');
@@ -339,16 +339,16 @@ else
             var ProvinceId = $('#ProvinceId').val();
             var DistrictId = $('#DistrictId').val();
             var WardId = $('#WardId').val();
-            var HoTen = $('#HoTen').val();
+            var Fullname = $('#Fullname').val();
             var Email = $('#Email').val();
-            var SoDienThoai = $('#SoDienThoai').val();
+            var Phone = $('#Phone').val();
             var Address = $('#Address').val(); // Nếu có trường địa chỉ
             // Biểu thức chính quy cho email và số điện thoại
             var emailRegex = /^[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             var phoneRegex = /^(0[0-9]{9})$/;
 
             console.log(idPay);
-            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && HoTen !== "" && emailRegex.test(Email) && phoneRegex.test(SoDienThoai)) {
+            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && Fullname !== "" && emailRegex.test(Email) && phoneRegex.test(Phone)) {
                 if (idPay == undefined) {
                     alert('Vui lòng chọn hình thức thanh toán');
                 }
@@ -359,8 +359,8 @@ else
                         Amount: 0,
                         OrderDescription: "Thanh toán VNPAY",
                         Name: "Người dùng thanh toán",
-                        HoTen: HoTen,
-                        SoDienThoai: SoDienThoai,
+                        FullName: Fullname,
+                        Phone: Phone,
                         Email: Email,
                         ProvinceId: ProvinceId,
                         DistrictId: DistrictId,
@@ -389,8 +389,8 @@ else
                         url: "/save-Order",
                         type: "POST",
                         data: {
-                            HoTen: HoTen,
-                            SoDienThoai: SoDienThoai,
+                            FullName: Fullname,
+                            Phone: Phone,
                             Email: Email,
                             ProvinceId: ProvinceId,
                             DistrictId: DistrictId,

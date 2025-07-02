@@ -805,8 +805,8 @@ function bindMouseWheelHandler(element, i) {
       updateScroll(element, 'top', element.scrollTop - (deltaY * i.settings.wheelSpeed));
       updateScroll(element, 'left', element.scrollLeft + (deltaX * i.settings.wheelSpeed));
     } else if (i.scrollbarYActive && !i.scrollbarXActive) {
-      // only vertical scrollbar is KichHoat and useBothWheelAxes option is
-      // KichHoat, so let's scroll vertical bar using both mouse wheel axes
+      // only vertical scrollbar is active and useBothWheelAxes option is
+      // active, so let's scroll vertical bar using both mouse wheel axes
       if (deltaY) {
         updateScroll(element, 'top', element.scrollTop - (deltaY * i.settings.wheelSpeed));
       } else {
@@ -814,7 +814,7 @@ function bindMouseWheelHandler(element, i) {
       }
       shouldPrevent = true;
     } else if (i.scrollbarXActive && !i.scrollbarYActive) {
-      // useBothWheelAxes and only horizontal bar is KichHoat, so use both
+      // useBothWheelAxes and only horizontal bar is active, so use both
       // wheel axes for horizontal bar
       if (deltaX) {
         updateScroll(element, 'left', element.scrollLeft + (deltaX * i.settings.wheelSpeed));
@@ -1419,17 +1419,17 @@ module.exports = function (element) {
   updateCss(element, i);
 
   if (i.scrollbarXActive) {
-    cls.add(element, 'ps-KichHoat-x');
+    cls.add(element, 'ps-active-x');
   } else {
-    cls.remove(element, 'ps-KichHoat-x');
+    cls.remove(element, 'ps-active-x');
     i.scrollbarXWidth = 0;
     i.scrollbarXLeft = 0;
     updateScroll(element, 'left', 0);
   }
   if (i.scrollbarYActive) {
-    cls.add(element, 'ps-KichHoat-y');
+    cls.add(element, 'ps-active-y');
   } else {
-    cls.remove(element, 'ps-KichHoat-y');
+    cls.remove(element, 'ps-active-y');
     i.scrollbarYHeight = 0;
     i.scrollbarYTop = 0;
     updateScroll(element, 'top', 0);

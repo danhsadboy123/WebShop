@@ -1,4 +1,4 @@
-﻿@model List<ThuongHieu>
+﻿@model List<Brand>
 @if (Model != null)
 {
     foreach (var item in Model)
@@ -8,7 +8,7 @@
 
             <td>@item.BrandName</td>
 
-            <td>@item.MoTa</td>
+            <td>@item.Description</td>
             <td>
                 <a class="btn btn-secondary btn-tone m-r-5" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" asp-controller="AdminBrands" asp-action="Edit" asp-route-id="@item.BrandId" asp-route-page="@ViewBag.CurrentPage">
                     <i class="anticon anticon-edit"></i>

@@ -1,4 +1,4 @@
-﻿@model WebShop.Models.EmailTiepThi
+﻿@model WebShop.Models.EmailMaketting
 
 @{
     ViewData["Title"] = "Details";
@@ -26,10 +26,10 @@
         </dd>
         
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NgayTao)
+            @Html.DisplayNameFor(model => model.CreateDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NgayTao)
+            @Html.DisplayFor(model => model.CreateDate)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CustomDate)
@@ -41,7 +41,7 @@
             @Html.DisplayNameFor(model => model.Acount)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Acount.MaTaiKhoan)
+            @Html.DisplayFor(model => model.Acount.AccountId)
         </dd>
     </dl>
 </div>

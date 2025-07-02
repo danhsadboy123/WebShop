@@ -35,7 +35,7 @@ namespace WebShop.Controllers
             try
             {
                 var taikhoanID = HttpContext.Session.GetString("CustomerId");
-                if (string.IsNullOrEmpty(taikhoanID)) return RedirectToAction("Login", "TaiKhoans");
+                if (string.IsNullOrEmpty(taikhoanID)) return RedirectToAction("Login", "Accounts");
                 var khachhang = _context.Customers.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID));
 
                 if (khachhang == null) return NotFound();

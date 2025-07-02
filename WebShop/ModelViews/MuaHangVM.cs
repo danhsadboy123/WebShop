@@ -7,47 +7,45 @@ namespace WebShop.ModelViews
 {
     public class MuaHangVM
     {
-        public int maDonHang { get; set; }
+        public int orderId { get; set; }
 
-        public int maKhachHang { get; set; }
-        public int maKhachVangLai { get; set; }
+        public int CustomerId { get; set; }
+        public int GuestId { get; set; }
 
-        public bool daDangNhap { get; set; }
+        public bool IsLoggedIn { get; set; }
 
-        [Required(ErrorMessage = "*Vui long nhap Ho va Ten")]
-        [RegularExpression(@"^[\p{L}\s]+$", ErrorMessage = "Ten nguoi nhan khong hop le")]
-        public string HoTen { get; set; }
-
-        [Required(ErrorMessage = "*Vui long nhap email")]
-        [EmailAddress(ErrorMessage = "*Dia chi email khong hop le")]
+        [Required(ErrorMessage = "*Vui lòng nhập Họ và Tên")]
+        [RegularExpression(@"^[\p{L}\s]+$", ErrorMessage = "Tên người nhận không hợp lệ")]
+        public string FullName { get; set; }
+        [Required(ErrorMessage = "*Vui lòng nhập email")]
+        [EmailAddress(ErrorMessage = "*Địa chỉ email không hợp lệ")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "*Vui lòng nhập số điện thoại")]
+        [Phone(ErrorMessage = "Số điện thoại không hợp lệ")]
+        public string Phone { get; set; }
 
-        [Required(ErrorMessage = "*Vui long nhap so dien thoai")]
-        [RegularExpression(@"^(0[3|5|7|8|9])[0-9]{8}$", ErrorMessage = "So dien thoai khong hop le")]
-        public string SoDienThoai { get; set; }
+        public List<AccountAddress> Addresses { get; set; }
 
-        public List<DiaChiTaiKhoan> danhSachDiaChi { get; set; }
+        [Required(ErrorMessage = "*Vui lòng nhập địa chỉ nhận hàng")]
+        public string Address { get; set; }
 
-        [Required(ErrorMessage = "*Vui long nhap dia chi nhan hang")]
-        public string diaChi { get; set; }
+        [Required(ErrorMessage = "*Vui lòng chọn Tỉnh/Thành")]
+        public int TinhThanh { get; set; }
 
-        [Required(ErrorMessage = "*Vui long chon Tinh/Thanh")]
-        public int tinhThanh { get; set; }
+        [Required(ErrorMessage = "*Vui lòng chọn Quận/Huyện")]
+        public int QuanHuyen { get; set; }
 
-        [Required(ErrorMessage = "*Vui long chon Quan/Huyen")]
-        public int quanHuyen { get; set; }
+        [Required(ErrorMessage = "*Vui lòng chọn Phường/Xã")]
+        public int PhuongXa { get; set; }
 
-        [Required(ErrorMessage = "*Vui long chon Phuong/Xa")]
-        public int phuongXa { get; set; }
+        public int PaymentID { get; set; }
 
-        public int maPhuongThucThanhToan { get; set; }
-
-        public string tenCongTy { get; set; }
-        public string maSoCongTy { get; set; }
-        public string diaChiCongTy { get; set; }
-        public string ghiChu { get; set; }
-        public bool kiemTraEmail { get; set; }
-        public string maCode { get; set; }
-        public string ghiChuThanhToan { get; set; }
+        public string Companyname { get; set; }
+        public string NumberCom { get; set; }
+        public string AddressCom { get; set; }
+        public string Note { get; set; }
+        public bool CheckEmail { get; set; }
+        public string Code { get; set; }
+        public string NotePay { get; set; }         
     }
 }

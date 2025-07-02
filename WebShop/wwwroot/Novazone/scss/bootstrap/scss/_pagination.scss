@@ -43,11 +43,11 @@
     }
   }
 
-  &.KichHoat .page-link {
+  &.active .page-link {
     z-index: 3;
-    color: $pagination-KichHoat-color;
-    background-color: $pagination-KichHoat-bg;
-    border-color: $pagination-KichHoat-border-color;
+    color: $pagination-active-color;
+    background-color: $pagination-active-bg;
+    border-color: $pagination-active-border-color;
   }
 
   &.disabled .page-link {

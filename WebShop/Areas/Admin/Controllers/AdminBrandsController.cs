@@ -66,7 +66,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BrandId,BrandName,MoTa")] ThuongHieu brand)
+        public async Task<IActionResult> Create([Bind("BrandId,BrandName,Description")] Brand brand)
         {
             if (ModelState.IsValid)
             {               
@@ -80,13 +80,13 @@ namespace WebShop.Areas.Admin.Controllers
                 foreach (var value in categoryBrands)
                 {
                     //Thêm bảng ghi mới
-                    var newcategoryBrand = new DanhMucThuongHieu
+                    var newcategoryBrand = new CategoryBrand
                     {
                         BrandId = brand.BrandId,
                         CatId = Convert.ToInt32(value),
                         Name = brand.BrandName,
-                        MoTa = brand.MoTa,
-                        KichHoat = true
+                        Description = brand.Description,
+                        Active = true
                     };
                     _context.CategoryBrands.Add(newcategoryBrand);
                     await _context.SaveChangesAsync();
@@ -129,7 +129,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, int curPage, [Bind("BrandId,BrandName,MoTa,Thumb")] ThuongHieu brand)
+        public async Task<IActionResult> Edit(int id, int curPage, [Bind("BrandId,BrandName,Description,Thumb")] Brand brand)
         {
             var currentPage = curPage;
 
@@ -153,15 +153,15 @@ namespace WebShop.Areas.Admin.Controllers
                     foreach (var value in cats)
                     {
                         //Thêm bảng ghi mới
-                        var newcategoryBrand = new DanhMucThuongHieu
+                        var newcategoryBrand = new CategoryBrand
                         {
                             BrandId = brand.BrandId,
                             CatId = Convert.ToInt32(value),
                             Name = brand.BrandName,
-                            MoTa = brand.MoTa,
+                            Description = brand.Description,
                             BrandProduct = true,
                             Topbrand=true,
-                            KichHoat = true
+                            Active = true
                         };
                         _context.CategoryBrands.Add(newcategoryBrand);
                         await _context.SaveChangesAsync();                        
@@ -186,7 +186,7 @@ namespace WebShop.Areas.Admin.Controllers
             return View(brand);
         }
 
-        public IActionResult Editbrandcate(int id, [Bind("BrandId,BrandName,MoTa,Thumb")] ThuongHieu brand,int[] cate)
+        public IActionResult Editbrandcate(int id, [Bind("BrandId,BrandName,Description,Thumb")] Brand brand,int[] cate)
         {
             return Json("ok");
         }

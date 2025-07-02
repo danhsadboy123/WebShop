@@ -6,7 +6,7 @@
     background-color: $white;
     border: 1px solid $list-border-color;
 
-    &.KichHoat {
+    &.active {
         color: $brand-primary;
         background-color: rgba($brand-primary, 0.1);
         border-color: rgba($brand-primary, 0.1);
@@ -30,14 +30,14 @@
 
 .list-group-item-action {
 
-    &:not(.KichHoat) {
+    &:not(.active) {
         &:hover,
         &:focus {
             color: $gray-dark;
             background-color: $select-hover-color;
         }
 
-        &:KichHoat {
+        &:active {
             background-color: darken($select-hover-color, 5%);
         }
     }

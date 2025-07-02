@@ -6,11 +6,11 @@ overflow: hidden !important;
 @supports (-ms-overflow-style: none) {
     .ps-container {
     overflow: auto !important; } }
-@media screen and (-ms-high-contrast: KichHoat), (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .ps-container {
     overflow: auto !important; } }
-.ps-container.ps-KichHoat-x > .ps-scrollbar-x-rail,
-.ps-container.ps-KichHoat-y > .ps-scrollbar-y-rail {
+.ps-container.ps-active-x > .ps-scrollbar-x-rail,
+.ps-container.ps-active-y > .ps-scrollbar-y-rail {
     display: block;
     background-color: transparent; }
 .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
@@ -53,7 +53,7 @@ overflow: hidden !important;
     bottom: 2px;
     /* there must be 'bottom' for ps-scrollbar-x */
     height: 6px; }
-    .ps-container > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x, .ps-container > .ps-scrollbar-x-rail:KichHoat > .ps-scrollbar-x {
+    .ps-container > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x, .ps-container > .ps-scrollbar-x-rail:active > .ps-scrollbar-x {
     height: 11px; }
 .ps-container > .ps-scrollbar-y-rail {
     display: none;
@@ -83,7 +83,7 @@ overflow: hidden !important;
     right: 2px;
     /* there must be 'right' for ps-scrollbar-y */
     width: 6px; }
-    .ps-container > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y, .ps-container > .ps-scrollbar-y-rail:KichHoat > .ps-scrollbar-y {
+    .ps-container > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y, .ps-container > .ps-scrollbar-y-rail:active > .ps-scrollbar-y {
     width: 11px; }
 .ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
     background-color: #eee;

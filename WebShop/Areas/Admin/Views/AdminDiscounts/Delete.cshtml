@@ -1,5 +1,5 @@
 ﻿
-@model WebShop.Models.KhuyenMai
+@model WebShop.Models.Discount
 @using Microsoft.AspNetCore.Html;
 @using System.Formats;
 
@@ -8,7 +8,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
     var product = ViewBag.product;
     var customer = ViewBag.customer;
-    List<ThuocTinhQuaTang> Gift = ViewBag.Gift;
+    List<GitAttribute> Gift = ViewBag.Gift;
 
 }
 @section Styles{
@@ -46,9 +46,9 @@
                         <div class="omni-layout-card card-default">
                             <div class="omni-layout-card--section">
                                 <div><label>Mô tả</label>
-                                    @if (Model.MoTa != null)
+                                    @if (Model.Description != null)
                                     {
-                                        @(new HtmlString(Model.MoTa.ToString()))
+                                        @(new HtmlString(Model.Description.ToString()))
                                         
                                     }
                                 </div>
@@ -253,7 +253,7 @@
                                             <div class="timeline-body">
                                                 <div class="timeline__message-container">
                                                     <div class="timeline__inner-message">
-                                                        <p class="mb-2">@item.MoTa   | <span>@item.TimeCreate</span></p>
+                                                        <p class="mb-2">@item.Description   | <span>@item.TimeCreate</span></p>
                                                     </div>
                                                 </div>
 
@@ -329,7 +329,7 @@
                                         if (check == 0)
                                         {
                                              
-                                            <span class="mt-2"> @item.MoTa vào @item.TimeCreate</span>
+                                            <span class="mt-2"> @item.Description vào @item.TimeCreate</span>
                                         }
                                         check=1; 
                                     }

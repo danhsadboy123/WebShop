@@ -55,7 +55,7 @@
 				@include transition(all 0.4s ease-in-out); 
 			}
 
-			&.KichHoat {
+			&.active {
 				&:after {
 					background: $default-white; 
 					border: 3px solid $default-success;
@@ -95,7 +95,7 @@
 	&.wizard-primary {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						border: 3px solid $default-primary;
 					}
@@ -121,7 +121,7 @@
 	&.wizard-info {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						border: 3px solid $default-info;
 					}
@@ -147,7 +147,7 @@
 	&.wizard-warning {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						border: 3px solid $default-warning;
 					}
@@ -173,7 +173,7 @@
 	&.wizard-danger {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						border: 3px solid $default-danger;
 					}
@@ -199,7 +199,7 @@
 	&.wizard-gradient-primary {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						background: $default-white; 
 						border: 3px solid $gradient-primary-base-right;
@@ -226,7 +226,7 @@
 	&.wizard-gradient-primary {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						background: $default-white; 
 						border: 3px solid $gradient-primary-base-right;
@@ -253,7 +253,7 @@
 	&.wizard-gradient-success {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						background: $default-white; 
 						border: 3px solid $gradient-success-base-right;
@@ -280,7 +280,7 @@
 	&.wizard-gradient-info {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						background: $default-white; 
 						border: 3px solid $gradient-info-base-right;
@@ -307,7 +307,7 @@
 	&.wizard-gradient-warning {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						background: $default-white; 
 						border: 3px solid $gradient-warning-base-right;
@@ -334,7 +334,7 @@
 	&.wizard-gradient-danger {
 		.nav-item {
 			> .nav-link {
-				&.KichHoat {
+				&.active {
 					&:after {
 						background: $default-white; 
 						border: 3px solid $gradient-danger-base-right;

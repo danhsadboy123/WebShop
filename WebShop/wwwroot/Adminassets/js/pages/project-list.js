@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("class ProjectList {\r\n\r\n    static init() {\r\n\r\n        $('#list-view-btn').on('click', (e) => {\r\n            $('#list-view').removeClass('d-none');\r\n            $('#card-view').addClass('d-none')\r\n            $(e.currentTarget).addClass('KichHoat');\r\n            $('#card-view-btn').removeClass('KichHoat');\r\n        })\r\n\r\n        $('#card-view-btn').on('click', (e) => {\r\n            $('#card-view').removeClass('d-none');\r\n            $('#list-view').addClass('d-none');\r\n            $(e.currentTarget).addClass('KichHoat');\r\n            $('#list-view-btn').removeClass('KichHoat');\r\n        })\r\n    }\r\n}\r\n\r\n$(() => { ProjectList.init(); });\r\n\r\n\n\n//# sourceURL=webpack:///./app/assets/es6/pages/project-list.js?");
+eval("class ProjectList {\r\n\r\n    static init() {\r\n\r\n        $('#list-view-btn').on('click', (e) => {\r\n            $('#list-view').removeClass('d-none');\r\n            $('#card-view').addClass('d-none')\r\n            $(e.currentTarget).addClass('active');\r\n            $('#card-view-btn').removeClass('active');\r\n        })\r\n\r\n        $('#card-view-btn').on('click', (e) => {\r\n            $('#card-view').removeClass('d-none');\r\n            $('#list-view').addClass('d-none');\r\n            $(e.currentTarget).addClass('active');\r\n            $('#list-view-btn').removeClass('active');\r\n        })\r\n    }\r\n}\r\n\r\n$(() => { ProjectList.init(); });\r\n\r\n\n\n//# sourceURL=webpack:///./app/assets/es6/pages/project-list.js?");
 
 /***/ }),
 

@@ -376,7 +376,7 @@
 			'host'                : 'Host', // added 18.04.2012
 			'port'                : 'Porta', // added 18.04.2012
 			'user'                : 'Utente', // added 18.04.2012
-			'pass'                : 'MatKhau', // added 18.04.2012
+			'pass'                : 'Password', // added 18.04.2012
 			'confirmUnmount'      : 'Vuoi smontare $1?',  // from v2.1 added 30.04.2012
 			'dropFilesBrowser': 'Rilascia o incolla dal browser', // from v2.1 added 30.05.2012
 			'dropPasteFiles'  : 'Rilascia o incolla files e indirizzi URL qui', // from v2.1 added 07.04.2014

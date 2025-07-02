@@ -1,9 +1,9 @@
-﻿@model WebShop.Models.KhachHang
+﻿@model WebShop.Models.Customer
 
 @{
     ViewData["Title"] = "Thông tin khách hàng";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    List<DonHang> lsOrders = ViewBag.lsOrders;
+    List<Order> lsOrders = ViewBag.lsOrders;
 }
 @section Styles{
     <style>
@@ -39,7 +39,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Khách hàng</a>
-            <span class="breadcrumb-item KichHoat">@Model.HoTen</span>
+            <span class="breadcrumb-item active">@Model.FullName</span>
         </nav>
     </div>
 </div>
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="text-center text-sm-left m-v-15 p-l-30 w-100">
-                                <h2 class="m-b-5">@Model.HoTen</h2>
+                                <h2 class="m-b-5">@Model.FullName</h2>
                                 <div class="col">
                                     <ul class="list-unstyled m-t-10">
                                         <li class="row">
@@ -76,10 +76,10 @@
                                         </li>
                                         <li class="row">
                                             <p class="col-sm-4 col-4 font-weight-semibold text-dark m-b-5">
-                                                <i class="m-r-10 text-primary anticon anticon-SoDienThoai"></i>
+                                                <i class="m-r-10 text-primary anticon anticon-phone"></i>
                                                 <span>Số điện thoại: </span>
                                             </p>
-                                            <p class="col font-weight-semibold"> @Model.SoDienThoai</p>
+                                            <p class="col font-weight-semibold"> @Model.Phone</p>
                                         </li>
                                        
                                         <li class="row">
@@ -280,7 +280,7 @@
     </div>
 </div>
 
-<div id="modal-header" class="modal fade" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="modal-header" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         </div>

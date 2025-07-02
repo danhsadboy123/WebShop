@@ -1,9 +1,9 @@
 ﻿@inject WebShop.Services.IPageInfoService PageInfoService;
 @{
 
-    // List<WebShop.Models.Category> lsCat = ViewBag.lsCat;
-    // ViewData["Title"] = @PageInfoService.GetPageInfo().Title;
-    // ViewData["MoTa"] = @PageInfoService.GetPageInfo().MetaDesc;
+    List<WebShop.Models.Category> lsCat = ViewBag.lsCat;
+    ViewData["Title"] = "Trang Chủ";
+    // ViewData["Description"] = @PageInfoService.GetPageInfo().MetaDesc;
     // ViewData["Keywords"] = @PageInfoService.GetPageInfo().MetaKey;
  
     // ViewData["OGimage"] = PageInfoService.GetPageInfo().Domain + "Adminassets/images/logo/" + PageInfoService.GetPageInfo().OgImage;
@@ -11,7 +11,7 @@
 } 
 @section Styles{
     <style>
-        .owl-item KichHoat {
+        .owl-item active {
             width: 200px !important;
             margin-right: 29px !important;
         } 
@@ -42,7 +42,7 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
-                <h1 class="fas fa-SoDienThoai-volume text-primary m-0 mr-3"></h1>
+                <h1 class="fas fa-phone-volume text-primary m-0 mr-3"></h1>
                 <h5 class="font-weight-semi-bold m-0">Hỗ trợ 24/7 </h5>
             </div>
         </div>
@@ -53,7 +53,7 @@
 <div class="container-fluid pt-2">
     <h2 class="section-title position-relative mx-xl-5 mb-4"><span class="  pr-3" style="background-color:#F0F1FB">Công nghệ toàn cầu</span></h2>
     <div class="row px-xl-5  ">
-@*         @foreach (var item in lsCat)
+        @foreach (var item in lsCat)
         {
             <div class="col-lg-3 col-md-4 col-sm-6  p-1">
                 <a class="text-decoration-none click-cate" href="/@item.Alias">
@@ -68,7 +68,7 @@
                 </a>
             </div>
         }
-    </div> *@
+    </div>
 </div>
 <!-- Categories End -->
 <!-- Products Start -->
@@ -156,7 +156,7 @@
                                     }
                                     else
                                     {
-                                        <span style="color:#0074da"><i class="fas fa-SoDienThoai fa-flip-horizontal"></i> Đặt hàng</span>
+                                        <span style="color:#0074da"><i class="fas fa-phone fa-flip-horizontal"></i> Đặt hàng</span>
                                     } 
                                 </div>
                             </div>
@@ -189,7 +189,7 @@
                 <div class="product-offer mb-30" style="height: 300px;">
                     <img class="img-fluid" src="~/@item.Image" alt="@item.Image" loading="lazy">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">@item.MoTa</h6>
+                        <h6 class="text-white text-uppercase">@item.Description</h6>
                         <h3 class="text-white mb-3">@item.Name</h3>
                         <!-- Sử dụng HashedId thay vì Id trong URL -->
                         <a href="/gian-hang-khuyen-mai/@item.Id" class="btn btn-primary">Xem ngay</a>

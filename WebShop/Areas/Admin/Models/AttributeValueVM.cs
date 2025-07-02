@@ -6,7 +6,7 @@ namespace WebShop.Areas.Admin.Models
 {
     public class AttributeValueVM
     {
-        public WebShop.Models.ThuocTinh Attribute { get; set; }
-        public List<GiaThuocTinh> AttributePrices { get; set; }
+        public WebShop.Models.Attribute Attribute { get; set; }
+        public List<AttributesPrice> AttributePrices { get; set; }
     }
 }

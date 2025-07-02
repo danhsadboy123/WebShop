@@ -80,7 +80,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PostId,Title,TitleEn,Scontents,ScontentsEn,Contents,ContentsEn,Thumb,Published,Alias,Alias_EN,CreatedDate,Author,MaTaiKhoan,Tags,PostCatId,IsHot,IsNewfeed,TitleSeo,TitleSeoEn,MetaKey,MetaKeyEn,MetaDesc,MetaDescEn,Views")] Post post, Microsoft.AspNetCore.Http.IFormFile fThumb)
+        public async Task<IActionResult> Create([Bind("PostId,Title,TitleEn,Scontents,ScontentsEn,Contents,ContentsEn,Thumb,Published,Alias,Alias_EN,CreatedDate,Author,AccountId,Tags,PostCatId,IsHot,IsNewfeed,TitleSeo,TitleSeoEn,MetaKey,MetaKeyEn,MetaDesc,MetaDescEn,Views")] Post post, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (ModelState.IsValid)
             {
@@ -126,7 +126,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,TitleEn,Scontents,ScontentsEn,Contents,ContentsEn,Thumb,Published,Alias,Alias_EN,CreatedDate,Author,MaTaiKhoan,Tags,PostCatId,IsHot,IsNewfeed,TitleSeo,TitleSeoEn,MetaKey,MetaKeyEn,MetaDesc,MetaDescEn,Views")] Post post, Microsoft.AspNetCore.Http.IFormFile fThumb)
+        public async Task<IActionResult> Edit(int id, [Bind("PostId,Title,TitleEn,Scontents,ScontentsEn,Contents,ContentsEn,Thumb,Published,Alias,Alias_EN,CreatedDate,Author,AccountId,Tags,PostCatId,IsHot,IsNewfeed,TitleSeo,TitleSeoEn,MetaKey,MetaKeyEn,MetaDesc,MetaDescEn,Views")] Post post, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (id != post.PostId)
             {

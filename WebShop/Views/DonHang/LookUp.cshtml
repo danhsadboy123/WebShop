@@ -24,7 +24,7 @@
                 margin: 0 10px;
             }
 
-                .custom-tabs .tab-item.KichHoat {
+                .custom-tabs .tab-item.active {
                     color: #007bff;
                     font-weight: 600;
                 }
@@ -69,7 +69,7 @@
         <div class="col-12">
             <nav class="breadcrumb bg-light mb-30">
                 <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
-                <span class="breadcrumb-item KichHoat">Tra cứu</span>
+                <span class="breadcrumb-item active">Tra cứu</span>
             </nav>
         </div>
     </div>
@@ -86,7 +86,7 @@
         <!-- Custom Tabs -->
         <div class="col-12">
             <div class="custom-tabs">
-                <div class="tab-item KichHoat" data-tab="track-order">Tra cứu đơn hàng</div>
+                <div class="tab-item active" data-tab="track-order">Tra cứu đơn hàng</div>
                 <div class="tab-item" data-tab="delivery-policy">Chính sách giao hàng</div>
                 <div class="tab-item" data-tab="delivery-process">Quy trình giao hàng</div>
                 <div class="tab-item" data-tab="how-to-track">Cách thức tra cứu</div>
@@ -140,17 +140,17 @@
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', function () {
-                    // Remove KichHoat state from all tabs
-                    tabs.forEach(t => t.classList.remove('KichHoat'));
+                    // Remove active state from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
                     // Hide all panes
                     panes.forEach(pane => pane.style.display = 'none');
 
-                    // Add KichHoat state to clicked tab
-                    tab.classList.add('KichHoat');
+                    // Add active state to clicked tab
+                    tab.classList.add('active');
                     // Show the corresponding pane
                     document.getElementById(tab.dataset.tab).style.display = 'block';
 
-                    // Move underline to KichHoat tab
+                    // Move underline to active tab
                     underline.style.width = tab.offsetWidth + 'px';
                     underline.style.left = tab.offsetLeft + 'px';
                 });

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebShop.Models.NhaCungCapKhachHang>
+﻿@model IEnumerable<WebShop.Models.CustomerSupplier>
 
 @{
     ViewData["Title"] = "Index";
@@ -24,7 +24,7 @@
                 @Html.DisplayNameFor(model => model.Company)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SoDienThoai)
+                @Html.DisplayNameFor(model => model.Phone)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
@@ -54,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Company)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SoDienThoai)
+                @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)

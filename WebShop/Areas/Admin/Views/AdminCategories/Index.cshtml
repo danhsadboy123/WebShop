@@ -1,4 +1,4 @@
-@model IEnumerable<WebShop.Models.DanhMuc>
+@model IEnumerable<WebShop.Models.Category>
 @{
 
     ViewData["Title"] = "Danh sách danh mục sản phẩm";
@@ -24,7 +24,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <span class="breadcrumb-item KichHoat">Quản lý danh mục</span>
+            <span class="breadcrumb-item active">Quản lý danh mục</span>
         </nav>
     </div>
 </div>
@@ -113,7 +113,7 @@
         </div>
     </div>
 </div>
-<div id="delete-pd-md" class="modal fade" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="delete-pd-md" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <input type="hidden" class="idCate" />
         <div class="modal-content">

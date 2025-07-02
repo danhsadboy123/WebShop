@@ -133,7 +133,7 @@
 .ui-button:link,
 .ui-button:visited,
 .ui-button:hover,
-.ui-button:KichHoat {
+.ui-button:active {
 	text-decoration: none;
 }
 /* to make room for the icon, a width needs to be set here */
@@ -478,7 +478,7 @@ button.ui-button::-moz-focus-inner {
 	border-width: 1px 0 0 0;
 }
 .ui-menu .ui-state-focus,
-.ui-menu .ui-state-KichHoat {
+.ui-menu .ui-state-active {
 	margin: -1px;
 }
 
@@ -797,16 +797,16 @@ button.ui-button::-moz-focus-inner {
 	padding: .5em 1em;
 	text-decoration: none;
 }
-.ui-tabs .ui-tabs-nav li.ui-tabs-KichHoat {
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
 	margin-bottom: -1px;
 	padding-bottom: 1px;
 }
-.ui-tabs .ui-tabs-nav li.ui-tabs-KichHoat .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
 .ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
 .ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
 	cursor: text;
 }
-.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-KichHoat .ui-tabs-anchor {
+.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
 	cursor: pointer;
 }
 .ui-tabs .ui-tabs-panel {
@@ -899,17 +899,17 @@ body .ui-tooltip {
 	color: #c77405;
 	text-decoration: none;
 }
-.ui-state-KichHoat,
-.ui-widget-content .ui-state-KichHoat,
-.ui-widget-header .ui-state-KichHoat {
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
 	border: 1px solid #fbd850;
 	background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
 	font-weight: bold;
 	color: #eb8f00;
 }
-.ui-state-KichHoat a,
-.ui-state-KichHoat a:link,
-.ui-state-KichHoat a:visited {
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
 	color: #eb8f00;
 	text-decoration: none;
 }
@@ -990,7 +990,7 @@ body .ui-tooltip {
 .ui-state-focus .ui-icon {
 	background-image: url("images/ui-icons_ef8c08_256x240.png");
 }
-.ui-state-KichHoat .ui-icon {
+.ui-state-active .ui-icon {
 	background-image: url("images/ui-icons_ef8c08_256x240.png");
 }
 .ui-state-highlight .ui-icon {

@@ -22,6 +22,57 @@ namespace WebShop.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("WebShop.Models.Account", b =>
+                {
+                    b.Property<int>("AccountId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("AccountID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountId"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("FullName")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<DateTime?>("LastLogin")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Password")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(12)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(12)");
+
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int")
+                        .HasColumnName("RoleID");
+
+                    b.Property<string>("Salt")
+                        .HasMaxLength(10)
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength();
+
+                    b.HasKey("AccountId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Accounts");
+                });
+
             modelBuilder.Entity("WebShop.Models.AccountAddress", b =>
                 {
                     b.Property<int>("AddressId")
@@ -50,13 +101,13 @@ namespace WebShop.Migrations
                     b.Property<bool?>("IsDefault")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Phone")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
                     b.Property<int?>("ProvinceId")
                         .HasColumnType("int")
                         .HasColumnName("ProvinceID");
-
-                    b.Property<string>("SoDienThoai")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(20)
@@ -91,7 +142,7 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AttributeId"));
 
-                    b.Property<bool>("KichHoat")
+                    b.Property<bool>("Active")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -142,12 +193,12 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AttributesPriceId"));
 
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("AttributeId")
                         .HasColumnType("int")
                         .HasColumnName("AttributeID");
-
-                    b.Property<bool>("KichHoat")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
@@ -207,7 +258,7 @@ namespace WebShop.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("MoTa")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Thumb")
@@ -232,7 +283,7 @@ namespace WebShop.Migrations
                     b.Property<int?>("CatId")
                         .HasColumnType("int");
 
-                    b.Property<string>("MoTa")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -258,17 +309,17 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CardTemplateId"));
 
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime");
+
                     b.Property<DateTime?>("DateModified")
                         .HasColumnType("datetime");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("HtmlContent")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MoTa")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("NgayTao")
-                        .HasColumnType("datetime");
 
                     b.Property<string>("Title")
                         .HasMaxLength(50)
@@ -314,6 +365,9 @@ namespace WebShop.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DescriptionEn")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Description_EN");
@@ -341,9 +395,6 @@ namespace WebShop.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)")
                         .HasColumnName("MetaKey_EN");
-
-                    b.Property<string>("MoTa")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameBrand")
                         .HasColumnType("nvarchar(max)");
@@ -396,6 +447,9 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryAttributeId"));
 
+                    b.Property<bool?>("Active")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("AttributeId")
                         .HasColumnType("int")
                         .HasColumnName("AttributeID");
@@ -403,9 +457,6 @@ namespace WebShop.Migrations
                     b.Property<int?>("CatId")
                         .HasColumnType("int")
                         .HasColumnName("CatID");
-
-                    b.Property<bool?>("KichHoat")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasMaxLength(50)
@@ -435,6 +486,9 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryBrandId"));
 
+                    b.Property<bool?>("Active")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("BrandId")
                         .HasColumnType("int")
                         .HasColumnName("BrandID");
@@ -446,10 +500,7 @@ namespace WebShop.Migrations
                         .HasColumnType("int")
                         .HasColumnName("CatID");
 
-                    b.Property<bool?>("KichHoat")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MoTa")
+                    b.Property<string>("Description")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -478,7 +529,7 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodStatusId"));
 
-                    b.Property<string>("MoTa")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
@@ -500,6 +551,9 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
 
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Avatar")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
@@ -510,43 +564,40 @@ namespace WebShop.Migrations
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime");
+
                     b.Property<string>("Email")
                         .HasMaxLength(150)
                         .HasColumnType("nchar(150)")
                         .IsFixedLength();
 
-                    b.Property<bool?>("Gender")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("HoTen")
+                    b.Property<string>("FullName")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<bool>("KichHoat")
+                    b.Property<bool?>("Gender")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("LanDangNhapCuoi")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("MatKhau")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("NgayTao")
+                    b.Property<DateTime?>("LastLogin")
                         .HasColumnType("datetime");
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Password")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(12)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(12)");
+
                     b.Property<string>("Salt")
                         .HasMaxLength(8)
                         .HasColumnType("nchar(8)")
                         .IsFixedLength();
-
-                    b.Property<string>("SoDienThoai")
-                        .HasMaxLength(12)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(12)");
 
                     b.HasKey("CustomerId");
 
@@ -564,6 +615,9 @@ namespace WebShop.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -571,9 +625,6 @@ namespace WebShop.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nchar(10)")
                         .IsFixedLength();
-
-                    b.Property<string>("MoTa")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("YearOff")
                         .HasMaxLength(10)
@@ -616,7 +667,7 @@ namespace WebShop.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("SoDienThoai")
+                    b.Property<int?>("Phone")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -637,13 +688,13 @@ namespace WebShop.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Link")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MoTa")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("YearOff")
@@ -684,7 +735,7 @@ namespace WebShop.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SoDienThoai")
+                    b.Property<int?>("Phone")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("YearAdd")
@@ -704,7 +755,7 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeliveryStatusId"));
 
-                    b.Property<string>("MoTa")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
@@ -734,6 +785,9 @@ namespace WebShop.Migrations
                     b.Property<bool>("ConditionCheck")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("Discount1")
                         .HasColumnType("int")
                         .HasColumnName("Discount");
@@ -746,9 +800,6 @@ namespace WebShop.Migrations
 
                     b.Property<int?>("MaxApply")
                         .HasColumnType("int");
-
-                    b.Property<string>("MoTa")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Money")
                         .HasColumnType("int");
@@ -896,11 +947,17 @@ namespace WebShop.Migrations
                         .HasColumnType("int")
                         .HasColumnName("AcountID");
 
+                    b.Property<int?>("Active")
+                        .HasColumnType("int");
+
                     b.Property<string>("Body")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContentName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime");
 
                     b.Property<DateTime?>("CustomDate")
                         .HasColumnType("datetime");
@@ -913,12 +970,6 @@ namespace WebShop.Migrations
 
                     b.Property<int?>("Input")
                         .HasColumnType("int");
-
-                    b.Property<int?>("KichHoat")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("NgayTao")
-                        .HasColumnType("datetime");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -1003,19 +1054,19 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GuestId"));
 
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime");
+
                     b.Property<string>("Email")
                         .HasMaxLength(150)
                         .HasColumnType("nchar(150)")
                         .IsFixedLength();
 
-                    b.Property<string>("HoTen")
+                    b.Property<string>("FullName")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<DateTime?>("NgayTao")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("SoDienThoai")
+                    b.Property<string>("Phone")
                         .HasMaxLength(12)
                         .IsUnicode(false)
                         .HasColumnType("varchar(12)");
@@ -1033,11 +1084,11 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("DiscountId")
                         .HasColumnType("int");
-
-                    b.Property<string>("MoTa")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("TimeCreate")
                         .HasColumnType("datetime");
@@ -1156,16 +1207,16 @@ namespace WebShop.Migrations
                         .HasColumnType("int")
                         .HasColumnName("PaymentStatusID");
 
+                    b.Property<string>("Phone")
+                        .HasMaxLength(10)
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength();
+
                     b.Property<string>("RedBill")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ShipDate")
                         .HasColumnType("datetime");
-
-                    b.Property<string>("SoDienThoai")
-                        .HasMaxLength(10)
-                        .HasColumnType("nchar(10)")
-                        .IsFixedLength();
 
                     b.Property<int>("TotalMoney")
                         .HasColumnType("int");
@@ -1197,11 +1248,11 @@ namespace WebShop.Migrations
                     b.Property<int?>("Amount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime");
+
                     b.Property<int?>("Discount")
                         .HasColumnType("int");
-
-                    b.Property<DateTime?>("NgayTao")
-                        .HasColumnType("datetime");
 
                     b.Property<int?>("OrderId")
                         .HasColumnType("int")
@@ -1328,14 +1379,14 @@ namespace WebShop.Migrations
                     b.Property<string>("OgImage")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Phone")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("Profile")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Robots")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("SoDienThoai")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -1356,7 +1407,7 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentStatusId"));
 
-                    b.Property<string>("MoTa")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
@@ -1376,6 +1427,10 @@ namespace WebShop.Migrations
                         .HasColumnName("PostID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PostId"));
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("int")
+                        .HasColumnName("AccountID");
 
                     b.Property<string>("Alias")
                         .HasMaxLength(255)
@@ -1407,10 +1462,6 @@ namespace WebShop.Migrations
                     b.Property<bool>("IsNewfeed")
                         .HasColumnType("bit")
                         .HasColumnName("isNewfeed");
-
-                    b.Property<int?>("MaTaiKhoan")
-                        .HasColumnType("int")
-                        .HasColumnName("MaTaiKhoan");
 
                     b.Property<string>("MetaDesc")
                         .HasColumnType("nvarchar(max)");
@@ -1510,6 +1561,9 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Alias")
                         .HasColumnType("nvarchar(max)");
 
@@ -1539,6 +1593,9 @@ namespace WebShop.Migrations
                     b.Property<DateTime?>("DateModified")
                         .HasColumnType("datetime");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DescriptionEn")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Description_EN");
@@ -1551,9 +1608,6 @@ namespace WebShop.Migrations
                         .HasColumnName("Gift_EN");
 
                     b.Property<bool>("HomeFlag")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("KichHoat")
                         .HasColumnType("bit");
 
                     b.Property<string>("MetaDesc")
@@ -1569,9 +1623,6 @@ namespace WebShop.Migrations
                     b.Property<string>("MetaKeyEn")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("MetaKey_EN");
-
-                    b.Property<string>("MoTa")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Price")
                         .HasColumnType("int");
@@ -1645,7 +1696,7 @@ namespace WebShop.Migrations
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("MoTa")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProductId")
@@ -1797,6 +1848,12 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuangCaoId"));
 
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime");
+
                     b.Property<string>("ImageBg")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)")
@@ -1805,12 +1862,6 @@ namespace WebShop.Migrations
                     b.Property<string>("ImageProduct")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
-
-                    b.Property<bool>("KichHoat")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("NgayTao")
-                        .HasColumnType("datetime");
 
                     b.Property<string>("SubTitle")
                         .HasMaxLength(150)
@@ -1841,12 +1892,12 @@ namespace WebShop.Migrations
                     b.Property<bool?>("Confirmed")
                         .HasColumnType("bit");
 
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime");
+
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int")
                         .HasColumnName("CustomerID");
-
-                    b.Property<DateTime?>("NgayTao")
-                        .HasColumnType("datetime");
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
@@ -1877,11 +1928,11 @@ namespace WebShop.Migrations
                     b.Property<int?>("Amount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime");
+
                     b.Property<int?>("Discount")
                         .HasColumnType("int");
-
-                    b.Property<DateTime?>("NgayTao")
-                        .HasColumnType("datetime");
 
                     b.Property<int?>("Price")
                         .HasColumnType("int");
@@ -1903,6 +1954,28 @@ namespace WebShop.Migrations
                     b.ToTable("QuotationDetails");
                 });
 
+            modelBuilder.Entity("WebShop.Models.Role", b =>
+                {
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("RoleID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("RoleName")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("RoleId");
+
+                    b.ToTable("Roles");
+                });
+
             modelBuilder.Entity("WebShop.Models.Shipper", b =>
                 {
                     b.Property<int>("ShipperId")
@@ -1916,17 +1989,17 @@ namespace WebShop.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<string>("Phone")
+                        .HasMaxLength(10)
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength();
+
                     b.Property<DateTime?>("ShipDate")
                         .HasColumnType("datetime");
 
                     b.Property<string>("ShipperName")
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("SoDienThoai")
-                        .HasMaxLength(10)
-                        .HasColumnType("nchar(10)")
-                        .IsFixedLength();
 
                     b.HasKey("ShipperId");
 
@@ -1957,13 +2030,13 @@ namespace WebShop.Migrations
                         .HasColumnType("int")
                         .HasColumnName("OrderID");
 
+                    b.Property<string>("Phone")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<int?>("ProvinceId")
                         .HasColumnType("int")
                         .HasColumnName("ProvinceID");
-
-                    b.Property<string>("SoDienThoai")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int?>("WardId")
                         .HasColumnType("int")
@@ -1991,6 +2064,9 @@ namespace WebShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SlideId"));
 
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Alias")
                         .HasColumnType("nvarchar(max)");
 
@@ -2002,9 +2078,6 @@ namespace WebShop.Migrations
                         .HasColumnName("CatID");
 
                     b.Property<bool>("HomeFlag")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("KichHoat")
                         .HasColumnType("bit");
 
                     b.Property<int?>("Ordering")
@@ -2058,79 +2131,6 @@ namespace WebShop.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SystemWeb", (string)null);
-                });
-
-            modelBuilder.Entity("WebShop.Models.TaiKhoan", b =>
-                {
-                    b.Property<int>("MaTaiKhoan")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("MaTaiKhoan");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTaiKhoan"));
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("HoTen")
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<bool>("KichHoat")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LanDangNhapCuoi")
-                        .HasColumnType("datetime");
-
-                    b.Property<int?>("MaVaiTro")
-                        .HasColumnType("int")
-                        .HasColumnName("MaVaiTro");
-
-                    b.Property<string>("MatKhau")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("NgayTao")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Salt")
-                        .HasMaxLength(10)
-                        .HasColumnType("nchar(10)")
-                        .IsFixedLength();
-
-                    b.Property<string>("SoDienThoai")
-                        .HasMaxLength(12)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(12)");
-
-                    b.HasKey("MaTaiKhoan");
-
-                    b.HasIndex("MaVaiTro");
-
-                    b.ToTable("TaiKhoans");
-                });
-
-            modelBuilder.Entity("WebShop.Models.VaiTro", b =>
-                {
-                    b.Property<int>("MaVaiTro")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("MaVaiTro");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaVaiTro"));
-
-                    b.Property<string>("MoTa")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TenVaiTro")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("MaVaiTro");
-
-                    b.ToTable("VaiTros");
                 });
 
             modelBuilder.Entity("WebShop.Models.Video", b =>
@@ -2188,6 +2188,16 @@ namespace WebShop.Migrations
                     b.HasIndex("DistrictId");
 
                     b.ToTable("Wards");
+                });
+
+            modelBuilder.Entity("WebShop.Models.Account", b =>
+                {
+                    b.HasOne("WebShop.Models.Role", "Role")
+                        .WithMany("Accounts")
+                        .HasForeignKey("RoleId")
+                        .HasConstraintName("FK_Accounts_Roles");
+
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("WebShop.Models.AccountAddress", b =>
@@ -2387,7 +2397,7 @@ namespace WebShop.Migrations
 
             modelBuilder.Entity("WebShop.Models.EmailMaketting", b =>
                 {
-                    b.HasOne("WebShop.Models.TaiKhoan", "Acount")
+                    b.HasOne("WebShop.Models.Account", "Acount")
                         .WithMany("EmailMakettings")
                         .HasForeignKey("AcountId")
                         .HasConstraintName("FK_EmailMaketting_Accounts");
@@ -2612,16 +2622,6 @@ namespace WebShop.Migrations
                     b.Navigation("Cat");
                 });
 
-            modelBuilder.Entity("WebShop.Models.TaiKhoan", b =>
-                {
-                    b.HasOne("WebShop.Models.VaiTro", "VaiTro")
-                        .WithMany("TaiKhoans")
-                        .HasForeignKey("MaVaiTro")
-                        .HasConstraintName("FK_Accounts_Roles");
-
-                    b.Navigation("VaiTro");
-                });
-
             modelBuilder.Entity("WebShop.Models.Video", b =>
                 {
                     b.HasOne("WebShop.Models.Brand", "Brand")
@@ -2641,6 +2641,11 @@ namespace WebShop.Migrations
                         .HasConstraintName("FK_Wards_Districts");
 
                     b.Navigation("District");
+                });
+
+            modelBuilder.Entity("WebShop.Models.Account", b =>
+                {
+                    b.Navigation("EmailMakettings");
                 });
 
             modelBuilder.Entity("WebShop.Models.Attribute", b =>
@@ -2794,14 +2799,9 @@ namespace WebShop.Migrations
                     b.Navigation("QuotationDetails");
                 });
 
-            modelBuilder.Entity("WebShop.Models.TaiKhoan", b =>
+            modelBuilder.Entity("WebShop.Models.Role", b =>
                 {
-                    b.Navigation("EmailMakettings");
-                });
-
-            modelBuilder.Entity("WebShop.Models.VaiTro", b =>
-                {
-                    b.Navigation("TaiKhoans");
+                    b.Navigation("Accounts");
                 });
 
             modelBuilder.Entity("WebShop.Models.Ward", b =>

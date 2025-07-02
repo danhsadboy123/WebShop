@@ -160,12 +160,12 @@
             if (!$target) {
               return;
             }
-            $target.find('button').addClass('KichHoat');
+            $target.find('button').addClass('active');
             $selectedNode = $target;
           }
 
           function removeActiveClass($target) {
-            $target.find('button').removeClass('KichHoat');
+            $target.find('button').removeClass('active');
             $selectedNode = null;
           }
 

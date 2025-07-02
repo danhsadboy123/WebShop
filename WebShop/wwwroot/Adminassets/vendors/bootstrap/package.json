@@ -80,7 +80,7 @@
   ],
   "dependencies": {},
   "deprecated": false,
-  "MoTa": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",

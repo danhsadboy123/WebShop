@@ -2,7 +2,7 @@
   background: #eeeeee;
   border-radius: 5px;
 }
-.sm-clean a, .sm-clean a:hover, .sm-clean a:focus, .sm-clean a:KichHoat {
+.sm-clean a, .sm-clean a:hover, .sm-clean a:focus, .sm-clean a:active {
   padding: 13px 20px;
   /* make room for the toggle button (sub indicator) */
   padding-right: 58px;
@@ -58,32 +58,32 @@
 .sm-clean ul {
   background: rgba(162, 162, 162, 0.1);
 }
-.sm-clean ul a, .sm-clean ul a:hover, .sm-clean ul a:focus, .sm-clean ul a:KichHoat {
+.sm-clean ul a, .sm-clean ul a:hover, .sm-clean ul a:focus, .sm-clean ul a:active {
   font-size: 16px;
   border-left: 8px solid transparent;
 }
 .sm-clean ul ul a,
 .sm-clean ul ul a:hover,
 .sm-clean ul ul a:focus,
-.sm-clean ul ul a:KichHoat {
+.sm-clean ul ul a:active {
   border-left: 16px solid transparent;
 }
 .sm-clean ul ul ul a,
 .sm-clean ul ul ul a:hover,
 .sm-clean ul ul ul a:focus,
-.sm-clean ul ul ul a:KichHoat {
+.sm-clean ul ul ul a:active {
   border-left: 24px solid transparent;
 }
 .sm-clean ul ul ul ul a,
 .sm-clean ul ul ul ul a:hover,
 .sm-clean ul ul ul ul a:focus,
-.sm-clean ul ul ul ul a:KichHoat {
+.sm-clean ul ul ul ul a:active {
   border-left: 32px solid transparent;
 }
 .sm-clean ul ul ul ul ul a,
 .sm-clean ul ul ul ul ul a:hover,
 .sm-clean ul ul ul ul ul a:focus,
-.sm-clean ul ul ul ul ul a:KichHoat {
+.sm-clean ul ul ul ul ul a:active {
   border-left: 40px solid transparent;
 }
 
@@ -129,12 +129,12 @@
     background: #eeeeee;
     border-radius: 100px;
   }
-  .sm-clean a, .sm-clean a:hover, .sm-clean a:focus, .sm-clean a:KichHoat, .sm-clean a.highlighted {
+  .sm-clean a, .sm-clean a:hover, .sm-clean a:focus, .sm-clean a:active, .sm-clean a.highlighted {
     padding: 12px 12px;
     color: #555555;
     border-radius: 0 !important;
   }
-  .sm-clean a:hover, .sm-clean a:focus, .sm-clean a:KichHoat, .sm-clean a.highlighted {
+  .sm-clean a:hover, .sm-clean a:focus, .sm-clean a:active, .sm-clean a.highlighted {
     color: #D23600;
   }
   .sm-clean a.current {
@@ -190,12 +190,12 @@
     border-radius: 5px !important;
     box-shadow: 0 5px 9px rgba(0, 0, 0, 0.2);
   }
-  .sm-clean ul a, .sm-clean ul a:hover, .sm-clean ul a:focus, .sm-clean ul a:KichHoat, .sm-clean ul a.highlighted {
+  .sm-clean ul a, .sm-clean ul a:hover, .sm-clean ul a:focus, .sm-clean ul a:active, .sm-clean ul a.highlighted {
     border: 0 !important;
     padding: 10px 20px;
     color: #555555;
   }
-  .sm-clean ul a:hover, .sm-clean ul a:focus, .sm-clean ul a:KichHoat, .sm-clean ul a.highlighted {
+  .sm-clean ul a:hover, .sm-clean ul a:focus, .sm-clean ul a:active, .sm-clean ul a.highlighted {
     background: #eeeeee;
     color: #D23600;
   }
@@ -295,7 +295,7 @@
   .sm-clean.sm-vertical a {
     padding: 10px 20px;
   }
-  .sm-clean.sm-vertical a:hover, .sm-clean.sm-vertical a:focus, .sm-clean.sm-vertical a:KichHoat, .sm-clean.sm-vertical a.highlighted {
+  .sm-clean.sm-vertical a:hover, .sm-clean.sm-vertical a:focus, .sm-clean.sm-vertical a:active, .sm-clean.sm-vertical a.highlighted {
     background: #fff;
   }
   .sm-clean.sm-vertical a.disabled {
@@ -316,7 +316,7 @@
   .sm-clean.sm-vertical ul a {
     padding: 10px 20px;
   }
-  .sm-clean.sm-vertical ul a:hover, .sm-clean.sm-vertical ul a:focus, .sm-clean.sm-vertical ul a:KichHoat, .sm-clean.sm-vertical ul a.highlighted {
+  .sm-clean.sm-vertical ul a:hover, .sm-clean.sm-vertical ul a:focus, .sm-clean.sm-vertical ul a:active, .sm-clean.sm-vertical ul a.highlighted {
     background: #eeeeee;
   }
   .sm-clean.sm-vertical ul a.disabled {

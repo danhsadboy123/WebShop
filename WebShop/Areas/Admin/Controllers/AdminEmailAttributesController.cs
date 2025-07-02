@@ -65,7 +65,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CustumerId,Body,TimeSend")] ThuocTinhEmail emailAttribute)
+        public async Task<IActionResult> Create([Bind("Id,CustumerId,Body,TimeSend")] EmailAttribute emailAttribute)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace WebShop.Areas.Admin.Controllers
         }
         [HttpPost]
  
-        public  IActionResult CreateApi([Bind("Id,CustumerId,Body")] ThuocTinhEmail emailAttribute)
+        public  IActionResult CreateApi([Bind("Id,CustumerId,Body")] EmailAttribute emailAttribute)
         {
            
             emailAttribute.TimeSend = DateTime.Now;
@@ -109,7 +109,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CustumerId,Body,TimeSend")] ThuocTinhEmail emailAttribute)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CustumerId,Body,TimeSend")] EmailAttribute emailAttribute)
         {
             if (id != emailAttribute.Id)
             {

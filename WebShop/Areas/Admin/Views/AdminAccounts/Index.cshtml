@@ -1,4 +1,4 @@
-@model IEnumerable<WebShop.Models.TaiKhoan>
+@model IEnumerable<WebShop.Models.Account>
 
 @{ ViewData["Title"] = "Danh sách tài khoản quản trị";
                 Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml"; }
@@ -7,7 +7,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <span class="breadcrumb-item KichHoat">Danh sách tài khoản</span>
+            <span class="breadcrumb-item active">Danh sách tài khoản</span>
         </nav>
     </div>
 </div>
@@ -61,24 +61,24 @@
                         {
                             <tr>
                                 <td>
-                                    @item.MaTaiKhoan
+                                    @item.AccountId
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <img class="img-fluid rounded" src="Adminassets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
-                                        <h6 class="m-b-0 m-l-10">@item.HoTen</h6>
+                                        <h6 class="m-b-0 m-l-10">@item.FullName</h6>
                                     </div>
                                 </td>
                                 <td>@item.Email</td>
-                                <td>@item.SoDienThoai</td>
-                                <td>@item.LanDangNhapCuoi</td>
-                                <td>@item.VaiTro.MoTa</td>
+                                <td>@item.Phone</td>
+                                <td>@item.LastLogin</td>
+                                <td>@item.Role.Description</td>
                                 <td>
-                                    @if (item.KichHoat)
+                                    @if (item.Active)
                                     {
                                         <div class="d-flex align-items-center">
                                             <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>KichHoat</div>
+                                            <div>Active</div>
                                         </div> 
                                     }
                                     else
@@ -90,9 +90,9 @@
                                     }
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Details" asp-route-id="@item.MaTaiKhoan">Chi tiết</a>
-                                    <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Edit" asp-route-id="@item.MaTaiKhoan">Sửa</a>
-                                    <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Delete" asp-route-id="@item.MaTaiKhoan">Xóa</a>
+                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Details" asp-route-id="@item.AccountId">Chi tiết</a>
+                                    <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Edit" asp-route-id="@item.AccountId">Sửa</a>
+                                    <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Delete" asp-route-id="@item.AccountId">Xóa</a>
 
                                 </td>
                             </tr>

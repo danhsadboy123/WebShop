@@ -16,7 +16,7 @@ using WebShop.Areas.Admin.Models;
 using WebShop.Extension;
 using WebShop.Models;
 using WebShop.ModelViews;
-using Attribute = WebShop.Models.ThuocTinh;
+using Attribute = WebShop.Models.Attribute;
 
 namespace WebShop.Controllers
 {
@@ -126,7 +126,7 @@ namespace WebShop.Controllers
                 // Truy vấn các thương hiệu liên quan
                 var brands = danhmuc.CategoryBrands
                     .Where(cb => cb.CatId == danhmuc.CatId)
-                    .Select(cb => new ThuongHieu
+                    .Select(cb => new Brand
                     {
                         BrandName = cb.Brand.BrandName,
                         BrandId = cb.Brand.BrandId
@@ -137,7 +137,7 @@ namespace WebShop.Controllers
                     .Include(a => a.CategoryAttributes)
                     .Include(a => a.AttributesPrices)
                     .AsNoTracking()
-                    .Where(a => a.CategoryAttributes.Any(ca => ca.CatId == danhmuc.CatId) && a.AttributesPrices.Any(ap => ap.KichHoat) && a.KichHoat)
+                    .Where(a => a.CategoryAttributes.Any(ca => ca.CatId == danhmuc.CatId) && a.AttributesPrices.Any(ap => ap.Active) && a.Active)
                     .OrderBy(a => a.Ordering)
                     .ToList();
 
@@ -146,7 +146,7 @@ namespace WebShop.Controllers
 
 
                 //lấy slider theo danh mục
-                var slider = _context.Slides.Where(s => s.KichHoat == true && s.Right == true && s.Bottom == false && s.HomeFlag == false && s.CatId == danhmuc.CatId).ToList();
+                var slider = _context.Slides.Where(s => s.Active == true && s.Right == true && s.Bottom == false && s.HomeFlag == false && s.CatId == danhmuc.CatId).ToList();
 
                 ViewBag.Slider = slider; 
                 // ViewBag setup
@@ -269,13 +269,13 @@ namespace WebShop.Controllers
                 var section = HttpContext.Session.Get<searchAlias>("searchAlias")
                               ?? new searchAlias
                               {
-                                  brand = new List<ThuongHieu>() // Khởi tạo danh sách brand
+                                  brand = new List<Brand>() // Khởi tạo danh sách brand
                               };
 
                 // Thêm thương hiệu vào danh sách nếu chưa có
                 if (!section.brand.Any(b => b.BrandId == brand.BrandId))
                 {
-                    section.brand.Add(new ThuongHieu
+                    section.brand.Add(new Brand
                     {
                         BrandId = brand.BrandId,
                         BrandName = brand.BrandName
@@ -284,7 +284,7 @@ namespace WebShop.Controllers
 
                 // Cập nhật danh mục
                 var cate = _context.Categories.FirstOrDefault(c => c.CatId == cateid);
-                section.brandGroup = cate != null ? new NhomThuongHieu
+                section.brandGroup = cate != null ? new BrandGroup
                 {
                     // Cấu hình BrandGroup ở đây nếu cần
                     // Ví dụ: Name = cate.CategoryName
@@ -337,7 +337,7 @@ namespace WebShop.Controllers
             var dataAttribute =_context.AttributesPrices.Where(ap=>ap.AttributesPriceId ==id).FirstOrDefault();
             var section = HttpContext.Session.Get<searchAlias>(alias);
             // listprice
-            List<GiaThuocTinh> pricelist = new List<GiaThuocTinh>();
+            List<AttributesPrice> pricelist = new List<AttributesPrice>();
             
             bool checkidp = false;
             if (section.attrp != null)
@@ -372,7 +372,7 @@ namespace WebShop.Controllers
         {
             var section = HttpContext.Session.Get<searchAlias>(alias);
             // listprice
-            List<ThuongHieu> brandlist = new List<ThuongHieu>();
+            List<Brand> brandlist = new List<Brand>();
             bool checkidp = false;
             if (section.brand != null)
             {
@@ -423,7 +423,7 @@ namespace WebShop.Controllers
             var cate = _context.Categories.Where(c => c.Alias == alias).FirstOrDefault();
             var group = _context.BrandGroups.Where(c => c.Id == groupid).FirstOrDefault();
             // listprice
-            List<ThuongHieu> brandlist = new List<ThuongHieu>();
+            List<Brand> brandlist = new List<Brand>();
             bool checkidp = false;
             if (section.brand != null)
             {
@@ -484,7 +484,7 @@ namespace WebShop.Controllers
             var section = HttpContext.Session.Get<searchAlias>(alias) ?? new searchAlias();
 
             // Danh sách giá thuộc tính nếu chưa có tron session thì tạo mới
-            List<GiaThuocTinh> pricelist = section.attrp ?? new List<GiaThuocTinh>();
+            List<AttributesPrice> pricelist = section.attrp ?? new List<AttributesPrice>();
 
             // Kiểm tra xem id thuộc tính có tồn tại trong danh sách của section hay không
             bool checkidp = pricelist.Any(pr => pr.AttributesPriceId == id);
@@ -594,7 +594,7 @@ namespace WebShop.Controllers
                                 .Where(x =>
                                     x.ProductCategories.Any(pc => pc.CatId == cateid.CatId) && // Lọc theo cùng danh mục
                                     x.ProductId != id && // Loại bỏ sản phẩm hiện tại
-                                    x.KichHoat == true && // Sản phẩm còn hoạt động
+                                    x.Active == true && // Sản phẩm còn hoạt động
                                     x.BrandId == product.BrandId // Lọc theo cùng hãng
                                 )
                                 .Select(p => new Product
@@ -653,7 +653,7 @@ namespace WebShop.Controllers
                                                 .Where(x =>
                                                     x.ProductCategories.Any(pc => pc.CatId == cateid.CatId) && // Lọc theo danh mục
                                                     x.ProductId != id && // Loại bỏ sản phẩm hiện tại
-                                                    x.KichHoat == true && // Sản phẩm còn hoạt động
+                                                    x.Active == true && // Sản phẩm còn hoạt động
                                                     x.Price >= minPrice && x.Price <= maxPrice // Lọc theo khoảng giá
                                                 )
                                                 .Select(p => new Product
@@ -692,9 +692,9 @@ namespace WebShop.Controllers
             }
         }
         // Phương thức để lấy danh sách breadcrumb
-        public List<DanhMuc> GetBreadcrumbCategories(int? categoryId)
+        public List<Category> GetBreadcrumbCategories(int? categoryId)
         {
-            List<DanhMuc> breadcrumb = new List<DanhMuc>();
+            List<Category> breadcrumb = new List<Category>();
             var category = _context.Categories.Find(categoryId);
             while (category != null)
             {
@@ -747,7 +747,7 @@ namespace WebShop.Controllers
             {
                 // Truy vấn dữ liệu từ database
                 attributes = _context.CategoryAttributes
-                    .Where(ca => ca.CatId == id && ca.KichHoat ==true) // Lọc theo CatId và KichHoat
+                    .Where(ca => ca.CatId == id && ca.Active ==true) // Lọc theo CatId và Active
                     .OrderBy(ca => ca.Attribute.Ordering) // Sắp xếp theo thứ tự
                     .Select(ca => new AttributeViewModel
                     {
@@ -791,7 +791,7 @@ namespace WebShop.Controllers
             {
                 // Nếu chưa có, truy vấn cơ sở dữ liệu
                 data = _context.CategoryBrands
-                                .Where(c => c.CatId == id && c.KichHoat == true)
+                                .Where(c => c.CatId == id && c.Active == true)
                                 .Take(18)
                                 .Select(c => new
                                 {
@@ -821,7 +821,7 @@ namespace WebShop.Controllers
         public IActionResult loadProductNavByCateId(int id)
         {
             var data = _context.Slides
-                           .Where(s => s.CatId == id && s.KichHoat == true)
+                           .Where(s => s.CatId == id && s.Active == true)
                            .OrderBy(s => s.Ordering)
                            .Select(s => new SlideVM
                            {
@@ -829,7 +829,7 @@ namespace WebShop.Controllers
                                Thumb = s.Thumb,
                                Alias = s.Alias,
                                SlideName = s.SlideName,
-                               KichHoat = s.KichHoat
+                               Active = s.Active
                            }).ToList();
             return Json(new { data });
         }
@@ -857,7 +857,7 @@ namespace WebShop.Controllers
         //            .Include(x => x.ProductThumbs)
         //            .Include(x => x.AttributesPrices)
         //            .Include(x=>x.Brand)
-        //            .Where(x => x.KichHoat == true)
+        //            .Where(x => x.Active == true)
         //            .Where(p => descendantCategoryIds.Contains((int)p.CatId))
         //            .ToList();
 
@@ -865,7 +865,7 @@ namespace WebShop.Controllers
         //}
 
         // Phương thức đệ quy để lấy danh sách các CatId của các danh mục con của danh mục cha
-        private void GetDescendantCategoryIds(DanhMuc category, List<DanhMuc> allCategories, ref List<int> descendantCategoryIds)
+        private void GetDescendantCategoryIds(Category category, List<Category> allCategories, ref List<int> descendantCategoryIds)
         {
             if (category != null)
             {

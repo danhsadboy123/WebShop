@@ -9321,7 +9321,7 @@ var AirPopover_AirPopover = /*#__PURE__*/function () {
         _this.hide();
       },
       'summernote.focusout': function summernoteFocusout() {
-        if (!_this.$popover.is(':KichHoat,:focus')) {
+        if (!_this.$popover.is(':active,:focus')) {
           _this.hide();
         }
       }
@@ -9465,9 +9465,9 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
       this.$popover.hide();
       this.$content = this.$popover.find('.popover-content,.note-popover-content');
       this.$content.on('click', '.note-hint-item', function (e) {
-        _this2.$content.find('.KichHoat').removeClass('KichHoat');
+        _this2.$content.find('.active').removeClass('active');
 
-        external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(e.currentTarget).addClass('KichHoat');
+        external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(e.currentTarget).addClass('active');
 
         _this2.replace();
       });
@@ -9483,14 +9483,14 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
   }, {
     key: "selectItem",
     value: function selectItem($item) {
-      this.$content.find('.KichHoat').removeClass('KichHoat');
-      $item.addClass('KichHoat');
+      this.$content.find('.active').removeClass('active');
+      $item.addClass('active');
       this.$content[0].scrollTop = $item[0].offsetTop - this.$content.innerHeight() / 2;
     }
   }, {
     key: "moveDown",
     value: function moveDown() {
-      var $current = this.$content.find('.note-hint-item.KichHoat');
+      var $current = this.$content.find('.note-hint-item.active');
       var $next = $current.next();
 
       if ($next.length) {
@@ -9508,7 +9508,7 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
   }, {
     key: "moveUp",
     value: function moveUp() {
-      var $current = this.$content.find('.note-hint-item.KichHoat');
+      var $current = this.$content.find('.note-hint-item.active');
       var $prev = $current.prev();
 
       if ($prev.length) {
@@ -9526,7 +9526,7 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
   }, {
     key: "replace",
     value: function replace() {
-      var $item = this.$content.find('.note-hint-item.KichHoat');
+      var $item = this.$content.find('.note-hint-item.active');
 
       if ($item.length) {
         var node = this.nodeFromItem($item); // If matchingWord length = 0 -> capture OK / open hint / but as mention capture "" (\w*)
@@ -9680,7 +9680,7 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
               }
             }); // select first .note-hint-item
 
-            this.$content.find('.note-hint-item:first').addClass('KichHoat'); // set position for popover after group is created
+            this.$content.find('.note-hint-item:first').addClass('active'); // set position for popover after group is created
 
             if (this.direction === 'top') {
               this.$popover.css({
@@ -10154,13 +10154,13 @@ var DropdownUI_DropdownUI = /*#__PURE__*/function () {
     key: "clear",
     value: function clear() {
       var $parent = external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()('.note-btn-group.open');
-      $parent.find('.note-btn.KichHoat').removeClass('KichHoat');
+      $parent.find('.note-btn.active').removeClass('active');
       $parent.removeClass('open');
     }
   }, {
     key: "show",
     value: function show() {
-      this.$button.addClass('KichHoat');
+      this.$button.addClass('active');
       this.$button.parent().addClass('open');
       var $dropdown = this.$button.next();
       var offset = $dropdown.offset();
@@ -10177,7 +10177,7 @@ var DropdownUI_DropdownUI = /*#__PURE__*/function () {
   }, {
     key: "hide",
     value: function hide() {
-      this.$button.removeClass('KichHoat');
+      this.$button.removeClass('active');
       this.$button.parent().removeClass('open');
     }
   }, {
@@ -10200,12 +10200,12 @@ var DropdownUI_DropdownUI = /*#__PURE__*/function () {
 external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(document).on('click', function (e) {
   if (!external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(e.target).closest('.note-btn-group').length) {
     external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()('.note-btn-group.open').removeClass('open');
-    external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()('.note-btn-group .note-btn.KichHoat').removeClass('KichHoat');
+    external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()('.note-btn-group .note-btn.active').removeClass('active');
   }
 });
 external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(document).on('click.note-dropdown-menu', function (e) {
   external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(e.target).closest('.note-dropdown-menu').parent().removeClass('open');
-  external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(e.target).closest('.note-dropdown-menu').parent().find('.note-btn.KichHoat').removeClass('KichHoat');
+  external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(e.target).closest('.note-dropdown-menu').parent().find('.note-btn.active').removeClass('active');
 });
 /* harmony default export */ var ui_DropdownUI = (DropdownUI_DropdownUI);
 // CONCATENATED MODULE: ./src/js/lite/ui/ModalUI.js
@@ -10265,13 +10265,13 @@ var ModalUI_ModalUI = /*#__PURE__*/function () {
 
 
 var editor = renderer["a" /* default */].create('<div class="note-editor note-frame"/>');
-var toolbar = renderer["a" /* default */].create('<div class="note-toolbar" VaiTro="toolbar"/>');
+var toolbar = renderer["a" /* default */].create('<div class="note-toolbar" role="toolbar"/>');
 var editingArea = renderer["a" /* default */].create('<div class="note-editing-area"/>');
 var codable = renderer["a" /* default */].create('<textarea class="note-codable" aria-multiline="true"/>');
-var editable = renderer["a" /* default */].create('<div class="note-editable" contentEditable="true" VaiTro="textbox" aria-multiline="true"/>');
-var statusbar = renderer["a" /* default */].create(['<output class="note-status-output" VaiTro="status" aria-live="polite"></output>', '<div class="note-statusbar" VaiTro="status">', '<div class="note-resizebar" aria-label="resize">', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '</div>', '</div>'].join(''));
+var editable = renderer["a" /* default */].create('<div class="note-editable" contentEditable="true" role="textbox" aria-multiline="true"/>');
+var statusbar = renderer["a" /* default */].create(['<output class="note-status-output" role="status" aria-live="polite"></output>', '<div class="note-statusbar" role="status">', '<div class="note-resizebar" aria-label="resize">', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '</div>', '</div>'].join(''));
 var airEditor = renderer["a" /* default */].create('<div class="note-editor note-airframe"/>');
-var airEditable = renderer["a" /* default */].create(['<div class="note-editable" contentEditable="true" VaiTro="textbox" aria-multiline="true"></div>', '<output class="note-status-output" VaiTro="status" aria-live="polite"></output>'].join(''));
+var airEditable = renderer["a" /* default */].create(['<div class="note-editable" contentEditable="true" role="textbox" aria-multiline="true"></div>', '<output class="note-status-output" role="status" aria-live="polite"></output>'].join(''));
 var buttonGroup = renderer["a" /* default */].create('<div class="note-btn-group">');
 var ui_button = renderer["a" /* default */].create('<button type="button" class="note-btn" tabindex="-1">', function ($node, options) {
   // set button type
@@ -10301,11 +10301,11 @@ var ui_button = renderer["a" /* default */].create('<button type="button" class=
     $node.addClass('note-codeview-keep');
   }
 });
-var dropdown = renderer["a" /* default */].create('<div class="note-dropdown-menu" VaiTro="list">', function ($node, options) {
+var dropdown = renderer["a" /* default */].create('<div class="note-dropdown-menu" role="list">', function ($node, options) {
   var markup = Array.isArray(options.items) ? options.items.map(function (item) {
     var value = typeof item === 'string' ? item : item.value || '';
     var content = options.template ? options.template(item) : item;
-    var $temp = external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" VaiTro="listitem" aria-label="' + value + '"></a>');
+    var $temp = external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + value + '"></a>');
     $temp.html(content).data('item', item);
     return $temp;
   }) : options.items;
@@ -10328,11 +10328,11 @@ var dropdown = renderer["a" /* default */].create('<div class="note-dropdown-men
     $node.addClass('note-codeview-keep');
   }
 });
-var dropdownCheck = renderer["a" /* default */].create('<div class="note-dropdown-menu note-check" VaiTro="list">', function ($node, options) {
+var dropdownCheck = renderer["a" /* default */].create('<div class="note-dropdown-menu note-check" role="list">', function ($node, options) {
   var markup = Array.isArray(options.items) ? options.items.map(function (item) {
     var value = typeof item === 'string' ? item : item.value || '';
     var content = options.template ? options.template(item) : item;
-    var $temp = external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" VaiTro="listitem" aria-label="' + item + '"></a>');
+    var $temp = external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"></a>');
     $temp.html([icon(options.checkClassName), ' ', content]).data('item', item);
     return $temp;
   }) : options.items;
@@ -10593,7 +10593,7 @@ var ui_colorDropdownButton = function colorDropdownButton(opt, type) {
   }).render();
 };
 
-var dialog = renderer["a" /* default */].create('<div class="note-modal" aria-hidden="false" tabindex="-1" VaiTro="dialog"/>', function ($node, options) {
+var dialog = renderer["a" /* default */].create('<div class="note-modal" aria-hidden="false" tabindex="-1" role="dialog"/>', function ($node, options) {
   if (options.fade) {
     $node.addClass('fade');
   }
@@ -10648,7 +10648,7 @@ var popover = renderer["a" /* default */].create(['<div class="note-popover bott
   }
 });
 var ui_checkbox = renderer["a" /* default */].create('<div class="checkbox"></div>', function ($node, options) {
-  $node.html(['<label' + (options.id ? ' for="note-' + options.id + '"' : '') + '>', '<input VaiTro="checkbox" type="checkbox"' + (options.id ? ' id="note-' + options.id + '"' : ''), options.checked ? ' checked' : '', ' aria-checked="' + (options.checked ? 'true' : 'false') + '"/>', options.text ? options.text : '', '</label>'].join(''));
+  $node.html(['<label' + (options.id ? ' for="note-' + options.id + '"' : '') + '>', '<input role="checkbox" type="checkbox"' + (options.id ? ' id="note-' + options.id + '"' : ''), options.checked ? ' checked' : '', ' aria-checked="' + (options.checked ? 'true' : 'false') + '"/>', options.text ? options.text : '', '</label>'].join(''));
 });
 
 var icon = function icon(iconClassName, tagName) {
@@ -10690,7 +10690,7 @@ var ui = function ui(editorOptions) {
       $btn.attr('disabled', !isEnable);
     },
     toggleBtnActive: function toggleBtnActive($btn, isActive) {
-      $btn.toggleClass('KichHoat', isActive);
+      $btn.toggleClass('active', isActive);
     },
     check: function check($dom, value) {
       $dom.find('.checked').removeClass('checked');

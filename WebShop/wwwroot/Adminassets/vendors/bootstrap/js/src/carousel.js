@@ -68,7 +68,7 @@ const Event = {
 
 const ClassName = {
   CAROUSEL      : 'carousel',
-  KichHoat        : 'KichHoat',
+  ACTIVE        : 'active',
   SLIDE         : 'slide',
   RIGHT         : 'carousel-item-right',
   LEFT          : 'carousel-item-left',
@@ -79,8 +79,8 @@ const ClassName = {
 }
 
 const Selector = {
-  KichHoat      : '.KichHoat',
-  ACTIVE_ITEM : '.KichHoat.carousel-item',
+  ACTIVE      : '.active',
+  ACTIVE_ITEM : '.active.carousel-item',
   ITEM        : '.carousel-item',
   ITEM_IMG    : '.carousel-item img',
   NEXT_PREV   : '.carousel-item-next, .carousel-item-prev',
@@ -392,16 +392,16 @@ class Carousel {
 
   _setActiveIndicatorElement(element) {
     if (this._indicatorsElement) {
-      const indicators = [].slice.call(this._indicatorsElement.querySelectorAll(Selector.KichHoat))
+      const indicators = [].slice.call(this._indicatorsElement.querySelectorAll(Selector.ACTIVE))
       $(indicators)
-        .removeClass(ClassName.KichHoat)
+        .removeClass(ClassName.ACTIVE)
 
       const nextIndicator = this._indicatorsElement.children[
         this._getItemIndex(element)
       ]
 
       if (nextIndicator) {
-        $(nextIndicator).addClass(ClassName.KichHoat)
+        $(nextIndicator).addClass(ClassName.ACTIVE)
       }
     }
   }
@@ -428,7 +428,7 @@ class Carousel {
       eventDirectionName = Direction.RIGHT
     }
 
-    if (nextElement && $(nextElement).hasClass(ClassName.KichHoat)) {
+    if (nextElement && $(nextElement).hasClass(ClassName.ACTIVE)) {
       this._isSliding = false
       return
     }
@@ -480,9 +480,9 @@ class Carousel {
         .one(Util.TRANSITION_END, () => {
           $(nextElement)
             .removeClass(`${directionalClassName} ${orderClassName}`)
-            .addClass(ClassName.KichHoat)
+            .addClass(ClassName.ACTIVE)
 
-          $(activeElement).removeClass(`${ClassName.KichHoat} ${orderClassName} ${directionalClassName}`)
+          $(activeElement).removeClass(`${ClassName.ACTIVE} ${orderClassName} ${directionalClassName}`)
 
           this._isSliding = false
 
@@ -490,8 +490,8 @@ class Carousel {
         })
         .emulateTransitionEnd(transitionDuration)
     } else {
-      $(activeElement).removeClass(ClassName.KichHoat)
-      $(nextElement).addClass(ClassName.KichHoat)
+      $(activeElement).removeClass(ClassName.ACTIVE)
+      $(nextElement).addClass(ClassName.ACTIVE)
 
       this._isSliding = false
       $(this._element).trigger(slidEvent)

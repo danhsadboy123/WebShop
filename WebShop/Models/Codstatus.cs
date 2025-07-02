@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace WebShop.Models;
+
+public partial class Codstatus
+{
+    public int CodStatusId { get; set; }
+
+    public string Status { get; set; }
+
+    public string Description { get; set; }
+
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+}

@@ -21,7 +21,7 @@ namespace WebShop.Controllers
         {
 
             //var lsCats = HttpContext.Session.GetObjectFromJson<List<CategoryViewModel>>("lsCats");
-            var lsCats = HttpContext.Session.GetObjectFromJson<List<DanhMuc>>("lsCats");
+            var lsCats = HttpContext.Session.GetObjectFromJson<List<Category>>("lsCats");
 
             base.OnActionExecuting(context);
             if (lsCats == null)
@@ -46,7 +46,7 @@ namespace WebShop.Controllers
             //            ThumbShow = cat.ThumbShow,
             //            BannerThumb = cat.BannerThumb,
             //            Attributes = cat.CategoryAttributes
-            //                .Where(ca => ca.KichHoat == true)
+            //                .Where(ca => ca.Active == true)
             //                .OrderBy(ca => ca.Attribute.Ordering)
             //                .Select(ca => new AttributeViewModel
             //                {
@@ -63,19 +63,19 @@ namespace WebShop.Controllers
             //                }).ToList(),
 
             //            Brands = cat.CategoryBrands
-            //                .Where(cb => cb.KichHoat == true)
+            //                .Where(cb => cb.Active == true)
             //                .Select(cb => new BrandViewModel
             //                {
             //                    BrandId = cb.Brand.BrandId,
             //                    BrandName = cb.Brand.BrandName,
-            //                    MoTa = cb.Brand.MoTa,
+            //                    Description = cb.Brand.Description,
             //                    Image = cb.Brand.Thumb
             //                })
             //                .Take(18)
             //                .ToList(),
 
             //            Slides = _context.Slides
-            //                .Where(s => s.CatId == cat.CatId && s.KichHoat == true)
+            //                .Where(s => s.CatId == cat.CatId && s.Active == true)
             //                .OrderBy(s => s.Ordering)
             //                .Select(s => new SlideVM
             //                {
@@ -83,7 +83,7 @@ namespace WebShop.Controllers
             //                    Thumb = s.Thumb,
             //                    Alias = s.Alias,
             //                    SlideName = s.SlideName,
-            //                    KichHoat = s.KichHoat
+            //                    Active = s.Active
             //                }).ToList(),
             //        })
             //        .ToList();

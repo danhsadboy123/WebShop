@@ -9,7 +9,7 @@ public partial class QuangCao
 
     public string SubTitle { get; set; }
 
-    public string TieuDe { get; set; }
+    public string Title { get; set; }
 
     public string ImageBg { get; set; }
 
@@ -17,7 +17,7 @@ public partial class QuangCao
 
     public string UrlLink { get; set; }
 
-    public bool KichHoat { get; set; }
+    public bool Active { get; set; }
 
-    public DateTime? NgayTao { get; set; }
+    public DateTime? CreateDate { get; set; }
 }

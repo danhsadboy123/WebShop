@@ -2593,7 +2593,7 @@ var Chartist = {
   });
 }(this, Chartist));
 ;/**
- * Chartist SVG path module for SVG path MoTa creation and modification.
+ * Chartist SVG path module for SVG path description creation and modification.
  *
  * @module Chartist.Svg.Path
  */
@@ -2804,11 +2804,11 @@ var Chartist = {
     // For example {command: 'M', x: '10', y: '10'}
     var elements = chunks.map(function(chunk) {
         var command = chunk.shift(),
-          MoTa = elementDescriptions[command.toLowerCase()];
+          description = elementDescriptions[command.toLowerCase()];
 
         return Chartist.extend({
           command: command
-        }, MoTa.reduce(function(result, paramName, index) {
+        }, description.reduce(function(result, paramName, index) {
           result[paramName] = +chunk[index];
           return result;
         }, {}));
@@ -2883,7 +2883,7 @@ var Chartist = {
    * If something else than undefined is returned by the callback function, this value will be used to replace the old value. This allows you to build custom transformations of path objects that can't be achieved using the basic transformation functions scale and translate.
    *
    * @memberof Chartist.Svg.Path
-   * @param {Function} transformFnc The callback function for the transformation. Check the signature in the function MoTa.
+   * @param {Function} transformFnc The callback function for the transformation. Check the signature in the function description.
    * @return {Chartist.Svg.Path} The current path object for easy call chaining.
    */
   function transform(transformFnc) {
@@ -3328,7 +3328,7 @@ var Chartist = {
     showArea: false,
     // The base for the area chart that will be used to close the area shape (is normally 0)
     areaBase: 0,
-    // Specify if the lines should be smoothed. This value can be true or false where true will result in smoothing using the default smoothing interpolation function Chartist.Interpolation.cardinal and false results in Chartist.Interpolation.none. You can also choose other smoothing / interpolation functions available in the Chartist.Interpolation module, or write your own interpolation function. Check the examples for a brief MoTa.
+    // Specify if the lines should be smoothed. This value can be true or false where true will result in smoothing using the default smoothing interpolation function Chartist.Interpolation.cardinal and false results in Chartist.Interpolation.none. You can also choose other smoothing / interpolation functions available in the Chartist.Interpolation module, or write your own interpolation function. Check the examples for a brief description.
     lineSmooth: true,
     // If the line chart should add a background fill to the .ct-grids group.
     showGridBackground: false,

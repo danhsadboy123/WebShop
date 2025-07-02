@@ -24,7 +24,7 @@ namespace WebShop.Areas.Admin.Models
 
         public string Gift_EN { get; set; }
 
-        public string MoTa { get; set; }
+        public string Description { get; set; }
 
         public string Description_EN { get; set; }
 
@@ -57,7 +57,7 @@ namespace WebShop.Areas.Admin.Models
 
         public bool HomeFlag { get; set; }
 
-        public bool KichHoat { get; set; }
+        public bool Active { get; set; }
 
         public string Title { get; set; }
 
@@ -80,11 +80,11 @@ namespace WebShop.Areas.Admin.Models
         [Required(ErrorMessage = "Vui lòng nhập tồn kho")]
         public int? UnitsInStock { get; set; }
 
-        public virtual ICollection<GiaThuocTinh> AttributesPrices { get; set; } = new List<GiaThuocTinh>();
+        public virtual ICollection<AttributesPrice> AttributesPrices { get; set; } = new List<AttributesPrice>();
 
-        public virtual ThuongHieu Brand { get; set; }
+        public virtual Brand Brand { get; set; }
 
-        public virtual DanhMuc Cat { get; set; }
+        public virtual Category Cat { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 

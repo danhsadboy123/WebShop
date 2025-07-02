@@ -5,7 +5,7 @@
 	cursor: pointer;
 	@include transition(all 0.2s ease); 
 
-	&:KichHoat {
+	&:active {
 	    @include transform(scale(1.4));
 	}
 

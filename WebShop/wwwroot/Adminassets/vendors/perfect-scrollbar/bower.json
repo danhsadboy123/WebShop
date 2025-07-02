@@ -5,7 +5,7 @@
   "authors": [
     "Hyunje Jun <me@noraesae.net>"
   ],
-  "MoTa": "Minimalistic but perfect custom scrollbar plugin",
+  "description": "Minimalistic but perfect custom scrollbar plugin",
   "main": [
     "css/perfect-scrollbar.css",
     "js/perfect-scrollbar.js"

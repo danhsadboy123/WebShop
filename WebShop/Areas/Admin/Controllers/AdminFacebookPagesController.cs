@@ -51,7 +51,7 @@ namespace WebShop.Areas.Admin.Controllers
                    Alias = p.Alias,
                    Price = p.Price,
                    Avatar = p.Avatar,
-                   KichHoat = p.KichHoat,
+                   Active = p.Active,
                    UnitsInStock = p.UnitsInStock,
                    DateCreated = p.DateCreated,
                })
@@ -160,7 +160,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ClientId,RedirectUri,Scope")] TrangFacebook facebookPage)
+        public async Task<IActionResult> Create([Bind("Id,ClientId,RedirectUri,Scope")] FacebookPage facebookPage)
         {
             if (ModelState.IsValid)
             {
@@ -192,7 +192,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ClientId,RedirectUri,Scope")] TrangFacebook facebookPage)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ClientId,RedirectUri,Scope")] FacebookPage facebookPage)
         {
             if (id != facebookPage.Id)
             {

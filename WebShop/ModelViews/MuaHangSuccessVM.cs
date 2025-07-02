@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using WebShop.Models;
+
+namespace WebShop.ModelViews
+{
+    public class MuaHangSuccessVM
+    {
+        public int DonHangID { get; set; }         // Mã đơn hàng
+        public Order Order { get; set; }           // Thông tin đơn hàng
+        public string FullName { get; set; }       // Họ tên khách hàng
+        public string Phone { get; set; }          // Số điện thoại khách hàng
+        public string Address { get; set; }        // Địa chỉ giao hàng
+        public string PhuongXa { get; set; }       // Phường/Xã
+        public string QuanHuyen { get; set; }      // Quận/Huyện
+        public string TinhThanh { get; set; }      // Tỉnh/Thành phố
+        public string Email { get; set; }          // Email khách hàng
+
+        // Thêm danh sách sản phẩm trong đơn hàng thay vì chỉ một sản phẩm
+        public List<OrderDetail> OrderDetails { get; set; } // Danh sách sản phẩm trong đơn hàng
+        public Product product { get; set; }
+    }
+
+}
+ 

@@ -26,7 +26,7 @@
     background-color: rgba(0, 0, 50, 0.16);
 }
 
-.elfinder:not(.elfinder-mobile) *::-webkit-scrollbar-thumb:KichHoat {
+.elfinder:not(.elfinder-mobile) *::-webkit-scrollbar-thumb:active {
     background-color: rgba(0, 0, 50, 0.24);
 }
 
@@ -45,7 +45,7 @@
     border: 5px solid rgba(0, 0, 50, 0.08);
 }
 
-.elfinder:not(.elfinder-mobile) *::-webkit-scrollbar-button:KichHoat {
+.elfinder:not(.elfinder-mobile) *::-webkit-scrollbar-button:active {
     border: 5px solid rgba(0, 0, 50, 0.5);
 }
 
@@ -154,18 +154,18 @@
     background: transparent;
 }
 
-.elfinder-navbar .ui-state-KichHoat {
+.elfinder-navbar .ui-state-active {
     background: #3875d7;
     border-color: #3875d7;
     color: #fff;
 }
 
-.elfinder-navbar .elfinder-droppable-KichHoat {
+.elfinder-navbar .elfinder-droppable-active {
     background: #A7C6E5;
 }
 
 /* disabled elfinder */
-.elfinder-disabled .elfinder-navbar .ui-state-KichHoat {
+.elfinder-disabled .elfinder-navbar .ui-state-active {
     background: #dadada;
     border-color: #aaa;
     color: #777;
@@ -184,7 +184,7 @@
 
 /* selected file in "icons" view */
 .elfinder-cwd-view-icons .elfinder-cwd-file .ui-state-hover,
-.elfinder-cwd-view-icons .elfinder-cwd-file .ui-state-KichHoat {
+.elfinder-cwd-view-icons .elfinder-cwd-file .ui-state-active {
     background: #ccc;
 }
 
@@ -342,7 +342,7 @@
     border-top: 1px solid #fff;
 }
 
-.elfinder-cwd .elfinder-droppable-KichHoat td {
+.elfinder-cwd .elfinder-droppable-active td {
     background: #A7C6E5;
 }
 
@@ -350,7 +350,7 @@
     border-top-color: #fff;
 }
 
-.elfinder-droppable-KichHoat .elfinder-cwd.elfinder-table-header-sticky table {
+.elfinder-droppable-active .elfinder-cwd.elfinder-table-header-sticky table {
     border-top-color: #A7C6E5;
 }
 
@@ -379,7 +379,7 @@
 }
 
 /* contextmenu */
-.elfinder-contextmenu .ui-state-KichHoat {
+.elfinder-contextmenu .ui-state-active {
     background: #6293df;
     color: #fff;
 }
@@ -390,7 +390,7 @@
 }
 
 .elfinder-contextmenu .ui-state-hover .elfinder-contextmenu-arrow {
-    background-image: url('../img/arrows-KichHoat.png');
+    background-image: url('../img/arrows-active.png');
 }
 
 /* dialog */

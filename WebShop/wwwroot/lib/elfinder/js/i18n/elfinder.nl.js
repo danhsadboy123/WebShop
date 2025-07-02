@@ -481,7 +481,7 @@
 			'add'                  : 'Toevoegen', // from v2.1.41 added 7.8.2018
 			'theme'                : 'Thema', // from v2.1.43 added 19.10.2018
 			'default'              : 'Default', // from v2.1.43 added 19.10.2018
-			'MoTa'          : 'Beschrijving', // from v2.1.43 added 19.10.2018
+			'description'          : 'Beschrijving', // from v2.1.43 added 19.10.2018
 			'website'              : 'Website', // from v2.1.43 added 19.10.2018
 			'author'               : 'Auteur', // from v2.1.43 added 19.10.2018
 			'email'                : 'Email', // from v2.1.43 added 19.10.2018

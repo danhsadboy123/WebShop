@@ -67,7 +67,7 @@ namespace WebShop.Controllers
         }
         //bảng báo giá
         [Route("/PrintQuotation")]
-        public IActionResult PrintQuotation(string code, string HoTen, string SoDienThoai, string Email, int ProvinceId, int DistrictId, int WardId, string Address)
+        public IActionResult PrintQuotation(string code, string FullName, string Phone, string Email, int ProvinceId, int DistrictId, int WardId, string Address)
         {
             var cart = HttpContext.Session.Get<List<CartItem>>("GioHang");
             //var gift = _context.GitAttributes
@@ -104,8 +104,8 @@ namespace WebShop.Controllers
                              .Where(x => x.WardId == WardId)
                              .Select(x => x.WardName)
                              .FirstOrDefault();
-            ViewBag.HoTen = HoTen;
-            ViewBag.SoDienThoai = SoDienThoai;
+            ViewBag.Fullname = FullName;
+            ViewBag.Phone = Phone;
             ViewBag.Email = Email;
             ViewBag.Address = Address + ", " + provinceName + ", " + districtName + ", " + warName;
 
@@ -221,10 +221,10 @@ namespace WebShop.Controllers
                 {
                     var khachhang = _context.Customers.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID));
                     var address = _context.AccountAddresses.AsNoTracking().SingleOrDefault(x => x.CustomerId == Convert.ToInt32(taikhoanID) && x.IsDefault == true);
-                    DiaChiTaiKhoan addressnew = new DiaChiTaiKhoan();
+                    AccountAddress addressnew = new AccountAddress();
                     addressnew.CustomerId = khachhang.CustomerId;
-                    addressnew.UserName = muaHang.HoTen;
-                    addressnew.SoDienThoai = muaHang.SoDienThoai;
+                    addressnew.UserName = muaHang.FullName;
+                    addressnew.Phone = muaHang.Phone;
                     addressnew.ProvinceId = muaHang.TinhThanh;
                     addressnew.DistrictId = muaHang.QuanHuyen;
                     addressnew.WardId = muaHang.PhuongXa;
@@ -237,12 +237,12 @@ namespace WebShop.Controllers
                     }
 
                     //Khoi tao don hang
-                    DonHang donhangg = new DonHang();
+                    Order donhangg = new Order();
                     donhangg.CustomerId = khachhang.CustomerId;
                     donhangg.Draft = false;
                     donhangg.CheckEmail = muaHang.CheckEmail;
                     donhangg.OrderDate = DateTime.Now;
-                    donhangg.SoDienThoai = muaHang.SoDienThoai;
+                    donhangg.Phone = muaHang.Phone;
                     donhangg.DeliveryStatusId = 1;//Don hang moi
                     donhangg.Confirmed = false;
                     donhangg.PaymentStatusId = 1;
@@ -278,7 +278,7 @@ namespace WebShop.Controllers
                     ShippingAddress shippingAdress = new ShippingAddress();
                     shippingAdress.OrderId = donhangg.OrderId;
                     shippingAdress.Name = addressnew.UserName;
-                    shippingAdress.SoDienThoai = addressnew.SoDienThoai;
+                    shippingAdress.Phone = addressnew.Phone;
                     shippingAdress.Address = addressnew.Content;
                     shippingAdress.ProvinceId = addressnew.ProvinceId;
                     shippingAdress.DistrictId = addressnew.DistrictId;
@@ -306,7 +306,7 @@ namespace WebShop.Controllers
                             }
                         }
                         orderDetail.Discount = disp;
-                        orderDetail.NgayTao = DateTime.Now;
+                        orderDetail.CreateDate = DateTime.Now;
                         _context.Add(orderDetail);
                     }
                     _context.SaveChanges();
@@ -323,23 +323,23 @@ namespace WebShop.Controllers
                     if (ModelState.IsValid)
                     {
                         //tạo mới một khách hàng vãng lai
-                        KhachVangLai guest = new KhachVangLai
+                        Guest guest = new Guest
                         {
-                            HoTen = muaHang.HoTen,
-                            SoDienThoai = muaHang.SoDienThoai.Trim().ToLower(),
+                            FullName = muaHang.FullName,
+                            Phone = muaHang.Phone.Trim().ToLower(),
                             Email = muaHang.Email.Trim().ToLower(),
-                            NgayTao = DateTime.Now
+                            CreateDate = DateTime.Now
                         };
                         _context.Add(guest);
                         _context.SaveChanges();
                         int guestid = guest.GuestId;
                         //Khoi tao don hang
-                        DonHang donhang = new DonHang();
+                        Order donhang = new Order();
                         donhang.CheckEmail = muaHang.CheckEmail;
                         donhang.Draft = false;
                         donhang.GuestId = guestid;
                         donhang.OrderDate = DateTime.Now;
-                        donhang.SoDienThoai = muaHang.SoDienThoai.Trim();
+                        donhang.Phone = muaHang.Phone.Trim();
                         donhang.DeliveryStatusId = 1;//Don hang moi
                         donhang.Confirmed = false;
                         donhang.PaymentStatusId = 1;
@@ -379,8 +379,8 @@ namespace WebShop.Controllers
                         //tao dia chi giao hang
                         ShippingAddress shippingAdress = new ShippingAddress();
                         shippingAdress.OrderId = donhang.OrderId;
-                        shippingAdress.Name = muaHang.HoTen;
-                        shippingAdress.SoDienThoai = muaHang.SoDienThoai;
+                        shippingAdress.Name = muaHang.FullName;
+                        shippingAdress.Phone = muaHang.Phone;
                         shippingAdress.Address = muaHang.Address;
                         shippingAdress.ProvinceId = muaHang.TinhThanh;
                         shippingAdress.DistrictId = muaHang.QuanHuyen;
@@ -407,7 +407,7 @@ namespace WebShop.Controllers
                                 }
                             }
                             orderDetail.Discount = disp;
-                            orderDetail.NgayTao = DateTime.Now;
+                            orderDetail.CreateDate = DateTime.Now;
                             _context.Add(orderDetail);
                             //đặt hàng thành công thì gửi mail
                         }
@@ -444,7 +444,7 @@ namespace WebShop.Controllers
 
         [HttpPost]
         [Route("/save-Order")]
-        public IActionResult SaveOrder(string HoTen, string SoDienThoai, string Email, int ProvinceId, int DistrictId, int WardId, string Address)
+        public IActionResult SaveOrder(string FullName, string Phone, string Email, int ProvinceId, int DistrictId, int WardId, string Address)
         {
             // Lấy giỏ hàng từ session
             var cart = HttpContext.Session.Get<List<CartItem>>("GioHang");
@@ -469,28 +469,28 @@ namespace WebShop.Controllers
                     decimal totalMoney = cart.Sum(item =>
                         (decimal)(item.product.SalePrice > 0 ? item.product.SalePrice : item.product.Price) * item.amount);
 
-                    KhachVangLai guest = null;
+                    Guest guest = null;
                     //tạo list Orderdetail để gửi mail
                     List<OrderDetail>lsOD = new List<OrderDetail>();
                     // Nếu khách hàng chưa đăng nhập, tạo mới một khách hàng vãng lai
                     if (taikhoanID == null)
                     {
-                        guest = new KhachVangLai
+                        guest = new Guest
                         {
-                            HoTen = HoTen,
-                            SoDienThoai = SoDienThoai.Trim().ToLower(),
+                            FullName = FullName,
+                            Phone = Phone.Trim().ToLower(),
                             Email = Email.Trim().ToLower(),
-                            NgayTao = DateTime.Now
+                            CreateDate = DateTime.Now
                         };
                         _context.Guests.Add(guest);
                         _context.SaveChanges();
                     }
 
                     // Tạo đơn hàng
-                    var order = new DonHang
+                    var order = new Order
                     {
                         GuestId = guest?.GuestId, // Có thể là null nếu khách hàng đã đăng nhập
-                        SoDienThoai = guest?.SoDienThoai,
+                        Phone = guest?.Phone,
                         OrderDate = DateTime.Now,
                         DeliveryStatusId = 1,
                         PaymentStatusId = 1,
@@ -515,7 +515,7 @@ namespace WebShop.Controllers
                             Amount = item.amount,
                             Discount = 0,
                             TotalMoney = item.amount * (item.product.SalePrice > 0 ? item.product.SalePrice : item.product.Price),
-                            NgayTao = DateTime.Now,
+                            CreateDate = DateTime.Now,
                             Price = (item.product.SalePrice > 0 ? item.product.SalePrice : item.product.Price)
                         };
                         _context.OrderDetails.Add(orderDetail);
@@ -527,8 +527,8 @@ namespace WebShop.Controllers
                     var shippingAddress = new ShippingAddress
                     {
                         OrderId = order.OrderId,
-                        Name = guest?.HoTen,
-                        SoDienThoai = guest?.SoDienThoai,
+                        Name = guest?.FullName,
+                        Phone = guest?.Phone,
                         ProvinceId = ProvinceId,
                         WardId = WardId,
                         DistrictId = DistrictId,
@@ -633,10 +633,10 @@ namespace WebShop.Controllers
             public IActionResult AddAccountAddress(int TinhThanh1,int QuanHuyen1,int PhuongXa1,string Address1, string PhoneAdd,string FullNameAdd,int CustomerAdd)
         {
             bool success = true;
-            DiaChiTaiKhoan cus = new DiaChiTaiKhoan();
+            AccountAddress cus = new AccountAddress();
             try {
                 cus.CustomerId = CustomerAdd;
-                cus.SoDienThoai=PhoneAdd;
+                cus.Phone=PhoneAdd;
                 cus.UserName = FullNameAdd;
                 cus.ProvinceId = TinhThanh1;
                 cus.DistrictId= QuanHuyen1;
@@ -713,9 +713,9 @@ namespace WebShop.Controllers
         //                .ToList();
         //            MuaHangSuccessVM successVMM = new MuaHangSuccessVM();
         //            successVMM.Order = donhangg;
-        //            successVMM.HoTen = khachhangvanglai.HoTen;
+        //            successVMM.FullName = khachhangvanglai.FullName;
         //            successVMM.DonHangID = donhangg.OrderId;
-        //            successVMM.SoDienThoai = khachhangvanglai.SoDienThoai;
+        //            successVMM.Phone = khachhangvanglai.Phone;
         //            successVMM.Email = khachhangvanglai.Email;
         //            successVMM.TinhThanh = GetNameProvince(shippingAddress.Province.ProvinceId);
         //            successVMM.QuanHuyen = GetNameDistrict(shippingAddress.District.DistrictId);
@@ -746,9 +746,9 @@ namespace WebShop.Controllers
 
         //            MuaHangSuccessVM successVM = new MuaHangSuccessVM();
         //            successVM.Order = donhang;
-        //            successVM.HoTen = khachhang.HoTen;
+        //            successVM.FullName = khachhang.FullName;
         //            successVM.DonHangID = donhang.OrderId;
-        //            successVM.SoDienThoai = donhang.SoDienThoai;
+        //            successVM.Phone = donhang.Phone;
         //            successVM.Email = khachhang.Email;
         //            successVM.TinhThanh = GetNameProvince(shippingAddress.Province.ProvinceId);
         //            successVM.QuanHuyen = GetNameDistrict(shippingAddress.District.DistrictId);
@@ -816,7 +816,7 @@ namespace WebShop.Controllers
         }
 
         // send email dat hang thanh cong
-        public IActionResult SendEmail(KhachHang tk, List<OrderDetail> listO,DonHang donhang)
+        public IActionResult SendEmail(Customer tk, List<OrderDetail> listO,Order donhang)
         {
             var address = "";
             var systemW = _context.SystemWebs.FirstOrDefault();
@@ -844,7 +844,7 @@ namespace WebShop.Controllers
                         try
                         {
                             var optionEmail = _context.EmailMakettings.Where(i => i.EmailEvent == 8).FirstOrDefault();
-                            var text = textcover(optionEmail.Body, tk.HoTen, tk.Email, tk.SoDienThoai.ToString(), address, "", listO,donhang);
+                            var text = textcover(optionEmail.Body, tk.FullName, tk.Email, tk.Phone.ToString(), address, "", listO,donhang);
                             email.Bcc.Add(MailboxAddress.Parse(tk.Email));
                             email.To.Add(MailboxAddress.Parse(tk.Email));
                             email.Subject = optionEmail.Title;
@@ -878,7 +878,7 @@ namespace WebShop.Controllers
         }
 
         // kahch hang van lai
-        public IActionResult SendEmail2(KhachVangLai tk, string address, List<OrderDetail> listO,DonHang donhang)
+        public IActionResult SendEmail2(Guest tk, string address, List<OrderDetail> listO,Order donhang)
         {
             var address1 = "";
             if (address != null)
@@ -906,7 +906,7 @@ namespace WebShop.Controllers
                         try
                         {
                             var optionEmail = _context.EmailMakettings.Where(i => i.EmailEvent == 8).FirstOrDefault();
-                            var text = textcover(optionEmail.Body, tk.HoTen, tk.Email, tk.SoDienThoai.ToString(), address1, "", listO, donhang);
+                            var text = textcover(optionEmail.Body, tk.FullName, tk.Email, tk.Phone.ToString(), address1, "", listO, donhang);
                             email.Bcc.Add(MailboxAddress.Parse(tk.Email));
                             email.To.Add(MailboxAddress.Parse(tk.Email));
                             email.Subject = optionEmail.Title;
@@ -940,7 +940,7 @@ namespace WebShop.Controllers
         }
 
         //thay đổii nội dung phần Email gửi khách hàng
-        public string textcover(string body, string Name, string Email, string SoDienThoai, string Address, string CompannyName, List<OrderDetail> Order, DonHang donhang)
+        public string textcover(string body, string Name, string Email, string Phone, string Address, string CompannyName, List<OrderDetail> Order, Order donhang)
         {
             var url = HttpContext.Request.Host;
             var id = "";
@@ -1036,7 +1036,7 @@ namespace WebShop.Controllers
                 Str = Str.Replace("TenCongTyKH", CompannyName);
                 Str = Str.Replace("EmailKH", Email);
                 Str = Str.Replace("DiaChiKH", Address);
-                Str = Str.Replace("SDTKH", SoDienThoai);
+                Str = Str.Replace("SDTKH", Phone);
                 Str = Str.Replace("MDH", id.ToString());
                 Str = Str.Replace("Node", node);
                 Str = Str.Replace("SPKHDM", product);

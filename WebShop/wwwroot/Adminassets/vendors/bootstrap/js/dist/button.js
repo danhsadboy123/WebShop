@@ -40,7 +40,7 @@
   var DATA_API_KEY = '.data-api';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
   var ClassName = {
-    KichHoat: 'KichHoat',
+    ACTIVE: 'active',
     BUTTON: 'btn',
     FOCUS: 'focus'
   };
@@ -48,7 +48,7 @@
     DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
     DATA_TOGGLE: '[data-toggle="buttons"]',
     INPUT: 'input:not([type="hidden"])',
-    KichHoat: '.KichHoat',
+    ACTIVE: '.active',
     BUTTON: '.btn'
   };
   var Event = {
@@ -83,13 +83,13 @@
 
         if (input) {
           if (input.type === 'radio') {
-            if (input.checked && this._element.classList.contains(ClassName.KichHoat)) {
+            if (input.checked && this._element.classList.contains(ClassName.ACTIVE)) {
               triggerChangeEvent = false;
             } else {
-              var activeElement = rootElement.querySelector(Selector.KichHoat);
+              var activeElement = rootElement.querySelector(Selector.ACTIVE);
 
               if (activeElement) {
-                $(activeElement).removeClass(ClassName.KichHoat);
+                $(activeElement).removeClass(ClassName.ACTIVE);
               }
             }
           }
@@ -99,7 +99,7 @@
               return;
             }
 
-            input.checked = !this._element.classList.contains(ClassName.KichHoat);
+            input.checked = !this._element.classList.contains(ClassName.ACTIVE);
             $(input).trigger('change');
           }
 
@@ -109,11 +109,11 @@
       }
 
       if (addAriaPressed) {
-        this._element.setAttribute('aria-pressed', !this._element.classList.contains(ClassName.KichHoat));
+        this._element.setAttribute('aria-pressed', !this._element.classList.contains(ClassName.ACTIVE));
       }
 
       if (triggerChangeEvent) {
-        $(this._element).toggleClass(ClassName.KichHoat);
+        $(this._element).toggleClass(ClassName.ACTIVE);
       }
     };
 

@@ -59,7 +59,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Image,Name,Company,SoDienThoai,Email,Address,YearAdd,Lever")] NhaCungCapKhachHang customerSupplier)
+        public async Task<IActionResult> Create([Bind("Id,Image,Name,Company,Phone,Email,Address,YearAdd,Lever")] CustomerSupplier customerSupplier)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Name,Company,SoDienThoai,Email,Address,YearAdd,Lever")] NhaCungCapKhachHang customerSupplier)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Name,Company,Phone,Email,Address,YearAdd,Lever")] CustomerSupplier customerSupplier)
         {
             if (id != customerSupplier.Id)
             {

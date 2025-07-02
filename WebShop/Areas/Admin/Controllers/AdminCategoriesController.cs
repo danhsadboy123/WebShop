@@ -60,7 +60,7 @@ namespace WebShop.Areas.Admin.Controllers
             slide.Bottom = false;
             slide.CatId = catid;
             slide.HomeFlag = true;
-            slide.KichHoat = true;
+            slide.Active = true;
             try
             {
                 _context.Slides.Add(slide);
@@ -197,7 +197,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CatId,CatName,CatNameEn,DescriptionEn,MoTa,ParentId,Levels,Ordering,Outstanding,Published,Thumb,Title,TitleEn,Alias,MetaDesc,MetaDescEn,MetaKey,MetaKeyEn,Cover,SchemaMarkup,Icon")] DanhMuc category)
+        public async Task<IActionResult> Create([Bind("CatId,CatName,CatNameEn,DescriptionEn,Description,ParentId,Levels,Ordering,Outstanding,Published,Thumb,Title,TitleEn,Alias,MetaDesc,MetaDescEn,MetaKey,MetaKeyEn,Cover,SchemaMarkup,Icon")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -339,7 +339,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, DanhMuc updatedCategory)
+        public async Task<IActionResult> Edit(int id, Category updatedCategory)
         {
             if (id != updatedCategory.CatId)
             {
@@ -395,11 +395,11 @@ namespace WebShop.Areas.Admin.Controllers
             var attr = _context.Attributes.Where(i => i.AttributeId == id).FirstOrDefault();
             try
             {
-                DanhMucThuocTinh cate = new DanhMucThuocTinh();
+                CategoryAttribute cate = new CategoryAttribute();
                 cate.CatId = cateid;
                 cate.Name = attr.Name;
                 cate.AttributeId = attr.AttributeId;
-                cate.KichHoat = attr.KichHoat;
+                cate.Active = attr.Active;
 
                 _context.CategoryAttributes.Add(cate);
                 _context.SaveChanges();
@@ -531,11 +531,11 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 try
                 {
-                    NhomThuongHieu br = new NhomThuongHieu();
+                    BrandGroup br = new BrandGroup();
                     br.BrandId = cateb.BrandId;
                     br.CatId = cateb.CatId;
                     br.Name = text;
-                    br.MoTa = "Đã tạo vào ngày:" + DateTime.Now;
+                    br.Description = "Đã tạo vào ngày:" + DateTime.Now;
                     br.Status = true;
                     _context.BrandGroups.Add(br);
                     _context.SaveChanges();
@@ -646,15 +646,15 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 if (brand != null)
                 {
-                    var newcategoryBrand = new DanhMucThuongHieu
+                    var newcategoryBrand = new CategoryBrand
                     {
                         BrandId = brand.BrandId,
                         CatId = catid,
                         Name = brand.BrandName,
-                        MoTa = brand.MoTa,
+                        Description = brand.Description,
                         BrandProduct = true,
                         Topbrand = false,
-                        KichHoat = true
+                        Active = true
                     };
                     _context.CategoryBrands.Add(newcategoryBrand);
                     _context.SaveChanges();

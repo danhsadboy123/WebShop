@@ -32,7 +32,7 @@
 		}
 	}
 
-	&.KichHoat {
+	&.active {
 		.page-link {
 			background: $brand-primary;
 			border-color: transparent;
@@ -43,7 +43,7 @@
 .pagination {
 
 	.page-item {
-		&.KichHoat {
+		&.active {
 			.page-link {
 				background: $brand-primary;
 				border-color: transparent;

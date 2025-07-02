@@ -13,12 +13,12 @@ export default class Core {
 		const appLayout =  $('.app');
 		const isFolded = 'is-folded';
 		const isExpand = 'is-expand';
-		const KichHoat = 'KichHoat';
+		const active = 'active';
 		const drodpDownItem = '.side-nav .side-nav-menu .nav-item .dropdown-menu li'
 
 		
-			if ($(drodpDownItem).hasClass('KichHoat')) {
-				$( drodpDownItem + '.' + KichHoat).parent().parent().addClass('open') 
+			if ($(drodpDownItem).hasClass('active')) {
+				$( drodpDownItem + '.' + active).parent().parent().addClass('open') 
 			}
 
         $('.side-nav .side-nav-menu li a').on('click', (e) => {

@@ -26,7 +26,7 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/AdminAttributesPotentails
         public async Task<IActionResult> Index()
         {
-            var dbMarketsContext = _context.AttributesPotentails.Include(a => a.TiemNang);
+            var dbMarketsContext = _context.AttributesPotentails.Include(a => a.Potentail);
             return View(await dbMarketsContext.ToListAsync());
         }
 
@@ -39,8 +39,8 @@ namespace WebShop.Areas.Admin.Controllers
             }
 
             var attributesPotentail = await _context.AttributesPotentails
-                .Include(a => a.TiemNang)
-                .FirstOrDefaultAsync(m => m.Ma == id);
+                .Include(a => a.Potentail)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (attributesPotentail == null)
             {
                 return NotFound();
@@ -52,7 +52,7 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/AdminAttributesPotentails/Create
         public IActionResult Create()
         {
-            ViewData["MaTiemNang"] = new SelectList(_context.CustomerPotentails, "Ma", "Ma");
+            ViewData["PotentailId"] = new SelectList(_context.CustomerPotentails, "Id", "Id");
             return View();
         }
 
@@ -61,7 +61,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Ma,MaTiemNang,NoiDung,ThoiGianGui")] ThuocTinhTiemNang attributesPotentail)
+        public async Task<IActionResult> Create([Bind("Id,PotentailId,Body,TimeSend")] AttributesPotentail attributesPotentail)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +69,7 @@ namespace WebShop.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PotentailId"] = new SelectList(_context.CustomerPotentails, "Ma", "Ma", attributesPotentail.MaTiemNang);
+            ViewData["PotentailId"] = new SelectList(_context.CustomerPotentails, "Id", "Id", attributesPotentail.PotentailId);
             return View(attributesPotentail);
         }
        
@@ -78,28 +78,28 @@ namespace WebShop.Areas.Admin.Controllers
         {
             var text = "";
            
-            var cus = _context.CustomerPotentails.Where(c=>c.DaKiemTra == 1).ToList();
+            var cus = _context.CustomerPotentails.Where(c=>c.Checked==1).ToList();
             var custummer = from c in cus select(c);
             if (leveruser != 0)
             {
-                custummer = custummer.Where(x => x.MaCapDo == leveruser).ToList();
+                custummer = custummer.Where(x => x.LeverId == leveruser).ToList();
             }
             if (OptionEmailID == null)
             {
                 return Json(new { success = "No" });
             }
             else {
-                var option = _context.EmailMakettings.Where(e=>e.MaEmail==OptionEmailID).FirstOrDefault();
+                var option = _context.EmailMakettings.Where(e=>e.EmailId==OptionEmailID).FirstOrDefault();
      
                 if (custummer.Count() > 0)
                 {
                     foreach(var item in custummer)
                     {
-                        var attributes = new ThuocTinhTiemNang();
-                        text = option.NoiDung;
-                        attributes.MaTiemNang = item.Ma;
-                        attributes.NoiDung = text;
-                        attributes.ThoiGianGui=DateTime.Now;
+                        var attributes = new AttributesPotentail();
+                        text = option.Body;
+                        attributes.PotentailId = item.Id;
+                        attributes.Body = text;
+                        attributes.TimeSend=DateTime.Now;
                         _context.AddRange(attributes);
                     }
                 }
@@ -128,11 +128,11 @@ namespace WebShop.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult deleteEmail()
         {
-            var cusId = _context.CustomerPotentails.Where(i=>i.DaKiemTra==1).ToList();
+            var cusId = _context.CustomerPotentails.Where(i=>i.Checked==1).ToList();
 
             foreach(var item in cusId)
             {
-                var itemdelete = _context.AttributesPotentails.Where(x=>x.MaTiemNang==item.Ma);
+                var itemdelete = _context.AttributesPotentails.Where(x=>x.PotentailId==item.Id);
                 _context.AttributesPotentails.RemoveRange(itemdelete);
             }
             _context.SaveChanges();
@@ -153,7 +153,7 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["PotentailId"] = new SelectList(_context.CustomerPotentails, "Id", "Id", attributesPotentail.MaTiemNang);
+            ViewData["PotentailId"] = new SelectList(_context.CustomerPotentails, "Id", "Id", attributesPotentail.PotentailId);
             return View(attributesPotentail);
         }
 
@@ -162,9 +162,9 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Ma,MaTiemNang,NoiDung,ThoiGianGui")] ThuocTinhTiemNang attributesPotentail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,PotentailId,Body,TimeSend")] AttributesPotentail attributesPotentail)
         {
-            if (id != attributesPotentail.Ma)
+            if (id != attributesPotentail.Id)
             {
                 return NotFound();
             }
@@ -178,7 +178,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AttributesPotentailExists(attributesPotentail.Ma))
+                    if (!AttributesPotentailExists(attributesPotentail.Id))
                     {
                         return NotFound();
                     }
@@ -189,7 +189,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MaTiemNang"] = new SelectList(_context.CustomerPotentails, "Ma", "Ma", attributesPotentail.MaTiemNang);
+            ViewData["PotentailId"] = new SelectList(_context.CustomerPotentails, "Id", "Id", attributesPotentail.PotentailId);
             return View(attributesPotentail);
         }
 
@@ -202,7 +202,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
 
             var attributesPotentail = await _context.AttributesPotentails
-                .Include(a => a.TiemNang)
+                .Include(a => a.Potentail)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (attributesPotentail == null)
             {

@@ -1,29 +1,46 @@
 ﻿@inject WebShop.Services.IPageInfoService PageInfoService;
 @{
     var userName = ViewData["Username"]?.ToString();
-    var VaiTro = ViewData["VaiTro"]?.ToString();
-    List<WebShop.Models.DanhMuc> lsCat = ViewBag.lsCat ?? new List<WebShop.Models.DanhMuc>();
+    var role = ViewData["Role"]?.ToString(); 
+    List<WebShop.Models.Category> lsCat = ViewBag.lsCat;
+ 
 }
 <link href="~/novazone/css/reponeheader.css" rel="stylesheet" />
 <!-- Topbar Start -->
 <div class="container-fluid">
-    <div class="row py-1 px-xl-5" style="background-color:#edf1f9">
+    <div class="row   py-1 px-xl-5" style="background-color:#edf1f9">
         <div class="col-lg-6 d-none d-lg-block">
             <div class="d-inline-flex align-items-center h-100 scrolling-links" style="font-weight: bold;">
                 <span class="text-danger mr-3">
-                    Sunhitech Corp:
-                    <a class="link-web" href="https://sunhitech.vn/">www.sunhitech.vn - 09025 777 63</a>
-                    <a class="link-web" href="https://vanyco.vn/">www.vanyco.vn - 0937 963 779</a>
-                    <a class="link-web" href="https://vietnamtiepthi.vn/">www.vietnamtieptthi.vn - 0937 963 779</a>
-                </span>
+                    Sunhitech Corp: <a class="link-web" href="https://sunhitech.vn/">www.sunhitech.vn - 09025 777 63 </a> <a class="link-web" href="https://vanyco.vn/"> www.vanyco.vn - 0937 963 779</a> <a class="link-web" href="https://vietnamtiepthi.vn/"> www.vietnamtieptthi.vn - 0937 963 779</a>
+                </span> 
             </div>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
                 <div class="btn-group">
-                    <a href="/Account/Login" title="Đăng nhập/Đăng ký" class="btn text-white mr-2" style="background: #FFD333; border: 0; border-radius: 50%;"><i class="fa fa-user"></i></a>
-                    <a href="/tra-cuu-don-hang" title="Tra cứu đơn hàng" class="btn text-white" style="background: #FFD333; border: 0; border-radius: 50%;"><i class="fa fa-search"></i></a>
+
+                    <a href="/Account/Login" title="Đăng nhập/Đăng ký" class="btn text-white mr-2"  style="background: #FFD333; border: 0; border-radius: 50%; "><i class="fa fa-user"></i></a>
+                    <a href="/tra-cuu-don-hang" title="Tra cứu đơn hàng" class="btn text-white "  style="background: #FFD333; border: 0; border-radius: 50%; "><i class="fa fa-search"></i></a>
+
+                   
                 </div>
+                @*<div class="btn-group mx-2">
+                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                <button class="dropdown-item" type="button">EUR</button>
+                <button class="dropdown-item" type="button">GBP</button>
+                <button class="dropdown-item" type="button">CAD</button>
+                </div>
+                </div>
+                <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                <button class="dropdown-item" type="button">FR</button>
+                <button class="dropdown-item" type="button">AR</button>
+                <button class="dropdown-item" type="button">RU</button>
+                </div>
+                </div>*@
             </div>
             <div class="d-inline-flex align-items-center d-block d-lg-none">
                 <a href="/cart" class="btn px-0 ml-3">
@@ -36,39 +53,41 @@
     <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-4">
             <a href="/" class="text-decoration-none">
-                <h1 class="h1 text-primary bg-light px-2" style="font-size:3.5rem">
-                    Novazone
-                </h1>
+                <h1 class="h1  text-primary bg-light px-2" style="font-size:3.5rem">
+                   Novazone
+                </h1> 
             </a>
         </div>
         <div class="col-lg-5 col-6 text-left">
-            <form action="/Product/Search" method="get">
+            <form action=""> 
                 <div class="input-group row">
                     <div class="col-3">
-                        <select class="form-control selected-category" name="cateId">
-                            <option value="0">Tất cả</option>
+                        <select class="form-control selected-category">
+                            <option selected value="0">Tất cả</option>
                             @foreach (var category in lsCat)
                             {
                                 <option value="@category.CatId">@category.CatName</option>
                             }
                         </select>
                     </div>
-                    <div class="col-8 d-flex" style="position:relative;">
-                        <input type="text" class="form-control text-search" name="textSearch" placeholder="Tìm kiếm sản phẩm của bạn">
+                    <div class="col-8 d-flex" style="position:relative;"> 
+                        <input type="text" class="form-control text-search" placeholder="Tìm kiếm sản phẩm của bạn">
                         <div class="input-group-append">
-                            <button type="submit" class="input-group-text bg-transparent text-primary">
+                            <span class="input-group-text bg-transparent text-primary">
                                 <i class="fa fa-search"></i>
-                            </button>
-                        </div>
+                            </span>
+                        </div> 
                     </div>
-                    <div class="search-result d-none" style="max-height: 500px; overflow-y: auto; position: absolute; z-index: 1000; width: 100%; background: #fff; border: 1px solid #ddd;">
+                    <div class="search-result d-none" style="max-height: 500px;overflow-y: scroll;">
+                        
                     </div>
+
                 </div>
             </form>
         </div>
         <div class="col-lg-3 col-6 text-right">
             <p class="m-0">Chăm sóc khách hàng</p>
-            <h5 class="m-0">@(PageInfoService.GetPageInfo()?.SoDienThoai ?? "0848967333")</h5>
+            <h5 class="m-0">@* @PageInfoService.GetPageInfo().Phone *@</h5>
         </div>
     </div>
 </div>

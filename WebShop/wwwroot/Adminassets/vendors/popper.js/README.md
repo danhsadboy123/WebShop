@@ -132,7 +132,7 @@ new Popper(reference, popper, {
     onCreate: (data) => {
         // data is an object containing all the informations computed
         // by Popper.js and used to style the popper and its arrow
-        // The complete MoTa is available in Popper.js documentation
+        // The complete description is available in Popper.js documentation
     },
     onUpdate: (data) => {
         // same as `onCreate` but called on subsequent updates

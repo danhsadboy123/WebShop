@@ -1,4 +1,4 @@
-﻿@model PagedList.Core.IPagedList<WebShop.Models.KhachHangTiemNang>
+﻿@model PagedList.Core.IPagedList<WebShop.Models.CustomerPotentail>
 @using Microsoft.AspNetCore.Html;
 
 @{
@@ -32,7 +32,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
             <a class="breadcrumb-item">Chăm sóc khách hàng</a>
-            <span class="breadcrumb-item KichHoat">Khách hàng tiềm năng</span>
+            <span class="breadcrumb-item active">Khách hàng tiềm năng</span>
         </nav>
     </div>
 </div>
@@ -103,7 +103,7 @@
                 <div class="d-md-flex">
                     <div class="m-b-15">
                         <button class="btn btn-primary" id="ClickAllEmail" onclick="SendAllEmail()"><i class="anticon anticon-mail"></i> <span>Gửi thư </span></button>
-                        <div id="loadAllEmail" class="spinner-border text-primary" VaiTro="status">
+                        <div id="loadAllEmail" class="spinner-border text-primary" role="status">
                             <span class="sr-only"></span>
                         </div>
                         <span id="errEmail">Liên hệ Sunhitech lỗi gửi email</span>
@@ -175,7 +175,7 @@
                                 </td>
                                 <td>@item.Email</td>
                                 <td>@item.Address</td>
-                                <td>@item.SoDienThoai</td>
+                                <td>@item.Phone</td>
                                 <td class="row ist">
                                     <div class="col-lg-10">
                                     @item.Lever.NameLever
@@ -244,9 +244,9 @@
                         <span class="text-danger Address"></span>
                     </div>
                     <div class="form-group">
-                        <label for="SoDienThoai" class="control-label">SĐT</label>
-                        <input id="SoDienThoai" type="number" class="form-control" placeholder="Nhập số điện thoại khách hàng" />
-                        <span class="text-danger SoDienThoai"></span>
+                        <label for="Phone" class="control-label">SĐT</label>
+                        <input id="Phone" type="number" class="form-control" placeholder="Nhập số điện thoại khách hàng" />
+                        <span class="text-danger Phone"></span>
                     </div>
                     <div class="form-group">
                         <label>Khách hàng</label>
@@ -417,7 +417,7 @@
     </div>
 </div>
 @*excel*@
-<div id="import_excel_md" class="modal fade" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="import_excel_md" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form asp-area="Admin" asp-controller="AdminCustomerPotentails" asp-action="ImportCustommerP" method="post" enctype="multipart/form-data">
@@ -891,14 +891,14 @@
             }
             checkshow(check);
         });
-        $('#SoDienThoai').keyup(function () {
+        $('#Phone').keyup(function () {
             var Phonef = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
             if ($(this).val().match(Phonef)) {
-                $(".SoDienThoai").html("");
+                $(".Phone").html("");
                 check[4] = 0;
             }
             else {
-                $(".SoDienThoai").html("Số điện thoại không hợp lệ");
+                $(".Phone").html("Số điện thoại không hợp lệ");
                 check[4] = 1;
             }
             checkshow(check);
@@ -909,7 +909,7 @@
             var Company = $("#Company").val();
             var Email = $("#Email").val();
             var Address = $("#Address").val();
-            var SoDienThoai = $("#SoDienThoai").val();
+            var Phone = $("#Phone").val();
             var LeverId = $('#levercustomerAdd').find(":selected").val();
             $.ajax({
                 type: 'POST',
@@ -920,7 +920,7 @@
                     CompannyName: Company,
                     Email: Email,
                     Address: Address,
-                    SoDienThoai: SoDienThoai,
+                    Phone: Phone,
                     LeverId: LeverId
                 },
                 success: function (data) {

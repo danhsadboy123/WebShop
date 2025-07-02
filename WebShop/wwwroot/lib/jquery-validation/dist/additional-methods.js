@@ -692,11 +692,11 @@ $.validator.addMethod( "mobileNL", function( value, element ) {
 	return this.optional( element ) || /^((\+|00(\s|\s?\-\s?)?)31(\s|\s?\-\s?)?(\(0\)[\-\s]?)?|0)6((\s|\s?\-\s?)?[0-9]){8}$/.test( value );
 }, "Please specify a valid mobile number" );
 
-/* For UK SoDienThoai functions, do the following server side processing:
+/* For UK phone functions, do the following server side processing:
  * Compare original input with this RegEx pattern:
  * ^\(?(?:(?:00\)?[\s\-]?\(?|\+)(44)\)?[\s\-]?\(?(?:0\)?[\s\-]?\(?)?|0)([1-9]\d{1,4}\)?[\s\d\-]+)$
  * Extract $1 and set $prefix to '+44<space>' if $1 is '44', otherwise set $prefix to '0'
- * Extract $2 and remove hyphens, spaces and parentheses. SoDienThoai number is combined $prefix and $2.
+ * Extract $2 and remove hyphens, spaces and parentheses. Phone number is combined $prefix and $2.
  * A number of very detailed GB telephone number RegEx patterns can also be found at:
  * http://www.aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers
  */
@@ -836,17 +836,17 @@ $.validator.addMethod( "pattern", function( value, element, param ) {
 }, "Invalid format." );
 
 /**
- * Dutch SoDienThoai numbers have 10 digits (or 11 and start with +31).
+ * Dutch phone numbers have 10 digits (or 11 and start with +31).
  */
 $.validator.addMethod( "phoneNL", function( value, element ) {
 	return this.optional( element ) || /^((\+|00(\s|\s?\-\s?)?)31(\s|\s?\-\s?)?(\(0\)[\-\s]?)?|0)[1-9]((\s|\s?\-\s?)?[0-9]){8}$/.test( value );
-}, "Please specify a valid SoDienThoai number." );
+}, "Please specify a valid phone number." );
 
-/* For UK SoDienThoai functions, do the following server side processing:
+/* For UK phone functions, do the following server side processing:
  * Compare original input with this RegEx pattern:
  * ^\(?(?:(?:00\)?[\s\-]?\(?|\+)(44)\)?[\s\-]?\(?(?:0\)?[\s\-]?\(?)?|0)([1-9]\d{1,4}\)?[\s\d\-]+)$
  * Extract $1 and set $prefix to '+44<space>' if $1 is '44', otherwise set $prefix to '0'
- * Extract $2 and remove hyphens, spaces and parentheses. SoDienThoai number is combined $prefix and $2.
+ * Extract $2 and remove hyphens, spaces and parentheses. Phone number is combined $prefix and $2.
  * A number of very detailed GB telephone number RegEx patterns can also be found at:
  * http://www.aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers
  */
@@ -856,13 +856,13 @@ $.validator.addMethod( "phonesUK", function( phone_number, element ) {
 	phone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
 		phone_number.match( /^(?:(?:(?:00\s?|\+)44\s?|0)(?:1\d{8,9}|[23]\d{9}|7(?:[1345789]\d{8}|624\d{6})))$/ );
-}, "Please specify a valid uk SoDienThoai number" );
+}, "Please specify a valid uk phone number" );
 
-/* For UK SoDienThoai functions, do the following server side processing:
+/* For UK phone functions, do the following server side processing:
  * Compare original input with this RegEx pattern:
  * ^\(?(?:(?:00\)?[\s\-]?\(?|\+)(44)\)?[\s\-]?\(?(?:0\)?[\s\-]?\(?)?|0)([1-9]\d{1,4}\)?[\s\d\-]+)$
  * Extract $1 and set $prefix to '+44<space>' if $1 is '44', otherwise set $prefix to '0'
- * Extract $2 and remove hyphens, spaces and parentheses. SoDienThoai number is combined $prefix and $2.
+ * Extract $2 and remove hyphens, spaces and parentheses. Phone number is combined $prefix and $2.
  * A number of very detailed GB telephone number RegEx patterns can also be found at:
  * http://www.aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers
  */
@@ -870,10 +870,10 @@ $.validator.addMethod( "phoneUK", function( phone_number, element ) {
 	phone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
 		phone_number.match( /^(?:(?:(?:00\s?|\+)44\s?)|(?:\(?0))(?:\d{2}\)?\s?\d{4}\s?\d{4}|\d{3}\)?\s?\d{3}\s?\d{3,4}|\d{4}\)?\s?(?:\d{5}|\d{3}\s?\d{3})|\d{5}\)?\s?\d{4,5})$/ );
-}, "Please specify a valid SoDienThoai number" );
+}, "Please specify a valid phone number" );
 
 /**
- * Matches US SoDienThoai number format
+ * Matches US phone number format
  *
  * where the area code may not start with 1 and the prefix may not start with 1
  * allows '-' or ' ' as a separator and allows parens around area code
@@ -892,7 +892,7 @@ $.validator.addMethod( "phoneUS", function( phone_number, element ) {
 	phone_number = phone_number.replace( /\s+/g, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
 		phone_number.match( /^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]([02-9]\d|1[02-9])-?\d{4}$/ );
-}, "Please specify a valid SoDienThoai number" );
+}, "Please specify a valid phone number" );
 
 /*
 * Valida CEPs do brasileiros:
@@ -943,12 +943,12 @@ $.validator.addMethod( "postcodeUK", function( value, element ) {
  * The end result is that neither of these inputs:
  *
  *	<input class="productinfo" name="partnumber">
- *	<input class="productinfo" name="MoTa">
+ *	<input class="productinfo" name="description">
  *
  *	...will validate unless at least one of them is filled.
  *
  * partnumber:	{require_from_group: [1,".productinfo"]},
- * MoTa: {require_from_group: [1,".productinfo"]}
+ * description: {require_from_group: [1,".productinfo"]}
  *
  * options[0]: number of fields that must be filled in the group
  * options[1]: CSS selector that defines the group of conditionally required fields
@@ -982,14 +982,14 @@ $.validator.addMethod( "require_from_group", function( value, element, options )
  * The end result, is that none of these inputs:
  *
  *	<input class="productinfo" name="partnumber">
- *	<input class="productinfo" name="MoTa">
+ *	<input class="productinfo" name="description">
  *	<input class="productinfo" name="color">
  *
  *	...will validate unless either at least two of them are filled,
  *	OR none of them are.
  *
  * partnumber:	{skip_or_fill_minimum: [2,".productinfo"]},
- * MoTa: {skip_or_fill_minimum: [2,".productinfo"]},
+ * description: {skip_or_fill_minimum: [2,".productinfo"]},
  * color:		{skip_or_fill_minimum: [2,".productinfo"]}
  *
  * options[0]: number of fields that must be filled in the group

@@ -486,7 +486,7 @@
 			'add'             : '추가', // from v2.1.41 added 7.8.2018
 			'theme'           : '테마', // from v2.1.43 added 19.10.2018
 			'default'         : '기본값', // from v2.1.43 added 19.10.2018
-			'MoTa'     : '설명', // from v2.1.43 added 19.10.2018
+			'description'     : '설명', // from v2.1.43 added 19.10.2018
 			'website'         : '웹사이트', // from v2.1.43 added 19.10.2018
 			'author'          : '저자', // from v2.1.43 added 19.10.2018
 			'email'           : '이메일', // from v2.1.43 added 19.10.2018

@@ -66,7 +66,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SlideId,Thumb,Alias,SlideName,CatId,KichHoat,HomeFlag,Right,Bottom")] Slide slide, Microsoft.AspNetCore.Http.IFormFile fThumb)
+        public async Task<IActionResult> Create([Bind("SlideId,Thumb,Alias,SlideName,CatId,Active,HomeFlag,Right,Bottom")] Slide slide, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +111,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SlideId,Thumb,Alias,SlideName,CatId,KichHoat,HomeFlag,Right,Bottom")] Slide slide, Microsoft.AspNetCore.Http.IFormFile fThumb)
+        public async Task<IActionResult> Edit(int id, [Bind("SlideId,Thumb,Alias,SlideName,CatId,Active,HomeFlag,Right,Bottom")] Slide slide, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (id != slide.SlideId)
             {

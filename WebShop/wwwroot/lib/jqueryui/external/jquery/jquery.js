@@ -1579,7 +1579,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// QSA and matchesSelector support
 
-	// matchesSelector(:KichHoat) reports false when true (IE9/Opera 11.5)
+	// matchesSelector(:active) reports false when true (IE9/Opera 11.5)
 	rbuggyMatches = [];
 
 	// qSa(:focus) reports false when true (Chrome 21)
@@ -2383,7 +2383,7 @@ Expr = Sizzle.selectors = {
 Expr.pseudos["nth"] = Expr.pseudos["eq"];
 
 // Add button/input type pseudos
-for ( i in { radio: true, checkbox: true, file: true, MatKhau: true, image: true } ) {
+for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
 	Expr.pseudos[ i ] = createInputPseudo( i );
 }
 for ( i in { submit: true, reset: true } ) {
@@ -7250,7 +7250,7 @@ function getWidthOrHeight( elem, name, extra ) {
 		val = parseFloat( val ) || 0;
 	}
 
-	// use the KichHoat box-sizing model to add/subtract irrelevant styles
+	// use the active box-sizing model to add/subtract irrelevant styles
 	return ( val +
 		augmentWidthOrHeight(
 			elem,
@@ -7780,8 +7780,8 @@ jQuery.each( [ "ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSucces
 
 jQuery.extend({
 
-	// Counter for holding the number of KichHoat queries
-	KichHoat: 0,
+	// Counter for holding the number of active queries
+	active: 0,
 
 	// Last-Modified header cache for next request
 	lastModified: {},
@@ -7800,7 +7800,7 @@ jQuery.extend({
 		data: null,
 		dataType: null,
 		username: null,
-		MatKhau: null,
+		password: null,
 		cache: null,
 		throws: false,
 		traditional: false,
@@ -8033,7 +8033,7 @@ jQuery.extend({
 		fireGlobals = s.global;
 
 		// Watch for a new set of requests
-		if ( fireGlobals && jQuery.KichHoat++ === 0 ) {
+		if ( fireGlobals && jQuery.active++ === 0 ) {
 			jQuery.event.trigger("ajaxStart");
 		}
 
@@ -8252,7 +8252,7 @@ jQuery.extend({
 			if ( fireGlobals ) {
 				globalEventContext.trigger( "ajaxComplete", [ jqXHR, s ] );
 				// Handle the global AJAX counter
-				if ( !( --jQuery.KichHoat ) ) {
+				if ( !( --jQuery.active ) ) {
 					jQuery.event.trigger("ajaxStop");
 				}
 			}
@@ -8667,7 +8667,7 @@ if ( xhrSupported ) {
 					// Open the socket
 					// Passing null username, generates a login popup on Opera (#2865)
 					if ( s.username ) {
-						xhr.open( s.type, s.url, s.async, s.username, s.MatKhau );
+						xhr.open( s.type, s.url, s.async, s.username, s.password );
 					} else {
 						xhr.open( s.type, s.url, s.async );
 					}
@@ -8720,7 +8720,7 @@ if ( xhrSupported ) {
 								// Only called once
 								callback = undefined;
 
-								// Do not keep as KichHoat anymore
+								// Do not keep as active anymore
 								if ( handle ) {
 									xhr.onreadystatechange = jQuery.noop;
 									if ( xhrOnUnloadAbort ) {
@@ -8789,13 +8789,13 @@ if ( xhrSupported ) {
 					} else {
 						handle = ++xhrId;
 						if ( xhrOnUnloadAbort ) {
-							// Create the KichHoat xhrs callbacks list if needed
+							// Create the active xhrs callbacks list if needed
 							// and attach the unload handler
 							if ( !xhrCallbacks ) {
 								xhrCallbacks = {};
 								jQuery( window ).unload( xhrOnUnloadAbort );
 							}
-							// Add to list of KichHoat xhrs callbacks
+							// Add to list of active xhrs callbacks
 							xhrCallbacks[ handle ] = callback;
 						}
 						xhr.onreadystatechange = callback;
@@ -9387,7 +9387,7 @@ jQuery.fn.extend({
 				hooks.stop.call( this, true );
 			}
 
-			// look for any KichHoat animations, and finish them
+			// look for any active animations, and finish them
 			for ( index = timers.length; index--; ) {
 				if ( timers[ index ].elem === this && timers[ index ].queue === type ) {
 					timers[ index ].anim.stop( true );

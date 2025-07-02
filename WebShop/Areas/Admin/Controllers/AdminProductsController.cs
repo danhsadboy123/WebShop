@@ -63,7 +63,7 @@ namespace WebShop.Areas.Admin.Controllers
                 InputPrice = HttpContext.Session.Get<bool?>("InputPrice") ?? true,
                 SalePrice = HttpContext.Session.Get<bool?>("SalePrice") ?? true,
                 UnitsInStock = HttpContext.Session.Get<bool?>("UnitsInStock") ?? true,
-                KichHoat = HttpContext.Session.Get<bool?>("KichHoat") ?? true,
+                Active = HttpContext.Session.Get<bool?>("Active") ?? true,
                 DateCreated = HttpContext.Session.Get<bool?>("DateCreated") ?? false,
             };
             var check = HttpContext.Session.GetString("ProductView");
@@ -71,9 +71,9 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 query = query.ToList();
             }
-            if (check == "KichHoat")
+            if (check == "Active")
             {
-                query = query.Where(i => i.KichHoat == true).ToList();
+                query = query.Where(i => i.Active == true).ToList();
             }
             if (check == "Stock")
             {
@@ -81,7 +81,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
             if (check == "Off")
             {
-                query = query.Where(i => i.KichHoat == false).ToList();
+                query = query.Where(i => i.Active == false).ToList();
             }
             var proOption = _context.Products.Where(c => c.ProductCode == c.ProductOption).ToList();
             ViewBag.proOption = proOption;
@@ -414,7 +414,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
             if (id == 1)
             {
-                HttpContext.Session.SetString("ProductView", "KichHoat");
+                HttpContext.Session.SetString("ProductView", "Active");
             }
             if (id == 2)
             {
@@ -505,14 +505,14 @@ namespace WebShop.Areas.Admin.Controllers
                     Alias = Utilities.SEOUrl(adminProductVM.ProductName),
                     Gift = adminProductVM.Gift,
                     ShortDesc = adminProductVM.ShortDesc,
-                    MoTa = adminProductVM.MoTa,
+                    Description = adminProductVM.Description,
                     ConfigInformation = adminProductVM.ConfigInformation,
                     Warranty = adminProductVM.Warranty,
                     WarrantyNote = adminProductVM.WarrantyNote,
                     Video = adminProductVM.Video,
                     BestSellers = adminProductVM.BestSellers,
                     HomeFlag = adminProductVM.HomeFlag,
-                    KichHoat = adminProductVM.KichHoat,
+                    Active = adminProductVM.Active,
                     Title = adminProductVM.Title,
                     MetaDesc = adminProductVM.MetaDesc,
                     MetaKey = adminProductVM.MetaKey,
@@ -583,7 +583,7 @@ namespace WebShop.Areas.Admin.Controllers
                 Alias = Utilities.SEOUrl(product.ProductName),
                 ShortDesc = product.ShortDesc,
                 Gift = product.Gift,
-                MoTa = product.MoTa,
+                Description = product.Description,
                 ConfigInformation = product.ConfigInformation,
                 Warranty = product.Warranty,
                 WarrantyNote = product.WarrantyNote,
@@ -592,7 +592,7 @@ namespace WebShop.Areas.Admin.Controllers
                 Video = product.Video,
                 BestSellers = product.BestSellers,
                 HomeFlag = product.HomeFlag,
-                KichHoat = product.KichHoat,
+                Active = product.Active,
                 Title = product.Title,
                 MetaDesc = product.MetaDesc,
                 MetaKey = product.MetaKey,
@@ -676,7 +676,7 @@ namespace WebShop.Areas.Admin.Controllers
                     product.Alias = Utilities.SEOUrl(product.ProductName);
                     product.ShortDesc = adminProductVM.ShortDesc;
                     product.Gift = adminProductVM.Gift;
-                    product.MoTa = adminProductVM.MoTa;
+                    product.Description = adminProductVM.Description;
                     product.ConfigInformation = adminProductVM.ConfigInformation;
                     product.Warranty = adminProductVM.Warranty;
                     product.WarrantyNote = adminProductVM.WarrantyNote;
@@ -685,7 +685,7 @@ namespace WebShop.Areas.Admin.Controllers
                     product.Video = adminProductVM.Video;
                     product.BestSellers = adminProductVM.BestSellers;
                     product.HomeFlag = adminProductVM.HomeFlag;
-                    product.KichHoat = adminProductVM.KichHoat;
+                    product.Active = adminProductVM.Active;
                     product.Title = adminProductVM.Title;
                     product.MetaDesc = adminProductVM.MetaDesc;
                     product.MetaKey = adminProductVM.MetaKey;
@@ -736,12 +736,12 @@ namespace WebShop.Areas.Admin.Controllers
                         if (attributeValue != null)
                         {
                             //Thêm bảng ghi mới
-                            var newAttributeValue = new GiaThuocTinh
+                            var newAttributeValue = new AttributesPrice
                             {
                                 AttributeId = attributeValue.AttributeId,
                                 ProductId = product.ProductId,
                                 Price = attributeValue.Price,
-                                KichHoat = true
+                                Active = true
                             };
                             _context.AttributesPrices.Add(newAttributeValue);
                             await _context.SaveChangesAsync();
@@ -1081,14 +1081,14 @@ namespace WebShop.Areas.Admin.Controllers
                 var product = _context.Products.Find(id);
                 if (product != null)
                 {
-                    if (product.KichHoat == true)
+                    if (product.Active == true)
                     {
-                        product.KichHoat = false;
+                        product.Active = false;
                         text = false;
                     }
                     else
                     {
-                        product.KichHoat = true;
+                        product.Active = true;
                     }
                     _context.Update(product);
                     _context.SaveChanges();
@@ -1228,7 +1228,7 @@ namespace WebShop.Areas.Admin.Controllers
         {
             return _context.Products.Any(e => e.ProductCode == productCode);
         }
-        public List<GiaThuocTinh> GetAttributeValues(int attributeId)
+        public List<AttributesPrice> GetAttributeValues(int attributeId)
         {
             // Truy vấn cơ sở dữ liệu để lấy danh sách attributeValues tương ứng với attributeId
             var attributeValues = _context.AttributesPrices
@@ -1401,11 +1401,11 @@ namespace WebShop.Areas.Admin.Controllers
                                 if (String.Compare(workSheet.Cells[row, 17].Value?.ToString(), "true", true) == 0)
                                 {
 
-                                    product.KichHoat = true;
+                                    product.Active = true;
                                 }
                                 else
                                 {
-                                    product.KichHoat = false;
+                                    product.Active = false;
                                 }
                                 //
                                 product.Title = workSheet.Cells[row, 18].Value?.ToString();
@@ -1453,11 +1453,11 @@ namespace WebShop.Areas.Admin.Controllers
                                         string price = attr.Price;
                                         if (product.ShortDesc.Contains(price))
                                         {
-                                            GiaThuocTinh addattr = new GiaThuocTinh();
+                                            AttributesPrice addattr = new AttributesPrice();
                                             addattr.AttributeId = itemAttr.AttributeId;
                                             addattr.Price = attr.Price;
                                             addattr.ProductId = product.ProductId;
-                                            addattr.KichHoat = true;
+                                            addattr.Active = true;
                                             _context.AttributesPrices.Add(addattr);
                                             _context.SaveChanges();
                                         }
@@ -1495,7 +1495,7 @@ namespace WebShop.Areas.Admin.Controllers
                                 {
                                     cusPro.Stock = 0;
                                 }
-                                cusPro.MoTa = "Sản phẩm được thêm từ file excel vào ngày: " + DateTime.Now + "";
+                                cusPro.Description = "Sản phẩm được thêm từ file excel vào ngày: " + DateTime.Now + "";
                                 _context.ProductAddCusPros.Add(cusPro);
                                 _context.SaveChanges();
 
@@ -1599,11 +1599,11 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 else
                 {
-                    NhaCungCapKhachHang cusSp = new NhaCungCapKhachHang();
+                    CustomerSupplier cusSp = new CustomerSupplier();
                     cusSp.Image = "";
                     cusSp.Name = "Đối tác mới";
                     cusSp.Company = "Cập nhật công ty";
-                    cusSp.SoDienThoai = 123456789;
+                    cusSp.Phone = 123456789;
                     cusSp.Email = null;
                     cusSp.Address = "Kho lưu động hoặc chưa cập nhật";
                     cusSp.YearAdd = DateTime.Now;
@@ -1624,7 +1624,7 @@ namespace WebShop.Areas.Admin.Controllers
             HttpContext.Session.Set("InputPrice", checkboxProduct.InputPrice);
             HttpContext.Session.Set("SalePrice", checkboxProduct.SalePrice);
             HttpContext.Session.Set("UnitsInStock", checkboxProduct.UnitsInStock);
-            HttpContext.Session.Set("KichHoat", checkboxProduct.KichHoat);
+            HttpContext.Session.Set("Active", checkboxProduct.Active);
             HttpContext.Session.Set("DateCreated", checkboxProduct.DateCreated);
             //HttpContext.Session.Set("CodStatus", checkboxProduct.CodStatus);
             //HttpContext.Session.Set("Total", checkboxProduct.Total);

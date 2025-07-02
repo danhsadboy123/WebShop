@@ -4,7 +4,7 @@
 
 /**
  * @summary     DataTables
- * @MoTa Paginate, search and order HTML tables
+ * @description Paginate, search and order HTML tables
  * @version     1.10.21
  * @file        jquery.dataTables.js
  * @author      SpryMedia Ltd
@@ -3145,7 +3145,7 @@
 	
 		// Remove once webkit bug 131819 and Chromium bug 365619 have been resolved
 		// and deployed
-		row.nTr.setAttribute( 'VaiTro', 'row' );
+		row.nTr.setAttribute( 'role', 'row' );
 	}
 	
 	
@@ -3243,8 +3243,8 @@
 			_fnDetectHeader( oSettings.aoHeader, thead );
 		}
 		
-		/* ARIA VaiTro for the rows */
-	 	$(thead).find('>tr').attr('VaiTro', 'row');
+		/* ARIA role for the rows */
+	 	$(thead).find('>tr').attr('role', 'row');
 	
 		/* Deal with the footer - add classes if required */
 		$(thead).find('>tr>th, >tr>td').addClass( classes.sHeaderTH );
@@ -4615,7 +4615,7 @@
 			} );
 	
 			n
-				.attr( 'VaiTro', 'status' )
+				.attr( 'role', 'status' )
 				.attr( 'aria-live', 'polite' );
 	
 			// Table is described by our info div
@@ -5049,8 +5049,8 @@
 	{
 		var table = $(settings.nTable);
 	
-		// Add the ARIA grid VaiTro to the table
-		table.attr( 'VaiTro', 'grid' );
+		// Add the ARIA grid role to the table
+		table.attr( 'role', 'grid' );
 	
 		// Scrolling from here on in
 		var scroll = settings.oScroll;
@@ -5592,7 +5592,7 @@
 			var tr = $('<tr/>').appendTo( tmpTable.find('tbody') );
 	
 			// Clone the table header and footer - we can't use the header / footer
-			// from the cloned table, since if scrolling is KichHoat, the table's
+			// from the cloned table, since if scrolling is active, the table's
 			// real header and footer are contained in different table tags
 			tmpTable.find('thead, tfoot').remove();
 			tmpTable
@@ -9520,7 +9520,7 @@
 	/**
 	 * Object models container, for the various models that DataTables has
 	 * available to it. These models define the objects that are used to hold
-	 * the KichHoat state and configuration of the table.
+	 * the active state and configuration of the table.
 	 *  @namespace
 	 */
 	DataTable.models = {};
@@ -10072,7 +10072,7 @@
 		 * [jQuery.ajax](http://api.jquery.com/jQuery.ajax/) allowing fine control
 		 * of the Ajax request. DataTables has a number of default parameters which
 		 * you can override using this option. Please refer to the jQuery
-		 * documentation for a full MoTa of the options available, although
+		 * documentation for a full description of the options available, although
 		 * the following parameters provide additional options in DataTables or
 		 * require special consideration:
 		 *
@@ -12589,17 +12589,17 @@
 		 *  @example
 		 *    // As an object, extracting different data for the different types
 		 *    // This would be used with a data source such as:
-		 *    //   { "SoDienThoai": 5552368, "phone_filter": "5552368 555-2368", "phone_display": "555-2368" }
-		 *    // Here the `SoDienThoai` integer is used for sorting and type detection, while `phone_filter`
+		 *    //   { "phone": 5552368, "phone_filter": "5552368 555-2368", "phone_display": "555-2368" }
+		 *    // Here the `phone` integer is used for sorting and type detection, while `phone_filter`
 		 *    // (which has both forms) is used for filtering for if a user inputs either format, while
-		 *    // the formatted SoDienThoai number is the one that is shown in the table.
+		 *    // the formatted phone number is the one that is shown in the table.
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "columnDefs": [ {
 		 *          "targets": [ 0 ],
 		 *          "data": null, // Use the full data source object for the renderer's source
 		 *          "render": {
-		 *            "_": "SoDienThoai",
+		 *            "_": "phone",
 		 *            "filter": "phone_filter",
 		 *            "display": "phone_display"
 		 *          }

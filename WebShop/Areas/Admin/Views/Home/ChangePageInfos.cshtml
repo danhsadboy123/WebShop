@@ -81,12 +81,12 @@
                 </tr>
                 <tr>
                     <td style="border-top:none">
-                        <label asp-for="SoDienThoai" class="control-label">SĐT</label>
+                        <label asp-for="Phone" class="control-label">SĐT</label>
                     </td>
                     <td style="border-top:none">
                         <div class="form-group">
-                            <input asp-for="SoDienThoai" class="form-control" />
-                            <span asp-validation-for="SoDienThoai" class="text-danger"></span>
+                            <input asp-for="Phone" class="form-control" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
                     </td>
                 </tr>
@@ -210,8 +210,8 @@
                 <tr>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        string HoTen = User.FindFirstValue(ClaimTypes.Name);
-                        @if (User.Claims.Any(c => c.Type == "MaVaiTro" && c.Value == "1"))
+                        string fullName = User.FindFirstValue(ClaimTypes.Name);
+                        @if (User.Claims.Any(c => c.Type == "RoleId" && c.Value == "1"))
                         {
                             <td>
                                 <label asp-for="Address" class="control-label">Cấu hình nâng cao</label>
@@ -234,8 +234,8 @@
         </table>
         @if (User.Identity.IsAuthenticated)
         {
-            string HoTen = User.FindFirstValue(ClaimTypes.Name);
-            @if (User.Claims.Any(c => c.Type == "MaVaiTro" && c.Value == "1"))
+            string fullName = User.FindFirstValue(ClaimTypes.Name);
+            @if (User.Claims.Any(c => c.Type == "RoleId" && c.Value == "1"))
             {
                 <div class="SettingOption">
 

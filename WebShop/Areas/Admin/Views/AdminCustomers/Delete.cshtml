@@ -1,4 +1,4 @@
-@model WebShop.Models.KhachHang
+@model WebShop.Models.Customer
 
 @{
     ViewData["Title"] = "Delete";
@@ -13,10 +13,10 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HoTen)
+            @Html.DisplayNameFor(model => model.FullName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HoTen)
+            @Html.DisplayFor(model => model.FullName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Birthday)
@@ -43,10 +43,10 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SoDienThoai)
+            @Html.DisplayNameFor(model => model.Phone)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SoDienThoai)
+            @Html.DisplayFor(model => model.Phone)
         </dd>
         @*<dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.LocationId)
@@ -67,16 +67,16 @@
             @Html.DisplayFor(model => model.Ward)
         </dd>*@
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NgayTao)
+            @Html.DisplayNameFor(model => model.CreateDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NgayTao)
+            @Html.DisplayFor(model => model.CreateDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MatKhau)
+            @Html.DisplayNameFor(model => model.Password)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MatKhau)
+            @Html.DisplayFor(model => model.Password)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Salt)
@@ -85,16 +85,16 @@
             @Html.DisplayFor(model => model.Salt)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LanDangNhapCuoi)
+            @Html.DisplayNameFor(model => model.LastLogin)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LanDangNhapCuoi)
+            @Html.DisplayFor(model => model.LastLogin)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.KichHoat)
+            @Html.DisplayNameFor(model => model.Active)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.KichHoat)
+            @Html.DisplayFor(model => model.Active)
         </dd>
     </dl>
     

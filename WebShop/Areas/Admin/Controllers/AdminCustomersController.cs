@@ -90,24 +90,24 @@ namespace WebShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                KhachHang customer = new KhachHang
+                Customer customer = new Customer
                 {
-                    HoTen = adminCustomerCreateVM.HoTen,
+                    FullName = adminCustomerCreateVM.FullName,
                     Birthday = adminCustomerCreateVM.Birthday,
                     Email = adminCustomerCreateVM.Email,
-                    SoDienThoai = adminCustomerCreateVM.SoDienThoai,
-                    KichHoat = true,
+                    Phone = adminCustomerCreateVM.Phone,
+                    Active = true,
                     Gender = adminCustomerCreateVM.Gender,
                     Note = adminCustomerCreateVM.Note,
                     CompanyName = adminCustomerCreateVM.CompanyName,
-                    NgayTao = DateTime.Now,
+                    CreateDate = DateTime.Now,
                 };
                 _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();
-                DiaChiTaiKhoan accountAddress = new DiaChiTaiKhoan
+                AccountAddress accountAddress = new AccountAddress
                 {
                     CustomerId = customer.CustomerId,
-                    UserName = customer.HoTen,
+                    UserName = customer.FullName,
                     ProvinceId = adminCustomerCreateVM.ProvinceId,
                     DistrictId = adminCustomerCreateVM.DistrictId,
                     WardId = adminCustomerCreateVM.WardId,
@@ -143,7 +143,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,HoTen,Birthday,Avatar,Address,Email,SoDienThoai,LocationId,District,Ward,NgayTao,MatKhau,Salt,LanDangNhapCuoi,KichHoat")] KhachHang customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,FullName,Birthday,Avatar,Address,Email,Phone,LocationId,District,Ward,CreateDate,Password,Salt,LastLogin,Active")] Customer customer)
         {
             if (id != customer.CustomerId)
             {

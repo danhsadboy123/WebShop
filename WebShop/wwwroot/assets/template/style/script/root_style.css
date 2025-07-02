@@ -314,7 +314,7 @@ img {
     display: block
 }
 
-input[type=MatKhau],
+input[type=password],
 input[type=text] {
     width: 100%;
     height: 40px;
@@ -2081,7 +2081,7 @@ div#footer_bottom-2019 .footer-bottom-title-2019 {
     border: 1px solid #555 !important
 }
 
-.owl-theme .owl-dots .owl-dot.KichHoat span,
+.owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
     background: #fff !important
 }
@@ -2134,7 +2134,7 @@ div#footer_bottom-2019 .footer-bottom-title-2019 {
 
 .bg-white,
 .khaipv-footer-srbg,
-.login-success a.KichHoat,
+.login-success a.active,
 .login-success a:hover {
     background: #fff
 }
@@ -2798,14 +2798,14 @@ div#cart-fixed b {
     justify-content: flex-start
 }
 
-#add-cart-complete.KichHoat,
-.bg-popup-regis-login.KichHoat,
+#add-cart-complete.active,
+.bg-popup-regis-login.active,
 .contact-info b,
 .contact-info span,
 .item-sub-des:hover .list-sub-hover-des,
 .item-sub:hover .list-sub-hover,
-.popup-regis-login .tab-rl-content .tab-rl-content-ct.KichHoat,
-.popup-regis-login.KichHoat,
+.popup-regis-login .tab-rl-content .tab-rl-content-ct.active,
+.popup-regis-login.active,
 .sub-menu a {
     display: block
 }
@@ -2940,7 +2940,7 @@ div#cart-fixed b {
     background: #3754a5
 }
 
-.icons.fas.fa-SoDienThoai {
+.icons.fas.fa-phone {
     background: #278c56
 }
 
@@ -2995,7 +2995,7 @@ li.cart-top {
 
 #tooltip .detail li a,
 .email-color,
-.SoDienThoai-color,
+.phone-color,
 .showroom-container a {
     color: #ed1b24 !important
 }
@@ -3131,7 +3131,7 @@ textarea:focus {
     margin: 0
 }
 
-.filter-used-list.KichHoat {
+.filter-used-list.active {
     height: auto !important;
 }
 
@@ -3526,7 +3526,7 @@ span.cart-top-checkout {
 }
 
 .khai-overlay,
-.khai-overlay.KichHoat {
+.khai-overlay.active {
     transition: opacity .5s cubic-bezier(.6, 0, .41, 1)
 }
 
@@ -3587,7 +3587,7 @@ span.cart-top-checkout {
     z-index: 998
 }
 
-    .khai-overlay.KichHoat {
+    .khai-overlay.active {
         opacity: 1;
         pointer-events: auto
     }
@@ -4289,7 +4289,7 @@ span.cart-top-checkout {
         flex-direction: row
     }
 
-    .filter-used-list.KichHoat {
+    .filter-used-list.active {
         height: auto !important;
     }
 

@@ -10,7 +10,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
             <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="breadcrumb-item">Danh sách sản phẩm</a>
-            <span class="breadcrumb-item KichHoat">Thông tin sản phẩm : @Model.ProductName</span>
+            <span class="breadcrumb-item active">Thông tin sản phẩm : @Model.ProductName</span>
         </nav>
     </div>
 </div>
@@ -51,7 +51,7 @@
                 <tr>
                     <td>Trạng thái:</td>
                     <td>
-                        @if (Model.KichHoat)
+                        @if (Model.Active)
                         {
                             <div class="switch m-r-10">
                                 <input type="checkbox" id="switch-1" checked="" disabled />
@@ -138,7 +138,7 @@
                 </tr>
                 <tr>
                     <td>Mô tả sản phẩm:</td>
-                    <td>@Html.Raw(Model.MoTa)</td>
+                    <td>@Html.Raw(Model.Description)</td>
                 </tr>
                 <tr>
                     <td>Thông tin cấu hình:</td>

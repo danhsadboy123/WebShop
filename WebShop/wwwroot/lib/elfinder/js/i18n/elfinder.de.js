@@ -487,7 +487,7 @@
 			'add'             : 'Neu', // from v2.1.41 added 13.12.2019
 			'theme'           : 'Thema', // from v2.1.43 added 13.12.2019
 			'default'         : 'Standard', // from v2.1.43 added 13.12.2019
-			'MoTa'     : 'Beschreibung', // from v2.1.43 added 13.12.2019
+			'description'     : 'Beschreibung', // from v2.1.43 added 13.12.2019
 			'website'         : 'Webseite', // from v2.1.43 added 13.12.2019
 			'author'          : 'Autor', // from v2.1.43 added 13.12.2019
 			'email'           : 'Email', // from v2.1.43 added 13.12.2019

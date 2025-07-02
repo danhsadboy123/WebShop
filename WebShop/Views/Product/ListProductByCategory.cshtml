@@ -3,19 +3,19 @@
 @inject WebShop.Services.IPageInfoService PageInfoService;
 @{
     List<Banner> lsBanner = ViewBag.Banner;
-    DanhMuc category = ViewBag.CurrentCat;
+    Category category = ViewBag.CurrentCat;
     List<Slide> slide = ViewBag.Slides;
-    List<ThuongHieu> brands = ViewBag.Brands;
-    List<WebShop.Models.ThuocTinh> attrs = ViewBag.Attrs;
-    List<GiaThuocTinh> priceP = ViewBag.price;
+    List<Brand> brands = ViewBag.Brands;
+    List<WebShop.Models.Attribute> attrs = ViewBag.Attrs;
+    List<AttributesPrice> priceP = ViewBag.price;
     List<Slide> slides = ViewBag.Slider;
     Layout = "~/Views/Shared/_Layout.cshtml";
     int PageCurrent = ViewBag.CurrentPage;
     int PageNext = PageCurrent + 1;
     ViewData["Title"] = category.Title;
-    ViewData["MoTa"] = category.MetaDesc;
+    ViewData["Description"] = category.MetaDesc;
     ViewData["Keywords"] = category.MetaKey;
-    NhomThuongHieu brandg = ViewBag.groupbrand;
+    BrandGroup brandg = ViewBag.groupbrand;
 }
 
 @section Styles{ 
@@ -40,7 +40,7 @@
                
                 @foreach (var item in ViewBag.BreadcrumbCategories)
                 {
-                    <span class="breadcrumb-item KichHoat">@item.CatName</span>
+                    <span class="breadcrumb-item active">@item.CatName</span>
                 }
 
             </nav>
@@ -59,7 +59,7 @@
                         bool isFirst = true; // Đặt biến kiểm tra mục đầu tiên
                         foreach (var item in slides)
                         {
-                            <div class="carousel-item @(isFirst ? "KichHoat" : "")">
+                            <div class="carousel-item @(isFirst ? "active" : "")">
                                 <a href="@item.Alias">
                                     <img class="w-100" src="https://localhost:44353/images/slides/@item.Thumb" alt="Novazone Banner" style="object-fit: cover;">
                                 </a>
@@ -74,13 +74,13 @@
                     } 
                 </div> 
                 <!-- Nút điều hướng trái -->
-                <a class="carousel-control-prev" href="#header-carousel" VaiTro="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#header-carousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
 
                 <!-- Nút điều hướng phải -->
-                <a class="carousel-control-next" href="#header-carousel" VaiTro="button" data-slide="next">
+                <a class="carousel-control-next" href="#header-carousel" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -256,7 +256,7 @@
                                         }
                                         else
                                         {
-                                            <span style="color:#0074da"><i class="fas fa-SoDienThoai fa-flip-horizontal"></i> Đặt hàng</span>
+                                            <span style="color:#0074da"><i class="fas fa-phone fa-flip-horizontal"></i> Đặt hàng</span>
                                         }
                                     </div>
                                 </div>
@@ -276,7 +276,7 @@
                             <!-- Vòng lặp cho các trang -->
                             @for (var i = 1; i <= Model.PageCount; i++)
                             {
-                                <li class="page-item @(Model.PageNumber == i ? "KichHoat" : "")">
+                                <li class="page-item @(Model.PageNumber == i ? "active" : "")">
                                     <a class="page-link" asp-route-pageNumber="@i" asp-route-Alias="@ViewBag.CurrentCat.Alias">@i</a>
                                 </li>
                             }

@@ -108,17 +108,17 @@ module.exports = function (element) {
   updateCss(element, i);
 
   if (i.scrollbarXActive) {
-    cls.add(element, 'ps-KichHoat-x');
+    cls.add(element, 'ps-active-x');
   } else {
-    cls.remove(element, 'ps-KichHoat-x');
+    cls.remove(element, 'ps-active-x');
     i.scrollbarXWidth = 0;
     i.scrollbarXLeft = 0;
     updateScroll(element, 'left', 0);
   }
   if (i.scrollbarYActive) {
-    cls.add(element, 'ps-KichHoat-y');
+    cls.add(element, 'ps-active-y');
   } else {
-    cls.remove(element, 'ps-KichHoat-y');
+    cls.remove(element, 'ps-active-y');
     i.scrollbarYHeight = 0;
     i.scrollbarYTop = 0;
     updateScroll(element, 'top', 0);

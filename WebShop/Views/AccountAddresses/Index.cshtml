@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebShop.Models.DiaChiTaiKhoan>
+﻿@model IEnumerable<WebShop.Models.AccountAddress>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SoDienThoai)
+                @Html.DisplayNameFor(model => model.Phone)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.UserName)
@@ -47,7 +47,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.SoDienThoai)
+                @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)

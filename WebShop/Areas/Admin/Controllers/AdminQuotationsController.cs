@@ -76,7 +76,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("QuotationId,CustomerId,TotalMoney,Vat,NgayTao,Confirmed")] Quotation quotation)
+        public IActionResult Create([Bind("QuotationId,CustomerId,TotalMoney,Vat,CreateDate,Confirmed")] Quotation quotation)
         {
             var baogia = HttpContext.Session.Get<List<CartItem>>("BaoGia");
             var customers = _context.Customers.ToList();
@@ -94,7 +94,7 @@ namespace WebShop.Areas.Admin.Controllers
 
                         quotation.CustomerId = khachhang.CustomerId;
                         quotation.TotalMoney = Convert.ToInt32(baogia.Sum(x => x.TotalMoney));
-                        quotation.NgayTao = DateTime.Now;
+                        quotation.CreateDate = DateTime.Now;
                         quotation.Confirmed = false;
                         _context.Add(quotation);
                         _context.SaveChanges();
@@ -108,7 +108,7 @@ namespace WebShop.Areas.Admin.Controllers
                             quotationDetail.ProductId = item.product.ProductId;
                             quotationDetail.Amount = item.amount;
                             quotationDetail.Price = item.product.SalePrice;
-                            quotationDetail.NgayTao = DateTime.Now;
+                            quotationDetail.CreateDate = DateTime.Now;
                             _context.Add(quotationDetail);
                         }
                         _context.SaveChanges();
@@ -152,7 +152,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("QuotationId,CustomerId,CompanyName,HoTen,Address,SoDienThoai,TotalMoney,Vat,NgayTao,Confirmed")] Quotation quotation)
+        public async Task<IActionResult> Edit(int id, [Bind("QuotationId,CustomerId,CompanyName,FullName,Address,Phone,TotalMoney,Vat,CreateDate,Confirmed")] Quotation quotation)
         {
             if (id != quotation.QuotationId)
             {
@@ -442,7 +442,7 @@ namespace WebShop.Areas.Admin.Controllers
                 {
                     customerAddress = address.Content + ", " + GetNameWard(address.Ward.WardId) + ", " + GetNameWard(address.District.DistrictId) + ", " + GetNameWard(address.Province.ProvinceId);
                 }
-                worksheet.Cells["A8"].Value = "To (Kính gửi)                        : " + customer.CompanyName + "\r\nAddress (Địa chỉ)               : " + customerAddress + " \r\nEmail                                       : " + customer.Email + " \r\nContact (Người liên hệ) : " + customer.HoTen + " \r\nPhone (Số điện thoại)     : " + customer.SoDienThoai + "    ";
+                worksheet.Cells["A8"].Value = "To (Kính gửi)                        : " + customer.CompanyName + "\r\nAddress (Địa chỉ)               : " + customerAddress + " \r\nEmail                                       : " + customer.Email + " \r\nContact (Người liên hệ) : " + customer.FullName + " \r\nPhone (Số điện thoại)     : " + customer.Phone + "    ";
             }
 
 

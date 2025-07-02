@@ -231,14 +231,14 @@ namespace WebShop.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]    
-        public IActionResult CreateData(string Name, string Image, bool Gift, string MoTa,DateTime TimeOn,DateTime TimeOff,bool ShowWeb,int MaxApply,bool Startus,int Discount1,bool ConditionCheck,int Money, int ProductCount, int Sum, int[] listCustomer,int[] listProduct, int[] listGift)
+        public IActionResult CreateData(string Name, string Image, bool Gift, string Description,DateTime TimeOn,DateTime TimeOff,bool ShowWeb,int MaxApply,bool Startus,int Discount1,bool ConditionCheck,int Money, int ProductCount, int Sum, int[] listCustomer,int[] listProduct, int[] listGift)
         {
             var text = "Ok";
-            KhuyenMai discount = new KhuyenMai();
+            Discount discount = new Discount();
             discount.Name = Name;
             discount.Image = Image;
             discount.Gift = Gift;
-            discount.MoTa = MoTa;
+            discount.Description = Description;
             discount.TimeOn = TimeOn;
             discount.TimeOff = TimeOff;
             discount.ShowWeb = ShowWeb;
@@ -262,7 +262,7 @@ namespace WebShop.Areas.Admin.Controllers
                     {
                         foreach (var item in listCustomer)
                         {
-                            KhuyenMaiThemKhachHang customer = new KhuyenMaiThemKhachHang();
+                            DiscountAddCustomer customer = new DiscountAddCustomer();
                             customer.DiscountId = id;
                             customer.CustomerId = item;
                             customer.CheckDiscount = false;
@@ -272,7 +272,7 @@ namespace WebShop.Areas.Admin.Controllers
                     }
                     else
                     {
-                        KhuyenMaiThemKhachHang customer = new KhuyenMaiThemKhachHang();
+                        DiscountAddCustomer customer = new DiscountAddCustomer();
                         customer.DiscountId = id;
                         customer.CheckDiscount = true;
                         _context.Add(customer);
@@ -296,7 +296,7 @@ namespace WebShop.Areas.Admin.Controllers
                         }
                         foreach (var item in listgift)
                         {
-                            ThuocTinhQuaTang Gifts = new ThuocTinhQuaTang();
+                            GitAttribute Gifts = new GitAttribute();
                             Gifts.DiscountId = id;
                             Gifts.ProductGiftId = item.Id;
                             _context.GitAttributes.Add(Gifts);
@@ -308,7 +308,7 @@ namespace WebShop.Areas.Admin.Controllers
                     {
                         foreach (var item in listProduct)
                         {
-                            KhuyenMaiThemSanPham product = new KhuyenMaiThemSanPham();
+                            DiscountAddProduct product = new DiscountAddProduct();
                             product.DiscountId = id;
                             product.ProductId = item;
                             product.CheckDiscount = false;
@@ -336,7 +336,7 @@ namespace WebShop.Areas.Admin.Controllers
                         {
                             foreach (var item in productlist)
                             {
-                            KhuyenMaiThemSanPham product = new KhuyenMaiThemSanPham();
+                            DiscountAddProduct product = new DiscountAddProduct();
                             product.DiscountId = id;
                             product.ProductId = item.ProductId;
                             product.CheckDiscount = false;
@@ -349,7 +349,7 @@ namespace WebShop.Areas.Admin.Controllers
                         {
                             foreach (var item in productlist)
                             {
-                                KhuyenMaiThemSanPham product = new KhuyenMaiThemSanPham();
+                                DiscountAddProduct product = new DiscountAddProduct();
                                 product.DiscountId = id;
                                 product.ProductId = item.ProductId;
                                 product.CheckDiscount = true;
@@ -358,13 +358,13 @@ namespace WebShop.Areas.Admin.Controllers
                             }
                         }
                     }
-                    var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
-                    var user = _context.TaiKhoans.Where(x=>x.MaTaiKhoan==int.Parse(taikhoanID)).FirstOrDefault();
+                    var taikhoanID = HttpContext.Session.GetString("AccountId");
+                    var user = _context.Accounts.Where(x=>x.AccountId==int.Parse(taikhoanID)).FirstOrDefault();
                     if (user !=null)
                     {
-                        LichSuKhuyenMai his = new LichSuKhuyenMai();
+                        HistoryDiscount his = new HistoryDiscount();
                         his.DiscountId = id;
-                        his.MoTa = "Khởi tạo bởi "+ user.HoTen + " id:" + taikhoanID;
+                        his.Description = "Khởi tạo bởi "+ user.FullName + " id:" + taikhoanID;
                         his.TimeCreate = DateTime.Now;
                         _context.HistoryDiscounts.Add(his);
                         _context.SaveChanges();
@@ -437,14 +437,14 @@ namespace WebShop.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public IActionResult CreateDiscountGift(string Code, string Image,bool Gift, string MoTa, DateTime TimeOn, DateTime TimeOff, bool ShowWeb, int MaxApply, bool Startus, int Discount1, bool ConditionCheck, int Money, int ProductCount, int Sum, int[] listCustomer, int[] listGift,bool ApplyGift)
+        public IActionResult CreateDiscountGift(string Code, string Image,bool Gift, string Description, DateTime TimeOn, DateTime TimeOff, bool ShowWeb, int MaxApply, bool Startus, int Discount1, bool ConditionCheck, int Money, int ProductCount, int Sum, int[] listCustomer, int[] listGift,bool ApplyGift)
         {
             var text = "Ok";
-            KhuyenMai discount = new KhuyenMai();
+            Discount discount = new Discount();
             discount.Code = Code;
             discount.Gift = Gift;
             discount.Image = Image;
-            discount.MoTa = MoTa;
+            discount.Description = Description;
             discount.TimeOn = TimeOn;
             discount.TimeOff = TimeOff;
             discount.ShowWeb = ShowWeb;
@@ -471,7 +471,7 @@ namespace WebShop.Areas.Admin.Controllers
                     {
                         foreach (var item in listCustomer)
                         {
-                            KhuyenMaiThemKhachHang customer = new KhuyenMaiThemKhachHang();
+                            DiscountAddCustomer customer = new DiscountAddCustomer();
                             customer.DiscountId = id;
                             customer.CustomerId = item;
                             customer.CheckDiscount = false;
@@ -481,7 +481,7 @@ namespace WebShop.Areas.Admin.Controllers
                     }
                     else
                     {
-                        KhuyenMaiThemKhachHang customer = new KhuyenMaiThemKhachHang();
+                        DiscountAddCustomer customer = new DiscountAddCustomer();
                         customer.DiscountId = id;
                         customer.CheckDiscount = true;
                         _context.Add(customer);
@@ -507,7 +507,7 @@ namespace WebShop.Areas.Admin.Controllers
                         }
                         foreach(var item in listgift)
                         {
-                            ThuocTinhQuaTang Gifts = new ThuocTinhQuaTang();
+                            GitAttribute Gifts = new GitAttribute();
                             Gifts.DiscountId = id;
                             Gifts.ProductGiftId = item.Id;                          
                             _context.GitAttributes.Add(Gifts);
@@ -516,13 +516,13 @@ namespace WebShop.Areas.Admin.Controllers
                         
                     }
                      
-                    var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
-                    var user = _context.TaiKhoans.Where(x => x.MaTaiKhoan == int.Parse(taikhoanID)).FirstOrDefault();
+                    var taikhoanID = HttpContext.Session.GetString("AccountId");
+                    var user = _context.Accounts.Where(x => x.AccountId == int.Parse(taikhoanID)).FirstOrDefault();
                     if (user != null)
                     {
-                        LichSuKhuyenMai his = new LichSuKhuyenMai();
+                        HistoryDiscount his = new HistoryDiscount();
                         his.DiscountId = id;
-                        his.MoTa = "Khởi tạo bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.Description = "Khởi tạo bởi " + user.FullName + " id:" + taikhoanID;
                         his.TimeCreate = DateTime.Now;
                         _context.HistoryDiscounts.Add(his);
                         _context.SaveChanges();
@@ -606,10 +606,10 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 return Json(new { success = "No" });
             }
-            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
-            var user = _context.TaiKhoans.Where(x => x.MaTaiKhoan == int.Parse(taikhoanID)).FirstOrDefault();
+            var taikhoanID = HttpContext.Session.GetString("AccountId");
+            var user = _context.Accounts.Where(x => x.AccountId == int.Parse(taikhoanID)).FirstOrDefault();
 
-                LichSuKhuyenMai his = new LichSuKhuyenMai();
+                HistoryDiscount his = new HistoryDiscount();
             try {
                 his.DiscountId = id;
                 if (option == 1 && user != null)
@@ -618,12 +618,12 @@ namespace WebShop.Areas.Admin.Controllers
                     if (discount.ShowWeb == true)
                     {
                         discount.ShowWeb = false;
-                        his.MoTa = "Khuyến mãi đã bị ẩn hiển thị trên web bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.Description = "Khuyến mãi đã bị ẩn hiển thị trên web bởi " + user.FullName + " id:" + taikhoanID;
                     }
                     else
                     {
                         discount.ShowWeb = true;
-                        his.MoTa = "Khuyến mãi đã được bật hiển thị trên web bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.Description = "Khuyến mãi đã được bật hiển thị trên web bởi " + user.FullName + " id:" + taikhoanID;
                     }
                     _context.Update(discount);
                     _context.SaveChanges();
@@ -634,12 +634,12 @@ namespace WebShop.Areas.Admin.Controllers
                     if (discount.Startus == true)
                     {
                         discount.Startus = false;
-                        his.MoTa = "Khuyến mãi đã đổi trạng thái ẩn bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.Description = "Khuyến mãi đã đổi trạng thái ẩn bởi " + user.FullName + " id:" + taikhoanID;
                     }
                     else
                     {
                         discount.Startus = true;
-                        his.MoTa = "Khuyến mãi đã đổi trạng thái bật bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.Description = "Khuyến mãi đã đổi trạng thái bật bởi " + user.FullName + " id:" + taikhoanID;
                     }
                     _context.Update(discount);
                     _context.SaveChanges();
@@ -745,9 +745,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                // Log the exception or handle it appropriately
-                Console.WriteLine($"An error occurred: {e.Message}");
-                return Json(new { success = "No" });
+
             }
 
 
