@@ -1,5 +1,5 @@
-﻿using Ecommerce_WatchShop.Models.ViewModels;
-using Ecommerce_WatchShop.Models;
+﻿using Ecommerce_CaFeShop.Models.ViewModels;
+using Ecommerce_CaFeShop.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,9 +12,9 @@ namespace DongHo_Admin.Areas.Admin.Controllers
     [Authorize(Policy = "Admin")]
     public class StatisticalController : Controller
     {
-        private readonly DongHoContext _context;
+        private readonly CaFeContext _context;
 
-        public StatisticalController(DongHoContext context)
+        public StatisticalController(CaFeContext context)
         {
             _context = context;
         }

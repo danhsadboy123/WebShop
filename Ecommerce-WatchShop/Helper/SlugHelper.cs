@@ -1,8 +1,8 @@
-using Ecommerce_WatchShop.Models;
+using Ecommerce_CaFeShop.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 
-namespace Ecommerce_WatchShop.Helper
+namespace Ecommerce_CaFeShop.Helper
 {
     public class SlugHelper
     {
@@ -101,7 +101,7 @@ namespace Ecommerce_WatchShop.Helper
             Category
         }
 
-        public static async Task<string> GenerateUniqueSlug(DongHoContext context, string name, EntityType entityType, int? entityId = null)
+        public static async Task<string> GenerateUniqueSlug(CaFeContext context, string name, EntityType entityType, int? entityId = null)
         {
 
             // Tạo slug từ tên

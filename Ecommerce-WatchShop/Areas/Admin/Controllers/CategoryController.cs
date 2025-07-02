@@ -1,5 +1,5 @@
-using Ecommerce_WatchShop.Helper;
-using Ecommerce_WatchShop.Models;
+using Ecommerce_CaFeShop.Helper;
+using Ecommerce_CaFeShop.Models;
 
 using Microsoft.AspNetCore.Authorization;
 
@@ -21,9 +21,9 @@ namespace DongHo_Admin.Areas.Admin.Controllers
 
     {
 
-        private readonly DongHoContext _context;
+        private readonly CaFeContext _context;
 
-        public CategoryController(DongHoContext context)
+        public CategoryController(CaFeContext context)
 
         {
 

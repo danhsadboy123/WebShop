@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Ecommerce_WatchShop.Models;
+namespace Ecommerce_CaFeShop.Models;
 
 public partial class ProductRating
 {

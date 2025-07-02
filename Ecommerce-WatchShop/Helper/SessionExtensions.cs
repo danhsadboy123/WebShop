@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Ecommerce_WatchShop.Helper
+namespace Ecommerce_CaFeShop.Helper
 {
     public static class SessionExtensions
     {

@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Sản phẩm";
 }
-@model Ecommerce_WatchShop.Models.ViewModels.PagedProductListVM
+@model Ecommerce_CaFeShop.Models.ViewModels.PagedProductListVM
 @using System.Globalization
 
 <!-- ...:::: Start Breadcrumb Section:::... -->
@@ -111,7 +111,7 @@
                                                                     }
                                                                     @if ((int)item.ProductRating < 5 && hasHalfStar)
                                                                     {
-                                                                        <li class="half" style="color: #b19361"><i class="ion-android-star-half"></i></li>
+                                                                        <li class="half" style="color: #0d2a27"><i class="ion-android-star-half"></i></li>
                                                                     }
                                                                     @for (int i = (int)item.ProductRating + (hasHalfStar ? 1 : 0); i < 5; i++)
                                                                     {

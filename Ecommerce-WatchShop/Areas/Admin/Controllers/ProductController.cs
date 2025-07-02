@@ -1,4 +1,4 @@
-﻿using Ecommerce_WatchShop.Models;
+﻿using Ecommerce_CaFeShop.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -6,15 +6,15 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Ecommerce_WatchShop.Areas.Admin.Controllers
+namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Policy = "Admin")]
     public class ProductController : Controller
     {
-        private readonly DongHoContext _context;
+        private readonly CaFeContext _context;
 
-        public ProductController(DongHoContext context)
+        public ProductController(CaFeContext context)
         {
             _context = context;
         }

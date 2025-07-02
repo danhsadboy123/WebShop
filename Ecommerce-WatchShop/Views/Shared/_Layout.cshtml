@@ -394,7 +394,7 @@
                 <form id="loginForm">
                     @Html.AntiForgeryToken()
                     <div id="loginPartial">
-                        @await Html.PartialAsync("_LoginPartial", new Ecommerce_WatchShop.Models.ViewModels.LoginVM())
+                        @await Html.PartialAsync("_LoginPartial", new Ecommerce_CaFeShop.Models.ViewModels.LoginVM())
                     </div>
                     <button type="submit" class="btn btn-block btn-black-default-hover mb-4">Đăng nhập</button>
                     <div class="d-flex justify-content-center">
@@ -417,7 +417,7 @@
                 <form id="registerForm">
                     @Html.AntiForgeryToken()
                     <div id="registerPartial">
-                        @await Html.PartialAsync("_RegisterPartial", new Ecommerce_WatchShop.Models.ViewModels.RegisterVM())
+                        @await Html.PartialAsync("_RegisterPartial", new Ecommerce_CaFeShop.Models.ViewModels.RegisterVM())
                     </div>
                     <button class="btn btn-block btn-black-default-hover mb-4" type="submit">Đăng ký</button>
                     <div class="d-flex justify-content-center">
@@ -432,7 +432,7 @@
 
 
 <button type="button" class="btn btn-success position-fixed right-0 text-white rounded-circle"
-        style="bottom: 100px; margin-right: 23px; width: 56px; height: 56px">
+        style="bottom: 100px; margin-right: 23px; width: 56px; height: 56px; z-index:999">
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chat"
          viewBox="0 0 16 16">
         <path

@@ -1,4 +1,4 @@
-﻿namespace Ecommerce_WatchShop.Models.Momo
+﻿namespace Ecommerce_CaFeShop.Models.Momo
 {
     public class MomoCreatePaymentResponseModel
     {

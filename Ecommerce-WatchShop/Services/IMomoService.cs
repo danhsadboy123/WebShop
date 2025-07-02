@@ -1,7 +1,7 @@
-﻿using Ecommerce_WatchShop.Models.Momo;
-using Ecommerce_WatchShop.Models.ViewModels;
+﻿using Ecommerce_CaFeShop.Models.Momo;
+using Ecommerce_CaFeShop.Models.ViewModels;
 
-namespace Ecommerce_WatchShop.Services
+namespace Ecommerce_CaFeShop.Services
 {
     public interface IMomoService
     {

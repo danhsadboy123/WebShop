@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Ecommerce_WatchShop.Models.ViewModels
+namespace Ecommerce_CaFeShop.Models.ViewModels
 {
     public class ForgotPasswordVM
     {

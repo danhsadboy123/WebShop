@@ -1,4 +1,4 @@
-﻿namespace Ecommerce_WatchShop.Abstractions
+﻿namespace Ecommerce_CaFeShop.Abstractions
 {
     public interface IPasswordHasher
     {

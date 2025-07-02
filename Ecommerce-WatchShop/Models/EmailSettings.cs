@@ -1,4 +1,4 @@
-﻿namespace Ecommerce_WatchShop.Models
+﻿namespace Ecommerce_CaFeShop.Models
 {
     public class EmailSettings
     {

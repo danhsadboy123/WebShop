@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Ecommerce_WatchShop.Models;
+namespace Ecommerce_CaFeShop.Models;
 
 public partial class Bill
 {

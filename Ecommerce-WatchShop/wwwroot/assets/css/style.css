@@ -123,7 +123,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
     font-family: "Open Sans", sans-serif;
     font-weight: 500;
     line-height: 1.2;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 h1, .h1 {
@@ -5884,7 +5884,7 @@ progress {
     padding: 8px 10px;
     margin-bottom: 0;
     font-size: 0.875rem;
-    color: #24262b;
+    color: #0d2a27;
     background-color: #f7f7f7;
     border-bottom: 1px solid #ebebeb;
     border-top-left-radius: 3.8px;
@@ -14304,7 +14304,7 @@ a {
     outline: none;
 }
 a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 input, button, a {
@@ -14483,7 +14483,7 @@ input {
 ************************/
 .btn {
     outline: none;
-    color: #24262b;
+    color: #0d2a27;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 700;
@@ -14511,13 +14511,13 @@ input {
     }
 }
 .btn-golden {
-    background: #b19361;
-    border-color: #b19361;
+    background: #0d2a27;
+    border-color: #0d2a27;
     color: #FFF;
 }
 .btn-golden:hover {
-    color: #b19361;
-    border-color: #b19361;
+    color: #0d2a27;
+    border-color: #0d2a27;
     background: transparent;
 }
 .btn-green {
@@ -14551,47 +14551,47 @@ input {
     background: transparent;
 }
 .btn-black-default-hover {
-    background: #24262b;
+    background: #0d2a27;
     color: #FFF;
 }
 .btn-black-default-hover:hover {
-    background: #b19361;
+    background: #0d2a27;
     color: #FFF;
 }
 .btn-outline-golden {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-golden:hover {
-    color: #b19361;
-    border-color: #b19361;
+    color: #0d2a27;
+    border-color: #0d2a27;
 }
 .btn-outline-green {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-green:hover {
     color: #047B42;
     border-color: #047B42;
 }
 .btn-outline-aqua {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-aqua:hover {
     color: #66cec4;
     border-color: #66cec4;
 }
 .btn-outline-pink {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-pink:hover {
     color: #ff365d;
     border-color: #ff365d;
 }
 .btn-outline-black {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-black:hover {
-    color: #24262b;
-    border-color: #24262b;
+    color: #0d2a27;
+    border-color: #0d2a27;
 }
 
 /***********************
@@ -14948,10 +14948,10 @@ input {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.1em;
-    color: #24262b;
+    color: #0d2a27;
 }
 .banner-style-2 .content .link-text:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 /*Banner Style - 3*/
@@ -15063,7 +15063,7 @@ input {
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
-    color: #24262b;
+    color: #0d2a27;
     background: #fafafa;
     transition: all 0.5s ease;
     border: 2px solid transparent;
@@ -15073,11 +15073,11 @@ input {
     transition: all 0.5s ease;
 }
 .banner-style-4.banner-color--golden:hover .content .title {
-    color: #b19361;
+    color: #0d2a27;
 }
 .banner-style-4.banner-color--golden:hover .content .round-btn {
     color: #FFF;
-    background: #b19361;
+    background: #0d2a27;
 }
 .banner-style-4.banner-color--green:hover .content .title {
     color: #047B42;
@@ -15271,7 +15271,7 @@ input {
     justify-content: space-between;
     font-size: 28px;
     font-weight: 600;
-    color: #24262b;
+    color: #0d2a27;
     margin-bottom: 10px;
 }
 .banner-style-10 .content-out .btn {
@@ -15475,7 +15475,7 @@ input {
     text-transform: uppercase;
 }
 .product-default-single-item .content-left .title a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .product-default-single-item .content-right .price del {
     padding-right: 10px;
@@ -15490,19 +15490,19 @@ input {
 }
 
 .product-color--golden .tag span {
-    background: #b19361;
+    background: #0d2a27;
 }
 .product-color--golden .action-link-left a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--golden .action-link-right a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--golden .content-left .title a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--golden .review-star li.fill {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--green .tag span {
     background: #047B42;
@@ -15658,14 +15658,14 @@ input {
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .product-color--golden .title a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--golden .review-star li.fill {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--green .title a:hover {
     color: #047B42;
@@ -15704,7 +15704,7 @@ input {
     font-weight: 600;
     position: relative;
     text-transform: capitalize;
-    color: #24262b;
+    color: #0d2a27;
 }
 .blog-default-single-item .content .inner {
     margin-top: 26px;
@@ -15716,7 +15716,7 @@ input {
     margin-top: 0;
 }
 .blog-default-single-item .content .read-more-btn {
-    color: #24262b;
+    color: #0d2a27;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -15734,10 +15734,10 @@ input {
     transform: scale(1.05);
 }
 .blog-default-single-item.blog-color--golden .content .title a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .blog-default-single-item.blog-color--golden .content .read-more-btn:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .blog-default-single-item.blog-color--green .content .title a:hover {
     color: #047B42;
@@ -15775,7 +15775,7 @@ input {
     display: block;
     font-size: 16px;
     font-weight: 600;
-    color: #24262b;
+    color: #0d2a27;
     background: #FFF;
     border-radius: 5px;
     height: 50px;
@@ -15837,7 +15837,7 @@ input {
     opacity: 1;
 }
 .hero-slider-active .swiper-pagination.active-color-golden span.swiper-pagination-bullet-active {
-    background: #b19361;
+    background: #0d2a27;
 }
 .hero-slider-active .swiper-pagination.active-color-green span.swiper-pagination-bullet-active {
     background: #047B42;
@@ -15862,7 +15862,7 @@ input {
 .hero-slider-active .swiper-button-prev::after,
 .hero-slider-active .swiper-button-next::after {
     font-size: 16px;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /*Default slider Customize CSS */
@@ -15876,7 +15876,7 @@ input {
     line-height: 55px;
     text-align: center;
     border-radius: 50%;
-    color: #24262b;
+    color: #0d2a27;
     background: #fafafa;
     transition: all 0.5s ease;
     border: 2px solid transparent;
@@ -15884,7 +15884,7 @@ input {
 }
 .default-slider-nav-arrow .swiper-button-prev:hover,
 .default-slider-nav-arrow .swiper-button-next:hover {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .default-slider-nav-arrow .swiper-button-prev::after,
 .default-slider-nav-arrow .swiper-button-next::after {
@@ -15944,7 +15944,7 @@ input {
 }
 .gallery-thumb-arrow.swiper-button-prev::after, .gallery-thumb-arrow.swiper-button-next::after {
     font-size: 16px;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /*Sticky slider Customize CSS*/
@@ -15977,7 +15977,7 @@ input {
 }
 .blog-list-slider-arrow .swiper-button-prev::after, .blog-list-slider-arrow .swiper-button-next::after {
     font-size: 16px;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /***********************
@@ -16013,7 +16013,7 @@ input {
     transition: all 0.5s ease;
 }
 .tablist-default .nav-link.active, .tablist-default .nav-link:hover {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /*Sort Styele Tab*/
@@ -16024,7 +16024,7 @@ input {
     line-height: 30px;
 }
 .sort-tab-btn .nav-link.active {
-    background-color: #b19361;
+    background-color: #0d2a27;
 }
 .sort-tab-btn .nav-link.active > img {
     filter: invert(100%);
@@ -16059,16 +16059,16 @@ input {
     left: auto;
     right: 0;
     bottom: 0;
-    background: #b19361;
+    background: #0d2a27;
     transition: all 0.5s ease;
 }
 .product-details-content-tab-btn .nav-link.active, .product-details-content-tab-btn .nav-link:hover {
-    color: #24262b;
+    color: #0d2a27;
 }
 .product-details-content-tab-btn .nav-link.active::after, .product-details-content-tab-btn .nav-link:hover::after {
     width: 100%;
     left: 0;
-    background: #b19361;
+    background: #0d2a27;
 }
 
 /*****************************
@@ -16116,7 +16116,7 @@ input {
 .default-form-box input[type=number]:focus,
 .default-form-box input[type=date]:focus,
 .default-form-box textarea:focus {
-    border-color: #b19361;
+    border-color: #0d2a27;
 }
 .default-form-box textarea {
     height: 200px;
@@ -16152,7 +16152,7 @@ input {
     font-size: 18px;
 }
 .default-search-style-input-btn:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .mobile-search-style-input-box {
@@ -16165,7 +16165,7 @@ input {
 
 .mobile-search-style-input-btn {
     padding: 7px 12px;
-    background-color: #24262b;
+    background-color: #0d2a27;
     border-radius: 0 5px 5px 0;
     font-weight: 600;
     transition: all 0.5s ease;
@@ -16208,8 +16208,8 @@ input {
 .checkbox-default input:checked::after {
     position: absolute;
     content: "";
-    background: #b19361;
-    border-color: #b19361;
+    background: #0d2a27;
+    border-color: #0d2a27;
     font-family: "Ionicons";
     color: #FFF;
 }
@@ -16269,7 +16269,7 @@ input {
     height: 3px;
     left: 0;
     bottom: -1.5px;
-    background: #b19361;
+    background: #0d2a27;
 }
 
 .sidebar-banner {
@@ -16285,14 +16285,14 @@ input {
 }
 .sidebar-menu li a {
     font-weight: 700;
-    color: #24262b;
+    color: #0d2a27;
 }
 .sidebar-menu li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .accordion-title {
-    color: #24262b;
+    color: #0d2a27;
     font-weight: 700;
     position: relative;
     display: flex;
@@ -16341,7 +16341,7 @@ input {
 }
 
 .ui-widget-header {
-    background: #b19361;
+    background: #0d2a27;
 }
 
 .ui-slider-horizontal .ui-slider-handle {
@@ -16397,8 +16397,8 @@ a.ui-button:active,
     font-weight: 600;
 }
 .tag-link a:hover {
-    background: #b19361;
-    border-color: #b19361;
+    background: #0d2a27;
+    border-color: #0d2a27;
     color: #FFF;
 }
 
@@ -16480,17 +16480,17 @@ a.ui-button:active,
     color: #000;
 }
 .breadcrumb-nav-color--black li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .breadcrumb-nav-hover-color--black li a:hover {
     color: #000;
 }
 .breadcrumb-nav-hover-color--black li a:hover:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .breadcrumb-nav-hover-color--black li .active {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 /*****************************
@@ -16513,12 +16513,12 @@ a.ui-button:active,
     display: block;
     border: 1px solid #d5d5d5;
     background: #FFF;
-    color: #24262b;
+    color: #0d2a27;
     border-radius: 3px;
     font-weight: 500;
 }
 .page-pagination li a:hover, .page-pagination li a.active {
-    background: #b19361;
+    background: #0d2a27;
     color: #FFF;
 }
 
@@ -16592,7 +16592,7 @@ a.ui-button:active,
 }
 
 .comment-content-right a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .comment-content-right a i {
     padding-right: 10px;
@@ -16611,7 +16611,7 @@ table {
 }
 
 .view {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .table_desc {
@@ -16628,8 +16628,8 @@ table {
 }
 
 .table_page table thead tr th {
-    color: #24262b;
-    border-bottom: 3px solid #b19361;
+    color: #0d2a27;
+    border-bottom: 3px solid #0d2a27;
     border-right: 1px solid #ededed;
     font-size: 16px;
     font-weight: 600;
@@ -16740,11 +16740,11 @@ table {
     }
 }
 .product-details-content-area .product-details-text .customer-review {
-    color: #24262b;
+    color: #0d2a27;
 }
 .product-details-content-area .product-details-text .price {
     font-size: 28px;
-    color: #24262b;
+    color: #0d2a27;
     margin-bottom: 15px;
 }
 .product-details-content-area .product-details-text .product-details-variable {
@@ -16798,17 +16798,17 @@ table {
 }
 
 .product-details--golden .review-star .fill {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-details--golden .customer-review:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-details--golden .product-details-social ul li a,
 .product-details--golden .product-details-catagory ul li a {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-details--golden .product-details-meta a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 /*Product Gallery - Horizontal View*/
@@ -16844,7 +16844,7 @@ table {
     cursor: pointer;
 }
 .product-image-thumb .product-image-thumb-single:hover img, .product-image-thumb .product-image-thumb-single.swiper-slide-thumb-active img {
-    border: 1px solid #b19361;
+    border: 1px solid #0d2a27;
 }
 .product-image-thumb .product-image-thumb-single:last-child {
     margin-bottom: 0 !important;
@@ -16884,7 +16884,7 @@ table {
     margin-bottom: 5px;
     font-weight: 600;
     text-transform: capitalize;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .product-stock {
@@ -16902,7 +16902,7 @@ table {
 .product-add-to-cart-btn a {
     display: inline-block;
     font-size: 16px;
-    background: #24262b;
+    background: #0d2a27;
     height: 50px;
     line-height: 50px;
     text-transform: uppercase;
@@ -16914,7 +16914,7 @@ table {
     padding: 0 50px;
 }
 .product-add-to-cart-btn a:hover {
-    background: #b19361;
+    background: #0d2a27;
 }
 
 /* Variable - Color*/
@@ -17058,7 +17058,7 @@ table {
 
 .form-submit-btn {
     border: none;
-    background: #24262b;
+    background: #0d2a27;
     color: #ffffff;
     text-transform: capitalize;
     font-weight: 500;
@@ -17070,11 +17070,11 @@ table {
     border-radius: 5px;
 }
 .form-submit-btn:hover {
-    background: #b19361;
+    background: #0d2a27;
 }
 
 .review-star li.fill {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 /*****************************
@@ -17183,7 +17183,7 @@ table {
     max-width: 100%;
 }
 .compare-table .table tbody tr td.product-image-title .category:hover, .compare-table .table tbody tr td.product-image-title .title:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .compare-table .table tbody tr td.product-image-title .category {
     clear: both;
@@ -17247,11 +17247,11 @@ table {
     font-weight: 400;
     background-color: #f7f6f7;
     padding: 15px 10px;
-    border-top: 3px solid #b19361;
+    border-top: 3px solid #0d2a27;
     margin-bottom: 0;
 }
 .user-actions h3 a, .user-actions .h3 a {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .checkout_info {
@@ -17286,7 +17286,7 @@ table {
     padding: 5px 10px;
     text-transform: uppercase;
     color: #FFF;
-    background: #24262b;
+    background: #0d2a27;
     font-weight: 500;
 }
 
@@ -17415,7 +17415,7 @@ table {
     text-align: left;
 }
 .dashboard_tab_button li .btn.active {
-    background: #b19361;
+    background: #0d2a27;
 }
 
 .dashboard_content h4, .dashboard_content .h4 {
@@ -17435,7 +17435,7 @@ table {
     font-size: 14px;
 }
 .dashboard_content p a {
-    color: #b19361;
+    color: #0d2a27;
     font-weight: 500;
 }
 
@@ -17492,14 +17492,14 @@ table {
 }
 
 .faq-accordian label:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .faq-accordian input:checked + label,
 .faq-accordian input:checked + label:hover {
-    background: #b19361;
+    background: #0d2a27;
     color: #FFF;
-    border: 1px solid #b19361;
+    border: 1px solid #0d2a27;
 }
 
 .faq-accordian input {
@@ -17558,7 +17558,7 @@ table {
 }
 .error-form .big-title {
     font-weight: 600;
-    color: #b19361;
+    color: #0d2a27;
     font-size: 130px;
     line-height: 120px;
     letter-spacing: 4px;
@@ -17668,7 +17668,7 @@ table {
     transition: all 0.5s ease;
 }
 .team-social a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .team-single:hover .team-social {
     bottom: 0px;
@@ -17704,7 +17704,7 @@ Pages - Contact
     font-size: 22px;
     margin-right: 20px;
     color: #FFF;
-    background: #b19361;
+    background: #0d2a27;
     width: 40px;
     height: 40px;
     text-align: center;
@@ -17744,7 +17744,7 @@ Pages - Contact
 
 .contact-submit-btn {
     border: none;
-    background-color: #b19361;
+    background-color: #0d2a27;
     color: #FFF;
     font-size: 14px;
     font-weight: 700;
@@ -17784,10 +17784,10 @@ Pages - Contact
     display: none;
 }
 .post-meta li a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .post-meta li a:hover {
-    color: #b19361;
+    color: #0d2a27;
     text-decoration: underline;
 }
 
@@ -17795,11 +17795,11 @@ Pages - Contact
     font-size: 26px;
     line-height: 2.2;
     font-weight: 600;
-    color: #24262b;
+    color: #0d2a27;
     text-transform: capitalize;
 }
 .blog-list .content .title a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .blog-list .content .read-more-btn {
     font-weight: 700;
@@ -17807,10 +17807,10 @@ Pages - Contact
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    color: #24262b;
+    color: #0d2a27;
 }
 .blog-list .content .read-more-btn:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .blog-list .content .read-more-btn .icon {
     font-size: 22px;
@@ -17894,7 +17894,7 @@ Pages - Contact
 .blockquote-content {
     padding: 15px 30px;
     background: #E9ECEF;
-    border-left: 2px solid #b19361;
+    border-left: 2px solid #0d2a27;
     font-style: italic;
     font-size: 14px;
 }
@@ -17932,7 +17932,7 @@ Pages - Contact
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 40px;
-    color: #b19361;
+    color: #0d2a27;
 }
 .emptycart-content .sub-title {
     font-size: 22px;
@@ -17955,7 +17955,7 @@ Pages - Contact
 * Layout - Header
 *****************************/
 .header-top-bg--black {
-    background: #24262b;
+    background: #0d2a27;
 }
 
 .header-top-bg--white {
@@ -17996,11 +17996,11 @@ Pages - Contact
 
 .header-top-contact-color--black a,
 .header-top-user-link-color--black a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .header-top-contact-color--black a::after,
 .header-top-user-link-color--black a::after {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .header-top-contact-hover-color--green a:hover,
@@ -18024,7 +18024,7 @@ Pages - Contact
     background: #FFF;
 }
 .header-bottom-color--black {
-    background: #24262b;
+    background: #0d2a27;
 }
 
 .sticky-header.sticky.sticky-color--golden {
@@ -18034,7 +18034,7 @@ Pages - Contact
     background: #fff;
 }
 .sticky-header.sticky.sticky-color--black {
-    background: #24262b;
+    background: #0d2a27;
 }
 
 /*Main Menu Style*/
@@ -18149,7 +18149,7 @@ Pages - Contact
     font-weight: 700;
     display: block;
     margin-bottom: 13px;
-    color: #24262b;
+    color: #0d2a27;
 }
 .mega-menu-sub > li {
     display: block;
@@ -18175,36 +18175,36 @@ Pages - Contact
 
 /*Main Menu Link Normal Color*/
 .menu-color--black nav > ul > li > a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .menu-color--black .sub-menu > li > a,
 .menu-color--black .mega-menu-sub > li > a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .menu-color--black .mega-menu-item-title {
-    color: #24262b;
+    color: #0d2a27;
 }
 .menu-color--white nav > ul > li > a {
     color: #FFF;
 }
 .menu-color--white .sub-menu > li > a,
 .menu-color--white .mega-menu-sub > li > a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .menu-color--white .mega-menu-item-title {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /*Main Menu Link Hover Color*/
 .menu-hover-color--golden nav > ul > li > a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .menu-hover-color--golden .sub-menu > li > a:hover,
 .menu-hover-color--golden .mega-menu-sub > li > a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .menu-hover-color--golden .mega-menu-item-title:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .menu-hover-color--green nav > ul > li > a:hover {
     color: #047B42;
@@ -18289,7 +18289,7 @@ Pages - Contact
 
 /*Action Style Color Normal*/
 .action-color--black.header-action-link li a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .action-color--black .offside-about {
     background: rgba(242, 232, 231, 0.5);
@@ -18303,10 +18303,10 @@ Pages - Contact
 
 /*Action Style Color Hover*/
 .action-hover-color--golden.header-action-link li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .action-hover-color--golden.header-action-link li a span {
-    background: #b19361;
+    background: #0d2a27;
 }
 .action-hover-color--golden .offside-about:hover {
     background: #FFF;
@@ -18417,7 +18417,7 @@ Pages - Contact
 }
 
 .offside-menu-hover-color--golden:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .offside-menu-hover-color--green:hover {
     color: #047B42;
@@ -18436,14 +18436,14 @@ Pages - Contact
     background: #FFF;
 }
 .mobile-header-bg-color--black {
-    background: #24262b;
+    background: #0d2a27;
 }
 
 /*****************************
 * Layout - Footer
 *****************************/
 .footer-bg {
-    background: #24262b;
+    background: #0d2a27;
     padding-top: 60px;
 }
 @media (min-width: 768px) {
@@ -18492,7 +18492,7 @@ Pages - Contact
     transform: translateX(10px);
 }
 .footer-top .footer-widget-color--golden .title::after {
-    background: #b19361;
+    background: #0d2a27;
 }
 .footer-top .footer-widget-color--green .title::after {
     background: #047B42;
@@ -18583,15 +18583,15 @@ Pages - Contact
     transition: all 0.5s ease;
 }
 .form-fild-newsletter-single-item.input-color--golden input:focus {
-    border-color: #b19361;
+    border-color: #0d2a27;
 }
 .form-fild-newsletter-single-item.input-color--golden button {
-    background: #b19361;
+    background: #0d2a27;
     color: #FFF;
 }
 .form-fild-newsletter-single-item.input-color--golden button:hover {
     background: #FFF;
-    color: #b19361;
+    color: #0d2a27;
 }
 .form-fild-newsletter-single-item.input-color--green input:focus {
     border-color: #047B42;
@@ -18714,7 +18714,7 @@ Pages - Contact
 
 .offcanvas-mobile-menu-section,
 .offcanvas-mobile-about-section {
-    background: #24262b !important;
+    background: #0d2a27 !important;
 }
 .offcanvas-mobile-menu-section .offcanvas-close,
 .offcanvas-mobile-about-section .offcanvas-close {
@@ -18747,7 +18747,7 @@ Pages - Contact
 }
 
 .offcanvas-menu li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .offcanvas-menu li .mobile-sub-menu {
@@ -18770,7 +18770,7 @@ Pages - Contact
 
 .offcanvas-menu .active > .offcanvas-menu-expand::after,
 .sub-menu > .active .offcanvas-menu-expand::after {
-    color: #b19361;
+    color: #0d2a27;
     transform: rotate(90deg);
 }
 
@@ -18831,7 +18831,7 @@ Pages - Contact
     color: #FFF;
 }
 .mobile-contact-info .user-link li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .offcanvas-cart-item-single {
@@ -18865,7 +18865,7 @@ Pages - Contact
     font-weight: 700;
 }
 .offcanvas-cart-item-link:hover {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .offcanvas-cart-total-price {
@@ -18895,7 +18895,7 @@ Pages - Contact
 
 .offcanvas-cart-action-button-link {
     display: block;
-    background: #24262b;
+    background: #0d2a27;
     color: #FFF;
     padding: 10px 30px;
     text-align: center;
@@ -18904,8 +18904,8 @@ Pages - Contact
 }
 .offcanvas-cart-action-button-link:hover {
     background: #FFF;
-    color: #24262b;
-    border: 1px border #24262b !important;
+    color: #0d2a27;
+    border: 1px border #0d2a27 !important;
 }
 
 .offcanvas-wishlist-item-single {
@@ -18939,7 +18939,7 @@ Pages - Contact
     font-weight: 700;
 }
 .offcanvas-wishlist-item-link:hover {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .offcanvas-wishlist-total-price-text {
@@ -18964,7 +18964,7 @@ Pages - Contact
 
 .offcanvas-wishlist-action-button-link {
     display: block;
-    background: #24262b;
+    background: #0d2a27;
     color: #FFF;
     padding: 10px 30px;
     text-align: center;
@@ -18973,9 +18973,9 @@ Pages - Contact
     border: 1px border transparent;
 }
 .offcanvas-wishlist-action-button-link:hover {
-    background: #24262b;
+    background: #0d2a27;
     color: #FFF;
-    border: 1px border #24262b !important;
+    border: 1px border #0d2a27 !important;
 }
 
 .search-modal {
@@ -19016,7 +19016,7 @@ Pages - Contact
     border-bottom: 2px solid #FFF;
 }
 .search-modal input[type=search]:focus {
-    border-color: #b19361;
+    border-color: #0d2a27;
 }
 
 .search-modal .btn {
@@ -19076,8 +19076,8 @@ Pages - Contact
     border-radius: 3px;
 }
 .modal-close:hover {
-    color: #b19361;
-    border-color: #b19361;
+    color: #0d2a27;
+    border-color: #0d2a27;
 }
 @media (min-width: 768px) {
     .modal-close {
@@ -19165,7 +19165,7 @@ Pages - Contact
 .modal-add-cart-product-cart-buttons a {
     margin-top: 10px;
     margin-bottom: 10px;
-    background: #b19361;
+    background: #0d2a27;
     color: white;
     padding: 5px 10px;
     margin-right: 0px;
@@ -19184,14 +19184,14 @@ Pages - Contact
 }
 
 .modal-add-cart-info i {
-    color: #b19361;
+    color: #0d2a27;
     padding-right: 10px;
     font-size: 16px;
 }
 
 .modal-continue-button a {
     text-decoration: underline;
-    color: #b19361;
+    color: #0d2a27;
 }
 .modal-continue-button a:hover {
     text-decoration: none;
@@ -19275,12 +19275,12 @@ Pages - Contact
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     cursor: hand;
     border-radius: 50%;
-    background: #b19361;
+    background: #0d2a27;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transition: all 0.3s cubic-bezier(0.25, 0.25, 0, 1);
 }
 .material-scrolltop:hover {
-    background-color: #b19361;
+    background-color: #0d2a27;
     text-decoration: none;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), 0 3px 15px rgba(0, 0, 0, 0.5);
 }
@@ -19439,7 +19439,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
     font-family: "Open Sans", sans-serif;
     font-weight: 500;
     line-height: 1.2;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 h1, .h1 {
@@ -25200,7 +25200,7 @@ progress {
     padding: 8px 10px;
     margin-bottom: 0;
     font-size: 0.875rem;
-    color: #24262b;
+    color: #0d2a27;
     background-color: #f7f7f7;
     border-bottom: 1px solid #ebebeb;
     border-top-left-radius: 3.8px;
@@ -33620,7 +33620,7 @@ a {
     outline: none;
 }
 a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 input, button, a {
@@ -33799,7 +33799,7 @@ input {
 ************************/
 .btn {
     outline: none;
-    color: #24262b;
+    color: #0d2a27;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 700;
@@ -33827,13 +33827,13 @@ input {
     }
 }
 .btn-golden {
-    background: #b19361;
-    border-color: #b19361;
+    background: #0d2a27;
+    border-color: #0d2a27;
     color: #FFF;
 }
 .btn-golden:hover {
-    color: #b19361;
-    border-color: #b19361;
+    color: #0d2a27;
+    border-color: #0d2a27;
     background: transparent;
 }
 .btn-green {
@@ -33867,47 +33867,47 @@ input {
     background: transparent;
 }
 .btn-black-default-hover {
-    background: #24262b;
+    background: #0d2a27;
     color: #FFF;
 }
 .btn-black-default-hover:hover {
-    background: #b19361;
+    background: #0d2a27;
     color: #FFF;
 }
 .btn-outline-golden {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-golden:hover {
-    color: #b19361;
-    border-color: #b19361;
+    color: #0d2a27;
+    border-color: #0d2a27;
 }
 .btn-outline-green {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-green:hover {
     color: #047B42;
     border-color: #047B42;
 }
 .btn-outline-aqua {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-aqua:hover {
     color: #66cec4;
     border-color: #66cec4;
 }
 .btn-outline-pink {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-pink:hover {
     color: #ff365d;
     border-color: #ff365d;
 }
 .btn-outline-black {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .btn-outline-black:hover {
-    color: #24262b;
-    border-color: #24262b;
+    color: #0d2a27;
+    border-color: #0d2a27;
 }
 
 /***********************
@@ -34264,10 +34264,10 @@ input {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.1em;
-    color: #24262b;
+    color: #0d2a27;
 }
 .banner-style-2 .content .link-text:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 /*Banner Style - 3*/
@@ -34379,7 +34379,7 @@ input {
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
-    color: #24262b;
+    color: #0d2a27;
     background: #fafafa;
     transition: all 0.5s ease;
     border: 2px solid transparent;
@@ -34389,11 +34389,11 @@ input {
     transition: all 0.5s ease;
 }
 .banner-style-4.banner-color--golden:hover .content .title {
-    color: #b19361;
+    color: #0d2a27;
 }
 .banner-style-4.banner-color--golden:hover .content .round-btn {
     color: #FFF;
-    background: #b19361;
+    background: #0d2a27;
 }
 .banner-style-4.banner-color--green:hover .content .title {
     color: #047B42;
@@ -34587,7 +34587,7 @@ input {
     justify-content: space-between;
     font-size: 28px;
     font-weight: 600;
-    color: #24262b;
+    color: #0d2a27;
     margin-bottom: 10px;
 }
 .banner-style-10 .content-out .btn {
@@ -34792,7 +34792,7 @@ input {
     text-transform: uppercase;
 }
 .product-default-single-item .content-left .title a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .product-default-single-item .content-right .price del {
     padding-right: 10px;
@@ -34807,19 +34807,19 @@ input {
 }
 
 .product-color--golden .tag span {
-    background: #b19361;
+    background: #0d2a27;
 }
 .product-color--golden .action-link-left a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--golden .action-link-right a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--golden .content-left .title a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--golden .review-star li.fill {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--green .tag span {
     background: #047B42;
@@ -34975,14 +34975,14 @@ input {
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .product-color--golden .title a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--golden .review-star li.fill {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-color--green .title a:hover {
     color: #047B42;
@@ -35021,7 +35021,7 @@ input {
     font-weight: 600;
     position: relative;
     text-transform: capitalize;
-    color: #24262b;
+    color: #0d2a27;
 }
 .blog-default-single-item .content .inner {
     margin-top: 26px;
@@ -35033,7 +35033,7 @@ input {
     margin-top: 0;
 }
 .blog-default-single-item .content .read-more-btn {
-    color: #24262b;
+    color: #0d2a27;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -35051,10 +35051,10 @@ input {
     transform: scale(1.05);
 }
 .blog-default-single-item.blog-color--golden .content .title a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .blog-default-single-item.blog-color--golden .content .read-more-btn:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .blog-default-single-item.blog-color--green .content .title a:hover {
     color: #047B42;
@@ -35092,7 +35092,7 @@ input {
     display: block;
     font-size: 16px;
     font-weight: 600;
-    color: #24262b;
+    color: #0d2a27;
     background: #FFF;
     border-radius: 5px;
     height: 50px;
@@ -35154,7 +35154,7 @@ input {
     opacity: 1;
 }
 .hero-slider-active .swiper-pagination.active-color-golden span.swiper-pagination-bullet-active {
-    background: #b19361;
+    background: #0d2a27;
 }
 .hero-slider-active .swiper-pagination.active-color-green span.swiper-pagination-bullet-active {
     background: #047B42;
@@ -35179,7 +35179,7 @@ input {
 .hero-slider-active .swiper-button-prev::after,
 .hero-slider-active .swiper-button-next::after {
     font-size: 16px;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /*Default slider Customize CSS */
@@ -35193,7 +35193,7 @@ input {
     line-height: 55px;
     text-align: center;
     border-radius: 50%;
-    color: #24262b;
+    color: #0d2a27;
     background: #fafafa;
     transition: all 0.5s ease;
     border: 2px solid transparent;
@@ -35201,7 +35201,7 @@ input {
 }
 .default-slider-nav-arrow .swiper-button-prev:hover,
 .default-slider-nav-arrow .swiper-button-next:hover {
-    border-color: #24262b;
+    border-color: #0d2a27;
 }
 .default-slider-nav-arrow .swiper-button-prev::after,
 .default-slider-nav-arrow .swiper-button-next::after {
@@ -35261,7 +35261,7 @@ input {
 }
 .gallery-thumb-arrow.swiper-button-prev::after, .gallery-thumb-arrow.swiper-button-next::after {
     font-size: 16px;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /*Sticky slider Customize CSS*/
@@ -35294,7 +35294,7 @@ input {
 }
 .blog-list-slider-arrow .swiper-button-prev::after, .blog-list-slider-arrow .swiper-button-next::after {
     font-size: 16px;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /***********************
@@ -35330,7 +35330,7 @@ input {
     transition: all 0.5s ease;
 }
 .tablist-default .nav-link.active, .tablist-default .nav-link:hover {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /*Sort Styele Tab*/
@@ -35341,7 +35341,7 @@ input {
     line-height: 30px;
 }
 .sort-tab-btn .nav-link.active {
-    background-color: #b19361;
+    background-color: #0d2a27;
 }
 .sort-tab-btn .nav-link.active > img {
     filter: invert(100%);
@@ -35376,16 +35376,16 @@ input {
     left: auto;
     right: 0;
     bottom: 0;
-    background: #b19361;
+    background: #0d2a27;
     transition: all 0.5s ease;
 }
 .product-details-content-tab-btn .nav-link.active, .product-details-content-tab-btn .nav-link:hover {
-    color: #24262b;
+    color: #0d2a27;
 }
 .product-details-content-tab-btn .nav-link.active::after, .product-details-content-tab-btn .nav-link:hover::after {
     width: 100%;
     left: 0;
-    background: #b19361;
+    background: #0d2a27;
 }
 
 /*****************************
@@ -35433,7 +35433,7 @@ input {
 .default-form-box input[type=number]:focus,
 .default-form-box input[type=date]:focus,
 .default-form-box textarea:focus {
-    border-color: #b19361;
+    border-color: #0d2a27;
 }
 .default-form-box textarea {
     height: 200px;
@@ -35469,7 +35469,7 @@ input {
     font-size: 18px;
 }
 .default-search-style-input-btn:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .mobile-search-style-input-box {
@@ -35482,7 +35482,7 @@ input {
 
 .mobile-search-style-input-btn {
     padding: 7px 12px;
-    background-color: #24262b;
+    background-color: #0d2a27;
     border-radius: 0 5px 5px 0;
     font-weight: 600;
     transition: all 0.5s ease;
@@ -35525,8 +35525,8 @@ input {
 .checkbox-default input:checked::after {
     position: absolute;
     content: "";
-    background: #b19361;
-    border-color: #b19361;
+    background: #0d2a27;
+    border-color: #0d2a27;
     font-family: "Ionicons";
     color: #FFF;
 }
@@ -35586,7 +35586,7 @@ input {
     height: 3px;
     left: 0;
     bottom: -1.5px;
-    background: #b19361;
+    background: #0d2a27;
 }
 
 .sidebar-banner {
@@ -35602,14 +35602,14 @@ input {
 }
 .sidebar-menu li a {
     font-weight: 700;
-    color: #24262b;
+    color: #0d2a27;
 }
 .sidebar-menu li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .accordion-title {
-    color: #24262b;
+    color: #0d2a27;
     font-weight: 700;
     position: relative;
     display: flex;
@@ -35658,7 +35658,7 @@ input {
 }
 
 .ui-widget-header {
-    background: #b19361;
+    background: #0d2a27;
 }
 
 .ui-slider-horizontal .ui-slider-handle {
@@ -35714,8 +35714,8 @@ a.ui-button:active,
     font-weight: 600;
 }
 .tag-link a:hover {
-    background: #b19361;
-    border-color: #b19361;
+    background: #0d2a27;
+    border-color: #0d2a27;
     color: #FFF;
 }
 
@@ -35797,17 +35797,17 @@ a.ui-button:active,
     color: #000;
 }
 .breadcrumb-nav-color--black li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .breadcrumb-nav-hover-color--black li a:hover {
     color: #000;
 }
 .breadcrumb-nav-hover-color--black li a:hover:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .breadcrumb-nav-hover-color--black li .active {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 /*****************************
@@ -35830,12 +35830,12 @@ a.ui-button:active,
     display: block;
     border: 1px solid #d5d5d5;
     background: #FFF;
-    color: #24262b;
+    color: #0d2a27;
     border-radius: 3px;
     font-weight: 500;
 }
 .page-pagination li a:hover, .page-pagination li a.active {
-    background: #b19361;
+    background: #0d2a27;
     color: #FFF;
 }
 
@@ -35909,7 +35909,7 @@ a.ui-button:active,
 }
 
 .comment-content-right a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .comment-content-right a i {
     padding-right: 10px;
@@ -35928,7 +35928,7 @@ table {
 }
 
 .view {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .table_desc {
@@ -35945,8 +35945,8 @@ table {
 }
 
 .table_page table thead tr th {
-    color: #24262b;
-    border-bottom: 3px solid #b19361;
+    color: #0d2a27;
+    border-bottom: 3px solid #0d2a27;
     border-right: 1px solid #ededed;
     font-size: 16px;
     font-weight: 600;
@@ -36057,11 +36057,11 @@ table {
     }
 }
 .product-details-content-area .product-details-text .customer-review {
-    color: #24262b;
+    color: #0d2a27;
 }
 .product-details-content-area .product-details-text .price {
     font-size: 28px;
-    color: #24262b;
+    color: #0d2a27;
     margin-bottom: 15px;
 }
 .product-details-content-area .product-details-text .product-details-variable {
@@ -36115,17 +36115,17 @@ table {
 }
 
 .product-details--golden .review-star .fill {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-details--golden .customer-review:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-details--golden .product-details-social ul li a,
 .product-details--golden .product-details-catagory ul li a {
-    color: #b19361;
+    color: #0d2a27;
 }
 .product-details--golden .product-details-meta a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 /*Product Gallery - Horizontal View*/
@@ -36161,7 +36161,7 @@ table {
     cursor: pointer;
 }
 .product-image-thumb .product-image-thumb-single:hover img, .product-image-thumb .product-image-thumb-single.swiper-slide-thumb-active img {
-    border: 1px solid #b19361;
+    border: 1px solid #0d2a27;
 }
 .product-image-thumb .product-image-thumb-single:last-child {
     margin-bottom: 0 !important;
@@ -36201,7 +36201,7 @@ table {
     margin-bottom: 5px;
     font-weight: 600;
     text-transform: capitalize;
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .product-stock {
@@ -36219,7 +36219,7 @@ table {
 .product-add-to-cart-btn a {
     display: inline-block;
     font-size: 16px;
-    background: #24262b;
+    background: #0d2a27;
     height: 50px;
     line-height: 50px;
     text-transform: uppercase;
@@ -36231,7 +36231,7 @@ table {
     padding: 0 50px;
 }
 .product-add-to-cart-btn a:hover {
-    background: #b19361;
+    background: #0d2a27;
 }
 
 /* Variable - Color*/
@@ -36375,7 +36375,7 @@ table {
 
 .form-submit-btn {
     border: none;
-    background: #24262b;
+    background: #0d2a27;
     color: #ffffff;
     text-transform: capitalize;
     font-weight: 500;
@@ -36387,11 +36387,11 @@ table {
     border-radius: 5px;
 }
 .form-submit-btn:hover {
-    background: #b19361;
+    background: #0d2a27;
 }
 
 .review-star li.fill {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 /*****************************
@@ -36500,7 +36500,7 @@ table {
     max-width: 100%;
 }
 .compare-table .table tbody tr td.product-image-title .category:hover, .compare-table .table tbody tr td.product-image-title .title:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .compare-table .table tbody tr td.product-image-title .category {
     clear: both;
@@ -36564,11 +36564,11 @@ table {
     font-weight: 400;
     background-color: #f7f6f7;
     padding: 15px 10px;
-    border-top: 3px solid #b19361;
+    border-top: 3px solid #0d2a27;
     margin-bottom: 0;
 }
 .user-actions h3 a, .user-actions .h3 a {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .checkout_info {
@@ -36603,7 +36603,7 @@ table {
     padding: 5px 10px;
     text-transform: uppercase;
     color: #FFF;
-    background: #24262b;
+    background: #0d2a27;
     font-weight: 500;
 }
 
@@ -36732,7 +36732,7 @@ table {
     text-align: left;
 }
 .dashboard_tab_button li .btn.active {
-    background: #b19361;
+    background: #0d2a27;
 }
 
 .dashboard_content h4, .dashboard_content .h4 {
@@ -36752,7 +36752,7 @@ table {
     font-size: 14px;
 }
 .dashboard_content p a {
-    color: #b19361;
+    color: #0d2a27;
     font-weight: 500;
 }
 
@@ -36809,14 +36809,14 @@ table {
 }
 
 .faq-accordian label:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .faq-accordian input:checked + label,
 .faq-accordian input:checked + label:hover {
-    background: #b19361;
+    background: #0d2a27;
     color: #FFF;
-    border: 1px solid #b19361;
+    border: 1px solid #0d2a27;
 }
 
 .faq-accordian input {
@@ -36875,7 +36875,7 @@ table {
 }
 .error-form .big-title {
     font-weight: 600;
-    color: #b19361;
+    color: #0d2a27;
     font-size: 130px;
     line-height: 120px;
     letter-spacing: 4px;
@@ -36985,7 +36985,7 @@ table {
     transition: all 0.5s ease;
 }
 .team-social a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .team-single:hover .team-social {
     bottom: 0px;
@@ -37021,7 +37021,7 @@ Pages - Contact
     font-size: 22px;
     margin-right: 20px;
     color: #FFF;
-    background: #b19361;
+    background: #0d2a27;
     width: 40px;
     height: 40px;
     text-align: center;
@@ -37061,7 +37061,7 @@ Pages - Contact
 
 .contact-submit-btn {
     border: none;
-    background-color: #b19361;
+    background-color: #0d2a27;
     color: #FFF;
     font-size: 14px;
     font-weight: 700;
@@ -37101,10 +37101,10 @@ Pages - Contact
     display: none;
 }
 .post-meta li a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .post-meta li a:hover {
-    color: #b19361;
+    color: #0d2a27;
     text-decoration: underline;
 }
 
@@ -37112,11 +37112,11 @@ Pages - Contact
     font-size: 26px;
     line-height: 2.2;
     font-weight: 600;
-    color: #24262b;
+    color: #0d2a27;
     text-transform: capitalize;
 }
 .blog-list .content .title a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .blog-list .content .read-more-btn {
     font-weight: 700;
@@ -37124,10 +37124,10 @@ Pages - Contact
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    color: #24262b;
+    color: #0d2a27;
 }
 .blog-list .content .read-more-btn:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .blog-list .content .read-more-btn .icon {
     font-size: 22px;
@@ -37211,7 +37211,7 @@ Pages - Contact
 .blockquote-content {
     padding: 15px 30px;
     background: #E9ECEF;
-    border-left: 2px solid #b19361;
+    border-left: 2px solid #0d2a27;
     font-style: italic;
     font-size: 14px;
 }
@@ -37249,7 +37249,7 @@ Pages - Contact
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 40px;
-    color: #b19361;
+    color: #0d2a27;
 }
 .emptycart-content .sub-title {
     font-size: 22px;
@@ -37272,7 +37272,7 @@ Pages - Contact
 * Layout - Header
 *****************************/
 .header-top-bg--black {
-    background: #24262b;
+    background: #0d2a27;
 }
 
 .header-top-bg--white {
@@ -37313,11 +37313,11 @@ Pages - Contact
 
 .header-top-contact-color--black a,
 .header-top-user-link-color--black a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .header-top-contact-color--black a::after,
 .header-top-user-link-color--black a::after {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .header-top-contact-hover-color--green a:hover,
@@ -37341,7 +37341,7 @@ Pages - Contact
     background: #FFF;
 }
 .header-bottom-color--black {
-    background: #24262b;
+    background: #0d2a27;
 }
 
 .sticky-header.sticky.sticky-color--golden {
@@ -37351,7 +37351,7 @@ Pages - Contact
     background: #fff;
 }
 .sticky-header.sticky.sticky-color--black {
-    background: #24262b;
+    background: #0d2a27;
 }
 
 /*Main Menu Style*/
@@ -37466,7 +37466,7 @@ Pages - Contact
     font-weight: 700;
     display: block;
     margin-bottom: 13px;
-    color: #24262b;
+    color: #0d2a27;
 }
 .mega-menu-sub > li {
     display: block;
@@ -37492,36 +37492,36 @@ Pages - Contact
 
 /*Main Menu Link Normal Color*/
 .menu-color--black nav > ul > li > a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .menu-color--black .sub-menu > li > a,
 .menu-color--black .mega-menu-sub > li > a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .menu-color--black .mega-menu-item-title {
-    color: #24262b;
+    color: #0d2a27;
 }
 .menu-color--white nav > ul > li > a {
     color: #FFF;
 }
 .menu-color--white .sub-menu > li > a,
 .menu-color--white .mega-menu-sub > li > a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .menu-color--white .mega-menu-item-title {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 /*Main Menu Link Hover Color*/
 .menu-hover-color--golden nav > ul > li > a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .menu-hover-color--golden .sub-menu > li > a:hover,
 .menu-hover-color--golden .mega-menu-sub > li > a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .menu-hover-color--golden .mega-menu-item-title:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .menu-hover-color--green nav > ul > li > a:hover {
     color: #047B42;
@@ -37606,7 +37606,7 @@ Pages - Contact
 
 /*Action Style Color Normal*/
 .action-color--black.header-action-link li a {
-    color: #24262b;
+    color: #0d2a27;
 }
 .action-color--black .offside-about {
     background: rgba(242, 232, 231, 0.5);
@@ -37620,10 +37620,10 @@ Pages - Contact
 
 /*Action Style Color Hover*/
 .action-hover-color--golden.header-action-link li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .action-hover-color--golden.header-action-link li a span {
-    background: #b19361;
+    background: #0d2a27;
 }
 .action-hover-color--golden .offside-about:hover {
     background: #FFF;
@@ -37734,7 +37734,7 @@ Pages - Contact
 }
 
 .offside-menu-hover-color--golden:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 .offside-menu-hover-color--green:hover {
     color: #047B42;
@@ -37753,14 +37753,14 @@ Pages - Contact
     background: #FFF;
 }
 .mobile-header-bg-color--black {
-    background: #24262b;
+    background: #0d2a27;
 }
 
 /*****************************
 * Layout - Footer
 *****************************/
 .footer-bg {
-    background: #24262b;
+    background: #0d2a27;
     padding-top: 60px;
 }
 @media (min-width: 768px) {
@@ -37809,7 +37809,7 @@ Pages - Contact
     transform: translateX(10px);
 }
 .footer-top .footer-widget-color--golden .title::after {
-    background: #b19361;
+    background: #0d2a27;
 }
 .footer-top .footer-widget-color--green .title::after {
     background: #047B42;
@@ -37900,15 +37900,15 @@ Pages - Contact
     transition: all 0.5s ease;
 }
 .form-fild-newsletter-single-item.input-color--golden input:focus {
-    border-color: #b19361;
+    border-color: #0d2a27;
 }
 .form-fild-newsletter-single-item.input-color--golden button {
-    background: #b19361;
+    background: #0d2a27;
     color: #FFF;
 }
 .form-fild-newsletter-single-item.input-color--golden button:hover {
     background: #FFF;
-    color: #b19361;
+    color: #0d2a27;
 }
 .form-fild-newsletter-single-item.input-color--green input:focus {
     border-color: #047B42;
@@ -38031,7 +38031,7 @@ Pages - Contact
 
 .offcanvas-mobile-menu-section,
 .offcanvas-mobile-about-section {
-    background: #24262b !important;
+    background: #0d2a27 !important;
 }
 .offcanvas-mobile-menu-section .offcanvas-close,
 .offcanvas-mobile-about-section .offcanvas-close {
@@ -38064,7 +38064,7 @@ Pages - Contact
 }
 
 .offcanvas-menu li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .offcanvas-menu li .mobile-sub-menu {
@@ -38087,7 +38087,7 @@ Pages - Contact
 
 .offcanvas-menu .active > .offcanvas-menu-expand::after,
 .sub-menu > .active .offcanvas-menu-expand::after {
-    color: #b19361;
+    color: #0d2a27;
     transform: rotate(90deg);
 }
 
@@ -38148,7 +38148,7 @@ Pages - Contact
     color: #FFF;
 }
 .mobile-contact-info .user-link li a:hover {
-    color: #b19361;
+    color: #0d2a27;
 }
 
 .offcanvas-cart-item-single {
@@ -38182,7 +38182,7 @@ Pages - Contact
     font-weight: 700;
 }
 .offcanvas-cart-item-link:hover {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .offcanvas-cart-total-price {
@@ -38212,7 +38212,7 @@ Pages - Contact
 
 .offcanvas-cart-action-button-link {
     display: block;
-    background: #24262b;
+    background: #0d2a27;
     color: #FFF;
     padding: 10px 30px;
     text-align: center;
@@ -38221,8 +38221,8 @@ Pages - Contact
 }
 .offcanvas-cart-action-button-link:hover {
     background: #FFF;
-    color: #24262b;
-    border: 1px border #24262b !important;
+    color: #0d2a27;
+    border: 1px border #0d2a27 !important;
 }
 
 .offcanvas-wishlist-item-single {
@@ -38256,7 +38256,7 @@ Pages - Contact
     font-weight: 700;
 }
 .offcanvas-wishlist-item-link:hover {
-    color: #24262b;
+    color: #0d2a27;
 }
 
 .offcanvas-wishlist-total-price-text {
@@ -38281,7 +38281,7 @@ Pages - Contact
 
 .offcanvas-wishlist-action-button-link {
     display: block;
-    background: #24262b;
+    background: #0d2a27;
     color: #FFF;
     padding: 10px 30px;
     text-align: center;
@@ -38290,9 +38290,9 @@ Pages - Contact
     border: 1px border transparent;
 }
 .offcanvas-wishlist-action-button-link:hover {
-    background: #24262b;
+    background: #0d2a27;
     color: #FFF;
-    border: 1px border #24262b !important;
+    border: 1px border #0d2a27 !important;
 }
 
 .search-modal {
@@ -38333,7 +38333,7 @@ Pages - Contact
     border-bottom: 2px solid #FFF;
 }
 .search-modal input[type=search]:focus {
-    border-color: #b19361;
+    border-color: #0d2a27;
 }
 
 .search-modal .btn {
@@ -38393,8 +38393,8 @@ Pages - Contact
     border-radius: 3px;
 }
 .modal-close:hover {
-    color: #b19361;
-    border-color: #b19361;
+    color: #0d2a27;
+    border-color: #0d2a27;
 }
 @media (min-width: 768px) {
     .modal-close {
@@ -38482,7 +38482,7 @@ Pages - Contact
 .modal-add-cart-product-cart-buttons a {
     margin-top: 10px;
     margin-bottom: 10px;
-    background: #b19361;
+    background: #0d2a27;
     color: white;
     padding: 5px 10px;
     margin-right: 0px;
@@ -38501,14 +38501,14 @@ Pages - Contact
 }
 
 .modal-add-cart-info i {
-    color: #b19361;
+    color: #0d2a27;
     padding-right: 10px;
     font-size: 16px;
 }
 
 .modal-continue-button a {
     text-decoration: underline;
-    color: #b19361;
+    color: #0d2a27;
 }
 .modal-continue-button a:hover {
     text-decoration: none;
@@ -38592,12 +38592,12 @@ Pages - Contact
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     cursor: hand;
     border-radius: 50%;
-    background: #b19361;
+    background: #0d2a27;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transition: all 0.3s cubic-bezier(0.25, 0.25, 0, 1);
 }
 .material-scrolltop:hover {
-    background-color: #b19361;
+    background-color: #0d2a27;
     text-decoration: none;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), 0 3px 15px rgba(0, 0, 0, 0.5);
 }

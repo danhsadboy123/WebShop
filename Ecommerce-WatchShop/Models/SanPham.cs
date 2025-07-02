@@ -2,14 +2,14 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Ecommerce_WatchShop.Models;
+namespace Ecommerce_CaFeShop.Models;
 
 public partial class SanPham
 {
     [Key]
     public int MaSanPham { get; set; }
 
-    [Column(TypeName = "nvarchar(100)")]
+    [Column(TypeName = "nvarchar(255)")]
     [AllowNull]
     public string? HinhAnh { get; set; }
 

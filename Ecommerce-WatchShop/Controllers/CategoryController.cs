@@ -1,16 +1,16 @@
-﻿using Ecommerce_WatchShop.Models;
-using Ecommerce_WatchShop.Models.ViewModels;
+﻿using Ecommerce_CaFeShop.Models;
+using Ecommerce_CaFeShop.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ecommerce_WatchShop.Controllers
+namespace Ecommerce_CaFeShop.Controllers
 {
 
     public class CategoryController : Controller
     {
-        private readonly DongHoContext _context;
+        private readonly CaFeContext _context;
 
-        public CategoryController(DongHoContext context)
+        public CategoryController(CaFeContext context)
         {
             _context = context;
         }

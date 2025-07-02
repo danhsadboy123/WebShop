@@ -1,5 +1,5 @@
-﻿using Ecommerce_WatchShop.Models;
-using Ecommerce_WatchShop.Models.ViewModels;
+﻿using Ecommerce_CaFeShop.Models;
+using Ecommerce_CaFeShop.Models.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -8,14 +8,14 @@ using System.Diagnostics;
 using System.Security.Claims;
 
 
-namespace Ecommerce_WatchShop.Controllers;
+namespace Ecommerce_CaFeShop.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private readonly DongHoContext _context;
+    private readonly CaFeContext _context;
 
-    public HomeController(ILogger<HomeController> logger, DongHoContext context)
+    public HomeController(ILogger<HomeController> logger, CaFeContext context)
     {
         _logger = logger;
         _context = context;

@@ -7814,23 +7814,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Novazone\\.nuget\\packages\\": {},
+    "C:\\Users\\Sunhitech\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Novazone\\Desktop\\ĐẤ\\WebShop\\Ecommerce-WatchShop\\Ecommerce-WatchShop.csproj",
-      "projectName": "Ecommerce-WatchShop",
-      "projectPath": "C:\\Users\\Novazone\\Desktop\\ĐẤ\\WebShop\\Ecommerce-WatchShop\\Ecommerce-WatchShop.csproj",
-      "packagesPath": "C:\\Users\\Novazone\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Novazone\\Desktop\\ĐẤ\\WebShop\\Ecommerce-WatchShop\\obj\\",
+      "projectUniqueName": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Ecommerce-CaFeShop.csproj",
+      "projectName": "Ecommerce-CaFeShop",
+      "projectPath": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Ecommerce-CaFeShop.csproj",
+      "packagesPath": "C:\\Users\\Sunhitech\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Novazone\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sunhitech\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7858,7 +7858,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -7910,7 +7910,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

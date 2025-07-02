@@ -1,7 +1,7 @@
-﻿using Ecommerce_WatchShop;
-using Ecommerce_WatchShop.Abstractions;
-using Ecommerce_WatchShop.Helper;
-using Ecommerce_WatchShop.Models;
+﻿using Ecommerce_CaFeShop;
+using Ecommerce_CaFeShop.Abstractions;
+using Ecommerce_CaFeShop.Helper;
+using Ecommerce_CaFeShop.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<DongHoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<CaFeContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 //builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 //    .AddCookie();
 builder.Services.AddAuthentication(options =>
@@ -91,7 +91,7 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
 
-var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<DongHoContext>();
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<CaFeContext>();
 await SeedData.SeedingData(context);
 
 app.Run();

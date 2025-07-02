@@ -1,4 +1,4 @@
-﻿namespace Ecommerce_WatchShop.Areas.Admin.Controllers
+﻿namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 {
     internal class ApplicationDbContext
     {

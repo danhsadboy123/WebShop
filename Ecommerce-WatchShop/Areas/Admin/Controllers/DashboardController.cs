@@ -1,18 +1,18 @@
-﻿using Ecommerce_WatchShop.Models;
-using Ecommerce_WatchShop.Models.ViewModels;
+﻿using Ecommerce_CaFeShop.Models;
+using Ecommerce_CaFeShop.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ecommerce_WatchShop.Areas.Admin.Controllers
+namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Policy = "Admin")]
     public class DashboardController : Controller
     {
-        private readonly DongHoContext _context;
+        private readonly CaFeContext _context;
         private readonly IWebHostEnvironment _webhostEnvironment;
-        public DashboardController(DongHoContext context, IWebHostEnvironment webHostEnvironment)
+        public DashboardController(CaFeContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _webhostEnvironment = webHostEnvironment;

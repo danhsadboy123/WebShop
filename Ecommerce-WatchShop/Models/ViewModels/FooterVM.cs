@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Ecommerce_WatchShop.Models.ViewModels
+namespace Ecommerce_CaFeShop.Models.ViewModels
 {
     public class FooterVM
     { 

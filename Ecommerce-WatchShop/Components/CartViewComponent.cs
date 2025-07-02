@@ -1,8 +1,8 @@
-using Ecommerce_WatchShop.Models;
-using Ecommerce_WatchShop.Models.ViewModels;
+using Ecommerce_CaFeShop.Models;
+using Ecommerce_CaFeShop.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Ecommerce_WatchShop.Components
+namespace Ecommerce_CaFeShop.Components
 {
     public class CartViewComponent : ViewComponent
     {

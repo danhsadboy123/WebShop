@@ -1,4 +1,4 @@
-﻿namespace Ecommerce_WatchShop.Helper
+﻿namespace Ecommerce_CaFeShop.Helper
 {
     public class UploadImageHelper
     {

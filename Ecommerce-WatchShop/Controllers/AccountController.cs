@@ -1,5 +1,5 @@
-using Ecommerce_WatchShop.Models;
-using Ecommerce_WatchShop.Models.ViewModels;
+using Ecommerce_CaFeShop.Models;
+using Ecommerce_CaFeShop.Models.ViewModels;
 using MailKit.Security;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -9,15 +9,15 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using System.Security.Cryptography;
 
-namespace Ecommerce_WatchShop.Controllers;
+namespace Ecommerce_CaFeShop.Controllers;
 
 public class AccountController : Controller
 {
-    private readonly DongHoContext _context;
+    private readonly CaFeContext _context;
     private readonly IConfiguration _configuration;
     private readonly ILogger<AccountController> _logger;
 
-    public AccountController(DongHoContext context, IConfiguration configuration, ILogger<AccountController> logger)
+    public AccountController(CaFeContext context, IConfiguration configuration, ILogger<AccountController> logger)
     {
         _context = context;
         _configuration = configuration;

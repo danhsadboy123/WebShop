@@ -1,16 +1,16 @@
-﻿using Ecommerce_WatchShop.Models;
+﻿using Ecommerce_CaFeShop.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ecommerce_WatchShop.Areas.Admin.Controllers
+namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Policy = "Admin")]
     public class ContactController : Controller
     {
-        private readonly DongHoContext _context;
-        public ContactController(DongHoContext context)
+        private readonly CaFeContext _context;
+        public ContactController(CaFeContext context)
         {
             _context = context;
         }

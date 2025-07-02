@@ -1,18 +1,18 @@
-﻿using Ecommerce_WatchShop.Models;
+﻿using Ecommerce_CaFeShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Ecommerce_WatchShop.Models.ViewModels;
+using Ecommerce_CaFeShop.Models.ViewModels;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Microsoft.AspNetCore.Authorization;
-using Ecommerce_WatchShop.Helper;
-namespace Ecommerce_WatchShop.Controllers
+using Ecommerce_CaFeShop.Helper;
+namespace Ecommerce_CaFeShop.Controllers
 {
     public class CheckoutController : Controller
     {
-        private readonly DongHoContext _context;
+        private readonly CaFeContext _context;
         public List<CartRequest> Carts => CartHelper.GetCart(HttpContext.Session);
 
-        public CheckoutController(DongHoContext context)
+        public CheckoutController(CaFeContext context)
         {
             _context = context;
         }

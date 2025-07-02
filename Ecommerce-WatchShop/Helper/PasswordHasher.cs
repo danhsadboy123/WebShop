@@ -1,7 +1,7 @@
-﻿using Ecommerce_WatchShop.Abstractions;
+﻿using Ecommerce_CaFeShop.Abstractions;
 using System.Security.Cryptography;
 
-namespace Ecommerce_WatchShop.Helper
+namespace Ecommerce_CaFeShop.Helper
 {
     public class PasswordHasher : IPasswordHasher
     {

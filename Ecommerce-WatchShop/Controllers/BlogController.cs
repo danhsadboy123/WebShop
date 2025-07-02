@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
-using Ecommerce_WatchShop.Models;
+using Ecommerce_CaFeShop.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ecommerce_WatchShop.Controllers
+namespace Ecommerce_CaFeShop.Controllers
 {
     public class BlogController : Controller
     {
-        private readonly DongHoContext _context;
+        private readonly CaFeContext _context;
 
-        public BlogController(DongHoContext context)
+        public BlogController(CaFeContext context)
         {
             _context = context;
         }

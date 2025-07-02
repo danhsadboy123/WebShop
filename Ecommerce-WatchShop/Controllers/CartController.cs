@@ -1,16 +1,16 @@
-﻿using Ecommerce_WatchShop.Models.ViewModels;
-using Ecommerce_WatchShop.Models;
+﻿using Ecommerce_CaFeShop.Models.ViewModels;
+using Ecommerce_CaFeShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Ecommerce_WatchShop.Helper;
+using Ecommerce_CaFeShop.Helper;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 
 public class CartController : Controller
 {
-    private readonly DongHoContext _context;
+    private readonly CaFeContext _context;
 
-    public CartController(DongHoContext context)
+    public CartController(CaFeContext context)
     {
         _context = context;
     }
