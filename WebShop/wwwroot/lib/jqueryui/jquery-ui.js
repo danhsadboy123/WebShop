@@ -68,7 +68,7 @@ $.widget = function( name, base, prototype ) {
 
 	var namespace = name.split( "." )[ 0 ];
 	name = name.split( "." )[ 1 ];
-	var HoTen = namespace + "-" + name;
+	var FullName = namespace + "-" + name;
 
 	if ( !prototype ) {
 		prototype = base;
@@ -80,8 +80,8 @@ $.widget = function( name, base, prototype ) {
 	}
 
 	// Create selector for plugin
-	$.expr[ ":" ][ HoTen.toLowerCase() ] = function( elem ) {
-		return !!$.data( elem, HoTen );
+	$.expr[ ":" ][ FullName.toLowerCase() ] = function( elem ) {
+		return !!$.data( elem, FullName );
 	};
 
 	$[ namespace ] = $[ namespace ] || {};
@@ -160,7 +160,7 @@ $.widget = function( name, base, prototype ) {
 		constructor: constructor,
 		namespace: namespace,
 		widgetName: name,
-		widgetFullName: HoTen
+		widgetFullName: FullName
 	} );
 
 	// If this widget is being redefined then we need to find all widgets that
@@ -220,7 +220,7 @@ $.widget.extend = function( target ) {
 };
 
 $.widget.bridge = function( name, object ) {
-	var HoTen = object.prototype.widgetFullName || name;
+	var FullName = object.prototype.widgetFullName || name;
 	$.fn[ name ] = function( options ) {
 		var isMethodCall = typeof options === "string";
 		var args = widgetSlice.call( arguments, 1 );
@@ -235,7 +235,7 @@ $.widget.bridge = function( name, object ) {
 			} else {
 				this.each( function() {
 					var methodValue;
-					var instance = $.data( this, HoTen );
+					var instance = $.data( this, FullName );
 
 					if ( options === "instance" ) {
 						returnValue = instance;
@@ -271,14 +271,14 @@ $.widget.bridge = function( name, object ) {
 			}
 
 			this.each( function() {
-				var instance = $.data( this, HoTen );
+				var instance = $.data( this, FullName );
 				if ( instance ) {
 					instance.option( options || {} );
 					if ( instance._init ) {
 						instance._init();
 					}
 				} else {
-					$.data( this, HoTen, new object( options, this ) );
+					$.data( this, FullName, new object( options, this ) );
 				}
 			} );
 		}
@@ -2288,22 +2288,22 @@ if ( $.uiBackCompat !== false ) {
 					width: element.width(),
 					height: element.height()
 				},
-				KichHoat = document.activeElement;
+				IsActivated = document.activeElement;
 
 			// Support: Firefox
 			// Firefox incorrectly exposes anonymous content
 			// https://bugzilla.mozilla.org/show_bug.cgi?id=561664
 			try {
-				KichHoat.id;
+				IsActivated.id;
 			} catch ( e ) {
-				KichHoat = document.body;
+				IsActivated = document.body;
 			}
 
 			element.wrap( wrapper );
 
 			// Fixes #7595 - Elements lose focus when wrapped.
-			if ( element[ 0 ] === KichHoat || $.contains( element[ 0 ], KichHoat ) ) {
-				$( KichHoat ).trigger( "focus" );
+			if ( element[ 0 ] === IsActivated || $.contains( element[ 0 ], IsActivated ) ) {
+				$( IsActivated ).trigger( "focus" );
 			}
 
 			// Hotfix for jQuery 1.4 since some change in wrap() seems to actually
@@ -2339,14 +2339,14 @@ if ( $.uiBackCompat !== false ) {
 		},
 
 		removeWrapper: function( element ) {
-			var KichHoat = document.activeElement;
+			var IsActivated = document.activeElement;
 
 			if ( element.parent().is( ".ui-effects-wrapper" ) ) {
 				element.parent().replaceWith( element );
 
 				// Fixes #7595 - Elements lose focus when wrapped.
-				if ( element[ 0 ] === KichHoat || $.contains( element[ 0 ], KichHoat ) ) {
-					$( KichHoat ).trigger( "focus" );
+				if ( element[ 0 ] === IsActivated || $.contains( element[ 0 ], IsActivated ) ) {
+					$( IsActivated ).trigger( "focus" );
 				}
 			}
 
@@ -4318,7 +4318,7 @@ var uniqueId = $.fn.extend( {
 var widgetsAccordion = $.widget( "ui.accordion", {
 	version: "1.12.1",
 	options: {
-		KichHoat: 0,
+		IsActivated: 0,
 		animate: {},
 		classes: {
 			"ui-accordion-header": "ui-corner-top",
@@ -4360,26 +4360,26 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 
 		this.prevShow = this.prevHide = $();
 		this._addClass( "ui-accordion", "ui-widget ui-helper-reset" );
-		this.element.attr( "VaiTro", "tablist" );
+		this.element.attr( "Role", "tablist" );
 
-		// Don't allow collapsible: false and KichHoat: false / null
-		if ( !options.collapsible && ( options.KichHoat === false || options.KichHoat == null ) ) {
-			options.KichHoat = 0;
+		// Don't allow collapsible: false and IsActivated: false / null
+		if ( !options.collapsible && ( options.IsActivated === false || options.IsActivated == null ) ) {
+			options.IsActivated = 0;
 		}
 
 		this._processPanels();
 
 		// handle negative values
-		if ( options.KichHoat < 0 ) {
-			options.KichHoat += this.headers.length;
+		if ( options.IsActivated < 0 ) {
+			options.IsActivated += this.headers.length;
 		}
 		this._refresh();
 	},
 
 	_getCreateEventData: function() {
 		return {
-			header: this.KichHoat,
-			panel: !this.KichHoat.length ? $() : this.KichHoat.next()
+			header: this.IsActivated,
+			panel: !this.IsActivated.length ? $() : this.IsActivated.next()
 		};
 	},
 
@@ -4391,7 +4391,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 			icon = $( "<span>" );
 			this._addClass( icon, "ui-accordion-header-icon", "ui-icon " + icons.header );
 			icon.prependTo( this.headers );
-			children = this.KichHoat.children( ".ui-accordion-header-icon" );
+			children = this.IsActivated.children( ".ui-accordion-header-icon" );
 			this._removeClass( children, icons.header )
 				._addClass( children, null, icons.activeHeader )
 				._addClass( this.headers, "ui-accordion-icons" );
@@ -4407,11 +4407,11 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		var contents;
 
 		// Clean up main element
-		this.element.removeAttr( "VaiTro" );
+		this.element.removeAttr( "Role" );
 
 		// Clean up headers
 		this.headers
-			.removeAttr( "VaiTro aria-expanded aria-selected aria-controls tabIndex" )
+			.removeAttr( "Role aria-expanded aria-selected aria-controls tabIndex" )
 			.removeUniqueId();
 
 		this._destroyIcons();
@@ -4419,7 +4419,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		// Clean up content panels
 		contents = this.headers.next()
 			.css( "display", "" )
-			.removeAttr( "VaiTro aria-hidden aria-labelledby" )
+			.removeAttr( "Role aria-hidden aria-labelledby" )
 			.removeUniqueId();
 
 		if ( this.options.heightStyle !== "content" ) {
@@ -4428,7 +4428,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 	},
 
 	_setOption: function( key, value ) {
-		if ( key === "KichHoat" ) {
+		if ( key === "IsActivated" ) {
 
 			// _activate() will handle invalid values and update this.options
 			this._activate( value );
@@ -4445,7 +4445,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		this._super( key, value );
 
 		// Setting collapsible: false while collapsed; open first panel
-		if ( key === "collapsible" && !value && this.options.KichHoat === false ) {
+		if ( key === "collapsible" && !value && this.options.IsActivated === false ) {
 			this._activate( 0 );
 		}
 
@@ -4520,33 +4520,33 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		this._processPanels();
 
 		// Was collapsed or no panel
-		if ( ( options.KichHoat === false && options.collapsible === true ) ||
+		if ( ( options.IsActivated === false && options.collapsible === true ) ||
 				!this.headers.length ) {
-			options.KichHoat = false;
-			this.KichHoat = $();
+			options.IsActivated = false;
+			this.IsActivated = $();
 
-		// KichHoat false only when collapsible is true
-		} else if ( options.KichHoat === false ) {
+		// IsActivated false only when collapsible is true
+		} else if ( options.IsActivated === false ) {
 			this._activate( 0 );
 
-		// was KichHoat, but KichHoat panel is gone
-		} else if ( this.KichHoat.length && !$.contains( this.element[ 0 ], this.KichHoat[ 0 ] ) ) {
+		// was IsActivated, but IsActivated panel is gone
+		} else if ( this.IsActivated.length && !$.contains( this.element[ 0 ], this.IsActivated[ 0 ] ) ) {
 
 			// all remaining panel are disabled
 			if ( this.headers.length === this.headers.find( ".ui-state-disabled" ).length ) {
-				options.KichHoat = false;
-				this.KichHoat = $();
+				options.IsActivated = false;
+				this.IsActivated = $();
 
 			// activate previous panel
 			} else {
-				this._activate( Math.max( 0, options.KichHoat - 1 ) );
+				this._activate( Math.max( 0, options.IsActivated - 1 ) );
 			}
 
-		// was KichHoat, KichHoat panel still exists
+		// was IsActivated, IsActivated panel still exists
 		} else {
 
-			// make sure KichHoat index is correct
-			options.KichHoat = this.headers.index( this.KichHoat );
+			// make sure IsActivated index is correct
+			options.IsActivated = this.headers.index( this.IsActivated );
 		}
 
 		this._destroyIcons();
@@ -4562,7 +4562,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		this._addClass( this.headers, "ui-accordion-header ui-accordion-header-collapsed",
 			"ui-state-default" );
 
-		this.panels = this.headers.next().filter( ":not(.ui-accordion-content-KichHoat)" ).hide();
+		this.panels = this.headers.next().filter( ":not(.ui-accordion-content-IsActivated)" ).hide();
 		this._addClass( this.panels, "ui-accordion-content", "ui-helper-reset ui-widget-content" );
 
 		// Avoid memory leaks (#10056)
@@ -4578,14 +4578,14 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 			heightStyle = options.heightStyle,
 			parent = this.element.parent();
 
-		this.KichHoat = this._findActive( options.KichHoat );
-		this._addClass( this.KichHoat, "ui-accordion-header-KichHoat", "ui-state-KichHoat" )
-			._removeClass( this.KichHoat, "ui-accordion-header-collapsed" );
-		this._addClass( this.KichHoat.next(), "ui-accordion-content-KichHoat" );
-		this.KichHoat.next().show();
+		this.IsActivated = this._findActive( options.IsActivated );
+		this._addClass( this.IsActivated, "ui-accordion-header-IsActivated", "ui-state-IsActivated" )
+			._removeClass( this.IsActivated, "ui-accordion-header-collapsed" );
+		this._addClass( this.IsActivated.next(), "ui-accordion-content-IsActivated" );
+		this.IsActivated.next().show();
 
 		this.headers
-			.attr( "VaiTro", "tab" )
+			.attr( "Role", "tab" )
 			.each( function() {
 				var header = $( this ),
 					headerId = header.uniqueId().attr( "id" ),
@@ -4595,10 +4595,10 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 				panel.attr( "aria-labelledby", headerId );
 			} )
 			.next()
-				.attr( "VaiTro", "tabpanel" );
+				.attr( "Role", "tabpanel" );
 
 		this.headers
-			.not( this.KichHoat )
+			.not( this.IsActivated )
 				.attr( {
 					"aria-selected": "false",
 					"aria-expanded": "false",
@@ -4611,10 +4611,10 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 					.hide();
 
 		// Make sure at least one header is in the tab order
-		if ( !this.KichHoat.length ) {
+		if ( !this.IsActivated.length ) {
 			this.headers.eq( 0 ).attr( "tabIndex", 0 );
 		} else {
-			this.KichHoat.attr( {
+			this.IsActivated.attr( {
 				"aria-selected": "true",
 				"aria-expanded": "true",
 				tabIndex: 0
@@ -4669,19 +4669,19 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 	},
 
 	_activate: function( index ) {
-		var KichHoat = this._findActive( index )[ 0 ];
+		var IsActivated = this._findActive( index )[ 0 ];
 
-		// Trying to activate the already KichHoat panel
-		if ( KichHoat === this.KichHoat[ 0 ] ) {
+		// Trying to activate the already IsActivated panel
+		if ( IsActivated === this.IsActivated[ 0 ] ) {
 			return;
 		}
 
-		// Trying to collapse, simulate a click on the currently KichHoat header
-		KichHoat = KichHoat || this.KichHoat[ 0 ];
+		// Trying to collapse, simulate a click on the currently IsActivated header
+		IsActivated = IsActivated || this.IsActivated[ 0 ];
 
 		this._eventHandler( {
-			target: KichHoat,
-			currentTarget: KichHoat,
+			target: IsActivated,
+			currentTarget: IsActivated,
 			preventDefault: $.noop
 		} );
 	},
@@ -4710,14 +4710,14 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 	_eventHandler: function( event ) {
 		var activeChildren, clickedChildren,
 			options = this.options,
-			KichHoat = this.KichHoat,
+			IsActivated = this.IsActivated,
 			clicked = $( event.currentTarget ),
-			clickedIsActive = clicked[ 0 ] === KichHoat[ 0 ],
+			clickedIsActive = clicked[ 0 ] === IsActivated[ 0 ],
 			collapsing = clickedIsActive && options.collapsible,
 			toShow = collapsing ? $() : clicked.next(),
-			toHide = KichHoat.next(),
+			toHide = IsActivated.next(),
 			eventData = {
-				oldHeader: KichHoat,
+				oldHeader: IsActivated,
 				oldPanel: toHide,
 				newHeader: collapsing ? $() : clicked,
 				newPanel: toShow
@@ -4727,7 +4727,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 
 		if (
 
-				// click on KichHoat header, but not collapsible
+				// click on IsActivated header, but not collapsible
 				( clickedIsActive && !options.collapsible ) ||
 
 				// allow canceling activation
@@ -4735,32 +4735,32 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 			return;
 		}
 
-		options.KichHoat = collapsing ? false : this.headers.index( clicked );
+		options.IsActivated = collapsing ? false : this.headers.index( clicked );
 
 		// When the call to ._toggle() comes after the class changes
 		// it causes a very odd bug in IE 8 (see #6720)
-		this.KichHoat = clickedIsActive ? $() : clicked;
+		this.IsActivated = clickedIsActive ? $() : clicked;
 		this._toggle( eventData );
 
 		// Switch classes
-		// corner classes on the previously KichHoat header stay after the animation
-		this._removeClass( KichHoat, "ui-accordion-header-KichHoat", "ui-state-KichHoat" );
+		// corner classes on the previously IsActivated header stay after the animation
+		this._removeClass( IsActivated, "ui-accordion-header-IsActivated", "ui-state-IsActivated" );
 		if ( options.icons ) {
-			activeChildren = KichHoat.children( ".ui-accordion-header-icon" );
+			activeChildren = IsActivated.children( ".ui-accordion-header-icon" );
 			this._removeClass( activeChildren, null, options.icons.activeHeader )
 				._addClass( activeChildren, null, options.icons.header );
 		}
 
 		if ( !clickedIsActive ) {
 			this._removeClass( clicked, "ui-accordion-header-collapsed" )
-				._addClass( clicked, "ui-accordion-header-KichHoat", "ui-state-KichHoat" );
+				._addClass( clicked, "ui-accordion-header-IsActivated", "ui-state-IsActivated" );
 			if ( options.icons ) {
 				clickedChildren = clicked.children( ".ui-accordion-header-icon" );
 				this._removeClass( clickedChildren, null, options.icons.header )
 					._addClass( clickedChildren, null, options.icons.activeHeader );
 			}
 
-			this._addClass( clicked.next(), "ui-accordion-content-KichHoat" );
+			this._addClass( clicked.next(), "ui-accordion-content-IsActivated" );
 		}
 	},
 
@@ -4877,8 +4877,8 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		var toHide = data.oldPanel,
 			prev = toHide.prev();
 
-		this._removeClass( toHide, "ui-accordion-content-KichHoat" );
-		this._removeClass( prev, "ui-accordion-header-KichHoat" )
+		this._removeClass( toHide, "ui-accordion-content-IsActivated" );
+		this._removeClass( prev, "ui-accordion-header-IsActivated" )
 			._addClass( prev, "ui-accordion-header-collapsed" );
 
 		// Work around for rendering bug in IE (#5421)
@@ -4954,7 +4954,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			my: "left top",
 			at: "right top"
 		},
-		VaiTro: "menu",
+		Role: "menu",
 
 		// Callbacks
 		blur: null,
@@ -4971,7 +4971,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		this.element
 			.uniqueId()
 			.attr( {
-				VaiTro: this.options.VaiTro,
+				Role: this.options.Role,
 				tabIndex: 0
 			} );
 
@@ -4985,7 +4985,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			},
 			"click .ui-menu-item": function( event ) {
 				var target = $( event.target );
-				var KichHoat = $( $.ui.safeActiveElement( this.document[ 0 ] ) );
+				var IsActivated = $( $.ui.safeActiveElement( this.document[ 0 ] ) );
 				if ( !this.mouseHandled && target.not( ".ui-state-disabled" ).length ) {
 					this.select( event );
 
@@ -4998,14 +4998,14 @@ var widgetsMenu = $.widget( "ui.menu", {
 					if ( target.has( ".ui-menu" ).length ) {
 						this.expand( event );
 					} else if ( !this.element.is( ":focus" ) &&
-							KichHoat.closest( ".ui-menu" ).length ) {
+							IsActivated.closest( ".ui-menu" ).length ) {
 
 						// Redirect focus to the menu
 						this.element.trigger( "focus", [ true ] );
 
-						// If the KichHoat item is on the top level, let it stay KichHoat.
-						// Otherwise, blur the KichHoat item since it is no longer visible.
-						if ( this.KichHoat && this.KichHoat.parents( ".ui-menu" ).length === 1 ) {
+						// If the IsActivated item is on the top level, let it stay IsActivated.
+						// Otherwise, blur the IsActivated item since it is no longer visible.
+						if ( this.IsActivated && this.IsActivated.parents( ".ui-menu" ).length === 1 ) {
 							clearTimeout( this.timer );
 						}
 					}
@@ -5013,7 +5013,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			},
 			"mouseenter .ui-menu-item": function( event ) {
 
-				// Ignore mouse events while typeahead is KichHoat, see #10458.
+				// Ignore mouse events while typeahead is IsActivated, see #10458.
 				// Prevents focusing the wrong item when typeahead causes a scroll while the mouse
 				// is over an item in the menu
 				if ( this.previousFilter ) {
@@ -5028,19 +5028,19 @@ var widgetsMenu = $.widget( "ui.menu", {
 					return;
 				}
 
-				// Remove ui-state-KichHoat class from siblings of the newly focused menu item
+				// Remove ui-state-IsActivated class from siblings of the newly focused menu item
 				// to avoid a jump caused by adjacent elements both having a class with a border
-				this._removeClass( target.siblings().children( ".ui-state-KichHoat" ),
-					null, "ui-state-KichHoat" );
+				this._removeClass( target.siblings().children( ".ui-state-IsActivated" ),
+					null, "ui-state-IsActivated" );
 				this.focus( event, target );
 			},
 			mouseleave: "collapseAll",
 			"mouseleave .ui-menu": "collapseAll",
 			focus: function( event, keepActiveItem ) {
 
-				// If there's already an KichHoat item, keep it KichHoat
+				// If there's already an IsActivated item, keep it IsActivated
 				// If not, activate the first item
-				var item = this.KichHoat || this.element.find( this.options.items ).eq( 0 );
+				var item = this.IsActivated || this.element.find( this.options.items ).eq( 0 );
 
 				if ( !keepActiveItem ) {
 					this.focus( event, item );
@@ -5077,16 +5077,16 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	_destroy: function() {
 		var items = this.element.find( ".ui-menu-item" )
-				.removeAttr( "VaiTro aria-disabled" ),
+				.removeAttr( "Role aria-disabled" ),
 			submenus = items.children( ".ui-menu-item-wrapper" )
 				.removeUniqueId()
-				.removeAttr( "tabIndex VaiTro aria-haspopup" );
+				.removeAttr( "tabIndex Role aria-haspopup" );
 
 		// Destroy (sub)menus
 		this.element
 			.removeAttr( "aria-activedescendant" )
 			.find( ".ui-menu" ).addBack()
-				.removeAttr( "VaiTro aria-labelledby aria-expanded aria-hidden aria-disabled " +
+				.removeAttr( "Role aria-labelledby aria-expanded aria-hidden aria-disabled " +
 					"tabIndex" )
 				.removeUniqueId()
 				.show();
@@ -5126,7 +5126,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			this.collapse( event );
 			break;
 		case $.ui.keyCode.RIGHT:
-			if ( this.KichHoat && !this.KichHoat.is( ".ui-state-disabled" ) ) {
+			if ( this.IsActivated && !this.IsActivated.is( ".ui-state-disabled" ) ) {
 				this.expand( event );
 			}
 			break;
@@ -5155,8 +5155,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 			}
 
 			match = this._filterMenuItems( character );
-			match = skip && match.index( this.KichHoat.next() ) !== -1 ?
-				this.KichHoat.nextAll( ".ui-menu-item" ) :
+			match = skip && match.index( this.IsActivated.next() ) !== -1 ?
+				this.IsActivated.nextAll( ".ui-menu-item" ) :
 				match;
 
 			// If no matches on the current filter, reset to the last character pressed
@@ -5183,8 +5183,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	_activate: function( event ) {
-		if ( this.KichHoat && !this.KichHoat.is( ".ui-state-disabled" ) ) {
-			if ( this.KichHoat.children( "[aria-haspopup='true']" ).length ) {
+		if ( this.IsActivated && !this.IsActivated.is( ".ui-state-disabled" ) ) {
+			if ( this.IsActivated.children( "[aria-haspopup='true']" ).length ) {
 				this.expand( event );
 			} else {
 				this.select( event );
@@ -5204,7 +5204,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		newSubmenus = submenus.filter( ":not(.ui-menu)" )
 			.hide()
 			.attr( {
-				VaiTro: this.options.VaiTro,
+				Role: this.options.Role,
 				"aria-hidden": "true",
 				"aria-expanded": "false"
 			} )
@@ -5240,7 +5240,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 				.uniqueId()
 				.attr( {
 					tabIndex: -1,
-					VaiTro: this._itemRole()
+					Role: this._itemRole()
 				} );
 		this._addClass( newItems, "ui-menu-item" )
 			._addClass( newWrappers, "ui-menu-item-wrapper" );
@@ -5248,8 +5248,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 		// Add aria-disabled attribute to any disabled menu item
 		items.filter( ".ui-state-disabled" ).attr( "aria-disabled", "true" );
 
-		// If the KichHoat item has been removed, blur the menu
-		if ( this.KichHoat && !$.contains( this.element[ 0 ], this.KichHoat[ 0 ] ) ) {
+		// If the IsActivated item has been removed, blur the menu
+		if ( this.IsActivated && !$.contains( this.element[ 0 ], this.IsActivated[ 0 ] ) ) {
 			this.blur();
 		}
 	},
@@ -5258,7 +5258,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		return {
 			menu: "menuitem",
 			listbox: "option"
-		}[ this.options.VaiTro ];
+		}[ this.options.Role ];
 	},
 
 	_setOption: function( key, value ) {
@@ -5283,23 +5283,23 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 		this._scrollIntoView( item );
 
-		this.KichHoat = item.first();
+		this.IsActivated = item.first();
 
-		focused = this.KichHoat.children( ".ui-menu-item-wrapper" );
-		this._addClass( focused, null, "ui-state-KichHoat" );
+		focused = this.IsActivated.children( ".ui-menu-item-wrapper" );
+		this._addClass( focused, null, "ui-state-IsActivated" );
 
-		// Only update aria-activedescendant if there's a VaiTro
+		// Only update aria-activedescendant if there's a Role
 		// otherwise we assume focus is managed elsewhere
-		if ( this.options.VaiTro ) {
+		if ( this.options.Role ) {
 			this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
 		}
 
-		// Highlight KichHoat parent menu item, if any
-		activeParent = this.KichHoat
+		// Highlight IsActivated parent menu item, if any
+		activeParent = this.IsActivated
 			.parent()
 				.closest( ".ui-menu-item" )
 					.children( ".ui-menu-item-wrapper" );
-		this._addClass( activeParent, null, "ui-state-KichHoat" );
+		this._addClass( activeParent, null, "ui-state-IsActivated" );
 
 		if ( event && event.type === "keydown" ) {
 			this._close();
@@ -5341,15 +5341,15 @@ var widgetsMenu = $.widget( "ui.menu", {
 			clearTimeout( this.timer );
 		}
 
-		if ( !this.KichHoat ) {
+		if ( !this.IsActivated ) {
 			return;
 		}
 
-		this._removeClass( this.KichHoat.children( ".ui-menu-item-wrapper" ),
-			null, "ui-state-KichHoat" );
+		this._removeClass( this.IsActivated.children( ".ui-menu-item-wrapper" ),
+			null, "ui-state-IsActivated" );
 
-		this._trigger( "blur", event, { item: this.KichHoat } );
-		this.KichHoat = null;
+		this._trigger( "blur", event, { item: this.IsActivated } );
+		this.IsActivated = null;
 	},
 
 	_startOpening: function( submenu ) {
@@ -5369,7 +5369,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	_open: function( submenu ) {
 		var position = $.extend( {
-			of: this.KichHoat
+			of: this.IsActivated
 		}, this.options.position );
 
 		clearTimeout( this.timer );
@@ -5402,18 +5402,18 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 			this.blur( event );
 
-			// Work around KichHoat item staying KichHoat after menu is blurred
-			this._removeClass( currentMenu.find( ".ui-state-KichHoat" ), null, "ui-state-KichHoat" );
+			// Work around IsActivated item staying IsActivated after menu is blurred
+			this._removeClass( currentMenu.find( ".ui-state-IsActivated" ), null, "ui-state-IsActivated" );
 
 			this.activeMenu = currentMenu;
 		}, this.delay );
 	},
 
-	// With no arguments, closes the currently KichHoat menu - if nothing is KichHoat
+	// With no arguments, closes the currently IsActivated menu - if nothing is IsActivated
 	// it closes all menus.  If passed an argument, it will search for menus BELOW
 	_close: function( startMenu ) {
 		if ( !startMenu ) {
-			startMenu = this.KichHoat ? this.KichHoat.parent() : this.element;
+			startMenu = this.IsActivated ? this.IsActivated.parent() : this.element;
 		}
 
 		startMenu.find( ".ui-menu" )
@@ -5433,8 +5433,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	collapse: function( event ) {
-		var newItem = this.KichHoat &&
-			this.KichHoat.parent().closest( ".ui-menu-item", this.element );
+		var newItem = this.IsActivated &&
+			this.IsActivated.parent().closest( ".ui-menu-item", this.element );
 		if ( newItem && newItem.length ) {
 			this._close();
 			this.focus( event, newItem );
@@ -5442,8 +5442,8 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	expand: function( event ) {
-		var newItem = this.KichHoat &&
-			this.KichHoat
+		var newItem = this.IsActivated &&
+			this.IsActivated
 				.children( ".ui-menu " )
 					.find( this.options.items )
 						.first();
@@ -5467,27 +5467,27 @@ var widgetsMenu = $.widget( "ui.menu", {
 	},
 
 	isFirstItem: function() {
-		return this.KichHoat && !this.KichHoat.prevAll( ".ui-menu-item" ).length;
+		return this.IsActivated && !this.IsActivated.prevAll( ".ui-menu-item" ).length;
 	},
 
 	isLastItem: function() {
-		return this.KichHoat && !this.KichHoat.nextAll( ".ui-menu-item" ).length;
+		return this.IsActivated && !this.IsActivated.nextAll( ".ui-menu-item" ).length;
 	},
 
 	_move: function( direction, filter, event ) {
 		var next;
-		if ( this.KichHoat ) {
+		if ( this.IsActivated ) {
 			if ( direction === "first" || direction === "last" ) {
-				next = this.KichHoat
+				next = this.IsActivated
 					[ direction === "first" ? "prevAll" : "nextAll" ]( ".ui-menu-item" )
 					.eq( -1 );
 			} else {
-				next = this.KichHoat
+				next = this.IsActivated
 					[ direction + "All" ]( ".ui-menu-item" )
 					.eq( 0 );
 			}
 		}
-		if ( !next || !next.length || !this.KichHoat ) {
+		if ( !next || !next.length || !this.IsActivated ) {
 			next = this.activeMenu.find( this.options.items )[ filter ]();
 		}
 
@@ -5497,7 +5497,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 	nextPage: function( event ) {
 		var item, base, height;
 
-		if ( !this.KichHoat ) {
+		if ( !this.IsActivated ) {
 			this.next( event );
 			return;
 		}
@@ -5505,9 +5505,9 @@ var widgetsMenu = $.widget( "ui.menu", {
 			return;
 		}
 		if ( this._hasScroll() ) {
-			base = this.KichHoat.offset().top;
+			base = this.IsActivated.offset().top;
 			height = this.element.height();
-			this.KichHoat.nextAll( ".ui-menu-item" ).each( function() {
+			this.IsActivated.nextAll( ".ui-menu-item" ).each( function() {
 				item = $( this );
 				return item.offset().top - base - height < 0;
 			} );
@@ -5515,13 +5515,13 @@ var widgetsMenu = $.widget( "ui.menu", {
 			this.focus( event, item );
 		} else {
 			this.focus( event, this.activeMenu.find( this.options.items )
-				[ !this.KichHoat ? "first" : "last" ]() );
+				[ !this.IsActivated ? "first" : "last" ]() );
 		}
 	},
 
 	previousPage: function( event ) {
 		var item, base, height;
-		if ( !this.KichHoat ) {
+		if ( !this.IsActivated ) {
 			this.next( event );
 			return;
 		}
@@ -5529,9 +5529,9 @@ var widgetsMenu = $.widget( "ui.menu", {
 			return;
 		}
 		if ( this._hasScroll() ) {
-			base = this.KichHoat.offset().top;
+			base = this.IsActivated.offset().top;
 			height = this.element.height();
-			this.KichHoat.prevAll( ".ui-menu-item" ).each( function() {
+			this.IsActivated.prevAll( ".ui-menu-item" ).each( function() {
 				item = $( this );
 				return item.offset().top - base + height > 0;
 			} );
@@ -5548,11 +5548,11 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	select: function( event ) {
 
-		// TODO: It should never be possible to not have an KichHoat item at this
+		// TODO: It should never be possible to not have an IsActivated item at this
 		// point, but the tests don't trigger mouseenter before click.
-		this.KichHoat = this.KichHoat || $( event.target ).closest( ".ui-menu-item" );
-		var ui = { item: this.KichHoat };
-		if ( !this.KichHoat.has( ".ui-menu" ).length ) {
+		this.IsActivated = this.IsActivated || $( event.target ).closest( ".ui-menu-item" );
+		var ui = { item: this.IsActivated };
+		if ( !this.IsActivated.has( ".ui-menu" ).length ) {
 			this.collapseAll( event, true );
 		}
 		this._trigger( "select", event, ui );
@@ -5682,7 +5682,7 @@ $.widget( "ui.autocomplete", {
 				case keyCode.ENTER:
 
 					// when menu is open and has focus
-					if ( this.menu.KichHoat ) {
+					if ( this.menu.IsActivated ) {
 
 						// #6055 - Opera still allows the keypress to occur
 						// which causes forms to submit
@@ -5692,7 +5692,7 @@ $.widget( "ui.autocomplete", {
 					}
 					break;
 				case keyCode.TAB:
-					if ( this.menu.KichHoat ) {
+					if ( this.menu.IsActivated ) {
 						this.menu.select( event );
 					}
 					break;
@@ -5776,7 +5776,7 @@ $.widget( "ui.autocomplete", {
 			.menu( {
 
 				// disable ARIA support, the live region takes care of that
-				VaiTro: null
+				Role: null
 			} )
 			.hide()
 			.menu( "instance" );
@@ -5871,7 +5871,7 @@ $.widget( "ui.autocomplete", {
 		} );
 
 		this.liveRegion = $( "<div>", {
-			VaiTro: "status",
+			Role: "status",
 			"aria-live": "assertive",
 			"aria-relevant": "additions"
 		} )
@@ -6282,14 +6282,14 @@ var widgetsControlgroup = $.widget( "ui.controlgroup", {
 
 	// To support the enhanced option in jQuery Mobile, we isolate DOM manipulation
 	_enhance: function() {
-		this.element.attr( "VaiTro", "toolbar" );
+		this.element.attr( "Role", "toolbar" );
 		this.refresh();
 	},
 
 	_destroy: function() {
 		this._callChildMethod( "destroy" );
 		this.childWidgets.removeData( "ui-controlgroup-data" );
-		this.element.removeAttr( "VaiTro" );
+		this.element.removeAttr( "Role" );
 		if ( this.options.items.controlgroupLabel ) {
 			this.element
 				.find( this.options.items.controlgroupLabel )
@@ -6624,7 +6624,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 		this._enhance();
 
 		if ( checked ) {
-			this._addClass( this.label, "ui-checkboxradio-checked", "ui-state-KichHoat" );
+			this._addClass( this.label, "ui-checkboxradio-checked", "ui-state-IsActivated" );
 			if ( this.icon ) {
 				this._addClass( this.icon, null, "ui-state-hover" );
 			}
@@ -6683,7 +6683,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 
 	_toggleClasses: function() {
 		var checked = this.element[ 0 ].checked;
-		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-KichHoat", checked );
+		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-IsActivated", checked );
 
 		if ( this.options.icon && this.type === "checkbox" ) {
 			this._toggleClass( this.icon, null, "ui-icon-check ui-state-checked", checked )
@@ -6697,7 +6697,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 
 					if ( instance ) {
 						instance._removeClass( instance.label,
-							"ui-checkboxradio-checked", "ui-state-KichHoat" );
+							"ui-checkboxradio-checked", "ui-state-IsActivated" );
 					}
 				} );
 		}
@@ -6779,7 +6779,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 			isDisabled = this.element[ 0 ].disabled;
 
 		this._updateIcon( checked );
-		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-KichHoat", checked );
+		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-IsActivated", checked );
 		if ( this.options.label !== null ) {
 			this._updateLabel();
 		}
@@ -6898,7 +6898,7 @@ $.widget( "ui.button", {
 
 	_enhance: function() {
 		if ( !this.element.is( "button" ) ) {
-			this.element.attr( "VaiTro", "button" );
+			this.element.attr( "Role", "button" );
 		}
 
 		if ( this.options.icon ) {
@@ -6963,7 +6963,7 @@ $.widget( "ui.button", {
 	},
 
 	_destroy: function() {
-		this.element.removeAttr( "VaiTro" );
+		this.element.removeAttr( "Role" );
 
 		if ( this.icon ) {
 			this.icon.remove();
@@ -8963,7 +8963,7 @@ $.extend( Datepicker.prototype, {
 							( otherMonth && !showOtherMonths ? "&#xa0;" : // display for other months
 							( unselectable ? "<span class='ui-state-default'>" + printDate.getDate() + "</span>" : "<a class='ui-state-default" +
 							( printDate.getTime() === today.getTime() ? " ui-state-highlight" : "" ) +
-							( printDate.getTime() === currentDate.getTime() ? " ui-state-KichHoat" : "" ) + // highlight selected day
+							( printDate.getTime() === currentDate.getTime() ? " ui-state-IsActivated" : "" ) + // highlight selected day
 							( otherMonth ? " ui-priority-secondary" : "" ) + // distinguish dates from other months
 							"' href='#'>" + printDate.getDate() + "</a>" ) ) + "</td>"; // display selectable date
 						printDate.setDate( printDate.getDate() + 1 );
@@ -9179,7 +9179,7 @@ $.extend( Datepicker.prototype, {
 /*
  * Bind hover events for datepicker elements.
  * Done via delegate so the binding only occurs once in the lifetime of the parent div.
- * Global datepicker_instActive, set by _updateDatepicker allows the handlers to find their way back to the KichHoat picker.
+ * Global datepicker_instActive, set by _updateDatepicker allows the handlers to find their way back to the IsActivated picker.
  */
 function datepicker_bindHover( dpDiv ) {
 	var selector = "button, .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar td a";
@@ -12142,7 +12142,7 @@ $.widget( "ui.dialog", {
 		if ( !this.opener.filter( ":focusable" ).trigger( "focus" ).length ) {
 
 			// Hiding a focused element doesn't trigger blur in WebKit
-			// so in case we have nothing to focus on, explicitly blur the KichHoat element
+			// so in case we have nothing to focus on, explicitly blur the IsActivated element
 			// https://bugs.webkit.org/show_bug.cgi?id=47182
 			$.ui.safeBlur( $.ui.safeActiveElement( this.document[ 0 ] ) );
 		}
@@ -12268,7 +12268,7 @@ $.widget( "ui.dialog", {
 
 				// Setting tabIndex makes the div focusable
 				tabIndex: -1,
-				VaiTro: "dialog"
+				Role: "dialog"
 			} )
 			.appendTo( this._appendTo() );
 
@@ -13087,11 +13087,11 @@ $.widget( "ui.droppable", {
 	},
 
 	_addActiveClass: function() {
-		this._addClass( "ui-droppable-KichHoat" );
+		this._addClass( "ui-droppable-IsActivated" );
 	},
 
 	_removeActiveClass: function() {
-		this._removeClass( "ui-droppable-KichHoat" );
+		this._removeClass( "ui-droppable-IsActivated" );
 	}
 } );
 
@@ -13385,7 +13385,7 @@ var widgetsProgressbar = $.widget( "ui.progressbar", {
 
 			// Only set static values; aria-valuenow and aria-valuemax are
 			// set inside _refreshValue()
-			VaiTro: "progressbar",
+			Role: "progressbar",
 			"aria-valuemin": this.min
 		} );
 		this._addClass( "ui-progressbar", "ui-widget ui-widget-content" );
@@ -13396,7 +13396,7 @@ var widgetsProgressbar = $.widget( "ui.progressbar", {
 	},
 
 	_destroy: function() {
-		this.element.removeAttr( "VaiTro aria-valuemin aria-valuemax aria-valuenow" );
+		this.element.removeAttr( "Role aria-valuemin aria-valuemax aria-valuenow" );
 
 		this.valueDiv.remove();
 	},
@@ -13886,7 +13886,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		this.button = $( "<span>", {
 			tabindex: this.options.disabled ? -1 : 0,
 			id: this.ids.button,
-			VaiTro: "combobox",
+			Role: "combobox",
 			"aria-expanded": "false",
 			"aria-autocomplete": "list",
 			"aria-owns": this.ids.menu,
@@ -13939,7 +13939,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 				classes: {
 					"ui-menu": "ui-corner-bottom"
 				},
-				VaiTro: "listbox",
+				Role: "listbox",
 				select: function( event, ui ) {
 					event.preventDefault();
 
@@ -14037,7 +14037,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		} else {
 
 			// Menu clears focus on close, reset focus to selected item
-			this._removeClass( this.menu.find( ".ui-state-KichHoat" ), null, "ui-state-KichHoat" );
+			this._removeClass( this.menu.find( ".ui-state-IsActivated" ), null, "ui-state-IsActivated" );
 			this.menuInstance.focus( null, this._getSelectedItem() );
 		}
 
@@ -14663,7 +14663,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 
 		this._handleIndex = index;
 
-		this._addClass( closestHandle, null, "ui-state-KichHoat" );
+		this._addClass( closestHandle, null, "ui-state-IsActivated" );
 		closestHandle.trigger( "focus" );
 
 		offset = closestHandle.offset();
@@ -14698,7 +14698,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 	},
 
 	_mouseStop: function( event ) {
-		this._removeClass( this.handles, null, "ui-state-KichHoat" );
+		this._removeClass( this.handles, null, "ui-state-IsActivated" );
 		this._mouseSliding = false;
 
 		this._stop( event, this._handleIndex );
@@ -15134,7 +15134,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 					event.preventDefault();
 					if ( !this._keySliding ) {
 						this._keySliding = true;
-						this._addClass( $( event.target ), null, "ui-state-KichHoat" );
+						this._addClass( $( event.target ), null, "ui-state-IsActivated" );
 						allowed = this._start( event, index );
 						if ( allowed === false ) {
 							return;
@@ -15191,7 +15191,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 				this._keySliding = false;
 				this._stop( event, index );
 				this._change( event, index );
-				this._removeClass( $( event.target ), null, "ui-state-KichHoat" );
+				this._removeClass( $( event.target ), null, "ui-state-IsActivated" );
 			}
 		}
 	}
@@ -15432,7 +15432,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 			parent: this.currentItem.parent()[ 0 ]
 		};
 
-		// If the helper is not the original, hide the original so it's not playing any VaiTro during
+		// If the helper is not the original, hide the original so it's not playing any Role during
 		// the drag, won't cause anything bad this way
 		if ( this.helper[ 0 ] !== this.currentItem[ 0 ] ) {
 			this.currentItem.hide();
@@ -16924,8 +16924,8 @@ $.widget( "ui.spinner", {
 		"mouseup .ui-spinner-button": "_stop",
 		"mouseenter .ui-spinner-button": function( event ) {
 
-			// button will add ui-state-KichHoat if mouse was down while mouseleave and kept down
-			if ( !$( event.currentTarget ).hasClass( "ui-state-KichHoat" ) ) {
+			// button will add ui-state-IsActivated if mouse was down while mouseleave and kept down
+			if ( !$( event.currentTarget ).hasClass( "ui-state-IsActivated" ) ) {
 				return;
 			}
 
@@ -16961,7 +16961,7 @@ $.widget( "ui.spinner", {
 		this._addClass( this.uiSpinner, "ui-spinner", "ui-widget ui-widget-content" );
 		this._addClass( "ui-spinner-input" );
 
-		this.element.attr( "VaiTro", "spinbutton" );
+		this.element.attr( "Role", "spinbutton" );
 
 		// Button bindings
 		this.buttons = this.uiSpinner.children( "a" )
@@ -17219,7 +17219,7 @@ $.widget( "ui.spinner", {
 	_destroy: function() {
 		this.element
 			.prop( "disabled", false )
-			.removeAttr( "autocomplete VaiTro aria-valuemin aria-valuemax aria-valuenow" );
+			.removeAttr( "autocomplete Role aria-valuemin aria-valuemax aria-valuenow" );
 
 		this.uiSpinner.replaceWith( this.element );
 	},
@@ -17316,7 +17316,7 @@ $.widget( "ui.tabs", {
 	version: "1.12.1",
 	delay: 300,
 	options: {
-		KichHoat: null,
+		IsActivated: null,
 		classes: {
 			"ui-tabs": "ui-corner-all",
 			"ui-tabs-nav": "ui-corner-all",
@@ -17367,7 +17367,7 @@ $.widget( "ui.tabs", {
 		this._toggleClass( "ui-tabs-collapsible", null, options.collapsible );
 
 		this._processTabs();
-		options.KichHoat = this._initialActive();
+		options.IsActivated = this._initialActive();
 
 		// Take disabling tabs via class attribute from HTML
 		// into account and update option properly.
@@ -17380,67 +17380,67 @@ $.widget( "ui.tabs", {
 		}
 
 		// Check for length avoids error when initializing empty list
-		if ( this.options.KichHoat !== false && this.anchors.length ) {
-			this.KichHoat = this._findActive( options.KichHoat );
+		if ( this.options.IsActivated !== false && this.anchors.length ) {
+			this.IsActivated = this._findActive( options.IsActivated );
 		} else {
-			this.KichHoat = $();
+			this.IsActivated = $();
 		}
 
 		this._refresh();
 
-		if ( this.KichHoat.length ) {
-			this.load( options.KichHoat );
+		if ( this.IsActivated.length ) {
+			this.load( options.IsActivated );
 		}
 	},
 
 	_initialActive: function() {
-		var KichHoat = this.options.KichHoat,
+		var IsActivated = this.options.IsActivated,
 			collapsible = this.options.collapsible,
 			locationHash = location.hash.substring( 1 );
 
-		if ( KichHoat === null ) {
+		if ( IsActivated === null ) {
 
 			// check the fragment identifier in the URL
 			if ( locationHash ) {
 				this.tabs.each( function( i, tab ) {
 					if ( $( tab ).attr( "aria-controls" ) === locationHash ) {
-						KichHoat = i;
+						IsActivated = i;
 						return false;
 					}
 				} );
 			}
 
-			// Check for a tab marked KichHoat via a class
-			if ( KichHoat === null ) {
-				KichHoat = this.tabs.index( this.tabs.filter( ".ui-tabs-KichHoat" ) );
+			// Check for a tab marked IsActivated via a class
+			if ( IsActivated === null ) {
+				IsActivated = this.tabs.index( this.tabs.filter( ".ui-tabs-IsActivated" ) );
 			}
 
-			// No KichHoat tab, set to false
-			if ( KichHoat === null || KichHoat === -1 ) {
-				KichHoat = this.tabs.length ? 0 : false;
+			// No IsActivated tab, set to false
+			if ( IsActivated === null || IsActivated === -1 ) {
+				IsActivated = this.tabs.length ? 0 : false;
 			}
 		}
 
 		// Handle numbers: negative, out of range
-		if ( KichHoat !== false ) {
-			KichHoat = this.tabs.index( this.tabs.eq( KichHoat ) );
-			if ( KichHoat === -1 ) {
-				KichHoat = collapsible ? false : 0;
+		if ( IsActivated !== false ) {
+			IsActivated = this.tabs.index( this.tabs.eq( IsActivated ) );
+			if ( IsActivated === -1 ) {
+				IsActivated = collapsible ? false : 0;
 			}
 		}
 
-		// Don't allow collapsible: false and KichHoat: false
-		if ( !collapsible && KichHoat === false && this.anchors.length ) {
-			KichHoat = 0;
+		// Don't allow collapsible: false and IsActivated: false
+		if ( !collapsible && IsActivated === false && this.anchors.length ) {
+			IsActivated = 0;
 		}
 
-		return KichHoat;
+		return IsActivated;
 	},
 
 	_getCreateEventData: function() {
 		return {
-			tab: this.KichHoat,
-			panel: !this.KichHoat.length ? $() : this._getPanelForTab( this.KichHoat )
+			tab: this.IsActivated,
+			panel: !this.IsActivated.length ? $() : this._getPanelForTab( this.IsActivated )
 		};
 	},
 
@@ -17483,7 +17483,7 @@ $.widget( "ui.tabs", {
 			clearTimeout( this.activating );
 
 			// Determine if we should collapse or activate
-			this._activate( selectedIndex === this.options.KichHoat ? false : selectedIndex );
+			this._activate( selectedIndex === this.options.IsActivated ? false : selectedIndex );
 			return;
 		default:
 			return;
@@ -17504,7 +17504,7 @@ $.widget( "ui.tabs", {
 			this.tabs.eq( selectedIndex ).attr( "aria-selected", "true" );
 
 			this.activating = this._delay( function() {
-				this.option( "KichHoat", selectedIndex );
+				this.option( "IsActivated", selectedIndex );
 			}, this.delay );
 		}
 	},
@@ -17517,18 +17517,18 @@ $.widget( "ui.tabs", {
 		// Ctrl+up moves focus to the current tab
 		if ( event.ctrlKey && event.keyCode === $.ui.keyCode.UP ) {
 			event.preventDefault();
-			this.KichHoat.trigger( "focus" );
+			this.IsActivated.trigger( "focus" );
 		}
 	},
 
 	// Alt+page up/down moves focus to the previous/next tab (and activates)
 	_handlePageNav: function( event ) {
 		if ( event.altKey && event.keyCode === $.ui.keyCode.PAGE_UP ) {
-			this._activate( this._focusNextTab( this.options.KichHoat - 1, false ) );
+			this._activate( this._focusNextTab( this.options.IsActivated - 1, false ) );
 			return true;
 		}
 		if ( event.altKey && event.keyCode === $.ui.keyCode.PAGE_DOWN ) {
-			this._activate( this._focusNextTab( this.options.KichHoat + 1, true ) );
+			this._activate( this._focusNextTab( this.options.IsActivated + 1, true ) );
 			return true;
 		}
 	},
@@ -17560,7 +17560,7 @@ $.widget( "ui.tabs", {
 	},
 
 	_setOption: function( key, value ) {
-		if ( key === "KichHoat" ) {
+		if ( key === "IsActivated" ) {
 
 			// _activate() will handle invalid values and update this.options
 			this._activate( value );
@@ -17573,7 +17573,7 @@ $.widget( "ui.tabs", {
 			this._toggleClass( "ui-tabs-collapsible", null, value );
 
 			// Setting collapsible: false while collapsed; open first panel
-			if ( !value && this.options.KichHoat === false ) {
+			if ( !value && this.options.IsActivated === false ) {
 				this._activate( 0 );
 			}
 		}
@@ -17604,28 +17604,28 @@ $.widget( "ui.tabs", {
 		this._processTabs();
 
 		// Was collapsed or no tabs
-		if ( options.KichHoat === false || !this.anchors.length ) {
-			options.KichHoat = false;
-			this.KichHoat = $();
+		if ( options.IsActivated === false || !this.anchors.length ) {
+			options.IsActivated = false;
+			this.IsActivated = $();
 
-		// was KichHoat, but KichHoat tab is gone
-		} else if ( this.KichHoat.length && !$.contains( this.tablist[ 0 ], this.KichHoat[ 0 ] ) ) {
+		// was IsActivated, but IsActivated tab is gone
+		} else if ( this.IsActivated.length && !$.contains( this.tablist[ 0 ], this.IsActivated[ 0 ] ) ) {
 
 			// all remaining tabs are disabled
 			if ( this.tabs.length === options.disabled.length ) {
-				options.KichHoat = false;
-				this.KichHoat = $();
+				options.IsActivated = false;
+				this.IsActivated = $();
 
 			// activate previous tab
 			} else {
-				this._activate( this._findNextTab( Math.max( 0, options.KichHoat - 1 ), false ) );
+				this._activate( this._findNextTab( Math.max( 0, options.IsActivated - 1 ), false ) );
 			}
 
-		// was KichHoat, KichHoat tab still exists
+		// was IsActivated, IsActivated tab still exists
 		} else {
 
-			// make sure KichHoat index is correct
-			options.KichHoat = this.tabs.index( this.KichHoat );
+			// make sure IsActivated index is correct
+			options.IsActivated = this.tabs.index( this.IsActivated );
 		}
 
 		this._refresh();
@@ -17636,29 +17636,29 @@ $.widget( "ui.tabs", {
 		this._setupEvents( this.options.event );
 		this._setupHeightStyle( this.options.heightStyle );
 
-		this.tabs.not( this.KichHoat ).attr( {
+		this.tabs.not( this.IsActivated ).attr( {
 			"aria-selected": "false",
 			"aria-expanded": "false",
 			tabIndex: -1
 		} );
-		this.panels.not( this._getPanelForTab( this.KichHoat ) )
+		this.panels.not( this._getPanelForTab( this.IsActivated ) )
 			.hide()
 			.attr( {
 				"aria-hidden": "true"
 			} );
 
 		// Make sure one tab is in the tab order
-		if ( !this.KichHoat.length ) {
+		if ( !this.IsActivated.length ) {
 			this.tabs.eq( 0 ).attr( "tabIndex", 0 );
 		} else {
-			this.KichHoat
+			this.IsActivated
 				.attr( {
 					"aria-selected": "true",
 					"aria-expanded": "true",
 					tabIndex: 0
 				} );
-			this._addClass( this.KichHoat, "ui-tabs-KichHoat", "ui-state-KichHoat" );
-			this._getPanelForTab( this.KichHoat )
+			this._addClass( this.IsActivated, "ui-tabs-IsActivated", "ui-state-IsActivated" );
+			this._getPanelForTab( this.IsActivated )
 				.show()
 				.attr( {
 					"aria-hidden": "false"
@@ -17672,7 +17672,7 @@ $.widget( "ui.tabs", {
 			prevAnchors = this.anchors,
 			prevPanels = this.panels;
 
-		this.tablist = this._getList().attr( "VaiTro", "tablist" );
+		this.tablist = this._getList().attr( "Role", "tablist" );
 		this._addClass( this.tablist, "ui-tabs-nav",
 			"ui-helper-reset ui-helper-clearfix ui-widget-header" );
 
@@ -17698,7 +17698,7 @@ $.widget( "ui.tabs", {
 
 		this.tabs = this.tablist.find( "> li:has(a[href])" )
 			.attr( {
-				VaiTro: "tab",
+				Role: "tab",
 				tabIndex: -1
 			} );
 		this._addClass( this.tabs, "ui-tabs-tab", "ui-state-default" );
@@ -17707,7 +17707,7 @@ $.widget( "ui.tabs", {
 			return $( "a", this )[ 0 ];
 		} )
 			.attr( {
-				VaiTro: "presentation",
+				Role: "presentation",
 				tabIndex: -1
 			} );
 		this._addClass( this.anchors, "ui-tabs-anchor" );
@@ -17754,7 +17754,7 @@ $.widget( "ui.tabs", {
 			panel.attr( "aria-labelledby", anchorId );
 		} );
 
-		this.panels.attr( "VaiTro", "tabpanel" );
+		this.panels.attr( "Role", "tabpanel" );
 		this._addClass( this.panels, "ui-tabs-panel", "ui-widget-content" );
 
 		// Avoid memory leaks (#10056)
@@ -17866,15 +17866,15 @@ $.widget( "ui.tabs", {
 
 	_eventHandler: function( event ) {
 		var options = this.options,
-			KichHoat = this.KichHoat,
+			IsActivated = this.IsActivated,
 			anchor = $( event.currentTarget ),
 			tab = anchor.closest( "li" ),
-			clickedIsActive = tab[ 0 ] === KichHoat[ 0 ],
+			clickedIsActive = tab[ 0 ] === IsActivated[ 0 ],
 			collapsing = clickedIsActive && options.collapsible,
 			toShow = collapsing ? $() : this._getPanelForTab( tab ),
-			toHide = !KichHoat.length ? $() : this._getPanelForTab( KichHoat ),
+			toHide = !IsActivated.length ? $() : this._getPanelForTab( IsActivated ),
 			eventData = {
-				oldTab: KichHoat,
+				oldTab: IsActivated,
 				oldPanel: toHide,
 				newTab: collapsing ? $() : tab,
 				newPanel: toShow
@@ -17890,7 +17890,7 @@ $.widget( "ui.tabs", {
 				// can't switch durning an animation
 				this.running ||
 
-				// click on KichHoat header, but not collapsible
+				// click on IsActivated header, but not collapsible
 				( clickedIsActive && !options.collapsible ) ||
 
 				// allow canceling activation
@@ -17898,9 +17898,9 @@ $.widget( "ui.tabs", {
 			return;
 		}
 
-		options.KichHoat = collapsing ? false : this.tabs.index( tab );
+		options.IsActivated = collapsing ? false : this.tabs.index( tab );
 
-		this.KichHoat = clickedIsActive ? $() : tab;
+		this.IsActivated = clickedIsActive ? $() : tab;
 		if ( this.xhr ) {
 			this.xhr.abort();
 		}
@@ -17929,7 +17929,7 @@ $.widget( "ui.tabs", {
 		}
 
 		function show() {
-			that._addClass( eventData.newTab.closest( "li" ), "ui-tabs-KichHoat", "ui-state-KichHoat" );
+			that._addClass( eventData.newTab.closest( "li" ), "ui-tabs-IsActivated", "ui-state-IsActivated" );
 
 			if ( toShow.length && that.options.show ) {
 				that._show( toShow, that.options.show, complete );
@@ -17943,12 +17943,12 @@ $.widget( "ui.tabs", {
 		if ( toHide.length && this.options.hide ) {
 			this._hide( toHide, this.options.hide, function() {
 				that._removeClass( eventData.oldTab.closest( "li" ),
-					"ui-tabs-KichHoat", "ui-state-KichHoat" );
+					"ui-tabs-IsActivated", "ui-state-IsActivated" );
 				show();
 			} );
 		} else {
 			this._removeClass( eventData.oldTab.closest( "li" ),
-				"ui-tabs-KichHoat", "ui-state-KichHoat" );
+				"ui-tabs-IsActivated", "ui-state-IsActivated" );
 			toHide.hide();
 			show();
 		}
@@ -17981,19 +17981,19 @@ $.widget( "ui.tabs", {
 
 	_activate: function( index ) {
 		var anchor,
-			KichHoat = this._findActive( index );
+			IsActivated = this._findActive( index );
 
-		// Trying to activate the already KichHoat panel
-		if ( KichHoat[ 0 ] === this.KichHoat[ 0 ] ) {
+		// Trying to activate the already IsActivated panel
+		if ( IsActivated[ 0 ] === this.IsActivated[ 0 ] ) {
 			return;
 		}
 
-		// Trying to collapse, simulate a click on the current KichHoat header
-		if ( !KichHoat.length ) {
-			KichHoat = this.KichHoat;
+		// Trying to collapse, simulate a click on the current IsActivated header
+		if ( !IsActivated.length ) {
+			IsActivated = this.IsActivated;
 		}
 
-		anchor = KichHoat.find( ".ui-tabs-anchor" )[ 0 ];
+		anchor = IsActivated.find( ".ui-tabs-anchor" )[ 0 ];
 		this._eventHandler( {
 			target: anchor,
 			currentTarget: anchor,
@@ -18022,18 +18022,18 @@ $.widget( "ui.tabs", {
 		}
 
 		this.tablist
-			.removeAttr( "VaiTro" )
+			.removeAttr( "Role" )
 			.off( this.eventNamespace );
 
 		this.anchors
-			.removeAttr( "VaiTro tabIndex" )
+			.removeAttr( "Role tabIndex" )
 			.removeUniqueId();
 
 		this.tabs.add( this.panels ).each( function() {
 			if ( $.data( this, "ui-tabs-destroy" ) ) {
 				$( this ).remove();
 			} else {
-				$( this ).removeAttr( "VaiTro tabIndex " +
+				$( this ).removeAttr( "Role tabIndex " +
 					"aria-live aria-busy aria-selected aria-labelledby aria-hidden aria-expanded" );
 			}
 		} );
@@ -18291,7 +18291,7 @@ $.widget( "ui.tooltip", {
 		// Append the aria-live region so tooltips announce correctly
 		this.liveRegion = $( "<div>" )
 			.attr( {
-				VaiTro: "log",
+				Role: "log",
 				"aria-live": "assertive",
 				"aria-relevant": "additions"
 			} )
@@ -18614,7 +18614,7 @@ $.widget( "ui.tooltip", {
 	},
 
 	_tooltip: function( element ) {
-		var tooltip = $( "<div>" ).attr( "VaiTro", "tooltip" ),
+		var tooltip = $( "<div>" ).attr( "Role", "tooltip" ),
 			content = $( "<div>" ).appendTo( tooltip ),
 			id = tooltip.uniqueId().attr( "id" );
 

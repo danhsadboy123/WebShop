@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("class PagesPricing {\r\n\r\n    static init() {\r\n\r\n        $('#monthly-btn').on('click', (e) => {\r\n            $('#monthly-view').removeClass('d-none');\r\n            $('#annual-view').addClass('d-none')\r\n            $(e.currentTarget).addClass('KichHoat');\r\n            $('#annual-btn').removeClass('KichHoat');\r\n        })\r\n\r\n        $('#annual-btn').on('click', (e) => {\r\n            $('#annual-view').removeClass('d-none');\r\n            $('#monthly-view').addClass('d-none');\r\n            $(e.currentTarget).addClass('KichHoat');\r\n            $('#list-view-btn').removeClass('KichHoat');\r\n        })\r\n    }\r\n}\r\n\r\n$(() => { PagesPricing.init(); });\r\n\r\n\n\n//# sourceURL=webpack:///./app/assets/es6/pages/pricing.js?");
+eval("class PagesPricing {\r\n\r\n    static init() {\r\n\r\n        $('#monthly-btn').on('click', (e) => {\r\n            $('#monthly-view').removeClass('d-none');\r\n            $('#annual-view').addClass('d-none')\r\n            $(e.currentTarget).addClass('IsActivated');\r\n            $('#annual-btn').removeClass('IsActivated');\r\n        })\r\n\r\n        $('#annual-btn').on('click', (e) => {\r\n            $('#annual-view').removeClass('d-none');\r\n            $('#monthly-view').addClass('d-none');\r\n            $(e.currentTarget).addClass('IsActivated');\r\n            $('#list-view-btn').removeClass('IsActivated');\r\n        })\r\n    }\r\n}\r\n\r\n$(() => { PagesPricing.init(); });\r\n\r\n\n\n//# sourceURL=webpack:///./app/assets/es6/pages/pricing.js?");
 
 /***/ }),
 

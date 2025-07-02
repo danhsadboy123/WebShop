@@ -414,7 +414,7 @@
 			'editingFile'     : 'Modification d\'un fichier.', // from v2.1.13 added 6.3.2016
 			'hasSelected'     : 'Vous avez sélectionné $1 éléments.', // from v2.1.13 added 6.3.2016
 			'hasClipboard'    : 'Vous avez $1 éléments dans le presse-papier.', // from v2.1.13 added 6.3.2016
-			'incSearchOnly'   : 'Recherche incrémentale disponible uniquement pour la vue KichHoat.', // from v2.1.13 added 6.30.2016
+			'incSearchOnly'   : 'Recherche incrémentale disponible uniquement pour la vue IsActivated.', // from v2.1.13 added 6.30.2016
 			'reinstate'       : 'Rétablir', // from v2.1.15 added 3.8.2016
 			'complete'        : '$1 complété', // from v2.1.15 added 21.8.2016
 			'contextmenu'     : 'Menu contextuel', // from v2.1.15 added 9.9.2016

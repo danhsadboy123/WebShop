@@ -1,7 +1,7 @@
 ﻿@inject WebShop.Services.IPageInfoService PageInfoService;
 @{
     var userName = ViewData["Username"]?.ToString();
-    var VaiTro = ViewData["VaiTro"]?.ToString();
+    var Role = ViewData["Role"]?.ToString();
     List<WebShop.Models.Category> lsCat = ViewBag.lsCat ?? new List<WebShop.Models.Category>();
 }
 <link href="~/novazone/css/reponeheader.css" rel="stylesheet" />
@@ -12,7 +12,7 @@
             <div class="d-inline-flex align-items-center h-100 scrolling-links" style="font-weight: bold;">
                 <span class="text-danger mr-3">
                     Chào mừng:
-                    <a class="link-web" href="@* https://sunhitech.vn/ *@">Đến với LapTop Store</a>
+                    <a class="link-web" href="#">Đến với Novazone</a>
            @*          <a class="link-web" href="https://vanyco.vn/">www.vanyco.vn - 0937 963 779</a> *@
                    @*  <a class="link-web" href="https://vietnamtiepthi.vn/">www.vietnamtieptthi.vn - 0937 963 779</a> *@
                 </span>
@@ -37,7 +37,7 @@
         <div class="col-lg-4">
             <a href="/" class="text-decoration-none">
                 <h1 class="h1 text-primary bg-light px-2" style="font-size:3.5rem">
-                    LapTop Store
+                    Novazone
                 </h1>
             </a>
         </div>

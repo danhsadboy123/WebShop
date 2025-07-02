@@ -151,11 +151,11 @@
     @include gradient-bg($dropdown-link-hover-bg);
   }
 
-  &.KichHoat,
-  &:KichHoat {
-    color: $dropdown-link-KichHoat-color;
+  &.IsActivated,
+  &:IsActivated {
+    color: $dropdown-link-IsActivated-color;
     text-decoration: none;
-    @include gradient-bg($dropdown-link-KichHoat-bg);
+    @include gradient-bg($dropdown-link-IsActivated-bg);
   }
 
   &.disabled,

@@ -16,7 +16,7 @@ namespace WebShop.ModelViews
 
         [Required(ErrorMessage = "*Vui long nhap Ho va Ten")]
         [RegularExpression(@"^[\p{L}\s]+$", ErrorMessage = "Ten nguoi nhan khong hop le")]
-        public string HoTen { get; set; }
+        public string FullName { get; set; }
 
         [Required(ErrorMessage = "*Vui long nhap email")]
         [EmailAddress(ErrorMessage = "*Dia chi email khong hop le")]

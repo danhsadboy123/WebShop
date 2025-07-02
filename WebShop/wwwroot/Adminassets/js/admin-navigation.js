@@ -11,9 +11,9 @@
 //            // Thay đổi nội dung trong phần main-content
 //            $('#mainContent').html(newContent);
 
-//            // Đánh dấu mục điều hướng được click là 'KichHoat' (nổi bật)
-//            $('.nav-item').removeClass('KichHoat');
-//            $(this).closest('.nav-item').addClass('KichHoat');
+//            // Đánh dấu mục điều hướng được click là 'IsActivated' (nổi bật)
+//            $('.nav-item').removeClass('IsActivated');
+//            $(this).closest('.nav-item').addClass('IsActivated');
 //        });
 //    });
 //});

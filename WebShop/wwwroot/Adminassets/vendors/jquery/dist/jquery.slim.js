@@ -1246,7 +1246,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// QSA and matchesSelector support
 
-	// matchesSelector(:KichHoat) reports false when true (IE9/Opera 11.5)
+	// matchesSelector(:IsActivated) reports false when true (IE9/Opera 11.5)
 	rbuggyMatches = [];
 
 	// qSa(:focus) reports false when true (Chrome 21)
@@ -2139,7 +2139,7 @@ Expr = Sizzle.selectors = {
 Expr.pseudos["nth"] = Expr.pseudos["eq"];
 
 // Add button/input type pseudos
-for ( i in { radio: true, checkbox: true, file: true, MatKhau: true, image: true } ) {
+for ( i in { radio: true, checkbox: true, file: true, Password: true, image: true } ) {
 	Expr.pseudos[ i ] = createInputPseudo( i );
 }
 for ( i in { submit: true, reset: true } ) {
@@ -4915,8 +4915,8 @@ function returnFalse() {
 
 // Support: IE <=9 - 11+
 // focus() and blur() are asynchronous, except when they are no-op.
-// So expect focus to be synchronous when the element is already KichHoat,
-// and blur to be synchronous when the element is not already KichHoat.
+// So expect focus to be synchronous when the element is already IsActivated,
+// and blur to be synchronous when the element is not already IsActivated.
 // (focus and blur are always synchronous in other supported browsers,
 // this just defines when we can count on it).
 function expectSync( elem, type ) {

@@ -113,7 +113,7 @@ namespace WebShop.Controllers
                 if(khachhang!= null)
                 {
                     model.CustomerId = khachhang.CustomerId;
-                    model.HoTen = khachhang.HoTen;
+                    model.FullName = khachhang.FullName;
                     model.Email = khachhang.Email;
                     model.SoDienThoai = khachhang.SoDienThoai;
                     if (khachhang.Birthday != null)
@@ -147,7 +147,7 @@ namespace WebShop.Controllers
                 if (khachhang != null)
                 {
                     khachhang.CustomerId = changeInfoViewModel.CustomerId;
-                    khachhang.HoTen = changeInfoViewModel.HoTen;
+                    khachhang.FullName = changeInfoViewModel.FullName;
                     khachhang.Email = changeInfoViewModel.Email;
                     khachhang.SoDienThoai = changeInfoViewModel.SoDienThoai;
                     if (khachhang.Birthday != null)
@@ -176,124 +176,124 @@ namespace WebShop.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("/Account/Register",Name ="DangKy")]
-        public async Task<IActionResult> Register(RegisterViewModel taikhoan)
-        {
-            var text = "";
-            if (ValidateEmailOne(taikhoan.Email)==false)
-            {
-                text = "Tài khoản đã tồn tại vui lòng nhập email khác để đăng ký";
-            }
-            try
-            {               
-                if (ModelState.IsValid && ValidateEmailOne(taikhoan.Email))
-                {
-                    text = "";
-                    string salt = Utilities.GetRandomKey();                    
-                    Customer khachhang = new Customer
-                    {
-                        HoTen = taikhoan.HoTen,
-                        SoDienThoai = taikhoan.SoDienThoai.Trim().ToLower(),
-                        Email = taikhoan.Email.Trim().ToLower(),
-                        MatKhau = (taikhoan.MatKhau + salt.Trim()).ToMD5(),
-                        KichHoat = true,
-                        Salt = salt,
-                        NgayTao = DateTime.Now
-                    };
-                    try
-                    {
-                        _context.Add(khachhang);
-                        await _context.SaveChangesAsync();
-                        //Lưu Session MaKh
-                        HttpContext.Session.SetString("CustomerId", khachhang.CustomerId.ToString());
-                        var taikhoanID = HttpContext.Session.GetString("CustomerId");
+        //public async Task<IActionResult> Register(RegisterViewModel taikhoan)
+        //{
+        //    var text = "";
+        //    if (ValidateEmailOne(taikhoan.Email)==false)
+        //    {
+        //        text = "Tài khoản đã tồn tại vui lòng nhập email khác để đăng ký";
+        //    }
+        //    try
+        //    {               
+        //        if (ModelState.IsValid && ValidateEmailOne(taikhoan.Email))
+        //        {
+        //            text = "";
+        //            string salt = Utilities.GetRandomKey();                    
+        //            Customer khachhang = new Customer
+        //            {
+        //                FullName = taikhoan.FullName,
+        //                SoDienThoai = taikhoan.SoDienThoai.Trim().ToLower(),
+        //                Email = taikhoan.Email.Trim().ToLower(),
+        //                Password = (taikhoan.Password + salt.Trim()).ToMD5(),
+        //                IsActivated = true,
+        //                Salt = salt,
+        //                CreatedAt = DateTime.Now
+        //            };
+        //            try
+        //            {
+        //                _context.Add(khachhang);
+        //                await _context.SaveChangesAsync();
+        //                //Lưu Session MaKh
+        //                HttpContext.Session.SetString("CustomerId", khachhang.CustomerId.ToString());
+        //                var taikhoanID = HttpContext.Session.GetString("CustomerId");
 
-                        //Identity
-                        var claims = new List<Claim>
-                        {
-                            new Claim(ClaimTypes.Name,khachhang.HoTen),
-                            new Claim("CustomerId", khachhang.CustomerId.ToString())
-                        };
-                        ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "login");
-                        ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-                        await HttpContext.SignInAsync(claimsPrincipal);
-                        // gui email xin chao khach hang
-                        SendEmail(khachhang);
-                        _notyfService.Success("Đăng ký thành công");
-                        return RedirectToAction("Index", "Home");
-                    }
-                    catch 
-                    {
+        //                //Identity
+        //                var claims = new List<Claim>
+        //                {
+        //                    new Claim(ClaimTypes.Name,khachhang.FullName),
+        //                    new Claim("CustomerId", khachhang.CustomerId.ToString())
+        //                };
+        //                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "login");
+        //                ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+        //                await HttpContext.SignInAsync(claimsPrincipal);
+        //                // gui email xin chao khach hang
+        //                SendEmail(khachhang);
+        //                _notyfService.Success("Đăng ký thành công");
+        //                return RedirectToAction("Index", "Home");
+        //            }
+        //            catch 
+        //            {
 
-                        return RedirectToAction("Register", "TaiKhoans");
-                    }
-                }
-                else
-                {
-                    ViewBag.text = text;
-                    return View(taikhoan);
-                }
+        //                return RedirectToAction("Register", "TaiKhoans");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            ViewBag.text = text;
+        //            return View(taikhoan);
+        //        }
                
              
-            }
-            catch 
-            {
-                ViewBag.text = "Sự cố không thể thêm tài khoản này";
-                return View(taikhoan);
-            }
-        }
+        //    }
+        //    catch 
+        //    {
+        //        ViewBag.text = "Sự cố không thể thêm tài khoản này";
+        //        return View(taikhoan);
+        //    }
+        //}
 
-        public IActionResult SendEmail(Customer tk)
-        {
-            var systemW = _context.SystemWebs.FirstOrDefault();
-            var Admin = _context.PageInfos.FirstOrDefault();
-            var email = new MimeMessage();
-            try
-            {
-                if (systemW.PassSmtp == "" || systemW.Name == null || systemW.Post == null || systemW.Name == null)
-                {
-                    return Json(new { succses = "No", value = "Vui lòng kiểm tra Quản lý website > Hệ thống." });
-                }
-                else
-                {
-                    try
-                    {
-                        email.From.Add(MailboxAddress.Parse(systemW.EmailSend));
-                        using var smtp = new MailKit.Net.Smtp.SmtpClient();
-                        smtp.Connect(systemW.Server, (int)systemW.Post, SecureSocketOptions.StartTls);
-                        smtp.Authenticate(systemW.EmailSmtp, systemW.PassSmtp);
-                        try
-                        {
-                            var optionEmail = _context.EmailMakettings.Where(i => i.EmailEvent == 3).FirstOrDefault();
-                            var text = textcover(optionEmail.Body, tk.HoTen, tk.Email, tk.SoDienThoai.ToString(),"", "");
-                            email.Bcc.Add(MailboxAddress.Parse(tk.Email));
-                            email.To.Add(MailboxAddress.Parse(tk.Email));
-                            email.Subject = optionEmail.Title;
-                            email.Body = new TextPart(TextFormat.Html) { Text = text };
+        //public IActionResult SendEmail(Customer tk)
+        //{
+        //    var systemW = _context.SystemWebs.FirstOrDefault();
+        //    var Admin = _context.PageInfos.FirstOrDefault();
+        //    var email = new MimeMessage();
+        //    try
+        //    {
+        //        if (systemW.PassSmtp == "" || systemW.Name == null || systemW.Post == null || systemW.Name == null)
+        //        {
+        //            return Json(new { succses = "No", value = "Vui lòng kiểm tra Quản lý website > Hệ thống." });
+        //        }
+        //        else
+        //        {
+        //            try
+        //            {
+        //                email.From.Add(MailboxAddress.Parse(systemW.EmailSend));
+        //                using var smtp = new MailKit.Net.Smtp.SmtpClient();
+        //                smtp.Connect(systemW.Server, (int)systemW.Post, SecureSocketOptions.StartTls);
+        //                smtp.Authenticate(systemW.EmailSmtp, systemW.PassSmtp);
+        //                try
+        //                {
+        //                    var optionEmail = _context.EmailMakettings.Where(i => i.EmailEvent == 3).FirstOrDefault();
+        //                    var text = textcover(optionEmail.Body, tk.FullName, tk.Email, tk.SoDienThoai.ToString(),"", "");
+        //                    email.Bcc.Add(MailboxAddress.Parse(tk.Email));
+        //                    email.To.Add(MailboxAddress.Parse(tk.Email));
+        //                    email.Subject = optionEmail.Title;
+        //                    email.Body = new TextPart(TextFormat.Html) { Text = text };
 
-                            smtp.Send(email);
-                            smtp.Disconnect(true);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.ToString());
-                            return (IActionResult)ex;
-                        }
+        //                    smtp.Send(email);
+        //                    smtp.Disconnect(true);
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    Console.WriteLine(ex.ToString());
+        //                    return (IActionResult)ex;
+        //                }
 
 
-                    }
-                    catch (Exception e)
-                    {
-                        return Json(new { succses = "No" });
-                    }
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                return Json(new { succses = "No" });
+        //            }
 
-                }
-            }
-            catch(Exception e)
-            {
+        //        }
+        //    }
+        //    catch(Exception e)
+        //    {
 
-            }  
-            return Json(new { succses = "Ok" });
-        }
+        //    }  
+        //    return Json(new { succses = "Ok" });
+        //}
 
         public string textcover(string body, string Name, string Email, string SoDienThoai, string Address, string CompannyName)
         {
@@ -344,15 +344,15 @@ namespace WebShop.Controllers
                         _notyfService.Warning("Thông tin đăng nhập chưa chính xác");
                         return View(customer);
                     }
-                    string pass = (customer.MatKhau + khachhang.Salt.Trim()).ToMD5();
-                    if(khachhang.MatKhau != pass)
+                    string pass = (customer.Password + khachhang.Salt.Trim()).ToMD5();
+                    if(khachhang.Password != pass)
                     {
                         _notyfService.Warning("Thông tin đăng nhập chưa chính xác");
                         return View(customer);
                     }
                     //kiem tra xem account co bi disable hay khong
 
-                    if (khachhang.KichHoat == false)
+                    if (khachhang.IsActivated == false)
                     {
                         return RedirectToAction("ThongBao", "TaiKhoans");
                     }
@@ -364,7 +364,7 @@ namespace WebShop.Controllers
                     //Identity
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, khachhang.HoTen),
+                        new Claim(ClaimTypes.Name, khachhang.FullName),
                         new Claim("CustomerId", khachhang.CustomerId.ToString())
                     };
                     ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "login");
@@ -412,8 +412,8 @@ namespace WebShop.Controllers
                     if (taikhoan == null) return RedirectToAction("Login", "TaiKhoans");
                     var pass = (model.PasswordNow.Trim() + taikhoan.Salt.Trim()).ToMD5();
                     {
-                        string passnew = (model.MatKhau.Trim() + taikhoan.Salt.Trim()).ToMD5();
-                        taikhoan.MatKhau = passnew;
+                        string passnew = (model.Password.Trim() + taikhoan.Salt.Trim()).ToMD5();
+                        taikhoan.Password = passnew;
                         _context.Update(taikhoan);
                         _context.SaveChanges();
                         _notyfService.Success("Đổi mật khẩu thành công");

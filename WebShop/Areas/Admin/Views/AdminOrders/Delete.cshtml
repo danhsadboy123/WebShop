@@ -11,7 +11,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="AdminOrders" asp-action="Home" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
             <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminOrders" asp-action="Index">Danh sách đơn hàng</a>
-            <span class="breadcrumb-item KichHoat">Chi tiết đơn hàng</span>
+            <span class="breadcrumb-item IsActivated">Chi tiết đơn hàng</span>
         </nav>
     </div>
 </div>
@@ -23,7 +23,7 @@
                     <div class="col-sm-6">
                         <h3 class="p-l-10 m-t-10">THÔNG TIN ĐƠN HÀNG:</h3>
                         <address class="p-l-10 m-t-10">
-                            <span class="font-weight-semibold text-dark">Họ và Tên: @Model.Customer.HoTen</span><br>
+                            <span class="font-weight-semibold text-dark">Họ và Tên: @Model.Customer.FullName</span><br>
                             @*<span>Địa chỉ: @Model.Customer.Address</span><br>*@
                             <span>Số điện thoại: @Model.Customer.SoDienThoai</span>
                         </address>

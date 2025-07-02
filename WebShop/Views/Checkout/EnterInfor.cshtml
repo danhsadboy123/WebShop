@@ -15,7 +15,7 @@
             <nav class="breadcrumb bg-light mb-30">
                 <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
                 <a class="breadcrumb-item text-dark" href="#">Giỏ hàng</a>
-                <span class="breadcrumb-item KichHoat">Mua hàng</span>
+                <span class="breadcrumb-item IsActivated">Mua hàng</span>
             </nav>
         </div>
     </div>
@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>Họ và tên </label>
-                            <input class="form-control" type="text" id="HoTen" placeholder="Nhập họ tên ">
+                            <input class="form-control" type="text" id="FullName" placeholder="Nhập họ tên ">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>E-mail</label>
@@ -288,12 +288,12 @@ else
             var ProvinceId = $('#ProvinceId').val();
             var DistrictId = $('#DistrictId').val();
             var WardId = $('#WardId').val();
-            var HoTen = $('#HoTen').val();
+            var FullName = $('#FullName').val();
             var Email = $('#Email').val();
             var SoDienThoai = $('#SoDienThoai').val();
             var Address = $('#Address').val(); // Nếu có trường địa chỉ
 
-            console.log(ProvinceId, DistrictId, WardId, HoTen, Email, SoDienThoai);
+            console.log(ProvinceId, DistrictId, WardId, FullName, Email, SoDienThoai);
 
            
          // Biểu thức chính quy cho email và số điện thoại
@@ -301,13 +301,13 @@ else
             var phoneRegex = /^(0[0-9]{9})$/;
 
 
-            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && HoTen !== "" && emailRegex.test(Email) && phoneRegex.test(SoDienThoai)) {
+            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && FullName !== "" && emailRegex.test(Email) && phoneRegex.test(SoDienThoai)) {
                 $.ajax({
                     url: "/PrintQuotation", // Đường dẫn đến action
                     type: "GET",
                     data: {
                         code: '', // Nếu có mã giảm giá, bạn có thể lấy từ một input
-                        HoTen: HoTen,
+                        FullName: FullName,
                         SoDienThoai: SoDienThoai,
                         Email: Email,
                         ProvinceId: ProvinceId,
@@ -318,7 +318,7 @@ else
                     success: function(response) {
                         //console.log(response); 
                         // Tạo URL với các tham số cần thiết
-                        var url = `/PrintQuotation?code=&HoTen=${encodeURIComponent(HoTen)}&SoDienThoai=${encodeURIComponent(SoDienThoai)}&Email=${encodeURIComponent(Email)}&ProvinceId=${ProvinceId}&DistrictId=${DistrictId}&WardId=${WardId}&Address=${encodeURIComponent(Address)}`;
+                        var url = `/PrintQuotation?code=&FullName=${encodeURIComponent(FullName)}&SoDienThoai=${encodeURIComponent(SoDienThoai)}&Email=${encodeURIComponent(Email)}&ProvinceId=${ProvinceId}&DistrictId=${DistrictId}&WardId=${WardId}&Address=${encodeURIComponent(Address)}`;
 
                         // Mở URL trong cửa sổ mới
                         window.open(url, '_blank');
@@ -339,7 +339,7 @@ else
             var ProvinceId = $('#ProvinceId').val();
             var DistrictId = $('#DistrictId').val();
             var WardId = $('#WardId').val();
-            var HoTen = $('#HoTen').val();
+            var FullName = $('#FullName').val();
             var Email = $('#Email').val();
             var SoDienThoai = $('#SoDienThoai').val();
             var Address = $('#Address').val(); // Nếu có trường địa chỉ
@@ -348,7 +348,7 @@ else
             var phoneRegex = /^(0[0-9]{9})$/;
 
             console.log(idPay);
-            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && HoTen !== "" && emailRegex.test(Email) && phoneRegex.test(SoDienThoai)) {
+            if (ProvinceId > 0 && DistrictId > 0 && WardId > 0 && FullName !== "" && emailRegex.test(Email) && phoneRegex.test(SoDienThoai)) {
                 if (idPay == undefined) {
                     alert('Vui lòng chọn hình thức thanh toán');
                 }
@@ -359,7 +359,7 @@ else
                         Amount: 0,
                         OrderDescription: "Thanh toán VNPAY",
                         Name: "Người dùng thanh toán",
-                        HoTen: HoTen,
+                        FullName: FullName,
                         SoDienThoai: SoDienThoai,
                         Email: Email,
                         ProvinceId: ProvinceId,
@@ -389,7 +389,7 @@ else
                         url: "/save-Order",
                         type: "POST",
                         data: {
-                            HoTen: HoTen,
+                            FullName: FullName,
                             SoDienThoai: SoDienThoai,
                             Email: Email,
                             ProvinceId: ProvinceId,

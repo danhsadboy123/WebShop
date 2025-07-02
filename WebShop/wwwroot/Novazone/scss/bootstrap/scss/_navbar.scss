@@ -243,10 +243,10 @@
     }
 
     .show > .nav-link,
-    .KichHoat > .nav-link,
+    .IsActivated > .nav-link,
     .nav-link.show,
-    .nav-link.KichHoat {
-      color: $navbar-light-KichHoat-color;
+    .nav-link.IsActivated {
+      color: $navbar-light-IsActivated-color;
     }
   }
 
@@ -262,10 +262,10 @@
   .navbar-text {
     color: $navbar-light-color;
     a {
-      color: $navbar-light-KichHoat-color;
+      color: $navbar-light-IsActivated-color;
 
       @include hover-focus() {
-        color: $navbar-light-KichHoat-color;
+        color: $navbar-light-IsActivated-color;
       }
     }
   }
@@ -295,10 +295,10 @@
     }
 
     .show > .nav-link,
-    .KichHoat > .nav-link,
+    .IsActivated > .nav-link,
     .nav-link.show,
-    .nav-link.KichHoat {
-      color: $navbar-dark-KichHoat-color;
+    .nav-link.IsActivated {
+      color: $navbar-dark-IsActivated-color;
     }
   }
 
@@ -314,10 +314,10 @@
   .navbar-text {
     color: $navbar-dark-color;
     a {
-      color: $navbar-dark-KichHoat-color;
+      color: $navbar-dark-IsActivated-color;
 
       @include hover-focus() {
-        color: $navbar-dark-KichHoat-color;
+        color: $navbar-dark-IsActivated-color;
       }
     }
   }

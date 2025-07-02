@@ -9,7 +9,7 @@
             <nav class="breadcrumb bg-light mb-30">
                 <a class="breadcrumb-item text-dark" href="#">Trang chủ</a>
                 <a class="breadcrumb-item text-dark" href="#">Tài khoản</a>
-                <span class="breadcrumb-item KichHoat">Đăng nhập</span>
+                <span class="breadcrumb-item IsActivated">Đăng nhập</span>
             </nav>
         </div>
     </div>
@@ -29,8 +29,8 @@
                         </div>
                         <div class=" form-group">
                             <label>Nhập mật khẩu</label>
-                            <input class="form-control" type="MatKhau" asp-for="MatKhau" placeholder="Nhập mật khẩu">
-                            <span asp-validation-for="MatKhau" class="text-danger"></span>
+                            <input class="form-control" type="Password" asp-for="Password" placeholder="Nhập mật khẩu">
+                            <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <div style="display:inline-grid; flex-wrap:wrap">

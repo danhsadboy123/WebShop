@@ -45,7 +45,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AttributeId, Name,NameEn,Ordering,KichHoat")] Attribute attribute)
+        public async Task<IActionResult> Create([Bind("AttributeId, Name,NameEn,Ordering,IsActivated")] Attribute attribute)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace WebShop.Areas.Admin.Controllers
                             CatId = Convert.ToInt32(c),
                             AttributeId = attribute.AttributeId,
                             Name = attribute.Name,
-                            KichHoat = attribute.KichHoat,
+                            IsActivated = attribute.IsActivated,
                         };
                         _context.CategoryAttributes.Add(newCategoryAttribute);
                         await _context.SaveChangesAsync();
@@ -114,7 +114,7 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AttributeId, Name,NameEn,Ordering,KichHoat")] Attribute attribute)
+        public async Task<IActionResult> Edit(int id, [Bind("AttributeId, Name,NameEn,Ordering,IsActivated")] Attribute attribute)
         {
             if (id != attribute.AttributeId)
             {
@@ -138,7 +138,7 @@ namespace WebShop.Areas.Admin.Controllers
                             CatId = Convert.ToInt32(c),
                             AttributeId = attribute.AttributeId,
                             Name = attribute.Name,
-                            KichHoat = attribute.KichHoat,
+                            IsActivated = attribute.IsActivated,
                         };
                         _context.CategoryAttributes.Add(newCategoryAttribute);
                         await _context.SaveChangesAsync();
@@ -202,7 +202,7 @@ namespace WebShop.Areas.Admin.Controllers
                 {
                     AttributeId = attributeId,
                     Price = newValue,
-                    KichHoat = true
+                    IsActivated = true
                 };
 
                 // Thêm giá trị mới vào cơ sở dữ liệu

@@ -102,7 +102,7 @@
         <div class="header-sub-title">
             <nav class="breadcrumb breadcrumb-dash">
                 <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-                <span class="breadcrumb-item KichHoat">Đơn hàng nháp</span>
+                <span class="breadcrumb-item IsActivated">Đơn hàng nháp</span>
             </nav>
         </div>
     </div>
@@ -151,7 +151,7 @@
         <div class="card-header" style="border-bottom:none">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link KichHoat" data-toggle="tab" href="#project-details-tasks">Tất cả đơn hàng nháp</a>
+                    <a class="nav-link IsActivated" data-toggle="tab" href="#project-details-tasks">Tất cả đơn hàng nháp</a>
                 </li>
             </ul>
         </div>
@@ -185,7 +185,7 @@
                                     }
                                     else
                                     {
-                                        <td>@item.Customer.HoTen</td>
+                                        <td>@item.Customer.FullName</td>
                                        @*  <td>@item.Customer.Email</td>
                                         <td>@item.Customer.SoDienThoai</td> *@
                                     }
@@ -207,7 +207,7 @@
             </div>
         </div>
     </div>
-    <div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-header" class="modal fade bd-example-modal-xl" tabindex="-1" Role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
             </div>

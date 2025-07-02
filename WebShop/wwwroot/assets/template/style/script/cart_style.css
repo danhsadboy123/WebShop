@@ -136,7 +136,7 @@
             cursor: pointer
         }
 
-            .cart-content-2021 .cart-col-product .fake-checkbox.KichHoat {
+            .cart-content-2021 .cart-col-product .fake-checkbox.IsActivated {
                 border-color: #0b74e5;
                 background-color: #0b74e5
             }
@@ -155,7 +155,7 @@
                 transition: transform .3s ease 0s
             }
 
-            .cart-content-2021 .cart-col-product .fake-checkbox.KichHoat::after {
+            .cart-content-2021 .cart-col-product .fake-checkbox.IsActivated::after {
                 transform: scale(1) rotate(-45deg)
             }
 
@@ -554,15 +554,15 @@
                     display: none
                 }
 
-                .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.KichHoat .bar {
+                .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.IsActivated .bar {
                     background: #30327c
                 }
 
-                    .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.KichHoat .bar.notline {
+                    .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.IsActivated .bar.notline {
                         background: #ebebeb
                     }
 
-                .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.KichHoat .circle {
+                .cart-2021-b2 .header-cart-b2 .content-header-cart-b2 .item-c.IsActivated .circle {
                     background: #30327c;
                     border: 1px solid #30327c;
                     color: #fff
@@ -941,7 +941,7 @@
                 font-size: 14px
             }
 
-            .cart-2021-b2-content-ct .list-cart-add .item-c .list-KichHoat {
+            .cart-2021-b2-content-ct .list-cart-add .item-c .list-IsActivated {
                 width: 100%;
                 float: left;
                 margin-top: 15px;
@@ -953,7 +953,7 @@
                 align-items: center
             }
 
-                .cart-2021-b2-content-ct .list-cart-add .item-c .list-KichHoat a {
+                .cart-2021-b2-content-ct .list-cart-add .item-c .list-IsActivated a {
                     float: left;
                     padding: 0 15px;
                     line-height: 32px;
@@ -965,7 +965,7 @@
                     margin-right: 5px
                 }
 
-                    .cart-2021-b2-content-ct .list-cart-add .item-c .list-KichHoat a.select-add {
+                    .cart-2021-b2-content-ct .list-cart-add .item-c .list-IsActivated a.select-add {
                         color: #fff;
                         background: #464646;
                         border: 1px solid #464646
@@ -979,12 +979,12 @@
                     display: block
                 }
 
-                .cart-2021-b2-content-ct .list-cart-add .item-c.default .list-KichHoat a.select-add {
+                .cart-2021-b2-content-ct .list-cart-add .item-c.default .list-IsActivated a.select-add {
                     background: #30327c;
                     border: 1px solid #30327c
                 }
 
-                .cart-2021-b2-content-ct .list-cart-add .item-c.default .list-KichHoat a.delete-add {
+                .cart-2021-b2-content-ct .list-cart-add .item-c.default .list-IsActivated a.delete-add {
                     display: none
                 }
 
@@ -1013,7 +1013,7 @@
         display: none
     }
 
-        .cart-2021-b2-content-ct .box-add-new-address-cart.KichHoat {
+        .cart-2021-b2-content-ct .box-add-new-address-cart.IsActivated {
             display: block
         }
 
@@ -1056,7 +1056,7 @@
     display: none
 }
 
-    .popup-delate-address-cart.KichHoat {
+    .popup-delate-address-cart.IsActivated {
         display: block
     }
 
@@ -1135,7 +1135,7 @@
     display: none
 }
 
-    .bg-h-pop.KichHoat {
+    .bg-h-pop.IsActivated {
         display: block
     }
 
@@ -1156,7 +1156,7 @@
     transition: .5s
 }
 
-    .complete-h-pop.KichHoat {
+    .complete-h-pop.IsActivated {
         right: 0;
         -webkit-transition: .5s;
         transition: .5s
@@ -1179,7 +1179,7 @@
     transition: .5s
 }
 
-    .complete-h-pop-2.KichHoat {
+    .complete-h-pop-2.IsActivated {
         right: 0;
         -webkit-transition: .5s;
         transition: .5s
@@ -1559,7 +1559,7 @@
     display: none
 }
 
-    .popup-not-select-cart.KichHoat {
+    .popup-not-select-cart.IsActivated {
         display: block
     }
 
@@ -1596,7 +1596,7 @@
     display: none
 }
 
-    .bg-popup-not-select-cart.KichHoat {
+    .bg-popup-not-select-cart.IsActivated {
         display: block
     }
 
@@ -1620,11 +1620,11 @@
     position: relative
 }
 
-    .inputCheckboxFake.KichHoat {
+    .inputCheckboxFake.IsActivated {
         background: #233b76
     }
 
-        .inputCheckboxFake.KichHoat ::after {
+        .inputCheckboxFake.IsActivated ::after {
             content: '\f00c';
             font-family: 'Font Awesome 5 Pro';
             font-weight: 400;

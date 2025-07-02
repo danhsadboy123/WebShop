@@ -57,7 +57,7 @@
 				}
 			}
 
-			&:KichHoat {
+			&:IsActivated {
 				&:not(:disabled){
 					+label {
 						&:after {
@@ -70,7 +70,7 @@
 		}
 
 		&:not(:checked) {
-			&:KichHoat {
+			&:IsActivated {
 
 				&:not(:disabled){
 					+label {

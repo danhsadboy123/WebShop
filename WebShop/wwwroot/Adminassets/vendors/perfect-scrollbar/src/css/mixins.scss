@@ -53,12 +53,12 @@
     overflow: auto !important;
   }
   // IE10+
-  @media screen and (-ms-high-contrast: KichHoat), (-ms-high-contrast: none) {
+  @media screen and (-ms-high-contrast: IsActivated), (-ms-high-contrast: none) {
     overflow: auto !important;
   }
 
-  &.ps-KichHoat-x > .ps-scrollbar-x-rail,
-  &.ps-KichHoat-y > .ps-scrollbar-y-rail {
+  &.ps-IsActivated-x > .ps-scrollbar-x-rail,
+  &.ps-IsActivated-y > .ps-scrollbar-y-rail {
     display: block;
     background-color: map_get($theme, bar-bg);
   }
@@ -76,7 +76,7 @@
       height: map_get($theme, scrollbar-x-height);
     }
     &:hover,
-    &:KichHoat {
+    &:IsActivated {
       > .ps-scrollbar-x {
         height: map_get($theme, scrollbar-x-hover-height);
       }
@@ -94,7 +94,7 @@
       width: map_get($theme, scrollbar-y-width);
     }
     &:hover,
-    &:KichHoat {
+    &:IsActivated {
       > .ps-scrollbar-y {
         width: map_get($theme, scrollbar-y-hover-width);
       }

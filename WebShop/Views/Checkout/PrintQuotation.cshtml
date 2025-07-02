@@ -206,7 +206,7 @@
         <div style="background: #fff; color: #000;white-space: nowrap;margin-top:10px">
             <p>
                 <b>To (Kính gửi)           :</b>
-                @if (ViewBag.HoTen != null) {@ViewBag.HoTen}
+                @if (ViewBag.FullName != null) {@ViewBag.FullName}
             </p>
 
             <p><b>Address (Địa chỉ)       :</b>
@@ -222,9 +222,9 @@
                 }
             </p>
             <p><b>Contact (Người liên hệ) :</b> 
-                @if (ViewBag.HoTen != null)
+                @if (ViewBag.FullName != null)
                 {
-                    @ViewBag.HoTen
+                    @ViewBag.FullName
                 } </p>
             <p><b>SoDienThoai (Số điện thoại)   :</b>
                 @if (ViewBag.SoDienThoai != null)

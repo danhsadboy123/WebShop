@@ -46,7 +46,7 @@ namespace WebShop.Controllers
             //            ThumbShow = cat.ThumbShow,
             //            BannerThumb = cat.BannerThumb,
             //            Attributes = cat.CategoryAttributes
-            //                .Where(ca => ca.KichHoat == true)
+            //                .Where(ca => ca.IsActivated == true)
             //                .OrderBy(ca => ca.Attribute.Ordering)
             //                .Select(ca => new AttributeViewModel
             //                {
@@ -63,7 +63,7 @@ namespace WebShop.Controllers
             //                }).ToList(),
 
             //            Brands = cat.CategoryBrands
-            //                .Where(cb => cb.KichHoat == true)
+            //                .Where(cb => cb.IsActivated == true)
             //                .Select(cb => new BrandViewModel
             //                {
             //                    BrandId = cb.Brand.BrandId,
@@ -75,7 +75,7 @@ namespace WebShop.Controllers
             //                .ToList(),
 
             //            Slides = _context.Slides
-            //                .Where(s => s.CatId == cat.CatId && s.KichHoat == true)
+            //                .Where(s => s.CatId == cat.CatId && s.IsActivated == true)
             //                .OrderBy(s => s.Ordering)
             //                .Select(s => new SlideVM
             //                {
@@ -83,7 +83,7 @@ namespace WebShop.Controllers
             //                    Thumb = s.Thumb,
             //                    Alias = s.Alias,
             //                    SlideName = s.SlideName,
-            //                    KichHoat = s.KichHoat
+            //                    IsActivated = s.IsActivated
             //                }).ToList(),
             //        })
             //        .ToList();

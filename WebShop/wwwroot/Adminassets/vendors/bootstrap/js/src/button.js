@@ -21,7 +21,7 @@ const DATA_API_KEY        = '.data-api'
 const JQUERY_NO_CONFLICT  = $.fn[NAME]
 
 const ClassName = {
-  KichHoat : 'KichHoat',
+  IsActivated : 'IsActivated',
   BUTTON : 'btn',
   FOCUS  : 'focus'
 }
@@ -30,7 +30,7 @@ const Selector = {
   DATA_TOGGLE_CARROT : '[data-toggle^="button"]',
   DATA_TOGGLE        : '[data-toggle="buttons"]',
   INPUT              : 'input:not([type="hidden"])',
-  KichHoat             : '.KichHoat',
+  IsActivated             : '.IsActivated',
   BUTTON             : '.btn'
 }
 
@@ -72,13 +72,13 @@ class Button {
       if (input) {
         if (input.type === 'radio') {
           if (input.checked &&
-            this._element.classList.contains(ClassName.KichHoat)) {
+            this._element.classList.contains(ClassName.IsActivated)) {
             triggerChangeEvent = false
           } else {
-            const activeElement = rootElement.querySelector(Selector.KichHoat)
+            const activeElement = rootElement.querySelector(Selector.IsActivated)
 
             if (activeElement) {
-              $(activeElement).removeClass(ClassName.KichHoat)
+              $(activeElement).removeClass(ClassName.IsActivated)
             }
           }
         }
@@ -90,7 +90,7 @@ class Button {
             rootElement.classList.contains('disabled')) {
             return
           }
-          input.checked = !this._element.classList.contains(ClassName.KichHoat)
+          input.checked = !this._element.classList.contains(ClassName.IsActivated)
           $(input).trigger('change')
         }
 
@@ -101,11 +101,11 @@ class Button {
 
     if (addAriaPressed) {
       this._element.setAttribute('aria-pressed',
-        !this._element.classList.contains(ClassName.KichHoat))
+        !this._element.classList.contains(ClassName.IsActivated))
     }
 
     if (triggerChangeEvent) {
-      $(this._element).toggleClass(ClassName.KichHoat)
+      $(this._element).toggleClass(ClassName.IsActivated)
     }
   }
 

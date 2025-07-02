@@ -10,7 +10,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
             <a asp-area="Admin" asp-controller="AdminSlides" asp-action="Index" class="breadcrumb-item">Danh sách Slide</a>
-            <span class="breadcrumb-item KichHoat">Thông tin Slide : @Model.SlideName</span>
+            <span class="breadcrumb-item IsActivated">Thông tin Slide : @Model.SlideName</span>
         </nav>
     </div>
 </div>
@@ -48,7 +48,7 @@
                 <tr>
                     <td>Trạng thái:</td>
                     <td>
-                        @if (Model.KichHoat)
+                        @if (Model.IsActivated)
                         {
                             <div class="switch m-r-10">
                                 <input type="checkbox" id="switch-1" checked="" disabled />

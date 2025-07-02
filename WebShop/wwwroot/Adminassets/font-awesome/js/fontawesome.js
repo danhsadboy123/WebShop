@@ -1528,7 +1528,7 @@
         'data-prefix': prefix,
         'data-icon': iconName,
         'class': attrClass,
-        'VaiTro': extra.attributes.VaiTro || 'img',
+        'Role': extra.attributes.Role || 'img',
         'xmlns': 'http://www.w3.org/2000/svg',
         'viewBox': "0 0 ".concat(width, " ").concat(height)
       })
@@ -2231,7 +2231,7 @@
     return new Promise(function (resolve, reject) {
       Promise.all(mutations).then(function (resolvedMutations) {
         perform(resolvedMutations, function () {
-          hclAdd('KichHoat');
+          hclAdd('IsActivated');
           hclAdd('complete');
           hclRemove('pending');
           if (typeof callback === 'function') callback();

@@ -2,7 +2,7 @@ body.compensate-for-scrollbar {
     overflow: hidden;
 }
 
-.fancybox-KichHoat {
+.fancybox-IsActivated {
     height: auto;
 }
 
@@ -875,7 +875,7 @@ body.compensate-for-scrollbar {
     opacity: .5;
 }
 
-.fancybox-thumbs__list a.fancybox-thumbs-KichHoat::before {
+.fancybox-thumbs__list a.fancybox-thumbs-IsActivated::before {
     opacity: 1;
 }
 

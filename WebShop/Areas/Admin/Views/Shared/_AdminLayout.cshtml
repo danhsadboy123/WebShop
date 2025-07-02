@@ -124,12 +124,12 @@
                                             <img src="~/Adminassets/images/avatars/thumb-3.jpg" alt="">
                                         </div>
                                         @{
-                                            string HoTen = User.FindFirstValue(ClaimTypes.Name);
-                                            string VaiTro = User.FindFirstValue(ClaimTypes.Role); // Sửa ở đây
+                                            string FullName = User.FindFirstValue(ClaimTypes.Name);
+                                            string Role = User.FindFirstValue(ClaimTypes.Role); // Sửa ở đây
                                         }
                                         <div class="m-l-10">
-                                            <p class="m-b-0 text-dark font-weight-semibold">@HoTen</p>
-                                            <p class="m-b-0 opacity-07 Adminrole" data-Ad="@VaiTro">@VaiTro</p>
+                                            <p class="m-b-0 text-dark font-weight-semibold">@FullName</p>
+                                            <p class="m-b-0 opacity-07 Adminrole" data-Ad="@Role">@Role</p>
                                         </div>
                                     </div>
                                 </div>

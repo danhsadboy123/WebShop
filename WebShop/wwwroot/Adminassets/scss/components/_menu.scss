@@ -33,13 +33,13 @@
                     color: $brand-primary;
                 }
 
-                &:KichHoat,
-                &.KichHoat {
+                &:IsActivated,
+                &.IsActivated {
                     color: $brand-primary;
                     background-color: rgba($brand-primary, 0.1);
                 }
 
-                &.KichHoat {
+                &.IsActivated {
                     &:after {
                         transform: scaleY(1);
                         opacity: 1;

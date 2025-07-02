@@ -9,7 +9,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <span class="breadcrumb-item KichHoat">Danh sách Slide</span>
+            <span class="breadcrumb-item IsActivated">Danh sách Slide</span>
         </nav>
     </div>
 </div>
@@ -72,7 +72,7 @@
                                 
                                 <td>@item.Alias</td>
                                 <td>
-                                    @if (item.KichHoat)
+                                    @if (item.IsActivated)
                                     {
                                         <div class="d-flex align-items-center">
                                             <div class="badge badge-success badge-dot m-r-10"></div>

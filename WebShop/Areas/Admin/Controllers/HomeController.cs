@@ -39,7 +39,7 @@ namespace WebShop.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
+            var taikhoanID = HttpContext.Session.GetString("AccountId");
             if (taikhoanID == null) return RedirectToAction("AdminLogin", "Account", new { Area = "Admin" });
 
             //var latestOrders = _context.Orders
@@ -74,8 +74,8 @@ namespace WebShop.Areas.Admin.Controllers
         {
 
 
-            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
-            var Admin = _context.TaiKhoans.Where(x => x.MaTaiKhoan == Int32.Parse(taikhoanID)).First();
+            var taikhoanID = HttpContext.Session.GetString("AccountId");
+            var Admin = _context.Accounts.Where(x => x.AccountId == Int32.Parse(taikhoanID)).First();
             if (id != pageInfo.Id)
             {
                 return NotFound();
@@ -102,7 +102,7 @@ namespace WebShop.Areas.Admin.Controllers
                 if (string.IsNullOrEmpty(pageInfo.OgImage)) pageInfo.OgImage = "default.png";
                 try
                 {
-                    if (Admin.MaVaiTro == 1)
+                    if (Admin.RoleId == 1)
                     {
                         _context.Update(pageInfo);
                     }
@@ -146,7 +146,7 @@ namespace WebShop.Areas.Admin.Controllers
         [Route("Settingfull")]
         public IActionResult Settingfull()
         {
-            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
+            var taikhoanID = HttpContext.Session.GetString("AccountId");
             if (taikhoanID == null) return RedirectToAction("AdminLogin", "Account", new { Area = "Admin" });
 
             return View();

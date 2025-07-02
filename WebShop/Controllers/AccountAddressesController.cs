@@ -76,7 +76,7 @@ namespace WebShop.Controllers
                     }
                     customer.SoDienThoai = Phone1;    
                     customer.Email = Email1;
-                    customer.HoTen = FullName1;
+                    customer.FullName = FullName1;
                     _context.Customers.Update(customer);
                     _context.SaveChanges();
                     success = true;

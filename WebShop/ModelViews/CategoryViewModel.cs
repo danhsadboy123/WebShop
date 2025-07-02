@@ -52,7 +52,7 @@ namespace WebShop.ModelViews
 
         public string SlideName { get; set; }
 
-        public bool KichHoat { get; set; } 
+        public bool IsActivated { get; set; } 
         public int? Ordering { get; set; }
 
         public virtual Category Cat { get; set; }

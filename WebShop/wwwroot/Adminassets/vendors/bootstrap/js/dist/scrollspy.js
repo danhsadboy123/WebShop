@@ -92,11 +92,11 @@
   var ClassName = {
     DROPDOWN_ITEM: 'dropdown-item',
     DROPDOWN_MENU: 'dropdown-menu',
-    KichHoat: 'KichHoat'
+    IsActivated: 'IsActivated'
   };
   var Selector = {
     DATA_SPY: '[data-spy="scroll"]',
-    KichHoat: '.KichHoat',
+    IsActivated: '.IsActivated',
     NAV_LIST_GROUP: '.nav, .list-group',
     NAV_LINKS: '.nav-link',
     NAV_ITEMS: '.nav-item',
@@ -277,16 +277,16 @@
       var $link = $([].slice.call(document.querySelectorAll(queries.join(','))));
 
       if ($link.hasClass(ClassName.DROPDOWN_ITEM)) {
-        $link.closest(Selector.DROPDOWN).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.KichHoat);
-        $link.addClass(ClassName.KichHoat);
+        $link.closest(Selector.DROPDOWN).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.IsActivated);
+        $link.addClass(ClassName.IsActivated);
       } else {
-        // Set triggered link as KichHoat
-        $link.addClass(ClassName.KichHoat); // Set triggered links parents as KichHoat
+        // Set triggered link as IsActivated
+        $link.addClass(ClassName.IsActivated); // Set triggered links parents as IsActivated
         // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
 
-        $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_LINKS + ", " + Selector.LIST_ITEMS).addClass(ClassName.KichHoat); // Handle special case when .nav-link is inside .nav-item
+        $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_LINKS + ", " + Selector.LIST_ITEMS).addClass(ClassName.IsActivated); // Handle special case when .nav-link is inside .nav-item
 
-        $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_ITEMS).children(Selector.NAV_LINKS).addClass(ClassName.KichHoat);
+        $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_ITEMS).children(Selector.NAV_LINKS).addClass(ClassName.IsActivated);
       }
 
       $(this._scrollElement).trigger(Event.ACTIVATE, {
@@ -296,9 +296,9 @@
 
     _proto._clear = function _clear() {
       [].slice.call(document.querySelectorAll(this._selector)).filter(function (node) {
-        return node.classList.contains(ClassName.KichHoat);
+        return node.classList.contains(ClassName.IsActivated);
       }).forEach(function (node) {
-        return node.classList.remove(ClassName.KichHoat);
+        return node.classList.remove(ClassName.IsActivated);
       });
     } // Static
     ;

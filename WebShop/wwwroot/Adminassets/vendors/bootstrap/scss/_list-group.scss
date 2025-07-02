@@ -15,7 +15,7 @@
 // Interactive list items
 //
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
-// list items. Includes an extra `.KichHoat` modifier class for selected items.
+// list items. Includes an extra `.IsActivated` modifier class for selected items.
 
 .list-group-item-action {
   width: 100%; // For `<button>`s (anchors become 100% by default though)
@@ -30,9 +30,9 @@
     background-color: $list-group-hover-bg;
   }
 
-  &:KichHoat {
-    color: $list-group-action-KichHoat-color;
-    background-color: $list-group-action-KichHoat-bg;
+  &:IsActivated {
+    color: $list-group-action-IsActivated-color;
+    background-color: $list-group-action-IsActivated-bg;
   }
 }
 
@@ -68,11 +68,11 @@
   }
 
   // Include both here for `<a>`s and `<button>`s
-  &.KichHoat {
-    z-index: 2; // Place KichHoat items above their siblings for proper border styling
-    color: $list-group-KichHoat-color;
-    background-color: $list-group-KichHoat-bg;
-    border-color: $list-group-KichHoat-border-color;
+  &.IsActivated {
+    z-index: 2; // Place IsActivated items above their siblings for proper border styling
+    color: $list-group-IsActivated-color;
+    background-color: $list-group-IsActivated-bg;
+    border-color: $list-group-IsActivated-border-color;
   }
 }
 

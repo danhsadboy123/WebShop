@@ -137,7 +137,7 @@ namespace WebShop.Controllers
                     .Include(a => a.CategoryAttributes)
                     .Include(a => a.AttributesPrices)
                     .AsNoTracking()
-                    .Where(a => a.CategoryAttributes.Any(ca => ca.CatId == danhmuc.CatId) && a.AttributesPrices.Any(ap => ap.KichHoat) && a.KichHoat)
+                    .Where(a => a.CategoryAttributes.Any(ca => ca.CatId == danhmuc.CatId) && a.AttributesPrices.Any(ap => ap.IsActivated) && a.IsActivated)
                     .OrderBy(a => a.Ordering)
                     .ToList();
 
@@ -146,7 +146,7 @@ namespace WebShop.Controllers
 
 
                 //lấy slider theo danh mục
-                var slider = _context.Slides.Where(s => s.KichHoat == true && s.Right == true && s.Bottom == false && s.HomeFlag == false && s.CatId == danhmuc.CatId).ToList();
+                var slider = _context.Slides.Where(s => s.IsActivated == true && s.Right == true && s.Bottom == false && s.HomeFlag == false && s.CatId == danhmuc.CatId).ToList();
 
                 ViewBag.Slider = slider; 
                 // ViewBag setup
@@ -594,7 +594,7 @@ namespace WebShop.Controllers
                                 .Where(x =>
                                     x.ProductCategories.Any(pc => pc.CatId == cateid.CatId) && // Lọc theo cùng danh mục
                                     x.ProductId != id && // Loại bỏ sản phẩm hiện tại
-                                    x.KichHoat == true && // Sản phẩm còn hoạt động
+                                    x.IsActivated == true && // Sản phẩm còn hoạt động
                                     x.BrandId == product.BrandId // Lọc theo cùng hãng
                                 )
                                 .Select(p => new Product
@@ -653,7 +653,7 @@ namespace WebShop.Controllers
                                                 .Where(x =>
                                                     x.ProductCategories.Any(pc => pc.CatId == cateid.CatId) && // Lọc theo danh mục
                                                     x.ProductId != id && // Loại bỏ sản phẩm hiện tại
-                                                    x.KichHoat == true && // Sản phẩm còn hoạt động
+                                                    x.IsActivated == true && // Sản phẩm còn hoạt động
                                                     x.Price >= minPrice && x.Price <= maxPrice // Lọc theo khoảng giá
                                                 )
                                                 .Select(p => new Product
@@ -747,7 +747,7 @@ namespace WebShop.Controllers
             {
                 // Truy vấn dữ liệu từ database
                 attributes = _context.CategoryAttributes
-                    .Where(ca => ca.CatId == id && ca.KichHoat ==true) // Lọc theo CatId và KichHoat
+                    .Where(ca => ca.CatId == id && ca.IsActivated ==true) // Lọc theo CatId và IsActivated
                     .OrderBy(ca => ca.Attribute.Ordering) // Sắp xếp theo thứ tự
                     .Select(ca => new AttributeViewModel
                     {
@@ -791,7 +791,7 @@ namespace WebShop.Controllers
             {
                 // Nếu chưa có, truy vấn cơ sở dữ liệu
                 data = _context.CategoryBrands
-                                .Where(c => c.CatId == id && c.KichHoat == true)
+                                .Where(c => c.CatId == id && c.IsActivated == true)
                                 .Take(18)
                                 .Select(c => new
                                 {
@@ -821,7 +821,7 @@ namespace WebShop.Controllers
         public IActionResult loadProductNavByCateId(int id)
         {
             var data = _context.Slides
-                           .Where(s => s.CatId == id && s.KichHoat == true)
+                           .Where(s => s.CatId == id && s.IsActivated == true)
                            .OrderBy(s => s.Ordering)
                            .Select(s => new SlideVM
                            {
@@ -829,7 +829,7 @@ namespace WebShop.Controllers
                                Thumb = s.Thumb,
                                Alias = s.Alias,
                                SlideName = s.SlideName,
-                               KichHoat = s.KichHoat
+                               IsActivated = s.IsActivated
                            }).ToList();
             return Json(new { data });
         }
@@ -857,7 +857,7 @@ namespace WebShop.Controllers
         //            .Include(x => x.ProductThumbs)
         //            .Include(x => x.AttributesPrices)
         //            .Include(x=>x.Brand)
-        //            .Where(x => x.KichHoat == true)
+        //            .Where(x => x.IsActivated == true)
         //            .Where(p => descendantCategoryIds.Contains((int)p.CatId))
         //            .ToList();
 

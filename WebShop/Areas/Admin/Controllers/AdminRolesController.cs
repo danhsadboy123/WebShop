@@ -28,7 +28,7 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/AdminRoles
         public async Task<IActionResult> Index()
         {
-            return View(await _context.VaiTros.ToListAsync());
+            return View(await _context.Roles.ToListAsync());
         }
 
         // GET: Admin/AdminRoles/Details/5
@@ -39,14 +39,14 @@ namespace WebShop.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var VaiTro = await _context.VaiTros
-                .FirstOrDefaultAsync(m => m.MaVaiTro == id);
-            if (VaiTro == null)
+            var Role = await _context.Roles
+                .FirstOrDefaultAsync(m => m.RoleId == id);
+            if (Role == null)
             {
                 return NotFound();
             }
 
-            return View(VaiTro);
+            return View(Role);
         }
 
         // GET: Admin/AdminRoles/Create
@@ -60,16 +60,16 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaVaiTro,TenVaiTro,MoTa")] VaiTro VaiTro)
+        public async Task<IActionResult> Create([Bind("RoleId,RoleName,MoTa")] Role Role)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(VaiTro);
+                _context.Add(Role);
                 await _context.SaveChangesAsync();
                 _notyfService.Success("Tạo mới thành công");
                 return RedirectToAction(nameof(Index));
             }
-            return View(VaiTro);
+            return View(Role);
         }
 
         // GET: Admin/AdminRoles/Edit/5
@@ -80,12 +80,12 @@ namespace WebShop.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var VaiTro = await _context.VaiTros.FindAsync(id);
-            if (VaiTro == null)
+            var Role = await _context.Roles.FindAsync(id);
+            if (Role == null)
             {
                 return NotFound();
             }
-            return View(VaiTro);
+            return View(Role);
         }
 
         // POST: Admin/AdminRoles/Edit/5
@@ -93,9 +93,9 @@ namespace WebShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MaVaiTro,TenVaiTro,MoTa")] VaiTro VaiTro)
+        public async Task<IActionResult> Edit(int id, [Bind("RoleId,RoleName,MoTa")] Role Role)
         {
-            if (id != VaiTro.MaVaiTro)
+            if (id != Role.RoleId)
             {
                 return NotFound();
             }
@@ -104,13 +104,13 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(VaiTro);
+                    _context.Update(Role);
                     await _context.SaveChangesAsync();
                     _notyfService.Success("Cập nhật thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RoleExists(VaiTro.MaVaiTro))
+                    if (!RoleExists(Role.RoleId))
                     {
                         _notyfService.Success("Có lỗi xảy ra");
                         return NotFound();
@@ -122,7 +122,7 @@ namespace WebShop.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(VaiTro);
+            return View(Role);
         }
 
         // GET: Admin/AdminRoles/Delete/5
@@ -133,14 +133,14 @@ namespace WebShop.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var VaiTro = await _context.VaiTros
-                .FirstOrDefaultAsync(m => m.MaVaiTro == id);
-            if (VaiTro == null)
+            var Role = await _context.Roles
+                .FirstOrDefaultAsync(m => m.RoleId == id);
+            if (Role == null)
             {
                 return NotFound();
             }
 
-            return View(VaiTro);
+            return View(Role);
         }
 
         // POST: Admin/AdminRoles/Delete/5
@@ -148,8 +148,8 @@ namespace WebShop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var VaiTro = await _context.VaiTros.FindAsync(id);
-            _context.VaiTros.Remove(VaiTro);
+            var Role = await _context.Roles.FindAsync(id);
+            _context.Roles.Remove(Role);
             await _context.SaveChangesAsync();
             _notyfService.Success("Xóa quyền truy cập thành công");
             return RedirectToAction(nameof(Index));
@@ -157,7 +157,7 @@ namespace WebShop.Areas.Admin.Controllers
 
         private bool RoleExists(int id)
         {
-            return _context.VaiTros.Any(e => e.MaVaiTro == id);
+            return _context.Roles.Any(e => e.RoleId == id);
         }
     }
 }

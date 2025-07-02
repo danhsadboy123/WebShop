@@ -19,7 +19,7 @@ public partial class OrderDetail
 
     public int? TotalMoney { get; set; }
 
-    public DateTime? NgayTao { get; set; }
+    public DateTime? CreatedAt { get; set; }
 
     public int? Price { get; set; }
 

@@ -179,7 +179,7 @@
     baseClass: "",
 
     // Base template for layout
-    baseTpl: '<div class="fancybox-container" VaiTro="dialog" tabindex="-1">' +
+    baseTpl: '<div class="fancybox-container" Role="dialog" tabindex="-1">' +
       '<div class="fancybox-bg"></div>' +
       '<div class="fancybox-inner">' +
       '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
@@ -237,7 +237,7 @@
     // Try to focus on the first focusable element after opening
     autoFocus: true,
 
-    // Put focus back to KichHoat element after closing
+    // Put focus back to IsActivated element after closing
     backFocus: true,
 
     // Do not let user to focus on element outside modal content
@@ -570,7 +570,7 @@
       // Hide scrollbars
       // ===============
 
-      $("body").addClass("fancybox-KichHoat");
+      $("body").addClass("fancybox-IsActivated");
 
       if (
         !$.fancybox.getInstance() &&
@@ -1196,7 +1196,7 @@
           );
         });
       } else if (duration && current.opts.transitionEffect) {
-        // Set transition effect for previously KichHoat slide
+        // Set transition effect for previously IsActivated slide
         prop = "fancybox-animated fancybox-fx-" + current.opts.transitionEffect;
 
         previous.$slide.addClass("fancybox-slide--" + (previous.pos > current.pos ? "next" : "previous"));
@@ -2909,7 +2909,7 @@
       if (instance) {
         instance.activate();
       } else {
-        $("body").removeClass("fancybox-KichHoat compensate-for-scrollbar");
+        $("body").removeClass("fancybox-IsActivated compensate-for-scrollbar");
 
         $("#fancybox-style-noscroll").remove();
       }
@@ -3355,7 +3355,7 @@
 
     instance = $.fancybox.open(items, opts, index);
 
-    // Save last KichHoat element
+    // Save last IsActivated element
     instance.$trigger = $target;
   }
 
@@ -3796,7 +3796,7 @@
 
   var isClickable = function ($el) {
     if (
-      $el.is('a,area,button,[VaiTro="button"],input,label,select,summary,textarea,video,audio,iframe') ||
+      $el.is('a,area,button,[Role="button"],input,label,select,summary,textarea,video,audio,iframe') ||
       $.isFunction($el.get(0).onclick) ||
       $el.data("selectable")
     ) {
@@ -4837,7 +4837,7 @@
     }
   });
 
-  // Page Visibility API to pause slideshow when window is not KichHoat
+  // Page Visibility API to pause slideshow when window is not IsActivated
   $(document).on("visibilitychange", function () {
     var instance = $.fancybox.getInstance(),
       SlideShow = instance && instance.SlideShow;
@@ -5034,7 +5034,7 @@
   "use strict";
 
   var CLASS = "fancybox-thumbs",
-    CLASS_ACTIVE = CLASS + "-KichHoat";
+    CLASS_ACTIVE = CLASS + "-IsActivated";
 
   // Make sure there are default values
   $.fancybox.defaults = $.extend(

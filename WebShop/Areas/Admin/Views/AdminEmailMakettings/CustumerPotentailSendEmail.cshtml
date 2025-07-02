@@ -32,7 +32,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
             <a class="breadcrumb-item">Chăm sóc khách hàng</a>
-            <span class="breadcrumb-item KichHoat">Khách hàng tiềm năng</span>
+            <span class="breadcrumb-item IsActivated">Khách hàng tiềm năng</span>
         </nav>
     </div>
 </div>
@@ -103,7 +103,7 @@
                 <div class="d-md-flex">
                     <div class="m-b-15">
                         <button class="btn btn-primary" id="ClickAllEmail" onclick="SendAllEmail()"><i class="anticon anticon-mail"></i> <span>Gửi thư </span></button>
-                        <div id="loadAllEmail" class="spinner-border text-primary" VaiTro="status">
+                        <div id="loadAllEmail" class="spinner-border text-primary" Role="status">
                             <span class="sr-only"></span>
                         </div>
                         <span id="errEmail">Liên hệ Sunhitech lỗi gửi email</span>
@@ -417,7 +417,7 @@
     </div>
 </div>
 @*excel*@
-<div id="import_excel_md" class="modal fade" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="import_excel_md" class="modal fade" tabindex="-1" Role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form asp-area="Admin" asp-controller="AdminCustomerPotentails" asp-action="ImportCustommerP" method="post" enctype="multipart/form-data">

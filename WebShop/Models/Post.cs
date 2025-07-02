@@ -31,7 +31,7 @@ public partial class Post
 
     public string Author { get; set; }
 
-    public int? MaTaiKhoan { get; set; }
+    public int? AccountId { get; set; }
 
     public int? PostCatId { get; set; }
 

@@ -54,11 +54,11 @@
     }
   }
 
-  .nav-link.KichHoat,
+  .nav-link.IsActivated,
   .nav-item.show .nav-link {
-    color: $nav-tabs-link-KichHoat-color;
-    background-color: $nav-tabs-link-KichHoat-bg;
-    border-color: $nav-tabs-link-KichHoat-border-color;
+    color: $nav-tabs-link-IsActivated-color;
+    background-color: $nav-tabs-link-IsActivated-bg;
+    border-color: $nav-tabs-link-IsActivated-border-color;
   }
 
   .dropdown-menu {
@@ -79,10 +79,10 @@
     @include border-radius($nav-pills-border-radius);
   }
 
-  .nav-link.KichHoat,
+  .nav-link.IsActivated,
   .show > .nav-link {
-    color: $nav-pills-link-KichHoat-color;
-    background-color: $nav-pills-link-KichHoat-bg;
+    color: $nav-pills-link-IsActivated-color;
+    background-color: $nav-pills-link-IsActivated-bg;
   }
 }
 
@@ -111,13 +111,13 @@
 
 // Tabbable tabs
 //
-// Hide tabbable panes to start, show them when `.KichHoat`
+// Hide tabbable panes to start, show them when `.IsActivated`
 
 .tab-content {
   > .tab-pane {
     display: none;
   }
-  > .KichHoat {
+  > .IsActivated {
     display: block;
   }
 }

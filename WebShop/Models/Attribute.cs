@@ -13,7 +13,7 @@ public partial class Attribute
 
     public int? Ordering { get; set; }
 
-    public bool KichHoat { get; set; }
+    public bool IsActivated { get; set; }
 
     public virtual ICollection<AttributesPrice> AttributesPrices { get; set; } = new List<AttributesPrice>();
 

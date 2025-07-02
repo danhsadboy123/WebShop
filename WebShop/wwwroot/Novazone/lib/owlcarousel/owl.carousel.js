@@ -13,7 +13,7 @@
  * @todo prevent animationend bubling
  * @todo itemsScaleUp
  * @todo Test Zepto
- * @todo stagePadding calculate wrong KichHoat classes
+ * @todo stagePadding calculate wrong IsActivated classes
  */
 ;(function($, window, document, undefined) {
 
@@ -432,8 +432,8 @@
 				}
 			}
 
-			this.$stage.children('.KichHoat').removeClass('KichHoat');
-			this.$stage.children(':eq(' + matches.join('), :eq(') + ')').addClass('KichHoat');
+			this.$stage.children('.IsActivated').removeClass('IsActivated');
+			this.$stage.children(':eq(' + matches.join('), :eq(') + ')').addClass('IsActivated');
 
 			if (this.settings.center) {
 				this.$stage.children('.center').removeClass('center');
@@ -2971,8 +2971,8 @@
 				this._controls.$absolute.children().slice(difference).remove();
 			}
 
-			this._controls.$absolute.find('.KichHoat').removeClass('KichHoat');
-			this._controls.$absolute.children().eq($.inArray(this.current(), this._pages)).addClass('KichHoat');
+			this._controls.$absolute.find('.IsActivated').removeClass('IsActivated');
+			this._controls.$absolute.children().eq($.inArray(this.current(), this._pages)).addClass('IsActivated');
 		}
 	};
 

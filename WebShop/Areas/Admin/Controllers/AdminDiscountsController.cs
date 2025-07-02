@@ -358,13 +358,13 @@ namespace WebShop.Areas.Admin.Controllers
                             }
                         }
                     }
-                    var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
-                    var user = _context.TaiKhoans.Where(x=>x.MaTaiKhoan==int.Parse(taikhoanID)).FirstOrDefault();
+                    var taikhoanID = HttpContext.Session.GetString("AccountId");
+                    var user = _context.Accounts.Where(x=>x.AccountId==int.Parse(taikhoanID)).FirstOrDefault();
                     if (user !=null)
                     {
                         HistoryDiscount his = new HistoryDiscount();
                         his.DiscountId = id;
-                        his.MoTa = "Khởi tạo bởi "+ user.HoTen + " id:" + taikhoanID;
+                        his.MoTa = "Khởi tạo bởi "+ user.FullName + " id:" + taikhoanID;
                         his.TimeCreate = DateTime.Now;
                         _context.HistoryDiscounts.Add(his);
                         _context.SaveChanges();
@@ -516,13 +516,13 @@ namespace WebShop.Areas.Admin.Controllers
                         
                     }
                      
-                    var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
-                    var user = _context.TaiKhoans.Where(x => x.MaTaiKhoan == int.Parse(taikhoanID)).FirstOrDefault();
+                    var taikhoanID = HttpContext.Session.GetString("AccountId");
+                    var user = _context.Accounts.Where(x => x.AccountId == int.Parse(taikhoanID)).FirstOrDefault();
                     if (user != null)
                     {
                         HistoryDiscount his = new HistoryDiscount();
                         his.DiscountId = id;
-                        his.MoTa = "Khởi tạo bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.MoTa = "Khởi tạo bởi " + user.FullName + " id:" + taikhoanID;
                         his.TimeCreate = DateTime.Now;
                         _context.HistoryDiscounts.Add(his);
                         _context.SaveChanges();
@@ -606,8 +606,8 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 return Json(new { success = "No" });
             }
-            var taikhoanID = HttpContext.Session.GetString("MaTaiKhoan");
-            var user = _context.TaiKhoans.Where(x => x.MaTaiKhoan == int.Parse(taikhoanID)).FirstOrDefault();
+            var taikhoanID = HttpContext.Session.GetString("AccountId");
+            var user = _context.Accounts.Where(x => x.AccountId == int.Parse(taikhoanID)).FirstOrDefault();
 
                 HistoryDiscount his = new HistoryDiscount();
             try {
@@ -618,12 +618,12 @@ namespace WebShop.Areas.Admin.Controllers
                     if (discount.ShowWeb == true)
                     {
                         discount.ShowWeb = false;
-                        his.MoTa = "Khuyến mãi đã bị ẩn hiển thị trên web bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.MoTa = "Khuyến mãi đã bị ẩn hiển thị trên web bởi " + user.FullName + " id:" + taikhoanID;
                     }
                     else
                     {
                         discount.ShowWeb = true;
-                        his.MoTa = "Khuyến mãi đã được bật hiển thị trên web bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.MoTa = "Khuyến mãi đã được bật hiển thị trên web bởi " + user.FullName + " id:" + taikhoanID;
                     }
                     _context.Update(discount);
                     _context.SaveChanges();
@@ -634,12 +634,12 @@ namespace WebShop.Areas.Admin.Controllers
                     if (discount.Startus == true)
                     {
                         discount.Startus = false;
-                        his.MoTa = "Khuyến mãi đã đổi trạng thái ẩn bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.MoTa = "Khuyến mãi đã đổi trạng thái ẩn bởi " + user.FullName + " id:" + taikhoanID;
                     }
                     else
                     {
                         discount.Startus = true;
-                        his.MoTa = "Khuyến mãi đã đổi trạng thái bật bởi " + user.HoTen + " id:" + taikhoanID;
+                        his.MoTa = "Khuyến mãi đã đổi trạng thái bật bởi " + user.FullName + " id:" + taikhoanID;
                     }
                     _context.Update(discount);
                     _context.SaveChanges();

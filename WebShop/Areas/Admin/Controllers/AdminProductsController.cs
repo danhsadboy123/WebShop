@@ -63,7 +63,7 @@ namespace WebShop.Areas.Admin.Controllers
                 InputPrice = HttpContext.Session.Get<bool?>("InputPrice") ?? true,
                 SalePrice = HttpContext.Session.Get<bool?>("SalePrice") ?? true,
                 UnitsInStock = HttpContext.Session.Get<bool?>("UnitsInStock") ?? true,
-                KichHoat = HttpContext.Session.Get<bool?>("KichHoat") ?? true,
+                IsActivated = HttpContext.Session.Get<bool?>("IsActivated") ?? true,
                 DateCreated = HttpContext.Session.Get<bool?>("DateCreated") ?? false,
             };
             var check = HttpContext.Session.GetString("ProductView");
@@ -71,9 +71,9 @@ namespace WebShop.Areas.Admin.Controllers
             {
                 query = query.ToList();
             }
-            if (check == "KichHoat")
+            if (check == "IsActivated")
             {
-                query = query.Where(i => i.KichHoat == true).ToList();
+                query = query.Where(i => i.IsActivated == true).ToList();
             }
             if (check == "Stock")
             {
@@ -81,7 +81,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
             if (check == "Off")
             {
-                query = query.Where(i => i.KichHoat == false).ToList();
+                query = query.Where(i => i.IsActivated == false).ToList();
             }
             var proOption = _context.Products.Where(c => c.ProductCode == c.ProductOption).ToList();
             ViewBag.proOption = proOption;
@@ -414,7 +414,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
             if (id == 1)
             {
-                HttpContext.Session.SetString("ProductView", "KichHoat");
+                HttpContext.Session.SetString("ProductView", "IsActivated");
             }
             if (id == 2)
             {
@@ -512,7 +512,7 @@ namespace WebShop.Areas.Admin.Controllers
                     Video = adminProductVM.Video,
                     BestSellers = adminProductVM.BestSellers,
                     HomeFlag = adminProductVM.HomeFlag,
-                    KichHoat = adminProductVM.KichHoat,
+                    IsActivated = adminProductVM.IsActivated,
                     Title = adminProductVM.Title,
                     MetaDesc = adminProductVM.MetaDesc,
                     MetaKey = adminProductVM.MetaKey,
@@ -592,7 +592,7 @@ namespace WebShop.Areas.Admin.Controllers
                 Video = product.Video,
                 BestSellers = product.BestSellers,
                 HomeFlag = product.HomeFlag,
-                KichHoat = product.KichHoat,
+                IsActivated = product.IsActivated,
                 Title = product.Title,
                 MetaDesc = product.MetaDesc,
                 MetaKey = product.MetaKey,
@@ -685,7 +685,7 @@ namespace WebShop.Areas.Admin.Controllers
                     product.Video = adminProductVM.Video;
                     product.BestSellers = adminProductVM.BestSellers;
                     product.HomeFlag = adminProductVM.HomeFlag;
-                    product.KichHoat = adminProductVM.KichHoat;
+                    product.IsActivated = adminProductVM.IsActivated;
                     product.Title = adminProductVM.Title;
                     product.MetaDesc = adminProductVM.MetaDesc;
                     product.MetaKey = adminProductVM.MetaKey;
@@ -741,7 +741,7 @@ namespace WebShop.Areas.Admin.Controllers
                                 AttributeId = attributeValue.AttributeId,
                                 ProductId = product.ProductId,
                                 Price = attributeValue.Price,
-                                KichHoat = true
+                                IsActivated = true
                             };
                             _context.AttributesPrices.Add(newAttributeValue);
                             await _context.SaveChangesAsync();
@@ -1081,14 +1081,14 @@ namespace WebShop.Areas.Admin.Controllers
                 var product = _context.Products.Find(id);
                 if (product != null)
                 {
-                    if (product.KichHoat == true)
+                    if (product.IsActivated == true)
                     {
-                        product.KichHoat = false;
+                        product.IsActivated = false;
                         text = false;
                     }
                     else
                     {
-                        product.KichHoat = true;
+                        product.IsActivated = true;
                     }
                     _context.Update(product);
                     _context.SaveChanges();
@@ -1401,11 +1401,11 @@ namespace WebShop.Areas.Admin.Controllers
                                 if (String.Compare(workSheet.Cells[row, 17].Value?.ToString(), "true", true) == 0)
                                 {
 
-                                    product.KichHoat = true;
+                                    product.IsActivated = true;
                                 }
                                 else
                                 {
-                                    product.KichHoat = false;
+                                    product.IsActivated = false;
                                 }
                                 //
                                 product.Title = workSheet.Cells[row, 18].Value?.ToString();
@@ -1457,7 +1457,7 @@ namespace WebShop.Areas.Admin.Controllers
                                             addattr.AttributeId = itemAttr.AttributeId;
                                             addattr.Price = attr.Price;
                                             addattr.ProductId = product.ProductId;
-                                            addattr.KichHoat = true;
+                                            addattr.IsActivated = true;
                                             _context.AttributesPrices.Add(addattr);
                                             _context.SaveChanges();
                                         }
@@ -1624,7 +1624,7 @@ namespace WebShop.Areas.Admin.Controllers
             HttpContext.Session.Set("InputPrice", checkboxProduct.InputPrice);
             HttpContext.Session.Set("SalePrice", checkboxProduct.SalePrice);
             HttpContext.Session.Set("UnitsInStock", checkboxProduct.UnitsInStock);
-            HttpContext.Session.Set("KichHoat", checkboxProduct.KichHoat);
+            HttpContext.Session.Set("IsActivated", checkboxProduct.IsActivated);
             HttpContext.Session.Set("DateCreated", checkboxProduct.DateCreated);
             //HttpContext.Session.Set("CodStatus", checkboxProduct.CodStatus);
             //HttpContext.Session.Set("Total", checkboxProduct.Total);

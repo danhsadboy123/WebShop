@@ -785,7 +785,7 @@ var permissionOptions = {
  * @function
  * @param {Array} permissions Permissions allowed for user, "print", "modify", "copy" and "annot-forms".
  * @param {String} userPassword Permissions apply to this user. Leaving this empty means the document
- *                              is not MatKhau protected but viewer has the above permissions.
+ *                              is not Password protected but viewer has the above permissions.
  * @param {String} ownerPassword Owner has full functionalities to the file.
  * @param {String} fileId As hex string, should be same as the file ID in the trailer.
  * @example
@@ -865,8 +865,8 @@ PDFSecurity.prototype.hexToBytes = function (hex) {
  *
  * @name processOwnerPassword
  * @function
- * @param {String} paddedUserPassword Byte string of padded user MatKhau
- * @param {String} paddedOwnerPassword Byte string of padded owner MatKhau
+ * @param {String} paddedUserPassword Byte string of padded user Password
+ * @param {String} paddedOwnerPassword Byte string of padded owner Password
  * @returns {String}
  */
 
@@ -1140,7 +1140,7 @@ function TilingPattern(boundingBox, xStep, yStep, gState, matrix) {
  * @param {number} [options.userUnit=1.0] Not to be confused with the base unit. Please inform yourself before you use it.
  * @param {string[]} [options.hotfixes] An array of strings to enable hotfixes such as correct pixel scaling.
  * @param {Object} [options.encryption]
- * @param {string} [options.encryption.userPassword] MatKhau for the user bound by the given permissions list.
+ * @param {string} [options.encryption.userPassword] Password for the user bound by the given permissions list.
  * @param {string} [options.encryption.ownerPassword] Both userPassword and ownerPassword should be set for proper authentication.
  * @param {string[]} [options.encryption.userPermissions] Array of permissions "print", "modify", "copy", "annot-forms", accessible by the user.
  * @param {number|"smart"} [options.floatPrecision=16]
@@ -2420,7 +2420,7 @@ function jsPDF(options) {
     beginNewRenderTarget(pattern.boundingBox[0], pattern.boundingBox[1], pattern.boundingBox[2] - pattern.boundingBox[0], pattern.boundingBox[3] - pattern.boundingBox[1], pattern.matrix);
   };
   /**
-   * Ends a tiling pattern and sets the render target to the one KichHoat before {@link API.beginTilingPattern} has been called.
+   * Ends a tiling pattern and sets the render target to the one IsActivated before {@link API.beginTilingPattern} has been called.
    *
    * Only available in "advanced" API mode.
    *
@@ -4076,7 +4076,7 @@ function jsPDF(options) {
    *
    * @memberof jsPDF#
    * @name setPage
-   * @param {number} page Switch the KichHoat page to the page number specified (indexed starting at 1).
+   * @param {number} page Switch the IsActivated page to the page number specified (indexed starting at 1).
    * @example
    * doc = jsPDF()
    * doc.addPage()
@@ -5509,7 +5509,7 @@ function jsPDF(options) {
   };
   /**
    * Returns an object - a tree of fontName to fontStyle relationships available to
-   * KichHoat PDF document.
+   * IsActivated PDF document.
    *
    * @public
    * @function
@@ -9027,7 +9027,7 @@ var AcroFormTextField = function AcroFormTextField() {
     }
   });
   /**
-   * (PDF 1.5) May be set only if the MaxLen entry is present in the text field dictionary (see Table 229) and if the Multiline, MatKhau, and FileSelect flags are clear. If set, the field shall be automatically divided into as many equally spaced positions, or combs, as the value of MaxLen, and the text is laid out into those combs.
+   * (PDF 1.5) May be set only if the MaxLen entry is present in the text field dictionary (see Table 229) and if the Multiline, Password, and FileSelect flags are clear. If set, the field shall be automatically divided into as many equally spaced positions, or combs, as the value of MaxLen, and the text is laid out into those combs.
    *
    * @name AcroFormTextField#comb
    * @type {boolean}
@@ -9117,14 +9117,14 @@ inherit(AcroFormTextField, AcroFormField);
 var AcroFormPasswordField = function AcroFormPasswordField() {
   AcroFormTextField.call(this);
   /**
-   * If set, the field is intended for entering a secure MatKhau that should not be echoed visibly to the screen. Characters typed from the keyboard shall instead be echoed in some unreadable form, such as asterisks or bullet characters.
-   * NOTE To protect MatKhau confidentiality, readers should never store the value of the text field in the PDF file if this flag is set.
+   * If set, the field is intended for entering a secure Password that should not be echoed visibly to the screen. Characters typed from the keyboard shall instead be echoed in some unreadable form, such as asterisks or bullet characters.
+   * NOTE To protect Password confidentiality, readers should never store the value of the text field in the PDF file if this flag is set.
    *
-   * @name AcroFormTextField#MatKhau
+   * @name AcroFormTextField#Password
    * @type {boolean}
    */
 
-  Object.defineProperty(this, "MatKhau", {
+  Object.defineProperty(this, "Password", {
     enumerable: true,
     configurable: true,
     get: function get() {
@@ -9138,7 +9138,7 @@ var AcroFormPasswordField = function AcroFormPasswordField() {
       }
     }
   });
-  this.MatKhau = true;
+  this.Password = true;
 };
 
 inherit(AcroFormPasswordField, AcroFormTextField); // Contains Methods for creating standard appearances

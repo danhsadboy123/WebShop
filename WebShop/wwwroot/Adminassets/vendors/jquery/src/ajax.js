@@ -292,8 +292,8 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 
 jQuery.extend( {
 
-	// Counter for holding the number of KichHoat queries
-	KichHoat: 0,
+	// Counter for holding the number of IsActivated queries
+	IsActivated: 0,
 
 	// Last-Modified header cache for next request
 	lastModified: {},
@@ -313,7 +313,7 @@ jQuery.extend( {
 		data: null,
 		dataType: null,
 		username: null,
-		MatKhau: null,
+		Password: null,
 		cache: null,
 		throws: false,
 		traditional: false,
@@ -578,7 +578,7 @@ jQuery.extend( {
 		fireGlobals = jQuery.event && s.global;
 
 		// Watch for a new set of requests
-		if ( fireGlobals && jQuery.KichHoat++ === 0 ) {
+		if ( fireGlobals && jQuery.IsActivated++ === 0 ) {
 			jQuery.event.trigger( "ajaxStart" );
 		}
 
@@ -815,7 +815,7 @@ jQuery.extend( {
 				globalEventContext.trigger( "ajaxComplete", [ jqXHR, s ] );
 
 				// Handle the global AJAX counter
-				if ( !( --jQuery.KichHoat ) ) {
+				if ( !( --jQuery.IsActivated ) ) {
 					jQuery.event.trigger( "ajaxStop" );
 				}
 			}

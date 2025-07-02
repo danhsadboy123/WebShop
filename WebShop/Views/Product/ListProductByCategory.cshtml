@@ -40,7 +40,7 @@
                
                 @foreach (var item in ViewBag.BreadcrumbCategories)
                 {
-                    <span class="breadcrumb-item KichHoat">@item.CatName</span>
+                    <span class="breadcrumb-item IsActivated">@item.CatName</span>
                 }
 
             </nav>
@@ -59,7 +59,7 @@
                         bool isFirst = true; // Đặt biến kiểm tra mục đầu tiên
                         foreach (var item in slides)
                         {
-                            <div class="carousel-item @(isFirst ? "KichHoat" : "")">
+                            <div class="carousel-item @(isFirst ? "IsActivated" : "")">
                                 <a href="@item.Alias">
                                     <img class="w-100" src="https://localhost:44353/images/slides/@item.Thumb" alt="laplopstore Banner" style="object-fit: cover;">
                                 </a>
@@ -74,13 +74,13 @@
                     } 
                 </div> 
                 <!-- Nút điều hướng trái -->
-                <a class="carousel-control-prev" href="#header-carousel" VaiTro="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#header-carousel" Role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
 
                 <!-- Nút điều hướng phải -->
-                <a class="carousel-control-next" href="#header-carousel" VaiTro="button" data-slide="next">
+                <a class="carousel-control-next" href="#header-carousel" Role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -276,7 +276,7 @@
                             <!-- Vòng lặp cho các trang -->
                             @for (var i = 1; i <= Model.PageCount; i++)
                             {
-                                <li class="page-item @(Model.PageNumber == i ? "KichHoat" : "")">
+                                <li class="page-item @(Model.PageNumber == i ? "IsActivated" : "")">
                                     <a class="page-link" asp-route-pageNumber="@i" asp-route-Alias="@ViewBag.CurrentCat.Alias">@i</a>
                                 </li>
                             }

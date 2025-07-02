@@ -86,7 +86,7 @@ namespace WebShop.Areas.Admin.Controllers
                         CatId = Convert.ToInt32(value),
                         Name = brand.BrandName,
                         MoTa = brand.MoTa,
-                        KichHoat = true
+                        IsActivated = true
                     };
                     _context.CategoryBrands.Add(newcategoryBrand);
                     await _context.SaveChangesAsync();
@@ -161,7 +161,7 @@ namespace WebShop.Areas.Admin.Controllers
                             MoTa = brand.MoTa,
                             BrandProduct = true,
                             Topbrand=true,
-                            KichHoat = true
+                            IsActivated = true
                         };
                         _context.CategoryBrands.Add(newcategoryBrand);
                         await _context.SaveChangesAsync();                        

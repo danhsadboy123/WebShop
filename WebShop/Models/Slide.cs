@@ -15,7 +15,7 @@ public partial class Slide
 
     public string SlideName { get; set; }
 
-    public bool KichHoat { get; set; }
+    public bool IsActivated { get; set; }
 
     public bool Right { get; set; }
 

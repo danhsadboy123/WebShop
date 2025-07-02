@@ -1,4 +1,4 @@
-﻿@model WebShop.Areas.Admin.Models.AdminNotificationSettingVM
+﻿@* @model WebShop.Areas.Admin.Models.AdminNotificationSettingVM
 @{
     ViewData["Title"] = "Notification";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -11,7 +11,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-action="Index" asp-controller="AdminSettings" asp-area="Admin" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Cấu hình</a>
-            <span class="breadcrumb-item KichHoat">Thông báo</span>
+            <span class="breadcrumb-item IsActivated">Thông báo</span>
         </nav>
     </div>
 </div>
@@ -53,7 +53,7 @@
                                                 <tr>
                                                     <td><a class="table-break-word" asp-route-id="@item.EmailId" asp-action="DetaileditEmail" asp-controller="AdminSettings" asp-area="Admin">@item.Title</a></td>
                                                     <td><span class="table-break-word">@item.ContentName</span></td>
-                                                    @if(item.KichHoat==1){
+                                                    @if(item.IsActivated==1){
                                                         <td>
                                                             <div class="form-check form-switch">
                                                                 <input class="form-check-input" type="checkbox" checked>
@@ -266,3 +266,4 @@
         
     </div>
 </div>
+ *@

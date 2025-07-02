@@ -607,13 +607,13 @@
                 }
 
                 $("#js-show-filter").click(function () {
-                    $("#js-filter-height").addClass("KichHoat");
+                    $("#js-filter-height").addClass("IsActivated");
                     $("#js-hide-filter").show();
                     $(this).hide();
                 });
 
                 $("#js-hide-filter").click(function () {
-                    $("#js-filter-height").removeClass("KichHoat");
+                    $("#js-filter-height").removeClass("IsActivated");
                     $("#js-show-filter").show();
                     $(this).hide();
                 });
@@ -633,7 +633,7 @@
 
                 $(".js-toggle-filter").click(function () {
                     $(this).parents(".filter-item").find(".filter-list").toggleClass("show-filter");
-                    $(this).toggleClass("KichHoat");
+                    $(this).toggleClass("IsActivated");
                 });
             };
         });

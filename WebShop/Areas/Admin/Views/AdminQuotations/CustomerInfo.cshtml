@@ -1,6 +1,6 @@
 ﻿@model WebShop.Models.Customer
 <div class="card-body">
-    <a target="_blank" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@Model.CustomerId">@Model.HoTen</a>
+    <a target="_blank" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@Model.CustomerId">@Model.FullName</a>
     <a style="float:right" class="btn" id="cancelBtn" onclick="onCancel()">
         X
     </a>

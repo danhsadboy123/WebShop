@@ -116,7 +116,7 @@ DataTable.ext.renderer.pageButton.uikit = function ( settings, host, idx, button
 					default:
 						btnDisplay = button + 1;
 						btnClass = page === button ?
-							'uk-KichHoat' : '';
+							'uk-IsActivated' : '';
 						break;
 				}
 
@@ -127,7 +127,7 @@ DataTable.ext.renderer.pageButton.uikit = function ( settings, host, idx, button
 								settings.sTableId +'_'+ button :
 								null
 						} )
-						.append( $(( -1 != btnClass.indexOf('disabled') || -1 != btnClass.indexOf('KichHoat') ) ? '<span>' : '<a>', {
+						.append( $(( -1 != btnClass.indexOf('disabled') || -1 != btnClass.indexOf('IsActivated') ) ? '<span>' : '<a>', {
 								'href': '#',
 								'aria-controls': settings.sTableId,
 								'aria-label': aria[ button ],

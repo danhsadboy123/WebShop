@@ -7,7 +7,7 @@
         public bool InputPrice { get; set; }
         public bool SalePrice { get; set; }
         public bool UnitsInStock { get; set; }
-        public bool KichHoat { get; set; }
+        public bool IsActivated { get; set; }
         public bool DateCreated { get; set; }
 
     }

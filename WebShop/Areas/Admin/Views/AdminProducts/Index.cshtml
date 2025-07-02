@@ -34,7 +34,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <span class="breadcrumb-item KichHoat">Quản lý sản phẩm</span>
+            <span class="breadcrumb-item IsActivated">Quản lý sản phẩm</span>
         </nav>
     </div>
 </div>
@@ -94,7 +94,7 @@
     <div class="card-header" style="border-bottom:none">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link KichHoat" data-check="Full" data-column="0" data-toggle="tab">Tất cả</a>
+                <a class="nav-link IsActivated" data-check="Full" data-column="0" data-toggle="tab">Tất cả</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-check="True" data-column="2" data-toggle="tab">Đang hoạt động</a>
@@ -136,7 +136,7 @@
                                     <label for="checkbox9">Tồn kho</label>
                                 </a>
                                 <a class="checkbox col-md-6">
-                                    <input id="checkbox10" class="checkitembox" data-column="9" type="checkbox" asp-for="CheckboxProduct.KichHoat">
+                                    <input id="checkbox10" class="checkitembox" data-column="9" type="checkbox" asp-for="CheckboxProduct.IsActivated">
                                     <label for="checkbox10">Trạng thái</label>
                                 </a>
                                <a class="checkbox col-md-6">
@@ -161,7 +161,7 @@
         <div class="tab-content">
             @if (Model.Products != null && Model.Products.Count() > 0)
             { 
-                <div class="table-responsive tab-pane fade show KichHoat">
+                <div class="table-responsive tab-pane fade show IsActivated">
                     <table id="data-table" class="table table-hover e-commerce-table" style="width:100%">
                         <thead>
                             <tr>
@@ -197,7 +197,7 @@
                                         {
                                             <p>False</p>
                                         }</td>
-                                    <td class="tabcheck">@item.KichHoat</td>
+                                    <td class="tabcheck">@item.IsActivated</td>
 
                                     <td class="tabcheck">
                                         <p>allcate</p>
@@ -227,7 +227,7 @@
                                     <td>@String.Format("{0:#,##0}", item.SalePrice) đ</td>
                                     <td>@item.UnitsInStock</td>
                                     <td class="productitemcheck-@item.ProductId">
-                                        @if (item.KichHoat == true)
+                                        @if (item.IsActivated == true)
                                         {
                                             <div class="d-flex align-items-center">
                                                 <div class="badge badge-success badge-dot m-r-10"></div>
@@ -244,7 +244,7 @@
                                     </td>
                                     <td>@item.DateCreated</td>
                                     <td>
-                                        @if(@item.KichHoat==true)
+                                        @if(@item.IsActivated==true)
                                         {
                                             <input class="checkactive" data-id="@item.ProductId" type="checkbox" checked="checked"/>
                                         }
@@ -296,7 +296,7 @@
                 @if (proOption != null)
                 {
                     
-                    <div class="table-responsive tab-pane fade show KichHoat">
+                    <div class="table-responsive tab-pane fade show IsActivated">
                         <table class="table table-hover e-commerce-table" style="width:100%">
                             <thead>
                                 <tr> 
@@ -344,7 +344,7 @@
     </div>
 </div>
  
-<div id="import_excel_md" class="modal fade" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="import_excel_md" class="modal fade" tabindex="-1" Role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form asp-area="Admin" asp-controller="AdminProducts" asp-action="ImportProducts" method="post" enctype="multipart/form-data">
@@ -406,7 +406,7 @@
         </div>
     </div>
 </div>
-<div id="delete-pd-md" class="modal fade" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="delete-pd-md" class="modal fade" tabindex="-1" Role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -481,7 +481,7 @@
                 table.search('').columns(3).search('').draw();
                 table.columns(3).search(value).draw();
                 $.each(linkActive,function(key,item){
-                    if ($(this).attr('class') == "nav-link KichHoat"){
+                    if ($(this).attr('class') == "nav-link IsActivated"){
                         var column = $(this).attr('data-column');
                         var check = $(this).attr('data-check');
                         table.columns(column).search(check).draw();
@@ -645,7 +645,7 @@
              
         })
         function productView(check){
-            $('.nav-link').removeClass("KichHoat");           
+            $('.nav-link').removeClass("IsActivated");           
             $.ajax({
                 url: '@Url.Action("setionclick","AdminProducts")',
                 datatype: "json",
@@ -654,7 +654,7 @@
                 async: true,
                 success: function (results) {
                     if (results.success == true) {
-                        $('.' + check).addClass("KichHoat");
+                        $('.' + check).addClass("IsActivated");
                         location.reload();
                     } 
                 },

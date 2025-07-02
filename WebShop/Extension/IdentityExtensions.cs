@@ -11,13 +11,13 @@ namespace WebShop.Extension
     {
         public static string GetAccountID(this IIdentity identity)
         {
-            var claim = ((ClaimsIdentity)identity).FindFirst("MaTaiKhoan");
+            var claim = ((ClaimsIdentity)identity).FindFirst("AccountId");
             return (claim != null) ? claim.Value : string.Empty;
         }
 
         public static string GetRoleID(this IIdentity identity)
         {
-            var claim = ((ClaimsIdentity)identity).FindFirst("MaVaiTro");
+            var claim = ((ClaimsIdentity)identity).FindFirst("RoleId");
             return (claim != null) ? claim.Value : string.Empty;
         }
         public static string GetUserName(this IIdentity identity)

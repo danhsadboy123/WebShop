@@ -210,8 +210,8 @@
                 <tr>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        string HoTen = User.FindFirstValue(ClaimTypes.Name);
-                        @if (User.Claims.Any(c => c.Type == "MaVaiTro" && c.Value == "1"))
+                        string FullName = User.FindFirstValue(ClaimTypes.Name);
+                        @if (User.Claims.Any(c => c.Type == "RoleId" && c.Value == "1"))
                         {
                             <td>
                                 <label asp-for="Address" class="control-label">Cấu hình nâng cao</label>
@@ -234,8 +234,8 @@
         </table>
         @if (User.Identity.IsAuthenticated)
         {
-            string HoTen = User.FindFirstValue(ClaimTypes.Name);
-            @if (User.Claims.Any(c => c.Type == "MaVaiTro" && c.Value == "1"))
+            string FullName = User.FindFirstValue(ClaimTypes.Name);
+            @if (User.Claims.Any(c => c.Type == "RoleId" && c.Value == "1"))
             {
                 <div class="SettingOption">
 

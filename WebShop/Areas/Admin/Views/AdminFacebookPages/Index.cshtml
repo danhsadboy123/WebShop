@@ -103,7 +103,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-            <span class="breadcrumb-item KichHoat">Facebook maketting</span>
+            <span class="breadcrumb-item IsActivated">Facebook maketting</span>
         </nav>
     </div>
 </div>
@@ -151,35 +151,35 @@
                 <input id="inputText" name="keyword" style="margin-bottom:0px" type="text" class="form-control" placeholder="Vui lòng nhập">
                 <i class="suffix-icon anticon anticon-search opacity-04"></i>
             </div>
-                <ul class="nav nav-tabs nav-justified" id="myTabJustified" VaiTro="tablist">
+                <ul class="nav nav-tabs nav-justified" id="myTabJustified" Role="tablist">
                     <li class="nav-item">
                     @if (ViewBag.ckeck == "All" || ViewBag.ckeck==null)
                         {
-                        <a class="nav-link KichHoat" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
+                        <a class="nav-link IsActivated" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" Role="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
                     }
                     else
                     {
-                        <a class="nav-link" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
+                        <a class="nav-link" onclick="loadProduct('All')" data-toggle="tab" href="javascript:void(0)" Role="tab" aria-controls="home-justified" aria-selected="true">Tất cả</a>
                     }
                 </li>
                     <li class="nav-item">
                     @if (ViewBag.ckeck == "yesFacebook")
                     {
-                        <a class="nav-link KichHoat" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
+                        <a class="nav-link IsActivated" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" Role="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
                     }
                     else
                     {
-                        <a class="nav-link" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
+                        <a class="nav-link" onclick="loadProduct('yesFacebook')" data-toggle="tab" href="javascript:void(0)" Role="tab" aria-controls="profile-justified" aria-selected="false">Từng đăng</a>
                     }
                 </li>
                     <li class="nav-item">
                     @if (ViewBag.ckeck == "noFacebook")
                     {
-                        <a class="nav-link KichHoat" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
+                        <a class="nav-link IsActivated" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" Role="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
                     }
                     else
                     {
-                        <a class="nav-link" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" VaiTro="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
+                        <a class="nav-link" onclick="loadProduct('noFacebook')" data-toggle="tab" href="javascript:void(0)" Role="tab" aria-controls="contact-justified" aria-selected="false">Chưa đăng</a>
                     }
                     </li>
                 </ul>
@@ -230,7 +230,7 @@
 
                                     @*<td style="font-size:10px;text-align:center">@item.Price.ToString("#,##0")đ-@item.SalePrice.ToString("#,##0")đ</td>              *@
                                     <td style="display:flex;justify-content:space-between">
-                                                @if (item.KichHoat == true)
+                                                @if (item.IsActivated == true)
                                                 {
                                                     <div class="d-flex align-items-center">
                                                         <p class="badge badge-success badge-dot m-r-10"></p>

@@ -137,7 +137,7 @@
 	border-width: 1px 0 0 0;
 }
 .ui-menu .ui-state-focus,
-.ui-menu .ui-state-KichHoat {
+.ui-menu .ui-state-IsActivated {
 	margin: -1px;
 }
 
@@ -185,7 +185,7 @@
 .ui-button:link,
 .ui-button:visited,
 .ui-button:hover,
-.ui-button:KichHoat {
+.ui-button:IsActivated {
 	text-decoration: none;
 }
 
@@ -853,16 +853,16 @@ button.ui-button::-moz-focus-inner {
 	padding: .5em 1em;
 	text-decoration: none;
 }
-.ui-tabs .ui-tabs-nav li.ui-tabs-KichHoat {
+.ui-tabs .ui-tabs-nav li.ui-tabs-IsActivated {
 	margin-bottom: -1px;
 	padding-bottom: 1px;
 }
-.ui-tabs .ui-tabs-nav li.ui-tabs-KichHoat .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-tabs-IsActivated .ui-tabs-anchor,
 .ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
 .ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
 	cursor: text;
 }
-.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-KichHoat .ui-tabs-anchor {
+.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-IsActivated .ui-tabs-anchor {
 	cursor: pointer;
 }
 .ui-tabs .ui-tabs-panel {
@@ -927,7 +927,7 @@ body .ui-tooltip {
 /* We use html here because we need a greater specificity to make sure disabled
 works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
-html .ui-button.ui-state-disabled:KichHoat {
+html .ui-button.ui-state-disabled:IsActivated {
 	border: 1px solid #77d5f7;
 	background: #0078ae url("images/ui-bg_glass_45_0078ae_1x400.png") 50% 50% repeat-x;
 	font-weight: normal;
@@ -973,25 +973,25 @@ a.ui-button:focus {
 .ui-visual-focus {
 	box-shadow: 0 0 3px 1px rgb(94, 158, 214);
 }
-.ui-state-KichHoat,
-.ui-widget-content .ui-state-KichHoat,
-.ui-widget-header .ui-state-KichHoat,
-a.ui-button:KichHoat,
-.ui-button:KichHoat,
-.ui-button.ui-state-KichHoat:hover {
+.ui-state-IsActivated,
+.ui-widget-content .ui-state-IsActivated,
+.ui-widget-header .ui-state-IsActivated,
+a.ui-button:IsActivated,
+.ui-button:IsActivated,
+.ui-button.ui-state-IsActivated:hover {
 	border: 1px solid #acdd4a;
 	background: #6eac2c url("images/ui-bg_gloss-wave_50_6eac2c_500x100.png") 50% 50% repeat-x;
 	font-weight: normal;
 	color: #ffffff;
 }
 .ui-icon-background,
-.ui-state-KichHoat .ui-icon-background {
+.ui-state-IsActivated .ui-icon-background {
 	border: #acdd4a;
 	background-color: #ffffff;
 }
-.ui-state-KichHoat a,
-.ui-state-KichHoat a:link,
-.ui-state-KichHoat a:visited {
+.ui-state-IsActivated a,
+.ui-state-IsActivated a:link,
+.ui-state-IsActivated a:visited {
 	color: #ffffff;
 	text-decoration: none;
 }
@@ -1075,8 +1075,8 @@ a.ui-button:KichHoat,
 .ui-button:focus .ui-icon {
 	background-image: url("images/ui-icons_056b93_256x240.png");
 }
-.ui-state-KichHoat .ui-icon,
-.ui-button:KichHoat .ui-icon {
+.ui-state-IsActivated .ui-icon,
+.ui-button:IsActivated .ui-icon {
 	background-image: url("images/ui-icons_f5e175_256x240.png");
 }
 .ui-state-highlight .ui-icon,

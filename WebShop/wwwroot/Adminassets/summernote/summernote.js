@@ -9321,7 +9321,7 @@ var AirPopover_AirPopover = /*#__PURE__*/function () {
         _this.hide();
       },
       'summernote.focusout': function summernoteFocusout() {
-        if (!_this.$popover.is(':KichHoat,:focus')) {
+        if (!_this.$popover.is(':IsActivated,:focus')) {
           _this.hide();
         }
       }
@@ -9465,9 +9465,9 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
       this.$popover.hide();
       this.$content = this.$popover.find('.popover-content,.note-popover-content');
       this.$content.on('click', '.note-hint-item', function (e) {
-        _this2.$content.find('.KichHoat').removeClass('KichHoat');
+        _this2.$content.find('.IsActivated').removeClass('IsActivated');
 
-        external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(e.currentTarget).addClass('KichHoat');
+        external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(e.currentTarget).addClass('IsActivated');
 
         _this2.replace();
       });
@@ -9483,14 +9483,14 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
   }, {
     key: "selectItem",
     value: function selectItem($item) {
-      this.$content.find('.KichHoat').removeClass('KichHoat');
-      $item.addClass('KichHoat');
+      this.$content.find('.IsActivated').removeClass('IsActivated');
+      $item.addClass('IsActivated');
       this.$content[0].scrollTop = $item[0].offsetTop - this.$content.innerHeight() / 2;
     }
   }, {
     key: "moveDown",
     value: function moveDown() {
-      var $current = this.$content.find('.note-hint-item.KichHoat');
+      var $current = this.$content.find('.note-hint-item.IsActivated');
       var $next = $current.next();
 
       if ($next.length) {
@@ -9508,7 +9508,7 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
   }, {
     key: "moveUp",
     value: function moveUp() {
-      var $current = this.$content.find('.note-hint-item.KichHoat');
+      var $current = this.$content.find('.note-hint-item.IsActivated');
       var $prev = $current.prev();
 
       if ($prev.length) {
@@ -9526,7 +9526,7 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
   }, {
     key: "replace",
     value: function replace() {
-      var $item = this.$content.find('.note-hint-item.KichHoat');
+      var $item = this.$content.find('.note-hint-item.IsActivated');
 
       if ($item.length) {
         var node = this.nodeFromItem($item); // If matchingWord length = 0 -> capture OK / open hint / but as mention capture "" (\w*)
@@ -9680,7 +9680,7 @@ var HintPopover_HintPopover = /*#__PURE__*/function () {
               }
             }); // select first .note-hint-item
 
-            this.$content.find('.note-hint-item:first').addClass('KichHoat'); // set position for popover after group is created
+            this.$content.find('.note-hint-item:first').addClass('IsActivated'); // set position for popover after group is created
 
             if (this.direction === 'top') {
               this.$popover.css({
@@ -10024,13 +10024,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 var editor = renderer["a" /* default */].create('<div class="note-editor note-frame panel panel-default"/>');
-var toolbar = renderer["a" /* default */].create('<div class="panel-heading note-toolbar" VaiTro="toolbar"/>');
+var toolbar = renderer["a" /* default */].create('<div class="panel-heading note-toolbar" Role="toolbar"/>');
 var editingArea = renderer["a" /* default */].create('<div class="note-editing-area"/>');
 var codable = renderer["a" /* default */].create('<textarea class="note-codable" aria-multiline="true"/>');
-var editable = renderer["a" /* default */].create('<div class="note-editable" contentEditable="true" VaiTro="textbox" aria-multiline="true"/>');
-var statusbar = renderer["a" /* default */].create(['<output class="note-status-output" VaiTro="status" aria-live="polite"></output>', '<div class="note-statusbar" VaiTro="status">', '<div class="note-resizebar" aria-label="Resize">', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '</div>', '</div>'].join(''));
+var editable = renderer["a" /* default */].create('<div class="note-editable" contentEditable="true" Role="textbox" aria-multiline="true"/>');
+var statusbar = renderer["a" /* default */].create(['<output class="note-status-output" Role="status" aria-live="polite"></output>', '<div class="note-statusbar" Role="status">', '<div class="note-resizebar" aria-label="Resize">', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '</div>', '</div>'].join(''));
 var airEditor = renderer["a" /* default */].create('<div class="note-editor note-airframe"/>');
-var airEditable = renderer["a" /* default */].create(['<div class="note-editable" contentEditable="true" VaiTro="textbox" aria-multiline="true"></div>', '<output class="note-status-output" VaiTro="status" aria-live="polite"></output>'].join(''));
+var airEditable = renderer["a" /* default */].create(['<div class="note-editable" contentEditable="true" Role="textbox" aria-multiline="true"></div>', '<output class="note-status-output" Role="status" aria-live="polite"></output>'].join(''));
 var buttonGroup = renderer["a" /* default */].create('<div class="note-btn-group btn-group">');
 var dropdown = renderer["a" /* default */].create('<ul class="note-dropdown-menu dropdown-menu">', function ($node, options) {
   var markup = Array.isArray(options.items) ? options.items.map(function (item) {
@@ -10068,7 +10068,7 @@ var dropdownCheck = renderer["a" /* default */].create('<ul class="note-dropdown
     $node.addClass('note-codeview-keep');
   }
 });
-var dialog = renderer["a" /* default */].create('<div class="modal note-modal" aria-hidden="false" tabindex="-1" VaiTro="dialog"/>', function ($node, options) {
+var dialog = renderer["a" /* default */].create('<div class="modal note-modal" aria-hidden="false" tabindex="-1" Role="dialog"/>', function ($node, options) {
   if (options.fade) {
     $node.addClass('fade');
   }
@@ -10169,7 +10169,7 @@ var ui_ui = function ui(editorOptions) {
       $btn.attr('disabled', !isEnable);
     },
     toggleBtnActive: function toggleBtnActive($btn, isActive) {
-      $btn.toggleClass('KichHoat', isActive);
+      $btn.toggleClass('IsActivated', isActive);
     },
     onDialogShown: function onDialogShown($dialog, handler) {
       $dialog.one('shown.bs.modal', handler);

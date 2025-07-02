@@ -5,15 +5,15 @@ class PagesPricing {
         $('#monthly-btn').on('click', (e) => {
             $('#monthly-view').removeClass('d-none');
             $('#annual-view').addClass('d-none')
-            $(e.currentTarget).addClass('KichHoat');
-            $('#annual-btn').removeClass('KichHoat');
+            $(e.currentTarget).addClass('IsActivated');
+            $('#annual-btn').removeClass('IsActivated');
         })
 
         $('#annual-btn').on('click', (e) => {
             $('#annual-view').removeClass('d-none');
             $('#monthly-view').addClass('d-none');
-            $(e.currentTarget).addClass('KichHoat');
-            $('#list-view-btn').removeClass('KichHoat');
+            $(e.currentTarget).addClass('IsActivated');
+            $('#list-view-btn').removeClass('IsActivated');
         })
     }
 }

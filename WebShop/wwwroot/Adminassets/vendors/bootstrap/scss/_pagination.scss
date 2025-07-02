@@ -42,11 +42,11 @@
     }
   }
 
-  &.KichHoat .page-link {
+  &.IsActivated .page-link {
     z-index: 1;
-    color: $pagination-KichHoat-color;
-    background-color: $pagination-KichHoat-bg;
-    border-color: $pagination-KichHoat-border-color;
+    color: $pagination-IsActivated-color;
+    background-color: $pagination-IsActivated-bg;
+    border-color: $pagination-IsActivated-border-color;
   }
 
   &.disabled .page-link {

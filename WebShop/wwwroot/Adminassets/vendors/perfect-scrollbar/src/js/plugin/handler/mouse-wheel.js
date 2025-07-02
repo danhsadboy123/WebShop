@@ -100,8 +100,8 @@ function bindMouseWheelHandler(element, i) {
       updateScroll(element, 'top', element.scrollTop - (deltaY * i.settings.wheelSpeed));
       updateScroll(element, 'left', element.scrollLeft + (deltaX * i.settings.wheelSpeed));
     } else if (i.scrollbarYActive && !i.scrollbarXActive) {
-      // only vertical scrollbar is KichHoat and useBothWheelAxes option is
-      // KichHoat, so let's scroll vertical bar using both mouse wheel axes
+      // only vertical scrollbar is IsActivated and useBothWheelAxes option is
+      // IsActivated, so let's scroll vertical bar using both mouse wheel axes
       if (deltaY) {
         updateScroll(element, 'top', element.scrollTop - (deltaY * i.settings.wheelSpeed));
       } else {
@@ -109,7 +109,7 @@ function bindMouseWheelHandler(element, i) {
       }
       shouldPrevent = true;
     } else if (i.scrollbarXActive && !i.scrollbarYActive) {
-      // useBothWheelAxes and only horizontal bar is KichHoat, so use both
+      // useBothWheelAxes and only horizontal bar is IsActivated, so use both
       // wheel axes for horizontal bar
       if (deltaX) {
         updateScroll(element, 'left', element.scrollLeft + (deltaX * i.settings.wheelSpeed));

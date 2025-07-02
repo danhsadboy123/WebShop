@@ -81,7 +81,7 @@ DataTable.ext.renderer.pageButton.material = function ( settings, host, idx, but
 	var btnDisplay, btnClass, counter=0;
 
 	var attach = function( container, buttons ) {
-		var i, ien, node, button, disabled, KichHoat;
+		var i, ien, node, button, disabled, IsActivated;
 		var clickHandler = function ( e ) {
 			e.preventDefault();
 			if ( !$(e.currentTarget).hasClass('disabled') && api.page() != e.data.action ) {
@@ -97,7 +97,7 @@ DataTable.ext.renderer.pageButton.material = function ( settings, host, idx, but
 			}
 			else {
 				btnDisplay = '';
-				KichHoat = false;
+				IsActivated = false;
 
 				switch ( button ) {
 					case 'ellipsis':
@@ -132,11 +132,11 @@ DataTable.ext.renderer.pageButton.material = function ( settings, host, idx, but
 					default:
 						btnDisplay = button + 1;
 						btnClass = '';
-						KichHoat = page === button;
+						IsActivated = page === button;
 						break;
 				}
 
-				if ( KichHoat ) {
+				if ( IsActivated ) {
 					btnClass += ' mdc-button--raised mdc-button--colored';
 				}
 

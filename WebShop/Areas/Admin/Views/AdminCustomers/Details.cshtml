@@ -39,7 +39,7 @@
     <div class="header-sub-title">
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="AdminCustomers" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Khách hàng</a>
-            <span class="breadcrumb-item KichHoat">@Model.HoTen</span>
+            <span class="breadcrumb-item IsActivated">@Model.FullName</span>
         </nav>
     </div>
 </div>
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="text-center text-sm-left m-v-15 p-l-30 w-100">
-                                <h2 class="m-b-5">@Model.HoTen</h2>
+                                <h2 class="m-b-5">@Model.FullName</h2>
                                 <div class="col">
                                     <ul class="list-unstyled m-t-10">
                                         <li class="row">
@@ -280,7 +280,7 @@
     </div>
 </div>
 
-<div id="modal-header" class="modal fade" tabindex="-1" VaiTro="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="modal-header" class="modal fade" tabindex="-1" Role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         </div>

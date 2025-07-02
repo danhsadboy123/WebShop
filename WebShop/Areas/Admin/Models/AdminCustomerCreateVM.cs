@@ -8,7 +8,7 @@ namespace WebShop.Areas.Admin.Models
     {
         public int CustomerId { get; set; }
 
-        public string HoTen { get; set; }
+        public string FullName { get; set; }
 
         public string Avatar { get; set; }
 

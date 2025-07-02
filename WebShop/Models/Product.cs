@@ -53,7 +53,7 @@ public partial class Product
 
     public bool HomeFlag { get; set; }
 
-    public bool KichHoat { get; set; }
+    public bool IsActivated { get; set; }
 
     public string Title { get; set; }
 

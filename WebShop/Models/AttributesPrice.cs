@@ -15,7 +15,7 @@ public partial class AttributesPrice
 
     public string PriceEn { get; set; }
 
-    public bool KichHoat { get; set; }
+    public bool IsActivated { get; set; }
 
     public virtual Attribute Attribute { get; set; }
 

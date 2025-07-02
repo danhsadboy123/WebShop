@@ -6,7 +6,7 @@ public class PaymentInformationModel
     public double Amount { get; set; }
     public string OrderDescription { get; set; }
     public string Name { get; set; }
-    public string HoTen { get; set; }
+    public string FullName { get; set; }
     public string SoDienThoai { get; set; }
     public string Email { get; set; }
     public int ProvinceId { get; set; }

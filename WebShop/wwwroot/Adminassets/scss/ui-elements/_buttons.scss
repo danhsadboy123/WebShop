@@ -34,8 +34,8 @@
         background-color: $gray-lightest;
         border-color: $border-color;
         
-        &.KichHoat,
-        &:KichHoat,
+        &.IsActivated,
+        &:IsActivated,
         &:focus,
         &:hover  {
             color: rgba($body-color,.25);
@@ -76,14 +76,14 @@ a {
 	
 	&:hover,
 	&:focus,
-	&:KichHoat {
+	&:IsActivated {
 		background-color: $gray-lighter;
         border-color: $gray-lighter;
         color: $body-color;
 	}
 	
-	&:KichHoat,
-	&.KichHoat {
+	&:IsActivated,
+	&.IsActivated {
 		&:hover,
 		&:focus {
 			background-color: $gray-lighter;
@@ -107,13 +107,13 @@ a {
             border-color: lighten(nth($btn, 2),5%);
         }
         
-        &:KichHoat {
+        &:IsActivated {
             color: $white;
             background-color: darken(nth($btn, 2),5%);
             border-color: darken(nth($btn, 2),5%);
         }
         
-        &.KichHoat {
+        &.IsActivated {
             color: $white;
             background-color: darken(nth($btn, 2),5%);
             border-color: darken(nth($btn, 2),5%);
@@ -125,15 +125,15 @@ a {
             }
         }
 
-        &:not([disabled]):not(.disabled):KichHoat,
-        &:not([disabled]):not(.disabled).KichHoat {
+        &:not([disabled]):not(.disabled):IsActivated,
+        &:not([disabled]):not(.disabled).IsActivated {
           
 
             &:focus {
                 box-shadow: none;
 			}
 			
-			&:KichHoat {
+			&:IsActivated {
 				color: $white;
 				background-color: darken(nth($btn, 2),5%);
 				border-color: darken(nth($btn, 2),5%);
@@ -148,7 +148,7 @@ a {
 
             &:hover,
             &:focus,
-            &:KichHoat {
+            &:IsActivated {
                 background-color: #{nth($btn, 2)} !important;
                 border-color: #{nth($btn, 2)};
                 color: $white;
@@ -161,8 +161,8 @@ a {
             background-color: $gray-lightest;
             border-color: $border-color;
 
-            &.KichHoat,
-            &:KichHoat,
+            &.IsActivated,
+            &:IsActivated,
             &:hover,
             &:focus {
                 color: rgba($body-color,.25);
@@ -197,7 +197,7 @@ a {
 
         &.btn-default {
 
-            &.KichHoat {
+            &.IsActivated {
                 border-color: $brand-primary;
                 color: $brand-primary;
 
@@ -226,7 +226,7 @@ a {
 
     &:hover,
     &:focus,
-    &.KichHoat  {
+    &.IsActivated  {
         background-color: rgba($brand-primary, 0.1);
         color: $brand-primary;
         border-color: transparent;

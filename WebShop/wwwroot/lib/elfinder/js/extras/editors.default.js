@@ -2605,7 +2605,7 @@
 				}
 				if (set.useTabs) {
 					if (idxs[mode]) {
-						btns.tabs('option', 'KichHoat', idxs[mode]);
+						btns.tabs('option', 'IsActivated', idxs[mode]);
 					}
 				} else {
 					cl = Object.keys(set.conv).length;

@@ -1,4 +1,4 @@
-﻿@model WebShop.Models.EmailMaketting
+﻿@* @model WebShop.Models.EmailMaketting
 @using Microsoft.AspNetCore.Html;
 @{
     ViewData["Title"] = "Delete";
@@ -13,7 +13,7 @@
         <div class="card">
             <div class="card-header">
                 <p>Loại thư: @Html.DisplayFor(model => model.Title)</p>
-                <p> Người Tạo: @Html.DisplayFor(model => model.Acount.HoTen)</p>
+                <p> Người Tạo: @Html.DisplayFor(model => model.Acount.FullName)</p>
             </div>
             <div class="card-body">
                 <div>
@@ -39,3 +39,4 @@
         <a asp-action="Index">Quay lại</a>
     </form>
 </div>
+ *@

@@ -68,10 +68,10 @@ namespace WebShop.Controllers
                     {
                         guest = new Guest
                         {
-                            HoTen = model.HoTen,
+                            FullName = model.FullName,
                             SoDienThoai = model.SoDienThoai.Trim().ToLower(),
                             Email = model.Email.Trim().ToLower(),
-                            NgayTao = DateTime.Now
+                            CreatedAt = DateTime.Now
                         };
                         _context.Guests.Add(guest);
                         _context.SaveChanges();
@@ -106,7 +106,7 @@ namespace WebShop.Controllers
                             Amount = item.amount,
                             Discount = 0,
                             TotalMoney = item.amount * (item.product.SalePrice > 0 ? item.product.SalePrice : item.product.Price),
-                            NgayTao = DateTime.Now,
+                            CreatedAt = DateTime.Now,
                             Price = (item.product.SalePrice > 0 ? item.product.SalePrice : item.product.Price)
                         };
                         _context.OrderDetails.Add(orderDetail);
@@ -116,7 +116,7 @@ namespace WebShop.Controllers
                     var shippingAddress = new ShippingAddress
                     {
                         OrderId = order.OrderId,
-                        Name = guest?.HoTen,
+                        Name = guest?.FullName,
                         SoDienThoai = guest?.SoDienThoai,
                         ProvinceId = model.ProvinceId,
                         WardId = model.WardId,
@@ -129,8 +129,8 @@ namespace WebShop.Controllers
                     // Cam kết giao dịch
                     transaction.Commit(); 
                     model.OrderType = "Thanh toán VN Pay cho đơn hàng " + order.Code;
-                    model.OrderDescription = "Khách hàng "+ model.HoTen+ " thanh toán VN Pay cho đơn hàng " + order.Code;
-                    model.Name = "Khách hàng " + model.HoTen + " thanh toán VN Pay cho đơn hàng " + order.Code;
+                    model.OrderDescription = "Khách hàng "+ model.FullName+ " thanh toán VN Pay cho đơn hàng " + order.Code;
+                    model.Name = "Khách hàng " + model.FullName + " thanh toán VN Pay cho đơn hàng " + order.Code;
                     HttpContext.Session.SetInt32("CurrentOrderId", order.OrderId); 
                     var url = _vnPayService.CreatePaymentUrl(model, HttpContext);
                     return Ok(url);

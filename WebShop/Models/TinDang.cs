@@ -23,7 +23,7 @@ public partial class TinDang
 
     public string Author { get; set; }
 
-    public int? MaTaiKhoan { get; set; }
+    public int? AccountId { get; set; }
 
     public int? CatId { get; set; }
 

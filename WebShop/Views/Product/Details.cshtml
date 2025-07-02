@@ -176,7 +176,7 @@
             background-color: rgba(255, 255, 255, 0.5);
         }
 
-        .carousel-indicators .KichHoat {
+        .carousel-indicators .IsActivated {
             background-color: #fff;
         }
 
@@ -289,7 +289,7 @@
             <nav class="breadcrumb bg-light mb-30">
                 <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
                 <a class="breadcrumb-item text-dark" href="/@ViewBag.BreadcrumbCategories.Alias">@ViewBag.BreadcrumbCategories.CatName</a>
-                <a class="breadcrumb-item KichHoat" href="/">@Model.ProductName</a>
+                <a class="breadcrumb-item IsActivated" href="/">@Model.ProductName</a>
             </nav>
         </div>
     </div>
@@ -401,7 +401,7 @@
                         }
 
                     </div>
-                    <a href="javascript:void(0)" class="btn-summary" onclick="$('#js-pd-summary').toggleClass('KichHoat')"></a>
+                    <a href="javascript:void(0)" class="btn-summary" onclick="$('#js-pd-summary').toggleClass('IsActivated')"></a>
 
                 </div>
             }
@@ -609,8 +609,8 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1"  VaiTro="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" VaiTro="document">
+<div class="modal fade" id="exampleModal" tabindex="-1"  Role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" Role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h6 class="modal-title" id="exampleModalLabel">Thông số kỹ thuật @Model.ProductName</h6>
@@ -855,15 +855,15 @@
                     <div class="carousel-inner">
                         @for (int i = 0; i < productThumbs.Count; i++)
                         {
-                            <div class="carousel-item @(i == 0 ? "KichHoat" : "")">
+                            <div class="carousel-item @(i == 0 ? "IsActivated" : "")">
                                 <img src="https://novazone.co/@productThumbs[i].Alias" class="d-block w-100 rounded" alt="Product Image">
                             </div>
                         }
                     </div>
-                    <a class="carousel-control-prev custom-carousel-control" href="#carouselExample" VaiTro="button" data-slide="prev">
+                    <a class="carousel-control-prev custom-carousel-control" href="#carouselExample" Role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     </a>
-                    <a class="carousel-control-next custom-carousel-control" href="#carouselExample" VaiTro="button" data-slide="next">
+                    <a class="carousel-control-next custom-carousel-control" href="#carouselExample" Role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     </a>
                 </div>

@@ -186,7 +186,7 @@ sup { top: -.5em; }
 a {
   color: $link-color;
   text-decoration: $link-decoration;
-  background-color: transparent; // Remove the gray background on KichHoat links in IE 10.
+  background-color: transparent; // Remove the gray background on IsActivated links in IE 10.
 
   @include hover() {
     color: $link-hover-color;
@@ -340,7 +340,7 @@ select {
 // Set the cursor for non-`<button>` buttons
 //
 // Details at https://github.com/twbs/bootstrap/pull/30562
-[VaiTro="button"] {
+[Role="button"] {
   cursor: pointer;
 }
 

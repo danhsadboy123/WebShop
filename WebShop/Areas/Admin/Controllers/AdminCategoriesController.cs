@@ -60,7 +60,7 @@ namespace WebShop.Areas.Admin.Controllers
             slide.Bottom = false;
             slide.CatId = catid;
             slide.HomeFlag = true;
-            slide.KichHoat = true;
+            slide.IsActivated = true;
             try
             {
                 _context.Slides.Add(slide);
@@ -399,7 +399,7 @@ namespace WebShop.Areas.Admin.Controllers
                 cate.CatId = cateid;
                 cate.Name = attr.Name;
                 cate.AttributeId = attr.AttributeId;
-                cate.KichHoat = attr.KichHoat;
+                cate.IsActivated = attr.IsActivated;
 
                 _context.CategoryAttributes.Add(cate);
                 _context.SaveChanges();
@@ -654,7 +654,7 @@ namespace WebShop.Areas.Admin.Controllers
                         MoTa = brand.MoTa,
                         BrandProduct = true,
                         Topbrand = false,
-                        KichHoat = true
+                        IsActivated = true
                     };
                     _context.CategoryBrands.Add(newcategoryBrand);
                     _context.SaveChanges();

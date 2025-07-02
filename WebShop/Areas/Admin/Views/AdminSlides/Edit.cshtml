@@ -10,7 +10,7 @@
         <nav class="breadcrumb breadcrumb-dash">
             <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
             <a asp-area="Admin" asp-controller="AdminSlides" asp-action="Index" class="breadcrumb-item">Danh sách slide</a>
-            <span class="breadcrumb-item KichHoat">@Model.SlideName</span>
+            <span class="breadcrumb-item IsActivated">@Model.SlideName</span>
         </nav>
     </div>
 </div>
@@ -71,8 +71,8 @@
                         
                         <div class="form-group d-flex align-items-center">
                             <div class="switch m-r-10">
-                                <input type="checkbox" asp-for="KichHoat">
-                                <label for="KichHoat"></label>
+                                <input type="checkbox" asp-for="IsActivated">
+                                <label for="IsActivated"></label>
                             </div>
                             <label>Công khai</label>
                         </div>

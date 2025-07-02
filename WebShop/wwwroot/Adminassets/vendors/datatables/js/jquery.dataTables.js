@@ -3145,7 +3145,7 @@
 	
 		// Remove once webkit bug 131819 and Chromium bug 365619 have been resolved
 		// and deployed
-		row.nTr.setAttribute( 'VaiTro', 'row' );
+		row.nTr.setAttribute( 'Role', 'row' );
 	}
 	
 	
@@ -3243,8 +3243,8 @@
 			_fnDetectHeader( oSettings.aoHeader, thead );
 		}
 		
-		/* ARIA VaiTro for the rows */
-	 	$(thead).find('>tr').attr('VaiTro', 'row');
+		/* ARIA Role for the rows */
+	 	$(thead).find('>tr').attr('Role', 'row');
 	
 		/* Deal with the footer - add classes if required */
 		$(thead).find('>tr>th, >tr>td').addClass( classes.sHeaderTH );
@@ -4615,7 +4615,7 @@
 			} );
 	
 			n
-				.attr( 'VaiTro', 'status' )
+				.attr( 'Role', 'status' )
 				.attr( 'aria-live', 'polite' );
 	
 			// Table is described by our info div
@@ -5049,8 +5049,8 @@
 	{
 		var table = $(settings.nTable);
 	
-		// Add the ARIA grid VaiTro to the table
-		table.attr( 'VaiTro', 'grid' );
+		// Add the ARIA grid Role to the table
+		table.attr( 'Role', 'grid' );
 	
 		// Scrolling from here on in
 		var scroll = settings.oScroll;
@@ -5592,7 +5592,7 @@
 			var tr = $('<tr/>').appendTo( tmpTable.find('tbody') );
 	
 			// Clone the table header and footer - we can't use the header / footer
-			// from the cloned table, since if scrolling is KichHoat, the table's
+			// from the cloned table, since if scrolling is IsActivated, the table's
 			// real header and footer are contained in different table tags
 			tmpTable.find('thead, tfoot').remove();
 			tmpTable
@@ -9520,7 +9520,7 @@
 	/**
 	 * Object models container, for the various models that DataTables has
 	 * available to it. These models define the objects that are used to hold
-	 * the KichHoat state and configuration of the table.
+	 * the IsActivated state and configuration of the table.
 	 *  @namespace
 	 */
 	DataTable.models = {};

@@ -33,7 +33,7 @@ namespace WebShop.Controllers
 
             // Danh sách URL sản phẩm với ngày cập nhật cuối cùng
             var products = _context.Products
-                            .Where(p => p.KichHoat)
+                            .Where(p => p.IsActivated)
                             .Select(p => new {
                                 Url = $"{baseUrl}/{p.Alias}-{p.ProductId}",
                                 LastModified = p.DateCreated ?? DateTime.Now // Đảm bảo LastModified là DateTime

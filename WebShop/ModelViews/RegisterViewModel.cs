@@ -11,7 +11,7 @@ namespace WebShop.ModelViews
 
         [Display(Name ="Họ và Tên")]
         [Required(ErrorMessage ="Vui lòng nhập Họ Tên")]
-        public string HoTen { get; set; }
+        public string FullName { get; set; }
 
         [MaxLength(150)]
         [Required(ErrorMessage ="Vui lòng nhập Email")]
@@ -29,11 +29,11 @@ namespace WebShop.ModelViews
         [Display(Name ="Mật khẩu")]
         [Required(ErrorMessage ="Vui lòng nhập mật khẩu")]
         [MinLength(5,ErrorMessage ="Bạn cần đặt mật khẩu tối thiểu 5 ký tự")]
-        public string MatKhau { get; set; }
+        public string Password { get; set; }
 
         [MinLength(5,ErrorMessage ="Bạn cần đặt mật khẩu tối thiểu 5 ký tự")]
         [Display(Name ="Nhập lại mật khẩu")]
-        [Compare("MatKhau",ErrorMessage ="Nhập lại mật khẩu không đúng")]
+        [Compare("Password",ErrorMessage ="Nhập lại mật khẩu không đúng")]
         public string ConfirmPassword { get; set; }
     }
 }

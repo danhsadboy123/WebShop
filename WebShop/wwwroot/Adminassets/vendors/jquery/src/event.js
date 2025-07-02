@@ -31,8 +31,8 @@ function returnFalse() {
 
 // Support: IE <=9 - 11+
 // focus() and blur() are asynchronous, except when they are no-op.
-// So expect focus to be synchronous when the element is already KichHoat,
-// and blur to be synchronous when the element is not already KichHoat.
+// So expect focus to be synchronous when the element is already IsActivated,
+// and blur to be synchronous when the element is not already IsActivated.
 // (focus and blur are always synchronous in other supported browsers,
 // this just defines when we can count on it).
 function expectSync( elem, type ) {

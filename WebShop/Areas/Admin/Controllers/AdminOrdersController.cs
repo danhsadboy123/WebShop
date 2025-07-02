@@ -151,123 +151,123 @@ namespace WebShop.Areas.Admin.Controllers
             return View(order);
         }
         // gui email
-        public IActionResult methodSenmail(int id,int optonemail)
-        {
-            var text = "";
-            if (id == null)
-            {
-                return Json(new { success = "No" });
-            }
-            var order = _context.Orders
-                .Include(o => o.Customer)
-                .Include(o => o.Guest)
-                .Include(o => o.DeliveryStatus)
-                .Include(o => o.Codstatus)
-                .Include(o => o.PaymentStatus)
-                .FirstOrDefault(m => m.OrderId == id);
-            if (order == null)
-            {
-                return Json(new { success = "No" });
-            }
-            var shippingAddress = _context.ShippingAddresses
-                .Include(x => x.Province)
-                .Include(x => x.District)
-                .Include(x => x.Ward)
-                .FirstOrDefault(o => o.OrderId == id);
+        //public IActionResult methodSenmail(int id,int optonemail)
+        //{
+        //    var text = "";
+        //    if (id == null)
+        //    {
+        //        return Json(new { success = "No" });
+        //    }
+        //    var order = _context.Orders
+        //        .Include(o => o.Customer)
+        //        .Include(o => o.Guest)
+        //        .Include(o => o.DeliveryStatus)
+        //        .Include(o => o.Codstatus)
+        //        .Include(o => o.PaymentStatus)
+        //        .FirstOrDefault(m => m.OrderId == id);
+        //    if (order == null)
+        //    {
+        //        return Json(new { success = "No" });
+        //    }
+        //    var shippingAddress = _context.ShippingAddresses
+        //        .Include(x => x.Province)
+        //        .Include(x => x.District)
+        //        .Include(x => x.Ward)
+        //        .FirstOrDefault(o => o.OrderId == id);
 
-            var orderDetails = _context.OrderDetails
-                .Include(x => x.Product)
-                .AsNoTracking()
-                .Where(x => x.OrderId == id)
-                .OrderBy(x => x.OrderDetailId)
-                .ToList();
-            try
-            {
-                if (order.CustomerId != null)
-                {
-                    var customer = order.Customer;
-                    SendEmail1(customer, orderDetails,optonemail ,order.Code);
-                }
-                else
-                {
-                    var Guest = order.Guest;
-                    var address = "";
-                    if(shippingAddress!=null)                    
-                    {
-                        address= shippingAddress.Address+", " + shippingAddress.Ward.WardName +", " + shippingAddress.District.DistrictName + ", " + shippingAddress.Province.ProvinceName;
-                    }
+        //    var orderDetails = _context.OrderDetails
+        //        .Include(x => x.Product)
+        //        .AsNoTracking()
+        //        .Where(x => x.OrderId == id)
+        //        .OrderBy(x => x.OrderDetailId)
+        //        .ToList();
+        //    try
+        //    {
+        //        if (order.CustomerId != null)
+        //        {
+        //            var customer = order.Customer;
+        //            SendEmail1(customer, orderDetails,optonemail ,order.Code);
+        //        }
+        //        else
+        //        {
+        //            var Guest = order.Guest;
+        //            var address = "";
+        //            if(shippingAddress!=null)                    
+        //            {
+        //                address= shippingAddress.Address+", " + shippingAddress.Ward.WardName +", " + shippingAddress.District.DistrictName + ", " + shippingAddress.Province.ProvinceName;
+        //            }
                     
-                    SendEmail(Guest, address, orderDetails, optonemail, order.Code);
-                }
-            }
-            catch (Exception e)
-            {
-                return Json(new { success = "No" });
-            }
+        //            SendEmail(Guest, address, orderDetails, optonemail, order.Code);
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return Json(new { success = "No" });
+        //    }
            
-            return Json(new { success = "Ok" });
-        }
+        //    return Json(new { success = "Ok" });
+        //}
 
-        public IActionResult SendEmail(Guest tk, string address, List<OrderDetail> listO,int EmailId,string code)
-        {
-            var address1 = "";
-            if (address != null)
-            {
-                address1 = address;
-            }
-            var systemW = _context.SystemWebs.FirstOrDefault();
-            var Admin = _context.PageInfos.FirstOrDefault();
-            var email = new MimeMessage();
-            try
-            {
-                if (systemW.PassSmtp == "" || systemW.Name == null || systemW.Post == null || systemW.Name == null)
-                {
-                    return Json(new { succses = "No", value = "Vui lòng kiểm tra Quản lý website > Hệ thống." });
-                }
-                else
-                {
-                    try
-                    {
+        //public IActionResult SendEmail(Guest tk, string address, List<OrderDetail> listO,int EmailId,string code)
+        //{
+        //    var address1 = "";
+        //    if (address != null)
+        //    {
+        //        address1 = address;
+        //    }
+        //    var systemW = _context.SystemWebs.FirstOrDefault();
+        //    var Admin = _context.PageInfos.FirstOrDefault();
+        //    var email = new MimeMessage();
+        //    try
+        //    {
+        //        if (systemW.PassSmtp == "" || systemW.Name == null || systemW.Post == null || systemW.Name == null)
+        //        {
+        //            return Json(new { succses = "No", value = "Vui lòng kiểm tra Quản lý website > Hệ thống." });
+        //        }
+        //        else
+        //        {
+        //            try
+        //            {
 
-                        email.From.Add(MailboxAddress.Parse(systemW.EmailSend));
-                        using var smtp = new MailKit.Net.Smtp.SmtpClient();
-                        smtp.Connect(systemW.Server, (int)systemW.Post, SecureSocketOptions.StartTls);
-                        smtp.Authenticate(systemW.EmailSmtp, systemW.PassSmtp);
-                        try
-                        {
-                            var optionEmail = _context.EmailMakettings.Where(i => i.EmailId == EmailId).FirstOrDefault();
-                            var text = textcover(optionEmail.Body, tk.HoTen, tk.Email, tk.SoDienThoai.ToString(), address1, "", listO,code);
-                            email.Bcc.Add(MailboxAddress.Parse(tk.Email));
-                            email.To.Add(MailboxAddress.Parse(tk.Email));
-                            email.Subject = optionEmail.Title;
-                            email.Body = new TextPart(TextFormat.Html) { Text = text };
+        //                email.From.Add(MailboxAddress.Parse(systemW.EmailSend));
+        //                using var smtp = new MailKit.Net.Smtp.SmtpClient();
+        //                smtp.Connect(systemW.Server, (int)systemW.Post, SecureSocketOptions.StartTls);
+        //                smtp.Authenticate(systemW.EmailSmtp, systemW.PassSmtp);
+        //                try
+        //                {
+        //                    var optionEmail = _context.EmailMakettings.Where(i => i.EmailId == EmailId).FirstOrDefault();
+        //                    var text = textcover(optionEmail.Body, tk.FullName, tk.Email, tk.SoDienThoai.ToString(), address1, "", listO,code);
+        //                    email.Bcc.Add(MailboxAddress.Parse(tk.Email));
+        //                    email.To.Add(MailboxAddress.Parse(tk.Email));
+        //                    email.Subject = optionEmail.Title;
+        //                    email.Body = new TextPart(TextFormat.Html) { Text = text };
 
-                            smtp.Send(email);
-                            smtp.Disconnect(true);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.ToString());
-                            return (IActionResult)ex;
-                        }
-
-
-                    }
-                    catch (Exception e)
-                    {
-                        return Json(new { succses = "No" });
-                    }
-
-                }
-            }
-            catch (Exception e)
-            {
-
-            }
+        //                    smtp.Send(email);
+        //                    smtp.Disconnect(true);
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    Console.WriteLine(ex.ToString());
+        //                    return (IActionResult)ex;
+        //                }
 
 
-            return Json(new { succses = "Ok" });
-        }
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                return Json(new { succses = "No" });
+        //            }
+
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+
+        //    }
+
+
+        //    return Json(new { succses = "Ok" });
+        //}
         public string textcover(string body, string Name, string Email, string SoDienThoai, string Address, string CompanyName, List<OrderDetail> Order, string code)
         {
             var id = "";
@@ -354,66 +354,66 @@ namespace WebShop.Areas.Admin.Controllers
             return body;
         }
 
-        public IActionResult SendEmail1(Customer tk, List<OrderDetail> listO, int EmailId, string code)
-        {
-            var address = "";
-            var systemW = _context.SystemWebs.FirstOrDefault();
-            var Admin = _context.PageInfos.FirstOrDefault();
-            var email = new MimeMessage();
-            try
-            {
-                if (systemW.PassSmtp == "" || systemW.Name == null || systemW.Post == null || systemW.Name == null)
-                {
-                    return Json(new { succses = "No", value = "Vui lòng kiểm tra Quản lý website > Hệ thống." });
-                }
-                else
-                {
-                    try
-                    {
-                        var addressid = _context.AccountAddresses.Where(c => c.CustomerId == tk.CustomerId).Where(c => c.IsDefault == true).Include(c => c.Ward).Include(c => c.District).Include(c => c.Province).FirstOrDefault();
-                        if (addressid != null)
-                        {
-                            address = addressid.Content + "/" + addressid.Ward.WardName + "/" + addressid.District.DistrictName + "/" + addressid.Province.ProvinceName;
-                        }
-                        email.From.Add(MailboxAddress.Parse(systemW.EmailSend));
-                        using var smtp = new MailKit.Net.Smtp.SmtpClient();
-                        smtp.Connect(systemW.Server, (int)systemW.Post, SecureSocketOptions.StartTls);
-                        smtp.Authenticate(systemW.EmailSmtp, systemW.PassSmtp);
-                        try
-                        {
-                            var optionEmail = _context.EmailMakettings.Where(i => i.EmailEvent == EmailId).FirstOrDefault();
-                            var text = textcover(optionEmail.Body, tk.HoTen, tk.Email, tk.SoDienThoai.ToString(), address, "", listO,code);
-                            email.Bcc.Add(MailboxAddress.Parse(tk.Email));
-                            email.To.Add(MailboxAddress.Parse(tk.Email));
-                            email.Subject = optionEmail.Title;
-                            email.Body = new TextPart(TextFormat.Html) { Text = text };
+        //public IActionResult SendEmail1(Customer tk, List<OrderDetail> listO, int EmailId, string code)
+        //{
+        //    var address = "";
+        //    var systemW = _context.SystemWebs.FirstOrDefault();
+        //    var Admin = _context.PageInfos.FirstOrDefault();
+        //    var email = new MimeMessage();
+        //    try
+        //    {
+        //        if (systemW.PassSmtp == "" || systemW.Name == null || systemW.Post == null || systemW.Name == null)
+        //        {
+        //            return Json(new { succses = "No", value = "Vui lòng kiểm tra Quản lý website > Hệ thống." });
+        //        }
+        //        else
+        //        {
+        //            try
+        //            {
+        //                var addressid = _context.AccountAddresses.Where(c => c.CustomerId == tk.CustomerId).Where(c => c.IsDefault == true).Include(c => c.Ward).Include(c => c.District).Include(c => c.Province).FirstOrDefault();
+        //                if (addressid != null)
+        //                {
+        //                    address = addressid.Content + "/" + addressid.Ward.WardName + "/" + addressid.District.DistrictName + "/" + addressid.Province.ProvinceName;
+        //                }
+        //                email.From.Add(MailboxAddress.Parse(systemW.EmailSend));
+        //                using var smtp = new MailKit.Net.Smtp.SmtpClient();
+        //                smtp.Connect(systemW.Server, (int)systemW.Post, SecureSocketOptions.StartTls);
+        //                smtp.Authenticate(systemW.EmailSmtp, systemW.PassSmtp);
+        //                try
+        //                {
+        //                    var optionEmail = _context.EmailMakettings.Where(i => i.EmailEvent == EmailId).FirstOrDefault();
+        //                    var text = textcover(optionEmail.Body, tk.FullName, tk.Email, tk.SoDienThoai.ToString(), address, "", listO,code);
+        //                    email.Bcc.Add(MailboxAddress.Parse(tk.Email));
+        //                    email.To.Add(MailboxAddress.Parse(tk.Email));
+        //                    email.Subject = optionEmail.Title;
+        //                    email.Body = new TextPart(TextFormat.Html) { Text = text };
 
-                            smtp.Send(email);
-                            smtp.Disconnect(true);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.ToString());
-                            return (IActionResult)ex;
-                        }
-
-
-                    }
-                    catch (Exception e)
-                    {
-                        return Json(new { succses = "No" });
-                    }
-
-                }
-            }
-            catch (Exception e)
-            {
-
-            }
+        //                    smtp.Send(email);
+        //                    smtp.Disconnect(true);
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    Console.WriteLine(ex.ToString());
+        //                    return (IActionResult)ex;
+        //                }
 
 
-            return Json(new { succses = "Ok" });
-        }
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                return Json(new { succses = "No" });
+        //            }
+
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+
+        //    }
+
+
+        //    return Json(new { succses = "Ok" });
+        //}
 
         //
         [HttpPost]
@@ -665,7 +665,7 @@ namespace WebShop.Areas.Admin.Controllers
                     orderDetail.Amount = item.amount;
                     orderDetail.TotalMoney = order.TotalMoney;
                     orderDetail.Price = item.product.SalePrice;
-                    orderDetail.NgayTao = DateTime.Now;
+                    orderDetail.CreatedAt = DateTime.Now;
                     _context.OrderDetails.Add(orderDetail);
                 }
                 _context.SaveChanges();
@@ -744,7 +744,7 @@ namespace WebShop.Areas.Admin.Controllers
         //                orderDetail.Amount = item.amount;
         //                orderDetail.TotalMoney = order.TotalMoney;
         //                orderDetail.Price = item.product.SalePrice;
-        //                orderDetail.NgayTao = DateTime.Now;
+        //                orderDetail.CreatedAt = DateTime.Now;
         //                _context.OrderDetails.Add(orderDetail);
         //            }
         //            _context.SaveChanges();

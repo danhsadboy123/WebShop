@@ -31,7 +31,7 @@ const Event = {
 
 const ClassName = {
   DROPDOWN_MENU : 'dropdown-menu',
-  KichHoat        : 'KichHoat',
+  IsActivated        : 'IsActivated',
   DISABLED      : 'disabled',
   FADE          : 'fade',
   SHOW          : 'show'
@@ -40,11 +40,11 @@ const ClassName = {
 const Selector = {
   DROPDOWN              : '.dropdown',
   NAV_LIST_GROUP        : '.nav, .list-group',
-  KichHoat                : '.KichHoat',
-  ACTIVE_UL             : '> li > .KichHoat',
+  IsActivated                : '.IsActivated',
+  ACTIVE_UL             : '> li > .IsActivated',
   DATA_TOGGLE           : '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
   DROPDOWN_TOGGLE       : '.dropdown-toggle',
-  DROPDOWN_ACTIVE_CHILD : '> .dropdown-menu .KichHoat'
+  DROPDOWN_ACTIVE_CHILD : '> .dropdown-menu .IsActivated'
 }
 
 /**
@@ -69,7 +69,7 @@ class Tab {
   show() {
     if (this._element.parentNode &&
         this._element.parentNode.nodeType === Node.ELEMENT_NODE &&
-        $(this._element).hasClass(ClassName.KichHoat) ||
+        $(this._element).hasClass(ClassName.IsActivated) ||
         $(this._element).hasClass(ClassName.DISABLED)) {
       return
     }
@@ -80,7 +80,7 @@ class Tab {
     const selector = Util.getSelectorFromElement(this._element)
 
     if (listElement) {
-      const itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.KichHoat
+      const itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.IsActivated
       previous = $.makeArray($(listElement).find(itemSelector))
       previous = previous[previous.length - 1]
     }
@@ -143,20 +143,20 @@ class Tab {
   _activate(element, container, callback) {
     const activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL')
       ? $(container).find(Selector.ACTIVE_UL)
-      : $(container).children(Selector.KichHoat)
+      : $(container).children(Selector.IsActivated)
 
-    const KichHoat = activeElements[0]
-    const isTransitioning = callback && (KichHoat && $(KichHoat).hasClass(ClassName.FADE))
+    const IsActivated = activeElements[0]
+    const isTransitioning = callback && (IsActivated && $(IsActivated).hasClass(ClassName.FADE))
     const complete = () => this._transitionComplete(
       element,
-      KichHoat,
+      IsActivated,
       callback
     )
 
-    if (KichHoat && isTransitioning) {
-      const transitionDuration = Util.getTransitionDurationFromElement(KichHoat)
+    if (IsActivated && isTransitioning) {
+      const transitionDuration = Util.getTransitionDurationFromElement(IsActivated)
 
-      $(KichHoat)
+      $(IsActivated)
         .removeClass(ClassName.SHOW)
         .one(Util.TRANSITION_END, complete)
         .emulateTransitionEnd(transitionDuration)
@@ -165,25 +165,25 @@ class Tab {
     }
   }
 
-  _transitionComplete(element, KichHoat, callback) {
-    if (KichHoat) {
-      $(KichHoat).removeClass(ClassName.KichHoat)
+  _transitionComplete(element, IsActivated, callback) {
+    if (IsActivated) {
+      $(IsActivated).removeClass(ClassName.IsActivated)
 
-      const dropdownChild = $(KichHoat.parentNode).find(
+      const dropdownChild = $(IsActivated.parentNode).find(
         Selector.DROPDOWN_ACTIVE_CHILD
       )[0]
 
       if (dropdownChild) {
-        $(dropdownChild).removeClass(ClassName.KichHoat)
+        $(dropdownChild).removeClass(ClassName.IsActivated)
       }
 
-      if (KichHoat.getAttribute('VaiTro') === 'tab') {
-        KichHoat.setAttribute('aria-selected', false)
+      if (IsActivated.getAttribute('Role') === 'tab') {
+        IsActivated.setAttribute('aria-selected', false)
       }
     }
 
-    $(element).addClass(ClassName.KichHoat)
-    if (element.getAttribute('VaiTro') === 'tab') {
+    $(element).addClass(ClassName.IsActivated)
+    if (element.getAttribute('Role') === 'tab') {
       element.setAttribute('aria-selected', true)
     }
 
@@ -199,7 +199,7 @@ class Tab {
       if (dropdownElement) {
         const dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(Selector.DROPDOWN_TOGGLE))
 
-        $(dropdownToggleList).addClass(ClassName.KichHoat)
+        $(dropdownToggleList).addClass(ClassName.IsActivated)
       }
 
       element.setAttribute('aria-expanded', true)

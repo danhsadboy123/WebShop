@@ -5,15 +5,15 @@ class PagesProfile {
         $('#list-view-btn').on('click', (e) => {
             $('#list-view').removeClass('d-none');
             $('#card-view').addClass('d-none')
-            $(e.currentTarget).addClass('KichHoat');
-            $('#card-view-btn').removeClass('KichHoat');
+            $(e.currentTarget).addClass('IsActivated');
+            $('#card-view-btn').removeClass('IsActivated');
         })
 
         $('#card-view-btn').on('click', (e) => {
             $('#card-view').removeClass('d-none');
             $('#list-view').addClass('d-none');
-            $(e.currentTarget).addClass('KichHoat');
-            $('#list-view-btn').removeClass('KichHoat');
+            $(e.currentTarget).addClass('IsActivated');
+            $('#list-view-btn').removeClass('IsActivated');
         })
     }
 }

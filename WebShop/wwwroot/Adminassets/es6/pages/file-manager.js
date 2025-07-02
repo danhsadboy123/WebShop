@@ -20,14 +20,14 @@ class FileManager {
 
         $(fileItems).on('click', (e) => {
             showFileDetails()
-            $(fileItems).removeClass('KichHoat')
-            $(e.currentTarget).addClass('KichHoat')
+            $(fileItems).removeClass('IsActivated')
+            $(e.currentTarget).addClass('IsActivated')
             $(fileContentDetails).addClass('details-open')
         })
 
         $('.unselect-bg').on('click', (e) => {
             hideFileDetails()
-            $(fileItems).removeClass('KichHoat')
+            $(fileItems).removeClass('IsActivated')
         })
 
         $('.content-details-close a').on('click', (e) => {

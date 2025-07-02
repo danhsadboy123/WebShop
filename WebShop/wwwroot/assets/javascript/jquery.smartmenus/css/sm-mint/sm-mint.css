@@ -3,7 +3,7 @@
   border-bottom: 2px solid #8db863;
   background: #fff;
 }
-.sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:KichHoat {
+.sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:IsActivated {
   padding: 13px 20px;
   /* make room for the toggle button (sub indicator) */
   padding-right: 58px;
@@ -50,32 +50,32 @@
 .sm-mint ul {
   background: rgba(141, 184, 99, 0.2);
 }
-.sm-mint ul a, .sm-mint ul a:hover, .sm-mint ul a:focus, .sm-mint ul a:KichHoat {
+.sm-mint ul a, .sm-mint ul a:hover, .sm-mint ul a:focus, .sm-mint ul a:IsActivated {
   font-size: 14px;
   border-left: 8px solid transparent;
 }
 .sm-mint ul ul a,
 .sm-mint ul ul a:hover,
 .sm-mint ul ul a:focus,
-.sm-mint ul ul a:KichHoat {
+.sm-mint ul ul a:IsActivated {
   border-left: 16px solid transparent;
 }
 .sm-mint ul ul ul a,
 .sm-mint ul ul ul a:hover,
 .sm-mint ul ul ul a:focus,
-.sm-mint ul ul ul a:KichHoat {
+.sm-mint ul ul ul a:IsActivated {
   border-left: 24px solid transparent;
 }
 .sm-mint ul ul ul ul a,
 .sm-mint ul ul ul ul a:hover,
 .sm-mint ul ul ul ul a:focus,
-.sm-mint ul ul ul ul a:KichHoat {
+.sm-mint ul ul ul ul a:IsActivated {
   border-left: 32px solid transparent;
 }
 .sm-mint ul ul ul ul ul a,
 .sm-mint ul ul ul ul ul a:hover,
 .sm-mint ul ul ul ul ul a:focus,
-.sm-mint ul ul ul ul ul a:KichHoat {
+.sm-mint ul ul ul ul ul a:IsActivated {
   border-left: 40px solid transparent;
 }
 
@@ -120,12 +120,12 @@
     border-top: 0;
     background: transparent;
   }
-  .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:KichHoat, .sm-mint a.highlighted {
+  .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:IsActivated, .sm-mint a.highlighted {
     padding: 11px 20px;
     color: #333;
     border-radius: 4px 4px 0 0;
   }
-  .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:KichHoat {
+  .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:IsActivated {
     background: #8db863;
     color: #fff;
   }
@@ -154,7 +154,7 @@
     background: transparent;
     border-radius: 0;
   }
-  .sm-mint a:hover .sub-arrow, .sm-mint a:focus .sub-arrow, .sm-mint a:KichHoat .sub-arrow {
+  .sm-mint a:hover .sub-arrow, .sm-mint a:focus .sub-arrow, .sm-mint a:IsActivated .sub-arrow {
     border-color: #fff transparent transparent transparent;
   }
   .sm-mint a.highlighted .sub-arrow {
@@ -179,13 +179,13 @@
   .sm-mint ul ul {
     border-radius: 4px;
   }
-  .sm-mint ul a, .sm-mint ul a:hover, .sm-mint ul a:focus, .sm-mint ul a:KichHoat, .sm-mint ul a.highlighted {
+  .sm-mint ul a, .sm-mint ul a:hover, .sm-mint ul a:focus, .sm-mint ul a:IsActivated, .sm-mint ul a.highlighted {
     border: 0 !important;
     padding: 10px 20px;
     color: #333;
     border-radius: 0;
   }
-  .sm-mint ul a:hover, .sm-mint ul a:focus, .sm-mint ul a:KichHoat, .sm-mint ul a.highlighted {
+  .sm-mint ul a:hover, .sm-mint ul a:focus, .sm-mint ul a:IsActivated, .sm-mint ul a.highlighted {
     background: #8db863;
     color: #fff;
     box-shadow: none;
@@ -204,7 +204,7 @@
     border-style: dashed dashed dashed solid;
     border-color: transparent transparent transparent #8db863;
   }
-  .sm-mint ul a:hover .sub-arrow, .sm-mint ul a:focus .sub-arrow, .sm-mint ul a:KichHoat .sub-arrow, .sm-mint ul a.highlighted .sub-arrow {
+  .sm-mint ul a:hover .sub-arrow, .sm-mint ul a:focus .sub-arrow, .sm-mint ul a:IsActivated .sub-arrow, .sm-mint ul a.highlighted .sub-arrow {
     border-color: transparent transparent transparent #fff;
   }
   .sm-mint ul a.disabled .sub-arrow {
@@ -262,7 +262,7 @@
     border-style: dashed solid dashed dashed;
     border-color: transparent #8db863 transparent transparent;
   }
-  .sm-mint.sm-rtl.sm-vertical a:hover .sub-arrow, .sm-mint.sm-rtl.sm-vertical a:focus .sub-arrow, .sm-mint.sm-rtl.sm-vertical a:KichHoat .sub-arrow, .sm-mint.sm-rtl.sm-vertical a.highlighted .sub-arrow {
+  .sm-mint.sm-rtl.sm-vertical a:hover .sub-arrow, .sm-mint.sm-rtl.sm-vertical a:focus .sub-arrow, .sm-mint.sm-rtl.sm-vertical a:IsActivated .sub-arrow, .sm-mint.sm-rtl.sm-vertical a.highlighted .sub-arrow {
     border-color: transparent #fff transparent transparent;
   }
   .sm-mint.sm-rtl.sm-vertical a.disabled .sub-arrow {
@@ -284,7 +284,7 @@
     border-style: dashed solid dashed dashed;
     border-color: transparent #8db863 transparent transparent;
   }
-  .sm-mint.sm-rtl ul a:hover .sub-arrow, .sm-mint.sm-rtl ul a:focus .sub-arrow, .sm-mint.sm-rtl ul a:KichHoat .sub-arrow, .sm-mint.sm-rtl ul a.highlighted .sub-arrow {
+  .sm-mint.sm-rtl ul a:hover .sub-arrow, .sm-mint.sm-rtl ul a:focus .sub-arrow, .sm-mint.sm-rtl ul a:IsActivated .sub-arrow, .sm-mint.sm-rtl ul a.highlighted .sub-arrow {
     border-color: transparent #fff transparent transparent;
   }
   .sm-mint.sm-rtl ul a.disabled .sub-arrow {
@@ -298,7 +298,7 @@
     padding: 10px 20px;
     border-radius: 4px 0 0 4px;
   }
-  .sm-mint.sm-vertical a:hover, .sm-mint.sm-vertical a:focus, .sm-mint.sm-vertical a:KichHoat, .sm-mint.sm-vertical a.highlighted {
+  .sm-mint.sm-vertical a:hover, .sm-mint.sm-vertical a:focus, .sm-mint.sm-vertical a:IsActivated, .sm-mint.sm-vertical a.highlighted {
     background: #8db863;
     color: #fff;
     box-shadow: none;
@@ -314,7 +314,7 @@
     border-style: dashed dashed dashed solid;
     border-color: transparent transparent transparent #8db863;
   }
-  .sm-mint.sm-vertical a:hover .sub-arrow, .sm-mint.sm-vertical a:focus .sub-arrow, .sm-mint.sm-vertical a:KichHoat .sub-arrow, .sm-mint.sm-vertical a.highlighted .sub-arrow {
+  .sm-mint.sm-vertical a:hover .sub-arrow, .sm-mint.sm-vertical a:focus .sub-arrow, .sm-mint.sm-vertical a:IsActivated .sub-arrow, .sm-mint.sm-vertical a.highlighted .sub-arrow {
     border-color: transparent transparent transparent #fff;
   }
   .sm-mint.sm-vertical a.disabled .sub-arrow {

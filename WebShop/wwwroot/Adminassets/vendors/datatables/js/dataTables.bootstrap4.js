@@ -123,7 +123,7 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 					default:
 						btnDisplay = button + 1;
 						btnClass = page === button ?
-							'KichHoat' : '';
+							'IsActivated' : '';
 						break;
 				}
 
