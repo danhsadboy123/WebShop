@@ -1,0 +1,408 @@
+﻿@model Ecommerce_CaFeShop.Models.ViewModels.ProductDetailVM
+@using System.Globalization
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<!-- ...:::: Start Breadcrumb Section:::... -->
+<div class="breadcrumb-section breadcrumb-bg-color--golden">
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="breadcrumb-title">CHI TIẾT SẢN PHẨM</h3>
+                    <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                        <nav aria-label="breadcrumb">
+                            <ul>
+                                <li><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                                <li><a asp-controller="Product" asp-action="Index">Sản phẩm</a></li>
+                                <li class="active" aria-current="page">@Model.SanPham.TenSanPham</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- ...:::: End Breadcrumb Section:::... -->
+<!-- Start Product Details Section -->
+<div class="product-details-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-6">
+                <div class="product-details-gallery-area" data-aos="fade-up" data-aos-delay="0">
+                    <!-- Start Large Image -->
+                    <div class="product-large-image product-large-image-horaizontal swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
+                                <img src="@Url.Content(Model.SanPham.HinhAnh ?? "/images/default-image.jpg")" alt="@Model.SanPham.TenSanPham" onerror="this.src='/images/default-image.jpg';" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Large Image -->
+                    <!-- Start Thumbnail Image -->
+                    <div class="product-image-thumb product-image-thumb-horizontal swiper-container pos-relative mt-5">
+                        <div class="swiper-wrapper">
+                            @foreach (var img in Model.SanPham.HinhAnhSanPhams)
+                            {
+                                <div class="product-image-thumb-single swiper-slide">
+                                    <img class="img-fluid" src="@Url.Content(img.HinhAnh ?? "/images/default-image.jpg")" alt="@Model.SanPham.TenSanPham" onerror="this.src='/images/default-image.jpg';" />
+                                </div>
+                            }
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="gallery-thumb-arrow swiper-button-next"></div>
+                        <div class="gallery-thumb-arrow swiper-button-prev"></div>
+                    </div>
+                    <!-- End Thumbnail Image -->
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-6">
+                <div class="product-details-content-area product-details--golden" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Start Product Details Text Area -->
+                    <div class="product-details-text">
+                        <h4 class="title">@Model.SanPham.TenSanPham</h4>
+                        <div class="d-flex align-items-center">
+                            <ul class="review-star">
+                                @{
+                                    bool hasHalfStar = (Model.ProductRating - (int)Model.ProductRating) >= 0.4;
+                                }
+                                @if (Model.ProductRating == 0)
+                                {
+                                    for (int i = 1; i <= 5; i++)
+                                    {
+                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                    }
+                                }
+                                else
+                                {
+                                    @for (int i = 1; i <= (int)Model.ProductRating; i++)
+                                    {
+                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                    }
+                                    @if ((int)Model.ProductRating < 5 && hasHalfStar)
+                                    {
+                                        <li class="half" style="color: #b19361"><i class="ion-android-star-half"></i></li>
+                                    }
+                                    @for (int i = (int)Model.ProductRating + (hasHalfStar ? 1 : 0); i < 5; i++)
+                                    {
+                                        <li class="empty"><i class="ion-android-star"></i></li>
+                                    }
+                                }
+                            </ul>
+                            <a href="#" class="customer-review ml-2">@Model.SanPham.LuotXem lượt xem</a>
+                            <a href="#" class="customer-review ml-2">(@Model.TotalRating)</a>
+                        </div>
+                        <div class="price">
+                            @String.Format(new CultureInfo("vi-VN"), "{0:C}", Model.SanPham.Gia)
+                        </div>
+                        <p>@(Model.SanPham.MoTaNgan ?? "Chưa có mô tả")</p>
+                    </div> <!-- End Product Details Text Area -->
+                    <!-- Start Product Variable Area -->
+                    <div class="product-details-variable">
+                        <h4 class="title">Trạng thái sản phẩm</h4>
+                        <!-- Product Variable Single Item -->
+                        <div class="variable-single-item">
+                            <div class="product-stock">
+                                <span class="product-stock-in">
+                                    @if (Model.SanPham.SoLuong == 0)
+                                    {
+                                        <span style="color: red;">Hết hàng</span>
+                                    }
+                                    else
+                                    {
+                                        <span style="color: green;">Còn hàng</span>
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Product Variable Single Item -->
+                        <div class="d-flex align-items-center">
+                            <div class="variable-single-item">
+                                <span>Số lượng</span>
+                                <div class="product-variable-quantity">
+                                    <input id="quantity_input" min="1" value="1" type="number">
+                                </div>
+                            </div>
+                            <div class="product-add-to-cart-btn">
+                                <button data-slug="@Model.SanPham.Slug" class="btn btn-block btn-lg btn-black-default-hover add-to-cart" type="button">
+                                    + Thêm vào giỏ
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Start Product Details Meta Area -->
+                        <div class="product-details-meta mb-20">
+                            <a href="javascript:void(0)" class="icon-space-right add-to-wishlist" data-id="@Model.SanPham.MaSanPham">
+                                <i class="fa fa-heart-o"></i> Thêm vào yêu thích
+                            </a>
+                        </div> <!-- End Product Details Meta Area -->
+                    </div> <!-- End Product Variable Area -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End Product Details Section -->
+<!-- Start Product Content Tab Section -->
+<div class="product-details-content-tab-section section-top-gap-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="product-details-content-tab-wrapper" data-aos="fade-up" data-aos-delay="0">
+                    <!-- Start Product Details Tab Button -->
+                    <ul class="nav tablist product-details-content-tab-btn d-flex justify-content-center">
+                        <li><a class="nav-link active" data-bs-toggle="tab" href="#description">Mô tả</a></li>
+                        <li><a class="nav-link" data-bs-toggle="tab" href="#specification">Thông số kỹ thuật</a></li>
+                        <li><a class="nav-link" data-bs-toggle="tab" href="#review">Bình luận</a></li>
+                    </ul> <!-- End Product Details Tab Button -->
+                    <!-- Start Product Details Tab Content -->
+                    <div class="product-details-content-tab">
+                        <div class="tab-content">
+                            <!-- Start Product Details Tab Content Single -->
+                            <div class="tab-pane active show" id="description">
+                                <div class="single-tab-content-item">
+                                    <p>@(Model.SanPham.MoTa ?? "Chưa có mô tả chi tiết")</p>
+                                </div>
+                            </div> <!-- End Product Details Tab Content Single -->
+                            <!-- Start Product Details Tab Content Single -->
+                            <div class="tab-pane" id="specification">
+                                <div class="single-tab-content-item">
+                                    <p>@Html.Raw(Model.SanPham.ThongSoKyThuat ?? "Chưa có thông số kỹ thuật")</p>
+                                </div>
+                            </div> <!-- End Product Details Tab Content Single -->
+                            <!-- Start Product Details Tab Content Single -->
+                            <div class="tab-pane" id="review">
+                                <div class="single-tab-content-item">
+                                    <!-- Start Review Comment -->
+                                    <ul class="comment-list">
+                                        @foreach (var comment in Model.Comments)
+                                        {
+                                            <li>
+                                                <div class="comment-content">
+                                                    <h6 class="comment-name">@comment.CustomerName</h6>
+                                                    <ul class="review-star">
+                                                        @for (int i = 1; i <= 5; i++)
+                                                        {
+                                                            <li class="@(i <= comment.Rating ? "fill" : "empty")">
+                                                                <i class="@(i <= comment.Rating ? "ion-android-star" : "ion-android-star-outline")"></i>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                    <p>@comment.Content</p>
+                                                    <small>@(comment.CreatedAt?.ToString("dd/MM/yyyy") ?? "")</small>
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <hr />
+                                    <div class="review-form">
+                                        <div class="review-form-text-top">
+                                            <h5>Thêm bình luận</h5>
+                                        </div>
+                                        @if (!User.Identity.IsAuthenticated)
+                                        {
+                                            <div class="alert alert-warning">
+                                                Bạn cần đăng nhập để đánh giá sản phẩm
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <form asp-action="AddReview" asp-route-id="@Model.SanPham.MaSanPham" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="default-form-box">
+                                                            <label for="comment-rating">Đánh giá của bạn <span>*</span></label>
+                                                            <input id="comment-rating" name="rating" type="number" min="1" max="5" placeholder="Đánh giá (1-5)" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="default-form-box">
+                                                            <label for="comment-review-text">Bình luận của bạn <span>*</span></label>
+                                                            <textarea id="comment-review-text" name="content" placeholder="Ghi đánh giá" required></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <button class="btn btn-md btn-black-default-hover" type="submit">Gửi</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        }
+                                    </div>
+                                </div>
+                            </div> <!-- End Product Details Tab Content Single -->
+                        </div>
+                    </div> <!-- End Product Details Tab Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End Product Content Tab Section -->
+<!-- Start Product Default Slider Section -->
+<div class="product-default-slider-section section-top-gap-100 section-fluid">
+    <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-content-gap">
+                        <div class="secton-content">
+                            <h3 class="section-title">SẢN PHẨM TƯƠNG TỰ</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-wrapper" data-aos="fade-up" data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-slider-default-1row default-slider-nav-arrow">
+                        <div class="swiper-container product-default-slider-4grid-1row">
+                            <div class="swiper-wrapper">
+                                @foreach (var product in Model.RelatedProducts)
+                                {
+                                    <div class="product-default-single-item product-color--golden swiper-slide">
+                                        <div class="image-box">
+                                            <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@product.Slug" class="image-link">
+                                                <img src="@Url.Content(product.HinhAnh ?? "default-image.jpg")" alt="@product.TenSanPham" onerror="this.src='/images/default-image.jpg';" />
+                                            </a>
+                                            <div class="action-link">
+                                                <div class="action-link-left">
+                                                    <a class="add-to-cart" data-slug="@product.Slug" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="content-left">
+                                                <h6 class="title">
+                                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@product.Slug">
+                                                        @product.TenSanPham
+                                                    </a>
+                                                </h6>
+                                                <ul class="review-star">
+                                                    @{
+                                                        var relatedRating = product.DanhGiaSanPhams?.Any() == true ? product.DanhGiaSanPhams.Average(r => r.DiemDanhGia ?? 0) : 0;
+                                                        bool relatedHasHalfStar = (relatedRating - (int)relatedRating) >= 0.4;
+                                                    }
+                                                    @if (relatedRating == 0)
+                                                    {
+                                                        for (int i = 1; i <= 5; i++)
+                                                        {
+                                                            <li class="fill"><i class="ion-android-star"></i></li>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        @for (int i = 1; i <= (int)relatedRating; i++)
+                                                        {
+                                                            <li class="fill"><i class="ion-android-star"></i></li>
+                                                        }
+                                                        @if ((int)relatedRating < 5 && relatedHasHalfStar)
+                                                        {
+                                                            <li class="half" style="color: #b19361"><i class="ion-android-star-half"></i></li>
+                                                        }
+                                                        @for (int i = (int)relatedRating + (relatedHasHalfStar ? 1 : 0); i < 5; i++)
+                                                        {
+                                                            <li class="empty"><i class="ion-android-star"></i></li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </div>
+                                            <div class="content-right">
+                                                <span class="price">@String.Format(new CultureInfo("vi-VN"), "{0:C}", product.Gia)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End Product Default Slider Section -->
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.add-to-wishlist').click(function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var productId = $this.data('id');
+                var $icon = $this.find('i');
+
+                $.ajax({
+                    url: '@Url.Action("AddToWishlist", "Product")', // Đường dẫn đúng
+                    type: 'POST',
+                    data: { productId: productId },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            // Toggle trạng thái yêu thích
+                            if ($icon.hasClass('fa-heart-o')) {
+                                $icon.removeClass('fa-heart-o').addClass('fa-heart').css('color', 'red');
+                            } else {
+                                $icon.removeClass('fa-heart').addClass('fa-heart-o').css('color', 'gray');
+                            }
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert('Đã xảy ra lỗi khi thêm vào danh sách yêu thích.');
+                    }
+                });
+            });
+
+            $('.add-to-cart').click(function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var slug = $this.data('slug');
+                var quantity = parseInt($('#quantity_input').val()) || 1;
+
+                $.ajax({
+                    url: '@Url.Action("AddToCart", "Cart")',
+                    type: 'POST',
+                    data: { slug: slug, quantity: quantity },
+                    success: function (result) {
+                        if (result.success) {
+                            Toastify({
+                                text: result.message,
+                                duration: 3000,
+                                close: true,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#5cb85c",
+                                className: "info"
+                            }).showToast();
+                        } else {
+                            Toastify({
+                                text: result.message,
+                                duration: 3000,
+                                close: true,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#FF0000",
+                                className: "error"
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        Toastify({
+                            text: 'Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.',
+                            duration: 3000,
+                            close: true,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#FF0000",
+                            className: "error"
+                        }).showToast();
+                    }
+                });
+            });
+        });
+    </script>
+}

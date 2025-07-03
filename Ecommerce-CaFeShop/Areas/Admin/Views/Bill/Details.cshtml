@@ -1,0 +1,592 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết đơn hàng #DH001</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+    /* Reset default styles for consistency */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Global styles */
+    body {
+        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    /* Container for main content */
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+
+    /* Header section */
+    .order-header {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+        .header-content h1 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+    .order-number {
+        font-size: 18px;
+        opacity: 0.9;
+    }
+
+    .status-badge {
+        padding: 8px 16px;
+        border-radius: 16px;
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #28a745;
+    }
+
+    /* Order progress section */
+    .order-progress {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .progress-step {
+        text-align: center;
+        flex: 1;
+        position: relative;
+        z-index: 1;
+    }
+
+    .step-icon {
+        width: 40px;
+        height: 40px;
+        background: #e0e0e0;
+        border-radius: 50%;
+        line-height: 40px;
+        margin: 0 auto 8px;
+        font-size: 20px;
+        transition: background-color 0.3s;
+    }
+
+    .progress-step.completed .step-icon {
+        background: #28a745;
+        color: white;
+    }
+
+    .progress-step.active .step-icon {
+        background: #007bff;
+        color: white;
+    }
+
+    .step-text {
+        font-size: 14px;
+        color: #555;
+    }
+
+    .progress-line {
+        flex: 1;
+        height: 4px;
+        background: #e0e0e0;
+        position: absolute;
+        top: 18px;
+        z-index: 0;
+    }
+
+        .progress-line.completed {
+            background: #28a745;
+        }
+
+        .progress-line.active {
+            background: #007bff;
+        }
+
+    /* Order info section */
+    .order-info {
+        margin-bottom: 20px;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .info-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .info-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #222;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+    .info-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+        .info-item .label {
+            color: #555;
+        }
+
+        .info-item .value {
+            font-weight: 500;
+        }
+
+    .address p {
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+        .address p:first-child {
+            font-weight: 500;
+        }
+
+    /* Order items section */
+    .order-items {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .order-items h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #222;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+    .items-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .item {
+        display: grid;
+        grid-template-columns: 80px 2fr 1fr 1fr;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .item-image img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 1px solid #eee;
+    }
+
+    .item-details h4 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: #222;
+    }
+
+    .item-details p {
+        font-size: 14px;
+        color: #555;
+    }
+
+    .item-quantity {
+        font-size: 14px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .item-price .price {
+        font-size: 16px;
+        font-weight: 500;
+        color: #222;
+    }
+
+    /* Order summary section */
+    .order-summary {
+        margin-bottom: 20px;
+    }
+
+    .summary-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .summary-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #222;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+        .summary-row.total {
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .summary-row .discount {
+            color: #dc3545;
+        }
+
+    /* Action buttons section */
+    .order-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.1s;
+    }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background-color: #bd2130;
+        }
+
+    /* Modal section */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 400px;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #555;
+    }
+
+        .close:hover {
+            color: #222;
+        }
+
+    .modal-content h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #222;
+    }
+
+    .modal-content p {
+        font-size: 14px;
+        margin-bottom: 20px;
+        color: #555;
+    }
+
+    .modal-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+
+    /* Responsive design */
+    @@media (max-width: 768px) {
+        .order-header
+
+    {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .progress-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .progress-line {
+        display: none;
+    }
+
+    .item {
+        grid-template-columns: 80px 1fr;
+        gap: 10px;
+    }
+
+    .item-quantity,
+    .item-price {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .order-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    }
+
+    @@media (max-width: 480px) {
+        .container
+
+    {
+        padding: 0 10px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-content h1 {
+        font-size: 20px;
+    }
+
+    .order-number {
+        font-size: 16px;
+    }
+
+    }
+</style>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="order-header">
+            <div class="header-content">
+                <h1>Chi tiết đơn hàng</h1>
+                <div class="order-number">#DH001</div>
+            </div>
+            <div class="order-status">
+                <span class="status-badge status-processing">Đang xử lý</span>
+            </div>
+        </header>
+
+        <!-- Order Progress -->
+        <section class="order-progress">
+            <div class="progress-container">
+                <div class="progress-step completed">
+                    <div class="step-icon">✓</div>
+                    <div class="step-text">Đặt hàng</div>
+                </div>
+                <div class="progress-line completed"></div>
+                <div class="progress-step completed">
+                    <div class="step-icon">✓</div>
+                    <div class="step-text">Xác nhận</div>
+                </div>
+                <div class="progress-line active"></div>
+                <div class="progress-step active">
+                    <div class="step-icon">📦</div>
+                    <div class="step-text">Đang xử lý</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-icon">🚚</div>
+                    <div class="step-text">Giao hàng</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-icon">✅</div>
+                    <div class="step-text">Hoàn thành</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Info -->
+        <section class="order-info">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Thông tin đơn hàng</h3>
+                    <div class="info-item">
+                        <span class="label">Ngày đặt:</span>
+                        <span class="value">15/12/2024</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Phương thức thanh toán:</span>
+                        <span class="value">COD</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Phí vận chuyển:</span>
+                        <span class="value">30.000 VNĐ</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Địa chỉ giao hàng</h3>
+                    <div class="address">
+                        <p><strong>Nguyễn Văn A</strong></p>
+                        <p>0123 456 789</p>
+                        <p>123 Đường ABC, Phường XYZ</p>
+                        <p>Quận 1, TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Items -->
+        <section class="order-items">
+            <h3>Sản phẩm đã đặt</h3>
+            <div class="items-list">
+                <div class="item">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/80x80" alt="Sản phẩm 1">
+                    </div>
+                    <div class="item-details">
+                        <h4>iPhone 15 Pro Max 256GB</h4>
+                        <p class="item-sku">SKU: IP15PM256</p>
+                        <p class="item-variant">Màu: Titan Tự nhiên</p>
+                    </div>
+                    <div class="item-quantity">
+                        <span>x1</span>
+                    </div>
+                    <div class="item-price">
+                        <span class="price">29.990.000 VNĐ</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/80x80" alt="Sản phẩm 2">
+                    </div>
+                    <div class="item-details">
+                        <h4>AirPods Pro (2nd generation)</h4>
+                        <p class="item-sku">SKU: APP2GEN</p>
+                        <p class="item-variant">Màu: Trắng</p>
+                    </div>
+                    <div class="item-quantity">
+                        <span>x1</span>
+                    </div>
+                    <div class="item-price">
+                        <span class="price">6.490.000 VNĐ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Summary -->
+
+        <!-- Action Buttons -->
+        <section class="order-actions">
+            <button class="btn btn-primary" id="contactSupportBtn">Xác thực đơn hàng</button>
+            <button class="btn btn-danger" id="cancelOrderBtn">Hủy đơn hàng</button>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Thông báo</h3>
+            <p id="modalMessage">Nội dung thông báo</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="modalCancel">Hủy</button>
+                <button class="btn btn-primary" id="modalConfirm">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

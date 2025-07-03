@@ -1,0 +1,273 @@
+﻿@model IEnumerable<Slider>
+
+<!-- Start Hero Slider Section-->
+<!-- Start Banner Section -->
+<div class="banner-section">
+    <!-- Banner main container -->
+    <div class="banner-container">
+        <!-- Banner items wrapper -->
+        <div class="banner-items">
+            <!-- Start Banner Item 1 -->
+            <div class="banner-item">
+                <!-- Banner Image -->
+                <div class="banner-image">
+                    <img src="~/images/banner1.png" alt="Trung Nguyên Legend" style="object-fit: cover; width: 100%; height: 100%;" />
+                </div>
+                <!-- Banner Content -->
+                <div class="banner-content-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="banner-content">
+                                    <h4 class="text-white">Sản Phẩm Nổi Bật</h4>
+                                    <h1 class="title text-white">Trung Nguyên Legend</h1>
+                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="/Product/ProductDetail/3" class="btn btn-lg btn-purple">Mua ngay</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Banner Item 1 -->
+            <!-- Start Banner Item 2 -->
+            <div class="banner-item">
+                <!-- Banner Image -->
+                <div class="banner-image">
+                    <img src="~/images/banner2.png" alt="Highlands Coffee Phin" style="object-fit: cover; width: 100%; height: 100%;" />
+                </div>
+                <!-- Banner Content -->
+                <div class="banner-content-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="banner-content">
+                                    <h4 class="text-white">Giảm giá đến 15%</h4>
+                                    <h1 class="title text-white">Highlands Coffee Phin</h1>
+                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="/Product/ProductDetail/5" class="btn btn-lg btn-purple">Mua ngay</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Banner Item 2 -->
+            <!-- Start Banner Item 3 -->
+            <div class="banner-item">
+                <!-- Banner Image -->
+                <div class="banner-image">
+                    <img src="~/images/cafexay.png" alt="The Coffee House Blend" style="object-fit: cover; width: 100%; height: 100%;" />
+                </div>
+                <!-- Banner Content -->
+                <div class="banner-content-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="banner-content">
+                                    <h4 class="text-white">Hương vị cân bằng, dễ uống</h4>
+                                    <h1 class="title text-white">The Coffee House Blend</h1>
+                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="/Product/ProductDetail/8" class="btn btn-lg btn-purple">Mua ngay</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Banner Item 3 -->
+        </div>
+        <!-- Navigation Buttons -->
+        <button class="banner-prev" style="
+    font-size: 20px;
+">
+            <
+        </button>
+        <button class="banner-next" style="
+    font-size: 20px;
+">
+            >
+        </button>
+    </div>
+</div>
+
+<style>
+    .banner-section {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .banner-container {
+        width: 100%;
+        height: 500px; /* Default height for desktop */
+        position: relative;
+    }
+
+    .banner-items {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .banner-item {
+        position: relative;
+        width: 100%;
+        height: 500px; /* Match container height */
+        flex-shrink: 0;
+    }
+
+    .banner-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .banner-content-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .banner-content {
+        text-align: left;
+        max-width: 90%;
+    }
+
+    .text-white {
+        color: #fff;
+    }
+
+    .title {
+        font-size: 2.2em;
+        margin: 15px 0;
+        font-weight: 700;
+    }
+
+    .btn-purple {
+        background-color: #6a0dad; /* Purple shade */
+        color: #fff;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 10px;
+        display: inline-block;
+    }
+
+        .btn-purple:hover {
+            background-color: #4b0082; /* Darker purple */
+        }
+
+    .banner-prev, .banner-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 16px;
+    }
+
+    .banner-prev {
+        left: 10px;
+    }
+
+    .banner-next {
+        right: 10px;
+    }
+
+        .banner-prev:hover, .banner-next:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+    /* Responsive Media Queries */
+    @@media (max-width: 768px) {
+        .banner-container
+
+    {
+        height: 300px; /* Reduced height for tablets */
+    }
+
+    .banner-item {
+        height: 300px;
+    }
+
+    .title {
+        font-size: 1.5em; /* Smaller title for better fit */
+    }
+
+    .banner-content {
+        max-width: 80%; /* Wider content area on smaller screens */
+    }
+
+    .btn-purple {
+        padding: 10px 20px; /* Smaller button padding */
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .banner-prev, .banner-next {
+        padding: 8px 15px; /* Smaller button size */
+        font-size: 14px; /* Smaller text */
+    }
+
+    }
+
+    @@media (max-width: 480px) {
+        .banner-container
+
+    {
+        height: 200px; /* Reduced height for mobile */
+    }
+
+    .banner-item {
+        height: 200px;
+    }
+
+    .title {
+        font-size: 1.2em; /* Even smaller title */
+    }
+
+    .banner-content {
+        max-width: 90%; /* Almost full width on mobile */
+    }
+
+    .btn-purple {
+        padding: 8px 15px; /* Smaller button */
+        font-size: 12px; /* Smaller font */
+    }
+
+    .banner-prev, .banner-next {
+        padding: 6px 10px; /* Smaller buttons */
+        font-size: 12px; /* Smaller text */
+        top: 40%; /* Adjust position for smaller screens */
+    }
+
+    }</style>
+
+<script>
+    const items = document.querySelector('.banner-items');
+    const totalItems = document.querySelectorAll('.banner-item').length;
+    let currentIndex = 0;
+
+    document.querySelector('.banner-prev').addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlide();
+        }
+    });
+
+    document.querySelector('.banner-next').addEventListener('click', () => {
+        if (currentIndex < totalItems - 1) {
+            currentIndex++;
+            updateSlide();
+        }
+    });
+
+    function updateSlide() {
+        const offset = -currentIndex * 100;
+        items.style.transform = `translateX(${offset}%)`;
+    }
+</script>
