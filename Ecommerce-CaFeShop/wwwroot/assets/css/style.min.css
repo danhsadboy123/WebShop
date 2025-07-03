@@ -35780,7 +35780,7 @@ input {
 
     .product-default-single-item .image-link img {
         width: 100%;
-        height: 264px;
+        height: 350px;
         object-fit: contain;
         transition: all .5s ease
     }

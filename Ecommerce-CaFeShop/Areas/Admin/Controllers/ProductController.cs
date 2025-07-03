@@ -23,7 +23,11 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
         // Hiển thị danh sách sản phẩm
         public async Task<IActionResult> Index()
         {
-            var products = await _context.SanPhams.Include(p => p.ThuongHieu).Include(p => p.DanhMuc).ToListAsync();
+            var products = await _context.SanPhams
+                .Include(p => p.ThuongHieu)
+                .Include(p => p.DanhMuc)
+                .OrderByDescending(p => p.NgayTao) // Sắp xếp theo NgayTao giảm dần
+                .ToListAsync();
             return View(products);
         }
 
@@ -50,7 +54,7 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
             }
 
             // Kiểm tra MaDanhMuc và MaThuongHieu có hợp lệ không
-            if (product.MaDanhMuc == null || product.MaThuongHieu == null || string.IsNullOrEmpty(product.GioiTinh) || string.IsNullOrEmpty(product.MoTaNgan) || string.IsNullOrEmpty(product.ThongSoKyThuat))
+            if (product.MaDanhMuc == null || product.MaThuongHieu == null  || string.IsNullOrEmpty(product.MoTaNgan) )
             {
                 TempData["error"] = "Vui lòng điền đầy đủ thông tin (danh mục, thương hiệu, giới tính, mô tả ngắn, thông số kỹ thuật).";
                 ViewBag.ThuongHieuId = new SelectList(await _context.ThuongHieus.ToListAsync(), "MaThuongHieu", "TenThuongHieu", product.MaThuongHieu);
@@ -127,12 +131,7 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 
             ViewBag.ThuongHieuId = new SelectList(await _context.ThuongHieus.ToListAsync(), "MaThuongHieu", "TenThuongHieu", product.MaThuongHieu);
             ViewBag.DanhMucId = new SelectList(await _context.DanhMucs.ToListAsync(), "MaDanhMuc", "TenDanhMuc", product.MaDanhMuc);
-            ViewBag.GioiTinhList = new SelectList(new List<SelectListItem>
-            {
-                new SelectListItem { Value = "Nam", Text = "Nam" },
-                new SelectListItem { Value = "Nữ", Text = "Nữ" },
-                new SelectListItem { Value = "Unisex", Text = "Unisex" }
-            }, "Value", "Text", product.GioiTinh);
+            
             return View(product);
         }
 
@@ -169,8 +168,6 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
                 existingProduct.SoLuong = product.SoLuong;
                 existingProduct.MaThuongHieu = product.MaThuongHieu;
                 existingProduct.MaDanhMuc = product.MaDanhMuc;
-                existingProduct.ThongSoKyThuat = product.ThongSoKyThuat;
-                existingProduct.GioiTinh = product.GioiTinh;
                 existingProduct.MoTaNgan = product.MoTaNgan;
 
                 // Tạo hoặc cập nhật Slug nếu chưa có hoặc tên thay đổi

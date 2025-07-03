@@ -23,7 +23,7 @@ public partial class SanPham
     [Required(ErrorMessage = "Thương hiệu là bắt buộc.")]
     public int MaThuongHieu { get; set; }
 
-    public string? GioiTinh { get; set; }
+
 
     [Required(ErrorMessage = "Giá là bắt buộc.")]
     [Range(0.01, double.MaxValue, ErrorMessage = "Giá phải lớn hơn 0.")]
@@ -36,7 +36,6 @@ public partial class SanPham
     public string? MoTa { get; set; }
 
     [Column(TypeName = "nvarchar(MAX)")]
-    public string? ThongSoKyThuat { get; set; }
 
     [Required(ErrorMessage = "Số lượng là bắt buộc.")]
     [Range(0, int.MaxValue, ErrorMessage = "Số lượng phải lớn hơn hoặc bằng 0.")]

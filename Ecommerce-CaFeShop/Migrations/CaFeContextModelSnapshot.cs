@@ -472,9 +472,6 @@ namespace Ecommerce_CaFeShop.Migrations
                     b.Property<double>("Gia")
                         .HasColumnType("float");
 
-                    b.Property<string>("GioiTinh")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("HinhAnh")
                         .HasColumnType("nvarchar(100)");
 
@@ -502,15 +499,13 @@ namespace Ecommerce_CaFeShop.Migrations
                     b.Property<string>("Slug")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int>("SoLuong")
-                        .HasColumnType("int");
+                    b.Property<string>("SoLuong")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(MAX)");
 
                     b.Property<string>("TenSanPham")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("ThongSoKyThuat")
-                        .HasColumnType("nvarchar(MAX)");
 
                     b.Property<int?>("TrangThai")
                         .HasColumnType("int");

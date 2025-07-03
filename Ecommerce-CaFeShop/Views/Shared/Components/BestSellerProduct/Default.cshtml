@@ -17,7 +17,7 @@
                                     <div class="image-box">
                                         <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@item.Slug" class="image-link">
                                             <img src="@Url.Content(item.Image ?? "/images/default-image.jpg")" alt="@item.ProductName"
-                                                 style="width: 320px; height: 320px; object-fit: contain"
+                                                
                                                  onerror="this.src='/images/default-image.jpg'; this.onerror=null;">
                                         </a>
                                         <div class="action-link">

@@ -16,7 +16,6 @@ namespace Ecommerce_CaFeShop.Controllers
 
             _context = context;
         }
-
         public async Task<IActionResult> Index(string? search, string? categories = "", string? brands = "", double? minPrice = null, double? maxPrice = null, int page = 1, int? gender = null)
         {
             var pageSize = 5;
@@ -52,13 +51,19 @@ namespace Ecommerce_CaFeShop.Controllers
             {
                 products = products.Where(p => p.Gia <= maxPrice.Value);
             }
+
+            // Lọc sản phẩm hiển thị và không bị xóa
+            products = products.Where(p => p.DaXoa == 0 && p.TrangThai == 1);
+
+            // Sắp xếp theo NgayTao giảm dần
+            products = products.OrderByDescending(p => p.NgayTao);
+
             // Lấy tổng số sản phẩm sau khi áp dụng các bộ lọc
             var totalProducts = await products.CountAsync();
             var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
 
             // Lấy các sản phẩm cho trang hiện tại
             var result = await products
-                .Where(p => p.DaXoa == 0 && p.TrangThai == 1) // Chỉ lấy sản phẩm hiển thị và không bị xóa
                 .Include(p => p.DanhGiaSanPhams)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
@@ -66,7 +71,7 @@ namespace Ecommerce_CaFeShop.Controllers
                 {
                     ProductId = p.MaSanPham,
                     ProductName = p.TenSanPham ?? "Chưa có tên",
-                    Image = string.IsNullOrEmpty(p.HinhAnh) ? "/images/default-image.jpg" : p.HinhAnh, // Đường dẫn mặc định nếu HinhAnh null
+                    Image = string.IsNullOrEmpty(p.HinhAnh) ? "/images/default-image.jpg" : p.HinhAnh,
                     Price = p.Gia,
                     ShortDescription = p.MoTaNgan ?? "Chưa có mô tả",
                     ProductRating = p.DanhGiaSanPhams.Any() ? p.DanhGiaSanPhams.Average(r => r.DiemDanhGia ?? 0) : 0,

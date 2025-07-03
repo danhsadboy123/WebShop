@@ -1,113 +1,367 @@
 ﻿@model IEnumerable<Ecommerce_CaFeShop.Models.SanPham>
-
 @{
-    ViewData["Title"] = "Danh sách sản phẩm";
+    ViewData["Title"] = "Quản lý sản phẩm";
 }
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
+    <style>
+        .table-container {
+            max-height: 500px;
+            overflow-y: auto;
+            width: 100%;
+        }
 
-<h1>@ViewData["Title"]</h1>
-@if (TempData["success"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["success"]
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.875rem; /* Tương đương text-sm */
+        }
+
+            .table th, .table td {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0.75rem;
+                border: 1px solid #e5e7eb; /* Kẻ bảng với màu xám nhạt */
+            }
+
+            .table th {
+                background-color: #f9fafb; /* Màu nền cho header */
+                font-weight: 600;
+            }
+
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .btn-golden {
+            background-color: #d4a373;
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-golden:hover {
+                background-color: #b38b59;
+            }
+
+        .btn-warning {
+            background-color: #ffc107;
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-warning:hover {
+                background-color: #e0a800;
+            }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-success:hover {
+                background-color: #218838;
+            }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333;
+            }
+
+        .badge-success {
+            background-color: #28a745;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .badge-danger {
+            background-color: #dc3545;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .img-thumbnail {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
+
+        /* Responsive design */
+        @@media (max-width: 768px) {
+            .table th, .table td
+
+        {
+            padding: 0.5rem;
+            font-size: 0.75rem; /* Giảm font-size trên màn hình nhỏ */
+        }
+
+        .table-container {
+            max-height: 400px; /* Giảm chiều cao trên màn hình nhỏ */
+        }
+
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <div class="bg-white shadow-sm p-4 mb-4">
+        <div class="container mx-auto">
+            <h1 class="text-xl font-semibold text-gray-800" style="font-size: 1.5rem;font-weight: bolder;margin-bottom: 1.5rem;">
+                Quản lý sản phẩm
+            </h1>
+        </div>
     </div>
-}
 
-@if (TempData["error"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["error"]
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-4">
+        <!-- Notifications -->
+        @if (TempData["success"] != null)
+        {
+            <div class="bg-green-500 text-white p-3 rounded mb-3 text-sm">
+                @TempData["success"]
+            </div>
+        }
+        @if (TempData["error"] != null)
+        {
+            <div class="bg-red-500 text-white p-3 rounded mb-3 text-sm">
+                @TempData["error"]
+            </div>
+        }
+
+        <!-- Filter and Search -->
+        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+            <div class="flex flex-col md:flex-row gap-3 justify-between items-center" style="display:flex">
+                <div class="w-full md:w-1/3">
+                    <input type="text" id="searchInput" placeholder="Tìm sản phẩm..." class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d4a373] text-sm">
+                </div>
+                <div class="w-full md:w-1/3">
+                    <select id="statusFilter" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d4a373] text-sm">
+                        <option value="all">Tất cả trạng thái</option>
+                        <option value="1">Hiển thị</option>
+                        <option value="0">Ẩn</option>
+                    </select>
+                </div>
+                <a href="@Url.Action("Create", "Product", new { area = "Admin" })" class="btn-golden py-1.5 px-3 rounded text-sm">Thêm sản phẩm</a>
+            </div>
+        </div>
+
+        <!-- Product Table -->
+        <div class="bg-white p-4 rounded-lg shadow-sm table-container">
+            <table class="table w-full text-sm">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="p-2 text-left">ID</th>
+                        <th class="p-2 text-left">Hình ảnh</th>
+                        <th class="p-2 text-left">Tên sản phẩm</th>
+                        <th class="p-2 text-left">Danh mục</th>
+                        <th class="p-2 text-left">Thương hiệu</th>
+                        <th class="p-2 text-left">Giá</th>
+                        <th class="p-2 text-left">Số lượng</th>
+                        <th class="p-2 text-left">Trạng thái</th>
+                        <th class="p-2 text-left">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+                    @foreach (var product in Model)
+                    {
+                        <tr data-status="@product.TrangThai" class="hover:bg-gray-50 border-b">
+                            <td class="p-2">@product.MaSanPham</td>
+                            <td class="p-2">
+                                <img src="@(product.HinhAnh ?? "/images/default-image.jpg")" alt="@product.TenSanPham" class="img-thumbnail" onerror="this.src='/images/default-image.jpg';" />
+                            </td>
+                            <td class="p-2">@product.TenSanPham</td>
+                            <td class="p-2">@(product.DanhMuc?.TenDanhMuc ?? "N/A")</td>
+                            <td class="p-2">@(product.ThuongHieu?.TenThuongHieu ?? "N/A")</td>
+                            <td class="p-2">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", product.Gia)</td>
+                            <td class="p-2">@product.SoLuong</td>
+                            <td class="p-2">
+                                @if (product.TrangThai == 1)
+                                {
+                                    <span class="badge-success">Hiển thị</span>
+                                }
+                                else
+                                {
+                                    <span class="badge-danger">Ẩn</span>
+                                }
+                            </td>
+                            <td class="p-2 flex space-x-1">
+                                <a href="@Url.Action("Edit", "Product", new { area = "Admin", id = product.MaSanPham })" class="btn-golden py-1 px-2 rounded text-xs">Sửa</a>
+                                @if (product.TrangThai == 1)
+                                {
+                                    <button class="btn-warning py-1 px-2 rounded hide-product text-xs" data-id="@product.MaSanPham" data-name="@product.TenSanPham">Ẩn</button>
+                                }
+                                else
+                                {
+                                    <button class="btn-success py-1 px-2 rounded show-product text-xs" data-id="@product.MaSanPham" data-name="@product.TenSanPham">Hiện</button>
+                                }
+                                <button class="btn-danger py-1 px-2 rounded delete-product text-xs" data-id="@product.MaSanPham" data-name="@product.TenSanPham">Xóa</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-}
+    @section Scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Search functionality
+                $('#searchInput').on('input', function () {
+                    let searchTerm = $(this).val().toLowerCase();
+                    $('#productTable tr').each(function () {
+                        let productName = $(this).find('td:nth-child(3)').text().toLowerCase();
+                        $(this).toggle(productName.includes(searchTerm));
+                    });
+                });
 
-<a href="@Url.Action("Create", "Product", new { id = 0 })" class="btn btn-primary">Thêm sản phẩm mới</a>
-<table class="table table-bordered mt-3">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Hình ảnh</th>
-            <th>Tên sản phẩm</th>
-            <th>Danh mục</th>
-            <th>Thương hiệu</th>
-            <th>Giá</th>
-            <th>Số lượng</th>
-            <th>Trạng thái</th>
-            <th>Chỉnh sửa</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
-            <tr>
-                <td>@product.MaSanPham</td>
-                <td>
-                    <img src="@product.HinhAnh" alt="@product.TenSanPham" style="width: 50px; height: 50px; object-fit: cover;" />
-                </td>
-                <td>@product.TenSanPham</td>
-                <td>@product.DanhMuc?.TenDanhMuc</td>
-                <td>@product.ThuongHieu?.MaThuongHieu</td>
-                <td>@product.Gia</td>
-                <td>@product.SoLuong</td>
-                <td>
-                    @if (product.TrangThai == 1)
-                    {
-                        <span class="badge bg-success">Hiển thị</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-danger">Ẩn</span>
-                    }
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Product", new { id = product.MaSanPham })" class="btn btn-warning">Chỉnh sửa</a>
-                </td>
-            </tr>
-        }
-        @foreach (var product in Model)
-        {
-            <tr>
-                <td>@product.MaSanPham</td>
-                <td>@product.TenSanPham</td>
-                <td>
-                    @if (product.TrangThai == 1)
-                    {
-                        <span class="badge badge-success">Hiển thị</span>
-                    }
-                    else
-                    {
-                        <span class="badge badge-danger">Ẩn</span>
-                    }
-                </td>
-                <td>
-                    <!-- Nút Ẩn -->
-                    @if (product.TrangThai == 1)
-                    {
-                        <form asp-action="HideProduct" asp-route-id="@product.MaSanPham" method="post">
-                            <button type="submit" class="btn btn-warning">Ẩn sản phẩm</button>
-                        </form>
-                    }
-                    else
-                    {
-                        <form asp-action="ShowProduct" asp-route-id="@product.MaSanPham" method="post">
-                            <button type="submit" class="btn btn-success">Hiển thị lại sản phẩm</button>
-                        </form>
-                    }
-                </td>
-            </tr>
-        }
-        @foreach (var product in Model.Where(p => p.TrangThai == 1))
-        {
-            <tr>
-                <td>@product.MaSanPham</td>
-                <td>@product.TenSanPham</td>
-                <td>
-                    <span class="badge badge-success">Hiển thị</span>
-                </td>
-                <td>
-                    <!-- Nút Ẩn -->
-                    <form asp-action="HideProduct" asp-route-id="@product.MaSanPham" method="post">
-                        <button type="submit" class="btn btn-warning">Ẩn sản phẩm</button>
-                    </form>
-                </td>
-            </tr>
-        }
-</table>
+                // Status filter
+                $('#statusFilter').on('change', function () {
+                    let status = $(this).val();
+                    $('#productTable tr').each(function () {
+                        let productStatus = $(this).data('status');
+                        if (status === 'all' || productStatus == status) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                });
+
+                // Show confirmation modal
+                function showConfirmationModal(title, message, confirmCallback) {
+                    $('#modalTitle').text(title);
+                    $('#modalMessage').text(message);
+                    $('#confirmationModal').removeClass('hidden');
+                    $('#confirmButton').off('click').on('click', confirmCallback);
+                    $('#cancelButton').on('click', function () {
+                        $('#confirmationModal').addClass('hidden');
+                    });
+                }
+
+                // Hide product
+                $('.hide-product').on('click', function () {
+                    let id = $(this).data('id');
+                    let name = $(this).data('name');
+                    showConfirmationModal(
+                        'Ẩn sản phẩm',
+                        `Bạn có chắc muốn ẩn "${name}"?`,
+                        function () {
+                            $.ajax({
+                                url: '@Url.Action("HideProduct", "Product", new { area = "Admin" })',
+                                type: 'POST',
+                                data: { id: id },
+                                success: function (result) {
+                                    location.reload();
+                                },
+                                error: function () {
+                                    Toastify({
+                                        text: 'Lỗi khi ẩn sản phẩm.',
+                                        duration: 3000,
+                                        close: true,
+                                        gravity: "top",
+                                        position: "right",
+                                        style: { background: "#dc3545" }
+                                    }).showToast();
+                                }
+                            });
+                            $('#confirmationModal').addClass('hidden');
+                        }
+                    );
+                });
+
+                // Show product
+                $('.show-product').on('click', function () {
+                    let id = $(this).data('id');
+                    let name = $(this).data('name');
+                    showConfirmationModal(
+                        'Hiển thị sản phẩm',
+                        `Bạn có chắc muốn hiển thị "${name}"?`,
+                        function () {
+                            $.ajax({
+                                url: '@Url.Action("ShowProduct", "Product", new { area = "Admin" })',
+                                type: 'POST',
+                                data: { id: id },
+                                success: function (result) {
+                                    location.reload();
+                                },
+                                error: function () {
+                                    Toastify({
+                                        text: 'Lỗi khi hiển thị sản phẩm.',
+                                        duration: 3000,
+                                        close: true,
+                                        gravity: "top",
+                                        position: "right",
+                                        style: { background: "#dc3545" }
+                                    }).showToast();
+                                }
+                            });
+                            $('#confirmationModal').addClass('hidden');
+                        }
+                    );
+                });
+
+                // Delete product
+                $('.delete-product').on('click', function () {
+                    let id = $(this).data('id');
+                    let name = $(this).data('name');
+                    showConfirmationModal(
+                        'Xóa sản phẩm',
+                        `Bạn có chắc muốn xóa "${name}"? Hành động này không thể hoàn tác.`,
+                        function () {
+                            $.ajax({
+                                url: '@Url.Action("Delete", "Product", new { area = "Admin" })',
+                                type: 'POST',
+                                data: { id: id },
+                                success: function (result) {
+                                    location.reload();
+                                },
+                                error: function () {
+                                    Toastify({
+                                        text: 'Lỗi khi xóa sản phẩm.',
+                                        duration: 3000,
+                                        close: true,
+                                        gravity: "top",
+                                        position: "right",
+                                        style: { background: "#dc3545" }
+                                    }).showToast();
+                                }
+                            });
+                            $('#confirmationModal').addClass('hidden');
+                        }
+                    );
+                });
+            });
+        </script>
+    }
+</body>
+</html>

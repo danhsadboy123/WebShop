@@ -56,31 +56,6 @@
                 </div><!--//row-->
                 <canvas id="Chart" width="400" height="200"></canvas>
             </div>
-            @* 
-				<div class="app-card app-card-chart h-100 shadow-sm">
-					<div class="app-card-header p-3">
-						<div class="row justify-content-between align-items-center">
-							<div class="col-auto">
-								<h4 class="app-card-title">Biểu đồ cột</h4>
-							</div><!--//col-->
-						</div><!--//row-->
-					</div><!--//app-card-header-->
-					<div class="app-card-body p-3 p-lg-4">
-						<div class="mb-3 d-flex">
-							<select class="form-select form-select-sm ms-auto d-inline-flex w-auto">
-								<option value="1" selected="">Tuần Này</option>
-								<option value="2">Hôm Nay</option>
-								<option value="3">Trong Tháng</option>
-								<option value="3">Trong Năm</option>
-							</select>
-						</div>
-						<div class="chart-container">
-							<canvas id="canvas-barchart" style="display: block; height: 296px; width: 445px;"
-								width="556" height="370"></canvas>
-						</div>
-					</div>
-				</div>
-			</div> *@
             <div class="tab-pane fade" id="tab-editweb" role="tabpanel" aria-labelledby="nav-editweb-tab">
                 <div class="container-fluid px-4">
                     <div class="card mb-4">
@@ -158,55 +133,6 @@
         } );
 </script>
 
-@* <script>
-	var ctx = document.getElementById('canvas-barchart').getContext('2d');
-	var barChart = new Chart(ctx, {
-		type: 'bar',
-		data: {
-			labels: ['Thống Kê'], // Tên nhóm cột
-			datasets: [{
-				label: 'Sản Phẩm',
-				data: [100], // Dữ liệu cho Doanh Thu
-				backgroundColor: '#4e73df', // Màu sắc cho cột Doanh Thu
-				borderColor: '#4e73df', // Màu viền cho Doanh Thu
-				borderWidth: 1
-			}, {
-				label: 'Số Lượng Khách Hàng',
-				data: [10], // Dữ liệu cho Lượt Xem
-				backgroundColor: '#1cc88a', // Màu sắc cho cột Lượt Xem
-				borderColor: '#1cc88a', // Màu viền cho Lượt Xem
-				borderWidth: 1
-			}, {
-				label: 'Đơn Hàng',
-				data: [5], // Dữ liệu cho Đơn Hàng
-				backgroundColor: '#36b9cc', // Màu sắc cho cột Đơn Hàng
-				borderColor: '#36b9cc', // Màu viền cho Đơn Hàng
-				borderWidth: 1
-			}]
-		},
-		options: {
-			responsive: true,
-			plugins: {
-				legend: {
-					position: 'top', // Vị trí của legend (chú thích)
-					labels: {
-						color: '#000', // Màu chữ cho các label
-					}
-				}
-			},
-			scales: {
-				y: {
-					beginAtZero: true, // Đảm bảo trục y bắt đầu từ 0
-				},
-				x: {
-					// Trục X không có stacked để các cột không chồng lên nhau
-				}
-			}
-		}
-	});
-</script>
-}
-  *@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
