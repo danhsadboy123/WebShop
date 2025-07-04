@@ -585,13 +585,24 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaThuongHieu"));
 
+                    b.Property<int?>("MaDanhMuc")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MoTa")
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<string>("Slug")
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("TenThuongHieu")
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("TrangThai")
+                        .HasColumnType("varchar(20)");
+
                     b.HasKey("MaThuongHieu");
+
+                    b.HasIndex("MaDanhMuc");
 
                     b.ToTable("ThuongHieus");
                 });
@@ -775,6 +786,15 @@ namespace Ecommerce_CaFeShop.Migrations
                         .HasForeignKey("VaiTroMaVaiTro");
 
                     b.Navigation("VaiTro");
+                });
+
+            modelBuilder.Entity("Ecommerce_CaFeShop.Models.ThuongHieu", b =>
+                {
+                    b.HasOne("Ecommerce_CaFeShop.Models.DanhMuc", "DanhMuc")
+                        .WithMany()
+                        .HasForeignKey("MaDanhMuc");
+
+                    b.Navigation("DanhMuc");
                 });
 
             modelBuilder.Entity("Ecommerce_CaFeShop.Models.TokenKhoiPhucMatKhau", b =>

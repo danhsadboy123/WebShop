@@ -56,7 +56,7 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
             // Kiểm tra MaDanhMuc và MaThuongHieu có hợp lệ không
             if (product.MaDanhMuc == null || product.MaThuongHieu == null  || string.IsNullOrEmpty(product.MoTaNgan) )
             {
-                TempData["error"] = "Vui lòng điền đầy đủ thông tin (danh mục, thương hiệu, giới tính, mô tả ngắn, thông số kỹ thuật).";
+                TempData["error"] = "Vui lòng điền đầy đủ thông tin (danh mục, thương hiệu, mô tả ngắn).";
                 ViewBag.ThuongHieuId = new SelectList(await _context.ThuongHieus.ToListAsync(), "MaThuongHieu", "TenThuongHieu", product.MaThuongHieu);
                 ViewBag.DanhMucId = new SelectList(await _context.DanhMucs.ToListAsync(), "MaDanhMuc", "TenDanhMuc", product.MaDanhMuc);
                 return View(product);

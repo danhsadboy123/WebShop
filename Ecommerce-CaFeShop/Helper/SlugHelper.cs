@@ -69,90 +69,63 @@ namespace Ecommerce_CaFeShop.Helper
         {
             if (string.IsNullOrEmpty(text)) return text;
 
-            var characterMap = new Dictionary<string, string>
+            var characterMap = new Dictionary<char, char>(CharacterMap);
+            char[] array = text.ToCharArray();
+            for (int i = 0; i < array.Length; i++)
             {
-                { "á", "a" }, { "à", "a" }, { "ả", "a" }, { "ã", "a" }, { "ạ", "a" },
-                { "â", "a" }, { "ấ", "a" }, { "ầ", "a" }, { "ẩ", "a" }, { "ẫ", "a" }, { "ậ", "a" },
-                { "ă", "a" }, { "ắ", "a" }, { "ằ", "a" }, { "ẳ", "a" }, { "ẵ", "a" }, { "ặ", "a" },
-                { "đ", "d" }, { "é", "e" }, { "è", "e" }, { "ẻ", "e" }, { "ẽ", "e" }, { "ẹ", "e" },
-                { "ê", "e" }, { "ế", "e" }, { "ề", "e" }, { "ể", "e" }, { "ễ", "e" }, { "ệ", "e" },
-                { "í", "i" }, { "ì", "i" }, { "ỉ", "i" }, { "ĩ", "i" }, { "ị", "i" },
-                { "ó", "o" }, { "ò", "o" }, { "ỏ", "o" }, { "õ", "o" }, { "ọ", "o" },
-                { "ô", "o" }, { "ố", "o" }, { "ồ", "o" }, { "ổ", "o" }, { "ỗ", "o" }, { "ộ", "o" },
-                { "ơ", "o" }, { "ớ", "o" }, { "ờ", "o" }, { "ở", "o" }, { "ỡ", "o" }, { "ợ", "o" },
-                { "ú", "u" }, { "ù", "u" }, { "ủ", "u" }, { "ũ", "u" }, { "ụ", "u" },
-                { "ư", "u" }, { "ứ", "u" }, { "ừ", "u" }, { "ử", "u" }, { "ữ", "u" }, { "ự", "u" },
-                { "ý", "y" }, { "ỳ", "y" }, { "ỷ", "y" }, { "ỹ", "y" }, { "ỵ", "y" },
-                { "Đ", "D" }
-            };
-
-            foreach (var kvp in characterMap)
-            {
-                text = text.Replace(kvp.Key, kvp.Value);
+                if (characterMap.ContainsKey(array[i]))
+                {
+                    array[i] = characterMap[array[i]];
+                }
             }
-
-            return text;
+            return new string(array);
         }
-
 
         public enum EntityType
         {
             Product,
-            Category
+            Category,
+            Brand
         }
 
         public static async Task<string> GenerateUniqueSlug(CaFeContext context, string name, EntityType entityType, int? entityId = null)
         {
+            if (string.IsNullOrEmpty(name))
+                return string.Empty;
 
             // Tạo slug từ tên
             string slug = GenerateSlug(name);
+            string originalSlug = slug;
+            int counter = 1;
 
-            // Kiểm tra nếu slug đã tồn tại trong cơ sở dữ liệu
-            if (entityType == EntityType.Product)
+            // Kiểm tra trùng lặp dựa trên entityType
+            while (true)
             {
-                var existingProduct = await context.SanPhams
-                    .AsNoTracking() // Chỉ lấy dữ liệu mà không giữ trạng thái theo dõi
-                    .Where(p => p.Slug == slug && (entityId == null || p.MaSanPham != entityId))
-                    .FirstOrDefaultAsync();
-
-                // Nếu có sản phẩm trùng slug, thêm Id vào cuối slug hoặc tạo số đếm duy nhất
-                if (existingProduct != null)
+                bool exists = false;
+                switch (entityType)
                 {
-                    int counter = 1;
-                    string originalSlug = slug;
-
-                    // Kiểm tra và tạo slug duy nhất
-                    while (await context.SanPhams.AnyAsync(p => p.Slug == slug && (entityId == null || p.MaSanPham != entityId)))
-                    {
-                        slug = $"{originalSlug}-{counter}";
-                        counter++;
-                    }
+                    case EntityType.Product:
+                        exists = await context.SanPhams
+                            .AsNoTracking()
+                            .AnyAsync(p => p.Slug == slug && (entityId == null || p.MaSanPham != entityId));
+                        break;
+                    case EntityType.Category:
+                        exists = await context.DanhMucs
+                            .AsNoTracking()
+                            .AnyAsync(c => c.Slug == slug && (entityId == null || c.MaDanhMuc != entityId));
+                        break;
+                    case EntityType.Brand:
+                        exists = await context.ThuongHieus
+                            .AsNoTracking()
+                            .AnyAsync(b => b.Slug == slug && (entityId == null || b.MaThuongHieu != entityId));
+                        break;
                 }
-            }
-            else if (entityType == EntityType.Category)
-            {
-                var existingCategory = await context.DanhMucs
-                    .AsNoTracking() // Chỉ lấy dữ liệu mà không giữ trạng thái theo dõi
-                    .Where(c => c.Slug == slug && (entityId == null || c.MaDanhMuc != entityId))
-                    .FirstOrDefaultAsync();
 
-                // Nếu có category trùng slug, thêm Id vào cuối slug hoặc tạo số đếm duy nhất
-                if (existingCategory != null)
-                {
-                    int counter = 1;
-                    string originalSlug = slug;
-
-                    // Kiểm tra và tạo slug duy nhất
-                    while (await context.DanhMucs.AnyAsync(c => c.Slug == slug && (entityId == null || c.MaDanhMuc != entityId)))
-                    {
-                        slug = $"{originalSlug}-{counter}";
-                        counter++;
-                    }
-                }
+                if (!exists) break;
+                slug = $"{originalSlug}-{counter++}";
             }
 
             return slug;
         }
-
     }
 }

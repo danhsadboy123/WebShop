@@ -1,21 +1,5 @@
 ﻿@model IEnumerable<Ecommerce_CaFeShop.Models.ViewModels.MenuCategoryVM>
-@* <!-- Start Single Sidebar Widget -->
-<div class="sidebar-single-widget">
-    <h6 class="sidebar-title">LOẠI</h6>
-    <div class="sidebar-content">
-        <ul class="sidebar-menu">
-            @foreach (var item in Model)
-            {
-                <li>
-                    <a asp-controller="Product" asp-action="ProductList" asp-route-categories="@item.Slug">
-                        @item.CategoryName
-                    </a>
-                </li>
 
-            }
-        </ul>
-    </div>
-</div> <!-- End Single Sidebar Widget --> *@
 <div class="sidebar-single-widget">
     <h6 class="sidebar-title">Loại</h6>
     <div class="nice-select country_option wide" tabindex="0">

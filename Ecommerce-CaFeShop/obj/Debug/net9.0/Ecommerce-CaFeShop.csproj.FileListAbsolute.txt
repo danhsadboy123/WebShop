@@ -7460,6 +7460,15 @@ C:\Users\Sunhitech\Desktop\New folder\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.
 C:\Users\Sunhitech\Desktop\New folder\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.genruntimeconfig.cache
 C:\Users\Sunhitech\Desktop\New folder\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\ref\Ecommerce-CaFeShop.dll
 C:\Users\Sunhitech\Desktop\New folder\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\wouvsc6xre-dyg1pfn9f9.gz
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.csproj.AssemblyReference.cache
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.AssemblyInfoInputs.cache
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.AssemblyInfo.cs
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.csproj.CoreCompileInputs.cache
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.RazorAssemblyInfo.cache
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.RazorAssemblyInfo.cs
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.sourcelink.json
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\bin\Debug\net9.0\appsettings.json
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\bin\Debug\net9.0\Ecommerce-CaFeShop.staticwebassets.runtime.json
@@ -7701,15 +7710,6 @@ C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\bin\Debug\net9.0\runti
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.csproj.AssemblyReference.cache
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.AssemblyInfoInputs.cache
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.AssemblyInfo.cs
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.csproj.CoreCompileInputs.cache
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.RazorAssemblyInfo.cache
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.RazorAssemblyInfo.cs
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.sourcelink.json
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\scopedcss\bundle\Ecommerce-CaFeShop.styles.css
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\scopedcss\projectbundle\Ecommerce-CaFeShop.bundle.scp.css
@@ -7722,7 +7722,7 @@ C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compr
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\3bc6lkqvtq-wydrkzuaqv.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\wouvsc6xre-3moaqmzm0f.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\mjl9usoq6x-itbkmk89ko.gz
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\0yiipdkpe8-sfsmb2n9i4.gz
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\0yiipdkpe8-mhcbt2xinc.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\hfjrkopbb3-17a351fyz5.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\8rst681c1n-mel00k9ltn.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\u5kcr8hmuu-herfnccxeb.gz
@@ -7738,6 +7738,7 @@ C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compr
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\pinwklfw7u-jdry2oj68s.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\m7meesgurn-hj2n3wcul1.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\s93llf7p4w-s5ouqw86c9.gz
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\la9xouxx47-948b9a8f8u.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\j6qreibea2-qrhz84twv0.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\lqhai7x5bk-zk3snyengw.gz
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\compressed\896owckpk8-nkynv4db4h.gz
@@ -9941,10 +9942,10 @@ C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\stati
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Ecommerce-CaFeShop.props
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Ecommerce-CaFeShop.props
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerc.F57AD14B.Up2Date
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.dll
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\refint\Ecommerce-CaFeShop.dll
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.pdb
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.genruntimeconfig.cache
 C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\ref\Ecommerce-CaFeShop.dll
+C:\Users\Novazone\Desktop\DACF\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

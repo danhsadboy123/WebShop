@@ -1037,6 +1037,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\main.js"
     },
     {
+      "Id": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\js\\menu-category.js",
+      "PackagePath": "staticwebassets\\assets\\js\\menu-category.js"
+    },
+    {
       "Id": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\js\\plugins\\ajax-mail.js",
       "PackagePath": "staticwebassets\\assets\\js\\plugins\\ajax-mail.js"
     },

@@ -1,4 +1,40 @@
 @using System.Globalization
+<style>
+    .discounted-price {
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .original-price {
+        font-size: 0.9rem;
+        opacity: 0.6;
+    }
+
+    .discount-percent {
+        font-size: 0.8rem;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+
+    .image-link {
+        display: block;
+        position: relative;
+    }
+
+    .discount-badge {
+        position: absolute;
+        top: 8px;
+        left: 8px; /* Hoặc right: 8px; nếu muốn góc phải */
+        background-color: red;
+        color: white;
+        padding: 4px 8px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        border-radius: 4px;
+        z-index: 2;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+</style>
 <div class="product-wrapper" data-aos="fade-up" data-aos-delay="0">
     <div class="container">
         <div class="row">
@@ -70,8 +106,14 @@
                                             </ul>
                                         </div>
                                         <div class="content-right">
-                                            <span class="price text-nowrap">@String.Format(new CultureInfo("vi-VN"), "{0:C}", @item.Price)</span>
-                                        </div>
+                                            <span class="discounted-price text-danger" data-original="200000" data-sale="160000">
+                                                160.000₫
+                                            </span>
+                                            <span class="original-price text-muted text-decoration-line-through ms-2">
+                                                200.000₫
+                                            </span>
+                                            <span class="discount-percent badge bg-success ms-2"></span>
+                                        </div>  
 
                                     </div>
                                 </div>
@@ -86,3 +128,29 @@
         </div>
     </div>
 </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const discountedEls = document.querySelectorAll('.discounted-price');
+
+            discountedEls.forEach(el => {
+                const original = parseFloat(el.dataset.original);
+                const sale = parseFloat(el.dataset.sale);
+                const percent = Math.round((original - sale) / original * 100);
+
+                // Gán phần trăm vào badge trong .content-right
+                const contentRight = el.closest('.content-right');
+                const percentBadge = contentRight?.querySelector('.discount-percent');
+                if (percentBadge && !isNaN(percent) && percent > 0) {
+                    percentBadge.textContent = `-${percent}%`;
+                }
+
+                // Tìm phần tử .image-link gần nhất và chèn vào badge ảnh
+                const imageLink = contentRight?.previousElementSibling;
+                const imgBadge = imageLink?.querySelector('.discount-badge');
+                if (imgBadge && !isNaN(percent) && percent > 0) {
+                    imgBadge.textContent = `-${percent}%`;
+                }
+            });
+        });
+    </script>
+

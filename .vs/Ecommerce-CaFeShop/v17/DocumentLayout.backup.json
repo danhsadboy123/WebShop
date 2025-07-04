@@ -3,28 +3,168 @@
   "WorkspaceRootPath": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704102159_updateThuogHieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Ecommerce-CaFeShop\\Migrations\\20250704102159_updateThuogHieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\models\\thuonghieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\models\\thuonghieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\brand\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\brand\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\components\\bestsellerproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\components\\bestsellerproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\wwwroot\\assets\\css\\plugins\\plugins.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\wwwroot\\assets\\css\\plugins\\plugins.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\components\\featuredproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\components\\featuredproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\product\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\product\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\models\\danhgiasanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\models\\danhgiasanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\wwwroot\\assets\\css\\style.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\wwwroot\\assets\\css\\style.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\helper\\slughelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\helper\\slughelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\brand\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\brand\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\brand\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\brand\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\brand\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\brand\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\components\\menucategory\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\components\\menucategory\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704065704_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Ecommerce-CaFeShop\\Migrations\\20250704065704_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\models\\danhmuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\models\\danhmuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\wwwroot\\assets\\js\\menu-category.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\wwwroot\\assets\\js\\menu-category.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\_heroslider.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\_heroslider.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\models\\cafecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\models\\cafecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\components\\footer\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\components\\footer\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704013904_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Ecommerce-CaFeShop\\Migrations\\20250704013904_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\bill\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\bill\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\models\\baiviet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,16 +175,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Ecommerce-CaFeShop\\Migrations\\20250704012809_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\repository\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\repository\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\wwwroot\\assets\\css\\portal.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -59,38 +191,6 @@
       "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\wwwroot\\assets\\scss\\app\\_sidepanel.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\product\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\product\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\wwwroot\\assets\\css\\style.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\wwwroot\\assets\\css\\style.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\components\\bestsellerproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\components\\bestsellerproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\components\\featuredproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\components\\featuredproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250703132828_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -103,14 +203,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\areas\\admin\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\areas\\admin\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\views\\shared\\components\\menucategory\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|solutionrelative:ecommerce-cafeshop\\views\\shared\\components\\menucategory\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDDB4512-70A1-42E4-8F7D-57DA69016700}|Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj|c:\\users\\novazone\\desktop\\dacf\\webshop\\ecommerce-cafeshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -277,120 +369,474 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20250704102159_updateThuogHieu.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704102159_updateThuogHieu.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Migrations\\20250704102159_updateThuogHieu.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704102159_updateThuogHieu.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Migrations\\20250704102159_updateThuogHieu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T10:21:59.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ThuongHieu.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\ThuongHieu.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Models\\ThuongHieu.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\ThuongHieu.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Models\\ThuongHieu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T10:19:33.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEYBAAAAAAAAAAAqwPgAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-03T14:13:21.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Product\\ProductDetail.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Product\\ProductDetail.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Product\\ProductDetail.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Product\\ProductDetail.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAewC0AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-03T08:23:09.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAAAJAAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T08:22:19.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAO0BAAAAAAAAAAAewP4BAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-03T09:27:24.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SanPham.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\SanPham.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Models\\SanPham.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\SanPham.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Models\\SanPham.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA0wEMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T08:21:58.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Controllers\\CartController.cs",
               "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\CartController.cs",
               "RelativeToolTip": "Ecommerce-CaFeShop\\Controllers\\CartController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAAAFcAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAqwD8AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-04T02:31:37.908Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAiwJwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-03T10:08:22.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "BrandController.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\BrandController.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\BrandController.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\BrandController.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\BrandController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T07:53:28.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
+              "ViewState": "AgIAAGEFAAAAAAAAAAAowKsFAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T07:53:53.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
               "Title": "Default.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\Footer\\Default.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\Footer\\Default.cshtml",
               "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\Footer\\Default.cshtml",
               "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\Footer\\Default.cshtml",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAewFUAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-04T01:59:56.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Home\\Contact.cshtml",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Home\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Home\\Contact.cshtml",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Home\\Contact.cshtml",
-              "ViewState": "AgIAABoAAAAAAAAAAAAqwDwAAABHAAAAAAAAAA==",
+              "DocumentIndex": 23,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-04T01:59:17.3Z",
+              "WhenOpened": "2025-07-04T06:58:26.195Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "20250704013904_data.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704013904_data.cs",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Migrations\\20250704013904_data.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704013904_data.cs",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Migrations\\20250704013904_data.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T01:39:04.29Z",
+              "Title": "plugins.min.css",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\plugins\\plugins.min.css",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\plugins\\plugins.min.css",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\plugins\\plugins.min.css",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\plugins\\plugins.min.css",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAACUAAACnCQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-04T09:36:27.222Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "BaiViet.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\BaiViet.cs",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Models\\BaiViet.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\BaiViet.cs",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Models\\BaiViet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T01:37:54.205Z",
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-03T10:08:48.926Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "20250704012809_data.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704012809_data.cs",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Migrations\\20250704012809_data.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704012809_data.cs",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Migrations\\20250704012809_data.cs",
+              "DocumentIndex": 11,
+              "Title": "DanhGiaSanPham.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\DanhGiaSanPham.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Models\\DanhGiaSanPham.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\DanhGiaSanPham.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Models\\DanhGiaSanPham.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T09:20:23.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T01:28:09.533Z",
+              "WhenOpened": "2025-07-04T07:35:01.325Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "_app.scss",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_app.scss",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_app.scss",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_app.scss",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_app.scss",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAIwBAAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
-              "WhenOpened": "2025-07-03T14:17:51.111Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "portal.css",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\portal.css",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\portal.css",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\portal.css",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\portal.css",
-              "ViewState": "AgIAALk5AAAAAAAAAAAAAMs5AAAAAAAAAAAAAA==",
+              "Title": "style.min.css",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\style.min.css",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\style.min.css",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\style.min.css",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\style.min.css",
+              "ViewState": "AgIAAIFFAAAAAAAAAAApwJNFAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-07-03T14:17:46.01Z"
+              "WhenOpened": "2025-07-03T13:34:18.318Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAADcBAAAAAAAAAAAswEIBAAABAAAAAAAAAA==",
+              "DocumentIndex": 21,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAmwHkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T07:35:33.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Create.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Create.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T14:13:21.942Z"
+              "WhenOpened": "2025-07-04T07:54:09.622Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Edit.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T07:54:22.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Details.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Details.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Brand\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T07:54:36.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SlugHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Helper\\SlugHelper.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Helper\\SlugHelper.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Helper\\SlugHelper.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Helper\\SlugHelper.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAIwIEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T08:27:43.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAG0BAAAAAAAAAAAQwHgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T07:35:42.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAADkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T09:16:48.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "DanhMuc.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\DanhMuc.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Models\\DanhMuc.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\DanhMuc.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Models\\DanhMuc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T04:35:44.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T04:41:37.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "CaFeContext.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\CaFeContext.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Models\\CaFeContext.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\CaFeContext.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Models\\CaFeContext.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T04:57:08.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAALsBAAAAAAAAAAAAAMUBAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-03T08:22:40.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\MenuCategory\\Default.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\MenuCategory\\Default.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\MenuCategory\\Default.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\MenuCategory\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-03T09:52:37.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAqwAoBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T04:32:37.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "_HeroSlider.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\_HeroSlider.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\_HeroSlider.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\_HeroSlider.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\_HeroSlider.cshtml",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T06:41:06.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "menu-category.js",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\js\\menu-category.js",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\wwwroot\\assets\\js\\menu-category.js",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\js\\menu-category.js",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\wwwroot\\assets\\js\\menu-category.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-04T06:49:12.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "20250704065704_data.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704065704_data.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Migrations\\20250704065704_data.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704065704_data.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Migrations\\20250704065704_data.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T06:57:04.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\appsettings.json",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\appsettings.json",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\appsettings.json",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-03T08:14:34.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAACoAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-03T14:06:03.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Product\\Index.cshtml",
@@ -403,56 +849,105 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAIcAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T14:06:03.364Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Product\\Index.cshtml",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Product\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Product\\Index.cshtml",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Product\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T08:22:40.707Z",
+              "DocumentIndex": 35,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwG8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T04:35:11.013Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "SanPham.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\SanPham.cs",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Models\\SanPham.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\SanPham.cs",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Models\\SanPham.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAUwCEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-03T08:21:58.998Z"
+              "DocumentIndex": 44,
+              "Title": "portal.css",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\portal.css",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\portal.css",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\portal.css",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\portal.css",
+              "ViewState": "AgIAALk5AAAAAAAAAAAAAMs5AAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-03T14:17:46.01Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAmwFoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-03T08:22:19.466Z"
+              "DocumentIndex": 45,
+              "Title": "_app.scss",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_app.scss",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_app.scss",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_app.scss",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_app.scss",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAIwBAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2025-07-03T14:17:51.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 42,
+              "Title": "20250704012809_data.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704012809_data.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Migrations\\20250704012809_data.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250704012809_data.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Migrations\\20250704012809_data.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T01:28:09.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "BaiViet.cs",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\BaiViet.cs",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Models\\BaiViet.cs",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Models\\BaiViet.cs",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Models\\BaiViet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T01:37:54.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACIAAACBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T03:00:42.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Bill\\Index.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Bill\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Bill\\Index.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Bill\\Index.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T02:56:39.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAABoAAAAAAAAAAAAqwDwAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-04T01:59:17.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
               "Title": "SeedData.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Repository\\SeedData.cs",
               "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Repository\\SeedData.cs",
@@ -460,37 +955,11 @@
               "RelativeToolTip": "Ecommerce-CaFeShop\\Repository\\SeedData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-03T08:28:46.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-03T08:28:46.373Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAJkAAAAAAAAAAAApwKoAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-03T09:16:48.471Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\appsettings.json",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\appsettings.json",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\appsettings.json",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-03T08:14:34.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 46,
               "Title": "_sidepanel.scss",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_sidepanel.scss",
               "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\wwwroot\\assets\\scss\\app\\_sidepanel.scss",
@@ -502,43 +971,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ProductDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Product\\ProductDetail.cshtml",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Product\\ProductDetail.cshtml",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Product\\ProductDetail.cshtml",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Product\\ProductDetail.cshtml",
-              "ViewState": "AgIAAJ0AAAAAAAAAAAApwKkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T08:23:09.719Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAACMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T10:08:48.926Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "style.min.css",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\style.min.css",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\style.min.css",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\wwwroot\\assets\\css\\style.min.css",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\wwwroot\\assets\\css\\style.min.css",
-              "ViewState": "AgIAALuLAAAAAAAAAAAIwMaLAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-07-03T13:34:18.318Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 47,
               "Title": "20250703132828_data.cs",
               "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250703132828_data.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250703132828_data.cs",
@@ -550,7 +983,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 49,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Product\\Create.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Product\\Create.cshtml",
@@ -562,19 +995,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAABYAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T10:08:22.27Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 48,
               "Title": "20250703132557_data.cs",
               "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250703132557_data.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-CaFeShop\\Migrations\\20250703132557_data.cs",
@@ -586,7 +1007,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 50,
               "Title": "edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Product\\edit.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Areas\\Admin\\Views\\Product\\edit.cshtml",
@@ -598,31 +1019,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABoAAAAAAAAAAAAewCcAAABhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T09:27:24.452Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\MenuCategory\\Default.cshtml",
-              "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\MenuCategory\\Default.cshtml",
-              "ToolTip": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Views\\Shared\\Components\\MenuCategory\\Default.cshtml",
-              "RelativeToolTip": "Ecommerce-CaFeShop\\Views\\Shared\\Components\\MenuCategory\\Default.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T09:52:37.288Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 51,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-CaFeShop\\Program.cs",
               "RelativeDocumentMoniker": "Ecommerce-CaFeShop\\Program.cs",
@@ -634,7 +1031,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 61,
               "Title": "edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Areas\\Admin\\Views\\Product\\edit.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Areas\\Admin\\Views\\Product\\edit.cshtml",
@@ -646,7 +1043,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 62,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Areas\\Admin\\Views\\Category\\Index.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Areas\\Admin\\Views\\Category\\Index.cshtml",
@@ -658,7 +1055,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 63,
               "Title": "Default.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Views\\Shared\\Components\\Cart\\Default.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Views\\Shared\\Components\\Cart\\Default.cshtml",
@@ -670,7 +1067,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 55,
               "Title": "20250703024900_data.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250703024900_data.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Migrations\\20250703024900_data.cs",
@@ -682,7 +1079,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 64,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Controllers\\ProductController.cs",
@@ -694,7 +1091,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 65,
               "Title": "Default.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Views\\Shared\\Components\\BestSellerProduct\\Default.cshtml",
@@ -706,7 +1103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 66,
               "Title": "_HeroSlider.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Views\\Shared\\_HeroSlider.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Views\\Shared\\_HeroSlider.cshtml",
@@ -718,7 +1115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 67,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Views\\Shared\\_Layout.cshtml",
@@ -730,7 +1127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 68,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Areas\\Admin\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Areas\\Admin\\Views\\Product\\Index.cshtml",
@@ -742,7 +1139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 52,
               "Title": "SanPham.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Models\\SanPham.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Models\\SanPham.cs",
@@ -753,7 +1150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 69,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Areas\\Admin\\Views\\Product\\Create.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Areas\\Admin\\Views\\Product\\Create.cshtml",
@@ -765,7 +1162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 70,
               "Title": "Default.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Views\\Shared\\Components\\FeaturedProduct\\Default.cshtml",
@@ -777,7 +1174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 71,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Areas\\Admin\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Areas\\Admin\\Controllers\\CategoryController.cs",
@@ -789,7 +1186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 72,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Areas\\Admin\\Views\\Bill\\Details.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Areas\\Admin\\Views\\Bill\\Details.cshtml",
@@ -801,7 +1198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 73,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Views\\Product\\Index.cshtml",
@@ -813,7 +1210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 74,
               "Title": "SearchProduct.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Views\\Product\\SearchProduct.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Views\\Product\\SearchProduct.cshtml",
@@ -825,7 +1222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 75,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Areas\\Admin\\Views\\Bill\\Index.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Areas\\Admin\\Views\\Bill\\Index.cshtml",
@@ -837,7 +1234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 76,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Controllers\\CartController.cs",
@@ -849,7 +1246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 77,
               "Title": "BillController.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Areas\\Admin\\Controllers\\BillController.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Areas\\Admin\\Controllers\\BillController.cs",
@@ -861,7 +1258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 56,
               "Title": "20250702123643_data.cs",
               "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250702123643_data.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250702123643_data.cs",
@@ -872,7 +1269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 78,
               "Title": "SeedData.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Repository\\SeedData.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Repository\\SeedData.cs",
@@ -884,7 +1281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 79,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Program.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Program.cs",
@@ -896,7 +1293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 54,
               "Title": "20250703025717_data.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250703025717_data.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Migrations\\20250703025717_data.cs",
@@ -908,7 +1305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 53,
               "Title": "20250703030821_data.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250703030821_data.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Migrations\\20250703030821_data.cs",
@@ -920,7 +1317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 80,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\appsettings.json",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\appsettings.json",
@@ -932,7 +1329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 81,
               "Title": "style.min.css",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\wwwroot\\assets\\css\\style.min.css",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\wwwroot\\assets\\css\\style.min.css",
@@ -944,7 +1341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 82,
               "Title": "style.css",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\wwwroot\\assets\\css\\style.css",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\wwwroot\\assets\\css\\style.css",
@@ -956,7 +1353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 83,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Views\\Home\\Index.cshtml",
@@ -968,7 +1365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 57,
               "Title": "20250703011643_data.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250703011643_data.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Migrations\\20250703011643_data.cs",
@@ -980,7 +1377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 84,
               "Title": "HinhAnhBaiViet.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Models\\HinhAnhBaiViet.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Models\\HinhAnhBaiViet.cs",
@@ -992,7 +1389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 85,
               "Title": "HinhAnhSanPham.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Models\\HinhAnhSanPham.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Models\\HinhAnhSanPham.cs",
@@ -1004,7 +1401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 86,
               "Title": "Slider.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Models\\Slider.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Models\\Slider.cs",
@@ -1016,7 +1413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 87,
               "Title": "IMomoService.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Services\\IMomoService.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Services\\IMomoService.cs",
@@ -1028,7 +1425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 58,
               "Title": "20250702140401_data.cs",
               "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250702140401_data.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250702140401_data.cs",
@@ -1040,7 +1437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 59,
               "Title": "20250702122341_data.cs",
               "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250702122341_data.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250702122341_data.cs",
@@ -1052,7 +1449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 88,
               "Title": "TaiKhoan.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Models\\TaiKhoan.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Models\\TaiKhoan.cs",
@@ -1064,7 +1461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 89,
               "Title": "CaFeContext.cs",
               "DocumentMoniker": "C:\\Users\\Novazone\\Desktop\\DACF\\WebShop\\Ecommerce-WatchShop\\Models\\CaFeContext.cs",
               "RelativeDocumentMoniker": "Ecommerce-WatchShop\\Models\\CaFeContext.cs",
@@ -1076,7 +1473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 60,
               "Title": "20250702105813_data.cs",
               "DocumentMoniker": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250702105813_data.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-WatchShop\\Migrations\\20250702105813_data.cs",
