@@ -1,21 +1,19 @@
 using Ecommerce_CaFeShop.Models;
 using Ecommerce_CaFeShop.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce_CaFeShop.Controllers
 {
-
     public class ProductController : Controller
     {
-
         private readonly CaFeContext _context;
+
         public ProductController(CaFeContext context)
         {
-
             _context = context;
         }
+
         public async Task<IActionResult> Index(string? search, string? categories = "", string? brands = "", double? minPrice = null, double? maxPrice = null, int page = 1, int? gender = null)
         {
             var pageSize = 5;
@@ -89,9 +87,10 @@ namespace Ecommerce_CaFeShop.Controllers
 
             return View(viewModel);
         }
+
         public async Task<IActionResult> SearchProduct(string? search = "", int page = 1)
         {
-            var pageSize = 5;  // Số sản phẩm mỗi trang
+            var pageSize = 5; // Số sản phẩm mỗi trang
             var products = _context.SanPhams.AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
@@ -101,6 +100,7 @@ namespace Ecommerce_CaFeShop.Controllers
                     p.TenSanPham.ToLower().Contains(search) ||
                     p.MoTaNgan.ToLower().Contains(search));
             }
+
             var totalProducts = await products.CountAsync();
             var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
             var result = await products
@@ -119,24 +119,29 @@ namespace Ecommerce_CaFeShop.Controllers
                         ? p.DanhGiaSanPhams.Average(r => (double)r.DiemDanhGia!) : 0,
                     TotalRating = p.DanhGiaSanPhams.Count,
                 }).ToListAsync();
+
             var viewModel = new PagedProductListVM
             {
-                SanPhams = result,  // Danh sách sản phẩm cho trang hiện tại
+                SanPhams = result, // Danh sách sản phẩm cho trang hiện tại
                 CurrentPage = page,
                 TotalPages = totalPages,
                 PageSize = pageSize
             };
+
             return View(viewModel);
         }
+
         [Route("ProductDetail/{slug}")]
         public async Task<IActionResult> ProductDetail(string? slug)
         {
-            if(string.IsNullOrEmpty(slug))
+            if (string.IsNullOrEmpty(slug))
             {
                 return NotFound();
-            }    
+            }
+
             var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "MaKhachHang");
             var customerId = customerIdClaim != null ? int.Parse(customerIdClaim.Value) : (int?)null;
+
             // Lấy sản phẩm, đánh giá, và bình luận từ cơ sở dữ liệu
             var product = await _context.SanPhams
                 .Include(p => p.DanhMuc)
@@ -156,10 +161,10 @@ namespace Ecommerce_CaFeShop.Controllers
                 .Where(p => p.MaDanhMuc == product.MaDanhMuc && p.MaThuongHieu == product.MaThuongHieu && p.MaSanPham != product.MaSanPham)
                 .Take(5)
                 .ToListAsync();
+
             // Tạo ViewModel
             var viewModel = new ProductDetailVM
             {
-
                 SanPham = product,
                 RelatedProducts = relatedProducts,
                 ProductRating = product.DanhGiaSanPhams.Any()
@@ -179,42 +184,107 @@ namespace Ecommerce_CaFeShop.Controllers
             return View(viewModel); // Trả về View
         }
         [HttpPost]
-        [Route("ProductDetail/{id}/AddReview")]
-        public IActionResult AddReview(int id, string content, int rating)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddReview(int id, string content, int rating)
         {
+            // Check authentication and get customer ID
             var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "MaKhachHang");
-            int? customerId = customerIdClaim != null ? int.Parse(customerIdClaim.Value) : (int?)null;
-            // Kiểm tra sản phẩm tồn tại
-            var product = _context.SanPhams.Find(id);
-            if (product == null)
+            if (customerIdClaim == null || !int.TryParse(customerIdClaim.Value, out int customerId))
             {
-                return NotFound();
+                return Json(new { success = false, message = "Bạn cần đăng nhập để đánh giá sản phẩm." });
             }
 
-            var comment = new BinhLuanSanPham
+            // Validate input
+            if (string.IsNullOrWhiteSpace(content))
             {
+                return Json(new { success = false, message = "Nội dung bình luận không được để trống." });
+            }
 
-                MaSanPham = id,
-                MaKhachHang = customerId,
-                NoiDung = content,
-                NgayTao = DateTime.Now
-            };
-
-            var productRating = new DanhGiaSanPham
+            if (rating < 1 || rating > 5)
             {
-                MaSanPham = id,
-                MaKhachHang = customerId,
-                DiemDanhGia = rating
-            };
+                return Json(new { success = false, message = "Điểm đánh giá phải từ 1 đến 5." });
+            }
 
-            _context.BinhLuanSanPhams.Add(comment);
-            _context.DanhGiaSanPhams.Add(productRating);
-            _context.SaveChanges();
+            // Check if product exists with active status
+            var product = await _context.SanPhams
+                .Where(p => p.MaSanPham == id && p.DaXoa == 0 && p.TrangThai == 1)
+                .FirstOrDefaultAsync();
+            if (product == null)
+            {
+                return Json(new { success = false, message = "Sản phẩm không tồn tại hoặc đã bị xóa." });
+            }
 
-            return RedirectToAction("ProductDetail", new { slug = product.Slug }); // Quay lại trang chi tiết sản phẩm
+            // Check if customer exists
+            var customer = _context.KhachHangs.Find(customerId);
+            if (customer == null)
+            {
+                return Json(new { success = false, message = "Thông tin khách hàng không hợp lệ." });
+            }
+
+            try
+            {
+                // Check for existing review
+                var existingReview = _context.BinhLuanSanPhams
+                    .Any(bl => bl.MaSanPham == id && bl.MaKhachHang == customerId);
+                if (existingReview)
+                {
+                    return Json(new { success = false, message = "Bạn đã đánh giá sản phẩm này rồi." });
+                }
+
+                // Create comment
+                var comment = new BinhLuanSanPham
+                {
+                    MaSanPham = id,
+                    MaKhachHang = customerId,
+                    NoiDung = content.Trim(),
+                    NgayTao = DateTime.Now // Current time: 11:49 PM +07, July 05, 2025
+                };
+
+                // Create rating
+                var productRating = new DanhGiaSanPham
+                {
+                    MaSanPham = id,
+                    MaKhachHang = customerId,
+                    DiemDanhGia = rating
+                };
+
+                // Add to context and save changes
+                _context.BinhLuanSanPhams.Add(comment);
+                _context.DanhGiaSanPhams.Add(productRating);
+                await _context.SaveChangesAsync();
+
+                // Fetch customer name for response
+                var customerName = customer.TenHienThi ?? "Guest";
+
+                // Return success with data for client-side rendering
+                return Json(new
+                {
+                    success = true,
+                    message = "Đánh giá của bạn đã được gửi thành công!",
+                    review = new
+                    {
+                        rating,
+                        content = content.Trim(),
+                        date = DateTime.Now.ToString("dd/MM/yyyy HH:mm"), // e.g., 05/07/2025 23:49
+                        customerName = customerName
+                    }
+                });
+            }
+            catch (DbUpdateException ex)
+            {
+                var innerException = ex.InnerException?.Message ?? "No inner exception details.";
+                // Log for debugging (e.g., using Serilog: _logger.LogError(ex, "Database update error: {Message}", innerException));
+                return Json(new { success = false, message = $"Có lỗi xảy ra khi lưu dữ liệu: {innerException}" });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // _logger.LogError(ex, "Error adding review for product {id}", id);
+                return Json(new { success = false, message = "Có lỗi xảy ra khi gửi đánh giá: " + ex.Message });
+            }
         }
-        
-        //Thêm sản phẩm yêu thích
+
+        // Thêm sản phẩm yêu thích
         [HttpPost]
         public IActionResult AddToWishlist(int productId)
         {
@@ -252,6 +322,5 @@ namespace Ecommerce_CaFeShop.Controllers
                 return Json(new { success = true, message = "Xóa khỏi yêu thích thành công.", isFavorite = false });
             }
         }
-
     }
 }
