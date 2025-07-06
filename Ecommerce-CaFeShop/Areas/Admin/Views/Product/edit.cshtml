@@ -19,6 +19,12 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="mb-3">
+                                        <label asp-for="MaSanPhamCode" class="form-label"><i class="bi bi-tag me-2"></i>Mã sản phẩm</label>
+                                        <input asp-for="MaSanPhamCode" class="form-control" placeholder="Nhập mã sản phẩm" required />
+                                        <span asp-validation-for="MaSanPhamCode" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label asp-for="TenSanPham" class="form-label"><i class="bi bi-tag me-2"></i>Tên sản phẩm</label>
                                         <input asp-for="TenSanPham" class="form-control" placeholder="Nhập tên sản phẩm" required />
                                         <span asp-validation-for="TenSanPham" class="text-danger"></span>
@@ -46,7 +52,7 @@
                                         <span asp-validation-for="MaDanhMuc" class="text-danger"></span>
                                     </div>
 
-                                    
+
                                 </div>
 
                                 <div class="col-md-6">
@@ -62,7 +68,7 @@
                                         <span asp-validation-for="MoTaNgan" class="text-danger"></span>
                                     </div>
 
-                   
+
 
                                     <div class="mb-3">
                                         <label asp-for="HinhAnh" class="form-label"><i class="bi bi-image me-2"></i>Hình ảnh sản phẩm</label>
@@ -92,7 +98,7 @@
         </div>
     </div>
 
-    @section Scripts {
+@section Scripts {
         <partial name="_ValidationScriptsPartial" />
         <script>
             (function () {
@@ -110,5 +116,4 @@
                     })
             })();
         </script>
-    }
-    
+}

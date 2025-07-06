@@ -14,5 +14,7 @@ public partial class DanhMuc
     [Column(TypeName = "varchar(100)")]
     public string? Slug { get; set; }
 
+    public int DaXoa { get; set; } = 0;
+
     public virtual ICollection<SanPham> SanPhams { get; set; } = new List<SanPham>();
 }

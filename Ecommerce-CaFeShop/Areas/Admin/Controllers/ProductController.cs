@@ -54,9 +54,18 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
             }
 
             // Kiểm tra MaDanhMuc và MaThuongHieu có hợp lệ không
-            if (product.MaDanhMuc == null || product.MaThuongHieu == null  || string.IsNullOrEmpty(product.MoTaNgan) )
+            if (product.MaDanhMuc == null || product.MaThuongHieu == null || string.IsNullOrEmpty(product.MoTaNgan))
             {
                 TempData["error"] = "Vui lòng điền đầy đủ thông tin (danh mục, thương hiệu, mô tả ngắn).";
+                ViewBag.ThuongHieuId = new SelectList(await _context.ThuongHieus.ToListAsync(), "MaThuongHieu", "TenThuongHieu", product.MaThuongHieu);
+                ViewBag.DanhMucId = new SelectList(await _context.DanhMucs.ToListAsync(), "MaDanhMuc", "TenDanhMuc", product.MaDanhMuc);
+                return View(product);
+            }
+
+            // Kiểm tra mã sản phẩm có trùng không
+            if (await _context.SanPhams.AnyAsync(p => p.MaSanPhamCode == product.MaSanPhamCode && p.DaXoa == 0))
+            {
+                TempData["error"] = $"Mã sản phẩm '{product.MaSanPhamCode}' đã tồn tại. Vui lòng sử dụng mã khác.";
                 ViewBag.ThuongHieuId = new SelectList(await _context.ThuongHieus.ToListAsync(), "MaThuongHieu", "TenThuongHieu", product.MaThuongHieu);
                 ViewBag.DanhMucId = new SelectList(await _context.DanhMucs.ToListAsync(), "MaDanhMuc", "TenDanhMuc", product.MaDanhMuc);
                 return View(product);
@@ -131,7 +140,7 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 
             ViewBag.ThuongHieuId = new SelectList(await _context.ThuongHieus.ToListAsync(), "MaThuongHieu", "TenThuongHieu", product.MaThuongHieu);
             ViewBag.DanhMucId = new SelectList(await _context.DanhMucs.ToListAsync(), "MaDanhMuc", "TenDanhMuc", product.MaDanhMuc);
-            
+
             return View(product);
         }
 
@@ -162,6 +171,16 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
                     return RedirectToAction("Index");
                 }
 
+                // Kiểm tra mã sản phẩm có trùng không (trừ chính nó)
+                if (await _context.SanPhams.AnyAsync(p => p.MaSanPhamCode == product.MaSanPhamCode && p.MaSanPham != id && p.DaXoa == 0))
+                {
+                    TempData["error"] = $"Mã sản phẩm '{product.MaSanPhamCode}' đã tồn tại. Vui lòng sử dụng mã khác.";
+                    ViewBag.ThuongHieuId = new SelectList(await _context.ThuongHieus.ToListAsync(), "MaThuongHieu", "TenThuongHieu", product.MaThuongHieu);
+                    ViewBag.DanhMucId = new SelectList(await _context.DanhMucs.ToListAsync(), "MaDanhMuc", "TenDanhMuc", product.MaDanhMuc);
+                    return View(product);
+                }
+
+                existingProduct.MaSanPhamCode = product.MaSanPhamCode;
                 existingProduct.TenSanPham = product.TenSanPham;
                 existingProduct.Gia = product.Gia;
                 existingProduct.MoTa = product.MoTa;

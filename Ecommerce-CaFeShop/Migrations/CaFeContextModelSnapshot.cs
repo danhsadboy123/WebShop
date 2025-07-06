@@ -178,6 +178,9 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaDanhMuc"));
 
+                    b.Property<int>("DaXoa")
+                        .HasColumnType("int");
+
                     b.Property<int?>("MaDanhMucCha")
                         .HasColumnType("int");
 
@@ -480,6 +483,10 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     b.Property<int>("MaDanhMuc")
                         .HasColumnType("int");
+
+                    b.Property<string>("MaSanPhamCode")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int>("MaThuongHieu")
                         .HasColumnType("int");

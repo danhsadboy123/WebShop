@@ -48,7 +48,8 @@ namespace Ecommerce_CaFeShop.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TenDanhMuc = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     MaDanhMucCha = table.Column<int>(type: "int", nullable: true),
-                    Slug = table.Column<string>(type: "varchar(100)", nullable: true)
+                    Slug = table.Column<string>(type: "varchar(100)", nullable: true),
+                    DaXoa = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -226,6 +227,7 @@ namespace Ecommerce_CaFeShop.Migrations
                     MaSanPham = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HinhAnh = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    MaSanPhamCode = table.Column<string>(type: "varchar(50)", nullable: false),
                     TenSanPham = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     MaDanhMuc = table.Column<int>(type: "int", nullable: false),
                     MaThuongHieu = table.Column<int>(type: "int", nullable: false),

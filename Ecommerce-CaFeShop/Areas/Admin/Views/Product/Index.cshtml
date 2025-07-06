@@ -116,17 +116,14 @@
 
         /* Responsive design */
         @@media (max-width: 768px) {
-            .table th, .table td
+            .table th, .table td {
+                padding: 0.5rem;
+                font-size: 0.75rem; /* Giảm font-size trên màn hình nhỏ */
+            }
 
-        {
-            padding: 0.5rem;
-            font-size: 0.75rem; /* Giảm font-size trên màn hình nhỏ */
-        }
-
-        .table-container {
-            max-height: 400px; /* Giảm chiều cao trên màn hình nhỏ */
-        }
-
+            .table-container {
+                max-height: 400px; /* Giảm chiều cao trên màn hình nhỏ */
+            }
         }
     </style>
 </head>
@@ -178,7 +175,8 @@
             <table class="table w-full text-sm">
                 <thead>
                     <tr class="bg-gray-100">
-                        <th class="p-2 text-left">ID</th>
+                        <th class="p-2 text-left">STT</th>
+                        <th class="p-2 text-left">Mã SP</th>
                         <th class="p-2 text-left">Hình ảnh</th>
                         <th class="p-2 text-left">Tên sản phẩm</th>
                         <th class="p-2 text-left">Danh mục</th>
@@ -190,10 +188,14 @@
                     </tr>
                 </thead>
                 <tbody id="productTable">
+                    @{
+                        int index = 0;
+                    }
                     @foreach (var product in Model)
                     {
                         <tr data-status="@product.TrangThai" class="hover:bg-gray-50 border-b">
-                            <td class="p-2">@product.MaSanPham</td>
+                            <td class="p-2">@(++index)</td>
+                            <td class="p-2"><strong>@product.MaSanPhamCode</strong></td>
                             <td class="p-2">
                                 <img src="@(product.HinhAnh ?? "/images/default-image.jpg")" alt="@product.TenSanPham" class="img-thumbnail" onerror="this.src='/images/default-image.jpg';" />
                             </td>
@@ -249,8 +251,9 @@
                 $('#searchInput').on('input', function () {
                     let searchTerm = $(this).val().toLowerCase();
                     $('#productTable tr').each(function () {
-                        let productName = $(this).find('td:nth-child(3)').text().toLowerCase();
-                        $(this).toggle(productName.includes(searchTerm));
+                        let productName = $(this).find('td:nth-child(4)').text().toLowerCase(); // Cột thứ 4 là tên sản phẩm
+                        let productCode = $(this).find('td:nth-child(2)').text().toLowerCase(); // Cột thứ 2 là mã sản phẩm
+                        $(this).toggle(productName.includes(searchTerm) || productCode.includes(searchTerm));
                     });
                 });
 

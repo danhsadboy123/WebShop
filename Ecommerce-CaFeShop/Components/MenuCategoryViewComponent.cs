@@ -14,13 +14,16 @@ namespace Ecommerce_CaFeShop.Components
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var category = await _context.DanhMucs.Select(c => new MenuCategoryVM
-            {
-                CategoryId = c.MaDanhMuc,
-                CategoryName = c.TenDanhMuc,
-                ParentId = c.MaDanhMucCha,
-                Slug = c.Slug,
-            }).ToListAsync();
+            var category = await _context.DanhMucs
+                .Where(c => c.DaXoa == 0) // Chỉ lấy danh mục chưa bị xóa
+                .OrderBy(c => c.TenDanhMuc) // Sắp xếp theo tên
+                .Select(c => new MenuCategoryVM
+                {
+                    CategoryId = c.MaDanhMuc,
+                    CategoryName = c.TenDanhMuc,
+                    ParentId = c.MaDanhMucCha,
+                    Slug = c.Slug,
+                }).ToListAsync();
             return View(category);
         }
     }

@@ -13,6 +13,11 @@ public partial class SanPham
     [AllowNull]
     public string? HinhAnh { get; set; }
 
+    [Column(TypeName = "varchar(50)")]
+    [Required(ErrorMessage = "Mã sản phẩm là bắt buộc.")]
+    [Display(Name = "Mã sản phẩm")]
+    public string MaSanPhamCode { get; set; } = null!;
+
     [Column(TypeName = "nvarchar(100)")]
     [Required(ErrorMessage = "Tên sản phẩm là bắt buộc.")]
     public string TenSanPham { get; set; } = null!;

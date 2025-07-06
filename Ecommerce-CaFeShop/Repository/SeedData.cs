@@ -43,10 +43,11 @@ namespace Ecommerce_CaFeShop
                 await _context.SanPhams.AddRangeAsync(
                     new SanPham
                     {
+                        MaSanPhamCode = "TCH001",
                         HinhAnh = "TheCoffeeHouseKashmirBlend.png",
                         TenSanPham = "The Coffee House Kashmir Blend",
                         MaDanhMuc = cafeHatRang.MaDanhMuc,
-                        MaThuongHieu = TheCoffeeHouse.MaThuongHieu,                       
+                        MaThuongHieu = TheCoffeeHouse.MaThuongHieu,
                         Gia = 150000,
                         MoTaNgan = "Hương vị đậm đà, thơm nồng của cà phê hạt rang nguyên chất",
                         MoTa = "The Coffee House Kashmir Blend là sự kết hợp hoàn hảo giữa hạt cà phê Robusta và Arabica, mang lại hương vị đậm đà, hậu ngọt, phù hợp cho pha phin hoặc máy.",
@@ -60,6 +61,7 @@ namespace Ecommerce_CaFeShop
                     },
                     new SanPham
                     {
+                        MaSanPhamCode = "TN001",
                         HinhAnh = "trungnguyensantao1.png",
                         TenSanPham = "Trung Nguyên Sáng Tạo 1",
                         MaDanhMuc = cafeXay.MaDanhMuc,
@@ -77,6 +79,7 @@ namespace Ecommerce_CaFeShop
                     },
                     new SanPham
                     {
+                        MaSanPhamCode = "TN002",
                         HinhAnh = "trungnguyenclassic.png",
                         TenSanPham = "Trung Nguyên Legend Classic",
                         MaDanhMuc = cafeHatRang.MaDanhMuc,
@@ -94,6 +97,7 @@ namespace Ecommerce_CaFeShop
                     },
                     new SanPham
                     {
+                        MaSanPhamCode = "TN003",
                         HinhAnh = "culirobusta.png",
                         TenSanPham = "Trung Nguyên Culi Robusta",
                         MaDanhMuc = cafeHatRang.MaDanhMuc,
@@ -111,6 +115,7 @@ namespace Ecommerce_CaFeShop
                     },
                     new SanPham
                     {
+                        MaSanPhamCode = "HC001",
                         HinhAnh = "HighlandsCoffeePhinsuada.png",
                         TenSanPham = "Highlands Coffee Phin Sữa Đá",
                         MaDanhMuc = cafePhinTruyenThong.MaDanhMuc,
@@ -128,6 +133,7 @@ namespace Ecommerce_CaFeShop
                     },
                     new SanPham
                     {
+                        MaSanPhamCode = "HC002",
                         HinhAnh = "HighlandsCoffeeArabicaBlend.png",
                         TenSanPham = "Highlands Coffee Arabica Blend",
                         MaDanhMuc = cafeXay.MaDanhMuc,
@@ -145,6 +151,7 @@ namespace Ecommerce_CaFeShop
                     },
                     new SanPham
                     {
+                        MaSanPhamCode = "G7001",
                         HinhAnh = "G73in1Instant Coffee.png",
                         TenSanPham = "G7 3in1 Instant Coffee",
                         MaDanhMuc = cafePhinTruyenThong.MaDanhMuc,
@@ -162,6 +169,7 @@ namespace Ecommerce_CaFeShop
                     },
                     new SanPham
                     {
+                        MaSanPhamCode = "TCH002",
                         HinhAnh = "TheCoffeeHouseHouseBlend.png",
                         TenSanPham = "The Coffee House House Blend",
                         MaDanhMuc = cafeXay.MaDanhMuc,
@@ -179,6 +187,7 @@ namespace Ecommerce_CaFeShop
                     },
                     new SanPham
                     {
+                        MaSanPhamCode = "HC003",
                         HinhAnh = "HighlandsCoffeeMokaBlend.png",
                         TenSanPham = "Highlands Coffee Moka Blend",
                         MaDanhMuc = cafeHatRang.MaDanhMuc,
@@ -196,6 +205,7 @@ namespace Ecommerce_CaFeShop
                     },
                     new SanPham
                     {
+                        MaSanPhamCode = "G7002",
                         HinhAnh = "G7BlackInstantCoffee.png",
                         TenSanPham = "G7 Black Instant Coffee",
                         MaDanhMuc = cafePhinTruyenThong.MaDanhMuc,

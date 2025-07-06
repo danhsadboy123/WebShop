@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EPXbV/ng2hY=",
+  "dgSpecHash": "MQI3Ds4enKU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sunhitech\\Desktop\\New folder\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
+  "projectFilePath": "C:\\Users\\Sunhitech\\Desktop\\New folder (2)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sunhitech\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Sunhitech\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
