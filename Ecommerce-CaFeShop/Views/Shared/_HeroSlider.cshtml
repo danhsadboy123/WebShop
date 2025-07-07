@@ -1,90 +1,89 @@
-﻿@model IEnumerable<Slider>
+﻿@model IEnumerable<Ecommerce_CaFeShop.Models.Slider>
 
 <!-- Start Hero Slider Section-->
-<!-- Start Banner Section -->
 <div class="banner-section">
     <!-- Banner main container -->
     <div class="banner-container">
         <!-- Banner items wrapper -->
         <div class="banner-items">
-            <!-- Start Banner Item 1 -->
-            <div class="banner-item">
-                <!-- Banner Image -->
-                <div class="banner-image">
-                    <img src="~/images/banner1.png" alt="Trung Nguyên Legend" style="object-fit: cover; width: 100%; height: 100%;" />
-                </div>
-                <!-- Banner Content -->
-                <div class="banner-content-wrapper">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-auto">
-                                <div class="banner-content">
-                                    <h4 class="text-white">Sản Phẩm Nổi Bật</h4>
-                                    <h1 class="title text-white">Trung Nguyên Legend</h1>
-                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="/Product/ProductDetail/3" class="btn btn-lg btn-purple">Mua ngay</a>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var slider in Model)
+                {
+                    <!-- Start Banner Item -->
+                    <div class="banner-item">
+                        <!-- Banner Image -->
+                        <div class="banner-image">
+                            <img src="@Url.Content(slider.HinhAnh ?? "/Images/default-image.jpg")"
+                                 alt="@slider.TieuDe"
+                                 style="object-fit: cover; width: 100%; height: 100%;"
+                                 onerror="this.src='/Images/default-image.jpg'; this.onerror=null;" />
+                        </div>
+                        <!-- Banner Content -->
+                        <div class="banner-content-wrapper">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="banner-content">
+                                            @if (!string.IsNullOrEmpty(slider.MoTa))
+                                            {
+                                                <h4 class="text-white">@slider.MoTa</h4>
+                                            }
+                                            <h1 class="title text-white">@slider.TieuDe</h1>
+                                            @if (!string.IsNullOrEmpty(slider.Link))
+                                            {
+                                                @if (slider.Link.StartsWith("/Product/ProductDetail/"))
+                                                {
+                                                    var productId = slider.Link.Split('/').LastOrDefault();
+                                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@productId" class="btn btn-lg btn-purple">Mua ngay</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@slider.Link" class="btn btn-lg btn-purple">Mua ngay</a>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Banner Item -->
+                }
+            }
+            else
+            {
+                <!-- Default banner when no data -->
+                <div class="banner-item">
+                    <div class="banner-image">
+                        <img src="~/Images/default-image.jpg" alt="Default Banner" style="object-fit: cover; width: 100%; height: 100%;" />
+                    </div>
+                    <div class="banner-content-wrapper">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="banner-content">
+                                        <h4 class="text-white">Chào mừng đến với</h4>
+                                        <h1 class="title text-white">Coffee Shop</h1>
+                                        <a asp-controller="Product" asp-action="Index" class="btn btn-lg btn-purple">Xem sản phẩm</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Banner Item 1 -->
-            <!-- Start Banner Item 2 -->
-            <div class="banner-item">
-                <!-- Banner Image -->
-                <div class="banner-image">
-                    <img src="~/images/banner2.png" alt="Highlands Coffee Phin" style="object-fit: cover; width: 100%; height: 100%;" />
-                </div>
-                <!-- Banner Content -->
-                <div class="banner-content-wrapper">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-auto">
-                                <div class="banner-content">
-                                    <h4 class="text-white">Giảm giá đến 15%</h4>
-                                    <h1 class="title text-white">Highlands Coffee Phin</h1>
-                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="/Product/ProductDetail/5" class="btn btn-lg btn-purple">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Banner Item 2 -->
-            <!-- Start Banner Item 3 -->
-            <div class="banner-item">
-                <!-- Banner Image -->
-                <div class="banner-image">
-                    <img src="~/images/cafexay.png" alt="The Coffee House Blend" style="object-fit: cover; width: 100%; height: 100%;" />
-                </div>
-                <!-- Banner Content -->
-                <div class="banner-content-wrapper">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-auto">
-                                <div class="banner-content">
-                                    <h4 class="text-white">Hương vị cân bằng, dễ uống</h4>
-                                    <h1 class="title text-white">The Coffee House Blend</h1>
-                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="/Product/ProductDetail/8" class="btn btn-lg btn-purple">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Banner Item 3 -->
+            }
         </div>
         <!-- Navigation Buttons -->
-        <button class="banner-prev" style="
-    font-size: 20px;
-">
-            <
-        </button>
-        <button class="banner-next" style="
-    font-size: 20px;
-">
-            >
-        </button>
+        @if (Model != null && Model.Count() > 1)
+        {
+            <button class="banner-prev" style="font-size: 20px;">
+                &lt;
+            </button>
+            <button class="banner-next" style="font-size: 20px;">
+                &gt;
+            </button>
+        }
     </div>
 </div>
 
@@ -128,6 +127,7 @@
         display: flex;
         align-items: center;
         padding: 30px;
+        background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
     }
 
     .banner-content {
@@ -137,6 +137,7 @@
 
     .text-white {
         color: #fff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
 
     .title {
@@ -152,10 +153,14 @@
         text-decoration: none;
         border-radius: 10px;
         display: inline-block;
+        transition: all 0.3s ease;
+        border: none;
     }
 
         .btn-purple:hover {
             background-color: #4b0082; /* Darker purple */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
     .banner-prev, .banner-next {
@@ -169,18 +174,26 @@
         cursor: pointer;
         z-index: 10;
         font-size: 16px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
     }
 
     .banner-prev {
-        left: 10px;
+        left: 20px;
     }
 
     .banner-next {
-        right: 10px;
+        right: 20px;
     }
 
         .banner-prev:hover, .banner-next:hover {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
         }
 
     /* Responsive Media Queries */
@@ -188,28 +201,29 @@
         .banner-container
 
     {
-        height: 300px; /* Reduced height for tablets */
+        height: 350px; /* Reduced height for tablets */
     }
 
     .banner-item {
-        height: 300px;
+        height: 350px;
     }
 
     .title {
-        font-size: 1.5em; /* Smaller title for better fit */
+        font-size: 1.8em; /* Smaller title for better fit */
     }
 
     .banner-content {
-        max-width: 80%; /* Wider content area on smaller screens */
+        max-width: 85%; /* Wider content area on smaller screens */
     }
 
     .btn-purple {
-        padding: 10px 20px; /* Smaller button padding */
+        padding: 12px 25px; /* Smaller button padding */
         font-size: 14px; /* Smaller font size */
     }
 
     .banner-prev, .banner-next {
-        padding: 8px 15px; /* Smaller button size */
+        width: 40px;
+        height: 40px;
         font-size: 14px; /* Smaller text */
     }
 
@@ -219,55 +233,103 @@
         .banner-container
 
     {
-        height: 200px; /* Reduced height for mobile */
+        height: 250px; /* Reduced height for mobile */
     }
 
     .banner-item {
-        height: 200px;
+        height: 250px;
     }
 
     .title {
-        font-size: 1.2em; /* Even smaller title */
+        font-size: 1.4em; /* Even smaller title */
     }
 
     .banner-content {
         max-width: 90%; /* Almost full width on mobile */
     }
 
+        .banner-content h4 {
+            font-size: 14px;
+        }
+
     .btn-purple {
-        padding: 8px 15px; /* Smaller button */
+        padding: 10px 20px; /* Smaller button */
         font-size: 12px; /* Smaller font */
     }
 
     .banner-prev, .banner-next {
-        padding: 6px 10px; /* Smaller buttons */
+        width: 35px;
+        height: 35px;
         font-size: 12px; /* Smaller text */
-        top: 40%; /* Adjust position for smaller screens */
+        left: 10px;
     }
 
-    }</style>
+    .banner-next {
+        right: 10px;
+    }
+
+    }
+</style>
 
 <script>
-    const items = document.querySelector('.banner-items');
-    const totalItems = document.querySelectorAll('.banner-item').length;
-    let currentIndex = 0;
+    document.addEventListener('DOMContentLoaded', function() {
+        const items = document.querySelector('.banner-items');
+        const totalItems = document.querySelectorAll('.banner-item').length;
+        let currentIndex = 0;
 
-    document.querySelector('.banner-prev').addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlide();
+        if (totalItems <= 1) return; // No need for navigation if only one item
+
+        const prevBtn = document.querySelector('.banner-prev');
+        const nextBtn = document.querySelector('.banner-next');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = totalItems - 1; // Loop to last
+                }
+                updateSlide();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < totalItems - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Loop to first
+                }
+                updateSlide();
+            });
+        }
+
+        function updateSlide() {
+            const offset = -currentIndex * 100;
+            items.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Auto-slide functionality
+        let autoSlideInterval = setInterval(() => {
+            if (nextBtn) {
+                nextBtn.click();
+            }
+        }, 5000); // Change slide every 5 seconds
+
+        // Pause auto-slide on hover
+        const bannerContainer = document.querySelector('.banner-container');
+        if (bannerContainer) {
+            bannerContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+            });
+
+            bannerContainer.addEventListener('mouseleave', () => {
+                autoSlideInterval = setInterval(() => {
+                    if (nextBtn) {
+                        nextBtn.click();
+                    }
+                }, 5000);
+            });
         }
     });
-
-    document.querySelector('.banner-next').addEventListener('click', () => {
-        if (currentIndex < totalItems - 1) {
-            currentIndex++;
-            updateSlide();
-        }
-    });
-
-    function updateSlide() {
-        const offset = -currentIndex * 100;
-        items.style.transform = `translateX(${offset}%)`;
-    }
 </script>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Ecommerce_CaFeShop.Models.Slider>
+@using Ecommerce_CaFeShop.Helper
+@{
+    ViewData["Title"] = "Quản lý Banner";
+}
+
+<div class="app-content pt-3 p-md-3 p-lg-4">
+    <div class="container-xl">
+        <div class="row g-3 mb-4 align-items-center justify-content-between">
+            <div class="col-auto">
+                <h1 class="app-page-title mb-0"><i class="bi bi-images me-2"></i>Quản lý Banner</h1>
+            </div>
+            <div class="col-auto">
+                <a asp-action="Create" class="btn app-btn-primary">
+                    <i class="bi bi-plus-circle me-2"></i>Thêm Banner
+                </a>
+            </div>
+        </div>
+
+        <div class="app-card app-card-orders-table shadow-sm mb-5">
+            <div class="app-card-body">
+                <div class="table-responsive">
+                    <table class="table app-table-hover mb-0 text-left">
+                        <thead>
+                            <tr>
+                                <th class="cell">Hình ảnh</th>
+                                <th class="cell">Tiêu đề</th>
+                                <th class="cell">Mô tả</th>
+                                <th class="cell">Thứ tự</th>
+                                <th class="cell">Trạng thái</th>
+                                <th class="cell">Ngày tạo</th>
+                                <th class="cell">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="cell">
+                                        <img src="@Url.Content(item.HinhAnh ?? "/Images/default-image.jpg")"
+                                             alt="@item.TieuDe"
+                                             style="width: 80px; height: 50px; object-fit: cover; border-radius: 5px;"
+                                             onerror="this.src='/Images/default-image.jpg'; this.onerror=null;">
+                                    </td>
+                                    <td class="cell">@item.TieuDe</td>
+                                    <td class="cell">
+                                        @if (!string.IsNullOrEmpty(item.MoTa))
+                                        {
+                                            @(item.MoTa.Length > 50 ? item.MoTa.Substring(0, 50) + "..." : item.MoTa)
+                                        }
+                                    </td>
+                                    <td class="cell">@item.ThuTuHienThi</td>
+                                    <td class="cell">
+                                        @if (item.TrangThai == true)
+                                        {
+                                            <span class="badge bg-success">Hiển thị</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Ẩn</span>
+                                        }
+                                    </td>
+                                    <td class="cell">@item.NgayTao?.ToString("dd/MM/yyyy")</td>
+                                    <td class="cell">
+                                        <div class="btn-group" role="group">
+                                            <a asp-action="Edit" asp-route-id="@item.MaSlider" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <form asp-action="ToggleStatus" asp-route-id="@item.MaSlider" method="post" style="display:inline;">
+                                                <button type="submit" class="btn btn-sm btn-outline-warning" title="@(item.TrangThai == true ? "Ẩn" : "Hiển thị")">
+                                                    <i class="bi bi-@(item.TrangThai == true ? "eye-slash" : "eye")"></i>
+                                                </button>
+                                            </form>
+                                            <form asp-action="Delete" asp-route-id="@item.MaSlider" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn xóa banner này?')">
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

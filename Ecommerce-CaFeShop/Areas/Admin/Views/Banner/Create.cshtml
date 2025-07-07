@@ -1,0 +1,83 @@
+﻿@model Ecommerce_CaFeShop.Models.Slider
+@using Ecommerce_CaFeShop.Helper
+@{
+    ViewData["Title"] = "Thêm Banner";
+}
+
+<div class="app-content pt-3 p-md-3 p-lg-4">
+    <div class="container-xl">
+        <h1 class="app-page-title"><i class="bi bi-plus-circle me-2"></i>Thêm Banner</h1>
+
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="app-card app-card-settings shadow-sm p-4">
+                    <div class="app-card-body">
+                        <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label asp-for="TieuDe" class="form-label"><i class="bi bi-type me-2"></i>Tiêu đề</label>
+                                        <input asp-for="TieuDe" class="form-control" placeholder="Nhập tiêu đề banner" required />
+                                        <span asp-validation-for="TieuDe" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label asp-for="MoTa" class="form-label"><i class="bi bi-textarea me-2"></i>Mô tả</label>
+                                        <textarea asp-for="MoTa" class="form-control" rows="4" placeholder="Nhập mô tả banner"></textarea>
+                                        <span asp-validation-for="MoTa" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label asp-for="Link" class="form-label"><i class="bi bi-link me-2"></i>Link</label>
+                                        <input asp-for="Link" class="form-control" placeholder="Nhập link khi click banner (tùy chọn)" />
+                                        <span asp-validation-for="Link" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="imageFile" class="form-label"><i class="bi bi-image me-2"></i>Hình ảnh banner</label>
+                                        <input type="file" name="imageFile" class="form-control" accept="image/*" required />
+                                        <small class="text-muted">Chọn hình ảnh cho banner (bắt buộc)</small>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label asp-for="ThuTuHienThi" class="form-label"><i class="bi bi-sort-numeric-up me-2"></i>Thứ tự hiển thị</label>
+                                        <input asp-for="ThuTuHienThi" class="form-control" type="number" placeholder="Nhập thứ tự hiển thị" value="1" />
+                                        <span asp-validation-for="ThuTuHienThi" class="text-danger"></span>
+                                        <small class="text-muted">Số càng nhỏ sẽ hiển thị trước</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <button type="submit" class="btn app-btn-primary me-2"><i class="bi bi-plus-circle me-2"></i>Thêm Banner</button>
+                                <a asp-action="Index" class="btn app-btn-secondary"><i class="bi bi-arrow-left me-2"></i>Quay lại</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })();
+    </script>
+}

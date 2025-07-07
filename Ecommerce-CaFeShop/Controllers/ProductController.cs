@@ -136,9 +136,10 @@ namespace Ecommerce_CaFeShop.Controllers
         }
 
         [Route("ProductDetail/{slug}")]
-        public async Task<IActionResult> ProductDetail(string? slug)
+        [Route("Product/ProductDetail/{id:int}")]
+        public async Task<IActionResult> ProductDetail(string? slug = null, int? id = null)
         {
-            if (string.IsNullOrEmpty(slug))
+            if (string.IsNullOrEmpty(slug) && !id.HasValue)
             {
                 return NotFound();
             }
@@ -154,7 +155,8 @@ namespace Ecommerce_CaFeShop.Controllers
                 .Include(p => p.BinhLuanSanPhams).ThenInclude(productComment => productComment.KhachHang)
                 .Include(p => p.DanhGiaSanPhams)
                 .ThenInclude(c => c.KhachHang)
-                .FirstOrDefaultAsync(p => p.Slug == slug);
+                .FirstOrDefaultAsync(p => (!string.IsNullOrEmpty(slug) && p.Slug == slug) ||
+                                         (id.HasValue && p.MaSanPham == id.Value));
 
             if (product == null) // Kiểm tra sản phẩm tồn tại
             {

@@ -30,7 +30,8 @@ public partial class CaFeContext : DbContext
 
     public required virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 
-    public required virtual DbSet<SanPham> SanPhams { get; set; }
+    public virtual DbSet<SanPham> SanPhams { get; set; }
+    public virtual DbSet<Slider> Sliders { get; set; }
 
     public required virtual DbSet<BinhLuanSanPham> BinhLuanSanPhams { get; set; }
 
@@ -48,7 +49,7 @@ public partial class CaFeContext : DbContext
 
     public required virtual DbSet<ChinhSach> ChinhSachs { get; set; }
 
-    public required virtual DbSet<Slider> Sliders { get; set; }
+    //public required virtual DbSet<Slider> Sliders { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

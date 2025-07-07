@@ -23,7 +23,11 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var sliders = await _context.Sliders.Where(s => s.TrangThai).OrderBy(s => s.ThuTuHienThi).ToListAsync();
+        var sliders = await _context.Sliders
+            .Where(s => s.TrangThai)
+            .OrderBy(s => s.ThuTuHienThi ?? 0)
+            .ToListAsync();
+
         return View(sliders);
     }
 
@@ -183,27 +187,26 @@ public class HomeController : Controller
     [HttpGet]
     public async Task<IActionResult> Favorite()
     {
-        var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "CustomerId");
-        if (customerIdClaim == null)
+        var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "MaKhachHang");
+        if (customerIdClaim == null || !int.TryParse(customerIdClaim.Value, out int customerId))
         {
-            return RedirectToAction("LoginPartial");
+            return RedirectToAction("Index", "Home");
         }
 
-        var customerId = int.Parse(customerIdClaim.Value);
         var favorites = await _context.YeuThichs
             .Where(yt => yt.MaKhachHang == customerId)
             .Include(yt => yt.SanPham)
             .Select(yt => new FavoriteVM
             {
-                ProductId = yt.SanPham.MaSanPham,
-                Name = yt.SanPham.TenSanPham ?? "Chưa có tên",
-                Price = yt.SanPham.Gia,
-                Image = yt.SanPham.HinhAnh ?? "default-image.jpg",
-                Slug = yt.SanPham.Slug ?? ""
+                ProductId = yt.SanPham != null ? yt.SanPham.MaSanPham : 0,
+                Name = yt.SanPham != null ? (yt.SanPham.TenSanPham ?? "Chưa có tên") : "Chưa có tên",
+                Price = yt.SanPham != null ? yt.SanPham.Gia : 0,
+                Image = yt.SanPham != null ? (yt.SanPham.HinhAnh ?? "default-image.jpg") : "default-image.jpg",
+                Slug = yt.SanPham != null ? (yt.SanPham.Slug ?? "") : ""
             })
             .ToListAsync();
 
-        return View(favorites); // Trả về danh sách FavoriteVM trực tiếp
+        return View(favorites);
     }
 
 

@@ -538,22 +538,28 @@ namespace Ecommerce_CaFeShop.Migrations
 
             modelBuilder.Entity("Ecommerce_CaFeShop.Models.Slider", b =>
                 {
-                    b.Property<int>("Ma")
+                    b.Property<int>("MaSlider")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Ma"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaSlider"));
 
                     b.Property<string>("HinhAnh")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Link")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MoTa")
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("ThuTuHienThi")
+                    b.Property<string>("Link")
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("MoTa")
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime?>("NgayCapNhat")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("NgayTao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ThuTuHienThi")
                         .HasColumnType("int");
 
                     b.Property<string>("TieuDe")
@@ -562,7 +568,7 @@ namespace Ecommerce_CaFeShop.Migrations
                     b.Property<bool>("TrangThai")
                         .HasColumnType("bit");
 
-                    b.HasKey("Ma");
+                    b.HasKey("MaSlider");
 
                     b.ToTable("Sliders");
                 });

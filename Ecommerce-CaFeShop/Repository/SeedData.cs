@@ -346,9 +346,6 @@ namespace Ecommerce_CaFeShop
             if (!_context.Sliders.Any())
             {
                 await _context.Sliders.AddRangeAsync(
-                    new Slider { TieuDe = "Trung Nguyên Legend", MoTa = "Sản Phẩm Nổi Bật", HinhAnh = "~/images/ca-phe-chon-gia-bao-nhieu-va-ban-o-dau-202109281143187496.jpg", Link = "/Product/ProductDetail/3", ThuTuHienThi = 1, TrangThai = true },
-                    new Slider { TieuDe = "Highlands Coffee Phin", MoTa = "Giảm giá đến 15%", HinhAnh = "~/images/HighlandsCoffeePhinsuada.png", Link = "/Product/ProductDetail/5", ThuTuHienThi = 2, TrangThai = true },
-                    new Slider { TieuDe = "The Coffee House Blend", MoTa = "Hương vị cân bằng, dễ uống", HinhAnh = "~/images/cafexay.png", Link = "/Product/ProductDetail/8", ThuTuHienThi = 3, TrangThai = true }
                 );
                 await _context.SaveChangesAsync();
             }
