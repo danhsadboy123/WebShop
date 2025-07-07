@@ -393,10 +393,10 @@ namespace Ecommerce_CaFeShop.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MaKhachHang = table.Column<int>(type: "int", nullable: false),
                     NgayDatHang = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    HoTen = table.Column<string>(type: "nvarchar(200)", nullable: true),
-                    SoDienThoai = table.Column<string>(type: "varchar(15)", nullable: true),
-                    Email = table.Column<string>(type: "varchar(255)", nullable: true),
-                    DiaChi = table.Column<string>(type: "nvarchar(500)", nullable: true),
+                    HoTen = table.Column<string>(type: "nvarchar(200)", nullable: false),
+                    SoDienThoai = table.Column<string>(type: "varchar(15)", nullable: false),
+                    Email = table.Column<string>(type: "varchar(255)", nullable: false),
+                    DiaChi = table.Column<string>(type: "nvarchar(500)", nullable: false),
                     Tinh = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     Huyen = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     Xa = table.Column<string>(type: "nvarchar(100)", nullable: true),
@@ -451,25 +451,23 @@ namespace Ecommerce_CaFeShop.Migrations
                     MaSanPham = table.Column<int>(type: "int", nullable: false),
                     Gia = table.Column<decimal>(type: "decimal(18,0)", precision: 18, scale: 0, nullable: false),
                     SoLuong = table.Column<int>(type: "int", nullable: false),
-                    TongTien = table.Column<decimal>(type: "decimal(18,0)", precision: 18, scale: 0, nullable: false),
-                    HoaDonMaHoaDon = table.Column<int>(type: "int", nullable: false),
-                    SanPhamMaSanPham = table.Column<int>(type: "int", nullable: false)
+                    TongTien = table.Column<decimal>(type: "decimal(18,0)", precision: 18, scale: 0, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ChiTietHoaDons", x => x.MaChiTietHoaDon);
                     table.ForeignKey(
-                        name: "FK_ChiTietHoaDons_HoaDons_HoaDonMaHoaDon",
-                        column: x => x.HoaDonMaHoaDon,
+                        name: "FK_ChiTietHoaDons_HoaDons",
+                        column: x => x.MaHoaDon,
                         principalTable: "HoaDons",
                         principalColumn: "MaHoaDon",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ChiTietHoaDons_SanPhams_SanPhamMaSanPham",
-                        column: x => x.SanPhamMaSanPham,
+                        name: "FK_ChiTietHoaDons_SanPhams",
+                        column: x => x.MaSanPham,
                         principalTable: "SanPhams",
                         principalColumn: "MaSanPham",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -483,14 +481,14 @@ namespace Ecommerce_CaFeShop.Migrations
                 column: "SanPhamMaSanPham");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChiTietHoaDons_HoaDonMaHoaDon",
+                name: "IX_ChiTietHoaDons_MaHoaDon",
                 table: "ChiTietHoaDons",
-                column: "HoaDonMaHoaDon");
+                column: "MaHoaDon");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChiTietHoaDons_SanPhamMaSanPham",
+                name: "IX_ChiTietHoaDons_MaSanPham",
                 table: "ChiTietHoaDons",
-                column: "SanPhamMaSanPham");
+                column: "MaSanPham");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DanhGiaSanPhams_KhachHangMaKhachHang",

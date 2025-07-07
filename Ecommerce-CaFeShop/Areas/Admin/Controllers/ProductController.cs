@@ -62,6 +62,12 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
                 return View(product);
             }
 
+            // Đặt giá trị mặc định cho HinhAnh nếu không có ảnh được upload
+            if (string.IsNullOrEmpty(product.HinhAnh))
+            {
+                product.HinhAnh = "/images/default-image.jpg";
+            }
+
             // Kiểm tra mã sản phẩm có trùng không
             if (await _context.SanPhams.AnyAsync(p => p.MaSanPhamCode == product.MaSanPhamCode && p.DaXoa == 0))
             {
@@ -183,6 +189,7 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
                 existingProduct.MaSanPhamCode = product.MaSanPhamCode;
                 existingProduct.TenSanPham = product.TenSanPham;
                 existingProduct.Gia = product.Gia;
+                existingProduct.GiaKhuyenMai = product.GiaKhuyenMai;
                 existingProduct.MoTa = product.MoTa;
                 existingProduct.SoLuong = product.SoLuong;
                 existingProduct.MaThuongHieu = product.MaThuongHieu;

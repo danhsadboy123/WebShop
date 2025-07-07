@@ -145,7 +145,16 @@
                     <div class="product-details-text">
                         <h4 class="title">@Model.SanPham.TenSanPham</h4>
                         <div class="price">
-                            @String.Format(new CultureInfo("vi-VN"), "{0:C}", Model.SanPham.Gia)
+                            @if (Model.SanPham.GiaKhuyenMai.HasValue && Model.SanPham.GiaKhuyenMai.Value > 0 && Model.SanPham.GiaKhuyenMai.Value < Model.SanPham.Gia)
+                            {
+                                <span class="current-price">@String.Format(new CultureInfo("vi-VN"), "{0:C}", Model.SanPham.GiaKhuyenMai)</span>
+                                <span class="original-price" style="text-decoration: line-through; color: #999; margin-left: 10px;">@String.Format(new CultureInfo("vi-VN"), "{0:C}", Model.SanPham.Gia)</span>
+                                <span class="discount-badge" style="background: #e74c3c; color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px; margin-left: 10px;">-@Model.SanPham.PhanTramGiam%</span>
+                            }
+                            else
+                            {
+                                <span class="current-price">@String.Format(new CultureInfo("vi-VN"), "{0:C}", Model.SanPham.Gia)</span>
+                            }
                         </div>
                         <p>@(Model.SanPham.MoTaNgan ?? "Chưa có mô tả")</p>
                     </div> <!-- End Product Details Text Area -->
@@ -197,7 +206,6 @@
                     <!-- Start Product Details Tab Button -->
                     <ul class="nav tablist product-details-content-tab-btn d-flex justify-content-center">
                         <li><a class="nav-link active" data-bs-toggle="tab" href="#description">Mô tả</a></li>
-                        <li><a class="nav-link" data-bs-toggle="tab" href="#specification">Thông tin sản phẩm</a></li>
                     </ul> <!-- End Product Details Tab Button -->
                     <!-- Start Product Details Tab Content -->
                     <div class="product-details-content-tab">
@@ -211,7 +219,6 @@
                             <!-- Start Product Details Tab Content Single -->
                             <div class="tab-pane" id="specification">
                                 <div class="single-tab-content-item">
-                                
                                 </div>
                             </div> <!-- End Product Details Tab Content Single -->
                             <!-- Start Product Details Tab Content Single -->
@@ -224,7 +231,7 @@
                                             <li>
                                                 <div class="comment-content">
                                                     <h6 class="comment-name">@comment.CustomerName</h6>
-                                                 
+
                                                     <p>@comment.Content</p>
                                                     <small>@(comment.CreatedAt?.ToString("dd/MM/yyyy") ?? "")</small>
                                                 </div>
@@ -275,52 +282,6 @@
                 });
             });
 
-            $('.add-to-cart').click(function (e) {
-                e.preventDefault();
-                var $this = $(this);
-                var slug = $this.data('slug');
-                var quantity = parseInt($('#quantity_input').val()) || 1;
-
-                $.ajax({
-                    url: '@Url.Action("AddToCart", "Cart")',
-                    type: 'POST',
-                    data: { slug: slug, quantity: quantity },
-                    success: function (result) {
-                        if (result.success) {
-                            Toastify({
-                                text: result.message,
-                                duration: 3000,
-                                close: true,
-                                gravity: "top",
-                                position: "right",
-                                backgroundColor: "#5cb85c",
-                                className: "info"
-                            }).showToast();
-                        } else {
-                            Toastify({
-                                text: result.message,
-                                duration: 3000,
-                                close: true,
-                                gravity: "top",
-                                position: "right",
-                                backgroundColor: "#FF0000",
-                                className: "error"
-                            }).showToast();
-                        }
-                    },
-                    error: function () {
-                        Toastify({
-                            text: 'Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.',
-                            duration: 3000,
-                            close: true,
-                            gravity: "top",
-                            position: "right",
-                            backgroundColor: "#FF0000",
-                            className: "error"
-                        }).showToast();
-                    }
-                });
-            });
         });
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

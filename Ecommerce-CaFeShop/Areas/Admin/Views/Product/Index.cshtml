@@ -181,7 +181,8 @@
                         <th class="p-2 text-left">Tên sản phẩm</th>
                         <th class="p-2 text-left">Danh mục</th>
                         <th class="p-2 text-left">Thương hiệu</th>
-                        <th class="p-2 text-left">Giá</th>
+                        <th class="p-2 text-left">Giá gốc</th>
+                        <th class="p-2 text-left">Giá KM</th>
                         <th class="p-2 text-left">Số lượng</th>
                         <th class="p-2 text-left">Trạng thái</th>
                         <th class="p-2 text-left">Hành động</th>
@@ -203,6 +204,17 @@
                             <td class="p-2">@(product.DanhMuc?.TenDanhMuc ?? "N/A")</td>
                             <td class="p-2">@(product.ThuongHieu?.TenThuongHieu ?? "N/A")</td>
                             <td class="p-2">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", product.Gia)</td>
+                            <td class="p-2">
+                                @if (product.GiaKhuyenMai.HasValue && product.GiaKhuyenMai.Value > 0)
+                                {
+                                    <span class="text-success">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", product.GiaKhuyenMai)</span>
+                                    <small class="text-muted d-block">-@product.PhanTramGiam%</small>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Không có</span>
+                                }
+                            </td>
                             <td class="p-2">@product.SoLuong</td>
                             <td class="p-2">
                                 @if (product.TrangThai == 1)
@@ -218,13 +230,29 @@
                                 <a href="@Url.Action("Edit", "Product", new { area = "Admin", id = product.MaSanPham })" class="btn-golden py-1 px-2 rounded text-xs">Sửa</a>
                                 @if (product.TrangThai == 1)
                                 {
-                                    <button class="btn-warning py-1 px-2 rounded hide-product text-xs" data-id="@product.MaSanPham" data-name="@product.TenSanPham">Ẩn</button>
+                                    <form asp-action="HideProduct" method="post" style="display: inline;">
+                                        <input type="hidden" name="id" value="@product.MaSanPham" />
+                                        <button type="submit" class="btn btn-sm btn-warning me-1" onclick="return confirm('Bạn có chắc muốn ẩn sản phẩm này?')">
+                                            <i class="bi bi-eye-slash"></i> Ẩn
+                                        </button>
+                                    </form>
                                 }
                                 else
                                 {
-                                    <button class="btn-success py-1 px-2 rounded show-product text-xs" data-id="@product.MaSanPham" data-name="@product.TenSanPham">Hiện</button>
+                                    <form asp-action="ShowProduct" method="post" style="display: inline;">
+                                        <input type="hidden" name="id" value="@product.MaSanPham" />
+                                        <button type="submit" class="btn btn-sm btn-success me-1" onclick="return confirm('Bạn có chắc muốn hiển thị sản phẩm này?')">
+                                            <i class="bi bi-eye"></i> Hiển thị
+                                        </button>
+                                    </form>
                                 }
-                                <button class="btn-danger py-1 px-2 rounded delete-product text-xs" data-id="@product.MaSanPham" data-name="@product.TenSanPham">Xóa</button>
+
+                                <form asp-action="Delete" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="@product.MaSanPham" />
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này? Hành động này không thể hoàn tác!')">
+                                        <i class="bi bi-trash"></i> Xóa
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     }
@@ -372,6 +400,21 @@
                             $('#confirmationModal').addClass('hidden');
                         }
                     );
+                });
+            });
+        </script>
+        <script>
+            // Thêm hiệu ứng loading cho các nút bấm
+            document.addEventListener('DOMContentLoaded', function() {
+                const forms = document.querySelectorAll('form[method="post"]');
+                forms.forEach(form => {
+                    form.addEventListener('submit', function() {
+                        const submitBtn = this.querySelector('button[type="submit"]');
+                        if (submitBtn) {
+                            submitBtn.disabled = true;
+                            submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Đang xử lý...';
+                        }
+                    });
                 });
             });
         </script>

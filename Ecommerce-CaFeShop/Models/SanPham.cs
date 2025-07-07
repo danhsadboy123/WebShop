@@ -34,6 +34,34 @@ public partial class SanPham
     [Range(0.01, double.MaxValue, ErrorMessage = "Giá phải lớn hơn 0.")]
     public double Gia { get; set; }
 
+    [Display(Name = "Giá khuyến mãi")]
+    [Range(0, double.MaxValue, ErrorMessage = "Giá khuyến mãi phải lớn hơn hoặc bằng 0.")]
+    public double? GiaKhuyenMai { get; set; }
+
+    // Tính phần trăm giảm giá
+    public double PhanTramGiam
+    {
+        get
+        {
+            if (GiaKhuyenMai.HasValue && GiaKhuyenMai.Value > 0 && GiaKhuyenMai.Value < Gia)
+            {
+                return Math.Round(((Gia - GiaKhuyenMai.Value) / Gia) * 100, 0);
+            }
+            return 0;
+        }
+    }
+
+    // Giá hiển thị (ưu tiên giá khuyến mãi nếu có)
+    public double GiaHienThi
+    {
+        get
+        {
+            return GiaKhuyenMai.HasValue && GiaKhuyenMai.Value > 0 && GiaKhuyenMai.Value < Gia
+                ? GiaKhuyenMai.Value
+                : Gia;
+        }
+    }
+
     [Column(TypeName = "nvarchar(200)")]
     public string? MoTaNgan { get; set; }
 

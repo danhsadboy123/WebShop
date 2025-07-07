@@ -1,7 +1,8 @@
-﻿@{
+﻿@model Ecommerce_CaFeShop.Models.ViewModels.CheckoutVM
+@{
     ViewData["Title"] = "Thanh toán";
 }
-@model Ecommerce_CaFeShop.Models.ViewModels.CheckoutVM
+
 
 <div class="breadcrumb-section breadcrumb-bg-color--golden">
     <div class="breadcrumb-wrapper">
@@ -170,7 +171,6 @@
             padding: 50px 0;
             background: #f8f9fa;
         }
-
         .checkout-card {
             background: white;
             border-radius: 10px;
@@ -178,38 +178,31 @@
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             margin-bottom: 30px;
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         .form-control {
             border-radius: 5px;
             border: 1px solid #ddd;
             padding: 10px 15px;
         }
-
-            .form-control:focus {
-                border-color: #007bff;
-                box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-            }
-
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
         .btn-primary {
             background: #007bff;
             border: none;
             border-radius: 5px;
             padding: 15px;
         }
-
-            .btn-primary:hover {
-                background: #0056b3;
-            }
-
+        .btn-primary:hover {
+            background: #0056b3;
+        }
         .table th, .table td {
             border-top: 1px solid #dee2e6;
             padding: 12px;
         }
-
         .form-check {
             background: #f8f9fa;
             padding: 15px;

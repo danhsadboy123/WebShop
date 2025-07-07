@@ -13,6 +13,10 @@ namespace Ecommerce_CaFeShop.Models.ViewModels
 
         public double? Price { get; set; }
 
+        public double? DiscountPrice { get; set; }
+
+        public double DiscountPercent { get; set; }
+
         public string ShortDescription { get; set; } = string.Empty;
 
         public double ProductRating { get; set; }

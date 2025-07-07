@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce_CaFeShop.Migrations
 {
     [DbContext(typeof(CaFeContext))]
-    [Migration("20250707051822_dat3")]
-    partial class dat3
+    [Migration("20250707144542_data")]
+    partial class data
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

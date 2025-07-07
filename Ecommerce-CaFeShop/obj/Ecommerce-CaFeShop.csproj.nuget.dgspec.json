@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sunhitech\\Desktop\\New folder (2)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj": {}
+    "C:\\Users\\Sunhitech\\Desktop\\New folder (3)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sunhitech\\Desktop\\New folder (2)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj": {
+    "C:\\Users\\Sunhitech\\Desktop\\New folder (3)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sunhitech\\Desktop\\New folder (2)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
+        "projectUniqueName": "C:\\Users\\Sunhitech\\Desktop\\New folder (3)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
         "projectName": "Ecommerce-CaFeShop",
-        "projectPath": "C:\\Users\\Sunhitech\\Desktop\\New folder (2)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
+        "projectPath": "C:\\Users\\Sunhitech\\Desktop\\New folder (3)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
         "packagesPath": "C:\\Users\\Sunhitech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sunhitech\\Desktop\\New folder (2)\\WebShop\\Ecommerce-CaFeShop\\obj\\",
+        "outputPath": "C:\\Users\\Sunhitech\\Desktop\\New folder (3)\\WebShop\\Ecommerce-CaFeShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

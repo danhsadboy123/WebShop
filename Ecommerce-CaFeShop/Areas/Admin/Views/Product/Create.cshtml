@@ -33,6 +33,13 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <label asp-for="GiaKhuyenMai" class="form-label"><i class="bi bi-tag me-2"></i>Giá khuyến mãi</label>
+                                        <input asp-for="GiaKhuyenMai" class="form-control" type="number" step="0.01" placeholder="Nhập giá khuyến mãi (tùy chọn)" />
+                                        <span asp-validation-for="GiaKhuyenMai" class="text-danger"></span>
+                                        <small class="text-muted">Để trống nếu không có khuyến mãi</small>
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label asp-for="MaThuongHieu" class="form-label"><i class="bi bi-shop me-2"></i>Thương hiệu</label>
                                         <select asp-for="MaThuongHieu" class="form-select" asp-items="ViewBag.ThuongHieuId" required>
                                             <option value="">Chọn thương hiệu</option>
@@ -47,7 +54,6 @@
                                         </select>
                                         <span asp-validation-for="MaDanhMuc" class="text-danger"></span>
                                     </div>
-
                                 </div>
 
                                 <div class="col-md-6">
@@ -63,12 +69,10 @@
                                         <span asp-validation-for="MoTaNgan" class="text-danger"></span>
                                     </div>
 
-
-
                                     <div class="mb-3">
-                                        <label asp-for="HinhAnh" class="form-label"><i class="bi bi-image me-2"></i>Hình ảnh sản phẩm</label>
-                                        <input type="file" name="imageFile" class="form-control" accept="image/*" required />
-                                        <span class="text-danger"></span>
+                                        <label for="imageFile" class="form-label"><i class="bi bi-image me-2"></i>Hình ảnh sản phẩm</label>
+                                        <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                                        <small class="text-muted">Chọn file ảnh cho sản phẩm (tùy chọn)</small>
                                     </div>
 
                                     <div class="mb-3">
@@ -89,24 +93,24 @@
             </div>
         </div>
     </div>
+</div>
 
 @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
-        <script>
-            (function () {
-                'use strict'
-                var forms = document.querySelectorAll('.needs-validation')
-                Array.prototype.slice.call(forms)
-                    .forEach(function (form) {
-                        form.addEventListener('submit', function (event) {
-                            if (!form.checkValidity()) {
-                                event.preventDefault()
-                                event.stopPropagation()
-                            }
-                            form.classList.add('was-validated')
-                        }, false)
-                    })
-            })();
-        </script>
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })();
+    </script>
 }
-    }

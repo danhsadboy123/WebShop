@@ -482,6 +482,9 @@ namespace Ecommerce_CaFeShop.Migrations
                     b.Property<double>("Gia")
                         .HasColumnType("float");
 
+                    b.Property<double?>("GiaKhuyenMai")
+                        .HasColumnType("float");
+
                     b.Property<string>("HinhAnh")
                         .HasColumnType("nvarchar(100)");
 

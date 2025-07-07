@@ -36,5 +36,13 @@ namespace Ecommerce_CaFeShop.Models.ViewModels
         public string PaymentMethod { get; set; } = "COD";
 
         public decimal TotalAmount { get; set; }
+
+        public string TotalAmountVND
+        {
+            get
+            {
+                return String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", TotalAmount);
+            }
+        }
     }
 }

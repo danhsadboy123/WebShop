@@ -71,6 +71,8 @@ namespace Ecommerce_CaFeShop.Controllers
                     ProductName = p.TenSanPham ?? "Chưa có tên",
                     Image = string.IsNullOrEmpty(p.HinhAnh) ? "/images/default-image.jpg" : p.HinhAnh,
                     Price = p.Gia,
+                    DiscountPrice = p.GiaKhuyenMai,
+                    DiscountPercent = p.PhanTramGiam,
                     ShortDescription = p.MoTaNgan ?? "Chưa có mô tả",
                     ProductRating = p.DanhGiaSanPhams.Any() ? p.DanhGiaSanPhams.Average(r => r.DiemDanhGia ?? 0) : 0,
                     Slug = p.Slug
@@ -114,6 +116,8 @@ namespace Ecommerce_CaFeShop.Controllers
                     ProductName = p.TenSanPham!,
                     Image = p.HinhAnh ?? "",
                     Price = p.Gia,
+                    DiscountPrice = p.GiaKhuyenMai,
+                    DiscountPercent = p.PhanTramGiam,
                     ShortDescription = p.MoTaNgan!,
                     ProductRating = p.DanhGiaSanPhams.Any()
                         ? p.DanhGiaSanPhams.Average(r => (double)r.DiemDanhGia!) : 0,

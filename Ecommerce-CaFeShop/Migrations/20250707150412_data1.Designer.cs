@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce_CaFeShop.Migrations
 {
     [DbContext(typeof(CaFeContext))]
-    [Migration("20250707055429_data8")]
-    partial class data8
+    [Migration("20250707150412_data1")]
+    partial class data1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -483,6 +483,9 @@ namespace Ecommerce_CaFeShop.Migrations
                         .HasColumnType("int");
 
                     b.Property<double>("Gia")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiaKhuyenMai")
                         .HasColumnType("float");
 
                     b.Property<string>("HinhAnh")
