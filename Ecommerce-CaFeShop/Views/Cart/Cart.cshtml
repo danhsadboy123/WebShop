@@ -49,8 +49,9 @@
                                     {
                                         <tr data-product-slug="@item.Slug">
                                             <td class="product_thumb">
-                                                <a href="@Url.Action("ProductDetail", "Product", new { slug = item.Slug })">
-                                                    <img src="~/images/@item.Image" alt="@item.ProductName">
+                                                <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@item.Slug" class="image-link">
+                                                    <img src="@Url.Content(item.Image ?? "/images/default-image.jpg")" alt="@item.ProductName"
+                                                         onerror="this.src='/images/default-image.jpg'; this.onerror=null;">
                                                 </a>
                                             </td>
                                             <td class="product_name">

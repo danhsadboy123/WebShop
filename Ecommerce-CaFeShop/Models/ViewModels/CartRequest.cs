@@ -8,6 +8,8 @@
 
         public string Image { get; set; } = string.Empty;
 
+        public string ProductImage { get; set; } = string.Empty;
+
         public string ProductName { get; set; } = string.Empty;
 
         public double Price { get; set; }
