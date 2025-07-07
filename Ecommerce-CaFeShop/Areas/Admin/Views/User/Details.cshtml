@@ -1,0 +1,145 @@
+﻿@model Ecommerce_CaFeShop.Models.KhachHang
+
+@{
+    ViewData["Title"] = "Chi tiết người dùng";
+}
+
+<div class="app-content pt-3 p-md-3 p-lg-4">
+    <div class="container-xl">
+        <div class="row g-3 mb-4 align-items-center justify-content-between">
+            <div class="col-auto">
+                <h1 class="app-page-title mb-0">Chi tiết người dùng</h1>
+            </div>
+            <div class="col-auto">
+                <div class="page-utilities">
+                    <a class="btn app-btn-secondary" asp-action="Index">
+                        <i class="bi bi-arrow-left me-2"></i>Quay lại
+                    </a>
+                    <a class="btn app-btn-primary" asp-action="Edit" asp-route-id="@Model.MaKhachHang">
+                        <i class="bi bi-pencil me-2"></i>Chỉnh sửa
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-12 col-lg-8">
+                <div class="app-card app-card-basic shadow-sm mb-4">
+                    <div class="app-card-header">
+                        <h5 class="app-card-title">Thông tin cá nhân</h5>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <dt class="fw-bold">ID:</dt>
+                                <dd>#@Model.MaKhachHang</dd>
+                            </div>
+                            <div class="col-md-6">
+                                <dt class="fw-bold">Họ tên:</dt>
+                                <dd>@Model.HoTen</dd>
+                            </div>
+                            <div class="col-md-6">
+                                <dt class="fw-bold">Email:</dt>
+                                <dd>@Model.Email</dd>
+                            </div>
+                            <div class="col-md-6">
+                                <dt class="fw-bold">Số điện thoại:</dt>
+                                <dd>@Model.SoDienThoai</dd>
+                            </div>
+                            <div class="col-md-6">
+                                <dt class="fw-bold">Ngày sinh:</dt>
+                                <dd>
+                                    @if (Model.NgaySinh.HasValue)
+                                    {
+                                        @Model.NgaySinh.Value.ToString("dd/MM/yyyy")
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa có</span>
+                                    }
+                                </dd>
+                            </div>
+                            <div class="col-md-6">
+                                <dt class="fw-bold">Giới tính:</dt>
+                                <dd>
+                                    @if (Model.GioiTinh.HasValue)
+                                    {
+                                        @(Model.GioiTinh.Value ? "Nam" : "Nữ")
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa có</span>
+                                    }
+                                </dd>
+                            </div>
+                            <div class="col-md-6">
+                                <dt class="fw-bold">Tên hiển thị:</dt>
+                                <dd>@Model.TenHienThi</dd>
+                            </div>
+                            <div class="col-md-6">
+                                <dt class="fw-bold">Vai trò:</dt>
+                                <dd>
+                                    @if (Model.TaiKhoan?.VaiTro != null)
+                                    {
+                                        <span class="badge bg-@(Model.TaiKhoan.MaVaiTro == 2 ? "danger" : Model.TaiKhoan.MaVaiTro == 1 ? "success" : "secondary")">
+                                            @Model.TaiKhoan.VaiTro.Loai
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Khách</span>
+                                    }
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <div class="app-card app-card-basic shadow-sm mb-4">
+                    <div class="app-card-header">
+                        <h5 class="app-card-title">Thông tin địa chỉ</h5>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="mb-3">
+                            <dt class="fw-bold">Địa chỉ:</dt>
+                            <dd>@(Model.DiaChi ?? "Chưa có")</dd>
+                        </div>
+                        <div class="mb-3">
+                            <dt class="fw-bold">Tỉnh/Thành phố:</dt>
+                            <dd>@(Model.Tinh ?? "Chưa có")</dd>
+                        </div>
+                        <div class="mb-3">
+                            <dt class="fw-bold">Quận/Huyện:</dt>
+                            <dd>@(Model.Huyen ?? "Chưa có")</dd>
+                        </div>
+                        <div class="mb-3">
+                            <dt class="fw-bold">Phường/Xã:</dt>
+                            <dd>@(Model.Xa ?? "Chưa có")</dd>
+                        </div>
+                    </div>
+                </div>
+
+                @if (Model.TaiKhoan != null)
+                {
+                    <div class="app-card app-card-basic shadow-sm">
+                        <div class="app-card-header">
+                            <h5 class="app-card-title">Thông tin tài khoản</h5>
+                        </div>
+                        <div class="app-card-body">
+                            <div class="mb-3">
+                                <dt class="fw-bold">Tên đăng nhập:</dt>
+                                <dd>@Model.TaiKhoan.TenDangNhap</dd>
+                            </div>
+                            <div class="mb-3">
+                                <dt class="fw-bold">Mã tài khoản:</dt>
+                                <dd>#@Model.TaiKhoan.MaTaiKhoan</dd>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

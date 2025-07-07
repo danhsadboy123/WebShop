@@ -27,31 +27,38 @@ namespace DongHo_Admin.Areas.Admin.Controllers
         [Route("GetRevenue")]
         public IActionResult GetRevenue()
         {
-            var chartData = _context.HoaDons
-                .Join(_context.ChiTietHoaDons,
-                    b => b.MaHoaDon,
-                    i => i.MaHoaDon,
-                    (b, i) => new RevenueStatisticVM
-                    {
-                        Date = b.NgayDatHang.Date, 
-                        Revenue = i.SoLuong * i.Gia 
-                    })
-                .GroupBy(s => s.Date)
-                .Select(group => new RevenueStatisticVM
-                {
-                    Date = group.Key,
-                    Revenue = group.Sum(s => s.Revenue)
-                })
-                .OrderBy(s => s.Date)  
-                .ToList();
-
-            var result = chartData.Select(item => new
+            try
             {
-                Date = item.Date.ToString("yyyy-MM-dd"), 
-                Revenue = item.Revenue
-            }).ToList();
+                var chartData = _context.HoaDons
+                    .Join(_context.ChiTietHoaDons,
+                        b => b.MaHoaDon,
+                        i => i.MaHoaDon,
+                        (b, i) => new RevenueStatisticVM
+                        {
+                            Date = b.NgayDatHang.Date,
+                            Revenue = i.SoLuong * i.Gia
+                        })
+                    .GroupBy(s => s.Date)
+                    .Select(group => new RevenueStatisticVM
+                    {
+                        Date = group.Key,
+                        Revenue = group.Sum(s => s.Revenue)
+                    })
+                    .OrderBy(s => s.Date)
+                    .ToList();
 
-            return Json(result);
+                var result = chartData.Select(item => new
+                {
+                    date = item.Date.ToString("yyyy-MM-dd"),
+                    revenue = item.Revenue
+                }).ToList();
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
         }
         [HttpPost]
         [Route("GetPurchase")]
@@ -97,7 +104,7 @@ namespace DongHo_Admin.Areas.Admin.Controllers
                         i => i.MaHoaDon,
                         (b, i) => new RevenueStatisticVM
                         {
-                            Date = b.NgayDatHang,
+                            Date = b.NgayDatHang.Date,
                             Revenue = i.SoLuong * i.Gia, // Tính doanh thu
                         })
                     .GroupBy(s => s.Date)
@@ -108,7 +115,13 @@ namespace DongHo_Admin.Areas.Admin.Controllers
                     })
                     .ToList();
 
-                return Json(chartData);
+                var result = chartData.Select(item => new
+                {
+                    date = item.Date.ToString("yyyy-MM-dd"),
+                    revenue = item.Revenue
+                }).ToList();
+
+                return Json(result);
             }
             catch (Exception ex)
             {

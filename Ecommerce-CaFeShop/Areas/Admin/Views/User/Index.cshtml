@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Ecommerce_CaFeShop.Models.KhachHang>
+
+@{
+    ViewData["Title"] = "Quản lý người dùng";
+}
+
+<div class="app-content pt-3 p-md-3 p-lg-4">
+    <div class="container-xl">
+        <div class="row g-3 mb-4 align-items-center justify-content-between">
+            <div class="col-auto">
+                <h1 class="app-page-title mb-0">Quản lý người dùng</h1>
+            </div>
+            <div class="col-auto">
+                <div class="page-utilities">
+                    <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+                        <div class="col-auto">
+                            <form class="table-search-form row gx-1 align-items-center">
+                                <div class="col-auto">
+                                    <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Tìm kiếm...">
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn app-btn-secondary">Tìm</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        <div class="tab-content" id="orders-table-tab-content">
+            <div class="tab-pane fade show active" id="orders-all" role="tabpanel">
+                <div class="app-card app-card-orders-table shadow-sm mb-5">
+                    <div class="app-card-body">
+                        <div class="table-responsive">
+                            <table class="table app-table-hover mb-0 text-left">
+                                <thead>
+                                    <tr>
+                                        <th class="cell">ID</th>
+                                        <th class="cell">Họ tên</th>
+                                        <th class="cell">Email</th>
+                                        <th class="cell">Số điện thoại</th>
+                                        <th class="cell">Vai trò</th>
+                                        <th class="cell">Ngày sinh</th>
+                                        <th class="cell">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="cell">#@item.MaKhachHang</td>
+                                            <td class="cell">
+                                                <span class="truncate">@item.HoTen</span>
+                                            </td>
+                                            <td class="cell">@item.Email</td>
+                                            <td class="cell">@item.SoDienThoai</td>
+                                            <td class="cell">
+                                                @if (item.TaiKhoan?.VaiTro != null)
+                                                {
+                                                    <span class="badge bg-@(item.TaiKhoan.MaVaiTro == 2 ? "danger" : item.TaiKhoan.MaVaiTro == 1 ? "success" : "secondary")">
+                                                        @item.TaiKhoan.VaiTro.Loai
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary">Khách</span>
+                                                }
+                                            </td>
+                                            <td class="cell">
+                                                @if (item.NgaySinh.HasValue)
+                                                {
+                                                    @item.NgaySinh.Value.ToString("dd/MM/yyyy")
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">Chưa có</span>
+                                                }
+                                            </td>
+                                            <td class="cell">
+                                                <a class="btn-sm app-btn-secondary" asp-action="Details" asp-route-id="@item.MaKhachHang" title="Xem chi tiết">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                                <a class="btn-sm app-btn-secondary" asp-action="Edit" asp-route-id="@item.MaKhachHang" title="Chỉnh sửa">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+                                                <button class="btn-sm app-btn-secondary" onclick="confirmDelete(@item.MaKhachHang)" title="Xóa">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Form xóa ẩn -->
+<form id="deleteForm" method="post" style="display: none;">
+    @Html.AntiForgeryToken()
+</form>
+
+<script>
+    function confirmDelete(id) {
+        if (confirm('Bạn có chắc chắn muốn xóa người dùng này?')) {
+            const form = document.getElementById('deleteForm');
+            form.action = '@Url.Action("Delete", "User")/' + id;
+            form.submit();
+        }
+    }
+</script>
