@@ -138,21 +138,21 @@
                                 {
                                     <tr>
                                         <td>@item.ProductName <strong>× @item.Quantity</strong></td>
-                                        <td>@string.Format("{0:C}", item.Quantity * item.Price)</td>
+                                        <td>@(((double)(item.Quantity * item.Price)).ToString("#,0")) VND</td>
                                     </tr>
                                 }
 
                                 <tr>
                                     <th>Tạm tính</th>
-                                    <td>@string.Format("{0:C}", subtotal)</td>
+                                    <td>@(((double)subtotal).ToString("#,0")) VND</td>
                                 </tr>
                                 <tr>
                                     <th>Phí vận chuyển</th>
-                                    <td>@string.Format("{0:C}", shippingFee)</td>
+                                    <td>@(((double)shippingFee).ToString("#,0")) VND</td>
                                 </tr>
                                 <tr class="table-primary">
                                     <th><strong>Tổng cộng</strong></th>
-                                    <td><strong>@string.Format("{0:C}", total)</strong></td>
+                                    <td><strong>@(((double)total).ToString("#,0")) VND</strong></td>
                                 </tr>
                             }
                         </tbody>

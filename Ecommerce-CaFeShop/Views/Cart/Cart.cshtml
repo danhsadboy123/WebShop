@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Giỏ hàng";
 }
-   <!-- ...:::: Start Breadcrumb Section:::... -->
+<!-- ...:::: Start Breadcrumb Section:::... -->
 <div class="breadcrumb-section breadcrumb-bg-color--golden">
     <div class="breadcrumb-wrapper">
         <div class="container">
@@ -109,10 +109,10 @@
                             }
                         </div>
                         <form asp-controller="Cart" asp-action="ClearCart">
-                        <div class="cart_submit">
-                           
-                            <button class="btn btn-md btn-golden" id="clear-cart-btn" type="submit">Xóa giỏ hàng</button>
-                        </div>
+                            <div class="cart_submit">
+
+                                <button class="btn btn-md btn-golden" id="clear-cart-btn" type="submit">Xóa giỏ hàng</button>
+                            </div>
                         </form>
 
                     </div>
@@ -122,7 +122,7 @@
     </div> <!-- End Cart Table -->
     @{
         double cartTotal = 0;
-    foreach (var item in Model)
+        foreach (var item in Model)
         {
             cartTotal += (double)(item.Quantity * item.Price); // Tính tổng
         }
@@ -150,8 +150,6 @@
     </div>
     <!-- End Coupon Start -->
 </div> <!-- ...:::: End Cart Section:::... -->
-
-
 @* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
         $(document).ready(function () {

@@ -221,7 +221,59 @@ namespace Ecommerce_CaFeShop.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            // Kiểm tra xem đơn hàng có thể hủy được không (trong vòng 1 giờ)
+            ViewBag.CanCancel = order.TrangThai == 1 && (DateTime.Now - order.NgayDatHang).TotalHours <= 1;
+
             return View(order);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CancelOrder(int orderId)
+        {
+            try
+            {
+                if (!User.Identity!.IsAuthenticated)
+                {
+                    return Json(new { success = false, message = "Vui lòng đăng nhập" });
+                }
+
+                var customerIdClaim = HttpContext.User.Claims.SingleOrDefault(c => c.Type == "MaKhachHang");
+                if (customerIdClaim == null || !int.TryParse(customerIdClaim.Value, out var customerId))
+                {
+                    return Json(new { success = false, message = "Phiên đăng nhập không hợp lệ" });
+                }
+
+                var order = await _context.HoaDons
+                    .FirstOrDefaultAsync(h => h.MaHoaDon == orderId && h.MaKhachHang == customerId);
+
+                if (order == null)
+                {
+                    return Json(new { success = false, message = "Không tìm thấy đơn hàng" });
+                }
+
+                // Kiểm tra trạng thái đơn hàng
+                if (order.TrangThai != 1)
+                {
+                    return Json(new { success = false, message = "Đơn hàng này không thể hủy" });
+                }
+
+                // Kiểm tra thời gian (chỉ cho phép hủy trong vòng 1 giờ)
+                var hoursSinceOrder = (DateTime.Now - order.NgayDatHang).TotalHours;
+                if (hoursSinceOrder > 1)
+                {
+                    return Json(new { success = false, message = "Đã quá thời gian cho phép hủy đơn hàng (1 giờ)" });
+                }
+
+                // Cập nhật trạng thái đơn hàng thành đã hủy (status = 0)
+                order.TrangThai = 0;
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true, message = "Hủy đơn hàng thành công" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.Message });
+            }
         }
     }
 }

@@ -75,6 +75,11 @@
                             </form>
                         </div>
 
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Lưu ý:</strong> Bạn chỉ có thể hủy đơn hàng trong vòng <strong>1 giờ</strong> sau khi đặt hàng.
+                        </div>
+
                         <div class="table_page table-responsive">
                             <table>
                                 <thead>
@@ -84,7 +89,7 @@
                                         <th>Họ tên</th>
                                         <th>Trạng thái</th>
                                         <th>Tổng tiền</th>
-                                        <th></th>
+                                        <th>Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -105,17 +110,24 @@
                                                         @(bill.TrangThai == 1 ? "Chưa thanh toán" : bill.TrangThai == 2 ? "Đã thanh toán" : "Đã hủy")
                                                     </span>
                                                 </td>
-                                                <td>@bill.TongTien.ToString("C")</td>
+                                                <td>@(((double)bill.TongTien).ToString("#,0")) VND</td>
                                                 <td>
-                                                        @* <a href="@Url.Action("Detail", "Order", new { id = bill.BillId })" class="view">Xem</a> *@
-                                                    @if (bill.TrangThai != 3 && bill.TrangThai != 2)
+                                                    @{
+                                                        var canCancel = bill.TrangThai == 1 && (DateTime.Now - bill.NgayDatHang).TotalHours <= 1;
+                                                    }
+                                                    @if (canCancel)
                                                     {
-                                                            <form method="post" action="@Url.Action("Order", "Account")" style="display:inline;">
-                                                                <input type="hidden" name="id" value="@bill.MaHoaDon" />
-                                                                <button type="submit" class="btn btn-black-default-hover btn-sm" onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?');">Hủy</button>
-                                                            </form>
-                                                        }
-                                                   </td>
+                                                        <form method="post" action="@Url.Action("Order", "Account")" style="display:inline;">
+                                                            @Html.AntiForgeryToken()
+                                                            <input type="hidden" name="id" value="@bill.MaHoaDon" />
+                                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này? Chỉ có thể hủy trong vòng 1 giờ sau khi đặt hàng.');">Hủy</button>
+                                                        </form>
+                                                    }
+                                                    else if (bill.TrangThai == 1)
+                                                    {
+                                                        <span class="text-muted small">Quá thời gian hủy</span>
+                                                    }
+                                                </td>
                                             </tr>
                                         }
                                     }
@@ -128,3 +140,56 @@
         </div>
     </div>
 </div> <!-- ...:::: End Account Dashboard Section:::... -->
+
+<style>
+    .table {
+        background: white;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+        .table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+    .btn-danger {
+        background: #dc3545;
+        border-color: #dc3545;
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background: #c82333;
+            border-color: #bd2130;
+        }
+
+    .success {
+        color: #28a745;
+        font-weight: 600;
+    }
+
+    .warning {
+        color: #ffc107;
+        font-weight: 600;
+    }
+
+    .danger {
+        color: #dc3545;
+        font-weight: 600;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+        color: #0c5460;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>

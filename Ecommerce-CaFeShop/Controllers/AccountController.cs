@@ -126,34 +126,67 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Order(int id)
     {
-        var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "MaKhachHang");
-        if (customerIdClaim == null) return RedirectToAction("Index", "Home");
-
-        if (!int.TryParse(customerIdClaim.Value, out int customerId))
-            return BadRequest("Customer ID không hợp lệ.");
-
-        var bill = await _context.HoaDons.FirstOrDefaultAsync(b => b.MaHoaDon == id);
-
-        if (bill == null)
+        try
         {
-            return NotFound();
-        }
+            var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "MaKhachHang");
+            if (customerIdClaim == null)
+            {
+                TempData["error"] = "Vui lòng đăng nhập để thực hiện thao tác này.";
+                return RedirectToAction("Index", "Home");
+            }
 
-        if (bill.TrangThai == 2)
+            if (!int.TryParse(customerIdClaim.Value, out int customerId))
+            {
+                TempData["error"] = "Customer ID không hợp lệ.";
+                return RedirectToAction("Order");
+            }
+
+            Console.WriteLine($"Attempting to cancel order {id} for customer {customerId}");
+
+            var bill = await _context.HoaDons.FirstOrDefaultAsync(b => b.MaHoaDon == id && b.MaKhachHang == customerId);
+
+            if (bill == null)
+            {
+                TempData["error"] = "Không tìm thấy đơn hàng.";
+                return RedirectToAction("Order");
+            }
+
+            // Kiểm tra trạng thái đơn hàng
+            if (bill.TrangThai == 2)
+            {
+                TempData["error"] = "Đơn hàng đã thanh toán, không thể hủy.";
+                return RedirectToAction("Order");
+            }
+
+            if (bill.TrangThai == 3)
+            {
+                TempData["error"] = "Đơn hàng đã bị hủy.";
+                return RedirectToAction("Order");
+            }
+
+            // Kiểm tra thời gian hủy đơn (trong vòng 1 giờ)
+            var timeDifference = DateTime.Now - bill.NgayDatHang;
+            if (timeDifference.TotalHours > 1)
+            {
+                TempData["error"] = "Chỉ có thể hủy đơn hàng trong vòng 1 giờ sau khi đặt hàng.";
+                return RedirectToAction("Order");
+            }
+
+            // Cập nhật trạng thái đơn hàng thành đã hủy (status = 3)
+            bill.TrangThai = 3;
+            _context.HoaDons.Update(bill);
+            await _context.SaveChangesAsync();
+
+            Console.WriteLine($"Successfully cancelled order {id}");
+            TempData["success"] = "Đơn hàng đã được hủy thành công.";
+        }
+        catch (Exception ex)
         {
-            TempData["error"] = "Đơn hàng đã thanh toán, không thể hủy.";
-            return RedirectToAction("Order");
+            Console.WriteLine($"Error cancelling order {id}: {ex.Message}");
+            TempData["error"] = $"Có lỗi xảy ra khi hủy đơn hàng: {ex.Message}";
         }
-
-        bill.TrangThai = 3;
-
-        _context.HoaDons.Update(bill);
-        await _context.SaveChangesAsync();
-
-        TempData["success"] = "Đơn hàng đã được hủy thành công.";
 
         return RedirectToAction("Order");
     }
