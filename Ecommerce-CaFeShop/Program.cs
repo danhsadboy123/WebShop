@@ -2,12 +2,16 @@
 using Ecommerce_CaFeShop.Abstractions;
 using Ecommerce_CaFeShop.Helper;
 using Ecommerce_CaFeShop.Models;
+using Ecommerce_CaFeShop.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-var builder = WebApplication.CreateBuilder(args);
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+builder.Services.AddHttpClient<IMomoService, MomoService>();
+builder.Services.AddScoped<IMomoService, MomoService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CaFeContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

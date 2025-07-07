@@ -96,5 +96,20 @@ public partial class CaFeContext : DbContext
         // Đảm bảo khóa chính và khóa ngoại khớp
         modelBuilder.Entity<KhachHang>()
             .HasKey(k => k.MaKhachHang);
+
+        modelBuilder.Entity<ChiTietHoaDon>(entity =>
+        {
+            entity.HasKey(e => e.MaChiTietHoaDon);
+
+            entity.HasOne(d => d.HoaDon).WithMany(p => p.ChiTietHoaDons)
+                .HasForeignKey(d => d.MaHoaDon)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_ChiTietHoaDons_HoaDons");
+
+            entity.HasOne(d => d.SanPham).WithMany(p => p.ChiTietHoaDons)
+                .HasForeignKey(d => d.MaSanPham)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_ChiTietHoaDons_SanPhams");
+        });
     }
 }

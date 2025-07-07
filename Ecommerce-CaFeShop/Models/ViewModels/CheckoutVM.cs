@@ -1,39 +1,40 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace Ecommerce_CaFeShop.Models.ViewModels
 {
     public class CheckoutVM
     {
-        [Required(ErrorMessage = "Họ và tên là bắt buộc.")]
-        [StringLength(200, ErrorMessage = "Họ và tên không được vượt quá 200 ký tự.")]
-        public string? FullName { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập họ tên")]
+        [Display(Name = "Họ và tên")]
+        public string FullName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Số điện thoại là bắt buộc.")]
-        [RegularExpression(@"^(?:\+84|0084|0)[235789][0-9]{8}$", ErrorMessage = "Số điện thoại không hợp lệ")]        
-        [StringLength(15)]
-        public string? Phone { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập số điện thoại")]
+        [Phone(ErrorMessage = "Số điện thoại không hợp lệ")]
+        [Display(Name = "Số điện thoại")]
+        public string Phone { get; set; } = string.Empty;
 
-
-        [Required(ErrorMessage = "Email là bắt buộc.")]
+        [Required(ErrorMessage = "Vui lòng nhập email")]
         [EmailAddress(ErrorMessage = "Email không hợp lệ")]
-        public string? Email { get; set; }
+        [Display(Name = "Email")]
+        public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Địa chỉ giao hàng là bắt buộc.")]
-        [StringLength(255, ErrorMessage = "Địa chỉ không được vượt quá 255 ký tự.")]
-        public string? Address { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập địa chỉ")]
+        [Display(Name = "Địa chỉ")]
+        public string Address { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Tỉnh/Thành phố là bắt buộc.")]
+        [Display(Name = "Tỉnh/Thành phố")]
         public string? Province { get; set; }
 
-        [Required(ErrorMessage = "Quận/Huyện là bắt buộc.")]
+        [Display(Name = "Quận/Huyện")]
         public string? District { get; set; }
 
-        [Required(ErrorMessage = "Phường/Xã là bắt buộc.")]
+        [Display(Name = "Xã/Phường")]
         public string? Ward { get; set; }
 
-        [Required(ErrorMessage = "Phương thức thanh toán là bắt buộc.")]
-        public string? PaymentMethod { get; set; } 
+        [Display(Name = "Phương thức thanh toán")]
+        public string PaymentMethod { get; set; } = "COD";
 
-        public decimal TotalAmount { get; set; } 
+        public decimal TotalAmount { get; set; }
     }
 }

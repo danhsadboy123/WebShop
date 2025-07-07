@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ecommerce_CaFeShop.Models;
 
@@ -20,7 +21,9 @@ public partial class ChiTietHoaDon
     [Precision(18, 0)]
     public decimal TongTien { get; set; }
 
+    [ForeignKey("MaHoaDon")]
     public virtual HoaDon HoaDon { get; set; } = null!;
 
+    [ForeignKey("MaSanPham")]
     public virtual SanPham SanPham { get; set; } = null!;
 }

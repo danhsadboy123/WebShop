@@ -1,9 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Thanh toán";
 }
-@model Ecommerce_CaFeShop.Models.ViewModels.CheckoutValidationVM
+@model Ecommerce_CaFeShop.Models.ViewModels.CheckoutVM
 
-<!-- ...:::: Start Breadcrumb Section:::... -->
 <div class="breadcrumb-section breadcrumb-bg-color--golden">
     <div class="breadcrumb-wrapper">
         <div class="container">
@@ -23,244 +22,199 @@
             </div>
         </div>
     </div>
-</div> <!-- ...:::: End Breadcrumb Section:::... -->
+</div>
+
 <div class="checkout-section">
     <div class="container">
-        <div class="checkout_form">
-            <div class="row">
-                <!-- User Details -->
-                <div class="col-lg-6 col-md-6">
+        <div class="row">
+            @if (TempData["error"] != null)
+            {
+                <div class="col-12">
+                    <div class="alert alert-danger">
+                        @TempData["error"]
+                    </div>
+                </div>
+            }
+            @if (TempData["success"] != null)
+            {
+                <div class="col-12">
+                    <div class="alert alert-success">
+                        @TempData["success"]
+                    </div>
+                </div>
+            }
+
+            <div class="col-lg-6 col-md-6">
+                <div class="checkout-card">
+                    <h3 class="text-center mb-4">THÔNG TIN GIAO HÀNG</h3>
+
                     <form method="post" asp-action="Checkout">
-                        <h3>CHI TIẾT ĐƠN HÀNG</h3>
-                        <div class="col-12">
-                            <div class="default-form-box">
-                                <label>Họ Tên <span>*</span></label>
-                                <input asp-for="@Model.CheckoutVM.FullName" class="form-control" required>
-                                <span asp-validation-for="@Model.CheckoutVM.FullName" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="default-form-box">
-                                <label>Số điện thoại</label>
-                                <input asp-for="@Model.CheckoutVM.Phone" class="form-control" required>
-                                <span asp-validation-for="@Model.CheckoutVM.Phone" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="default-form-box">
-                                <label>Email</label>
-                                <input asp-for="@Model.CheckoutVM.Email" class="form-control" required>
-                                <span asp-validation-for="@Model.CheckoutVM.Email" class="text-danger"></span>
-
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="default-form-box">
-                                <label>Địa chỉ<span>*</span></label>
-                                <input asp-for="@Model.CheckoutVM.Address" class="form-control" required>
-                                <span asp-validation-for="@Model.CheckoutVM.Address" class="text-danger"></span>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-12">
-                                <div class="default-form-box">
-                                    <label>Tỉnh/Thành phố<span>*</span></label>
-                                    <select id="tinh" name="tinh" title="Chọn Tỉnh Thành">
-                                        <option value="">Tỉnh Thành</option>
-                                    </select>
-                                    <span asp-validation-for="@Model.CheckoutVM.Province" class="text-danger"></span>
+                                <div class="form-group">
+                                    <label>Họ Tên <span class="text-danger">*</span></label>
+                                    <input asp-for="FullName" class="form-control" placeholder="Nhập họ và tên">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-12">
-                                <div class="default-form-box">
-                                    <label>Quận/Huyện<span>*</span></label>
-                                    <select id="quan" name="quan" title="Chọn Quận Huyện">
-                                        <option value="">Quận Huyện</option>
-                                    </select>
-                                    <span asp-validation-for="@Model.CheckoutVM.District" class="text-danger"></span>
+                                <div class="form-group">
+                                    <label>Số điện thoại <span class="text-danger">*</span></label>
+                                    <input asp-for="Phone" class="form-control" placeholder="Nhập số điện thoại">
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-12">
-                                <div class="default-form-box">
-                                    <label>Xã/Phường<span>*</span></label>
-                                    <select id="phuong" name="phuong" title="Chọn Phường Xã">
-                                        <option value="">Phường Xã</option>
-                                    </select>
-                                    <span asp-validation-for="@Model.CheckoutVM.Ward" class="text-danger"></span>
+                                <div class="form-group">
+                                    <label>Email <span class="text-danger">*</span></label>
+                                    <input asp-for="Email" class="form-control" type="email" placeholder="Nhập email">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-12">
-                                <div id="result" class="text-success mt-3"></div>
+                                <div class="form-group">
+                                    <label>Địa chỉ <span class="text-danger">*</span></label>
+                                    <input asp-for="Address" class="form-control" placeholder="Nhập địa chỉ giao hàng">
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Tỉnh/Thành phố</label>
+                                    <input asp-for="Province" class="form-control" placeholder="Tỉnh/TP">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Quận/Huyện</label>
+                                    <input asp-for="District" class="form-control" placeholder="Quận/Huyện">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Xã/Phường</label>
+                                    <input asp-for="Ward" class="form-control" placeholder="Xã/Phường">
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12" style="margin-top: 30px">
-                                <h3>Phương thức thanh toán</h3>
-                                <div class="panel-default">
-                                    <label class="checkbox-default" for="currencyCod" data-bs-toggle="collapse"
-                                        data-bs-target="#methodCod">
-                                        <input type="radio" asp-for="@Model.CheckoutVM.PaymentMethod" value="COD"
-                                            required>
-                                        <span>Thanh toán khi nhận hàng (COD)</span>
-                                    </label>
-                                </div>
-                                <div class="panel-default">
-                                    <label class="checkbox-default" for="currencyPaypal" data-bs-toggle="collapse"
-                                        data-bs-target="#methodPaypal" required>
-                                        <input type="radio" asp-for="@Model.CheckoutVM.PaymentMethod" value="Momo">
-                                        <span>Ví Momo</span>
-                                    </label>
-                                </div>
-                                <input type="hidden" name="TotalAmount"
-                                    value="@Model.CartRequest.Sum(item => item.Quantity * item.Price)" />
 
-                                <div class="order_button pt-3">
-                                    <button class="btn btn-md btn-black-default-hover" type="submit">
-                                        Thanh toán
-                                    </button>
-                                </div>
-                            </div>
+                        <h4 class="mt-4 mb-3">Phương thức thanh toán</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="PaymentMethod" value="COD" id="cod" checked>
+                            <label class="form-check-label" for="cod">
+                                <strong>Thanh toán khi nhận hàng (COD)</strong>
+                                <br><small class="text-muted">Thanh toán bằng tiền mặt khi nhận hàng</small>
+                            </label>
                         </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">
+                            <i class="fas fa-shopping-cart me-2"></i>
+                            ĐẶT HÀNG NGAY
+                        </button>
                     </form>
                 </div>
-                <!-- Cart Summary -->
-                <div class="col-lg-6 col-md-6">
-                    <h3>ĐƠN HÀNG CỦA BẠN</h3>
-                    <div class="order_table table-responsive">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Sản phẩm</th>
-                                    <th>Tổng</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if (Model.CartRequest != null && Model.CartRequest.Any())
-                                {
-                                    @foreach (var item in Model.CartRequest)
-                                    {
-                                        <tr>
-                                            <td>@item.ProductName <strong>× @item.Quantity</strong></td>
-                                            <td>@string.Format("{0:C}", item.Quantity * item.Price)</td>
-                                        </tr>
-                                    }
-                                }
-                                else
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="checkout-card">
+                    <h3 class="text-center mb-4">ĐƠN HÀNG CỦA BẠN</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Tổng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.CartItems != null)
+                            {
+                                var cartItems = (List<Ecommerce_CaFeShop.Models.ViewModels.CartRequest>)ViewBag.CartItems;
+                                var subtotal = cartItems.Sum(item => item.Quantity * item.Price);
+                                var shippingFee = 30000;
+                                var total = subtotal + shippingFee;
+
+                                @foreach (var item in cartItems)
                                 {
                                     <tr>
-                                        <td colspan="2">Không có sản phẩm trong giỏ hàng.</td>
+                                        <td>@item.ProductName <strong>× @item.Quantity</strong></td>
+                                        <td>@string.Format("{0:C}", item.Quantity * item.Price)</td>
                                     </tr>
                                 }
 
-                            </tbody>
-                            <tfoot>
-                                @if (Model.CartRequest != null && Model.CartRequest.Any())
-                                {
-                                    var total = Model.CartRequest.Sum(item => item.Quantity * item.Price);
-                                    <tr>
-                                        <th>Tổng giỏ hàng</th>
-                                        <td>@string.Format("{0:C}", total)</td>
-                                    </tr>
-                                }
-                            </tfoot>
-                        </table>
-                    </div>
+                                <tr>
+                                    <th>Tạm tính</th>
+                                    <td>@string.Format("{0:C}", subtotal)</td>
+                                </tr>
+                                <tr>
+                                    <th>Phí vận chuyển</th>
+                                    <td>@string.Format("{0:C}", shippingFee)</td>
+                                </tr>
+                                <tr class="table-primary">
+                                    <th><strong>Tổng cộng</strong></th>
+                                    <td><strong>@string.Format("{0:C}", total)</strong></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const provinceApi = "https://vn-public-apis.fpo.vn/provinces/getAll?limit=-1";
-            const districtApiByProvince = "https://vn-public-apis.fpo.vn/districts/getByProvince";
-            const wardApiByDistrict = "https://vn-public-apis.fpo.vn/wards/getByDistrict";
+    <partial name="_ValidationScriptsPartial" />
+    <style>
+        .checkout-section {
+            padding: 50px 0;
+            background: #f8f9fa;
+        }
 
-            var callAPI = (api, params, select) => {
-                return axios.get(api, { params })
-                    .then((response) => {
-                        if (response.data.success) {
-                            renderData(response.data.data, select);
-                        }
-                    })
-                    .catch((error) => {
-                        console.error("Error fetching data: ", error);
-                    });
+        .checkout-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+        }
+
+            .form-control:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
             }
 
-            // Lấy danh sách tỉnh/thành phố
-            callAPI(provinceApi, null, "tinh");
+        .btn-primary {
+            background: #007bff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+        }
 
-            // Lấy danh sách huyện theo tỉnh
-            var callApiDistrict = (provinceCode) => {
-                const url = `${districtApiByProvince}?provinceCode=${provinceCode}&limit=-1`;
-                return callAPI(url, null, "quan");
+            .btn-primary:hover {
+                background: #0056b3;
             }
 
-            // Lấy danh sách xã theo huyện
-            var callApiWard = (districtCode) => {
-                const url = `${wardApiByDistrict}?districtCode=${districtCode}&limit=-1`;
-                return callAPI(url, null, "phuong");
-            }
+        .table th, .table td {
+            border-top: 1px solid #dee2e6;
+            padding: 12px;
+        }
 
-            // Hiển thị dữ liệu vào dropdown
-            var renderData = (array, select) => {
-                let row = '<option value="">Chọn</option>';
-                array.forEach(element => {
-                    row += `<option value="${element.code}">${element.name_with_type || element.name}</option>`;
-                });
-                document.querySelector("#" + select).innerHTML = row;
-            }
-
-            // Xử lý sự kiện khi người dùng chọn Tỉnh, Huyện, Xã
-            $("#tinh").change(() => {
-                const provinceCode = $("#tinh").val();
-                if (provinceCode) {
-                    callApiDistrict(provinceCode);
-                } else {
-                    $("#quan").html('<option value="">Chọn</option>');
-                    $("#phuong").html('<option value="">Chọn</option>');
-                }
-                printResult();
-            });
-
-            $("#quan").change(() => {
-                const districtCode = $("#quan").val();
-                if (districtCode) {
-                    callApiWard(districtCode);
-                } else {
-                    $("#phuong").html('<option value="">Chọn</option>');
-                }
-                printResult();
-            });
-
-            $("#phuong").change(() => {
-                printResult();
-            });
-
-            // In ra kết quả
-            var printResult = () => {
-                if ($("#tinh").val() && $("#quan").val() && $("#phuong").val()) {
-                    let result = $("#tinh option:selected").text() +
-                        " | " + $("#quan option:selected").text() +
-                        " | " + $("#phuong option:selected").text();
-                    $("#result").text(result);
-                }
-            }
-        });
-
-
-
-    </script>
+        .form-check {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
 }

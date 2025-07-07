@@ -12,24 +12,34 @@ public partial class HoaDon
 
     public DateTime NgayDatHang { get; set; }
 
+    [Required]
     [Column(TypeName = "nvarchar(200)")]
     public string? HoTen { get; set; }
+
+    [Required]
     [Column(TypeName = "varchar(15)")]
     public string? SoDienThoai { get; set; }
+
+    [Required]
     [Column(TypeName = "varchar(255)")]
     public string? Email { get; set; }
-    [Column(TypeName = "nvarchar(255)")]
-    public string? DiaChi { get; set; } 
-    [Column(TypeName = "nvarchar(200)")]
+
+    [Required]
+    [Column(TypeName = "nvarchar(500)")]
+    public string? DiaChi { get; set; }
+
+    [Column(TypeName = "nvarchar(100)")]
     public string? Tinh { get; set; }
-    [Column(TypeName = "nvarchar(200)")]
+
+    [Column(TypeName = "nvarchar(100)")]
     public string? Huyen { get; set; }
-    [Column(TypeName = "nvarchar(200)")]
-    public string? Xa { get; set; } 
+
+    [Column(TypeName = "nvarchar(100)")]
+    public string? Xa { get; set; }
     [Column(TypeName = "nvarchar(50)")]
     public string? PhuongThucThanhToan { get; set; }
     [Column(TypeName = "decimal(18,0)")]
-    public decimal TongTien { get; set; } 
+    public decimal TongTien { get; set; }
 
     public int TrangThai { get; set; }
 

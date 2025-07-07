@@ -91,16 +91,10 @@ namespace Ecommerce_CaFeShop.Migrations
                         .HasPrecision(18)
                         .HasColumnType("decimal(18,0)");
 
-                    b.Property<int>("HoaDonMaHoaDon")
-                        .HasColumnType("int");
-
                     b.Property<int>("MaHoaDon")
                         .HasColumnType("int");
 
                     b.Property<int>("MaSanPham")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SanPhamMaSanPham")
                         .HasColumnType("int");
 
                     b.Property<int>("SoLuong")
@@ -112,9 +106,9 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     b.HasKey("MaChiTietHoaDon");
 
-                    b.HasIndex("HoaDonMaHoaDon");
+                    b.HasIndex("MaHoaDon");
 
-                    b.HasIndex("SanPhamMaSanPham");
+                    b.HasIndex("MaSanPham");
 
                     b.ToTable("ChiTietHoaDons");
                 });
@@ -343,16 +337,19 @@ namespace Ecommerce_CaFeShop.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaHoaDon"));
 
                     b.Property<string>("DiaChi")
-                        .HasColumnType("nvarchar(255)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("HoTen")
+                        .IsRequired()
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Huyen")
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("KhachHangMaKhachHang")
                         .HasColumnType("int");
@@ -367,10 +364,11 @@ namespace Ecommerce_CaFeShop.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("SoDienThoai")
+                        .IsRequired()
                         .HasColumnType("varchar(15)");
 
                     b.Property<string>("Tinh")
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("TongTien")
                         .HasColumnType("decimal(18,0)");
@@ -379,7 +377,7 @@ namespace Ecommerce_CaFeShop.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Xa")
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("MaHoaDon");
 
@@ -408,6 +406,9 @@ namespace Ecommerce_CaFeShop.Migrations
                     b.Property<string>("HoTen")
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("Huyen")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("MaTaiKhoan")
                         .HasColumnType("int");
 
@@ -419,6 +420,12 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     b.Property<string>("TenHienThi")
                         .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Tinh")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Xa")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MaKhachHang");
 
@@ -699,15 +706,17 @@ namespace Ecommerce_CaFeShop.Migrations
                 {
                     b.HasOne("Ecommerce_CaFeShop.Models.HoaDon", "HoaDon")
                         .WithMany("ChiTietHoaDons")
-                        .HasForeignKey("HoaDonMaHoaDon")
+                        .HasForeignKey("MaHoaDon")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_ChiTietHoaDons_HoaDons");
 
                     b.HasOne("Ecommerce_CaFeShop.Models.SanPham", "SanPham")
                         .WithMany("ChiTietHoaDons")
-                        .HasForeignKey("SanPhamMaSanPham")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MaSanPham")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("FK_ChiTietHoaDons_SanPhams");
 
                     b.Navigation("HoaDon");
 

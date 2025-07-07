@@ -13,6 +13,12 @@ public partial class KhachHang
     public string? SoDienThoai { get; set; }
     [Column(TypeName = "nvarchar(255)")]
     public string? DiaChi { get; set; }
+
+    public string? Tinh { get; set; }
+
+    public string? Huyen { get; set; }
+
+    public string? Xa { get; set; }
     [Column(TypeName = "varchar(255)")]
     public string? Email { get; set; }
     [Column(TypeName = "varchar(200)")]
