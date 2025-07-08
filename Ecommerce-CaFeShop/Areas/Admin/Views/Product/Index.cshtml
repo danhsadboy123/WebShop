@@ -156,10 +156,10 @@
                                     </td>
                                     <td class="cell">
                                         <div class="price-info">
-                                            <div class="current-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{#:0}", product.Gia)</div>
+                                            <div class="current-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:0}", product.Gia)</div>
                                             @if (product.GiaKhuyenMai.HasValue && product.GiaKhuyenMai.Value > 0)
                                             {
-                                                <div class="sale-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{#:0}", product.GiaKhuyenMai)</div>
+                                                <div class="sale-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:0}", product.GiaKhuyenMai)</div>
                                                 <div class="discount-percent">-@product.PhanTramGiam%</div>
                                             }
                                         </div>
