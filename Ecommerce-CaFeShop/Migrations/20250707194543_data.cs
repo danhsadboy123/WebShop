@@ -129,18 +129,20 @@ namespace Ecommerce_CaFeShop.Migrations
                 name: "Sliders",
                 columns: table => new
                 {
-                    Ma = table.Column<int>(type: "int", nullable: false)
+                    MaSlider = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TieuDe = table.Column<string>(type: "nvarchar(255)", nullable: true),
-                    MoTa = table.Column<string>(type: "nvarchar(255)", nullable: true),
-                    HinhAnh = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Link = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ThuTuHienThi = table.Column<int>(type: "int", nullable: false),
-                    TrangThai = table.Column<bool>(type: "bit", nullable: false)
+                    MoTa = table.Column<string>(type: "nvarchar(500)", nullable: true),
+                    HinhAnh = table.Column<string>(type: "nvarchar(255)", nullable: true),
+                    Link = table.Column<string>(type: "varchar(500)", nullable: true),
+                    ThuTuHienThi = table.Column<int>(type: "int", nullable: true),
+                    TrangThai = table.Column<bool>(type: "bit", nullable: false),
+                    NgayTao = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    NgayCapNhat = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Sliders", x => x.Ma);
+                    table.PrimaryKey("PK_Sliders", x => x.MaSlider);
                 });
 
             migrationBuilder.CreateTable(
@@ -232,6 +234,7 @@ namespace Ecommerce_CaFeShop.Migrations
                     MaDanhMuc = table.Column<int>(type: "int", nullable: false),
                     MaThuongHieu = table.Column<int>(type: "int", nullable: false),
                     Gia = table.Column<double>(type: "float", nullable: false),
+                    GiaKhuyenMai = table.Column<double>(type: "float", nullable: true),
                     MoTaNgan = table.Column<string>(type: "nvarchar(200)", nullable: true),
                     MoTa = table.Column<string>(type: "nvarchar(500)", nullable: true),
                     SoLuong = table.Column<string>(type: "nvarchar(MAX)", nullable: false),

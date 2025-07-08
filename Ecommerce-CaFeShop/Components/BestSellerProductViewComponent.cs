@@ -44,6 +44,7 @@ namespace Ecommerce_CaFeShop.Components
                     Price = x.Product.Gia,
                     Image = x.Product.HinhAnh,
                     ProductRating = x.AvgRating,
+                    SoldQuantity = x.TotalSold
                 })
                 .ToListAsync();
 

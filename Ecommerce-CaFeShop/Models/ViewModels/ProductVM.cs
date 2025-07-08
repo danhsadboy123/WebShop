@@ -24,6 +24,6 @@ namespace Ecommerce_CaFeShop.Models.ViewModels
         public int TotalRating { get; set; }
 
         public string? Slug { get; set; }
-
+        public int SoldQuantity { get; set; }
     }
 }

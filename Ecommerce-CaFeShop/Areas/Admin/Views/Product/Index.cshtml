@@ -2,422 +2,508 @@
 @{
     ViewData["Title"] = "Quản lý sản phẩm";
 }
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
-    <style>
-        .table-container {
-            max-height: 500px;
-            overflow-y: auto;
-            width: 100%;
-        }
 
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.875rem; /* Tương đương text-sm */
-        }
-
-            .table th, .table td {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding: 0.75rem;
-                border: 1px solid #e5e7eb; /* Kẻ bảng với màu xám nhạt */
-            }
-
-            .table th {
-                background-color: #f9fafb; /* Màu nền cho header */
-                font-weight: 600;
-            }
-
-        .modal {
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .btn-golden {
-            background-color: #d4a373;
-            color: white;
-            padding: 0.375rem 0.75rem;
-            border-radius: 0.25rem;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-            .btn-golden:hover {
-                background-color: #b38b59;
-            }
-
-        .btn-warning {
-            background-color: #ffc107;
-            color: white;
-            padding: 0.375rem 0.75rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-            .btn-warning:hover {
-                background-color: #e0a800;
-            }
-
-        .btn-success {
-            background-color: #28a745;
-            color: white;
-            padding: 0.375rem 0.75rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-            .btn-success:hover {
-                background-color: #218838;
-            }
-
-        .btn-danger {
-            background-color: #dc3545;
-            color: white;
-            padding: 0.375rem 0.75rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-            .btn-danger:hover {
-                background-color: #c82333;
-            }
-
-        .badge-success {
-            background-color: #28a745;
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-        }
-
-        .badge-danger {
-            background-color: #dc3545;
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-        }
-
-        .img-thumbnail {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
-            border-radius: 0.25rem;
-        }
-
-        /* Responsive design */
-        @@media (max-width: 768px) {
-            .table th, .table td {
-                padding: 0.5rem;
-                font-size: 0.75rem; /* Giảm font-size trên màn hình nhỏ */
-            }
-
-            .table-container {
-                max-height: 400px; /* Giảm chiều cao trên màn hình nhỏ */
-            }
-        }
-    </style>
-</head>
-<body class="bg-gray-100 font-sans">
-    <!-- Header -->
-    <div class="bg-white shadow-sm p-4 mb-4">
-        <div class="container mx-auto">
-            <h1 class="text-xl font-semibold text-gray-800" style="font-size: 1.5rem;font-weight: bolder;margin-bottom: 1.5rem;">
-                Quản lý sản phẩm
-            </h1>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container mx-auto px-4 py-4">
-        <!-- Notifications -->
-        @if (TempData["success"] != null)
-        {
-            <div class="bg-green-500 text-white p-3 rounded mb-3 text-sm">
-                @TempData["success"]
+<div class="app-content pt-3 p-md-3 p-lg-4">
+    <div class="container-xl">
+        <!-- Header Section -->
+        <div class="row g-3 mb-4 align-items-center justify-content-between">
+            <div class="col-auto">
+                <h1 class="app-page-title mb-0">
+                    <i class="bi bi-box-seam me-2"></i>Quản lý sản phẩm
+                </h1>
+                <p class="text-muted mb-0">Quản lý toàn bộ sản phẩm trong hệ thống</p>
             </div>
-        }
-        @if (TempData["error"] != null)
-        {
-            <div class="bg-red-500 text-white p-3 rounded mb-3 text-sm">
-                @TempData["error"]
-            </div>
-        }
-
-        <!-- Filter and Search -->
-        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
-            <div class="flex flex-col md:flex-row gap-3 justify-between items-center" style="display:flex">
-                <div class="w-full md:w-1/3">
-                    <input type="text" id="searchInput" placeholder="Tìm sản phẩm..." class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d4a373] text-sm">
+            <div class="col-auto">
+                <div class="page-utilities">
+                    <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+                        <div class="col-auto">
+                            <a class="btn app-btn-secondary" href="#">
+                                <i class="bi bi-download me-2"></i>Xuất Excel
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a asp-action="Create" class="btn app-btn-primary">
+                                <i class="bi bi-plus-circle me-2"></i>Thêm sản phẩm
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="w-full md:w-1/3">
-                    <select id="statusFilter" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d4a373] text-sm">
-                        <option value="all">Tất cả trạng thái</option>
-                        <option value="1">Hiển thị</option>
-                        <option value="0">Ẩn</option>
-                    </select>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="row g-4 mb-4">
+            <div class="col-12 col-lg-3">
+                <div class="app-card app-card-stat shadow-sm h-100">
+                    <div class="app-card-body p-3 p-lg-4">
+                        <h4 class="stats-type mb-1">Tổng sản phẩm</h4>
+                        <div class="stats-figure">@Model.Count()</div>
+                        <div class="stats-meta text-success">
+                            <i class="bi bi-arrow-up"></i> 12% từ tháng trước
+                        </div>
+                    </div>
                 </div>
-                <a href="@Url.Action("Create", "Product", new { area = "Admin" })" class="btn-golden py-1.5 px-3 rounded text-sm">Thêm sản phẩm</a>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="app-card app-card-stat shadow-sm h-100">
+                    <div class="app-card-body p-3 p-lg-4">
+                        <h4 class="stats-type mb-1">Đang hiển thị</h4>
+                        <div class="stats-figure">@Model.Count(p => p.TrangThai == 1)</div>
+                        <div class="stats-meta">Sản phẩm hoạt động</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="app-card app-card-stat shadow-sm h-100">
+                    <div class="app-card-body p-3 p-lg-4">
+                        <h4 class="stats-type mb-1">Đang ẩn</h4>
+                        <div class="stats-figure">@Model.Count(p => p.TrangThai == 0)</div>
+                        <div class="stats-meta text-warning">Cần xem xét</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="app-card app-card-stat shadow-sm h-100">
+                    <div class="app-card-body p-3 p-lg-4">
+                        <h4 class="stats-type mb-1">Hết hàng</h4>
+                        <div class="stats-figure">@Model.Count(p => p.SoLuong <= 0)</div>
+                        <div class="stats-meta text-danger">Cần nhập thêm</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Product Table -->
-        <div class="bg-white p-4 rounded-lg shadow-sm table-container">
-            <table class="table w-full text-sm">
-                <thead>
-                    <tr class="bg-gray-100">
-                        <th class="p-2 text-left">STT</th>
-                        <th class="p-2 text-left">Mã SP</th>
-                        <th class="p-2 text-left">Hình ảnh</th>
-                        <th class="p-2 text-left">Tên sản phẩm</th>
-                        <th class="p-2 text-left">Danh mục</th>
-                        <th class="p-2 text-left">Thương hiệu</th>
-                        <th class="p-2 text-left">Giá gốc</th>
-                        <th class="p-2 text-left">Giá KM</th>
-                        <th class="p-2 text-left">Số lượng</th>
-                        <th class="p-2 text-left">Trạng thái</th>
-                        <th class="p-2 text-left">Hành động</th>
-                    </tr>
-                </thead>
-                <tbody id="productTable">
-                    @{
-                        int index = 0;
-                    }
-                    @foreach (var product in Model)
-                    {
-                        <tr data-status="@product.TrangThai" class="hover:bg-gray-50 border-b">
-                            <td class="p-2">@(++index)</td>
-                            <td class="p-2"><strong>@product.MaSanPhamCode</strong></td>
-                            <td class="p-2">
-                                <img src="@(product.HinhAnh ?? "/images/default-image.jpg")" alt="@product.TenSanPham" class="img-thumbnail" onerror="this.src='/images/default-image.jpg';" />
-                            </td>
-                            <td class="p-2">@product.TenSanPham</td>
-                            <td class="p-2">@(product.DanhMuc?.TenDanhMuc ?? "N/A")</td>
-                            <td class="p-2">@(product.ThuongHieu?.TenThuongHieu ?? "N/A")</td>
-                            <td class="p-2">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", product.Gia)</td>
-                            <td class="p-2">
-                                @if (product.GiaKhuyenMai.HasValue && product.GiaKhuyenMai.Value > 0)
+        <!-- Filter and Search Section -->
+        <div class="app-card app-card-orders-table shadow-sm mb-4">
+            <div class="app-card-body">
+                <div class="search-form mb-3">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-4">
+                            <div class="position-relative">
+                                <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                                <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <select id="statusFilter" class="form-select">
+                                <option value="all">Tất cả trạng thái</option>
+                                <option value="1">Đang hiển thị</option>
+                                <option value="0">Đang ẩn</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <select id="categoryFilter" class="form-select">
+                                <option value="all">Tất cả danh mục</option>
+                                @foreach (var category in Model.Where(p => p.DanhMuc != null).Select(p => p.DanhMuc).Distinct())
                                 {
-                                    <span class="text-success">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", product.GiaKhuyenMai)</span>
-                                    <small class="text-muted d-block">-@product.PhanTramGiam%</small>
+                                    <option value="@category.TenDanhMuc">@category.TenDanhMuc</option>
                                 }
-                                else
-                                {
-                                    <span class="text-muted">Không có</span>
-                                }
-                            </td>
-                            <td class="p-2">@product.SoLuong</td>
-                            <td class="p-2">
-                                @if (product.TrangThai == 1)
-                                {
-                                    <span class="badge-success">Hiển thị</span>
-                                }
-                                else
-                                {
-                                    <span class="badge-danger">Ẩn</span>
-                                }
-                            </td>
-                            <td class="p-2 flex space-x-1">
-                                <a href="@Url.Action("Edit", "Product", new { area = "Admin", id = product.MaSanPham })" class="btn-golden py-1 px-2 rounded text-xs">Sửa</a>
-                                @if (product.TrangThai == 1)
-                                {
-                                    <form asp-action="HideProduct" method="post" style="display: inline;">
-                                        <input type="hidden" name="id" value="@product.MaSanPham" />
-                                        <button type="submit" class="btn btn-sm btn-warning me-1" onclick="return confirm('Bạn có chắc muốn ẩn sản phẩm này?')">
-                                            <i class="bi bi-eye-slash"></i> Ẩn
-                                        </button>
-                                    </form>
-                                }
-                                else
-                                {
-                                    <form asp-action="ShowProduct" method="post" style="display: inline;">
-                                        <input type="hidden" name="id" value="@product.MaSanPham" />
-                                        <button type="submit" class="btn btn-sm btn-success me-1" onclick="return confirm('Bạn có chắc muốn hiển thị sản phẩm này?')">
-                                            <i class="bi bi-eye"></i> Hiển thị
-                                        </button>
-                                    </form>
-                                }
-
-                                <form asp-action="Delete" method="post" style="display: inline;">
-                                    <input type="hidden" name="id" value="@product.MaSanPham" />
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này? Hành động này không thể hoàn tác!')">
-                                        <i class="bi bi-trash"></i> Xóa
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <button type="button" class="btn app-btn-secondary w-100" onclick="resetFilters()">
+                                <i class="bi bi-arrow-counterclockwise me-1"></i>Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div id="confirmationModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white p-4 rounded-lg shadow-lg max-w-sm w-full">
-            <h3 class="text-base font-semibold mb-2" id="modalTitle"></h3>
-            <p class="mb-3 text-sm" id="modalMessage"></p>
-            <div class="flex justify-end space-x-2">
-                <button id="cancelButton" class="bg-gray-300 py-1 px-3 rounded text-sm">Hủy</button>
-                <button id="confirmButton" class="btn-golden py-1 px-3 rounded text-sm">Xác nhận</button>
+
+        <!-- Products Table -->
+        <div class="app-card app-card-orders-table shadow-sm mb-5">
+            <div class="app-card-body">
+                <div class="table-responsive">
+                    <table class="table app-table-hover mb-0 text-left">
+                        <thead>
+                            <tr>
+                                <th class="cell">
+                                    <input class="form-check-input" type="checkbox" id="checkAll">
+                                </th>
+                                <th class="cell">Hình ảnh</th>
+                                <th class="cell">Thông tin sản phẩm</th>
+                                <th class="cell">Danh mục</th>
+                                <th class="cell">Giá bán</th>
+                                <th class="cell">Tồn kho</th>
+                                <th class="cell">Trạng thái</th>
+                                <th class="cell">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTable">
+                            @foreach (var product in Model)
+                            {
+                                <tr data-status="@product.TrangThai" data-category="@(product.DanhMuc?.TenDanhMuc ?? "")">
+                                    <td class="cell">
+                                        <input class="form-check-input row-checkbox" type="checkbox" value="@product.MaSanPham">
+                                    </td>
+                                    <td class="cell">
+                                        <div class="product-image">
+                                            <img src="@(product.HinhAnh ?? "/images/default-image.jpg")"
+                                                 alt="@product.TenSanPham"
+                                                 class="product-thumb"
+                                                 onerror="this.src='/images/default-image.jpg';">
+                                        </div>
+                                    </td>
+                                    <td class="cell">
+                                        <div class="product-info">
+                                            <div class="product-name">@product.TenSanPham</div>
+                                            <div class="product-code">@product.MaSanPhamCode</div>
+                                            <div class="product-brand">@(product.ThuongHieu?.TenThuongHieu ?? "N/A")</div>
+                                        </div>
+                                    </td>
+                                    <td class="cell">
+                                        <span class="badge bg-light text-dark">@(product.DanhMuc?.TenDanhMuc ?? "N/A")</span>
+                                    </td>
+                                    <td class="cell">
+                                        <div class="price-info">
+                                            <div class="current-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", product.Gia)</div>
+                                            @if (product.GiaKhuyenMai.HasValue && product.GiaKhuyenMai.Value > 0)
+                                            {
+                                                <div class="sale-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", product.GiaKhuyenMai)</div>
+                                                <div class="discount-percent">-@product.PhanTramGiam%</div>
+                                            }
+                                        </div>
+                                    </td>
+                                    <td class="cell">
+                                        <div class="stock-info">
+                                            @if (product.SoLuong > 10)
+                                            {
+                                                <span class="badge bg-success">@product.SoLuong</span>
+                                            }
+                                            else if (product.SoLuong > 0)
+                                            {
+                                                <span class="badge bg-warning">@product.SoLuong</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-danger">Hết hàng</span>
+                                            }
+                                        </div>
+                                    </td>
+                                    <td class="cell">
+                                        @if (product.TrangThai == 1)
+                                        {
+                                            <span class="badge bg-success">
+                                                <i class="bi bi-eye me-1"></i>Hiển thị
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">
+                                                <i class="bi bi-eye-slash me-1"></i>Ẩn
+                                            </span>
+                                        }
+                                    </td>
+                                    <td class="cell">
+                                        <div class="btn-group" role="group">
+                                            <a asp-action="Edit" asp-route-id="@product.MaSanPham"
+                                               class="btn btn-sm btn-outline-primary" title="Chỉnh sửa">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+
+                                            @if (product.TrangThai == 1)
+                                            {
+                                                <form asp-action="HideProduct" method="post" style="display:inline;">
+                                                    <input type="hidden" name="id" value="@product.MaSanPham" />
+                                                    <button type="submit" class="btn btn-sm btn-outline-warning"
+                                                            title="Ẩn sản phẩm"
+                                                            onclick="return confirm('Bạn có chắc muốn ẩn sản phẩm này?')">
+                                                        <i class="bi bi-eye-slash"></i>
+                                                    </button>
+                                                </form>
+                                            }
+                                            else
+                                            {
+                                                <form asp-action="ShowProduct" method="post" style="display:inline;">
+                                                    <input type="hidden" name="id" value="@product.MaSanPham" />
+                                                    <button type="submit" class="btn btn-sm btn-outline-success"
+                                                            title="Hiển thị sản phẩm"
+                                                            onclick="return confirm('Bạn có chắc muốn hiển thị sản phẩm này?')">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                </form>
+                                            }
+
+                                            <form asp-action="Delete" method="post" style="display:inline;">
+                                                <input type="hidden" name="id" value="@product.MaSanPham" />
+                                                <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                        title="Xóa sản phẩm"
+                                                        onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này? Hành động này không thể hoàn tác!')">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Bulk Actions -->
+                <div class="bulk-actions mt-3" style="display: none;">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="selected-count">0 sản phẩm được chọn</span>
+                        <button type="button" class="btn btn-sm btn-outline-success" onclick="bulkShow()">
+                            <i class="bi bi-eye me-1"></i>Hiển thị
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-warning" onclick="bulkHide()">
+                            <i class="bi bi-eye-slash me-1"></i>Ẩn
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-danger" onclick="bulkDelete()">
+                            <i class="bi bi-trash me-1"></i>Xóa
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    @section Scripts {
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                // Search functionality
-                $('#searchInput').on('input', function () {
-                    let searchTerm = $(this).val().toLowerCase();
-                    $('#productTable tr').each(function () {
-                        let productName = $(this).find('td:nth-child(4)').text().toLowerCase(); // Cột thứ 4 là tên sản phẩm
-                        let productCode = $(this).find('td:nth-child(2)').text().toLowerCase(); // Cột thứ 2 là mã sản phẩm
-                        $(this).toggle(productName.includes(searchTerm) || productCode.includes(searchTerm));
-                    });
-                });
+</div>
 
-                // Status filter
-                $('#statusFilter').on('change', function () {
-                    let status = $(this).val();
-                    $('#productTable tr').each(function () {
-                        let productStatus = $(this).data('status');
-                        if (status === 'all' || productStatus == status) {
-                            $(this).show();
-                        } else {
-                            $(this).hide();
-                        }
-                    });
-                });
-
-                // Show confirmation modal
-                function showConfirmationModal(title, message, confirmCallback) {
-                    $('#modalTitle').text(title);
-                    $('#modalMessage').text(message);
-                    $('#confirmationModal').removeClass('hidden');
-                    $('#confirmButton').off('click').on('click', confirmCallback);
-                    $('#cancelButton').on('click', function () {
-                        $('#confirmationModal').addClass('hidden');
-                    });
-                }
-
-                // Hide product
-                $('.hide-product').on('click', function () {
-                    let id = $(this).data('id');
-                    let name = $(this).data('name');
-                    showConfirmationModal(
-                        'Ẩn sản phẩm',
-                        `Bạn có chắc muốn ẩn "${name}"?`,
-                        function () {
-                            $.ajax({
-                                url: '@Url.Action("HideProduct", "Product", new { area = "Admin" })',
-                                type: 'POST',
-                                data: { id: id },
-                                success: function (result) {
-                                    location.reload();
-                                },
-                                error: function () {
-                                    Toastify({
-                                        text: 'Lỗi khi ẩn sản phẩm.',
-                                        duration: 3000,
-                                        close: true,
-                                        gravity: "top",
-                                        position: "right",
-                                        style: { background: "#dc3545" }
-                                    }).showToast();
-                                }
-                            });
-                            $('#confirmationModal').addClass('hidden');
-                        }
-                    );
-                });
-
-                // Show product
-                $('.show-product').on('click', function () {
-                    let id = $(this).data('id');
-                    let name = $(this).data('name');
-                    showConfirmationModal(
-                        'Hiển thị sản phẩm',
-                        `Bạn có chắc muốn hiển thị "${name}"?`,
-                        function () {
-                            $.ajax({
-                                url: '@Url.Action("ShowProduct", "Product", new { area = "Admin" })',
-                                type: 'POST',
-                                data: { id: id },
-                                success: function (result) {
-                                    location.reload();
-                                },
-                                error: function () {
-                                    Toastify({
-                                        text: 'Lỗi khi hiển thị sản phẩm.',
-                                        duration: 3000,
-                                        close: true,
-                                        gravity: "top",
-                                        position: "right",
-                                        style: { background: "#dc3545" }
-                                    }).showToast();
-                                }
-                            });
-                            $('#confirmationModal').addClass('hidden');
-                        }
-                    );
-                });
-
-                // Delete product
-                $('.delete-product').on('click', function () {
-                    let id = $(this).data('id');
-                    let name = $(this).data('name');
-                    showConfirmationModal(
-                        'Xóa sản phẩm',
-                        `Bạn có chắc muốn xóa "${name}"? Hành động này không thể hoàn tác.`,
-                        function () {
-                            $.ajax({
-                                url: '@Url.Action("Delete", "Product", new { area = "Admin" })',
-                                type: 'POST',
-                                data: { id: id },
-                                success: function (result) {
-                                    location.reload();
-                                },
-                                error: function () {
-                                    Toastify({
-                                        text: 'Lỗi khi xóa sản phẩm.',
-                                        duration: 3000,
-                                        close: true,
-                                        gravity: "top",
-                                        position: "right",
-                                        style: { background: "#dc3545" }
-                                    }).showToast();
-                                }
-                            });
-                            $('#confirmationModal').addClass('hidden');
-                        }
-                    );
-                });
-            });
-        </script>
-        <script>
-            // Thêm hiệu ứng loading cho các nút bấm
-            document.addEventListener('DOMContentLoaded', function() {
-                const forms = document.querySelectorAll('form[method="post"]');
-                forms.forEach(form => {
-                    form.addEventListener('submit', function() {
-                        const submitBtn = this.querySelector('button[type="submit"]');
-                        if (submitBtn) {
-                            submitBtn.disabled = true;
-                            submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Đang xử lý...';
-                        }
-                    });
-                });
-            });
-        </script>
+<style>
+    .app-page-title {
+        color: #2c3e50;
+        font-weight: 600;
     }
-</body>
-</html>
+
+    .stats-figure {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+
+    .stats-type {
+        color: #7c8db5;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .stats-meta {
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .product-thumb {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+    }
+
+    .product-info .product-name {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 2px;
+    }
+
+    .product-info .product-code {
+        font-size: 0.875rem;
+        color: #6c757d;
+        font-family: monospace;
+        margin-bottom: 2px;
+    }
+
+    .product-info .product-brand {
+        font-size: 0.8rem;
+        color: #0d6efd;
+        font-weight: 500;
+    }
+
+    .price-info .current-price {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+
+    .price-info .sale-price {
+        font-size: 0.875rem;
+        color: #dc3545;
+        font-weight: 600;
+    }
+
+    .price-info .discount-percent {
+        font-size: 0.75rem;
+        color: #198754;
+        font-weight: 500;
+    }
+
+    .search-form .position-relative i {
+        color: #6c757d;
+        pointer-events: none;
+    }
+
+    .btn-group .btn {
+        border-radius: 6px !important;
+        margin-right: 4px;
+    }
+
+    .bulk-actions {
+        background: #f8f9fa;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+    }
+
+    .app-card {
+        border: none;
+        border-radius: 12px;
+    }
+
+    .app-card-body {
+        padding: 1.5rem;
+    }
+
+    .table th {
+        border-top: none;
+        border-bottom: 2px solid #dee2e6;
+        font-weight: 600;
+        color: #495057;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .table td {
+        vertical-align: middle;
+        border-bottom: 1px solid #f8f9fa;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0.5em 0.75em;
+    }
+
+    @@media (max-width: 768px) {
+        .table-responsive
+
+    {
+        font-size: 0.875rem;
+    }
+
+    .product-thumb {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btn-group .btn {
+        padding: 0.25rem 0.5rem;
+    }
+
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check all functionality
+        const checkAll = document.getElementById('checkAll');
+        const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+        const bulkActions = document.querySelector('.bulk-actions');
+        const selectedCount = document.querySelector('.selected-count');
+
+        checkAll.addEventListener('change', function() {
+            rowCheckboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+            updateBulkActions();
+        });
+
+        rowCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateBulkActions);
+        });
+
+        function updateBulkActions() {
+            const checkedBoxes = document.querySelectorAll('.row-checkbox:checked');
+            const count = checkedBoxes.length;
+
+            if (count > 0) {
+                bulkActions.style.display = 'block';
+                selectedCount.textContent = `${count} sản phẩm được chọn`;
+            } else {
+                bulkActions.style.display = 'none';
+            }
+
+            checkAll.indeterminate = count > 0 && count < rowCheckboxes.length;
+            checkAll.checked = count === rowCheckboxes.length;
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const statusFilter = document.getElementById('statusFilter');
+        const categoryFilter = document.getElementById('categoryFilter');
+
+        function filterTable() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const statusValue = statusFilter.value;
+            const categoryValue = categoryFilter.value;
+            const rows = document.querySelectorAll('#productTable tr');
+
+            rows.forEach(row => {
+                const productName = row.querySelector('.product-name')?.textContent.toLowerCase() || '';
+                const productCode = row.querySelector('.product-code')?.textContent.toLowerCase() || '';
+                const productStatus = row.getAttribute('data-status');
+                const productCategory = row.getAttribute('data-category');
+
+                const matchesSearch = productName.includes(searchTerm) || productCode.includes(searchTerm);
+                const matchesStatus = statusValue === 'all' || productStatus === statusValue;
+                const matchesCategory = categoryValue === 'all' || productCategory === categoryValue;
+
+                if (matchesSearch && matchesStatus && matchesCategory) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterTable);
+        statusFilter.addEventListener('change', filterTable);
+        categoryFilter.addEventListener('change', filterTable);
+    });
+
+    function resetFilters() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('statusFilter').value = 'all';
+        document.getElementById('categoryFilter').value = 'all';
+
+        const rows = document.querySelectorAll('#productTable tr');
+        rows.forEach(row => {
+            row.style.display = '';
+        });
+    }
+
+    function bulkShow() {
+        const checkedBoxes = document.querySelectorAll('.row-checkbox:checked');
+        if (checkedBoxes.length === 0) return;
+
+        if (confirm(`Bạn có chắc muốn hiển thị ${checkedBoxes.length} sản phẩm được chọn?`)) {
+            // Implement bulk show logic
+            console.log('Bulk show:', Array.from(checkedBoxes).map(cb => cb.value));
+        }
+    }
+
+    function bulkHide() {
+        const checkedBoxes = document.querySelectorAll('.row-checkbox:checked');
+        if (checkedBoxes.length === 0) return;
+
+        if (confirm(`Bạn có chắc muốn ẩn ${checkedBoxes.length} sản phẩm được chọn?`)) {
+            // Implement bulk hide logic
+            console.log('Bulk hide:', Array.from(checkedBoxes).map(cb => cb.value));
+        }
+    }
+
+    function bulkDelete() {
+        const checkedBoxes = document.querySelectorAll('.row-checkbox:checked');
+        if (checkedBoxes.length === 0) return;
+
+        if (confirm(`Bạn có chắc muốn xóa ${checkedBoxes.length} sản phẩm được chọn? Hành động này không thể hoàn tác!`)) {
+            // Implement bulk delete logic
+            console.log('Bulk delete:', Array.from(checkedBoxes).map(cb => cb.value));
+        }
+    }
+</script>

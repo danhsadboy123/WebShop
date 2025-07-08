@@ -168,45 +168,6 @@
                                                                     @item.ProductName
                                                                 </a>
                                                             </h5>
-                                                            <ul class="review-star">
-                                                                @{
-                                                                    bool hasHalfStar = (item.ProductRating - (int)item.ProductRating) >= 0.4;
-
-                                                                }
-                                                                @if (item.ProductRating == 0)
-                                                                {
-                                                                    for (int i = 1; i <= 5; i++)
-                                                                    {
-                                                                        <li class="fill"><i class="ion-android-star"></i></li>
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    @for (int i = 1; i <= (int)item.ProductRating; i++)
-                                                                    {
-                                                                        <li class="fill"><i class="ion-android-star"></i></li>
-                                                                    }
-
-                                                                    {
-                                                                        if ((int)item.ProductRating < 5)
-                                                                        {
-                                                                            if (hasHalfStar)
-                                                                            {
-                                                                                <li class="half" style="color: #b19361"><i class="ion-android-star-half"></i></li>
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                    for (int i = (int)item.ProductRating + (hasHalfStar ? 1 : 0); i < 5; i++)
-                                                                    {
-                                                                        <li class="empty"><i class="ion-android-star"></i></li>
-                                                                    }
-                                                                }
-                                                                @*                                                                 <li class="fill"><i class="ion-android-star"></i></li>
-                                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                                <li class="empty"><i class="ion-android-star"></i></li> *@
-                                                            </ul>
                                                             <span class="product-list-price">
                                                                 @String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)
                                                             </span>

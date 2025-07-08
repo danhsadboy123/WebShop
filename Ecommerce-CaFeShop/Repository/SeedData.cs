@@ -41,210 +41,12 @@ namespace Ecommerce_CaFeShop
                 var G7 = _context.ThuongHieus.FirstOrDefault(b => b.TenThuongHieu == "G7");
 
                 await _context.SanPhams.AddRangeAsync(
-                    new SanPham
-                    {
-                        MaSanPhamCode = "TCH001",
-                        HinhAnh = "TheCoffeeHouseKashmirBlend.png",
-                        TenSanPham = "The Coffee House Kashmir Blend",
-                        MaDanhMuc = cafeHatRang.MaDanhMuc,
-                        MaThuongHieu = TheCoffeeHouse.MaThuongHieu,
-                        Gia = 150000,
-                        MoTaNgan = "Hương vị đậm đà, thơm nồng của cà phê hạt rang nguyên chất",
-                        MoTa = "The Coffee House Kashmir Blend là sự kết hợp hoàn hảo giữa hạt cà phê Robusta và Arabica, mang lại hương vị đậm đà, hậu ngọt, phù hợp cho pha phin hoặc máy.",
-                        SoLuong = 50,
-                        TrangThai = 1,
-                        LuotXem = 1000,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "the-coffee-house-kashmir-blend"
-                    },
-                    new SanPham
-                    {
-                        MaSanPhamCode = "TN001",
-                        HinhAnh = "trungnguyensantao1.png",
-                        TenSanPham = "Trung Nguyên Sáng Tạo 1",
-                        MaDanhMuc = cafeXay.MaDanhMuc,
-                        MaThuongHieu = TrungNguyen.MaThuongHieu,
-                        Gia = 120000,
-                        MoTaNgan = "Cà phê xay đậm đà, phong cách Việt Nam truyền thống",
-                        MoTa = "Trung Nguyên Sáng Tạo 1 là dòng cà phê xay với hương vị mạnh mẽ, đậm chất Việt, thích hợp cho pha phin truyền thống.",
-                        SoLuong = 40,
-                        TrangThai = 1,
-                        LuotXem = 800,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "trung-nguyen-sang-tao-1"
-                    },
-                    new SanPham
-                    {
-                        MaSanPhamCode = "TN002",
-                        HinhAnh = "trungnguyenclassic.png",
-                        TenSanPham = "Trung Nguyên Legend Classic",
-                        MaDanhMuc = cafeHatRang.MaDanhMuc,
-                        MaThuongHieu = TrungNguyen.MaThuongHieu,
-                        Gia = 200000,
-                        MoTaNgan = "Hạt cà phê rang cao cấp với hương vị cân bằng",
-                        MoTa = "Trung Nguyên Legend Classic là sự lựa chọn hoàn hảo cho những ai yêu thích cà phê đậm đà, thơm nồng, với hậu vị ngọt ngào.",
-                        SoLuong = 30,
-                        TrangThai = 1,
-                        LuotXem = 600,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "trung-nguyen-legend-classic"
-                    },
-                    new SanPham
-                    {
-                        MaSanPhamCode = "TN003",
-                        HinhAnh = "culirobusta.png",
-                        TenSanPham = "Trung Nguyên Culi Robusta",
-                        MaDanhMuc = cafeHatRang.MaDanhMuc,
-                        MaThuongHieu = TrungNguyen.MaThuongHieu,
-                        Gia = 180000,
-                        MoTaNgan = "Cà phê Culi Robusta với hương vị đậm đà, mạnh mẽ",
-                        MoTa = "Trung Nguyên Culi Robusta được chọn lọc từ những hạt cà phê Culi chất lượng cao, mang đến hương vị đậm đà, mạnh mẽ và hậu vị kéo dài.",
-                        SoLuong = 25,
-                        TrangThai = 1,
-                        LuotXem = 500,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "trung-nguyen-culi-robusta"
-                    },
-                    new SanPham
-                    {
-                        MaSanPhamCode = "HC001",
-                        HinhAnh = "HighlandsCoffeePhinsuada.png",
-                        TenSanPham = "Highlands Coffee Phin Sữa Đá",
-                        MaDanhMuc = cafePhinTruyenThong.MaDanhMuc,
-                        MaThuongHieu = HighlandsCoffee.MaThuongHieu,
-                        Gia = 100000,
-                        MoTaNgan = "Cà phê phin truyền thống đậm đà, hòa quyện sữa đặc",
-                        MoTa = "Highlands Coffee Phin Sữa Đá mang đậm phong cách Việt Nam với vị cà phê đậm, hòa quyện cùng sữa đặc thơm béo, thích hợp cho mọi thời điểm trong ngày.",
-                        SoLuong = 60,
-                        TrangThai = 2,
-                        LuotXem = 1200,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "highlands-coffee-phin-sua-da"
-                    },
-                    new SanPham
-                    {
-                        MaSanPhamCode = "HC002",
-                        HinhAnh = "HighlandsCoffeeArabicaBlend.png",
-                        TenSanPham = "Highlands Coffee Arabica Blend",
-                        MaDanhMuc = cafeXay.MaDanhMuc,
-                        MaThuongHieu = HighlandsCoffee.MaThuongHieu,
-                        Gia = 160000,
-                        MoTaNgan = "Cà phê xay Arabica với hương thơm nhẹ nhàng",
-                        MoTa = "Highlands Coffee Arabica Blend mang đến hương vị nhẹ nhàng, thơm ngát với chút chua thanh, phù hợp cho những ai yêu thích cà phê nhẹ.",
-                        SoLuong = 45,
-                        TrangThai = 2,
-                        LuotXem = 900,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "highlands-coffee-arabica-blend"
-                    },
-                    new SanPham
-                    {
-                        MaSanPhamCode = "G7001",
-                        HinhAnh = "G73in1Instant Coffee.png",
-                        TenSanPham = "G7 3in1 Instant Coffee",
-                        MaDanhMuc = cafePhinTruyenThong.MaDanhMuc,
-                        MaThuongHieu = G7.MaThuongHieu,
-                        Gia = 90000,
-                        MoTaNgan = "Cà phê hòa tan 3in1 tiện lợi, đậm vị",
-                        MoTa = "G7 3in1 Instant Coffee mang đến sự tiện lợi với hương vị đậm đà, hòa quyện giữa cà phê, sữa và đường, phù hợp cho người bận rộn.",
-                        SoLuong = 100,
-                        TrangThai = 3,
-                        LuotXem = 1500,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "g7-3in1-instant-coffee"
-                    },
-                    new SanPham
-                    {
-                        MaSanPhamCode = "TCH002",
-                        HinhAnh = "TheCoffeeHouseHouseBlend.png",
-                        TenSanPham = "The Coffee House House Blend",
-                        MaDanhMuc = cafeXay.MaDanhMuc,
-                        MaThuongHieu = TheCoffeeHouse.MaThuongHieu,
-                        Gia = 140000,
-                        MoTaNgan = "Cà phê xay với hương vị cân bằng, dễ uống",
-                        MoTa = "The Coffee House House Blend là sự kết hợp tinh tế giữa Arabica và Robusta, mang đến hương vị cân bằng, dễ uống, phù hợp cho mọi cách pha chế.",
-                        SoLuong = 35,
-                        TrangThai = 3,
-                        LuotXem = 700,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "the-coffee-house-house-blend"
-                    },
-                    new SanPham
-                    {
-                        MaSanPhamCode = "HC003",
-                        HinhAnh = "HighlandsCoffeeMokaBlend.png",
-                        TenSanPham = "Highlands Coffee Moka Blend",
-                        MaDanhMuc = cafeHatRang.MaDanhMuc,
-                        MaThuongHieu = HighlandsCoffee.MaThuongHieu,
-                        Gia = 170000,
-                        MoTaNgan = "Cà phê hạt rang Moka với hương vị độc đáo",
-                        MoTa = "Highlands Coffee Moka Blend mang đến hương vị đặc trưng của hạt Moka, với vị chua nhẹ và hương thơm quyến rũ, lý tưởng cho pha máy.",
-                        SoLuong = 50,
-                        TrangThai = 3,
-                        LuotXem = 850,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "highlands-coffee-moka-blend"
-                    },
-                    new SanPham
-                    {
-                        MaSanPhamCode = "G7002",
-                        HinhAnh = "G7BlackInstantCoffee.png",
-                        TenSanPham = "G7 Black Instant Coffee",
-                        MaDanhMuc = cafePhinTruyenThong.MaDanhMuc,
-                        MaThuongHieu = G7.MaThuongHieu,
-                        Gia = 80000,
-                        MoTaNgan = "Cà phê hòa tan đen nguyên chất, đậm vị",
-                        MoTa = "G7 Black Instant Coffee mang đến hương vị cà phê đen nguyên chất, đậm đà, không đường, dành cho những ai yêu thích sự mạnh mẽ.",
-                        SoLuong = 80,
-                        TrangThai = 3,
-                        LuotXem = 1100,
-                        NgayTao = DateTime.Now,
-                        NgayCapNhat = null,
-                        DaXoa = 0,
-                        Slug = "g7-black-instant-coffee"
-                    }
+                 
                 );
                 await _context.SaveChangesAsync();
 
                 await _context.HinhAnhSanPhams.AddRangeAsync(
-                    new HinhAnhSanPham { MaSanPham = 1, HinhAnh = "culirobusta.png" },
-                    new HinhAnhSanPham { MaSanPham = 1, HinhAnh = "G73in1Instant Coffee.png" },
-                    new HinhAnhSanPham { MaSanPham = 2, HinhAnh = "G7BlackInstantCoffee.png" },
-                    new HinhAnhSanPham { MaSanPham = 2, HinhAnh = "HighlandsCoffeeArabicaBlend.png" },
-                    new HinhAnhSanPham { MaSanPham = 3, HinhAnh = "HighlandsCoffeeMokaBlend.png" },
-                    new HinhAnhSanPham { MaSanPham = 3, HinhAnh = "HighlandsCoffeePhinsuada.png" },
-                    new HinhAnhSanPham { MaSanPham = 4, HinhAnh = "TheCoffeeHouseHouseBlend.png" },
-                    new HinhAnhSanPham { MaSanPham = 4, HinhAnh = "TheCoffeeHouseKashmirBlend.png" },
-                    new HinhAnhSanPham { MaSanPham = 5, HinhAnh = "trungnguyenclassic.png" },
-                    new HinhAnhSanPham { MaSanPham = 5, HinhAnh = "trungnguyensantao1.png" },
-                    new HinhAnhSanPham { MaSanPham = 6, HinhAnh = "culirobusta.png" },
-                    new HinhAnhSanPham { MaSanPham = 6, HinhAnh = "G73in1Instant Coffee.png" },
-                    new HinhAnhSanPham { MaSanPham = 7, HinhAnh = "G7BlackInstantCoffee.png" },
-                    new HinhAnhSanPham { MaSanPham = 7, HinhAnh = "HighlandsCoffeeArabicaBlend.png" },
-                    new HinhAnhSanPham { MaSanPham = 8, HinhAnh = "HighlandsCoffeeMokaBlend.png" },
-                    new HinhAnhSanPham { MaSanPham = 8, HinhAnh = "HighlandsCoffeePhinsuada.png" },
-                    new HinhAnhSanPham { MaSanPham = 9, HinhAnh = "TheCoffeeHouseHouseBlend.png" },
-                    new HinhAnhSanPham { MaSanPham = 9, HinhAnh = "TheCoffeeHouseKashmirBlend.png" },
-                    new HinhAnhSanPham { MaSanPham = 10, HinhAnh = "trungnguyenclassic.png" },
-                    new HinhAnhSanPham { MaSanPham = 10, HinhAnh = "trungnguyensantao1.png" }
+         
                 );
                 await _context.SaveChangesAsync();
             }
@@ -434,16 +236,6 @@ namespace Ecommerce_CaFeShop
             if (!_context.KhachHangs.Any())
             {
                 await _context.KhachHangs.AddRangeAsync(
-                    new KhachHang { HoTen = "Nguyễn Văn A", SoDienThoai = "0123456789", DiaChi = "123 Đường ABC, Quận 1", Email = "vana@gmail.com", NgaySinh = DateOnly.ParseExact("1990-01-01", "yyyy-MM-dd"), GioiTinh = true, MaTaiKhoan = 2, TenHienThi = "user1" },
-                    new KhachHang { HoTen = "Trần Thị B", SoDienThoai = "0987654321", DiaChi = "456 Đường DEF, Quận 2", Email = "btran@gmail.com", NgaySinh = DateOnly.ParseExact("1992-02-02", "yyyy-MM-dd"), GioiTinh = false, MaTaiKhoan = 3, TenHienThi = "user2" },
-                    new KhachHang { HoTen = "Lê Văn C", SoDienThoai = "0123456780", DiaChi = "789 Đường GHI, Quận 3", Email = "cle@gmail.com", NgaySinh = DateOnly.ParseExact("1988-03-03", "yyyy-MM-dd"), GioiTinh = true, MaTaiKhoan = 4, TenHienThi = "user3" },
-                    new KhachHang { HoTen = "Phạm Thị D", SoDienThoai = "0987654310", DiaChi = "321 Đường JKL, Quận 4", Email = "dpham@gmail.com", NgaySinh = DateOnly.ParseExact("1985-04-04", "yyyy-MM-dd"), GioiTinh = false, MaTaiKhoan = 5, TenHienThi = "user4" },
-                    new KhachHang { HoTen = "Nguyễn Văn E", SoDienThoai = "0123456790", DiaChi = "654 Đường MNO, Quận 5", Email = "evan@gmail.com", NgaySinh = DateOnly.ParseExact("1995-05-05", "yyyy-MM-dd"), GioiTinh = true, MaTaiKhoan = 6, TenHienThi = "user5" },
-                    new KhachHang { HoTen = "Trần Thị F", SoDienThoai = "0987654322", DiaChi = "987 Đường PQR, Quận 6", Email = "ftran@gmail.com", NgaySinh = DateOnly.ParseExact("1990-06-06", "yyyy-MM-dd"), GioiTinh = false, MaTaiKhoan = 7, TenHienThi = "user6" },
-                    new KhachHang { HoTen = "Lê Văn G", SoDienThoai = "0123456781", DiaChi = "135 Đường STU, Quận 7", Email = "gle@gmail.com", NgaySinh = DateOnly.ParseExact("1982-07-07", "yyyy-MM-dd"), GioiTinh = true, MaTaiKhoan = 8, TenHienThi = "user7" },
-                    new KhachHang { HoTen = "Phạm Thị H", SoDienThoai = "0987654311", DiaChi = "246 Đường VWX, Quận 8", Email = "hpham@gmail.com", NgaySinh = DateOnly.ParseExact("2000-07-07", "yyyy-MM-dd"), GioiTinh = true, MaTaiKhoan = 9, TenHienThi = "user8" },
-                    new KhachHang { HoTen = "Nguyễn Văn I", SoDienThoai = "0123456791", DiaChi = "357 Đường YZ, Quận 9", Email = "ivan@gmail.com", NgaySinh = DateOnly.ParseExact("2002-08-30", "yyyy-MM-dd"), GioiTinh = true, MaTaiKhoan = 10, TenHienThi = "user9" },
-                    new KhachHang { HoTen = "Trần Thị J", SoDienThoai = "0987654323", DiaChi = "468 Đường ABCD, Quận 10", Email = "jtran@gmail.com", NgaySinh = DateOnly.ParseExact("1996-01-11", "yyyy-MM-dd"), GioiTinh = true, MaTaiKhoan = 11, TenHienThi = "user10" }
                 );
                 await _context.SaveChangesAsync();
             }
@@ -451,16 +243,6 @@ namespace Ecommerce_CaFeShop
             if (!_context.HoaDons.Any())
             {
                 await _context.HoaDons.AddRangeAsync(
-                    new HoaDon { MaKhachHang = 1, NgayDatHang = new DateTime(2021, 5, 15), HoTen = "Nguyễn Văn A", SoDienThoai = "0123456789", Email = "vana@gmail.com", DiaChi = "123 Đường ABC, Quận 1", Tinh = "TPHCM", Huyen = "Quận 1", Xa = "Phường 1", PhuongThucThanhToan = "Momo", TongTien = 390000, TrangThai = 2 },
-                    new HoaDon { MaKhachHang = 2, NgayDatHang = new DateTime(2021, 6, 20), HoTen = "Trần Thị B", SoDienThoai = "0987654321", Email = "btran@gmail.com", DiaChi = "456 Đường DEF, Quận 2", Tinh = "TPHCM", Huyen = "Quận 2", Xa = "Phường 2", PhuongThucThanhToan = "COD", TongTien = 560000, TrangThai = 2 },
-                    new HoaDon { MaKhachHang = 3, NgayDatHang = new DateTime(2022, 1, 10), HoTen = "Lê Văn C", SoDienThoai = "0123456780", Email = "cle@gmail.com", DiaChi = "789 Đường GHI, Quận 3", Tinh = "Hà Nội", Huyen = "Quận 3", Xa = "Phường 3", PhuongThucThanhToan = "Momo", TongTien = 380000, TrangThai = 2 },
-                    new HoaDon { MaKhachHang = 4, NgayDatHang = new DateTime(2022, 3, 15), HoTen = "Phạm Thị D", SoDienThoai = "0987654310", Email = "dpham@gmail.com", DiaChi = "321 Đường JKL, Quận 4", Tinh = "Đà Nẵng", Huyen = "Quận 4", Xa = "Phường 4", PhuongThucThanhToan = "COD", TongTien = 450000, TrangThai = 2 },
-                    new HoaDon { MaKhachHang = 5, NgayDatHang = new DateTime(2023, 2, 25), HoTen = "Nguyễn Văn E", SoDienThoai = "0123456790", Email = "evan@gmail.com", DiaChi = "654 Đường MNO, Quận 5", Tinh = "Hải Phòng", Huyen = "Quận 5", Xa = "Phường 5", PhuongThucThanhToan = "Momo", TongTien = 600000, TrangThai = 2 },
-                    new HoaDon { MaKhachHang = 6, NgayDatHang = new DateTime(2023, 4, 30), HoTen = "Trần Thị F", SoDienThoai = "0987654322", Email = "ftran@gmail.com", DiaChi = "987 Đường PQR, Quận 6", Tinh = "TPHCM", Huyen = "Quận 6", Xa = "Phường 6", PhuongThucThanhToan = "COD", TongTien = 420000, TrangThai = 2 },
-                    new HoaDon { MaKhachHang = 7, NgayDatHang = new DateTime(2024, 7, 5), HoTen = "Lê Văn G", SoDienThoai = "0123456781", Email = "gle@gmail.com", DiaChi = "135 Đường STU, Quận 7", Tinh = "Hà Nội", Huyen = "Quận 7", Xa = "Phường 7", PhuongThucThanhToan = "Momo", TongTien = 540000, TrangThai = 2 },
-                    new HoaDon { MaKhachHang = 8, NgayDatHang = new DateTime(2024, 9, 10), HoTen = "Phạm Thị H", SoDienThoai = "0987654311", Email = "hpham@gmail.com", DiaChi = "246 Đường VWX, Quận 8", Tinh = "Đà Nẵng", Huyen = "Quận 8", Xa = "Phường 8", PhuongThucThanhToan = "COD", TongTien = 240000, TrangThai = 2 },
-                    new HoaDon { MaKhachHang = 9, NgayDatHang = new DateTime(2025, 1, 15), HoTen = "Nguyễn Văn I", SoDienThoai = "0123456791", Email = "ivan@gmail.com", DiaChi = "357 Đường YZ, Quận 9", Tinh = "Hải Phòng", Huyen = "Quận 9", Xa = "Phường 9", PhuongThucThanhToan = "Momo", TongTien = 700000, TrangThai = 2 },
-                    new HoaDon { MaKhachHang = 10, NgayDatHang = new DateTime(2025, 3, 20), HoTen = "Trần Thị J", SoDienThoai = "0987654323", Email = "jtran@gmail.com", DiaChi = "468 Đường ABCD, Quận 10", Tinh = "TPHCM", Huyen = "Quận 10", Xa = "Phường 10", PhuongThucThanhToan = "COD", TongTien = 360000, TrangThai = 2 }
                 );
                 await _context.SaveChangesAsync();
             }
