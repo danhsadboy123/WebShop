@@ -2488,14 +2488,12 @@ wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\Images\02683984-250d-4fa3-9a3e-91767c47aaac.png
 wwwroot\Images\06c7cf9c-8f4f-446c-bac0-b4fcf6882db6.png
-wwwroot\Images\07ec5e81-a30f-485d-b9fb-3694802df6a7.jpg
 wwwroot\Images\17a8553e-4efe-4099-8da1-3f9b97806ca3.png
 wwwroot\Images\18a6f82b-09e4-44c7-aa7f-9d28cd645f2f.png
 wwwroot\Images\21d31d47-61e0-4eaf-a26b-bde049527f3a.png
 wwwroot\Images\2635fb47-4ee7-43fb-b539-56293b1198d9.png
 wwwroot\Images\2c99b117-1caf-468e-a775-faef2ce654ec.png
 wwwroot\Images\2d7be9d6-a62f-4459-8214-1e60a92b76c3.png
-wwwroot\Images\324db14d-179e-446f-bd59-18106909a55c.jpg
 wwwroot\Images\35ade4a9-8b73-409b-84b8-a21518d7bcb8.png
 wwwroot\Images\387ba110-6b90-4276-a652-afc468591e24.png
 wwwroot\Images\38f6428e-54d8-4b9f-9d59-c843dec9744d.jpg
@@ -2504,20 +2502,14 @@ wwwroot\Images\4b26641a-ffd0-482a-910e-6b405aad1505.png
 wwwroot\Images\5b702205-e2f2-4d15-8846-b2df07698f9b.png
 wwwroot\Images\5b8ccebd-4115-4941-8f2f-1ef4f3edb8a7.png
 wwwroot\Images\769c5d5c-9d98-418e-9151-beddfa351bf3.png
-wwwroot\Images\81f2f126-0255-4e9f-8d22-da8731cfde21.jpg
-wwwroot\Images\8386bc9f-b49b-42f8-b9cc-5a2476e8b3a1.jpg
 wwwroot\Images\877c1b30-f2e6-4711-bfee-d71fba3e9a7a.jpg
-wwwroot\Images\8da22f5a-33cc-4d69-a4d7-368f8854881c.jpg
-wwwroot\Images\8e084c3c-9caa-4f23-a93c-3eb7e9fcef75.jpg
 wwwroot\Images\8e5f9642-c45d-4f81-b254-fbff5dff78dc.png
 wwwroot\Images\91d37661-7b7a-492a-a412-a650261ff9c8.png
 wwwroot\Images\923f8f0d-df74-48ba-b86b-b6895e6b9c8b.jpg
 wwwroot\Images\94c5ef60-fc77-4a08-ba54-c010a22a721a.png
 wwwroot\Images\97d55aa2-99cb-4372-8704-276317bbd252.png
 wwwroot\Images\9a51df90-4f8d-4a44-aa8f-0366bfa599b0.png
-wwwroot\Images\9cd99bbc-ab8e-4be5-b63f-5e629b3cc653.jpg
 wwwroot\Images\a583444b-73b4-463e-ae2d-b6d9e04362b8_hieubietvequytrinhrangcafe.png.jpg
-wwwroot\Images\a5f30dfc-4c48-46ab-9b76-f14aae4ef345.png
 wwwroot\Images\b00b6a09-5db5-4ffb-8cee-1267323c2a63.png
 wwwroot\Images\banner1.png
 wwwroot\Images\banner2.png
@@ -2530,23 +2522,19 @@ wwwroot\Images\cacloaihatphobien.jpg
 wwwroot\Images\cafechon.png
 wwwroot\Images\cafexay.png
 wwwroot\Images\cbff20cc-c778-449e-99f9-07c5054f936c.png
-wwwroot\Images\cd14e4ac-3a1d-4036-bdbe-ab88314bed59.jpg
 wwwroot\Images\cf547db1-8571-4443-80e7-e3219ed46105.png
 wwwroot\Images\chonloaicfphuhop.jpg
 wwwroot\Images\culirobusta.png
 wwwroot\Images\d25bea4d-9fe9-44ba-8b28-38d4155b5378.png
 wwwroot\Images\d87b9df7-96c5-4623-840c-41c430fb641a.png
 wwwroot\Images\d8825696-3a8f-4026-ba32-38999ba37bb8.jpg
-wwwroot\Images\default-image.jpg
+wwwroot\Images\Default-image.jpg
 wwwroot\Images\dondiencafe.png
 wwwroot\Images\download.jpg
 wwwroot\Images\dungcucafe.jpg
-wwwroot\Images\e3139945-6ff1-439e-8753-ed3c2476c825.jpg
 wwwroot\Images\e9f085fb-336d-4315-aa74-83531f914317.png
 wwwroot\Images\edf99a3d-a52a-4e57-b08e-b10589446188.png
 wwwroot\Images\f1f8539a-e099-488a-ac0a-dea80fb98af6.png
-wwwroot\Images\f3c215c1-ef5f-4616-8fc2-94d180578d8d.jpg
-wwwroot\Images\f98554fe-4cca-4f16-86ae-bdcded0486ce.png
 wwwroot\Images\fc237d16-8ee5-4c10-8f2b-2b745b920301.png
 wwwroot\Images\G73in1Instant Coffee.png
 wwwroot\Images\G7BlackInstantCoffee.png
@@ -2628,6 +2616,23 @@ wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\simple-line-icons.css
+wwwroot\Images\f98554fe-4cca-4f16-86ae-bdcded0486ce.png
+wwwroot\Images\a5f30dfc-4c48-46ab-9b76-f14aae4ef345.png
+wwwroot\Images\324db14d-179e-446f-bd59-18106909a55c.jpg
+wwwroot\Images\07ec5e81-a30f-485d-b9fb-3694802df6a7.jpg
+wwwroot\Images\9cd99bbc-ab8e-4be5-b63f-5e629b3cc653.jpg
+wwwroot\Images\81f2f126-0255-4e9f-8d22-da8731cfde21.jpg
+wwwroot\Images\8da22f5a-33cc-4d69-a4d7-368f8854881c.jpg
+wwwroot\Images\8e084c3c-9caa-4f23-a93c-3eb7e9fcef75.jpg
+wwwroot\Images\f3c215c1-ef5f-4616-8fc2-94d180578d8d.jpg
+wwwroot\Images\e3139945-6ff1-439e-8753-ed3c2476c825.jpg
+wwwroot\Images\cd14e4ac-3a1d-4036-bdbe-ab88314bed59.jpg
+wwwroot\Images\8386bc9f-b49b-42f8-b9cc-5a2476e8b3a1.jpg
+wwwroot\Images\caf7291b-b659-4bd5-9c34-eec513cc87d1.png
+wwwroot\Images\b09bda6d-860b-41be-9a2c-fb0eaee22e63.png
+wwwroot\Images\7a2104a2-6b9e-46ad-8fb9-6f7f31ae9816.png
+wwwroot\Images\4a19d09a-f5fc-4aa1-a6fc-d9b835706898.png
+wwwroot\Images\482763d8-992d-40e5-8be4-90d4542c7cc3.png
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\wwwroot\lib\jquery\dist\jquery.slim.js
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\wwwroot\lib\jquery\dist\jquery.min.map

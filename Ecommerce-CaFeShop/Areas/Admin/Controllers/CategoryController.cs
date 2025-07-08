@@ -1,11 +1,13 @@
+using Ecommerce_CaFeShop.Helper;
 using Ecommerce_CaFeShop.Models;
-using Ecommerce_CaFeShop.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ecommerce_CaFeShop.Controllers
+namespace CaFe_Admin.Areas.Admin.Controllers
 {
-
+    [Area("Admin")]
+    [Authorize(Policy = "Admin")]
     public class CategoryController : Controller
     {
         private readonly CaFeContext _context;
@@ -14,74 +16,97 @@ namespace Ecommerce_CaFeShop.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index(string slug = "", int page = 1)
+
+        public async Task<IActionResult> Index()
         {
-            // Nếu không có slug, chuyển về trang sản phẩm
-            if (string.IsNullOrEmpty(slug))
+            var categories = await _context.DanhMucs.ToListAsync();
+            return View(categories);
+        }
+
+        // Thêm danh mục
+        [HttpPost]
+        public async Task<IActionResult> Create(DanhMuc model)
+        {
+            Console.WriteLine($"CategoryName: {model.TenDanhMuc}, ParentId: {model.MaDanhMucCha}, Slug: {model.Slug}");
+
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index", "Product");
-            }
-
-            // Kiểm tra danh mục tồn tại
-            var category = await _context.DanhMucs
-                .Where(c => c.Slug == slug && c.DaXoa == 0)
-                .FirstOrDefaultAsync();
-
-            if (category == null)
-            {
-                TempData["ErrorMessage"] = $"Không tìm thấy danh mục với slug: {slug}";
-                return RedirectToAction("Index", "Product");
-            }
-
-            var pageSize = 8;
-
-            // Lấy sản phẩm theo danh mục với phân trang
-            var products = _context.SanPhams
-                .Where(p => p.MaDanhMuc == category.MaDanhMuc && p.DaXoa == 0 && p.TrangThai == 1)
-                .Include(p => p.DanhGiaSanPhams)
-                .Include(p => p.DanhMuc) // Include để debug
-                .OrderByDescending(p => p.NgayTao); // Sắp xếp theo ngày tạo mới nhất
-
-            var totalProducts = await products.CountAsync();
-
-            // Debug: Kiểm tra số lượng sản phẩm tìm thấy
-            Console.WriteLine($"Danh mục: {category.TenDanhMuc} (ID: {category.MaDanhMuc})");
-            Console.WriteLine($"Tổng số sản phẩm tìm thấy: {totalProducts}");
-
-            var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
-
-            var result = await products
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .Select(p => new ProductVM
+                if (string.IsNullOrEmpty(model.TenDanhMuc))
                 {
-                    ProductId = p.MaSanPham,
-                    ProductName = p.TenSanPham ?? "Chưa có tên",
-                    Image = string.IsNullOrEmpty(p.HinhAnh) ? "/Images/default-image.jpg" : p.HinhAnh,
-                    Price = p.Gia,
-                    ShortDescription = p.MoTaNgan ?? "Chưa có mô tả",
-                    ProductRating = p.DanhGiaSanPhams.Any()
-                        ? p.DanhGiaSanPhams.Average(r => (double)r.DiemDanhGia!)
-                        : 0,
-                    TotalRating = p.DanhGiaSanPhams.Count,
-                    Slug = p.Slug
-                }).ToListAsync();
+                    return Json(new { success = false, message = "Tên danh mục không được để trống!" });
+                }
 
-            // Tạo ViewModel cho phân trang
-            var viewModel = new PagedProductListVM
+                model.Slug = await SlugHelper.GenerateUniqueSlug(_context, model.TenDanhMuc, SlugHelper.EntityType.Category, model.MaDanhMuc);
+                _context.DanhMucs.Add(model);
+                try
+                {
+                    await _context.SaveChangesAsync();
+                    return Json(new { success = true, data = new { id = model.MaDanhMuc, name = model.TenDanhMuc, slug = model.Slug, parentId = model.MaDanhMucCha } });
+                }
+                catch (DbUpdateException ex)
+                {
+                    return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.InnerException?.Message ?? ex.Message });
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.Message });
+                }
+            }
+            return Json(new { success = false, message = "Dữ liệu không hợp lệ!" });
+        }
+
+        // Cập nhật danh mục
+        [HttpPost]
+        public async Task<IActionResult> Edit(DanhMuc model)
+        {
+            if (ModelState.IsValid)
             {
-                SanPhams = result,
-                CurrentPage = page,
-                TotalPages = totalPages,
-                PageSize = pageSize
-            };
+                var category = await _context.DanhMucs.FindAsync(model.MaDanhMuc);
+                if (category != null)
+                {
+                    category.TenDanhMuc = model.TenDanhMuc;
+                    category.Slug = await SlugHelper.GenerateUniqueSlug(_context, category.TenDanhMuc, SlugHelper.EntityType.Category, model.MaDanhMuc);
+                    category.MaDanhMucCha = model.MaDanhMucCha;
 
-            // Truyền thông tin danh mục vào ViewBag
-            ViewBag.CategoryName = category.TenDanhMuc;
-            ViewBag.CategorySlug = category.Slug;
-            ViewBag.TotalProducts = totalProducts;
+                    _context.Update(category);
+                    await _context.SaveChangesAsync();
 
-            return View(viewModel);
+                    return Json(new { success = true, message = "Cập nhật danh mục thành công!", data = new { id = category.MaDanhMuc, name = category.TenDanhMuc, slug = category.Slug, parentId = category.MaDanhMucCha } });
+                }
+                return Json(new { success = false, message = "Không tìm thấy danh mục!" });
+            }
+            return Json(new { success = false, message = "Dữ liệu không hợp lệ!" });
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var category = _context.DanhMucs.Find(id);
+            if (category != null)
+            {
+                _context.DanhMucs.Remove(category);
+                _context.SaveChanges();
+                return Json(new { success = true, message = "Xóa danh mục thành công!" });
+            }
+            return Json(new { success = false, message = "Không tìm thấy danh mục!" });
+        }
+
+        [HttpGet]
+        public IActionResult Search(string searchQuery)
+        {
+            var categories = _context.DanhMucs
+                .Where(c => c.TenDanhMuc!.ToLower().Contains(searchQuery.ToLower()) || c.Slug!.Contains(searchQuery.ToLower()))
+                .Select(c => new
+                {
+                    categoryId = c.MaDanhMuc,
+                    categoryName = c.TenDanhMuc,
+                    slug = c.Slug,
+                    parentId = c.MaDanhMucCha,
+                    parentName = c.MaDanhMucCha.HasValue ? _context.DanhMucs.Where(p => p.MaDanhMuc == c.MaDanhMucCha).Select(p => p.TenDanhMuc).FirstOrDefault() ?? "Không có" : "Không có"
+                })
+                .ToList();
+
+            return Json(new { success = true, data = categories });
         }
     }
 }

@@ -447,39 +447,12 @@
                                     <h5 class="text-xl font-semibold">
                                         <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@item.Slug" class="hover:text-[#d4a373]">@item.ProductName</a>
                                     </h5>
-                                    <ul class="star-rating flex space-x-1 my-2">
-                                        @{
-                                            bool hasHalfStar = (item.ProductRating - (int)item.ProductRating) >= 0.4;
-                                        }
-                                        @if (item.ProductRating == 0)
-                                        {
-                                            for (int i = 1; i <= 5; i++)
-                                            {
-                                                <li><i class="fas fa-star"></i></li>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            @for (int i = 1; i <= (int)item.ProductRating; i++)
-                                            {
-                                                <li><i class="fas fa-star"></i></li>
-                                            }
-                                            @if ((int)item.ProductRating < 5 && hasHalfStar)
-                                            {
-                                                <li><i class="fas fa-star-half-alt"></i></li>
-                                            }
-                                            @for (int i = (int)item.ProductRating + (hasHalfStar ? 1 : 0); i < 5; i++)
-                                            {
-                                                <li><i class="far fa-star"></i></li>
-                                            }
-                                        }
-                                    </ul>
                                     <div class="price-section">
                                         @if (item.DiscountPrice.HasValue && item.DiscountPrice.Value > 0 && item.DiscountPrice.Value < item.Price)
                                         {
                                             <span class="text-lg font-bold text-[#d4a373]">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.DiscountPrice)</span>
-                                            <span class="text-sm line-through text-gray-500 ml-2">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)</span>
-                                            <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-2">-@item.DiscountPercent%</span>
+                                            <span class="text-sm line-through text-gray-500 ml-2" style="text-decoration:line-through;color:red">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)</span>
+                                            <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-2" style="color:red!important">-@item.DiscountPercent%</span>
                                         }
                                         else
                                         {

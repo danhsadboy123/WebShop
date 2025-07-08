@@ -62,10 +62,10 @@ public partial class SanPham
         }
     }
 
-    [Column(TypeName = "nvarchar(200)")]
+    [Column(TypeName = "nvarchar(max)")]
     public string? MoTaNgan { get; set; }
 
-    [Column(TypeName = "nvarchar(500)")]
+    [Column(TypeName = "nvarchar(max)")]
     public string? MoTa { get; set; }
 
     [Column(TypeName = "nvarchar(MAX)")]

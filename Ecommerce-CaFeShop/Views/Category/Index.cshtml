@@ -168,9 +168,18 @@
                                                                     @item.ProductName
                                                                 </a>
                                                             </h5>
-                                                            <span class="product-list-price">
-                                                                @String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)
-                                                            </span>
+                                                            <div class="price-section">
+                                                                @if (item.DiscountPrice.HasValue && item.DiscountPrice.Value > 0 && item.DiscountPrice.Value < item.Price)
+                                                                {
+                                                                    <span class="text-lg font-bold text-[#d4a373]">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.DiscountPrice)</span>
+                                                                    <span class="text-sm line-through text-gray-500 ml-2" style="text-decoration:line-through;color:red">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)</span>
+                                                                    <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-2" style="color:red!important">-@item.DiscountPercent%</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="text-lg font-bold text-[#d4a373]">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)</span>
+                                                                }
+                                                            </div>
                                                             <p>
                                                                 @item.ShortDescription
                                                             </p>
