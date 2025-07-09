@@ -17407,10 +17407,10 @@ C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\n
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerc.F57AD14B.Up2Date
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.dll
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\refint\Ecommerce-CaFeShop.dll
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.pdb
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\Ecommerce-CaFeShop.genruntimeconfig.cache
 C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\ref\Ecommerce-CaFeShop.dll
+C:\Users\Sunhitech\Desktop\New folder (4)\WebShop\Ecommerce-CaFeShop\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

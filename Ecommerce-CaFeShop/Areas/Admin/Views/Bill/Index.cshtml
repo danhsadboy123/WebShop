@@ -3,6 +3,46 @@
     ViewData["Title"] = "Quản lý đơn hàng";
 }
 
+@{
+    string GetStatusText(int status)
+    {
+        return status switch
+        {
+            0 => "Chờ xác nhận",
+            1 => "Chưa thanh toán",
+            2 => "Đã thanh toán",
+            3 => "Đang giao hàng",
+            4 => "Đã giao hàng",
+            5 => "Đã hủy",
+            6 => "Đang xử lý",
+            7 => "Đã xác nhận",
+            8 => "Hoàn thành",
+            9 => "Trả hàng",
+            10 => "Hoàn tiền",
+            _ => "Không xác định"
+        };
+    }
+
+    string GetStatusBadgeClass(int status)
+    {
+        return status switch
+        {
+            0 => "warning",      // Chờ xác nhận
+            1 => "danger",       // Chưa thanh toán
+            2 => "success",      // Đã thanh toán
+            3 => "info",         // Đang giao hàng
+            4 => "success",      // Đã giao hàng
+            5 => "danger",       // Đã hủy
+            6 => "warning",      // Đang xử lý
+            7 => "success",      // Đã xác nhận
+            8 => "success",      // Hoàn thành
+            9 => "warning",      // Trả hàng
+            10 => "info",        // Hoàn tiền
+            _ => "secondary"     // Không xác định
+        };
+    }
+}
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -24,7 +64,7 @@
                     }
 
                     <!-- Thống kê nhanh -->
-                    <div class="row mb-4">
+@*                     <div class="row mb-4">
                         <div class="col-md-3">
                             <div class="stat-card bg-warning">
                                 <div class="stat-icon">
@@ -69,32 +109,51 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-md-3">
+                            <div class="stat-card bg-danger">
+                                <div class="stat-icon">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h4>@Model.Count(x => x.TrangThai == 5)</h4>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> *@
 
                     <!-- Bộ lọc -->
                     <div class="filter-section mb-3">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <select class="form-select" id="statusFilter">
-                                    <option value="">Tất cả trạng thái</option>
-                                    <option value="1">Chờ xác nhận</option>
-                                    <option value="2">Đã xác nhận</option>
-                                    <option value="3">Đang xử lý</option>
-                                    <option value="4">Đã hủy</option>
-                                </select>
+                        <form method="get" asp-action="Index">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <select class="form-select" name="status" onchange="this.form.submit()">
+                                        <option value="">Tất cả trạng thái</option>
+                                        <option value="1" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "1")">Chờ xác nhận</option>
+                                        <option value="2" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "2")">Đã xác nhận</option>
+                                        <option value="3" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "3")">Đang xử lý</option>
+                                        <option value="4" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "4")">Đã hủy</option>
+                                        <option value="5" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "5")">Đã hủy</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="date" class="form-control" name="dateFilter" value="@ViewBag.DateFilter" onchange="this.form.submit()" placeholder="Lọc theo ngày">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="search" value="@ViewBag.Search" placeholder="Tìm kiếm theo mã đơn hàng, tên khách hàng...">
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="d-flex gap-2">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-search"></i> Lọc
+                                        </button>
+                                        <a href="@Url.Action("Index")" class="btn btn-secondary">
+                                            <i class="fas fa-refresh"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <input type="date" class="form-control" id="dateFilter" placeholder="Lọc theo ngày">
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="searchFilter" placeholder="Tìm kiếm theo mã đơn hàng, tên khách hàng...">
-                            </div>
-                            <div class="col-md-2">
-                                <button class="btn btn-secondary w-100" onclick="clearFilters()">
-                                    <i class="fas fa-refresh"></i> Xóa bộ lọc
-                                </button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
 
                     <!-- Bảng đơn hàng -->
@@ -147,25 +206,10 @@
                                                     <span class="badge bg-success">@bill.PhuongThucThanhToan</span>
                                                 }
                                             </td>
-                                            <td>
-                                                @switch (bill.TrangThai)
-                                                {
-                                                    case 1:
-                                                        <span class="badge bg-warning">Chờ xác nhận</span>
-                                                        break;
-                                                    case 2:
-                                                        <span class="badge bg-info">Đã xác nhận</span>
-                                                        break;
-                                                    case 3:
-                                                        <span class="badge bg-success">Đang xử lý</span>
-                                                        break;
-                                                    case 4:
-                                                        <span class="badge bg-danger">Đã hủy</span>
-                                                        break;
-                                                    default:
-                                                        <span class="badge bg-secondary">Không xác định</span>
-                                                        break;
-                                                }
+                                            <td class="cell">
+                                                <span class="badge bg-@(GetStatusBadgeClass(bill.TrangThai))">
+                                                    @GetStatusText(bill.TrangThai)
+                                                </span>
                                             </td>
                                             <td>
                                                 <div class="action-buttons">
@@ -279,19 +323,17 @@
         .table-striped > tbody > tr:nth-of-type(odd) > td {
             background-color: #f8f9fa;
         }
+
         @@media (max-width: 768px) {
-            .stat-card
+            .stat-card {
+                text-align: center;
+                flex-direction: column;
+            }
 
-        {
-            text-align: center;
-            flex-direction: column;
-        }
-
-        .stat-icon {
-            margin-right: 0;
-            margin-bottom: 10px;
-        }
-
+            .stat-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
         }
     </style>
     <script>

@@ -98,6 +98,10 @@ public partial class CaFeContext : DbContext
         modelBuilder.Entity<KhachHang>()
             .HasKey(k => k.MaKhachHang);
 
+        // Ignore NgaySinh property to avoid DateOnly mapping issue
+        modelBuilder.Entity<KhachHang>()
+            .Ignore(k => k.NgaySinh);
+
         modelBuilder.Entity<ChiTietHoaDon>(entity =>
         {
             entity.HasKey(e => e.MaChiTietHoaDon);

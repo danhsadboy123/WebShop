@@ -50,20 +50,41 @@
                                         <td>
                                             @switch (Model.TrangThai)
                                             {
-                                                case 1:
+                                                case 0:
                                                     <span class="badge bg-warning">Chờ xác nhận</span>
                                                     break;
+                                                case 1:
+                                                    <span class="badge bg-warning">Chưa thanh toán</span>
+                                                    break;
                                                 case 2:
-                                                    <span class="badge bg-info">Đã xác nhận</span>
+                                                    <span class="badge bg-success">Đã thanh toán</span>
                                                     break;
                                                 case 3:
-                                                    <span class="badge bg-success">Đang xử lý</span>
+                                                    <span class="badge bg-info">Đang giao hàng</span>
                                                     break;
                                                 case 4:
+                                                    <span class="badge bg-success">Đã giao hàng</span>
+                                                    break;
+                                                case 5:
                                                     <span class="badge bg-danger">Đã hủy</span>
                                                     break;
+                                                case 6:
+                                                    <span class="badge bg-primary">Đang xử lý</span>
+                                                    break;
+                                                case 7:
+                                                    <span class="badge bg-info">Đã xác nhận</span>
+                                                    break;
+                                                case 8:
+                                                    <span class="badge bg-success">Hoàn thành</span>
+                                                    break;
+                                                case 9:
+                                                    <span class="badge bg-warning">Trả hàng</span>
+                                                    break;
+                                                case 10:
+                                                    <span class="badge bg-secondary">Hoàn tiền</span>
+                                                    break;
                                                 default:
-                                                    <span class="badge bg-secondary">Không xác định</span>
+                                                    <span class="badge bg-secondary">Không xác định (Trạng thái: @Model.TrangThai)</span>
                                                     break;
                                             }
                                         </td>
@@ -181,26 +202,47 @@
                     </div>
 
                     <!-- Actions -->
-                    @if (Model.TrangThai != 4)
+                    @if (Model.TrangThai != 5 && Model.TrangThai != 8 && Model.TrangThai != 9 && Model.TrangThai != 10)
                     {
                         <div class="row mt-4">
                             <div class="col-12">
                                 <div class="action-buttons text-center">
-                                    @if (Model.TrangThai == 1)
+                                    @if (Model.TrangThai == 0)
                                     {
-                                        <button class="btn btn-success me-2" onclick="updateOrderStatus(@Model.MaHoaDon, 2)">
+                                        <button class="btn btn-success me-2" onclick="updateOrderStatus(@Model.MaHoaDon, 7)">
                                             <i class="fas fa-check"></i> Xác nhận đơn hàng
                                         </button>
                                     }
-                                    @if (Model.TrangThai == 2)
+                                    @if (Model.TrangThai == 7 || Model.TrangThai == 2)
                                     {
-                                        <button class="btn btn-info me-2" onclick="updateOrderStatus(@Model.MaHoaDon, 3)">
+                                        <button class="btn btn-info me-2" onclick="updateOrderStatus(@Model.MaHoaDon, 6)">
                                             <i class="fas fa-cog"></i> Bắt đầu xử lý
                                         </button>
                                     }
-                                    <button class="btn btn-danger" onclick="updateOrderStatus(@Model.MaHoaDon, 4)">
-                                        <i class="fas fa-times"></i> Hủy đơn hàng
-                                    </button>
+                                    @if (Model.TrangThai == 6)
+                                    {
+                                        <button class="btn btn-primary me-2" onclick="updateOrderStatus(@Model.MaHoaDon, 3)">
+                                            <i class="fas fa-truck"></i> Giao hàng
+                                        </button>
+                                    }
+                                    @if (Model.TrangThai == 3)
+                                    {
+                                        <button class="btn btn-success me-2" onclick="updateOrderStatus(@Model.MaHoaDon, 4)">
+                                            <i class="fas fa-check-circle"></i> Hoàn thành giao hàng
+                                        </button>
+                                    }
+                                    @if (Model.TrangThai == 4)
+                                    {
+                                        <button class="btn btn-success me-2" onclick="updateOrderStatus(@Model.MaHoaDon, 8)">
+                                            <i class="fas fa-star"></i> Hoàn thành đơn hàng
+                                        </button>
+                                    }
+                                    @if (Model.TrangThai != 4 && Model.TrangThai != 8)
+                                    {
+                                        <button class="btn btn-danger" onclick="updateOrderStatus(@Model.MaHoaDon, 5)">
+                                            <i class="fas fa-times"></i> Hủy đơn hàng
+                                        </button>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -242,9 +284,14 @@
         function updateOrderStatus(orderId, status) {
             var statusText = '';
             switch(status) {
-                case 2: statusText = 'xác nhận'; break;
-                case 3: statusText = 'bắt đầu xử lý'; break;
-                case 4: statusText = 'hủy'; break;
+                case 3: statusText = 'chuyển sang đang giao hàng'; break;
+                case 4: statusText = 'hoàn thành giao hàng'; break;
+                case 5: statusText = 'hủy'; break;
+                case 6: statusText = 'bắt đầu xử lý'; break;
+                case 7: statusText = 'xác nhận'; break;
+                case 8: statusText = 'hoàn thành'; break;
+                case 9: statusText = 'chuyển sang trả hàng'; break;
+                case 10: statusText = 'chuyển sang hoàn tiền'; break;
             }
 
             if (confirm(`Bạn có chắc chắn muốn ${statusText} đơn hàng này?`)) {
@@ -262,8 +309,14 @@
                 statusInput.name = 'status';
                 statusInput.value = status;
 
+                var tokenInput = document.createElement('input');
+                tokenInput.type = 'hidden';
+                tokenInput.name = '__RequestVerificationToken';
+                tokenInput.value = '@Html.AntiForgeryToken().ToString()';
+
                 form.appendChild(idInput);
                 form.appendChild(statusInput);
+                form.appendChild(tokenInput);
                 document.body.appendChild(form);
                 form.submit();
             }

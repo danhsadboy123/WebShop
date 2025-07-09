@@ -26,9 +26,9 @@ namespace Ecommerce_CaFeShop.Components
                 .Select(p => new
                 {
                     Product = p,
-                    // Tính tổng số lượng đã bán từ các đơn hàng đã hoàn thành
+                    // Tính tổng số lượng đã bán từ các đơn hàng đã đặt (trạng thái >= 0 và != 5 - không tính đơn hàng đã hủy)
                     TotalSold = p.ChiTietHoaDons
-                        .Where(ct => ct.HoaDon.TrangThai == 2) // Chỉ tính đơn hàng đã hoàn thành
+                        .Where(ct => ct.HoaDon.TrangThai >= 0 && ct.HoaDon.TrangThai != 5) // Tính tất cả đơn hàng đã đặt trừ đơn hủy
                         .Sum(ct => ct.SoLuong),
                     AvgRating = p.DanhGiaSanPhams.Any()
                         ? p.DanhGiaSanPhams.Average(r => (double)r.DiemDanhGia!) : 0

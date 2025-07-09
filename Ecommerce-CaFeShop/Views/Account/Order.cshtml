@@ -39,10 +39,6 @@
                             <a asp-controller="Account" asp-action="Index"
                                class="nav-link btn btn-block btn-md btn-black-default-hover">Thông tin cá nhân</a>
                         </li>
-                      @*   <li>
-                            <a asp-controller="Account" asp-action="Favorite"
-                               class="nav-link btn btn-block btn-md btn-black-default-hover">Yêu Thích</a>
-                        </li> *@
                         <li>
                             <a asp-controller="Account" asp-action="Logout"
                                class="nav-link btn btn-block btn-md btn-black-default-hover">Đăng xuất</a>
@@ -53,143 +49,417 @@
             <div class="col-sm-12 col-md-9 col-lg-9">
                 <!-- Tab panes -->
                 <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
-
                     <div class="tab-pane fade show active">
-                        <h4>Đơn hàng</h4>
+                        <h4>Đơn hàng của tôi</h4>
 
-                        <div class="row">
-                            <form method="get" class="mb-3">
-
-                                <select id="statusFilter" name="status" onchange="this.form.submit()">
-
-                                    <option value="">Tất cả</option>
-
-                                    <option value="1">Chưa thanh toán</option>
-
-                                    <option value="2">Đã thanh toán</option>
-
-                                    <option value="3">Đã hủy</option>
-
+                        <!-- Order Status Filter -->
+                        <div class="order-filter-section mb-4">
+                            <form method="get" class="d-flex align-items-center gap-3">
+                                <label for="statusFilter" class="form-label mb-0">Lọc theo trạng thái:</label>
+                                <select id="statusFilter" name="status" class="form-select" style="width: auto;" onchange="this.form.submit()">
+                                    <option value="">Tất cả đơn hàng</option>
+                                    <option value="0" selected="@(Context.Request.Query["status"] == "0")">Chờ xác nhận</option>
+                                    <option value="1" selected="@(Context.Request.Query["status"] == "1")">Chưa thanh toán</option>
+                                    <option value="2" selected="@(Context.Request.Query["status"] == "2")">Đã thanh toán</option>
+                                    <option value="3" selected="@(Context.Request.Query["status"] == "3")">Đang giao hàng</option>
+                                    <option value="4" selected="@(Context.Request.Query["status"] == "4")">Đã giao hàng</option>
+                                    <option value="5" selected="@(Context.Request.Query["status"] == "5")">Đã hủy</option>
+                                    <option value="6" selected="@(Context.Request.Query["status"] == "6")">Đang xử lý</option>
+                                    <option value="7" selected="@(Context.Request.Query["status"] == "7")">Đã xác nhận</option>
+                                    <option value="8" selected="@(Context.Request.Query["status"] == "8")">Hoàn thành</option>
+                                    <option value="9" selected="@(Context.Request.Query["status"] == "9")">Trả hàng</option>
+                                    <option value="10" selected="@(Context.Request.Query["status"] == "10")">Hoàn tiền</option>
                                 </select>
-
                             </form>
                         </div>
 
                         <div class="alert alert-info">
                             <i class="fas fa-info-circle"></i>
-                            <strong>Lưu ý:</strong> Bạn chỉ có thể hủy đơn hàng trong vòng <strong>1 giờ</strong> sau khi đặt hàng.
+                            <strong>Lưu ý:</strong> Bạn chỉ có thể hủy đơn hàng trong vòng <strong>1 giờ</strong> sau khi đặt hàng và khi đơn hàng chưa được xác nhận.
                         </div>
 
-                        <div class="table_page table-responsive">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Mã đơn hàng</th>
-                                        <th>Ngày đặt</th>
-                                        <th>Họ tên</th>
-                                        <th>Trạng thái</th>
-                                        <th>Tổng tiền</th>
-                                        <th>Thao tác</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (!Model.Any())
-                                    {
-                                        <p>Không có đơn hàng nào.</p>
-                                    }
-                                    else
-                                    {
-                                        @foreach (var bill in Model)
-                                        {
-                                            <tr>
-                                                <td>@bill.MaHoaDon</td>
-                                                <td>@bill.NgayDatHang.ToString("dd-MM-yyyy")</td>
-                                                <td>@bill.HoTen</td>
-                                                <td>
-                                                    <span class="@(bill.TrangThai == 1 ? "warning" : bill.TrangThai == 2 ? "success" : "danger")">
-                                                        @(bill.TrangThai == 1 ? "Chưa thanh toán" : bill.TrangThai == 2 ? "Đã thanh toán" : "Đã hủy")
-                                                    </span>
-                                                </td>
-                                                <td>@(((double)bill.TongTien).ToString("#,0")) VND</td>
-                                                <td>
-                                                    @{
-                                                        var canCancel = bill.TrangThai == 1 && (DateTime.Now - bill.NgayDatHang).TotalHours <= 1;
-                                                    }
-                                                    @if (canCancel)
+                        @if (!Model.Any())
+                        {
+                            <div class="empty-orders text-center py-5">
+                                <i class="fas fa-shopping-bag fa-3x text-muted mb-3"></i>
+                                <h5 class="text-muted">Không có đơn hàng nào</h5>
+                                <p class="text-muted">Hãy khám phá các sản phẩm tuyệt vời của chúng tôi!</p>
+                                <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Mua sắm ngay</a>
+                            </div>
+                        }
+                        else
+                        {
+                            @foreach (var bill in Model)
+                            {
+                                <div class="order-card mb-4">
+                                    <div class="order-header">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-6">
+                                                <h6 class="order-number">Đơn hàng #@bill.MaHoaDon</h6>
+                                                <small class="text-muted">Đặt ngày: @bill.NgayDatHang.ToString("dd/MM/yyyy HH:mm")</small>
+                                            </div>
+                                            <div class="col-md-6 text-md-end">
+                                                <span class="order-status @GetStatusClass(bill.TrangThai)">
+                                                    @GetStatusText(bill.TrangThai)
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="order-body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="customer-info mb-3">
+                                                    <h6>Thông tin giao hàng</h6>
+                                                    <p class="mb-1"><strong>Người nhận:</strong> @bill.HoTen</p>
+                                                    <p class="mb-1"><strong>Số điện thoại:</strong> @bill.SoDienThoai</p>
+                                                    <p class="mb-1"><strong>Email:</strong> @bill.Email</p>
+                                                    <p class="mb-1"><strong>Địa chỉ:</strong> @bill.DiaChi</p>
+                                                    @if (!string.IsNullOrEmpty(bill.PhuongThucThanhToan))
                                                     {
-                                                        <form method="post" action="@Url.Action("Order", "Account")" style="display:inline;">
-                                                            @Html.AntiForgeryToken()
-                                                            <input type="hidden" name="id" value="@bill.MaHoaDon" />
-                                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này? Chỉ có thể hủy trong vòng 1 giờ sau khi đặt hàng.');">Hủy</button>
-                                                        </form>
+                                                        <p class="mb-1"><strong>Phương thức thanh toán:</strong> @bill.PhuongThucThanhToan</p>
                                                     }
-                                                    else if (bill.TrangThai == 1)
-                                                    {
-                                                        <span class="text-muted small">Quá thời gian hủy</span>
-                                                    }
-                                                </td>
-                                            </tr>
-                                        }
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
+                                                </div>
+
+                                                @if (bill.ChiTietHoaDons.Any())
+                                                {
+                                                    <div class="order-items">
+                                                        <h6>Sản phẩm đã đặt</h6>
+                                                        @foreach (var item in bill.ChiTietHoaDons)
+                                                        {
+                                                            <div class="order-item d-flex align-items-center mb-2">
+                                                                @if (!string.IsNullOrEmpty(item.SanPham?.HinhAnh))
+                                                                {
+                                                                        <img src="@Url.Content(@item.SanPham.HinhAnh ?? "/Images/default-image.jpg")"
+                                                                             alt="@item.SanPham.TenSanPham" class="item-image me-3"
+                                 style="object-fit: cover; "
+                                 onerror="this.src='/Images/default-image.jpg'; this.onerror=null;" />
+                                                                  }
+                                                                else
+                                                                {
+                                                                    <img src="~/Images/default-image.jpg" alt="Default" class="item-image me-3">
+                                                                }
+                                                                <div class="item-details flex-grow-1">
+                                                                    <h6 class="item-name mb-1">@item.SanPham?.TenSanPham</h6>
+                                                                    <p class="item-info mb-0">
+                                                                        <span class="quantity">Số lượng: @item.SoLuong</span>
+                                                                        <span class="price ms-3">Giá: @(((double)item.Gia).ToString("#,0")) VND</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="item-total">
+                                                                    <strong>@(((double)item.TongTien).ToString("#,0")) VND</strong>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="order-summary">
+                                                    <div class="total-amount mb-3">
+                                                        <h5>Tổng tiền: <span class="text-primary">@(((double)bill.TongTien).ToString("#,0")) VND</span></h5>
+                                                    </div>
+
+                                                    <div class="order-actions">
+                                                        @{
+                                                            var canCancel = (bill.TrangThai == 0 || bill.TrangThai == 1) && (DateTime.Now - bill.NgayDatHang).TotalHours <= 1;
+                                                        }
+
+                                                        @if (canCancel)
+                                                        {
+                                                            <form method="post" action="@Url.Action("Order", "Account")" class="d-inline">
+                                                                @Html.AntiForgeryToken()
+                                                                <input type="hidden" name="id" value="@bill.MaHoaDon" />
+                                                                <button type="submit" class="btn btn-danger btn-sm w-100 mb-2"
+                                                                        onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?');">
+                                                                    <i class="fas fa-times"></i> Hủy đơn hàng
+                                                                </button>
+                                                            </form>
+                                                        }
+
+                                                        @if (bill.TrangThai == 1)
+                                                        {
+                                                            <button class="btn btn-success btn-sm w-100 mb-2" onclick="alert('Tính năng thanh toán sẽ được cập nhật sớm!')">
+                                                                <i class="fas fa-credit-card"></i> Thanh toán ngay
+                                                            </button>
+                                                        }
+
+                                                        @if (bill.TrangThai == 4)
+                                                        {
+                                                            @*  <button class="btn btn-outline-primary btn-sm w-100 mb-2" onclick="alert('Tính năng đánh giá sẽ được cập nhật sớm!')">
+                                                                    <i class="fas fa-star"></i> Đánh giá sản phẩm
+                                                                </button> *@
+                                                        }
+
+                                                        @* <button class="btn btn-outline-secondary btn-sm w-100"
+                                                                    onclick="alert('Chi tiết đơn hàng #@bill.MaHoaDon')">
+                                                                <i class="fas fa-eye"></i> Xem chi tiết
+                                                            </button> *@
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div> <!-- ...:::: End Account Dashboard Section:::... -->
+@functions {
+    string GetStatusText(int status)
+    {
+        return status switch
+        {
+            0 => "Chờ xác nhận",
+            1 => "Chưa thanh toán",
+            2 => "Đã thanh toán",
+            3 => "Đang giao hàng",
+            4 => "Đã giao hàng",
+            5 => "Đã hủy",
+            6 => "Đang xử lý",
+            7 => "Đã xác nhận",
+            8 => "Hoàn thành",
+            9 => "Trả hàng",
+            10 => "Hoàn tiền",
+            _ => $"Trạng thái {status}"
+        };
+    }
+
+    string GetStatusClass(int status)
+    {
+        return status switch
+        {
+            0 => "status-pending",
+            1 => "status-unpaid",
+            2 => "status-paid",
+            3 => "status-shipping",
+            4 => "status-delivered",
+            5 => "status-cancelled",
+            6 => "status-processing",
+            7 => "status-confirmed",
+            8 => "status-completed",
+            9 => "status-returned",
+            10 => "status-refunded",
+            _ => "status-unknown"
+        };
+    }
+}
 
 <style>
-    .table {
+    .order-filter-section {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+    }
+
+    .order-card {
         background: white;
-        border-radius: 5px;
+        border: 1px solid #e9ecef;
+        border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: box-shadow 0.3s ease;
     }
 
-        .table th {
-            background: #f8f9fa;
-            font-weight: 600;
-            border-bottom: 2px solid #dee2e6;
+        .order-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
-        .table td {
-            vertical-align: middle;
+    .order-header {
+        background: #f8f9fa;
+        padding: 15px 20px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .order-number {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .order-body {
+        padding: 20px;
+    }
+
+    .customer-info h6, .order-items h6 {
+        color: #0d2a27;
+        font-weight: 600;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #0d2a27;
+    }
+
+    .order-item {
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+    }
+
+    .item-image {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .item-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .item-info {
+        font-size: 13px;
+        color: #666;
+    }
+
+    .item-total {
+        font-weight: 600;
+        color: #0d2a27;
+    }
+
+    .order-summary {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+    }
+
+    .total-amount {
+        text-align: center;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #0d2a27;
+    }
+
+    /* Status badges */
+    .order-status {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .status-pending {
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeaa7;
+    }
+
+    .status-unpaid {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    .status-paid {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .status-shipping {
+        background: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+    }
+
+    .status-delivered {
+        background: #d1e7dd;
+        color: #0f5132;
+        border: 1px solid #badbcc;
+    }
+
+    .status-cancelled {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    .status-unknown {
+        background: #e2e3e5;
+        color: #383d41;
+        border: 1px solid #d6d8db;
+    }
+
+    .status-processing {
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeaa7;
+    }
+
+    .status-confirmed {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .status-completed {
+        background: #d1e7dd;
+        color: #0f5132;
+        border: 1px solid #badbcc;
+    }
+
+    .status-returned {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    .status-refunded {
+        background: #e2e3e5;
+        color: #383d41;
+        border: 1px solid #d6d8db;
+    }
+
+    .empty-orders {
+        background: white;
+        border-radius: 10px;
+        border: 1px solid #e9ecef;
+    }
+
+    .btn-primary {
+        background: #0d2a27;
+        border-color: #0d2a27;
+    }
+
+        .btn-primary:hover {
+            background: #1a4039;
+            border-color: #1a4039;
         }
-
-    .btn-danger {
-        background: #dc3545;
-        border-color: #dc3545;
-        color: white;
-    }
-
-        .btn-danger:hover {
-            background: #c82333;
-            border-color: #bd2130;
-        }
-
-    .success {
-        color: #28a745;
-        font-weight: 600;
-    }
-
-    .warning {
-        color: #ffc107;
-        font-weight: 600;
-    }
-
-    .danger {
-        color: #dc3545;
-        font-weight: 600;
-    }
 
     .alert-info {
         background-color: #d1ecf1;
         border-color: #bee5eb;
         color: #0c5460;
-        border-radius: 5px;
-        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    @@media (max-width: 768px) {
+        .order-header .row {
+            text-align: center;
+        }
+
+        .order-header .col-md-6:last-child {
+            margin-top: 10px;
+        }
+
+        .item-image {
+            width: 50px;
+            height: 50px;
+        }
+
+        .order-summary {
+            margin-top: 20px;
+        }
     }
 </style>

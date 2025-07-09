@@ -1,6 +1,12 @@
 ﻿@model IEnumerable<Ecommerce_CaFeShop.Models.SanPham>
 @{
     ViewData["Title"] = "Quản lý sản phẩm";
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int totalPages = ViewBag.TotalPages ?? 1;
+    int totalProducts = ViewBag.TotalProducts ?? 0;
+    string search = ViewBag.Search ?? "";
+    string category = ViewBag.Category ?? "";
+    string status = ViewBag.Status ?? "";
 }
 
 <div class="app-content pt-3 p-md-3 p-lg-4">
@@ -11,7 +17,7 @@
                 <h1 class="app-page-title mb-0">
                     <i class="bi bi-box-seam me-2"></i>Quản lý sản phẩm
                 </h1>
-                <p class="text-muted mb-0">Quản lý toàn bộ sản phẩm trong hệ thống</p>
+                <p class="text-muted mb-0">Tổng cộng @totalProducts sản phẩm</p>
             </div>
             <div class="col-auto">
                 <div class="page-utilities">
@@ -39,7 +45,7 @@
                         <h4 class="stats-type mb-1">Tổng sản phẩm</h4>
                         <div class="stats-figure">@Model.Count()</div>
                         <div class="stats-meta text-success">
-                            <i class="bi bi-arrow-up"></i> 12% từ tháng trước
+                            <i class="bi bi-arrow-up"></i> Trang @currentPage/@totalPages
                         </div>
                     </div>
                 </div>
@@ -76,42 +82,47 @@
         <!-- Filter and Search Section -->
         <div class="app-card app-card-orders-table shadow-sm mb-4">
             <div class="app-card-body">
-                <div class="search-form mb-3">
-                    <div class="row g-3">
+                <form method="get" asp-action="Index" class="search-form">
+                    <div class="row g-3 mb-3">
                         <div class="col-12 col-md-4">
                             <div class="position-relative">
-                                <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                                <input type="text" name="search" value="@search" class="form-control" placeholder="Tìm kiếm sản phẩm...">
                                 <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
                             </div>
                         </div>
                         <div class="col-12 col-md-3">
-                            <select id="statusFilter" class="form-select">
-                                <option value="all">Tất cả trạng thái</option>
-                                <option value="1">Đang hiển thị</option>
-                                <option value="0">Đang ẩn</option>
+                            <select name="status" class="form-select">
+                                <option value="">Tất cả trạng thái</option>
+                                <option value="1" selected="@(status == "1")">Đang hiển thị</option>
+                                <option value="0" selected="@(status == "0")">Đang ẩn</option>
                             </select>
                         </div>
                         <div class="col-12 col-md-3">
-                            <select id="categoryFilter" class="form-select">
-                                <option value="all">Tất cả danh mục</option>
-                                @foreach (var category in Model.Where(p => p.DanhMuc != null).Select(p => p.DanhMuc).Distinct())
+                            <select name="category" class="form-select">
+                                <option value="">Tất cả danh mục</option>
+                                @foreach (var cat in Model.Where(p => p.DanhMuc != null).Select(p => p.DanhMuc).Distinct())
                                 {
-                                    <option value="@category.TenDanhMuc">@category.TenDanhMuc</option>
+                                    <option value="@cat.TenDanhMuc" selected="@(category == cat.TenDanhMuc)">@cat.TenDanhMuc</option>
                                 }
                             </select>
                         </div>
                         <div class="col-12 col-md-2">
-                            <button type="button" class="btn app-btn-secondary w-100" onclick="resetFilters()">
-                                <i class="bi bi-arrow-counterclockwise me-1"></i>Reset
-                            </button>
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn app-btn-primary">
+                                    <i class="bi bi-search me-1"></i>Lọc
+                                </button>
+                                <a href="@Url.Action("Index")" class="btn app-btn-secondary">
+                                    <i class="bi bi-arrow-counterclockwise"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
         <!-- Products Table -->
-        <div class="app-card app-card-orders-table shadow-sm mb-5">
+        <div class="app-card app-card-orders-table shadow-sm mb-4">
             <div class="app-card-body">
                 <div class="table-responsive">
                     <table class="table app-table-hover mb-0 text-left">
@@ -129,10 +140,10 @@
                                 <th class="cell">Thao tác</th>
                             </tr>
                         </thead>
-                        <tbody id="productTable">
+                        <tbody>
                             @foreach (var product in Model)
                             {
-                                <tr data-status="@product.TrangThai" data-category="@(product.DanhMuc?.TenDanhMuc ?? "")">
+                                <tr>
                                     <td class="cell">
                                         <input class="form-check-input row-checkbox" type="checkbox" value="@product.MaSanPham">
                                     </td>
@@ -156,10 +167,11 @@
                                     </td>
                                     <td class="cell">
                                         <div class="price-info">
-                                            <div class="current-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0}", product.Gia)</div>
+                                            <div class="current-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", product.Gia)</div>
                                             @if (product.GiaKhuyenMai.HasValue && product.GiaKhuyenMai.Value > 0)
                                             {
-                                                <div class="sale-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0}", product.GiaKhuyenMai)</div>
+                                                <div class="sale-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", product.GiaKhuyenMai)</div>
+                                                <div class="discount-percent">-@product.PhanTramGiam%</div>
                                             }
                                         </div>
                                     </td>
@@ -256,6 +268,66 @@
                 </div>
             </div>
         </div>
+
+        <!-- Pagination -->
+        @if (totalPages > 1)
+        {
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="showing-info">
+                    <small class="text-muted">
+                        Hiển thị @((currentPage - 1) * 10 + 1) - @(Math.Min(currentPage * 10, totalProducts)) trong tổng số @totalProducts sản phẩm
+                    </small>
+                </div>
+                <nav aria-label="Phân trang sản phẩm">
+                    <ul class="pagination pagination-sm mb-0">
+                        <!-- First Page -->
+                        @if (currentPage > 1)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="@Url.Action("Index", new { page = 1, search = search, category = category, status = status })">
+                                    <i class="bi bi-chevron-double-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="@Url.Action("Index", new { page = currentPage - 1, search = search, category = category, status = status })">
+                                    <i class="bi bi-chevron-left"></i>
+                                </a>
+                            </li>
+                        }
+
+                        <!-- Page Numbers -->
+                        @{
+                            int startPage = Math.Max(1, currentPage - 2);
+                            int endPage = Math.Min(totalPages, currentPage + 2);
+                        }
+
+                        @for (int i = startPage; i <= endPage; i++)
+                        {
+                            <li class="page-item @(i == currentPage ? "active" : "")">
+                                <a class="page-link" href="@Url.Action("Index", new { page = i, search = search, category = category, status = status })">
+                                    @i
+                                </a>
+                            </li>
+                        }
+
+                        <!-- Next Page -->
+                        @if (currentPage < totalPages)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="@Url.Action("Index", new { page = currentPage + 1, search = search, category = category, status = status })">
+                                    <i class="bi bi-chevron-right"></i>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="@Url.Action("Index", new { page = totalPages, search = search, category = category, status = status })">
+                                    <i class="bi bi-chevron-double-right"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        }
     </div>
 </div>
 
@@ -378,22 +450,53 @@
         padding: 0.5em 0.75em;
     }
 
-    @@media (max-width: 768px) {
-        .table-responsive
+    .pagination .page-link {
+        border-radius: 6px;
+        margin: 0 2px;
+        border: 1px solid #dee2e6;
+        color: #6c757d;
+        padding: 0.5rem 0.75rem;
+    }
 
-    {
+    .pagination .page-item.active .page-link {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        color: white;
+    }
+
+    .pagination .page-link:hover {
+        background-color: #e9ecef;
+        border-color: #dee2e6;
+        color: #0d6efd;
+    }
+
+    .showing-info {
+        color: #6c757d;
         font-size: 0.875rem;
     }
 
-    .product-thumb {
-        width: 40px;
-        height: 40px;
-    }
+    @@media (max-width: 768px) {
+        .table-responsive {
+            font-size: 0.875rem;
+        }
 
-    .btn-group .btn {
-        padding: 0.25rem 0.5rem;
-    }
+        .product-thumb {
+            width: 40px;
+            height: 40px;
+        }
 
+        .btn-group .btn {
+            padding: 0.25rem 0.5rem;
+        }
+
+        .pagination {
+            justify-content: center;
+        }
+
+        .showing-info {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
     }
 </style>
 
@@ -430,51 +533,7 @@
             checkAll.indeterminate = count > 0 && count < rowCheckboxes.length;
             checkAll.checked = count === rowCheckboxes.length;
         }
-
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        const statusFilter = document.getElementById('statusFilter');
-        const categoryFilter = document.getElementById('categoryFilter');
-
-        function filterTable() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const statusValue = statusFilter.value;
-            const categoryValue = categoryFilter.value;
-            const rows = document.querySelectorAll('#productTable tr');
-
-            rows.forEach(row => {
-                const productName = row.querySelector('.product-name')?.textContent.toLowerCase() || '';
-                const productCode = row.querySelector('.product-code')?.textContent.toLowerCase() || '';
-                const productStatus = row.getAttribute('data-status');
-                const productCategory = row.getAttribute('data-category');
-
-                const matchesSearch = productName.includes(searchTerm) || productCode.includes(searchTerm);
-                const matchesStatus = statusValue === 'all' || productStatus === statusValue;
-                const matchesCategory = categoryValue === 'all' || productCategory === categoryValue;
-
-                if (matchesSearch && matchesStatus && matchesCategory) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-
-        searchInput.addEventListener('input', filterTable);
-        statusFilter.addEventListener('change', filterTable);
-        categoryFilter.addEventListener('change', filterTable);
     });
-
-    function resetFilters() {
-        document.getElementById('searchInput').value = '';
-        document.getElementById('statusFilter').value = 'all';
-        document.getElementById('categoryFilter').value = 'all';
-
-        const rows = document.querySelectorAll('#productTable tr');
-        rows.forEach(row => {
-            row.style.display = '';
-        });
-    }
 
     function bulkShow() {
         const checkedBoxes = document.querySelectorAll('.row-checkbox:checked');

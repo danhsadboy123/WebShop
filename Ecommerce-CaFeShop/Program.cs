@@ -29,10 +29,10 @@ builder.Services.AddAuthentication(options =>
     options.AccessDeniedPath = "/Home/404";
 })
 .AddCookie("Admin", options =>
- {
-     options.LoginPath = "/Admin/Account/Login";
-     options.AccessDeniedPath = "/Home/404";
- });
+{
+    options.LoginPath = "/Admin/Account/Login";
+    options.AccessDeniedPath = "/Home/404";
+});
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("Admin", policy => policy.RequireClaim(ClaimTypes.Role, "2").AuthenticationSchemes = new[] { "Admin" });
@@ -72,15 +72,13 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
-
-app.MapStaticAssets();
+app.UseStaticFiles();
 
 
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}")
-    .RequireAuthorization("Admin")
-    .WithStaticAssets();
+    .RequireAuthorization("Admin");
 
 
 //app.MapControllerRoute(
@@ -91,8 +89,7 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
 var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<CaFeContext>();

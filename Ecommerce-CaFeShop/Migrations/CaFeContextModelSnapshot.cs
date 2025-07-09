@@ -354,6 +354,9 @@ namespace Ecommerce_CaFeShop.Migrations
                     b.Property<int?>("KhachHangMaKhachHang")
                         .HasColumnType("int");
 
+                    b.Property<string>("LyDoHuy")
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<int>("MaKhachHang")
                         .HasColumnType("int");
 
@@ -411,9 +414,6 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     b.Property<int?>("MaTaiKhoan")
                         .HasColumnType("int");
-
-                    b.Property<DateOnly?>("NgaySinh")
-                        .HasColumnType("date");
 
                     b.Property<string>("SoDienThoai")
                         .HasColumnType("varchar(15)");

@@ -2,6 +2,32 @@
     ViewData["Title"] = "Tổng quan";
 }
 @model Ecommerce_CaFeShop.Models.ViewModels.FooterVM
+<style>
+    .stats-meta {
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+        }
+
+    a.text-decoration-none .app-card:hover {
+        cursor: pointer;
+    }
+
+    a.text-decoration-none .stats-figure,
+    a.text-decoration-none .stats-type,
+    a.text-decoration-none .stats-meta {
+        color: inherit;
+    }
+</style>
+
 <div class="app-content pt-3 p-md-3 p-lg-4">
     <div class="container-xl">
         <!-- Welcome Header -->
@@ -44,103 +70,119 @@
                 <!-- Quick Stats Cards -->
                 <div class="row g-4 mb-5">
                     <div class="col-sm-6 col-lg-3">
-                        <div class="app-card app-card-stat shadow-sm h-100">
-                            <div class="app-card-body p-4 text-center">
-                                <div class="mb-3">
-                                    <i class="bi bi-cup-hot" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                        <a href="@Url.Action("Index", "Product", new { area = "Admin" })" class="text-decoration-none">
+                            <div class="app-card app-card-stat shadow-sm h-100 hover-lift">
+                                <div class="app-card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="bi bi-cup-hot" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                                    </div>
+                                    <h4 class="stats-type mb-1">Sản phẩm</h4>
+                                    <div class="stats-figure">@ViewBag.productCount</div>
+                                    <small class="text-light opacity-75">Tổng sản phẩm đang bán</small>
                                 </div>
-                                <h4 class="stats-type mb-1">Sản phẩm</h4>
-                                <div class="stats-figure">@ViewBag.productCount</div>
-                                <small class="text-light opacity-75">Tổng sản phẩm đang bán</small>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="col-sm-6 col-lg-3">
-                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                            <div class="app-card-body p-4 text-center">
-                                <div class="mb-3">
-                                    <i class="bi bi-people" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                        <a href="@Url.Action("Index", "User", new { area = "Admin" })" class="text-decoration-none">
+                            <div class="app-card shadow-sm h-100 hover-lift" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                <div class="app-card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="bi bi-people" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                                    </div>
+                                    <h4 class="stats-type mb-1">Khách hàng</h4>
+                                    <div class="stats-figure">@ViewBag.customerCount</div>
+                                    <small class="text-light opacity-75">Tổng số khách hàng</small>
                                 </div>
-                                <h4 class="stats-type mb-1">Khách hàng</h4>
-                                <div class="stats-figure">@ViewBag.customerCount</div>
-                                <small class="text-light opacity-75">Tổng số khách hàng</small>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="col-sm-6 col-lg-3">
-                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
-                            <div class="app-card-body p-4 text-center">
-                                <div class="mb-3">
-                                    <i class="bi bi-receipt" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                        <a href="@Url.Action("Index", "Bill", new { area = "Admin" })" class="text-decoration-none">
+                            <div class="app-card shadow-sm h-100 hover-lift" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                                <div class="app-card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="bi bi-receipt" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                                    </div>
+                                    <h4 class="stats-type mb-1">Đơn hàng</h4>
+                                    <div class="stats-figure">@ViewBag.orderCount</div>
+                                    <small class="text-light opacity-75">Tổng đơn hàng</small>
                                 </div>
-                                <h4 class="stats-type mb-1">Đơn hàng</h4>
-                                <div class="stats-figure">@ViewBag.orderCount</div>
-                                <small class="text-light opacity-75">Tổng đơn hàng</small>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="col-sm-6 col-lg-3">
-                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
-                            <div class="app-card-body p-4 text-center">
-                                <div class="mb-3">
-                                    <i class="bi bi-currency-dollar" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                        <a href="@Url.Action("Index", "Statistical", new { area = "Admin" })" class="text-decoration-none">
+                            <div class="app-card shadow-sm h-100 hover-lift" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
+                                <div class="app-card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="bi bi-currency-dollar" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                                    </div>
+                                    <h4 class="stats-type mb-1">Doanh thu</h4>
+                                    <div class="stats-figure">@String.Format("{0:N0}", ViewBag.monthlyRevenue)</div>
+                                    <small class="text-light opacity-75">VNĐ trong tháng</small>
                                 </div>
-                                <h4 class="stats-type mb-1">Doanh thu</h4>
-                                <div class="stats-figure">@String.Format("{0:N0}", ViewBag.monthlyRevenue)</div>
-                                <small class="text-light opacity-75">VNĐ trong tháng</small>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Order Status Stats -->
                 <div class="row g-4 mb-5">
                     <div class="col-sm-6 col-lg-3">
-                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); color: white;">
-                            <div class="app-card-body p-3 text-center">
-                                <div class="mb-2">
-                                    <i class="bi bi-clock-history" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                        <a href="@Url.Action("Index", "Bill", new { area = "Admin", status = 1 })" class="text-decoration-none">
+                            <div class="app-card shadow-sm h-100 hover-lift" style="background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); color: white;">
+                                <div class="app-card-body p-3 text-center">
+                                    <div class="mb-2">
+                                        <i class="bi bi-clock-history" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                                    </div>
+                                    <h6 class="mb-1">Chờ xác nhận</h6>
+                                    <div class="h4 mb-0">@ViewBag.pendingOrders</div>
                                 </div>
-                                <h6 class="mb-1">Chờ xác nhận</h6>
-                                <div class="h4 mb-0">@ViewBag.pendingOrders</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-sm-6 col-lg-3">
-                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); color: white;">
-                            <div class="app-card-body p-3 text-center">
-                                <div class="mb-2">
-                                    <i class="bi bi-check-circle" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                        <a href="@Url.Action("Index", "Bill", new { area = "Admin", status = 2 })" class="text-decoration-none">
+                            <div class="app-card shadow-sm h-100 hover-lift" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); color: white;">
+                                <div class="app-card-body p-3 text-center">
+                                    <div class="mb-2">
+                                        <i class="bi bi-check-circle" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                                    </div>
+                                    <h6 class="mb-1">Đã xác nhận</h6>
+                                    <div class="h4 mb-0">@ViewBag.confirmedOrders</div>
                                 </div>
-                                <h6 class="mb-1">Đã xác nhận</h6>
-                                <div class="h4 mb-0">@ViewBag.confirmedOrders</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-sm-6 col-lg-3">
-                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #55efc4 0%, #00b894 100%); color: white;">
-                            <div class="app-card-body p-3 text-center">
-                                <div class="mb-2">
-                                    <i class="bi bi-truck" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                        <a href="@Url.Action("Index", "Bill", new { area = "Admin", status = 3 })" class="text-decoration-none">
+                            <div class="app-card shadow-sm h-100 hover-lift" style="background: linear-gradient(135deg, #55efc4 0%, #00b894 100%); color: white;">
+                                <div class="app-card-body p-3 text-center">
+                                    <div class="mb-2">
+                                        <i class="bi bi-truck" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                                    </div>
+                                    <h6 class="mb-1">Đang xử lý</h6>
+                                    <div class="h4 mb-0">@ViewBag.processingOrders</div>
                                 </div>
-                                <h6 class="mb-1">Đang xử lý</h6>
-                                <div class="h4 mb-0">@ViewBag.processingOrders</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-sm-6 col-lg-3">
-                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); color: white;">
-                            <div class="app-card-body p-3 text-center">
-                                <div class="mb-2">
-                                    <i class="bi bi-x-circle" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                        <a href="@Url.Action("Index", "Bill", new { area = "Admin", status = 4 })" class="text-decoration-none">
+                            <div class="app-card shadow-sm h-100 hover-lift" style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); color: white;">
+                                <div class="app-card-body p-3 text-center">
+                                    <div class="mb-2">
+                                        <i class="bi bi-x-circle" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                                    </div>
+                                    <h6 class="mb-1">Đã hủy</h6>
+                                    <div class="h4 mb-0">@ViewBag.cancelledOrders</div>
                                 </div>
-                                <h6 class="mb-1">Đã hủy</h6>
-                                <div class="h4 mb-0">@ViewBag.cancelledOrders</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -378,3 +420,116 @@
         }
     });
 </script>
+@section Scripts {
+    <script src="~/lib/chart.js/chart.min.js"></script>
+    <script src="~/assets/js/index-charts.js"></script>
+
+    <style>
+        .status-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+            .status-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+
+        .status-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .status-info h3 {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+            color: #333;
+        }
+
+        .status-info p {
+            font-size: 14px;
+            margin: 0;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Pending Orders - Orange */
+        .status-card.pending .status-icon {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        /* Confirmed Orders - Blue */
+        .status-card.confirmed .status-icon {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        /* Processing Orders - Green */
+        .status-card.processing .status-icon {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        /* Cancelled Orders - Red */
+        .status-card.cancelled .status-icon {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        /* Shipping Orders - Purple */
+        .status-card.shipping .status-icon {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+
+        /* Delivered Orders - Teal */
+        .status-card.delivered .status-icon {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+        }
+
+        /* Completed Orders - Dark Green */
+        .status-card.completed .status-icon {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        /* Returned Orders - Orange Red */
+        .status-card.returned .status-icon {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        }
+
+        @@media (max-width: 768px) {
+            .status-card
+
+        {
+            margin-bottom: 15px;
+        }
+
+        .status-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin-right: 12px;
+        }
+
+        .status-info h3 {
+            font-size: 24px;
+        }
+
+        .status-info p {
+            font-size: 12px;
+        }
+
+        }
+    </style>
+}

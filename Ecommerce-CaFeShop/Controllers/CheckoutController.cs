@@ -143,7 +143,7 @@ namespace Ecommerce_CaFeShop.Controllers
                         Xa = model.Ward?.Trim() ?? "",
                         PhuongThucThanhToan = "COD",
                         TongTien = totalAmount,
-                        TrangThai = 1 // Chờ xác nhận
+                        TrangThai = 0 // Chờ xác nhận
                     };
 
                     _context.HoaDons.Add(hoaDon);
@@ -228,8 +228,8 @@ namespace Ecommerce_CaFeShop.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            // Kiểm tra xem đơn hàng có thể hủy được không (trong vòng 1 giờ)
-            ViewBag.CanCancel = order.TrangThai == 1 && (DateTime.Now - order.NgayDatHang).TotalHours <= 1;
+            // Kiểm tra xem đơn hàng có thể hủy được không (trong vòng 1 giờ và trạng thái phù hợp)
+            ViewBag.CanCancel = (order.TrangThai == 0 || order.TrangThai == 1) && (DateTime.Now - order.NgayDatHang).TotalHours <= 1;
 
             return View(order);
         }
@@ -258,8 +258,8 @@ namespace Ecommerce_CaFeShop.Controllers
                     return Json(new { success = false, message = "Không tìm thấy đơn hàng" });
                 }
 
-                // Kiểm tra trạng thái đơn hàng
-                if (order.TrangThai != 1)
+                // Kiểm tra trạng thái đơn hàng (chỉ cho phép hủy đơn hàng chờ xác nhận hoặc chưa thanh toán)
+                if (order.TrangThai != 0 && order.TrangThai != 1)
                 {
                     return Json(new { success = false, message = "Đơn hàng này không thể hủy" });
                 }
@@ -271,8 +271,8 @@ namespace Ecommerce_CaFeShop.Controllers
                     return Json(new { success = false, message = "Đã quá thời gian cho phép hủy đơn hàng (1 giờ)" });
                 }
 
-                // Cập nhật trạng thái đơn hàng thành đã hủy (status = 0)
-                order.TrangThai = 0;
+                // Cập nhật trạng thái đơn hàng thành đã hủy (status = 5)
+                order.TrangThai = 5;
                 await _context.SaveChangesAsync();
 
                 return Json(new { success = true, message = "Hủy đơn hàng thành công" });

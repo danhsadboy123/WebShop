@@ -113,14 +113,23 @@ public class AccountController : Controller
 
         Console.WriteLine($"Customer ID: {customerId}");
 
-        var query = _context.HoaDons.Where(b => b.MaKhachHang == customerId);
+        var query = _context.HoaDons
+            .Include(h => h.ChiTietHoaDons)
+                .ThenInclude(ct => ct.SanPham)
+            .Where(b => b.MaKhachHang == customerId);
 
         if (status.HasValue)
         {
             query = query.Where(b => b.TrangThai == status.Value);
         }
 
-        var bills = await query.ToListAsync();
+        var bills = await query.OrderByDescending(h => h.NgayDatHang).ToListAsync();
+
+        // Debug logging
+        foreach (var bill in bills)
+        {
+            Console.WriteLine($"Order {bill.MaHoaDon}: Status = {bill.TrangThai}, Date = {bill.NgayDatHang}, Total = {bill.TongTien}");
+        }
 
         return View(bills);
     }
@@ -153,16 +162,26 @@ public class AccountController : Controller
                 return RedirectToAction("Order");
             }
 
-            // Kiểm tra trạng thái đơn hàng
-            if (bill.TrangThai == 2)
+            Console.WriteLine($"Order {id} current status: {bill.TrangThai}");
+
+            // Kiểm tra nếu đơn hàng đã bị hủy
+            if (bill.TrangThai == 5)
             {
-                TempData["error"] = "Đơn hàng đã thanh toán, không thể hủy.";
+                TempData["error"] = "Đơn hàng này đã được hủy trước đó.";
                 return RedirectToAction("Order");
             }
 
-            if (bill.TrangThai == 3)
+            // Kiểm tra trạng thái đơn hàng
+            if (bill.TrangThai >= 2)
             {
-                TempData["error"] = "Đơn hàng đã bị hủy.";
+                var statusText = bill.TrangThai switch
+                {
+                    2 => "đã thanh toán",
+                    3 => "đang giao hàng",
+                    4 => "đã giao hàng",
+                    _ => "không thể hủy"
+                };
+                TempData["error"] = $"Đơn hàng {statusText}, không thể hủy.";
                 return RedirectToAction("Order");
             }
 
@@ -174,12 +193,12 @@ public class AccountController : Controller
                 return RedirectToAction("Order");
             }
 
-            // Cập nhật trạng thái đơn hàng thành đã hủy (status = 3)
-            bill.TrangThai = 3;
+            // Cập nhật trạng thái đơn hàng thành đã hủy (status = 5)
+            bill.TrangThai = 5;
             _context.HoaDons.Update(bill);
             await _context.SaveChangesAsync();
 
-            Console.WriteLine($"Successfully cancelled order {id}");
+            Console.WriteLine($"Successfully cancelled order {id}, new status: {bill.TrangThai}");
             TempData["success"] = "Đơn hàng đã được hủy thành công.";
         }
         catch (Exception ex)

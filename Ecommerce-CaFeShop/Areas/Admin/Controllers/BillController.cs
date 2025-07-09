@@ -22,6 +22,13 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
                 .Include(h => h.KhachHang)
                 .OrderByDescending(h => h.NgayDatHang)
                 .ToListAsync();
+
+            // Thống kê trạng thái đơn hàng
+            ViewBag.PendingCount = await _context.HoaDons.CountAsync(h => h.TrangThai == 0);
+            ViewBag.ConfirmedCount = await _context.HoaDons.CountAsync(h => h.TrangThai == 7);
+            ViewBag.ProcessingCount = await _context.HoaDons.CountAsync(h => h.TrangThai == 6);
+            ViewBag.CancelledCount = await _context.HoaDons.CountAsync(h => h.TrangThai == 5);
+
             return View(bills);
         }
 
@@ -51,7 +58,7 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
             }
 
             // Kiểm tra trạng thái hợp lệ
-            if (status < 1 || status > 4)
+            if (status < 0 || status > 10)
             {
                 TempData["error"] = "Trạng thái không hợp lệ";
                 return RedirectToAction("Details", new { id = id });
@@ -62,10 +69,17 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 
             string statusText = status switch
             {
-                1 => "Chờ xác nhận",
-                2 => "Đã xác nhận",
-                3 => "Đang xử lý",
-                4 => "Đã hủy",
+                0 => "Chờ xác nhận",
+                1 => "Chưa thanh toán",
+                2 => "Đã thanh toán",
+                3 => "Đang giao hàng",
+                4 => "Đã giao hàng",
+                5 => "Đã hủy",
+                6 => "Đang xử lý",
+                7 => "Đã xác nhận",
+                8 => "Hoàn thành",
+                9 => "Trả hàng",
+                10 => "Hoàn tiền",
                 _ => "Không xác định"
             };
 
