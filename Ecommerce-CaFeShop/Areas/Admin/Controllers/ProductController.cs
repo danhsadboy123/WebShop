@@ -21,14 +21,56 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
         }
 
         // Hiển thị danh sách sản phẩm
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search, string? status, string? category, int page = 1)
         {
-            var products = await _context.SanPhams
+            var pageSize = 10;
+            var products = _context.SanPhams
                 .Include(p => p.ThuongHieu)
                 .Include(p => p.DanhMuc)
-                .OrderByDescending(p => p.NgayTao) // Sắp xếp theo NgayTao giảm dần
+                .AsQueryable();
+
+            // Tìm kiếm theo tên sản phẩm
+            if (!string.IsNullOrEmpty(search))
+            {
+                products = products.Where(p => p.TenSanPham.Contains(search));
+            }
+
+            // Lọc theo trạng thái
+            if (!string.IsNullOrEmpty(status))
+            {
+                if (int.TryParse(status, out int statusValue))
+                {
+                    products = products.Where(p => p.TrangThai == statusValue);
+                }
+            }
+
+            // Lọc theo danh mục
+            if (!string.IsNullOrEmpty(category))
+            {
+                products = products.Where(p => p.DanhMuc != null && p.DanhMuc.TenDanhMuc == category);
+            }
+
+            // Sắp xếp theo NgayTao giảm dần
+            products = products.OrderByDescending(p => p.NgayTao);
+
+            // Tính toán phân trang
+            var totalProducts = await products.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
+
+            var productList = await products
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
-            return View(products);
+
+            // Truyền dữ liệu phân trang qua ViewBag
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.TotalProducts = totalProducts;
+            ViewBag.Search = search;
+            ViewBag.Status = status;
+            ViewBag.Category = category;
+
+            return View(productList);
         }
 
         // Hiển thị form thêm sản phẩm

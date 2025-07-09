@@ -42,6 +42,7 @@ namespace Ecommerce_CaFeShop.Components
                     Slug = x.Product.Slug,
                     ProductName = x.Product.TenSanPham,
                     Price = x.Product.Gia,
+                    DiscountPrice = (double?)x.Product.GiaKhuyenMai,
                     Image = x.Product.HinhAnh,
                     ProductRating = x.AvgRating,
                     SoldQuantity = x.TotalSold
