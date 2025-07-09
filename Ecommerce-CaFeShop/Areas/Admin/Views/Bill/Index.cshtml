@@ -127,21 +127,27 @@
                         <form method="get" asp-action="Index">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <select class="form-select" name="status" onchange="this.form.submit()">
+                                    <select class="form-select" name="status">
                                         <option value="">Tất cả trạng thái</option>
-                                        <option value="1" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "1")">Chờ xác nhận</option>
-                                        <option value="2" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "2")">Đã xác nhận</option>
-                                        <option value="3" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "3")">Đang xử lý</option>
-                                        <option value="4" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "4")">Đã hủy</option>
-                                        <option value="5" selected="@(ViewBag.CurrentStatus != null && ViewBag.CurrentStatus.ToString() == "5")">Đã hủy</option>
+                                        <option value="0" selected="@(ViewBag.CurrentStatus?.ToString() == "0" ? "selected" : null)">Chờ xác nhận</option>
+                                        <option value="1" selected="@(ViewBag.CurrentStatus?.ToString() == "1" ? "selected" : null)">Chưa thanh toán</option>
+                                        <option value="2" selected="@(ViewBag.CurrentStatus?.ToString() == "2" ? "selected" : null)">Đã thanh toán</option>
+                                        <option value="3" selected="@(ViewBag.CurrentStatus?.ToString() == "3" ? "selected" : null)">Đang giao hàng</option>
+                                        <option value="4" selected="@(ViewBag.CurrentStatus?.ToString() == "4" ? "selected" : null)">Đã giao hàng</option>
+                                        <option value="5" selected="@(ViewBag.CurrentStatus?.ToString() == "5" ? "selected" : null)">Đã hủy</option>
+                                        <option value="6" selected="@(ViewBag.CurrentStatus?.ToString() == "6" ? "selected" : null)">Đang xử lý</option>
+                                        <option value="7" selected="@(ViewBag.CurrentStatus?.ToString() == "7" ? "selected" : null)">Đã xác nhận</option>
+                                        <option value="8" selected="@(ViewBag.CurrentStatus?.ToString() == "8" ? "selected" : null)">Hoàn thành</option>
+                                        <option value="9" selected="@(ViewBag.CurrentStatus?.ToString() == "9" ? "selected" : null)">Trả hàng</option>
+                                        <option value="10" selected="@(ViewBag.CurrentStatus?.ToString() == "10" ? "selected" : null)">Hoàn tiền</option>
                                     </select>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="date" class="form-control" name="dateFilter" value="@ViewBag.DateFilter" onchange="this.form.submit()" placeholder="Lọc theo ngày">
+                              @*   <div class="col-md-3">
+                                    <input type="date" class="form-control" name="dateFilter" value="@ViewBag.DateFilter" placeholder="Lọc theo ngày">
                                 </div>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" name="search" value="@ViewBag.Search" placeholder="Tìm kiếm theo mã đơn hàng, tên khách hàng...">
-                                </div>
+                                </div> *@
                                 <div class="col-md-2">
                                     <div class="d-flex gap-2">
                                         <button type="submit" class="btn btn-primary">
@@ -263,6 +269,57 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- Phân trang -->
+                    @if (ViewBag.TotalPages > 1)
+                    {
+                        <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination justify-content-center">
+                                @if (ViewBag.HasPrevious)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("Index", new { 
+                                            page = ViewBag.CurrentPage - 1, 
+                                            status = ViewBag.CurrentStatus, 
+                                            dateFilter = ViewBag.DateFilter, 
+                                            search = ViewBag.Search 
+                                        })">Trước</a>
+                                    </li>
+                                }
+
+                                @for (int i = Math.Max(1, ViewBag.CurrentPage - 2); i <= Math.Min(ViewBag.TotalPages, ViewBag.CurrentPage + 2); i++)
+                                {
+                                    <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                        <a class="page-link" href="@Url.Action("Index", new { 
+                                            page = i, 
+                                            status = ViewBag.CurrentStatus, 
+                                            dateFilter = ViewBag.DateFilter, 
+                                            search = ViewBag.Search 
+                                        })">@i</a>
+                                    </li>
+                                }
+
+                                @if (ViewBag.HasNext)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("Index", new { 
+                                            page = ViewBag.CurrentPage + 1, 
+                                            status = ViewBag.CurrentStatus, 
+                                            dateFilter = ViewBag.DateFilter, 
+                                            search = ViewBag.Search 
+                                        })">Sau</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+
+                        <div class="text-center mt-2">
+                            <small class="text-muted">
+                                Trang @ViewBag.CurrentPage của @ViewBag.TotalPages 
+                                (Tổng @ViewBag.TotalBills đơn hàng)
+                            </small>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -359,45 +416,5 @@
                 form.submit();
             }
         }
-
-        function clearFilters() {
-            document.getElementById('statusFilter').value = '';
-            document.getElementById('dateFilter').value = '';
-            document.getElementById('searchFilter').value = '';
-            filterTable();
-        }
-
-        function filterTable() {
-            var statusFilter = document.getElementById('statusFilter').value;
-            var dateFilter = document.getElementById('dateFilter').value;
-            var searchFilter = document.getElementById('searchFilter').value.toLowerCase();
-            var rows = document.querySelectorAll('#ordersTable tbody tr');
-
-            rows.forEach(function(row) {
-                var status = row.getAttribute('data-status');
-                var date = row.getAttribute('data-date');
-                var searchText = row.getAttribute('data-search').toLowerCase();
-
-                var showRow = true;
-
-                if (statusFilter && status !== statusFilter) {
-                    showRow = false;
-                }
-
-                if (dateFilter && date !== dateFilter) {
-                    showRow = false;
-                }
-
-                if (searchFilter && !searchText.includes(searchFilter)) {
-                    showRow = false;
-                }
-
-                row.style.display = showRow ? '' : 'none';
-            });
-        }
-
-        document.getElementById('statusFilter').addEventListener('change', filterTable);
-        document.getElementById('dateFilter').addEventListener('change', filterTable);
-        document.getElementById('searchFilter').addEventListener('input', filterTable);
     </script>
 }

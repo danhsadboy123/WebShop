@@ -21,7 +21,7 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
         }
 
         // Hiển thị danh sách sản phẩm
-        public async Task<IActionResult> Index(string? search, string? status, string? category, int page = 1)
+        public async Task<IActionResult> Index(string? search, string? status, string? category, string? brand, int page = 1)
         {
             var pageSize = 10;
             var products = _context.SanPhams
@@ -29,10 +29,12 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
                 .Include(p => p.DanhMuc)
                 .AsQueryable();
 
-            // Tìm kiếm theo tên sản phẩm
+            // Tìm kiếm theo tên sản phẩm và mã sản phẩm
             if (!string.IsNullOrEmpty(search))
             {
-                products = products.Where(p => p.TenSanPham.Contains(search));
+                products = products.Where(p =>
+                    p.TenSanPham.Contains(search) ||
+                    p.MaSanPhamCode.Contains(search));
             }
 
             // Lọc theo trạng thái
@@ -47,7 +49,19 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
             // Lọc theo danh mục
             if (!string.IsNullOrEmpty(category))
             {
-                products = products.Where(p => p.DanhMuc != null && p.DanhMuc.TenDanhMuc == category);
+                if (int.TryParse(category, out int categoryId))
+                {
+                    products = products.Where(p => p.MaDanhMuc == categoryId);
+                }
+            }
+
+            // Lọc theo thương hiệu
+            if (!string.IsNullOrEmpty(brand))
+            {
+                if (int.TryParse(brand, out int brandId))
+                {
+                    products = products.Where(p => p.MaThuongHieu == brandId);
+                }
             }
 
             // Sắp xếp theo NgayTao giảm dần
@@ -62,6 +76,10 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
                 .Take(pageSize)
                 .ToListAsync();
 
+            // Lấy danh sách danh mục và thương hiệu cho dropdown
+            ViewBag.Categories = await _context.DanhMucs.Where(d => d.DaXoa == 0).ToListAsync();
+            ViewBag.Brands = await _context.ThuongHieus.ToListAsync();
+
             // Truyền dữ liệu phân trang qua ViewBag
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = totalPages;
@@ -69,6 +87,7 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
             ViewBag.Search = search;
             ViewBag.Status = status;
             ViewBag.Category = category;
+            ViewBag.Brand = brand;
 
             return View(productList);
         }
@@ -344,6 +363,7 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             // Tìm sản phẩm theo ID
@@ -357,11 +377,29 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 
             try
             {
-                // Xóa sản phẩm khỏi cơ sở dữ liệu
-                _context.SanPhams.Remove(product);
-                await _context.SaveChangesAsync();
+                // Kiểm tra xem sản phẩm có đang được sử dụng trong đơn hàng không
+                var hasOrders = await _context.ChiTietHoaDons.AnyAsync(ct => ct.MaSanPham == id);
 
-                TempData["success"] = "Sản phẩm đã được xóa!";
+                if (hasOrders)
+                {
+                    // Nếu có đơn hàng, chỉ đánh dấu là đã xóa thay vì xóa thật
+                    product.DaXoa = 1;
+                    product.TrangThai = 0;
+                    product.NgayCapNhat = DateTime.Now;
+                    _context.Update(product);
+                    await _context.SaveChangesAsync();
+
+                    TempData["success"] = "Sản phẩm đã được ẩn khỏi hệ thống (có đơn hàng liên quan)!";
+                }
+                else
+                {
+                    // Nếu không có đơn hàng, có thể xóa thật
+                    _context.SanPhams.Remove(product);
+                    await _context.SaveChangesAsync();
+
+                    TempData["success"] = "Sản phẩm đã được xóa hoàn toàn!";
+                }
+
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

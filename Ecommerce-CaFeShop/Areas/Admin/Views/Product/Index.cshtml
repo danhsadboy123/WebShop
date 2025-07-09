@@ -6,7 +6,10 @@
     int totalProducts = ViewBag.TotalProducts ?? 0;
     string search = ViewBag.Search ?? "";
     string category = ViewBag.Category ?? "";
+    string brand = ViewBag.Brand ?? "";
     string status = ViewBag.Status ?? "";
+    var categories = ViewBag.Categories as List<Ecommerce_CaFeShop.Models.DanhMuc> ?? new List<Ecommerce_CaFeShop.Models.DanhMuc>();
+    var brands = ViewBag.Brands as List<Ecommerce_CaFeShop.Models.ThuongHieu> ?? new List<Ecommerce_CaFeShop.Models.ThuongHieu>();
 }
 
 <div class="app-content pt-3 p-md-3 p-lg-4">
@@ -84,36 +87,57 @@
             <div class="app-card-body">
                 <form method="get" asp-action="Index" class="search-form">
                     <div class="row g-3 mb-3">
-                        <div class="col-12 col-md-4">
-                            <div class="position-relative">
-                                <input type="text" name="search" value="@search" class="form-control" placeholder="Tìm kiếm sản phẩm...">
-                                <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
+                        <div class="col-12 col-md-3">
+                            <div class="form-group">
+                                <label class="form-label small">Tìm kiếm</label>
+                                <input type="text" name="search" value="@search" class="form-control" placeholder="Tên sản phẩm, mã sản phẩm...">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <div class="form-group">
+                                <label class="form-label small">Trạng thái</label>
+                                <select name="status" class="form-select">
+                                    <option value="">Tất cả trạng thái</option>
+                                    <option value="1" selected="@(status == "1")">Đang hiển thị</option>
+                                    <option value="0" selected="@(status == "0")">Đang ẩn</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <div class="form-group">
+                                <label class="form-label small">Danh mục</label>
+                                <select name="category" class="form-select">
+                                    <option value="">Tất cả danh mục</option>
+                                    @foreach (var cat in categories)
+                                    {
+                                        <option value="@cat.MaDanhMuc" selected="@(category == cat.MaDanhMuc.ToString())">@cat.TenDanhMuc</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <div class="form-group">
+                                <label class="form-label small">Thương hiệu</label>
+                                <select name="brand" class="form-select">
+                                    <option value="">Tất cả thương hiệu</option>
+                                    @foreach (var br in brands)
+                                    {
+                                        <option value="@br.MaThuongHieu" selected="@(brand == br.MaThuongHieu.ToString())">@br.TenThuongHieu</option>
+                                    }
+                                </select>
                             </div>
                         </div>
                         <div class="col-12 col-md-3">
-                            <select name="status" class="form-select">
-                                <option value="">Tất cả trạng thái</option>
-                                <option value="1" selected="@(status == "1")">Đang hiển thị</option>
-                                <option value="0" selected="@(status == "0")">Đang ẩn</option>
-                            </select>
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <select name="category" class="form-select">
-                                <option value="">Tất cả danh mục</option>
-                                @foreach (var cat in Model.Where(p => p.DanhMuc != null).Select(p => p.DanhMuc).Distinct())
-                                {
-                                    <option value="@cat.TenDanhMuc" selected="@(category == cat.TenDanhMuc)">@cat.TenDanhMuc</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <div class="d-flex gap-2">
-                                <button type="submit" class="btn app-btn-primary">
-                                    <i class="bi bi-search me-1"></i>Lọc
-                                </button>
-                                <a href="@Url.Action("Index")" class="btn app-btn-secondary">
-                                    <i class="bi bi-arrow-counterclockwise"></i>
-                                </a>
+                            <div class="form-group">
+                                <label class="form-label small">&nbsp;</label>
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn app-btn-primary">
+                                        <i class="bi bi-search me-1"></i>Lọc
+                                    </button>
+                                    <a href="@Url.Action("Index")" class="btn app-btn-secondary">
+                                        <i class="bi bi-arrow-counterclockwise"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -236,10 +260,11 @@
                                             }
 
                                             <form asp-action="Delete" method="post" style="display:inline;">
+                                                @Html.AntiForgeryToken()
                                                 <input type="hidden" name="id" value="@product.MaSanPham" />
                                                 <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         title="Xóa sản phẩm"
-                                                        onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này? Hành động này không thể hoàn tác!')">
+                                                        onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này? Hành động này có thể không hoàn tác được!')">
                                                     <i class="bi bi-trash"></i>
                                                 </button>
                                             </form>
@@ -284,12 +309,12 @@
                         @if (currentPage > 1)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="@Url.Action("Index", new { page = 1, search = search, category = category, status = status })">
+                                <a class="page-link" href="@Url.Action("Index", new { page = 1, search = search, category = category, brand = brand, status = status })">
                                     <i class="bi bi-chevron-double-left"></i>
                                 </a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link" href="@Url.Action("Index", new { page = currentPage - 1, search = search, category = category, status = status })">
+                                <a class="page-link" href="@Url.Action("Index", new { page = currentPage - 1, search = search, category = category, brand = brand, status = status })">
                                     <i class="bi bi-chevron-left"></i>
                                 </a>
                             </li>
@@ -304,7 +329,7 @@
                         @for (int i = startPage; i <= endPage; i++)
                         {
                             <li class="page-item @(i == currentPage ? "active" : "")">
-                                <a class="page-link" href="@Url.Action("Index", new { page = i, search = search, category = category, status = status })">
+                                <a class="page-link" href="@Url.Action("Index", new { page = i, search = search, category = category, brand = brand, status = status })">
                                     @i
                                 </a>
                             </li>
@@ -314,12 +339,12 @@
                         @if (currentPage < totalPages)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="@Url.Action("Index", new { page = currentPage + 1, search = search, category = category, status = status })">
+                                <a class="page-link" href="@Url.Action("Index", new { page = currentPage + 1, search = search, category = category, brand = brand, status = status })">
                                     <i class="bi bi-chevron-right"></i>
                                 </a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link" href="@Url.Action("Index", new { page = totalPages, search = search, category = category, status = status })">
+                                <a class="page-link" href="@Url.Action("Index", new { page = totalPages, search = search, category = category, brand = brand, status = status })">
                                     <i class="bi bi-chevron-double-right"></i>
                                 </a>
                             </li>

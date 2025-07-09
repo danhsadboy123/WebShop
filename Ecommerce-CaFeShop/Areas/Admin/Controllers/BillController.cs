@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Ecommerce_CaFeShop.Models;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 {
@@ -16,18 +20,64 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? status, DateTime? dateFilter, string search, int page = 1)
         {
-            var bills = await _context.HoaDons
+            const int pageSize = 10;
+
+            var query = _context.HoaDons
                 .Include(h => h.KhachHang)
+                .AsQueryable();
+
+            // Lọc theo trạng thái
+            if (status.HasValue)
+            {
+                query = query.Where(h => h.TrangThai == status.Value);
+            }
+
+            // Lọc theo ngày
+            if (dateFilter.HasValue)
+            {
+                query = query.Where(h => h.NgayDatHang.Date == dateFilter.Value.Date);
+            }
+
+            // Lọc theo tìm kiếm
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.Trim();
+                query = query.Where(h =>
+                    h.MaHoaDon.ToString().Contains(search) ||
+                    h.HoTen.Contains(search) ||
+                    h.SoDienThoai.Contains(search) ||
+                    h.Email.Contains(search));
+            }
+
+            var totalBills = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalBills / (double)pageSize);
+
+            var bills = await query
                 .OrderByDescending(h => h.NgayDatHang)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
 
-            // Thống kê trạng thái đơn hàng
+            // Thống kê trạng thái đơn hàng (tổng, không áp dụng lọc)
             ViewBag.PendingCount = await _context.HoaDons.CountAsync(h => h.TrangThai == 0);
             ViewBag.ConfirmedCount = await _context.HoaDons.CountAsync(h => h.TrangThai == 7);
             ViewBag.ProcessingCount = await _context.HoaDons.CountAsync(h => h.TrangThai == 6);
             ViewBag.CancelledCount = await _context.HoaDons.CountAsync(h => h.TrangThai == 5);
+            ViewBag.CompletedCount = await _context.HoaDons.CountAsync(h => h.TrangThai == 8);
+
+            // Thông tin phân trang
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.TotalBills = totalBills;
+            ViewBag.HasPrevious = page > 1;
+            ViewBag.HasNext = page < totalPages;
+
+            // Truyền các giá trị lọc hiện tại về view
+            ViewBag.CurrentStatus = status;
+            ViewBag.DateFilter = dateFilter?.ToString("yyyy-MM-dd");
+            ViewBag.Search = search;
 
             return View(bills);
         }

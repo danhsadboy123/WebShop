@@ -176,9 +176,9 @@
                                                 {
                                                     <tr>
                                                         <td>@item.SanPham.TenSanPham</td>
-                                                        <td>@string.Format("{0:C}", item.Gia)</td>
+                                                        <td>@item.Gia.ToString("N0").Replace(",", ".")</td>
                                                         <td>@item.SoLuong</td>
-                                                        <td>@string.Format("{0:C}", item.TongTien)</td>
+                                                        <td>@item.TongTien.ToString("N0").Replace(",", ".")</td>
                                                     </tr>
                                                 }
                                             }
@@ -192,7 +192,7 @@
                                         <tfoot class="table-light">
                                             <tr>
                                                 <th colspan="3">Tổng cộng:</th>
-                                                <th>@string.Format("{0:C}", Model.TongTien)</th>
+                                                <th>@Model.TongTien.ToString("N0").Replace(",", ".")</th>
                                             </tr>
                                         </tfoot>
                                     </table>
