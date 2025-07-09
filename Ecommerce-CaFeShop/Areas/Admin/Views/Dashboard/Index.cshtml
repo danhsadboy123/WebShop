@@ -4,99 +4,286 @@
 @model Ecommerce_CaFeShop.Models.ViewModels.FooterVM
 <div class="app-content pt-3 p-md-3 p-lg-4">
     <div class="container-xl">
+        <!-- Welcome Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1 class="app-page-title mb-2">
+                            <i class="bi bi-speedometer2 me-2"></i>Dashboard
+                        </h1>
+                        <p class="text-muted mb-0">Chào mừng bạn quay trở lại! Đây là tổng quan về cửa hàng của bạn.</p>
+                    </div>
+                    <div class="text-end">
+                        <small class="text-muted">Cập nhật lần cuối: @DateTime.Now.ToString("dd/MM/yyyy HH:mm")</small>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <h1 class="app-page-title">Tổng quan</h1>
         <!-- Nav Tabs -->
         <ul class="nav nav-tabs mb-4">
             <li class="nav-item">
                 <a class="nav-link active" id="nav-statistical-tab" data-bs-toggle="tab" href="#tab-statistical"
                    role="tab" aria-controls="tab-statistical" aria-selected="true">
-                    Thống kê
+                    <i class="bi bi-bar-chart me-2"></i>Thống kê tổng quan
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="nav-editweb-tab" data-bs-toggle="tab" href="#tab-editweb" role="tab"
                    aria-controls="tab-editweb" aria-selected="false">
-                    Chỉnh sửa thông tin Website
+                    <i class="bi bi-gear me-2"></i>Cài đặt Website
                 </a>
             </li>
         </ul>
+
         <div class="tab-content">
             <div class="tab-pane fade show active" id="tab-statistical" role="tabpanel"
                  aria-labelledby="nav-statistical-tab">
-                <div class="row g-5 mb-4 justify-content-center">
-                    <div class="col-6 col-lg-3">
+
+                <!-- Quick Stats Cards -->
+                <div class="row g-4 mb-5">
+                    <div class="col-sm-6 col-lg-3">
                         <div class="app-card app-card-stat shadow-sm h-100">
-                            <div class="app-card-body p-3 p-lg-4">
+                            <div class="app-card-body p-4 text-center">
+                                <div class="mb-3">
+                                    <i class="bi bi-cup-hot" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                                </div>
                                 <h4 class="stats-type mb-1">Sản phẩm</h4>
                                 <div class="stats-figure">@ViewBag.productCount</div>
-                            </div><!--//app-card-body-->
-                            <a class="app-card-link-mask" href="#"></a>
-                        </div><!--//app-card-->
-                    </div><!--//col-->
+                                <small class="text-light opacity-75">Tổng sản phẩm đang bán</small>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="col-6 col-lg-3">
-                        <div class="app-card app-card-stat shadow-sm h-100">
-                            <div class="app-card-body p-3 p-lg-4">
-                                <h4 class="stats-type mb-1">Số lượng khách hàng</h4>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                            <div class="app-card-body p-4 text-center">
+                                <div class="mb-3">
+                                    <i class="bi bi-people" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                                </div>
+                                <h4 class="stats-type mb-1">Khách hàng</h4>
                                 <div class="stats-figure">@ViewBag.customerCount</div>
-                            </div><!--//app-card-body-->
-                            <a class="app-card-link-mask" href="#"></a>
-                        </div><!--//app-card-->
-                    </div><!--//col-->
-                    <div class="col-6 col-lg-3">
-                        <div class="app-card app-card-stat shadow-sm h-100">
-                            <div class="app-card-body p-3 p-lg-4">
+                                <small class="text-light opacity-75">Tổng số khách hàng</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                            <div class="app-card-body p-4 text-center">
+                                <div class="mb-3">
+                                    <i class="bi bi-receipt" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                                </div>
                                 <h4 class="stats-type mb-1">Đơn hàng</h4>
                                 <div class="stats-figure">@ViewBag.orderCount</div>
-                            </div><!--//app-card-body-->
-                            <a class="app-card-link-mask" href="#"></a>
-                        </div><!--//app-card-->
-                    </div><!--//col-->
-                </div><!--//row-->
-                <canvas id="Chart" width="400" height="200"></canvas>
+                                <small class="text-light opacity-75">Tổng đơn hàng</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
+                            <div class="app-card-body p-4 text-center">
+                                <div class="mb-3">
+                                    <i class="bi bi-currency-dollar" style="font-size: 2.5rem; opacity: 0.8;"></i>
+                                </div>
+                                <h4 class="stats-type mb-1">Doanh thu</h4>
+                                <div class="stats-figure">@String.Format("{0:N0}", ViewBag.monthlyRevenue)</div>
+                                <small class="text-light opacity-75">VNĐ trong tháng</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Status Stats -->
+                <div class="row g-4 mb-5">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); color: white;">
+                            <div class="app-card-body p-3 text-center">
+                                <div class="mb-2">
+                                    <i class="bi bi-clock-history" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                                </div>
+                                <h6 class="mb-1">Chờ xác nhận</h6>
+                                <div class="h4 mb-0">@ViewBag.pendingOrders</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); color: white;">
+                            <div class="app-card-body p-3 text-center">
+                                <div class="mb-2">
+                                    <i class="bi bi-check-circle" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                                </div>
+                                <h6 class="mb-1">Đã xác nhận</h6>
+                                <div class="h4 mb-0">@ViewBag.confirmedOrders</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #55efc4 0%, #00b894 100%); color: white;">
+                            <div class="app-card-body p-3 text-center">
+                                <div class="mb-2">
+                                    <i class="bi bi-truck" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                                </div>
+                                <h6 class="mb-1">Đang xử lý</h6>
+                                <div class="h4 mb-0">@ViewBag.processingOrders</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="app-card shadow-sm h-100" style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); color: white;">
+                            <div class="app-card-body p-3 text-center">
+                                <div class="mb-2">
+                                    <i class="bi bi-x-circle" style="font-size: 1.8rem; opacity: 0.8;"></i>
+                                </div>
+                                <h6 class="mb-1">Đã hủy</h6>
+                                <div class="h4 mb-0">@ViewBag.cancelledOrders</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="app-card shadow-sm">
+                            <div class="app-card-header p-3">
+                                <div class="row align-items-center g-3">
+                                    <div class="col-auto">
+                                        <h4 class="app-card-title mb-0">
+                                            <i class="bi bi-line-chart me-2"></i>Doanh thu 7 ngày gần nhất
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="app-card-body p-4">
+                                <canvas id="revenueChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="app-card shadow-sm h-100">
+                            <div class="app-card-header p-3">
+                                <h4 class="app-card-title mb-0">
+                                    <i class="bi bi-activity me-2"></i>Hoạt động gần đây
+                                </h4>
+                            </div>
+                            <div class="app-card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex align-items-center p-3">
+                                        <div class="me-3">
+                                            <div class="bg-primary rounded-circle p-2">
+                                                <i class="bi bi-plus text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">Sản phẩm mới</div>
+                                            <small class="text-muted">Thêm sản phẩm cà phê mới</small>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center p-3">
+                                        <div class="me-3">
+                                            <div class="bg-success rounded-circle p-2">
+                                                <i class="bi bi-check text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">Đơn hàng mới</div>
+                                            <small class="text-muted">Có đơn hàng mới cần xử lý</small>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center p-3">
+                                        <div class="me-3">
+                                            <div class="bg-info rounded-circle p-2">
+                                                <i class="bi bi-person text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">Khách hàng mới</div>
+                                            <small class="text-muted">Khách hàng đăng ký tài khoản</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane fade" id="tab-editweb" role="tabpanel" aria-labelledby="nav-editweb-tab">
-                <div class="container-fluid px-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <form asp-action="Update" method="post" enctype="multipart/form-data">
-                                @Html.AntiForgeryToken()
-                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <input type="hidden" asp-for="Footer.Ma" />
-                                <div class="mb-3">
-                                    <label class="form-label">Logo hiện tại</label>
-                                    <img src="@Url.Content("~/Images/" + Model.Footer.Logo)" alt="Current Logo"
-                                         style="max-width: 200px;" />
-                                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="app-card shadow-sm">
+                            <div class="app-card-header p-4">
+                                <h4 class="app-card-title mb-0">
+                                    <i class="bi bi-gear me-2"></i>Cài đặt thông tin Website
+                                </h4>
+                                <p class="text-muted mt-2 mb-0">Quản lý thông tin cơ bản của website</p>
+                            </div>
+                            <div class="app-card-body p-4">
+                                <form asp-action="Update" method="post" enctype="multipart/form-data">
+                                    @Html.AntiForgeryToken()
+                                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                                    <input type="hidden" asp-for="Footer.Ma" />
 
-                                <div class="mb-3">
-                                    <label class="form-label">Thay đổi Logo</label>
-                                    <input type="file" asp-for="LogoFile" class="form-control" accept="image/*"/>
-                                    <span asp-validation-for="LogoFile" class="text-danger"></span>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-4">
+                                                <label class="form-label fw-bold">
+                                                    <i class="bi bi-image me-2"></i>Logo hiện tại
+                                                </label>
+                                                <div class="border rounded p-3 bg-light text-center">
+                                                    <img src="@Url.Content("~/Images/" + Model.Footer.Logo)"
+                                                         alt="Current Logo" class="img-fluid" style="max-width: 200px; max-height: 150px;" />
+                                                </div>
+                                            </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Mô tả</label>
-                                    <textarea id="editor" asp-for="Footer.MoTa" class="form-control"></textarea>
-                                    <span asp-validation-for="Footer.MoTa" class="text-danger"></span>
-                                </div>
+                                            <div class="mb-4">
+                                                <label class="form-label fw-bold">
+                                                    <i class="bi bi-upload me-2"></i>Thay đổi Logo
+                                                </label>
+                                                <input type="file" asp-for="LogoFile" class="form-control" accept="image/*" />
+                                                <span asp-validation-for="LogoFile" class="text-danger"></span>
+                                                <small class="form-text text-muted">Chấp nhận file: JPG, PNG, GIF (Tối đa 2MB)</small>
+                                            </div>
+                                        </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Địa chỉ</label>
-                                    <input asp-for="Footer.DiaChi" class="form-control" />
-                                    <span asp-validation-for="Footer.DiaChi" class="text-danger"></span>
+                                        <div class="col-md-6">
+                                            <div class="mb-4">
+                                                <label class="form-label fw-bold">
+                                                    <i class="bi bi-geo-alt me-2"></i>Địa chỉ
+                                                </label>
+                                                <input asp-for="Footer.DiaChi" class="form-control" placeholder="Nhập địa chỉ cửa hàng" />
+                                                <span asp-validation-for="Footer.DiaChi" class="text-danger"></span>
+                                            </div>
 
-                                </div>
+                                            <div class="mb-4">
+                                                <label class="form-label fw-bold">
+                                                    <i class="bi bi-facebook me-2"></i>Facebook URL
+                                                </label>
+                                                <input asp-for="Footer.FacebookUrl" class="form-control" placeholder="https://facebook.com/your-page" />
+                                                <span asp-validation-for="Footer.FacebookUrl" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Facebook URL</label>
-                                    <input asp-for="Footer.FacebookUrl" class="form-control" />
-                                    <span asp-validation-for="Footer.FacebookUrl" class="text-danger"></span>
-                                </div>
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">
+                                            <i class="bi bi-file-text me-2"></i>Mô tả Website
+                                        </label>
+                                        <textarea id="editor" asp-for="Footer.MoTa" class="form-control" rows="6"
+                                                  placeholder="Nhập mô tả về website của bạn..."></textarea>
+                                        <span asp-validation-for="Footer.MoTa" class="text-danger"></span>
+                                    </div>
 
-                                <button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
-                            </form>
+                                    <div class="text-end">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="bi bi-check-circle me-2"></i>Cập nhật thông tin
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,36 +323,56 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+    // Dữ liệu doanh thu 7 ngày
+    var dailyRevenue = @Html.Raw(Json.Serialize(ViewBag.dailyRevenue));
+    var last7Days = @Html.Raw(Json.Serialize(ViewBag.last7Days));
 
-    var customerCount = @ViewBag.customerCount;
-    var productCount = @ViewBag.productCount;
-    var orderCount = @ViewBag.orderCount;
-
-    var ctx = document.getElementById('Chart').getContext('2d');
-    var statisticsChart = new Chart(ctx, {
-        type: 'pie',
+    // Biểu đồ doanh thu
+    var ctx = document.getElementById('revenueChart').getContext('2d');
+    var revenueChart = new Chart(ctx, {
+        type: 'line',
         data: {
-            labels: ['Khách hàng', 'Sản phẩm', 'Đơn hàng'], 
+            labels: last7Days,
             datasets: [{
-                label: 'Số lượng',
-                data: [customerCount, productCount, orderCount], 
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)', 
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'  
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)', 
-                    'rgba(255, 206, 86, 1)', 
-                    'rgba(153, 102, 255, 1)'  
-                ],
-                borderWidth: 1
+                label: 'Doanh thu (VNĐ)',
+                data: dailyRevenue,
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointRadius: 6
             }]
         },
         options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return 'Doanh thu: ' + new Intl.NumberFormat('vi-VN').format(context.parsed.y) + ' VNĐ';
+                        }
+                    }
+                }
+            },
             scales: {
                 y: {
-                    beginAtZero: true 
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return new Intl.NumberFormat('vi-VN', {
+                                style: 'currency',
+                                currency: 'VND'
+                            }).format(value);
+                        }
+                    }
                 }
             }
         }

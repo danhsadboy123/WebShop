@@ -152,13 +152,20 @@ namespace Ecommerce_CaFeShop.Controllers
                     // Tạo chi tiết hóa đơn
                     foreach (var item in Carts)
                     {
+                        // Lấy thông tin sản phẩm để đảm bảo giá chính xác
+                        var product = await _context.SanPhams.FindAsync(item.ProductId);
+                        var finalPrice = product != null && product.GiaKhuyenMai.HasValue &&
+                                       product.GiaKhuyenMai.Value > 0 && product.GiaKhuyenMai.Value < product.Gia
+                                       ? (decimal)product.GiaKhuyenMai.Value
+                                       : (decimal)product.Gia;
+
                         var chiTiet = new ChiTietHoaDon
                         {
                             MaHoaDon = hoaDon.MaHoaDon,
                             MaSanPham = item.ProductId,
                             SoLuong = item.Quantity,
-                            Gia = (decimal)item.Price,
-                            TongTien = (decimal)(item.Quantity * item.Price)
+                            Gia = finalPrice,
+                            TongTien = finalPrice * item.Quantity
                         };
                         _context.ChiTietHoaDons.Add(chiTiet);
                     }

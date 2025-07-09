@@ -31,23 +31,7 @@
             <div class="col-lg-3">
                 @await Component.InvokeAsync("MenuCategory")
 
-                <!-- Start Sidebar Area -->
-                @*                 <div class="siderbar-section" data-aos="fade-up" data-aos-delay="0">
-
-                    <!-- Start Single Sidebar Widget -->
-                    <div class="sidebar-single-widget">
-                        <h6 class="sidebar-title">LOẠI</h6>
-                        <div class="sidebar-content">
-                            <ul class="sidebar-menu">
-                                <li><a href="#">Cà phê hạt rang</a></li>
-                                <li><a href="#">Cà phê xay</a></li>
-                                <li><a href="#">Đồng hồ điện tử</a></li>
-                                <li><a href="#">Đồng hồ nam</a></li>
-                                <li><a href="#">Đồng hồ nữ</a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- End Single Sidebar Widget --> *@
-                <!-- Start Single Sidebar Widget -->
+               
                 <div class="sidebar-single-widget">
                     <h6 class="sidebar-title">Giá</h6>
                     <div class="sidebar-content">
@@ -94,39 +78,7 @@
                     </div>
                 </div> <!-- End Single Sidebar Widget -->
                 @await Component.InvokeAsync("MenuBrand")
-                @*                 <div class="sidebar-single-widget">
-                    <h6 class="sidebar-title">Thương Hiệu</h6>
-                    <div class="sidebar-content">
-                        <div class="filter-type-select">
-                            <ul>
-                                <li>
-                                    <label class="checkbox-default" for="brakeParts">
-                                        <input type="checkbox" id="brakeParts">
-                                        <span>Rolex</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-default" for="accessories">
-                                        <input type="checkbox" id="accessories">
-                                        <span>Hublot</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-default" for="EngineParts">
-                                        <input type="checkbox" id="EngineParts">
-                                        <span>Curnon</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-default" for="hermes">
-                                        <input type="checkbox" id="hermes">
-                                        <span>Omega</span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> <!-- End Single Sidebar Widget --> *@
+             
             </div> <!-- End Sidebar Area -->
             <div class="col-lg-9">
                 <!-- Start Shop Product Sorting Section -->
@@ -173,7 +125,6 @@
                                                                 {
                                                                     <span class="text-lg font-bold text-[#d4a373]">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.DiscountPrice)</span>
                                                                     <span class="text-sm line-through text-gray-500 ml-2" style="text-decoration:line-through;color:red">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)</span>
-                                                                    <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-2" style="color:red!important">-@item.DiscountPercent%</span>
                                                                 }
                                                                 else
                                                                 {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce_CaFeShop.Migrations
 {
     [DbContext(typeof(CaFeContext))]
-    [Migration("20250708062618_data5")]
-    partial class data5
+    [Migration("20250708114132_datas")]
+    partial class datas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -521,7 +521,7 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     b.Property<string>("SoLuong")
                         .IsRequired()
-                        .HasColumnType("nvarchar(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenSanPham")
                         .IsRequired()

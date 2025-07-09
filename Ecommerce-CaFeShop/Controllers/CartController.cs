@@ -21,11 +21,11 @@ public class CartController : Controller
     {
         if (!User.Identity!.IsAuthenticated)
         {
-            TempData["error"] = "Không có tài khoản của khách hàng";
+            TempData[""] = "Vui lòng đăng nhập khi mua hàng";
             return View(Carts);
         }
 
-        var customerIdClaim =  User.Claims.FirstOrDefault(c => c.Type == "MaKhachHang");
+        var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "MaKhachHang");
         int? MaKhachHang = customerIdClaim != null ? int.Parse(customerIdClaim.Value) : (int?)null;
 
         if (MaKhachHang == null)
@@ -38,7 +38,7 @@ public class CartController : Controller
 
         if (cartItems == null || !cartItems.Any())
         {
-            
+
             return View("EmptyCart");
         }
 
@@ -53,7 +53,7 @@ public class CartController : Controller
         ViewBag.CurrentPage = page;
         ViewBag.TotalPages = totalPages;
 
-        return View(paginatedItems); 
+        return View(paginatedItems);
     }
 
     public async Task<IActionResult> AddToCart(string slug, int quantity)
@@ -68,13 +68,17 @@ public class CartController : Controller
             {
                 return Json(new { success = false, message = $"Không tìm thấy sản phẩm có mã {slug}." });
             }
+
+            var hasDiscount = products.GiaKhuyenMai.HasValue && products.GiaKhuyenMai.Value > 0 && products.GiaKhuyenMai.Value < products.Gia;
+
             item = new CartRequest
             {
                 ProductId = products.MaSanPham,
                 Slug = products.Slug!,
                 ProductName = products.TenSanPham!,
                 Image = products.HinhAnh,
-                Price = products.Gia ,
+                Price = hasDiscount ? products.GiaKhuyenMai.Value : products.Gia,
+                OriginalPrice = hasDiscount ? products.Gia : null,
                 Quantity = quantity,
 
             };
@@ -131,7 +135,7 @@ public class CartController : Controller
     {
         CartHelper.ClearCart(HttpContext.Session);
         TempData["success"] = "Đã xoá tất cả sản phẩm trong giỏ hàng.";
-        return RedirectToAction("Cart"); 
+        return RedirectToAction("Cart");
     }
     [HttpGet("cart-summary")]
     public IActionResult GetCartSummary()

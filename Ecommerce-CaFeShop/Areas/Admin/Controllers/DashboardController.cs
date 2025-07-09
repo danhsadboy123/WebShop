@@ -23,9 +23,45 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
             {
                 Footer = await _context.Footers.FirstOrDefaultAsync(),
             };
-            ViewBag.customerCount =  await _context.KhachHangs.CountAsync();
+
+            // Thống kê cơ bản
+            ViewBag.customerCount = await _context.KhachHangs.CountAsync();
             ViewBag.productCount = await _context.SanPhams.Where(p => p.TrangThai == 1).CountAsync();
-            ViewBag.orderCount = await _context.SanPhams.Where(b => b.TrangThai == 2).CountAsync();
+            ViewBag.orderCount = await _context.HoaDons.CountAsync();
+
+            // Thống kê doanh thu tháng hiện tại
+            var currentMonth = DateTime.Now.Month;
+            var currentYear = DateTime.Now.Year;
+            var monthlyRevenue = await _context.HoaDons
+                .Where(h => h.NgayDatHang.Month == currentMonth &&
+                           h.NgayDatHang.Year == currentYear &&
+                           h.TrangThai != 4) // Loại trừ đơn hàng đã hủy
+                .SumAsync(h => h.TongTien);
+            ViewBag.monthlyRevenue = monthlyRevenue;
+
+            // Thống kê đơn hàng theo trạng thái
+            ViewBag.pendingOrders = await _context.HoaDons.Where(h => h.TrangThai == 1).CountAsync();
+            ViewBag.confirmedOrders = await _context.HoaDons.Where(h => h.TrangThai == 2).CountAsync();
+            ViewBag.processingOrders = await _context.HoaDons.Where(h => h.TrangThai == 3).CountAsync();
+            ViewBag.cancelledOrders = await _context.HoaDons.Where(h => h.TrangThai == 4).CountAsync();
+
+            // Thống kê doanh thu 7 ngày gần nhất
+            var last7Days = Enumerable.Range(0, 7)
+                .Select(i => DateTime.Now.Date.AddDays(-i))
+                .Reverse()
+                .ToList();
+
+            var dailyRevenue = new List<decimal>();
+            foreach (var day in last7Days)
+            {
+                var dayRevenue = await _context.HoaDons
+                    .Where(h => h.NgayDatHang.Date == day && h.TrangThai != 4)
+                    .SumAsync(h => h.TongTien);
+                dailyRevenue.Add(dayRevenue);
+            }
+            ViewBag.dailyRevenue = dailyRevenue;
+            ViewBag.last7Days = last7Days.Select(d => d.ToString("dd/MM")).ToList();
+
             return View(footerVM);
         }
         [HttpPost]

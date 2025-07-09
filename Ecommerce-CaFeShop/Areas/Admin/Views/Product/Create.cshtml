@@ -58,14 +58,26 @@
 
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label asp-for="MoTa" class="form-label"><i class="bi bi-textarea me-2"></i>Mô tả</label>
-                                        <textarea asp-for="MoTa" class="form-control" rows="5" placeholder="Nhập mô tả sản phẩm"></textarea>
+                                        <label asp-for="MoTa" class="form-label">
+                                            <i class="bi bi-textarea me-2"></i> Mô tả
+                                        </label>
+                                        <textarea asp-for="MoTa"
+                                                  class="form-control"
+                                                  rows="6"
+                                                  placeholder="Nhập mô tả sản phẩm"
+                                                  style="min-height: 150px;"></textarea>
                                         <span asp-validation-for="MoTa" class="text-danger"></span>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label asp-for="MoTaNgan" class="form-label"><i class="bi bi-text-paragraph me-2"></i>Mô tả ngắn</label>
-                                        <textarea asp-for="MoTaNgan" class="form-control" rows="3" placeholder="Nhập mô tả ngắn"></textarea>
+                                        <label asp-for="MoTaNgan" class="form-label">
+                                            <i class="bi bi-text-paragraph me-2"></i> Mô tả ngắn
+                                        </label>
+                                        <textarea asp-for="MoTaNgan"
+                                                  class="form-control"
+                                                  rows="3"
+                                                  placeholder="Nhập mô tả ngắn"
+                                                  maxlength="1000"></textarea>
                                         <span asp-validation-for="MoTaNgan" class="text-danger"></span>
                                     </div>
 

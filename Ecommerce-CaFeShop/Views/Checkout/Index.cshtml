@@ -138,7 +138,7 @@
                                 {
                                     <tr>
                                         <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@item.Slug" class="image-link">
-                                            <img src="@Url.Content(item.Image ?? "/images/default-image.jpg")" alt="@item.ProductName"
+                                            <img src="@Url.Content(item.Image ?? "/images/default-image.jpg")" style="width:100%" alt="@item.ProductName"
                                                  onerror="this.src='/images/default-image.jpg'; this.onerror=null;">
                                         </a>
                                         <td>

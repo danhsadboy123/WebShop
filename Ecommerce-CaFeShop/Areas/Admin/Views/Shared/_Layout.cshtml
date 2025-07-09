@@ -2,32 +2,150 @@
 <html lang="en">
 
 <head>
-
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>@ViewData["Title"]</title>
-	<link rel="shortcut icon" href="favicon.ico">
+	<title>@ViewData["Title"] - Admin Dashboard</title>
+	<link rel="shortcut icon" href="~/Images/Logo.png">
 
-	<!-- FontAwesome JS-->
+	<!-- FontAwesome & Icons -->
 	<script defer src="~/assets/plugins/fontawesome/js/all.min.js"></script>
-
-	<!-- App CSS -->
-	<link id="theme-style" rel="stylesheet" href="~/assets/css/portal.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+	<!-- Main CSS -->
+	<link id="theme-style" rel="stylesheet" href="~/assets/css/portal.css">
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<!-- Scripts -->
 	<script src="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.umd.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+	<!-- Custom Admin Styles -->
+	<style>
+		:root {
+			--primary-color: #0d6efd;
+			--secondary-color: #6c757d;
+			--success-color: #198754;
+			--warning-color: #ffc107;
+			--danger-color: #dc3545;
+			--info-color: #0dcaf0;
+			--dark-color: #212529;
+			--sidebar-bg: #2c3e50;
+			--sidebar-hover: #34495e;
+			--main-bg: #f8f9fa;
+		}
 
-	<!-- Tải CSS cho jQuery UI -->
+		.app {
+			background: var(--main-bg);
+		}
 
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		.app-header {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			border-bottom: none;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+		}
 
+		.app-sidepanel {
+			background: var(--sidebar-bg);
+			border-right: none;
+			box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+		}
+
+		.app-branding .app-logo {
+			color: #fff;
+			font-weight: 700;
+			font-size: 1.5rem;
+		}
+
+		
+		.app-nav .nav-icon {
+			margin-right: 12px;
+			width: 20px;
+		}
+
+		.app-card {
+			border: none;
+			border-radius: 15px;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+			.app-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+			}
+
+		.app-card-stat {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+		}
+
+		.stats-figure {
+			font-size: 3rem;
+			font-weight: 700;
+		}
+
+		.stats-type {
+			opacity: 0.9;
+			font-weight: 500;
+		}
+
+		.app-utility-item > a {
+			color: rgba(255,255,255,0.9);
+		}
+
+			.app-utility-item > a:hover {
+				color: #fff;
+			}
+
+		.btn-primary {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			border: none;
+			border-radius: 8px;
+			padding: 10px 25px;
+			font-weight: 500;
+		}
+
+			.btn-primary:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+			}
+
+		.nav-tabs .nav-link {
+			border: none;
+			border-radius: 8px 8px 0 0;
+			background: transparent;
+			color: var(--secondary-color);
+			margin-right: 5px;
+		}
+
+			.nav-tabs .nav-link.active {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+			}
+
+		.app-page-title {
+			color: var(--dark-color);
+			font-weight: 700;
+			margin-bottom: 2rem;
+		}
+
+		.form-control {
+			border-radius: 8px;
+			border: 1px solid #e0e6ed;
+			padding: 12px 15px;
+		}
+
+			.form-control:focus {
+				border-color: var(--primary-color);
+				box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+			}
+	</style>
 </head>
 
 <body class="app">
@@ -92,68 +210,50 @@
 				<nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
 					<ul class="app-menu list-unstyled accordion" id="menu-accordion">
 						<li class="nav-item">
-							<a href="/Admin/Dashboard/Index" class="nav-link active">
+							<a href="/Admin/Dashboard/Index" class="nav-link">
 								<span class="nav-icon">
-									<i class="bi bi-house-door" style="font-size: 1.2rem;"></i>
+									<i class="bi bi-speedometer2"></i>
 								</span>
 								<span class="nav-link-text">Tổng quan</span>
 							</a>
 						</li>
 
 						<li class="nav-item">
-
 							<a href="/Admin/Product/Index" class="nav-link">
 								<span class="nav-icon">
-									<i class="bi bi-box" style="font-size: 1.2rem;"></i>
+									<i class="bi bi-cup-hot"></i>
 								</span>
 								<span class="nav-link-text">Quản lý sản phẩm</span>
-							</a><!--//nav-link-->
-						</li><!--//nav-item-->
+							</a>
+						</li>
+
 						<li class="nav-item">
-							<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-							<a href="/Admin/Contact/Index" class="nav-link">
-								<span class="nav-icon">
-									<i class="bi bi-person-lines-fill" style="font-size: 1.2rem;"></i>
-								</span>
-								<span class="nav-link-text">Quản lý liên hệ</span>
-							</a><!--//nav-link-->
-						</li><!--//nav-item-->
-						<li class="nav-item">
-							<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 							<a href="/Admin/Brand/Index" class="nav-link">
 								<span class="nav-icon">
-									<i class="bi bi-person-lines-fill" style="font-size: 1.2rem;"></i>
+									<i class="bi bi-award"></i>
 								</span>
 								<span class="nav-link-text">Quản lý thương hiệu</span>
-							</a><!--//nav-link-->
-						</li><!--//nav-item-->
-						<li class="nav-item">
-							<a href="/Admin/Statistical/Index" class="nav-link">
-								<span class="nav-icon">
-									<i class="bi bi-graph-down" style="font-size: 1.2rem;"></i>
-								</span>
-								<span class="nav-link-text">Thống kê</span>
-							</a><!--//nav-link-->
-						</li><!--//nav-item-->
+							</a>
+						</li>
 
 						<li class="nav-item">
-
-							<a href="/Admin/Bill/Index" class="nav-link">
-								<span class="nav-icon">
-									<i class="bi bi-bag" style="font-size: 1.2rem;"></i>
-								</span>
-								<span class="nav-link-text">Quản lý đơn hàng</span>
-							</a><!--//nav-link-->
-						</li><!--//nav-item-->
-						<li class="nav-item">
-
 							<a href="/Admin/Category/Index" class="nav-link">
 								<span class="nav-icon">
-									<i class="bi bi-tag" style="font-size: 1.2rem;"></i>
+									<i class="bi bi-grid-3x3-gap"></i>
 								</span>
 								<span class="nav-link-text">Quản lý danh mục</span>
-							</a><!--//nav-link-->
-						</li><!--//nav-item-->
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="/Admin/Bill/Index" class="nav-link">
+								<span class="nav-icon">
+									<i class="bi bi-receipt"></i>
+								</span>
+								<span class="nav-link-text">Quản lý đơn hàng</span>
+							</a>
+						</li>
+
 						<li class="nav-item">
 							<a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
 								<span class="nav-icon">
@@ -162,15 +262,24 @@
 								<span class="nav-link-text">Quản lý người dùng</span>
 							</a>
 						</li>
+
 						<li class="nav-item">
 							<a class="nav-link" asp-area="Admin" asp-controller="Banner" asp-action="Index">
 								<span class="nav-icon">
-									<i class="bi bi-images" style="font-size: 1.2rem;"></i>
+									<i class="bi bi-image"></i>
 								</span>
 								<span class="nav-link-text">Quản lý Banner</span>
 							</a>
 						</li>
 
+			@* 			<li class="nav-item">
+							<a href="/Admin/Statistical/Index" class="nav-link">
+								<span class="nav-icon">
+									<i class="bi bi-bar-chart"></i>
+								</span>
+								<span class="nav-link-text">Thống kê & Báo cáo</span>
+							</a>
+						</li> *@
 
 					</ul><!--//app-menu-->
 				</nav><!--//app-nav-->

@@ -14,9 +14,9 @@ namespace Ecommerce_CaFeShop.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? search, string? categories = "", string? brands = "", double? minPrice = null, double? maxPrice = null, int page = 1, int? gender = null)
+        public async Task<IActionResult> Index(string? search, string? categories = "", string? brands = "", double? minPrice = null, double? maxPrice = null, string? sortBy = "", string? filterType = "", int page = 1)
         {
-            var pageSize = 5;
+            var pageSize = 6;
             var products = _context.SanPhams.AsQueryable();
 
             // Lọc theo tìm kiếm
@@ -28,13 +28,13 @@ namespace Ecommerce_CaFeShop.Controllers
                     p.MoTaNgan != null && p.MoTaNgan.ToLower().Contains(search));
             }
 
-            // Lọc theo danh mục (xử lý khi Slug là NULL)
+            // Lọc theo danh mục
             if (!string.IsNullOrEmpty(categories))
             {
                 products = products.Where(p => p.DanhMuc != null && p.DanhMuc.Slug == categories);
             }
 
-            // Lọc theo thương hiệu (xử lý khi Slug là NULL)
+            // Lọc theo thương hiệu
             if (!string.IsNullOrEmpty(brands))
             {
                 products = products.Where(p => p.ThuongHieu != null && p.ThuongHieu.Slug == brands);
@@ -50,11 +50,58 @@ namespace Ecommerce_CaFeShop.Controllers
                 products = products.Where(p => p.Gia <= maxPrice.Value);
             }
 
+            // Lọc theo loại sản phẩm
+            if (!string.IsNullOrEmpty(filterType))
+            {
+                switch (filterType)
+                {
+                    case "discount":
+                        products = products.Where(p => p.GiaKhuyenMai.HasValue && p.GiaKhuyenMai < p.Gia);
+                        break;
+                    case "new":
+                        var thirtyDaysAgo = DateTime.Now.AddDays(-30);
+                        products = products.Where(p => p.NgayTao >= thirtyDaysAgo);
+                        break;
+                }
+            }
+
             // Lọc sản phẩm hiển thị và không bị xóa
             products = products.Where(p => p.DaXoa == 0 && p.TrangThai == 1);
 
-            // Sắp xếp theo NgayTao giảm dần
-            products = products.OrderByDescending(p => p.NgayTao);
+            // Sắp xếp
+            if (!string.IsNullOrEmpty(sortBy))
+            {
+                switch (sortBy)
+                {
+                    case "price-asc":
+                        products = products.OrderBy(p => p.GiaKhuyenMai ?? p.Gia);
+                        break;
+                    case "price-desc":
+                        products = products.OrderByDescending(p => p.GiaKhuyenMai ?? p.Gia);
+                        break;
+                    case "discount":
+                        products = products.OrderByDescending(p => p.GiaKhuyenMai.HasValue ? (p.Gia - p.GiaKhuyenMai.Value) / p.Gia * 100 : 0);
+                        break;
+                    case "newest":
+                        products = products.OrderByDescending(p => p.NgayTao);
+                        break;
+                    case "name":
+                        products = products.OrderBy(p => p.TenSanPham);
+                        break;
+                    default:
+                        products = products.OrderByDescending(p => p.NgayTao);
+                        break;
+                }
+            }
+            else
+            {
+                products = products.OrderByDescending(p => p.NgayTao);
+            }
+
+            // Lấy giá min/max cho slider
+            var allProducts = await _context.SanPhams.Where(p => p.DaXoa == 0 && p.TrangThai == 1).ToListAsync();
+            var minPriceAll = allProducts.Any() ? allProducts.Min(p => p.GiaKhuyenMai ?? p.Gia) : 0;
+            var maxPriceAll = allProducts.Any() ? allProducts.Max(p => p.GiaKhuyenMai ?? p.Gia) : 10000000;
 
             // Lấy tổng số sản phẩm sau khi áp dụng các bộ lọc
             var totalProducts = await products.CountAsync();
@@ -71,8 +118,7 @@ namespace Ecommerce_CaFeShop.Controllers
                     ProductName = p.TenSanPham ?? "Chưa có tên",
                     Image = string.IsNullOrEmpty(p.HinhAnh) ? "/images/default-image.jpg" : p.HinhAnh,
                     Price = p.Gia,
-                    DiscountPrice = p.GiaKhuyenMai,
-                    DiscountPercent = p.PhanTramGiam,
+                    DiscountPrice = (double?)p.GiaKhuyenMai,
                     ShortDescription = p.MoTaNgan ?? "Chưa có mô tả",
                     ProductRating = p.DanhGiaSanPhams.Any() ? p.DanhGiaSanPhams.Average(r => r.DiemDanhGia ?? 0) : 0,
                     Slug = p.Slug
@@ -86,6 +132,17 @@ namespace Ecommerce_CaFeShop.Controllers
                 TotalPages = totalPages,
                 PageSize = pageSize
             };
+
+            // Pass filter data to view
+            ViewData["search"] = search;
+            ViewData["categories"] = categories;
+            ViewData["brands"] = brands;
+            ViewData["sortBy"] = sortBy;
+            ViewData["filterType"] = filterType;
+            ViewData["minPrice"] = minPriceAll;
+            ViewData["maxPrice"] = maxPriceAll;
+            ViewData["currentMinPrice"] = minPrice ?? minPriceAll;
+            ViewData["currentMaxPrice"] = maxPrice ?? maxPriceAll;
 
             return View(viewModel);
         }
@@ -116,8 +173,7 @@ namespace Ecommerce_CaFeShop.Controllers
                     ProductName = p.TenSanPham!,
                     Image = p.HinhAnh ?? "",
                     Price = p.Gia,
-                    DiscountPrice = p.GiaKhuyenMai,
-                    DiscountPercent = p.PhanTramGiam,
+                    DiscountPrice = (double?)p.GiaKhuyenMai,
                     ShortDescription = p.MoTaNgan!,
                     ProductRating = p.DanhGiaSanPhams.Any()
                         ? p.DanhGiaSanPhams.Average(r => (double)r.DiemDanhGia!) : 0,

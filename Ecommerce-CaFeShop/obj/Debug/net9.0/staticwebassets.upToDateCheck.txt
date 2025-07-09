@@ -2489,6 +2489,7 @@ wwwroot\favicon.ico
 wwwroot\Images\02683984-250d-4fa3-9a3e-91767c47aaac.png
 wwwroot\Images\06c7cf9c-8f4f-446c-bac0-b4fcf6882db6.png
 wwwroot\Images\07ec5e81-a30f-485d-b9fb-3694802df6a7.jpg
+wwwroot\Images\08f3c57d-6aba-48d3-af9f-5d849d5c348c.webp
 wwwroot\Images\17a8553e-4efe-4099-8da1-3f9b97806ca3.png
 wwwroot\Images\18a6f82b-09e4-44c7-aa7f-9d28cd645f2f.png
 wwwroot\Images\21d31d47-61e0-4eaf-a26b-bde049527f3a.png
@@ -2503,6 +2504,8 @@ wwwroot\Images\4333d031-29b8-4614-8073-74dd1067f47b.jpg
 wwwroot\Images\482763d8-992d-40e5-8be4-90d4542c7cc3.png
 wwwroot\Images\4a19d09a-f5fc-4aa1-a6fc-d9b835706898.png
 wwwroot\Images\4b26641a-ffd0-482a-910e-6b405aad1505.png
+wwwroot\Images\5663378a-22af-4179-ac1b-5a6b25cfb98e.webp
+wwwroot\Images\5a51cbeb-2c45-45a0-96f0-c18638eb1a60.webp
 wwwroot\Images\5b702205-e2f2-4d15-8846-b2df07698f9b.png
 wwwroot\Images\5b8ccebd-4115-4941-8f2f-1ef4f3edb8a7.png
 wwwroot\Images\769c5d5c-9d98-418e-9151-beddfa351bf3.png
@@ -2510,11 +2513,14 @@ wwwroot\Images\7a2104a2-6b9e-46ad-8fb9-6f7f31ae9816.png
 wwwroot\Images\81f2f126-0255-4e9f-8d22-da8731cfde21.jpg
 wwwroot\Images\8386bc9f-b49b-42f8-b9cc-5a2476e8b3a1.jpg
 wwwroot\Images\877c1b30-f2e6-4711-bfee-d71fba3e9a7a.jpg
+wwwroot\Images\8cea43b3-d374-48be-90a9-1f60768dc365.webp
 wwwroot\Images\8da22f5a-33cc-4d69-a4d7-368f8854881c.jpg
 wwwroot\Images\8e084c3c-9caa-4f23-a93c-3eb7e9fcef75.jpg
 wwwroot\Images\8e5f9642-c45d-4f81-b254-fbff5dff78dc.png
+wwwroot\Images\907ae832-9569-472b-a355-c016612141b9.jpg
 wwwroot\Images\91d37661-7b7a-492a-a412-a650261ff9c8.png
 wwwroot\Images\923f8f0d-df74-48ba-b86b-b6895e6b9c8b.jpg
+wwwroot\Images\9331c2ac-4312-4e66-9553-f5368bf57839.jpg
 wwwroot\Images\94c5ef60-fc77-4a08-ba54-c010a22a721a.png
 wwwroot\Images\97d55aa2-99cb-4372-8704-276317bbd252.png
 wwwroot\Images\9a51df90-4f8d-4a44-aa8f-0366bfa599b0.png

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Ecommerce_CaFeShop.Migrations
 {
     /// <inheritdoc />
-    public partial class data : Migration
+    public partial class datas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -235,9 +235,9 @@ namespace Ecommerce_CaFeShop.Migrations
                     MaThuongHieu = table.Column<int>(type: "int", nullable: false),
                     Gia = table.Column<double>(type: "float", nullable: false),
                     GiaKhuyenMai = table.Column<double>(type: "float", nullable: true),
-                    MoTaNgan = table.Column<string>(type: "nvarchar(200)", nullable: true),
-                    MoTa = table.Column<string>(type: "nvarchar(500)", nullable: true),
-                    SoLuong = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
+                    MoTaNgan = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SoLuong = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LuotXem = table.Column<int>(type: "int", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: true),
                     NgayTao = table.Column<DateTime>(type: "datetime2", nullable: true),
