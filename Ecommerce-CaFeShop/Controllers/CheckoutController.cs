@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Ecommerce_CaFeShop.Models.ViewModels;
 using Ecommerce_CaFeShop.Helper;
+using Ecommerce_CaFeShop.Services;
 
 namespace Ecommerce_CaFeShop.Controllers
 {
@@ -21,7 +22,7 @@ namespace Ecommerce_CaFeShop.Controllers
             if (!User.Identity!.IsAuthenticated)
             {
                 TempData["error"] = "Vui lòng đăng nhập để thanh toán";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Home");
             }
 
             // Kiểm tra session có tồn tại không
@@ -31,8 +32,19 @@ namespace Ecommerce_CaFeShop.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var cartItems = CartHelper.GetCart(HttpContext.Session);
-            if (cartItems == null || cartItems.Count == 0 || !CartHelper.HasItems(HttpContext.Session))
+            // Lấy customerId để kiểm tra giỏ hàng từ service
+            var customerIdClaim = HttpContext.User.Claims.SingleOrDefault(c => c.Type == "MaKhachHang");
+            int? customerId = null;
+            if (customerIdClaim != null && int.TryParse(customerIdClaim.Value, out var custId))
+            {
+                customerId = custId;
+            }
+
+            // Sử dụng CartService để lấy giỏ hàng (sẽ tự động đồng bộ)
+            var cartService = HttpContext.RequestServices.GetRequiredService<ICartService>();
+            var cartItems = await cartService.GetCartAsync(customerId, HttpContext.Session);
+
+            if (cartItems == null || cartItems.Count == 0)
             {
                 TempData["error"] = "Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm vào giỏ hàng trước khi thanh toán.";
                 return RedirectToAction("Index", "Home");
@@ -44,10 +56,10 @@ namespace Ecommerce_CaFeShop.Controllers
             checkoutVM.TotalAmount = subtotal + shippingFee;
 
             // Lấy thông tin khách hàng
-            var customerIdClaim = HttpContext.User.Claims.SingleOrDefault(c => c.Type == "MaKhachHang");
-            if (customerIdClaim != null && int.TryParse(customerIdClaim.Value, out var customerId))
+            var customerClaim = HttpContext.User.Claims.SingleOrDefault(c => c.Type == "MaKhachHang");
+            if (customerClaim != null && int.TryParse(customerClaim.Value, out var customerIdValue))
             {
-                var customer = await _context.KhachHangs.FindAsync(customerId);
+                var customer = await _context.KhachHangs.FindAsync(customerIdValue);
                 if (customer != null)
                 {
                     checkoutVM.FullName = customer.HoTen ?? "";
@@ -82,8 +94,19 @@ namespace Ecommerce_CaFeShop.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                var cartItems = CartHelper.GetCart(HttpContext.Session);
-                if (cartItems == null || cartItems.Count == 0 || !CartHelper.HasItems(HttpContext.Session))
+                // Lấy customerId để kiểm tra giỏ hàng từ service
+                var customerIdClaim = HttpContext.User.Claims.SingleOrDefault(c => c.Type == "MaKhachHang");
+                if (customerIdClaim == null || !int.TryParse(customerIdClaim.Value, out var customerId))
+                {
+                    TempData["error"] = "Phiên đăng nhập không hợp lệ";
+                    return RedirectToAction("Index", "Home");
+                }
+
+                // Sử dụng CartService để lấy giỏ hàng (sẽ tự động đồng bộ)
+                var cartService = HttpContext.RequestServices.GetRequiredService<ICartService>();
+                var cartItems = await cartService.GetCartAsync(customerId, HttpContext.Session);
+
+                if (cartItems == null || cartItems.Count == 0)
                 {
                     TempData["error"] = "Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm vào giỏ hàng trước khi thanh toán.";
                     return RedirectToAction("Index", "Home");
@@ -106,13 +129,6 @@ namespace Ecommerce_CaFeShop.Controllers
                     TempData["error"] = "Vui lòng điền đầy đủ thông tin bắt buộc";
                     ViewBag.CartItems = cartItems;
                     return View("Index", model);
-                }
-
-                var customerIdClaim = HttpContext.User.Claims.SingleOrDefault(c => c.Type == "MaKhachHang");
-                if (customerIdClaim == null || !int.TryParse(customerIdClaim.Value, out var customerId))
-                {
-                    TempData["error"] = "Phiên đăng nhập không hợp lệ";
-                    return RedirectToAction("Index", "Home");
                 }
 
                 // Kiểm tra khách hàng có tồn tại
@@ -245,7 +261,7 @@ namespace Ecommerce_CaFeShop.Controllers
             }
 
             // Kiểm tra xem đơn hàng có thể hủy được không (trong vòng 1 giờ và trạng thái phù hợp)
-            ViewBag.CanCancel = (order.TrangThai == 0 || order.TrangThai == 1) && (DateTime.Now - order.NgayDatHang).TotalHours <= 1;
+            ViewBag.CanCancel = (order.TrangThai == 0 || order.TrangThai == 1 || order.TrangThai == 2) && (DateTime.Now - order.NgayDatHang).TotalHours <= 1;
 
             return View(order);
         }
@@ -274,8 +290,8 @@ namespace Ecommerce_CaFeShop.Controllers
                     return Json(new { success = false, message = "Không tìm thấy đơn hàng" });
                 }
 
-                // Kiểm tra trạng thái đơn hàng (chỉ cho phép hủy đơn hàng chờ xác nhận hoặc chưa thanh toán)
-                if (order.TrangThai != 0 && order.TrangThai != 1)
+                // Kiểm tra trạng thái đơn hàng (chỉ cho phép hủy đơn hàng chờ xác nhận, đã xác nhận hoặc đang chuẩn bị hàng)
+                if (order.TrangThai != 0 && order.TrangThai != 1 && order.TrangThai != 2)
                 {
                     return Json(new { success = false, message = "Đơn hàng này không thể hủy" });
                 }
@@ -287,8 +303,8 @@ namespace Ecommerce_CaFeShop.Controllers
                     return Json(new { success = false, message = "Đã quá thời gian cho phép hủy đơn hàng (1 giờ)" });
                 }
 
-                // Cập nhật trạng thái đơn hàng thành đã hủy (status = 5)
-                order.TrangThai = 5;
+                // Cập nhật trạng thái đơn hàng thành đã hủy (status = 8)
+                order.TrangThai = 8;
                 await _context.SaveChangesAsync();
 
                 return Json(new { success = true, message = "Hủy đơn hàng thành công" });

@@ -30,19 +30,7 @@
                                 @switch (Model.TrangThai)
                                 {
                                     case 0:
-                                        <span class="badge bg-danger">Đã hủy</span>
-                                        break;
-                                    case 1:
-                                        <span class="badge bg-warning">Chờ xác nhận</span>
-                                        break;
-                                    case 2:
-                                        <span class="badge bg-info">Đang xử lý</span>
-                                        break;
-                                    case 3:
-                                        <span class="badge bg-primary">Đang giao</span>
-                                        break;
-                                    case 4:
-                                        <span class="badge bg-success">Đã giao</span>
+                                        <span class="badge bg-danger">Chờ xác nhận</span>
                                         break;
                                     default:
                                         <span class="badge bg-secondary">Không xác định</span>
@@ -107,8 +95,8 @@
 
                         @if (ViewBag.CanCancel != null && (bool)ViewBag.CanCancel)
                         {
-                            <button type="button" class="btn btn-danger" onclick="cancelOrder(@Model.MaHoaDon)">
-                                <i class="fa fa-times"></i> Hủy đơn hàng
+                            <button type="button" style="background-color:#fff!important" class="btn btn-danger"  onclick="cancelOrder(@Model.MaHoaDon)">
+                                Hủy đơn hàng
                             </button>
                         }
                         else if (Model.TrangThai == 0)

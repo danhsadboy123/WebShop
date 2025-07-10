@@ -1,41 +1,102 @@
 @{
-    ViewData["Title"] = "Giỏ hàng";
-} 
-<div class="breadcrumb-section breadcrumb-bg-color--golden">
-        <div class="breadcrumb-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="breadcrumb-title">Giỏ hàng</h3>
-                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
-                            <nav aria-label="breadcrumb">
-                                <ul>
-                                    <li><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
-                                    <li class="active" aria-current="page">Giỏ hàng</li>
-                                </ul>
-                            </nav>
-                        </div>
+    ViewData["Title"] = "Giỏ hàng trống";
+}
+
+<div class="empty-cart-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="empty-cart-content text-center">
+                    <div class="empty-cart-image">
+                        <img src="~/assets/images/emprt-cart/empty-cart.png" alt="Giỏ hàng trống" class="img-fluid">
                     </div>
+                    <h2 class="empty-cart-title">@ViewBag.Message</h2>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <p class="empty-cart-subtitle">Hãy khám phá các sản phẩm cà phê tuyệt vời của chúng tôi!</p>
+                        <div class="empty-cart-buttons">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-lg me-3">
+                                <i class="fa fa-home"></i> Về trang chủ
+                            </a>
+                            <a href="@Url.Action("Index", "Product")" class="btn btn-outline-primary btn-lg">
+                                <i class="fa fa-shopping-bag"></i> Xem sản phẩm
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="empty-cart-subtitle">Vui lòng đăng nhập để có trải nghiệm mua sắm tốt nhất!</p>
+                        <div class="empty-cart-buttons">
+                            <button type="button" class="btn btn-primary btn-lg me-3" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                <i class="fa fa-sign-in-alt"></i> Đăng nhập
+                            </button>
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-primary btn-lg">
+                                <i class="fa fa-home"></i> Về trang chủ
+                            </a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
-    </div> <!-- ...:::: End Breadcrumb Section:::... -->
-    <!-- ...::::Start About Us Center Section:::... -->
-    <div class="empty-cart-section section-fluid">
-        <div class="emptycart-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-10 offset-md-1 col-xl-6 offset-xl-3">
-                        <div class="emptycart-content text-center">
-                            <div class="image">
-                                <img class="img-fluid" src="~/assets/images/emprt-cart/empty-cart.png" alt="">
-                            </div>
-                            <h4 class="title">Bạn không có sản phẩm trong giỏ hàng</h4>
-                            <h6 class="sub-title">Xin lỗi bạn ... Không có sản phẩm trong giỏ hàng!</h6>
-                            <a asp-controller="Product" asp-action="Index" class="btn btn-lg btn-golden">Tiếp tục mua </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- ...::::End  About Us Center Section:::... -->
+    </div>
+</div>
+
+<style>
+    .empty-cart-area {
+        padding: 80px 0;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .empty-cart-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .empty-cart-image {
+        margin-bottom: 30px;
+    }
+
+        .empty-cart-image img {
+            max-width: 300px;
+            opacity: 0.8;
+        }
+
+    .empty-cart-title {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .empty-cart-subtitle {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    .empty-cart-buttons {
+        margin-top: 30px;
+    }
+
+        .empty-cart-buttons .btn {
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 25px;
+            margin: 5px;
+        }
+
+    @@media (max-width: 768px) {
+        .empty-cart-buttons .btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+            .empty-cart-buttons .btn:last-child {
+                margin-bottom: 0;
+            }
+    }
+</style>

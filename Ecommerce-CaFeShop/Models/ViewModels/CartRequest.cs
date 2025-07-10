@@ -9,7 +9,7 @@
         public double Price { get; set; } // Giá sau khuyến mãi
         public double? OriginalPrice { get; set; } // Giá gốc
         public int Quantity { get; set; }
-        public double Total => Quantity * Price;
+        public double Total { get; set; }
 
         // Kiểm tra có khuyến mãi không
         public bool HasDiscount => OriginalPrice.HasValue && OriginalPrice.Value > Price;

@@ -18,27 +18,64 @@ namespace Ecommerce_CaFeShop.Services
         {
             if (customerId.HasValue)
             {
-                // Lấy giỏ hàng từ database cho khách hàng đã đăng nhập
-                var cartItems = await _context.GioHangs
-                    .Include(g => g.SanPham)
-                    .Where(g => g.MaKhachHang == customerId.Value)
-                    .Select(g => new CartRequest
+                // Lấy giỏ hàng từ session trước
+                var cartFromSession = CartHelper.GetCart(session);
+
+                // Nếu có giỏ hàng trong session, đồng bộ với database trước
+                if (cartFromSession.Count > 0)
+                {
+                    foreach (var sessionItem in cartFromSession)
                     {
-                        ProductId = g.SanPham!.MaSanPham,
-                        Slug = g.SanPham.Slug!,
-                        ProductName = g.SanPham.TenSanPham!,
-                        Image = g.SanPham.HinhAnh,
-                        Price = (double)g.Gia,
-                        OriginalPrice = g.SanPham.GiaKhuyenMai.HasValue && g.SanPham.GiaKhuyenMai.Value > 0 && g.SanPham.GiaKhuyenMai.Value < g.SanPham.Gia ? (double?)g.SanPham.Gia : null,
-                        Quantity = g.SoLuong
+                        var existingDbItem = await _context.GioHangs
+                            .FirstOrDefaultAsync(c => c.MaKhachHang == customerId.Value && c.MaSanPham == sessionItem.ProductId);
+
+                        if (existingDbItem != null)
+                        {
+                            // Cập nhật số lượng trong database
+                            existingDbItem.SoLuong += sessionItem.Quantity;
+                        }
+                        else
+                        {
+                            // Thêm item mới vào database
+                            var newCartItem = new GioHang
+                            {
+                                MaKhachHang = customerId.Value,
+                                MaSanPham = sessionItem.ProductId,
+                                SoLuong = sessionItem.Quantity
+                            };
+                            _context.GioHangs.Add(newCartItem);
+                        }
+                    }
+                    await _context.SaveChangesAsync();
+
+                    // Xóa giỏ hàng session sau khi đồng bộ
+                    CartHelper.ClearCart(session);
+                }
+
+                // Lấy giỏ hàng từ database sau khi đã đồng bộ
+                var cartFromDb = await _context.GioHangs
+                    .Where(c => c.MaKhachHang == customerId.Value)
+                    .Select(c => new CartRequest
+                    {
+                        ProductId = c.MaSanPham,
+                        ProductName = c.SanPham.TenSanPham,
+                        Price = c.SanPham.GiaKhuyenMai.HasValue && c.SanPham.GiaKhuyenMai.Value > 0 && c.SanPham.GiaKhuyenMai.Value < c.SanPham.Gia
+                                ? (double)c.SanPham.GiaKhuyenMai.Value
+                                : (double)c.SanPham.Gia,
+                        Quantity = c.SoLuong,
+                        Image = c.SanPham.HinhAnh,
+                        Slug = c.SanPham.Slug,
+                        Total = c.SoLuong * (c.SanPham.GiaKhuyenMai.HasValue && c.SanPham.GiaKhuyenMai.Value > 0 && c.SanPham.GiaKhuyenMai.Value < c.SanPham.Gia
+                                            ? (double)c.SanPham.GiaKhuyenMai.Value
+                                            : (double)c.SanPham.Gia)
                     })
                     .ToListAsync();
 
-                return cartItems;
+                return cartFromDb;
             }
             else
             {
-                // Lấy giỏ hàng từ session cho khách chưa đăng nhập
+                // Trả về giỏ hàng từ session nếu chưa đăng nhập
                 return CartHelper.GetCart(session);
             }
         }
@@ -84,6 +121,7 @@ namespace Ecommerce_CaFeShop.Services
                 if (item != null)
                 {
                     item.Quantity += quantity;
+                    item.Total = item.Quantity * item.Price;
                 }
                 else
                 {
@@ -95,7 +133,8 @@ namespace Ecommerce_CaFeShop.Services
                         Image = product.HinhAnh,
                         Price = price,
                         OriginalPrice = hasDiscount ? product.Gia : null,
-                        Quantity = quantity
+                        Quantity = quantity,
+                        Total = quantity * price
                     };
                     cart.Add(item);
                 }
@@ -126,6 +165,7 @@ namespace Ecommerce_CaFeShop.Services
                 if (item != null)
                 {
                     item.Quantity = quantity;
+                    item.Total = quantity * item.Price;
                     CartHelper.SaveCart(session, cart);
                 }
             }

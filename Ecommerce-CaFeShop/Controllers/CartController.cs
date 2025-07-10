@@ -33,7 +33,14 @@ public class CartController : Controller
 
             if (cartItems == null || !cartItems.Any())
             {
-                ViewBag.Message = "Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm vào giỏ hàng trước khi thanh toán.";
+                if (customerId.HasValue)
+                {
+                    ViewBag.Message = "Giỏ hàng của bạn đang trống. Hãy khám phá các sản phẩm tuyệt vời của chúng tôi!";
+                }
+                else
+                {
+                    ViewBag.Message = "Giỏ hàng của bạn đang trống. Vui lòng đăng nhập hoặc thêm sản phẩm vào giỏ hàng.";
+                }
                 return View("EmptyCart");
             }
 
