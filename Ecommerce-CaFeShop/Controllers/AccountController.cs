@@ -1,13 +1,16 @@
 using Ecommerce_CaFeShop.Models;
 using Ecommerce_CaFeShop.Models.ViewModels;
 using MailKit.Security;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Ecommerce_CaFeShop.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MailKit.Net.Smtp;
 using MimeKit;
 using System.Security.Cryptography;
+using System.Security.Claims;
 
 namespace Ecommerce_CaFeShop.Controllers;
 
@@ -36,6 +39,13 @@ public class AccountController : Controller
             .FirstOrDefaultAsync(c => c.MaKhachHang == customerId);
 
         if (customer == null) return NotFound();
+
+        // Set default avatar if none exists
+        if (string.IsNullOrEmpty(customer.HinhDaiDien))
+        {
+            customer.HinhDaiDien = "default-avatar.png";
+        }
+
         return View(customer);
     }
 
@@ -57,10 +67,14 @@ public class AccountController : Controller
             FullName = customer.HoTen,
             Phone = customer.SoDienThoai,
             Address = customer.DiaChi,
+            Tinh = customer.Tinh,
+            Huyen = customer.Huyen,
+            Xa = customer.Xa,
             Email = customer.Email,
             DisplayName = customer.TenHienThi,
             Dob = customer.NgaySinh,
-            Gender = customer.GioiTinh
+            Gender = customer.GioiTinh,
+            HinhDaiDien = customer.HinhDaiDien
         };
 
         return View(customerVM);
@@ -86,9 +100,68 @@ public class AccountController : Controller
             return View(customerVM);
         }
 
+        // Handle avatar upload
+        if (customerVM.AvatarFile != null && customerVM.AvatarFile.Length > 0)
+        {
+            try
+            {
+                // Validate file type
+                var allowedTypes = new[] { "image/jpeg", "image/jpg", "image/png", "image/gif" };
+                if (!allowedTypes.Contains(customerVM.AvatarFile.ContentType.ToLower()))
+                {
+                    ModelState.AddModelError("AvatarFile", "Chỉ được phép upload file ảnh (JPG, PNG, GIF)");
+                    return View(customerVM);
+                }
+
+                // Validate file size (max 5MB)
+                if (customerVM.AvatarFile.Length > 5 * 1024 * 1024)
+                {
+                    ModelState.AddModelError("AvatarFile", "Kích thước file không được vượt quá 5MB");
+                    return View(customerVM);
+                }
+
+                // Generate unique filename
+                var fileExtension = Path.GetExtension(customerVM.AvatarFile.FileName);
+                var fileName = $"{Guid.NewGuid()}{fileExtension}";
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images");
+
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await customerVM.AvatarFile.CopyToAsync(fileStream);
+                }
+
+                // Delete old avatar if exists and not default
+                if (!string.IsNullOrEmpty(customer.HinhDaiDien) && customer.HinhDaiDien != "default-avatar.png")
+                {
+                    var oldFilePath = Path.Combine(uploadsFolder, customer.HinhDaiDien);
+                    if (System.IO.File.Exists(oldFilePath))
+                    {
+                        System.IO.File.Delete(oldFilePath);
+                    }
+                }
+
+                customer.HinhDaiDien = fileName;
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("AvatarFile", $"Lỗi khi upload file: {ex.Message}");
+                return View(customerVM);
+            }
+        }
+
         customer.HoTen = customerVM.FullName;
         customer.SoDienThoai = customerVM.Phone;
         customer.DiaChi = customerVM.Address;
+        customer.Tinh = customerVM.Tinh;
+        customer.Huyen = customerVM.Huyen;
+        customer.Xa = customerVM.Xa;
         customer.Email = customerVM.Email;
         customer.TenHienThi = customerVM.DisplayName;
         customer.NgaySinh = customerVM.Dob;
@@ -97,6 +170,7 @@ public class AccountController : Controller
         _context.Update(customer);
         await _context.SaveChangesAsync();
 
+        TempData["success"] = "Cập nhật thông tin thành công!";
         return RedirectToAction("Index", "Account");
     }
 
@@ -337,7 +411,7 @@ public class AccountController : Controller
             NgayHetHan = DateTime.UtcNow.AddHours(1)
         };
 
-        _context.TokenKhoiPhucMatKhaus.Add(tokenKhoiPhuc);
+        _context.TokenKhoiPhucMatKhau.Add(tokenKhoiPhuc);
         await _context.SaveChangesAsync();
 
         var resetLink = Url.Action("DatLaiMatKhau", "Account", new { token = token }, Request.Scheme);
@@ -364,7 +438,7 @@ public class AccountController : Controller
             return BadRequest("Mã token không hợp lệ.");
         }
 
-        var tokenKhoiPhuc = _context.TokenKhoiPhucMatKhaus
+        var tokenKhoiPhuc = _context.TokenKhoiPhucMatKhau
             .FirstOrDefault(rt => rt.MaToken == token && rt.NgayHetHan > DateTime.UtcNow);
         if (tokenKhoiPhuc == null)
         {
@@ -385,7 +459,7 @@ public class AccountController : Controller
             return View(model);
         }
 
-        var tokenKhoiPhuc = _context.TokenKhoiPhucMatKhaus
+        var tokenKhoiPhuc = _context.TokenKhoiPhucMatKhau
             .FirstOrDefault(rt => rt.MaToken == model.Token && rt.NgayHetHan > DateTime.UtcNow);
         if (tokenKhoiPhuc == null)
         {
@@ -402,7 +476,7 @@ public class AccountController : Controller
         }
 
         account.MatKhau = model.NewPassword; // Nên mã hóa trước khi lưu
-        _context.TokenKhoiPhucMatKhaus.Remove(tokenKhoiPhuc);
+        _context.TokenKhoiPhucMatKhau.Remove(tokenKhoiPhuc);
         await _context.SaveChangesAsync();
 
         TempData["success"] = "Mật khẩu đã được đặt lại thành công. Vui lòng đăng nhập lại.";
@@ -441,5 +515,50 @@ public class AccountController : Controller
             await client.SendAsync(message);
             await client.DisconnectAsync(true);
         }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginVM model, string? ReturnUrl)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View("Login", "Home");
+        }
+
+        var account = await _context.TaiKhoans
+            .Include(a => a.KhachHang)
+            .FirstOrDefaultAsync(a => a.TenDangNhap == model.Username);
+
+        if (account == null)
+        {
+            ModelState.AddModelError("", "Tên đăng nhập không tồn tại.");
+            return View("Login", "Home");
+        }
+
+        if (account.MatKhau != model.Password)
+        {
+            ModelState.AddModelError("", "Mật khẩu không chính xác.");
+            return View("Login", "Home");
+        }
+
+        var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, account.TenDangNhap),
+                new Claim("MaKhachHang", account.MaKhachHang.ToString()),
+                new Claim(ClaimTypes.Role, "Customer"),
+                new Claim("TenHienThi", account.KhachHang.TenHienThi ?? "")
+            };
+
+        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var principal = new ClaimsPrincipal(identity);
+
+        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+        // Merge session cart vào database
+        var cartService = HttpContext.RequestServices.GetRequiredService<ICartService>();
+        await cartService.MergeSessionCartToDatabase(account.MaKhachHang, HttpContext.Session);
+
+        TempData["success"] = "Đăng nhập thành công!";
+        return RedirectToAction("Index", "Home");
     }
 }

@@ -27,6 +27,9 @@ public partial class KhachHang
 
     public bool? GioiTinh { get; set; }
 
+    [Column(TypeName = "varchar(255)")]
+    public string? HinhDaiDien { get; set; }
+
     public int? MaTaiKhoan { get; set; }
 
     public TaiKhoan TaiKhoan { get; set; }

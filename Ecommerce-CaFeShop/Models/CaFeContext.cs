@@ -24,9 +24,11 @@ public partial class CaFeContext : DbContext
 
     public required virtual DbSet<KhachHang> KhachHangs { get; set; }
 
-    public DbSet<TokenKhoiPhucMatKhau> TokenKhoiPhucMatKhaus { get; set; }
+    public DbSet<TokenKhoiPhucMatKhau> TokenKhoiPhucMatKhau { get; set; }
 
-    public required virtual DbSet<YeuThich> YeuThichs { get; set; }
+    public virtual DbSet<YeuThich> YeuThichs { get; set; }
+
+    public virtual DbSet<GioHang> GioHangs { get; set; }
 
     public required virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 

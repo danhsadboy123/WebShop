@@ -41,12 +41,12 @@ namespace Ecommerce_CaFeShop
             //    var G7 = _context.ThuongHieus.FirstOrDefault(b => b.TenThuongHieu == "G7");
 
             //    await _context.SanPhams.AddRangeAsync(
-                 
+
             //    );
             //    await _context.SaveChangesAsync();
 
             //    await _context.HinhAnhSanPhams.AddRangeAsync(
-         
+
             //    );
             //    await _context.SaveChangesAsync();
             //}
@@ -113,37 +113,37 @@ namespace Ecommerce_CaFeShop
             //    await _context.SaveChangesAsync();
             //}
 
-            //if (!_context.Footers.Any())
-            //{
-            //    await _context.Footers.AddRangeAsync(
-            //        new Footer
-            //        {
-            //            Logo = "logo.png",
-            //            MoTa = "Coffeeshop không chỉ là nơi để mua sắm, mà còn là nơi để khám phá, tìm hiểu và đắm mình trong thế giới cà phê Việt Nam.",
-            //            DiaChi = "65 Đ. Huỳnh Thúc Kháng, Bến Nghé, Quận 1, Hồ Chí Minh",
-            //            Email = "contact@coffeeshop.com",
-            //            SoDienThoai = "0123456789",
-            //            FacebookUrl = "https://www.facebook.com/COFFEESHOP/",
-            //            TrangThai = true
-            //        }
-            //    );
-            //    await _context.SaveChangesAsync();
-            //}
+            if (!_context.Footers.Any())
+            {
+                await _context.Footers.AddRangeAsync(
+                    new Footer
+                    {
+                        Logo = "Logo.png",
+                        MoTa = "Coffeeshop không chỉ là nơi để mua sắm, mà còn là nơi để khám phá, tìm hiểu và đắm mình trong thế giới cà phê Việt Nam.",
+                        DiaChi = "65 Đ. Huỳnh Thúc Kháng, Bến Nghé, Quận 1, Hồ Chí Minh",
+                        Email = "contact@coffeeshop.com",
+                        SoDienThoai = "0123456789",
+                        FacebookUrl = "https://www.facebook.com/COFFEESHOP/",
+                        TrangThai = true
+                    }
+                );
+                await _context.SaveChangesAsync();
+            }
 
-            //if (!_context.FooterLinks.Any())
-            //{
-            //    await _context.FooterLinks.AddRangeAsync(
-            //        new FooterLink { TieuDe = "Giới Thiệu", Url = "/Home/Introduction", MaNhom = 1, ThuTuHienThi = 1, TrangThai = true },
-            //        new FooterLink { TieuDe = "Liên Hệ", Url = "/Home/Contact", MaNhom = 1, ThuTuHienThi = 2, TrangThai = true },
-            //        new FooterLink { TieuDe = "Tài Khoản Của Tôi", Url = "/Account/Index", MaNhom = 2, ThuTuHienThi = 1, TrangThai = true },
-            //        new FooterLink { TieuDe = "Yêu Thích", Url = "/Account/Favorite", MaNhom = 2, ThuTuHienThi = 2, TrangThai = true },
-            //        new FooterLink { TieuDe = "Lịch Sử Đơn Hàng", Url = "/Account/Order", MaNhom = 2, ThuTuHienThi = 3, TrangThai = true },
-            //        new FooterLink { TieuDe = "Cà Phê Hạt Rang", Url = "/ca-phe-hat-rang", MaNhom = 3, ThuTuHienThi = 1, TrangThai = true },
-            //        new FooterLink { TieuDe = "Cà Phê Xay", Url = "/ca-phe-xay", MaNhom = 3, ThuTuHienThi = 2, TrangThai = true },
-            //        new FooterLink { TieuDe = "Cà Phê Phin Truyền Thống", Url = "/ca-phe-phin-truyen-thong", MaNhom = 3, ThuTuHienThi = 3, TrangThai = true }
-            //    );
-            //    await _context.SaveChangesAsync();
-            //}
+            if (!_context.FooterLinks.Any())
+            {
+                await _context.FooterLinks.AddRangeAsync(
+                    new FooterLink { TieuDe = "Giới Thiệu", Url = "/Home/Introduction", MaNhom = 1, ThuTuHienThi = 1, TrangThai = true },
+                    new FooterLink { TieuDe = "Liên Hệ", Url = "/Home/Contact", MaNhom = 1, ThuTuHienThi = 2, TrangThai = true },
+                    new FooterLink { TieuDe = "Tài Khoản Của Tôi", Url = "/Account/Index", MaNhom = 2, ThuTuHienThi = 1, TrangThai = true },
+                    new FooterLink { TieuDe = "Yêu Thích", Url = "/Account/Favorite", MaNhom = 2, ThuTuHienThi = 2, TrangThai = true },
+                    new FooterLink { TieuDe = "Lịch Sử Đơn Hàng", Url = "/Account/Order", MaNhom = 2, ThuTuHienThi = 3, TrangThai = true },
+                    new FooterLink { TieuDe = "Cà Phê Hạt Rang", Url = "/ca-phe-hat-rang", MaNhom = 3, ThuTuHienThi = 1, TrangThai = true },
+                    new FooterLink { TieuDe = "Cà Phê Xay", Url = "/ca-phe-xay", MaNhom = 3, ThuTuHienThi = 2, TrangThai = true },
+                    new FooterLink { TieuDe = "Cà Phê Phin Truyền Thống", Url = "/ca-phe-phin-truyen-thong", MaNhom = 3, ThuTuHienThi = 3, TrangThai = true }
+                );
+                await _context.SaveChangesAsync();
+            }
 
             //if (!_context.Sliders.Any())
             //{
@@ -269,7 +269,7 @@ namespace Ecommerce_CaFeShop
             //        new ChiTietHoaDon { MaHoaDon = 9, MaSanPham = 10, Gia = 80000, SoLuong = 2, TongTien = 160000 },
             //        new ChiTietHoaDon { MaHoaDon = 10, MaSanPham = 7, Gia = 90000, SoLuong = 4, TongTien = 360000 }
             //    );
-            //    //await _context.SaveChangesAsync();
+            //    await _context.SaveChangesAsync();
             //}
         }
     }

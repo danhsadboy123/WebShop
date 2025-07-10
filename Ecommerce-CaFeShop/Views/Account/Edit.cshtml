@@ -40,7 +40,7 @@
                             <a asp-controller="Account" asp-action="Index"
                                class="nav-link btn btn-block btn-md btn-black-default-hover active">Thông tin cá nhân</a>
                         </li>
-                   
+
                         <li>
                             <a asp-controller="Account" asp-action="Logout"
                                class="nav-link btn btn-block btn-md btn-black-default-hover">Đăng xuất</a>
@@ -56,16 +56,16 @@
                         <div class="login">
                             <div class="login_form_container">
                                 <div class="account_login_form">
-                                    <form asp-action="Edit" method="post">
+                                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
                                         @Html.AntiForgeryToken()
                                         <div class="default-form-box input-radio">
                                             <label>Giới tính</label>
                                             <br />
                                             <span class="custom-radio">
-                                                <input type="radio" value="true" asp-for="Gender" > Nam
+                                                <input type="radio" value="true" asp-for="Gender"> Nam
                                             </span>
                                             <span class="custom-radio">
-                                                <input type="radio" value="false" asp-for="Gender" > Nữ
+                                                <input type="radio" value="false" asp-for="Gender"> Nữ
                                             </span>
                                         </div>
                                         <br>
@@ -90,14 +90,42 @@
                                             <span asp-validation-for="Phone" class="text-danger"></span>
                                         </div>
                                         <div class="default-form-box mb-20">
-                                            <label asp-for="Address">Địa chỉ</label>
+                                            <label asp-for="Address">Địa chỉ chi tiết</label>
                                             <input type="text" asp-for="Address" value="@Model.Address">
                                             <span asp-validation-for="Address" class="text-danger"></span>
                                         </div>
                                         <div class="default-form-box mb-20">
+                                            <label asp-for="Tinh">Tỉnh/Thành phố</label>
+                                            <input type="text" asp-for="Tinh" value="@Model.Tinh">
+                                            <span asp-validation-for="Tinh" class="text-danger"></span>
+                                        </div>
+                                        <div class="default-form-box mb-20">
+                                            <label asp-for="Huyen">Quận/Huyện</label>
+                                            <input type="text" asp-for="Huyen" value="@Model.Huyen">
+                                            <span asp-validation-for="Huyen" class="text-danger"></span>
+                                        </div>
+                                        <div class="default-form-box mb-20">
+                                            <label asp-for="Xa">Phường/Xã</label>
+                                            <input type="text" asp-for="Xa" value="@Model.Xa">
+                                            <span asp-validation-for="Xa" class="text-danger"></span>
+                                        </div>
+                                        <div class="default-form-box mb-20">
                                             <label asp-for="Dob">Ngày sinh</label>
-                                            <input type="date" asp-for="Dob" value="@(Model.Dob.HasValue ? Model.Dob.Value.ToString("yyyy-MM-dd") : "")" />
+                                            <input type="date" asp-for="Dob" value="@(Model.Dob.HasValue? Model.Dob.Value.ToString("yyyy-MM-dd") : "")" />
                                             <span asp-validation-for="Dob" class="text-danger"></span>
+                                        </div>
+                                        <div class="default-form-box mb-20">
+                                            <label>Hình đại diện hiện tại</label>
+                                            @if (!string.IsNullOrEmpty(Model.HinhDaiDien))
+                                            {
+                                                <div class="mb-2">
+                                                    <img src="~/Images/@Model.HinhDaiDien" alt="Avatar" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" />
+                                                </div>
+                                            }
+                                            <label asp-for="AvatarFile">Thay đổi hình đại diện</label>
+                                            <input type="file" asp-for="AvatarFile" accept="image/*" class="form-control">
+                                            <span asp-validation-for="AvatarFile" class="text-danger"></span>
+                                            <small class="text-muted">Chỉ chấp nhận file ảnh (JPG, PNG, GIF). Tối đa 5MB.</small>
                                         </div>
                                         <br>
                                         <div class="save_button mt-3">

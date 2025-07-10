@@ -24,14 +24,22 @@ namespace Ecommerce_CaFeShop.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            if (Carts == null || Carts.Count == 0)
+            // Kiểm tra session có tồn tại không
+            if (HttpContext.Session == null)
             {
-                TempData["error"] = "Giỏ hàng của bạn đang trống";
-                return RedirectToAction("Cart", "Cart");
+                TempData["error"] = "Phiên làm việc không hợp lệ";
+                return RedirectToAction("Index", "Home");
+            }
+
+            var cartItems = CartHelper.GetCart(HttpContext.Session);
+            if (cartItems == null || cartItems.Count == 0 || !CartHelper.HasItems(HttpContext.Session))
+            {
+                TempData["error"] = "Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm vào giỏ hàng trước khi thanh toán.";
+                return RedirectToAction("Index", "Home");
             }
 
             var checkoutVM = new CheckoutVM();
-            var subtotal = Carts.Sum(item => (decimal)(item.Quantity * item.Price));
+            var subtotal = cartItems.Sum(item => (decimal)(item.Quantity * item.Price));
             var shippingFee = 30000;
             checkoutVM.TotalAmount = subtotal + shippingFee;
 
@@ -52,7 +60,7 @@ namespace Ecommerce_CaFeShop.Controllers
                 }
             }
 
-            ViewBag.CartItems = Carts;
+            ViewBag.CartItems = cartItems;
             return View(checkoutVM);
         }
 
@@ -64,20 +72,28 @@ namespace Ecommerce_CaFeShop.Controllers
                 if (!User.Identity!.IsAuthenticated)
                 {
                     TempData["error"] = "Vui lòng đăng nhập để thanh toán";
+                    return RedirectToAction("Login", "Home");
+                }
+
+                // Kiểm tra session
+                if (HttpContext.Session == null)
+                {
+                    TempData["error"] = "Phiên làm việc không hợp lệ";
                     return RedirectToAction("Index", "Home");
                 }
 
-                if (Carts == null || Carts.Count == 0)
+                var cartItems = CartHelper.GetCart(HttpContext.Session);
+                if (cartItems == null || cartItems.Count == 0 || !CartHelper.HasItems(HttpContext.Session))
                 {
-                    TempData["error"] = "Giỏ hàng của bạn đang trống";
-                    return RedirectToAction("Cart", "Cart");
+                    TempData["error"] = "Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm vào giỏ hàng trước khi thanh toán.";
+                    return RedirectToAction("Index", "Home");
                 }
 
                 // Validate model state
                 if (!ModelState.IsValid)
                 {
                     TempData["error"] = "Vui lòng kiểm tra lại thông tin đã nhập";
-                    ViewBag.CartItems = Carts;
+                    ViewBag.CartItems = cartItems;
                     return View("Index", model);
                 }
 
@@ -88,7 +104,7 @@ namespace Ecommerce_CaFeShop.Controllers
                     string.IsNullOrWhiteSpace(model.Address?.Trim()))
                 {
                     TempData["error"] = "Vui lòng điền đầy đủ thông tin bắt buộc";
-                    ViewBag.CartItems = Carts;
+                    ViewBag.CartItems = cartItems;
                     return View("Index", model);
                 }
 
@@ -108,19 +124,19 @@ namespace Ecommerce_CaFeShop.Controllers
                 }
 
                 // Kiểm tra sản phẩm trong giỏ hàng có tồn tại
-                foreach (var cartItem in Carts)
+                foreach (var cartItem in cartItems)
                 {
                     var product = await _context.SanPhams.FindAsync(cartItem.ProductId);
                     if (product == null)
                     {
                         TempData["error"] = $"Sản phẩm {cartItem.ProductName} không còn tồn tại";
-                        ViewBag.CartItems = Carts;
+                        ViewBag.CartItems = cartItems;
                         return View("Index", model);
                     }
                 }
 
                 // Tính tổng tiền
-                var subtotal = Carts.Sum(item => (decimal)(item.Quantity * item.Price));
+                var subtotal = cartItems.Sum(item => (decimal)(item.Quantity * item.Price));
                 var shippingFee = 30000m;
                 var totalAmount = subtotal + shippingFee;
 
@@ -150,7 +166,7 @@ namespace Ecommerce_CaFeShop.Controllers
                     await _context.SaveChangesAsync();
 
                     // Tạo chi tiết hóa đơn
-                    foreach (var item in Carts)
+                    foreach (var item in cartItems)
                     {
                         // Lấy thông tin sản phẩm để đảm bảo giá chính xác
                         var product = await _context.SanPhams.FindAsync(item.ProductId);
@@ -192,14 +208,14 @@ namespace Ecommerce_CaFeShop.Controllers
                 // Log chi tiết lỗi database
                 var innerException = dbEx.InnerException?.Message ?? dbEx.Message;
                 TempData["error"] = $"Lỗi cơ sở dữ liệu: {innerException}";
-                ViewBag.CartItems = Carts;
+                ViewBag.CartItems = CartHelper.GetCart(HttpContext.Session);
                 return View("Index", model);
             }
             catch (Exception ex)
             {
                 // Log chi tiết lỗi
                 TempData["error"] = $"Có lỗi xảy ra: {ex.Message}";
-                ViewBag.CartItems = Carts;
+                ViewBag.CartItems = CartHelper.GetCart(HttpContext.Session);
                 return View("Index", model);
             }
         }

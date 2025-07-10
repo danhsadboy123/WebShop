@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce_CaFeShop.Migrations
 {
     [DbContext(typeof(CaFeContext))]
-    [Migration("20250709012915_data3")]
-    partial class data3
+    [Migration("20250710140056_data2")]
+    partial class data2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -255,6 +255,38 @@ namespace Ecommerce_CaFeShop.Migrations
                     b.ToTable("FooterLinks");
                 });
 
+            modelBuilder.Entity("Ecommerce_CaFeShop.Models.GioHang", b =>
+                {
+                    b.Property<int>("MaGioHang")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaGioHang"));
+
+                    b.Property<decimal>("Gia")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("MaKhachHang")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaSanPham")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("NgayThem")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SoLuong")
+                        .HasColumnType("int");
+
+                    b.HasKey("MaGioHang");
+
+                    b.HasIndex("MaKhachHang");
+
+                    b.HasIndex("MaSanPham");
+
+                    b.ToTable("GioHangs");
+                });
+
             modelBuilder.Entity("Ecommerce_CaFeShop.Models.GioiThieu", b =>
                 {
                     b.Property<int>("Ma")
@@ -356,9 +388,6 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     b.Property<int?>("KhachHangMaKhachHang")
                         .HasColumnType("int");
-
-                    b.Property<string>("LyDoHuy")
-                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("MaKhachHang")
                         .HasColumnType("int");
@@ -584,6 +613,9 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTaiKhoan"));
 
+                    b.Property<int>("MaKhachHang")
+                        .HasColumnType("int");
+
                     b.Property<int?>("MaVaiTro")
                         .HasColumnType("int");
 
@@ -655,7 +687,7 @@ namespace Ecommerce_CaFeShop.Migrations
 
                     b.HasIndex("MaTaiKhoan");
 
-                    b.ToTable("TokenKhoiPhucMatKhaus");
+                    b.ToTable("TokenKhoiPhucMatKhau");
                 });
 
             modelBuilder.Entity("Ecommerce_CaFeShop.Models.VaiTro", b =>
@@ -744,6 +776,25 @@ namespace Ecommerce_CaFeShop.Migrations
                     b.HasOne("Ecommerce_CaFeShop.Models.SanPham", "SanPham")
                         .WithMany("DanhGiaSanPhams")
                         .HasForeignKey("SanPhamMaSanPham")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("KhachHang");
+
+                    b.Navigation("SanPham");
+                });
+
+            modelBuilder.Entity("Ecommerce_CaFeShop.Models.GioHang", b =>
+                {
+                    b.HasOne("Ecommerce_CaFeShop.Models.KhachHang", "KhachHang")
+                        .WithMany()
+                        .HasForeignKey("MaKhachHang")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Ecommerce_CaFeShop.Models.SanPham", "SanPham")
+                        .WithMany()
+                        .HasForeignKey("MaSanPham")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Ecommerce_CaFeShop.Migrations
 {
     /// <inheritdoc />
-    public partial class datas : Migration
+    public partial class data : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -210,6 +210,7 @@ namespace Ecommerce_CaFeShop.Migrations
                     TenDangNhap = table.Column<string>(type: "varchar(100)", nullable: true),
                     MatKhau = table.Column<string>(type: "varchar(100)", nullable: true),
                     MaVaiTro = table.Column<int>(type: "int", nullable: true),
+                    MaKhachHang = table.Column<int>(type: "int", nullable: false),
                     VaiTroMaVaiTro = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -235,9 +236,9 @@ namespace Ecommerce_CaFeShop.Migrations
                     MaThuongHieu = table.Column<int>(type: "int", nullable: false),
                     Gia = table.Column<double>(type: "float", nullable: false),
                     GiaKhuyenMai = table.Column<double>(type: "float", nullable: true),
-                    MoTaNgan = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SoLuong = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MoTaNgan = table.Column<string>(type: "nvarchar(200)", nullable: true),
+                    MoTa = table.Column<string>(type: "nvarchar(500)", nullable: true),
+                    SoLuong = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
                     LuotXem = table.Column<int>(type: "int", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: true),
                     NgayTao = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -276,7 +277,6 @@ namespace Ecommerce_CaFeShop.Migrations
                     Xa = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "varchar(255)", nullable: true),
                     TenHienThi = table.Column<string>(type: "varchar(200)", nullable: true),
-                    NgaySinh = table.Column<DateOnly>(type: "date", nullable: true),
                     GioiTinh = table.Column<bool>(type: "bit", nullable: true),
                     MaTaiKhoan = table.Column<int>(type: "int", nullable: true)
                 },
@@ -291,7 +291,7 @@ namespace Ecommerce_CaFeShop.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TokenKhoiPhucMatKhaus",
+                name: "TokenKhoiPhucMatKhau",
                 columns: table => new
                 {
                     MaDinhDanh = table.Column<int>(type: "int", nullable: false)
@@ -302,9 +302,9 @@ namespace Ecommerce_CaFeShop.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TokenKhoiPhucMatKhaus", x => x.MaDinhDanh);
+                    table.PrimaryKey("PK_TokenKhoiPhucMatKhau", x => x.MaDinhDanh);
                     table.ForeignKey(
-                        name: "FK_TokenKhoiPhucMatKhaus_TaiKhoans_MaTaiKhoan",
+                        name: "FK_TokenKhoiPhucMatKhau_TaiKhoans_MaTaiKhoan",
                         column: x => x.MaTaiKhoan,
                         principalTable: "TaiKhoans",
                         principalColumn: "MaTaiKhoan",
@@ -383,6 +383,35 @@ namespace Ecommerce_CaFeShop.Migrations
                     table.ForeignKey(
                         name: "FK_DanhGiaSanPhams_SanPhams_SanPhamMaSanPham",
                         column: x => x.SanPhamMaSanPham,
+                        principalTable: "SanPhams",
+                        principalColumn: "MaSanPham",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GioHangs",
+                columns: table => new
+                {
+                    MaGioHang = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MaKhachHang = table.Column<int>(type: "int", nullable: false),
+                    MaSanPham = table.Column<int>(type: "int", nullable: false),
+                    SoLuong = table.Column<int>(type: "int", nullable: false),
+                    Gia = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    NgayThem = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GioHangs", x => x.MaGioHang);
+                    table.ForeignKey(
+                        name: "FK_GioHangs_KhachHangs_MaKhachHang",
+                        column: x => x.MaKhachHang,
+                        principalTable: "KhachHangs",
+                        principalColumn: "MaKhachHang",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GioHangs_SanPhams_MaSanPham",
+                        column: x => x.MaSanPham,
                         principalTable: "SanPhams",
                         principalColumn: "MaSanPham",
                         onDelete: ReferentialAction.Cascade);
@@ -504,6 +533,16 @@ namespace Ecommerce_CaFeShop.Migrations
                 column: "SanPhamMaSanPham");
 
             migrationBuilder.CreateIndex(
+                name: "IX_GioHangs_MaKhachHang",
+                table: "GioHangs",
+                column: "MaKhachHang");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GioHangs_MaSanPham",
+                table: "GioHangs",
+                column: "MaSanPham");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_HinhAnhBaiViets_BaiVietMaBaiViet",
                 table: "HinhAnhBaiViets",
                 column: "BaiVietMaBaiViet");
@@ -546,8 +585,8 @@ namespace Ecommerce_CaFeShop.Migrations
                 column: "MaDanhMuc");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TokenKhoiPhucMatKhaus_MaTaiKhoan",
-                table: "TokenKhoiPhucMatKhaus",
+                name: "IX_TokenKhoiPhucMatKhau_MaTaiKhoan",
+                table: "TokenKhoiPhucMatKhau",
                 column: "MaTaiKhoan");
 
             migrationBuilder.CreateIndex(
@@ -583,6 +622,9 @@ namespace Ecommerce_CaFeShop.Migrations
                 name: "Footers");
 
             migrationBuilder.DropTable(
+                name: "GioHangs");
+
+            migrationBuilder.DropTable(
                 name: "GioiThieus");
 
             migrationBuilder.DropTable(
@@ -598,7 +640,7 @@ namespace Ecommerce_CaFeShop.Migrations
                 name: "Sliders");
 
             migrationBuilder.DropTable(
-                name: "TokenKhoiPhucMatKhaus");
+                name: "TokenKhoiPhucMatKhau");
 
             migrationBuilder.DropTable(
                 name: "YeuThichs");

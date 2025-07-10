@@ -14,6 +14,7 @@ public partial class TaiKhoan
 
     public int? MaVaiTro { get; set; }
 
+    public int MaKhachHang { get; set; }
     public KhachHang KhachHang { get; set; }
 
     public virtual VaiTro? VaiTro { get; set; }

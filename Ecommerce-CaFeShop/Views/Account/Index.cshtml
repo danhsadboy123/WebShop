@@ -1,7 +1,7 @@
 ﻿@model Ecommerce_CaFeShop.Models.KhachHang
 @{
-    ViewData["Title"] = "Thông tin tài khoản"; 
-} 
+    ViewData["Title"] = "Thông tin tài khoản";
+}
 
 <!-- ...:::: Start Breadcrumb Section:::... -->
 <div class="breadcrumb-section breadcrumb-bg-color--golden">
@@ -40,7 +40,7 @@
                             <a asp-controller="Account" asp-action="Index"
                                class="nav-link btn btn-block btn-md btn-black-default-hover active">Thông tin cá nhân</a>
                         </li>
-                    
+
                         <li>
                             <a asp-controller="Account" asp-action="Logout"
                                class="nav-link btn btn-block btn-md btn-black-default-hover">Đăng xuất</a>
@@ -84,15 +84,40 @@
                                         </div>
                                         <div class="default-form-box mb-20">
                                             <label>Số điện thoại</label>
-                                            <input type="text"  value="@Model.SoDienThoai" readonly>
+                                            <input type="text" value="@Model.SoDienThoai" readonly>
                                         </div>
                                         <div class="default-form-box mb-20">
-                                            <label>Địa chỉ</label>
+                                            <label>Địa chỉ chi tiết</label>
                                             <input type="text" value="@Model.DiaChi" readonly>
                                         </div>
                                         <div class="default-form-box mb-20">
+                                            <label>Tỉnh/Thành phố</label>
+                                            <input type="text" value="@Model.Tinh" readonly>
+                                        </div>
+                                        <div class="default-form-box mb-20">
+                                            <label>Quận/Huyện</label>
+                                            <input type="text" value="@Model.Huyen" readonly>
+                                        </div>
+                                        <div class="default-form-box mb-20">
+                                            <label>Phường/Xã</label>
+                                            <input type="text" value="@Model.Xa" readonly>
+                                        </div>
+                                        <div class="default-form-box mb-20">
                                             <label>Ngày sinh</label>
-                                            <input type="date" value="@(Model.NgaySinh.HasValue ? Model.NgaySinh.Value.ToString("yyyy-MM-dd") : "")" readonly/>
+                                            <input type="date" value="@(Model.NgaySinh.HasValue? Model.NgaySinh.Value.ToString("yyyy-MM-dd") : "")" readonly />
+                                        </div>
+                                        <div class="default-form-box mb-20">
+                                            <label>Hình đại diện</label>
+                                            <div class="mt-2">
+                                                @if (!string.IsNullOrEmpty(Model.HinhDaiDien))
+                                                {
+                                                    <img src="~/Images/@Model.HinhDaiDien" alt="Avatar" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #ddd;" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Images/default-avatar.png" alt="Default Avatar" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #ddd;" />
+                                                }
+                                            </div>
                                         </div>
                                         <br>
                                         <div class="save_button mt-3">

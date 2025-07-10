@@ -12,9 +12,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddHttpClient<IMomoService, MomoService>();
 builder.Services.AddScoped<IMomoService, MomoService>();
+builder.Services.AddScoped<ICartService, CartService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<CaFeContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (string.IsNullOrEmpty(connectionString))
+{
+    // Fallback connection string for development
+    connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CaFeShopDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+}
+
+builder.Services.AddDbContext<CaFeContext>(options =>
+    options.UseSqlServer(connectionString));
 //builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 //    .AddCookie();
 builder.Services.AddAuthentication(options =>
