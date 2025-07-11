@@ -116,17 +116,26 @@
                                         </div>
                                         <div class="default-form-box mb-20">
                                             <label>Hình đại diện hiện tại</label>
-                                            @if (!string.IsNullOrEmpty(Model.HinhDaiDien))
-                                            {
-                                                <div class="mb-2">
-                                                    <img src="~/Images/@Model.HinhDaiDien" alt="Avatar" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" />
-                                                </div>
-                                            }
+                                            <div class="mb-2">
+                                                <img id="avatarPreview" src="~/Images/@(Model.HinhDaiDien ?? "default-avatar.png")" alt="Avatar" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 2px solid #ddd;" />
+                                            </div>
                                             <label asp-for="AvatarFile">Thay đổi hình đại diện</label>
-                                            <input type="file" asp-for="AvatarFile" accept="image/*" class="form-control">
+                                            <input type="file" asp-for="AvatarFile" accept="image/*" class="form-control" id="avatarInput" onchange="previewAvatar(this)">
                                             <span asp-validation-for="AvatarFile" class="text-danger"></span>
                                             <small class="text-muted">Chỉ chấp nhận file ảnh (JPG, PNG, GIF). Tối đa 5MB.</small>
                                         </div>
+
+                                        <script>
+                                            function previewAvatar(input) {
+                                                if (input.files && input.files[0]) {
+                                                    var reader = new FileReader();
+                                                    reader.onload = function(e) {
+                                                        document.getElementById('avatarPreview').src = e.target.result;
+                                                    }
+                                                    reader.readAsDataURL(input.files[0]);
+                                                }
+                                            }
+                                        </script>
                                         <br>
                                         <div class="save_button mt-3">
                                             <button class="btn btn-md btn-black-default-hover" type="submit">

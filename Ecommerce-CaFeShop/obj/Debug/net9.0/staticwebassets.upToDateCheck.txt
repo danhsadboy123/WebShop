@@ -2493,7 +2493,6 @@ wwwroot\Images\08f3c57d-6aba-48d3-af9f-5d849d5c348c.webp
 wwwroot\Images\17a8553e-4efe-4099-8da1-3f9b97806ca3.png
 wwwroot\Images\18a6f82b-09e4-44c7-aa7f-9d28cd645f2f.png
 wwwroot\Images\1f067951-a498-4f4b-8a84-8fdb2e237628.jpg
-wwwroot\Images\1f80344a-2b4e-4d3a-9474-870e9d1971f1.jpg
 wwwroot\Images\21d31d47-61e0-4eaf-a26b-bde049527f3a.png
 wwwroot\Images\2635fb47-4ee7-43fb-b539-56293b1198d9.png
 wwwroot\Images\2680fdf6-2181-4f67-9955-b259f1d22707.jpg
@@ -2550,6 +2549,7 @@ wwwroot\Images\banner1.png
 wwwroot\Images\banner2.png
 wwwroot\Images\bannerCaFe.jpg
 wwwroot\Images\bf56648b-bdf5-4193-a4a3-3d65b3124731.png
+wwwroot\Images\c8122637-d896-4146-907f-628d6bbd7dee.png
 wwwroot\Images\ca-phe-chon-gia-bao-nhieu-va-ban-o-dau-202109281143187496 (1).jpg
 wwwroot\Images\ca-phe-chon-gia-bao-nhieu-va-ban-o-dau-202109281143187496.jpg
 wwwroot\Images\cacloaicafe.jpg

@@ -149,44 +149,58 @@ namespace Ecommerce_CaFeShop.Controllers
 
         public async Task<IActionResult> SearchProduct(string? search = "", int page = 1)
         {
-            var pageSize = 5; // Số sản phẩm mỗi trang
+            var pageSize = 6; // Tăng số sản phẩm mỗi trang
             var products = _context.SanPhams.AsQueryable();
+
+            // Lọc sản phẩm theo trạng thái và không bị xóa trước
+            products = products.Where(p => p.TrangThai == 1 && p.DaXoa == 0);
 
             if (!string.IsNullOrEmpty(search))
             {
                 search = search.ToLower().Trim();
                 products = products.Where(p =>
-                    p.TenSanPham.ToLower().Contains(search) ||
-                    p.MoTaNgan.ToLower().Contains(search));
+                    (p.TenSanPham != null && p.TenSanPham.ToLower().Contains(search)) ||
+                    (p.MoTaNgan != null && p.MoTaNgan.ToLower().Contains(search)) ||
+                    (p.MoTa != null && p.MoTa.ToLower().Contains(search)) ||
+                    (p.DanhMuc != null && p.DanhMuc.TenDanhMuc != null && p.DanhMuc.TenDanhMuc.ToLower().Contains(search)) ||
+                    (p.ThuongHieu != null && p.ThuongHieu.TenThuongHieu != null && p.ThuongHieu.TenThuongHieu.ToLower().Contains(search)));
             }
 
             var totalProducts = await products.CountAsync();
             var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
+
             var result = await products
-                .Where(p => p.TrangThai == 1)
                 .Include(p => p.DanhGiaSanPhams)
-                .Skip((page - 1) * pageSize) // Bỏ qua các sản phẩm của các trang trước
-                .Take(pageSize) // Lấy sản phẩm cho trang hiện tại
+                .Include(p => p.DanhMuc)
+                .Include(p => p.ThuongHieu)
+                .OrderByDescending(p => p.NgayTao) // Sắp xếp theo ngày tạo mới nhất
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .Select(p => new ProductVM
                 {
                     ProductId = p.MaSanPham,
-                    ProductName = p.TenSanPham!,
-                    Image = p.HinhAnh ?? "",
+                    ProductName = p.TenSanPham ?? "Chưa có tên",
+                    Image = string.IsNullOrEmpty(p.HinhAnh) ? "default-image.jpg" : p.HinhAnh,
                     Price = p.Gia,
                     DiscountPrice = (double?)p.GiaKhuyenMai,
-                    ShortDescription = p.MoTaNgan!,
+                    ShortDescription = p.MoTaNgan ?? "Chưa có mô tả",
                     ProductRating = p.DanhGiaSanPhams.Any()
-                        ? p.DanhGiaSanPhams.Average(r => (double)r.DiemDanhGia!) : 0,
+                        ? p.DanhGiaSanPhams.Average(r => (double)(r.DiemDanhGia ?? 0)) : 0,
                     TotalRating = p.DanhGiaSanPhams.Count,
+                    Slug = p.Slug
                 }).ToListAsync();
 
             var viewModel = new PagedProductListVM
             {
-                SanPhams = result, // Danh sách sản phẩm cho trang hiện tại
+                SanPhams = result,
                 CurrentPage = page,
                 TotalPages = totalPages,
                 PageSize = pageSize
             };
+
+            // Truyền từ khóa search để hiển thị lại trong view
+            ViewData["SearchKeyword"] = search;
+            ViewData["TotalResults"] = totalProducts;
 
             return View(viewModel);
         }

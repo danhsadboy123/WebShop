@@ -1,337 +1,1024 @@
-﻿@{
-    ViewData["Title"] = "Tìm kiếm sản phẩm";
-}
-@model Ecommerce_CaFeShop.Models.ViewModels.PagedProductListVM
-@using System.Globalization
-<div class="breadcrumb-section breadcrumb-bg-color--golden">
-    <div class="breadcrumb-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="breadcrumb-title">Sản Phẩm</h3>
-                    <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
-                        <nav aria-label="breadcrumb">
-                            <ul>
-                                <li><a asp-controller="Home" asp-action="Index">Trang Chủ</a></li>
-                                <li class="active" aria-current="page">Sản Phẩm</li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!-- ...:::: End Breadcrumb Section:::... -->
-<!-- ...:::: Start Shop Section:::... -->
-<div class="shop-section">
-    <div class="container">
-        <div class="row flex-column-reverse flex-lg-row">
-            <div class="col-lg-3">
-                <form method="get" asp-controller="Product" asp-action="Index">
-                    <div class="sidebar-single-widget">
-                        <h6 class="sidebar-title">Tìm kiếm</h6>
-                        <div class="default-search-style d-flex">
-                            @* <form method="get" asp-controller="Product" asp-action="ProductList">  *@
-                            <input class="default-search-style-input-box" type="search" placeholder="Tìm kiếm..." name="search">
-                            <button class="default-search-style-input-btn" type="submit"><i class="fa fa-search"></i></button>
-                            @* </form>  *@
+﻿ @model Ecommerce_CaFeShop.Models.ViewModels.PagedProductListVM
+ @using System.Globalization
+@{
+                                                                            ViewData["Title"] = "Sản phẩm";
+                                                                        }
 
-                        </div>
-                    </div>
-                    @await Component.InvokeAsync("MenuBrand")
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+                                                                            <meta charset="UTF-8">
+                                                                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                                            <title>Sản Phẩm</title>
+                                                                            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+                                                                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+                                                                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
+                                                                            <style>
+                                                                                /* Coffee Theme Colors */
+                                                                                :root {
+                                                                                    --coffee-primary: #8B4513;
+                                                                                    --coffee-secondary: #D2691E;
+                                                                                    --coffee-light: #F5DEB3;
+                                                                                    --coffee-dark: #654321;
+                                                                                    --coffee-accent: #CD853F;
+                                                                                }
 
+                                                                                /* Breadcrumb */
+                                                                                .breadcrumb-section {
+                                                                                    background: linear-gradient(135deg, var(--coffee-light) 0%, var(--coffee-secondary) 100%);
+                                                                                    padding: 3rem 0;
+                                                                                    position: relative;
+                                                                                }
 
-                    <div class="sidebar-single-widget">
-                        <h6 class="sidebar-title">FILTER BY PRICE</h6>
-                        <div class="sidebar-content">
-                            <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 15%; width: 45%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 15%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 60%;"></span></div>
-                            <div class="filter-type-price">
-                                <label for="amount">Price range:</label>
-                                <div>
-                                    <input type="text" id="amount" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" id="filter-button" class="btn btn-md btn-golden mt-3">Lọc theo giá</button>
+                                                                                    .breadcrumb-section::before {
+                                                                                        content: '';
+                                                                                        position: absolute;
+                                                                                        top: 0;
+                                                                                        left: 0;
+                                                                                        right: 0;
+                                                                                        bottom: 0;
+                                                                                        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(139,69,19,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(139,69,19,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(139,69,19,0.1)"/></svg>');
+                                                                                    }
 
-                    @await Component.InvokeAsync("MenuCategory")
+                                                                                    .breadcrumb-section .container {
+                                                                                        max-width: 1200px;
+                                                                                        margin: 0 auto;
+                                                                                        padding: 0 1rem;
+                                                                                        position: relative;
+                                                                                        z-index: 1;
+                                                                                    }
 
-                    <div>
-                        <button type="submit" class="btn btn-md btn-golden mt-3">Lọc</button>
-                    </div>
+                                                                                    .breadcrumb-section h3 {
+                                                                                        font-size: 2.5rem;
+                                                                                        font-weight: 700;
+                                                                                        color: var(--coffee-dark);
+                                                                                        margin-bottom: 0.5rem;
+                                                                                        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                                                                                    }
 
-                </form>
+                                                                                    .breadcrumb-section nav ul {
+                                                                                        display: flex;
+                                                                                        gap: 0.5rem;
+                                                                                        font-size: 0.875rem;
+                                                                                        color: var(--coffee-dark);
+                                                                                    }
 
-                @*                 <div class="sidebar-single-widget">
-                    <h6 class="sidebar-title">Thương Hiệu</h6>
-                    <div class="sidebar-content">
-                        <div class="filter-type-select">
-                            <ul>
-                                <li>
-                                    <label class="checkbox-default" for="brakeParts">
-                                        <input type="checkbox" id="brakeParts">
-                                        <span>Rolex</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-default" for="accessories">
-                                        <input type="checkbox" id="accessories">
-                                        <span>Hublot</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-default" for="EngineParts">
-                                        <input type="checkbox" id="EngineParts">
-                                        <span>Curnon</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-default" for="hermes">
-                                        <input type="checkbox" id="hermes">
-                                        <span>Omega</span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> <!-- End Single Sidebar Widget --> *@
-            </div> <!-- End Sidebar Area -->
-            <div class="col-lg-9">
-                <h5>Có @Model.SanPhams.Count() sản phẩm</h5>
+                                                                                    .breadcrumb-section nav a {
+                                                                                        color: var(--coffee-dark);
+                                                                                        text-decoration: none;
+                                                                                        transition: color 0.3s ease;
+                                                                                    }
 
-                <!-- Start Shop Product Sorting Section -->
-                <div class="shop-sort-section">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Start Sort Wrapper Box -->
-                            <div class="sort-box d-flex justify-content-between align-items-md-center align-items-start flex-md-row flex-column"
-                                 data-aos="fade-up" data-aos-delay="0">
-                                <!-- Start Sort tab Button -->
-                            </div> <!-- Start Sort Wrapper Box -->
-                        </div>
-                    </div>
-                </div> <!-- End Section Content -->
-                <!-- Start Tab Wrapper -->
-                <div class="sort-product-tab-wrapper">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="tab-content tab-animate-zoom">
-                                    <!-- Start List View Product -->
-                                    <div class="tab-pane active show sort-layout-single" id="layout-list">
-                                        <div class="row">
-                                            @foreach (var item in Model.SanPhams)
-                                            {
-                                                <div class="col-12">
-                                                    <!-- Start Product Defautlt Single -->
-                                                    <div class="product-list-single product-color--golden"
-                                                         data-aos="fade-up" data-aos-delay="0">
-                                                        <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@item.Slug" class="product-list-img-link">
-                                                            <img class="img-fluid" src="@Url.Content("~/Images/" + item.Image)"
-                                                                 alt="" style="width: 400px; height: 300px; object-fit: cover">
-                                                        </a>
-                                                        <div class="product-list-content">
-                                                            <h5 class="product-list-link">
-                                                                <a>
-                                                                    @item.ProductName
-                                                                </a>
-                                                            </h5>
-                                                            <span class="product-list-price">
-                                                                @String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)
-                                                            </span>
-                                                            <p>
-                                                                @item.ShortDescription
-                                                            </p>
-                                                            <div class="product-action-icon-link-list">
-                                                                <a id="addToCartButton" data-bs-toggle="modal" data-bs-target="#modalAddcart" data-product-id="@item.ProductId" class="btn btn-lg btn-black-default-hover">
-                                                                    Thêm vào giỏ
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div> <!-- End Product Defautlt Single -->
-                                                </div>
-                                            }
-                                        </div>
-                                        <!-- End List View Product -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- End Tab Wrapper -->
-                    <!-- Start Pagination -->
-                    <div class="page-pagination text-center" data-aos="fade-up" data-aos-delay="0">
-                        <ul>
-                            <!-- Liên kết trang trước -->
-                            @if (Model.CurrentPage > 1)
-                            {
-                                <li><a href="@Url.Action("Index", new { page = Model.CurrentPage - 1 })">&laquo; Trước</a></li>
-                            }
+                                                                                        .breadcrumb-section nav a:hover {
+                                                                                            color: var(--coffee-primary);
+                                                                                        }
 
-                            <!-- Liên kết các trang -->
-                            @for (int i = 1; i <= Model.TotalPages; i++)
-                            {
-                                <li class="@(i == Model.CurrentPage ? "active" : "")">
-                                    <a href="@Url.Action("Index", new { page = i })">@i</a>
-                                </li>
-                            }
+                                                                                /* Shop Section */
+                                                                                .shop-section {
+                                                                                    padding: 3rem 0;
+                                                                                    background: #f8f6f3;
+                                                                                }
 
-                            <!-- Liên kết trang sau -->
-                            @if (Model.CurrentPage < Model.TotalPages)
-                            {
-                                <li><a href="@Url.Action("Index", new { page = Model.CurrentPage + 1 })">Sau &raquo;</a></li>
-                            }
-                        </ul>
-                    </div> <!-- End Pagination -->
-                </div> <!-- End Shop Product Sorting Section  -->
-            </div>
-        </div>
-    </div>
-</div>
-@section Scripts {
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+                                                                                    .shop-section .container {
+                                                                                        max-width: 1200px;
+                                                                                        margin: 0 auto;
+                                                                                        padding: 0 1rem;
+                                                                                    }
 
-    <script>
-        $(function() {
+                                                                                .shop-layout {
+                                                                                    display: flex;
+                                                                                    flex-direction: column-reverse;
+                                                                                    gap: 2rem;
+                                                                                }
 
-            var minPrice = 2000000;
+                                                                                @@media (min-width: 1024px) {
+                                                                                    .shop-layout {
+                                                                                        flex-direction: row;
+                                                                                    }
+                                                                                }
 
-            var maxPrice = 10000000;
+                                                                                .sidebar {
+                                                                                    width: 100%;
+                                                                                }
 
+                                                                                @@media (min-width: 1024px) {
+                                                                                    .sidebar {
+                                                                                        width: 300px;
+                                                                                        flex-shrink: 0;
+                                                                                    }
+                                                                                }
 
-            $("#slider-range").slider({
+                                                                                .main-content {
+                                                                                    flex: 1;
+                                                                                }
 
-                range: true,
+                                                                                /* Filter Cards */
+                                                                                .filter-card {
+                                                                                    background: white;
+                                                                                    padding: 1.5rem;
+                                                                                    border-radius: 12px;
+                                                                                    box-shadow: 0 4px 12px rgba(139,69,19,0.1);
+                                                                                    margin-bottom: 1.5rem;
+                                                                                    border: 1px solid var(--coffee-light);
+                                                                                }
 
-                min: minPrice,
+                                                                                    .filter-card h6 {
+                                                                                        font-size: 1.125rem;
+                                                                                        font-weight: 600;
+                                                                                        color: var(--coffee-dark);
+                                                                                        margin-bottom: 1rem;
+                                                                                        display: flex;
+                                                                                        align-items: center;
+                                                                                        gap: 0.5rem;
+                                                                                    }
 
-                max: maxPrice,
+                                                                                        .filter-card h6 i {
+                                                                                            color: var(--coffee-secondary);
+                                                                                        }
 
-                values: [minPrice, maxPrice],
+                                                                                /* Search Box */
+                                                                                .search-container {
+                                                                                    display: flex;
+                                                                                    border-radius: 8px;
+                                                                                    overflow: hidden;
+                                                                                    box-shadow: 0 2px 8px rgba(139,69,19,0.1);
+                                                                                }
 
-                slide: function(event, ui) {
+                                                                                .search-input {
+                                                                                    flex: 1;
+                                                                                    padding: 0.75rem;
+                                                                                    border: 1px solid var(--coffee-light);
+                                                                                    border-right: none;
+                                                                                    outline: none;
+                                                                                    font-size: 0.875rem;
+                                                                                }
 
-                    $("#amount").val(ui.values[0] + " - " + ui.values[1]);
+                                                                                    .search-input:focus {
+                                                                                        border-color: var(--coffee-secondary);
+                                                                                        box-shadow: inset 0 0 0 1px var(--coffee-secondary);
+                                                                                    }
 
-                }
+                                                                                .search-btn {
+                                                                                    padding: 0.75rem 1rem;
+                                                                                    background: var(--coffee-secondary);
+                                                                                    color: white;
+                                                                                    border: none;
+                                                                                    cursor: pointer;
+                                                                                    transition: background 0.3s ease;
+                                                                                }
 
-            });
+                                                                                    .search-btn:hover {
+                                                                                        background: var(--coffee-primary);
+                                                                                    }
 
+                                                                                /* Sort & Filter Section */
+                                                                                .sort-filter-section {
+                                                                                    background: white;
+                                                                                    padding: 1.5rem;
+                                                                                    border-radius: 12px;
+                                                                                    box-shadow: 0 4px 12px rgba(139,69,19,0.1);
+                                                                                    margin-bottom: 2rem;
+                                                                                    border: 1px solid var(--coffee-light);
+                                                                                }
 
-            $("#amount").val($("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
+                                                                                .sort-filter-row {
+                                                                                    display: flex;
+                                                                                    flex-wrap: wrap;
+                                                                                    gap: 1rem;
+                                                                                    align-items: center;
+                                                                                    justify-content: space-between;
+                                                                                }
 
-        $("#filter-button").on("click", function() {
+                                                                                .sort-controls {
+                                                                                    display: flex;
+                                                                                    gap: 1rem;
+                                                                                    align-items: center;
+                                                                                }
 
-            var values = $("#amount").val().split(" - ");
+                                                                                .sort-select {
+                                                                                    padding: 0.5rem 1rem;
+                                                                                    border: 1px solid var(--coffee-light);
+                                                                                    border-radius: 6px;
+                                                                                    background: white;
+                                                                                    color: var(--coffee-dark);
+                                                                                    font-size: 0.875rem;
+                                                                                    min-width: 180px;
+                                                                                }
 
-            var minVal = parseInt(values[0]);
+                                                                                .filter-chips {
+                                                                                    display: flex;
+                                                                                    gap: 0.5rem;
+                                                                                    flex-wrap: wrap;
+                                                                                }
 
-            var maxVal = parseInt(values[1]);
+                                                                                .filter-chip {
+                                                                                    padding: 0.25rem 0.75rem;
+                                                                                    background: var(--coffee-light);
+                                                                                    color: var(--coffee-dark);
+                                                                                    border-radius: 20px;
+                                                                                    font-size: 0.75rem;
+                                                                                    cursor: pointer;
+                                                                                    transition: all 0.3s ease;
+                                                                                    border: 1px solid transparent;
+                                                                                }
 
+                                                                                    .filter-chip.active {
+                                                                                        background: var(--coffee-secondary);
+                                                                                        color: white;
+                                                                                    }
 
-            console.log("Min Price: ", minVal); // Kiểm tra giá trị min
+                                                                                    .filter-chip:hover {
+                                                                                        border-color: var(--coffee-secondary);
+                                                                                    }
 
-            console.log("Max Price: ", maxVal); // Kiểm tra giá trị max
+                                                                                /* Price Slider */
+                                                                                .ui-slider {
+                                                                                    background: var(--coffee-light);
+                                                                                    border: none;
+                                                                                    height: 8px;
+                                                                                    border-radius: 4px;
+                                                                                }
 
+                                                                                .ui-slider-range {
+                                                                                    background: var(--coffee-secondary);
+                                                                                }
 
-            // Tạo các trường ẩn để gửi giá trị minPrice và maxPrice
+                                                                                .ui-slider-handle {
+                                                                                    background: white;
+                                                                                    border: 2px solid var(--coffee-secondary);
+                                                                                    width: 20px;
+                                                                                    height: 20px;
+                                                                                    border-radius: 50%;
+                                                                                    top: -6px;
+                                                                                    cursor: pointer;
+                                                                                }
 
-            $('<input>').attr({
+                                                                                .price-display {
+                                                                                    display: flex;
+                                                                                    justify-content: space-between;
+                                                                                    align-items: center;
+                                                                                    margin-top: 1rem;
+                                                                                    font-size: 0.875rem;
+                                                                                    color: var(--coffee-dark);
+                                                                                }
 
-                type: 'hidden',
+                                                                                .manual-price-input {
+                                                                                    width: 100px;
+                                                                                    padding: 0.5rem;
+                                                                                    border: 1px solid var(--coffee-light);
+                                                                                    border-radius: 4px;
+                                                                                    font-size: 0.875rem;
+                                                                                    text-align: center;
+                                                                                }
 
-                name: 'minPrice',
+                                                                                    .manual-price-input:focus {
+                                                                                        border-color: var(--coffee-secondary);
+                                                                                        outline: none;
+                                                                                    }
 
-                value: minVal
+                                                                                /* Product Cards */
+                                                                                .product-grid {
+                                                                                    display: grid;
+                                                                                    gap: 1.5rem;
+                                                                                    grid-template-columns: 1fr;
+                                                                                }
 
-            }).appendTo('form');
+                                                                                .product-card {
+                                                                                    background: white;
+                                                                                    border-radius: 12px;
+                                                                                    box-shadow: 0 4px 12px rgba(139,69,19,0.1);
+                                                                                    overflow: hidden;
+                                                                                    transition: all 0.3s ease;
+                                                                                    border: 1px solid var(--coffee-light);
+                                                                                    display: flex;
+                                                                                    flex-direction: column;
+                                                                                }
 
+                                                                                @@media (min-width: 768px) {
+                                                                                    .product-card {
+                                                                                        flex-direction: row;
+                                                                                    }
+                                                                                }
 
-            $('<input>').attr({
+                                                                                .product-card:hover {
+                                                                                    box-shadow: 0 8px 25px rgba(139,69,19,0.15);
+                                                                                    transform: translateY(-2px);
+                                                                                }
 
-                type: 'hidden',
+                                                                                .product-image {
+                                                                                    position: relative;
+                                                                                    overflow: hidden;
+                                                                                }
 
-                name: 'maxPrice',
+                                                                                    .product-image img {
+                                                                                        width: 100%;
+                                                                                        height: 200px;
+                                                                                        object-fit: cover;
+                                                                                        transition: transform 0.3s ease;
+                                                                                    }
 
-                value: maxVal
+                                                                                @@media (min-width: 768px) {
+                                                                                    .product-image img {
+                                                                                        width: 250px;
+                                                                                        height: 200px;
+                                                                                    }
+                                                                                }
 
-            }).appendTo('form');
+                                                                                .product-card:hover .product-image img {
+                                                                                    transform: scale(1.05);
+                                                                                }
 
+                                                                                .discount-badge {
+                                                                                    position: absolute;
+                                                                                    top: 10px;
+                                                                                    left: 10px;
+                                                                                    background: #e74c3c;
+                                                                                    color: white;
+                                                                                    padding: 0.25rem 0.5rem;
+                                                                                    border-radius: 20px;
+                                                                                    font-size: 0.75rem;
+                                                                                    font-weight: 600;
+                                                                                    z-index: 2;
+                                                                                }
 
-            // Gửi form
+                                                                                .new-badge {
+                                                                                    position: absolute;
+                                                                                    top: 10px;
+                                                                                    right: 10px;
+                                                                                    background: #27ae60;
+                                                                                    color: white;
+                                                                                    padding: 0.25rem 0.5rem;
+                                                                                    border-radius: 20px;
+                                                                                    font-size: 0.75rem;
+                                                                                    font-weight: 600;
+                                                                                    z-index: 2;
+                                                                                }
 
-            $('form').submit();
+                                                                                .product-content {
+                                                                                    padding: 1.5rem;
+                                                                                    flex: 1;
+                                                                                    display: flex;
+                                                                                    flex-direction: column;
+                                                                                }
 
-        });
+                                                                                .product-title {
+                                                                                    font-size: 1.25rem;
+                                                                                    font-weight: 600;
+                                                                                    color: var(--coffee-dark);
+                                                                                    margin-bottom: 0.5rem;
+                                                                                    line-height: 1.4;
+                                                                                }
 
-        });
-    </script>
-    <script>
-            document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('[data-product-id]').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const productId = this.getAttribute('data-product-id');
+                                                                                    .product-title a {
+                                                                                        color: inherit;
+                                                                                        text-decoration: none;
+                                                                                        transition: color 0.3s ease;
+                                                                                    }
 
-                    // Gọi API thêm vào giỏ
-                    fetch('/Cart/AddToCart', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            // Thêm anti-forgery token nếu cần
-                        },
-                        body: JSON.stringify({
-                            productId: productId,
-                            quantity: 1
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success === false) {
-                            // Nếu chưa đăng nhập hoặc có lỗi
-                            Swal.fire({
-                                title: 'Thông báo',
-                                text: data.message,
-                                icon: 'warning',
-                                confirmButtonText: 'OK'
-                            });
-                            if (data.message.includes("đăng nhập")) {
-                                Swal.fire({
-                                    title: 'Lỗi',
-                                    text: 'Bạn cần đăng nhập để thêm vào giỏ',
-                                    icon: 'error',
-                                    confirmButtonText: 'OK'
-                                });
-                            }
-                        } else {
-                            // Thêm thành công
-                            Swal.fire({
-                                title: 'Thành công!',
-                                text: 'Đã thêm sản phẩm vào giỏ hàng',
-                                icon: 'success',
-                                showCancelButton: true,
-                                confirmButtonText: 'Đến giỏ hàng',
-                                cancelButtonText: 'Tiếp tục mua'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = '/Cart/Cart';
-                                }
-                            });
+                                                                                        .product-title a:hover {
+                                                                                            color: var(--coffee-secondary);
+                                                                                        }
 
+                                                                                .product-price {
+                                                                                    margin-bottom: 0.75rem;
+                                                                                }
 
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        Swal.fire({
-                            title: 'Lỗi',
-                            text: 'Có lỗi xảy ra khi thêm vào giỏ hàng',
-                            icon: 'error',
-                            confirmButtonText: 'OK'
-                        });
-                    });
-                });
-            });
-        });
-    </script>
-}
+                                                                                .current-price {
+                                                                                    font-size: 1.25rem;
+                                                                                    font-weight: 700;
+                                                                                    color: var(--coffee-secondary);
+                                                                                }
+
+                                                                                .original-price {
+                                                                                    font-size: 0.875rem;
+                                                                                    color: #999;
+                                                                                    text-decoration: line-through;
+                                                                                    margin-left: 0.5rem;
+                                                                                }
+
+                                                                                .product-description {
+                                                                                    color: #666;
+                                                                                    font-size: 0.875rem;
+                                                                                    line-height: 1.5;
+                                                                                    margin-bottom: 1rem;
+                                                                                    flex: 1;
+                                                                                }
+
+                                                                                .product-actions {
+                                                                                    display: flex;
+                                                                                    gap: 0.75rem;
+                                                                                    align-items: center;
+                                                                                }
+
+                                                                                .btn-add-cart {
+                                                                                    flex: 1;
+                                                                                    padding: 0.75rem 1rem;
+                                                                                    background: var(--coffee-secondary);
+                                                                                    color: white;
+                                                                                    border: none;
+                                                                                    border-radius: 8px;
+                                                                                    font-weight: 600;
+                                                                                    cursor: pointer;
+                                                                                    transition: all 0.3s ease;
+                                                                                    display: flex;
+                                                                                    align-items: center;
+                                                                                    justify-content: center;
+                                                                                    gap: 0.5rem;
+                                                                                }
+
+                                                                                    .btn-add-cart:hover {
+                                                                                        background: var(--coffee-primary);
+                                                                                        transform: translateY(-1px);
+                                                                                    }
+
+                                                                                .btn-filter {
+                                                                                    width: 100%;
+                                                                                    padding: 0.75rem;
+                                                                                    background: var(--coffee-secondary);
+                                                                                    color: white;
+                                                                                    border: none;
+                                                                                    border-radius: 8px;
+                                                                                    font-weight: 600;
+                                                                                    cursor: pointer;
+                                                                                    transition: background 0.3s ease;
+                                                                                }
+
+                                                                                    .btn-filter:hover {
+                                                                                        background: var(--coffee-primary);
+                                                                                    }
+
+                                                                                /* Pagination */
+                                                                                .pagination-container {
+                                                                                    margin-top: 3rem;
+                                                                                    display: flex;
+                                                                                    justify-content: center;
+                                                                                }
+
+                                                                                .pagination {
+                                                                                    display: flex;
+                                                                                    gap: 0.5rem;
+                                                                                    list-style: none;
+                                                                                    padding: 0;
+                                                                                    margin: 0;
+                                                                                }
+
+                                                                                    .pagination a {
+                                                                                        padding: 0.75rem 1rem;
+                                                                                        background: white;
+                                                                                        color: var(--coffee-dark);
+                                                                                        text-decoration: none;
+                                                                                        border-radius: 8px;
+                                                                                        border: 1px solid var(--coffee-light);
+                                                                                        transition: all 0.3s ease;
+                                                                                    }
+
+                                                                                        .pagination a:hover {
+                                                                                            background: var(--coffee-secondary);
+                                                                                            color: white;
+                                                                                            border-color: var(--coffee-secondary);
+                                                                                        }
+
+                                                                                    .pagination .active a {
+                                                                                        background: var(--coffee-secondary);
+                                                                                        color: white;
+                                                                                        border-color: var(--coffee-secondary);
+                                                                                    }
+
+                                                                                /* Responsive */
+                                                                                @@media (max-width: 768px) {
+                                                                                    .breadcrumb-section h3 {
+                                                                                        font-size: 2rem;
+                                                                                    }
+
+                                                                                    .sort-filter-row {
+                                                                                        flex-direction: column;
+                                                                                        align-items: stretch;
+                                                                                    }
+
+                                                                                    .sort-controls {
+                                                                                        justify-content: space-between;
+                                                                                    }
+                                                                                }
+
+                                                                                /* Loading and Empty States */
+                                                                                .loading-state {
+                                                                                    text-align: center;
+                                                                                    padding: 3rem;
+                                                                                    color: var(--coffee-dark);
+                                                                                }
+
+                                                                                .empty-state {
+                                                                                    text-align: center;
+                                                                                    padding: 3rem;
+                                                                                    color: var(--coffee-dark);
+                                                                                }
+
+                                                                                    .empty-state i {
+                                                                                        font-size: 3rem;
+                                                                                        color: var(--coffee-light);
+                                                                                        margin-bottom: 1rem;
+                                                                                    }
+                                                                            </style>
+                                                                        </head>
+<body style="background: #f8f6f3; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                                                            <!-- Breadcrumb Section -->
+                                                                            <div class="breadcrumb-section">
+                                                                                <div class="container">
+                                                                                    <h3><i class="fas fa-coffee"></i> Sản Phẩm Cà Phê</h3>
+                                                                                    <nav aria-label="breadcrumb">
+                                                                                        <ul>
+                                                                                            <li><a asp-controller="Home" asp-action="Index">Trang Chủ</a></li>
+                                                                                            <li>/ Sản Phẩm</li>
+                                                                                        </ul>
+                                                                                    </nav>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Shop Section -->
+                                                                            <div class="shop-section">
+                                                                                <div class="container">
+                                                                                    <!-- Sort & Filter Bar -->
+                                                                                    <div class="sort-filter-section">
+                                                                                        <div class="sort-filter-row">
+                                                                                            <div class="sort-controls">
+                                                                                                <label for="sortSelect" style="font-weight: 600; color: var(--coffee-dark);">Sắp xếp:</label>
+                                                                                                <select id="sortSelect" class="sort-select" style="text-align:center" onchange="applySorting()">
+                                                                                                    <option value="">Mặc định</option>
+                                                                                                    <option value="price-asc">Giá: Thấp đến cao</option>
+                                                                                                    <option value="price-desc">Giá: Cao đến thấp</option>
+                                                                                                    <option value="discount">Giảm giá nhiều nhất</option>
+                                                                                                    <option value="newest">Mới nhất</option>
+                                                                                                    <option value="name">Tên A-Z</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="filter-chips">
+                                                                                                <div class="filter-chip" onclick="filterByDiscount()">
+                                                                                                    <i class="fas fa-percentage"></i> Đang giảm giá
+                                                                                                </div>
+                                                                                                <div class="filter-chip" onclick="filterByNew()">
+                                                                                                    <i class="fas fa-star"></i> Sản phẩm mới
+                                                                                                </div>
+                                                                                                <div class="filter-chip" onclick="clearFilters()">
+                                                                                                    <i class="fas fa-times"></i> Xóa bộ lọc
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="shop-layout">
+                                                                                        <!-- Sidebar -->
+                                                                                        <div class="sidebar">
+                                                                                            <form method="get" asp-controller="Product" asp-action="Index" id="filterForm">
+                                                                                                <!-- Search -->
+                                                                                                <div class="filter-card">
+                                                                                                    <h6><i class="fas fa-search"></i> Tìm kiếm</h6>
+                                                                                                    <div class="search-container">
+                                                                                                        <input type="search" name="search" placeholder="Tìm kiếm cà phê..." class="search-input" value="@ViewData["search"]">
+                                                                                                        <button type="submit" class="search-btn">
+                                                                                                            <i class="fas fa-search"></i>
+                                                                                                        </button>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <!-- Brand and Category Components -->
+                                                                                                @await Component.InvokeAsync("MenuBrand")
+                                                                        <h6 class="sidebar-title">DANH MỤC</h6>
+                                                                                                @await Component.InvokeAsync("MenuCategory")
+
+                                                                                                <!-- Price Filter -->
+                                                                                                <div class="filter-card">
+                                                                                                    <h6><i class="fas fa-dollar-sign"></i> Lọc theo giá</h6>
+                                                                                                    <div class="price-display">
+                                                                                                        <span>Khoảng giá:</span>
+                                                                                                        <input type="number" id="minPriceInput" class="manual-price-input" placeholder="Min" min="0" step="1000" value="@ViewData["currentMinPrice"]">
+                                                                                                        <span>-</span>
+                                                                                                        <input type="number" id="maxPriceInput" class="manual-price-input" placeholder="Max" min="0" step="1000" value="@ViewData["currentMaxPrice"]">
+                                                                                                    </div>
+                                                                                                    <input type="hidden" name="minPrice" id="minPrice">
+                                                                                                    <input type="hidden" name="maxPrice" id="maxPrice">
+                                                                                                    <input type="hidden" name="sortBy" id="sortBy">
+                                                                                                    <input type="hidden" name="filterType" id="filterType">
+                                                                                                </div>
+
+                                                                                                <button type="submit" class="btn-filter">
+                                                                                                    <i class="fas fa-filter"></i> Áp dụng bộ lọc
+                                                                                                </button>
+                                                                                            </form>
+                                                                                        </div>
+
+                                                                                        <!-- Product List -->
+                                                                                        <div class="main-content">
+                                                                                            <div class="product-grid">
+                                                                                                @if (Model.SanPhams != null && Model.SanPhams.Any())
+                                                                                                {
+                                                                                                    @foreach (var item in Model.SanPhams)
+                                                                                                    {
+                                                                                                        <div class="product-card">
+                                                                                                            <div class="product-image">
+                                                                                                                <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@item.Slug">
+                                                                                                                    <img src="@Url.Content(item.Image)" alt="@item.ProductName" onerror="this.src='/images/default-image.jpg';">
+                                                                                                                </a>
+                                                                                                                @if (item.DiscountPrice.HasValue && item.DiscountPrice.Value > 0 && item.DiscountPrice.Value < item.Price)
+                                                                                                                {
+                                                                                                                    var discountPercent = Math.Round((double)(item.Price - item.DiscountPrice.Value) / (double)item.Price * 100);
+                                                                                                                    <div class="discount-badge">-@discountPercent%</div>
+                                                                                                                }
+                                                                                                                <div class="new-badge">Mới</div>
+                                                                                                            </div>
+                                                                                                            <div class="product-content">
+                                                                                                                <h5 class="product-title">
+                                                                                                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@item.Slug">@item.ProductName</a>
+                                                                                                                </h5>
+                                                                                                                <div class="product-price">
+                                                                                                                    @if (item.DiscountPrice.HasValue && item.DiscountPrice.Value > 0 && item.DiscountPrice.Value < item.Price)
+                                                                                                                    {
+                                                                                                                        <span class="current-price">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.DiscountPrice)</span>
+                                                                                                                        <span class="original-price">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)</span>
+                                                                                                                    }
+                                                                                                                    else
+                                                                                                                    {
+                                                                                                                        <span class="current-price">@String.Format(new CultureInfo("vi-VN"), "{0:C}", item.Price)</span>
+                                                                                                                    }
+                                                                                                                </div>
+                                                                                                                <p class="product-description">@item.ShortDescription</p>
+                                                                                                                <div class="product-actions">
+                                                                                                                    <button class="btn-add-cart add-to-cart" data-slug="@item.Slug" data-quantity="1">
+                                                                                                                        <i class="fas fa-shopping-cart"></i>
+                                                                                                                        Thêm vào giỏ
+                                                                                                                    </button>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    }
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    <div class="empty-state">
+                                                                                                        <i class="fas fa-coffee"></i>
+                                                                                                        <h3>Không tìm thấy sản phẩm nào</h3>
+                                                                                                        <p>Hãy thử thay đổi bộ lọc hoặc từ khóa tìm kiếm</p>
+                                                                                                    </div>
+                                                                                                }
+                                                                                            </div>
+
+                                                                                            <!-- Pagination -->
+                                                                                            @if (Model.TotalPages > 1)
+                                                                                            {
+                                                                                                <div class="pagination-container">
+                                                                                                    <ul class="pagination">
+                                                                                                        @if (Model.CurrentPage > 1)
+                                                                                                        {
+                                                                                                            <li><a href="@Url.Action("Index", new { 
+                                                                                                                page = Model.CurrentPage - 1,
+                                                                                                                search = ViewData["search"],
+                                                                                                                categories = ViewData["categories"],
+                                                                                                                brands = ViewData["brands"],
+                                                                                                                minPrice = ViewData["currentMinPrice"],
+                                                                                                                maxPrice = ViewData["currentMaxPrice"],
+                                                                                                                sortBy = ViewData["sortBy"],
+                                                                                                                filterType = ViewData["filterType"]
+                                                                                                            })">« Trước</a></li>
+                                                                                                        }
+                                                                                                        @for (int i = 1; i <= Model.TotalPages; i++)
+                                                                                                        {
+                                                                                                            <li class="@(i == Model.CurrentPage ? "active" : "")">
+                                                                                                                <a href="@Url.Action("Index", new { 
+                                                                                                                    page = i,
+                                                                                                                    search = ViewData["search"],
+                                                                                                                    categories = ViewData["categories"],
+                                                                                                                    brands = ViewData["brands"],
+                                                                                                                    minPrice = ViewData["currentMinPrice"],
+                                                                                                                    maxPrice = ViewData["currentMaxPrice"],
+                                                                                                                    sortBy = ViewData["sortBy"],
+                                                                                                                    filterType = ViewData["filterType"]
+                                                                                                                })">@i</a>
+                                                                                                            </li>
+                                                                                                        }
+                                                                                                        @if (Model.CurrentPage < Model.TotalPages)
+                                                                                                        {
+                                                                                                            <li><a href="@Url.Action("Index", new { 
+                                                                                                                page = Model.CurrentPage + 1,
+                                                                                                                search = ViewData["search"],
+                                                                                                                categories = ViewData["categories"],
+                                                                                                                brands = ViewData["brands"],
+                                                                                                                minPrice = ViewData["currentMinPrice"],
+                                                                                                                maxPrice = ViewData["currentMaxPrice"],
+                                                                                                                sortBy = ViewData["sortBy"],
+                                                                                                                filterType = ViewData["filterType"]
+                                                                                                            })">Sau »</a></li>
+                                                                                                        }
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                            }
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            @section Scripts {
+                                                                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                                                                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+                                                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+                                                                                <script>
+                                                                                    // Vietnamese text normalization function
+                                                                                    function removeVietnameseTones(str) {
+                                                                                        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+                                                                                        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+                                                                                        str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+                                                                                        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+                                                                                        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+                                                                                        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+                                                                                        str = str.replace(/đ/g, "d");
+                                                                                        str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+                                                                                        str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+                                                                                        str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+                                                                                        str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+                                                                                        str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+                                                                                        str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+                                                                                        str = str.replace(/Đ/g, "D");
+                                                                                        return str;
+                                                                                    }
+
+                                                                                    // Enhanced search with Vietnamese support
+                                                                                    function enhancedSearch() {
+                                                                                        const searchInput = document.querySelector('input[name="search"]');
+                                                                                        const searchTerm = removeVietnameseTones(searchInput.value.toLowerCase());
+
+                                                                                        // Store original search term for server submission
+                                                                                        const originalTerm = searchInput.value;
+
+                                                                                        // Client-side filtering for better UX
+                                                                                        const productCards = document.querySelectorAll('.product-card');
+                                                                                        let visibleCount = 0;
+
+                                                                                        productCards.forEach(card => {
+                                                                                            const productTitle = card.querySelector('.product-title a').textContent;
+                                                                                            const productDescription = card.querySelector('.product-description').textContent;
+                                                                                            const normalizedTitle = removeVietnameseTones(productTitle.toLowerCase());
+                                                                                            const normalizedDescription = removeVietnameseTones(productDescription.toLowerCase());
+
+                                                                                            if (normalizedTitle.includes(searchTerm) || normalizedDescription.includes(searchTerm) || searchTerm === '') {
+                                                                                                card.style.display = 'flex';
+                                                                                                visibleCount++;
+                                                                                            } else {
+                                                                                                card.style.display = 'none';
+                                                                                            }
+                                                                                        });
+
+                                                                                        // Show/hide empty state
+                                                                                        const emptyState = document.querySelector('.empty-state');
+                                                                                        if (visibleCount === 0 && searchTerm !== '') {
+                                                                                            if (emptyState) {
+                                                                                                emptyState.style.display = 'block';
+                                                                                            }
+                                                                                        } else {
+                                                                                            if (emptyState) {
+                                                                                                emptyState.style.display = 'none';
+                                                                                            }
+                                                                                        }
+                                                                                    }
+
+                                                                                    $(function() {
+                                                                                        // Initialize price slider and manual inputs
+                                                                                        var minPrice = @ViewData["minPrice"] ?? 0;
+                                                                                        var maxPrice = @ViewData["maxPrice"] ?? 10000000;
+                                                                                        var currentMin = @ViewData["currentMinPrice"] ?? minPrice;
+                                                                                        var currentMax = @ViewData["currentMaxPrice"] ?? maxPrice;
+
+                                                                                        $("#slider-range").slider({
+                                                                                            range: true,
+                                                                                            min: minPrice,
+                                                                                            max: maxPrice,
+                                                                                            values: [currentMin, currentMax],
+                                                                                            slide: function(event, ui) {
+                                                                                                $("#minPriceInput").val(ui.values[0]);
+                                                                                                $("#maxPriceInput").val(ui.values[1]);
+                                                                                                $("#minPrice").val(ui.values[0]);
+                                                                                                $("#maxPrice").val(ui.values[1]);
+                                                                                                filterProducts();
+                                                                                            }
+                                                                                        });
+
+                                                                                        $("#minPriceInput").val(currentMin);
+                                                                                        $("#maxPriceInput").val(currentMax);
+                                                                                        $("#minPrice").val(currentMin);
+                                                                                        $("#maxPrice").val(currentMax);
+
+                                                                                        // Sync manual inputs with slider
+                                                                                        $("#minPriceInput, #maxPriceInput").on('input', function() {
+                                                                                            var min = parseInt($("#minPriceInput").val()) || minPrice;
+                                                                                            var max = parseInt($("#maxPriceInput").val()) || maxPrice;
+
+                                                                                            // Ensure min is not greater than max
+                                                                                            if (min > max) {
+                                                                                                max = min;
+                                                                                                $("#maxPriceInput").val(max);
+                                                                                            }
+                                                                                            if (max < min) {
+                                                                                                min = max;
+                                                                                                $("#minPriceInput").val(min);
+                                                                                            }
+
+                                                                                            // Update slider and hidden inputs
+                                                                                            $("#slider-range").slider("values", [min, max]);
+                                                                                            $("#minPrice").val(min);
+                                                                                            $("#maxPrice").val(max);
+                                                                                            filterProducts();
+                                                                                        });
+
+                                                                                        // Enhanced search with debounce
+                                                                                        let searchTimeout;
+                                                                                        $('input[name="search"]').on('input', function() {
+                                                                                            clearTimeout(searchTimeout);
+                                                                                            searchTimeout = setTimeout(() => {
+                                                                                                enhancedSearch();
+                                                                                            }, 300);
+                                                                                        });
+
+                                                                                        // Add to cart with AJAX simulation
+                                                                                        $('.add-to-cart').on('click', function(e) {
+                                                                                            e.preventDefault();
+                                                                                            var $btn = $(this);
+                                                                                            var slug = $btn.data('slug');
+                                                                                            var quantity = $btn.data('quantity') || 1;
+                                                                                            var originalHtml = $btn.html();
+
+                                                                                            // Prevent double click
+                                                                                            if ($btn.prop('disabled')) return;
+
+                                                                                            // Loading state
+                                                                                            $btn.html('<i class="fas fa-spinner fa-spin"></i> Đang thêm...');
+                                                                                            $btn.prop('disabled', true);
+
+                                                                                            // Simulate AJAX call
+                                                                                            setTimeout(() => {
+                                                                                                // Success state
+                                                                                                $btn.html('<i class="fas fa-check"></i> Đã thêm!');
+                                                                                                $btn.removeClass('btn-add-cart').addClass('btn-success');
+
+                                                                                                // Show toast notification
+                                                                                                if (typeof Toastify !== 'undefined') {
+                                                                                                    Toastify({
+                                                                                                        text: "Đã thêm sản phẩm vào giỏ hàng!",
+                                                                                                        duration: 3000,
+                                                                                                        gravity: "top",
+                                                                                                        position: "right",
+                                                                                                        backgroundColor: "var(--coffee-secondary)",
+                                                                                                    }).showToast();
+                                                                                                }
+
+                                                                                                // Reset after delay
+                                                                                                setTimeout(() => {
+                                                                                                    $btn.html(originalHtml);
+                                                                                                    $btn.prop('disabled', false);
+                                                                                                    $btn.removeClass('btn-success').addClass('btn-add-cart');
+                                                                                                }, 2000);
+                                                                                            }, 1000);
+
+                                                                                            // Here you would make real AJAX call to add to cart
+                                                                                            // $.post('/Cart/AddToCart', { slug: slug, quantity: quantity });
+                                                                                        });
+
+                                                                                        // Filter chips interaction
+                                                                                        $('.filter-chip').on('click', function(e) {
+                                                                                            e.preventDefault();
+                                                                                            var $this = $(this);
+                                                                                            
+                                                                                            // Check which filter was clicked
+                                                                                            var filterText = $this.text().trim();
+                                                                                            if (filterText.includes('Đang giảm giá')) {
+                                                                                                filterByDiscount();
+                                                                                            } else if (filterText.includes('Sản phẩm mới')) {
+                                                                                                filterByNew();
+                                                                                            } else if (filterText.includes('Xóa bộ lọc')) {
+                                                                                                clearFilters();
+                                                                                            }
+                                                                                        });
+
+                                                                                        // Auto-submit form on filter changes
+                                                                                        $('#sortSelect').on('change', function() {
+                                                                                            $('#sortBy').val($(this).val());
+                                                                                            $('#filterForm').submit();
+                                                                                        });
+
+                                                                                        // Initialize current filter states
+                                                                                        var urlParams = new URLSearchParams(window.location.search);
+                                                                                        var currentSort = urlParams.get('sortBy');
+                                                                                        var currentFilter = urlParams.get('filterType');
+
+                                                                                        if (currentSort) {
+                                                                                            $('#sortSelect').val(currentSort);
+                                                                                        }
+
+                                                                                        if (currentFilter) {
+                                                                                            $(`.filter-chip[onclick*="${currentFilter}"]`).addClass('active');
+                                                                                        }
+                                                                                    });
+
+                                                                                    // Sorting functionality
+                                                                                    function applySorting() {
+                                                                                        var sortValue = document.getElementById('sortSelect').value;
+                                                                                        document.getElementById('sortBy').value = sortValue;
+                                                                                        document.getElementById('filterForm').submit();
+                                                                                    }
+
+                                                                                    // Filter by discount
+                                                                                    function filterByDiscount() {
+                                                                                        $('.filter-chip').removeClass('active');
+                                                                                        $('.filter-chip').each(function() {
+                                                                                            if ($(this).text().includes('Đang giảm giá')) {
+                                                                                                $(this).addClass('active');
+                                                                                            }
+                                                                                        });
+                                                                                        document.getElementById('filterType').value = 'discount';
+                                                                                        document.getElementById('filterForm').submit();
+                                                                                    }
+
+                                                                                    // Filter by new products
+                                                                                    function filterByNew() {
+                                                                                        $('.filter-chip').removeClass('active');
+                                                                                        $('.filter-chip').each(function() {
+                                                                                            if ($(this).text().includes('Sản phẩm mới')) {
+                                                                                                $(this).addClass('active');
+                                                                                            }
+                                                                                        });
+                                                                                        document.getElementById('filterType').value = 'new';
+                                                                                        document.getElementById('filterForm').submit();
+                                                                                    }
+
+                                                                                    // Clear all filters
+                                                                                    function clearFilters() {
+                                                                                        var minPrice = @ViewData["minPrice"] ?? 0;
+                                                                                        var maxPrice = @ViewData["maxPrice"] ?? 10000000;
+                                                                                        
+                                                                                        // Clear form inputs
+                                                                                        document.querySelector('input[name="search"]').value = '';
+                                                                                        document.getElementById('sortSelect').value = '';
+                                                                                        document.getElementById('filterType').value = '';
+                                                                                        document.getElementById('sortBy').value = '';
+                                                                                        
+                                                                                        // Reset price inputs
+                                                                                        $("#minPriceInput").val(minPrice);
+                                                                                        $("#maxPriceInput").val(maxPrice);
+                                                                                        $("#minPrice").val('');
+                                                                                        $("#maxPrice").val('');
+                                                                                        
+                                                                                        // Reset slider if it exists
+                                                                                        if ($("#slider-range").length) {
+                                                                                            $("#slider-range").slider("values", [minPrice, maxPrice]);
+                                                                                        }
+
+                                                                                        // Remove active states
+                                                                                        $('.filter-chip').removeClass('active');
+                                                                                        $('.filter-chip').each(function() {
+                                                                                            if ($(this).text().includes('Xóa bộ lọc')) {
+                                                                                                $(this).addClass('active');
+                                                                                            }
+                                                                                        });
+
+                                                                                        document.getElementById('filterForm').submit();
+                                                                                    }
+
+                                                                                    // Advanced product filtering
+                                                                                    function filterProducts() {
+                                                                                        const minPrice = parseInt($('#minPrice').val()) || 0;
+                                                                                        const maxPrice = parseInt($('#maxPrice').val()) || 10000000;
+                                                                                        const searchTerm = removeVietnameseTones($('input[name="search"]').val().toLowerCase());
+
+                                                                                        $('.product-card').each(function() {
+                                                                                            const $card = $(this);
+                                                                                            const priceText = $card.find('.current-price').text().replace(/[^\d]/g, '');
+                                                                                            const price = parseInt(priceText) || 0;
+                                                                                            const title = removeVietnameseTones($card.find('.product-title a').text().toLowerCase());
+                                                                                            const description = removeVietnameseTones($card.find('.product-description').text().toLowerCase());
+
+                                                                                            const matchesPrice = price >= minPrice && price <= maxPrice;
+                                                                                            const matchesSearch = searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm);
+
+                                                                                            if (matchesPrice && matchesSearch) {
+                                                                                                $card.show();
+                                                                                            } else {
+                                                                                                $card.hide();
+                                                                                            }
+                                                                                        });
+
+                                                                                        // Update empty state
+                                                                                        const emptyState = document.querySelector('.empty-state');
+                                                                                        const visibleCards = $('.product-card:visible').length;
+                                                                                        if (visibleCards === 0) {
+                                                                                            if (emptyState) emptyState.style.display = 'block';
+                                                                                        } else {
+                                                                                            if (emptyState) emptyState.style.display = 'none';
+                                                                                        }
+                                                                                    }
+
+                                                                                    // Smooth scroll to products
+                                                                                    function scrollToProducts() {
+                                                                                        $('html, body').animate({
+                                                                                            scrollTop: $('.product-grid').offset().top - 100
+                                                                                        }, 800);
+                                                                                    }
+                                                                                </script>
+                                                                            }
+                                                                        </body>
+</html>

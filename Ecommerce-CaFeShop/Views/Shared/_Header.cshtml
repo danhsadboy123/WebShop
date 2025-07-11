@@ -1,30 +1,29 @@
 ﻿<!-- Start Header Area -->
-<header class="header-section d-none d-xl-block">
+<header class="header-section">
     <div class="header-wrapper">
         <div class="header-bottom header-bottom-color--black section-fluid sticky-header sticky-color--black">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-12 d-flex align-items-center justify-content-between">
                         <!-- Start Header Logo -->
                         <div class="header-logo">
                             <div class="logo">
                                 <a asp-controller="Home" asp-action="Index">
-                                    <img src="~/Images/Logo.png" alt="Logo" style="height: 50px;">
+                                    <img src="~/Images/Logo.png" alt="Logo" style="height: 60px; width: auto;">
                                 </a>
                             </div>
                         </div>
                         <!-- End Header Logo -->
                         <!-- Start Header Main Menu -->
-                        <div class="main-menu menu-color--white menu-hover-color--pink">
+                        <div class="main-menu menu-color--white menu-hover-color--pink d-none d-xl-block">
                             <nav>
-                                <ul>
-                                    <li>
-                                        <a asp-controller="Home" asp-action="Index">TRANG CHỦ</a>
+                                <ul class="d-flex align-items-center mb-0">
+                                    <li class="mx-3">
+                                        <a asp-controller="Home" asp-action="Index" class="nav-link-modern">TRANG CHỦ</a>
                                     </li>
-
-                                    <li class="has-dropdown">
-                                        <a class="" href="">
-                                            DANH MỤC <i class="fa fa-angle-down"></i>
+                                    <li class="has-dropdown mx-3">
+                                        <a class="nav-link-modern" href="#">
+                                            DANH MỤC <i class="fa fa-angle-down ms-1"></i>
                                         </a>
                                         <!-- Sub Menu -->
                                         <ul class="sub-menu">
@@ -36,47 +35,74 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a asp-controller="Product" asp-action="Index">Sản Phẩm</a>
+                                    <li class="mx-3">
+                                        <a asp-controller="Product" asp-action="Index" class="nav-link-modern">SẢN PHẨM</a>
                                     </li>
-                                    <li>
-                                        <a asp-controller="Home" asp-action="Introduction">Giới Thiệu</a>
+                                    <li class="mx-3">
+                                        <a asp-controller="Home" asp-action="Introduction" class="nav-link-modern">GIỚI THIỆU</a>
                                     </li>
-
-                                    <li>
-                                        <a asp-controller="Home" asp-action="Contact">Liên Hệ</a>
+                                    <li class="mx-3">
+                                        <a asp-controller="Home" asp-action="Contact" class="nav-link-modern">LIÊN HỆ</a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
-                        <!-- End Header Main Menu Start -->
+                        <!-- End Header Main Menu -->
                         <!-- Start Header Action Link -->
-                        <ul class="header-action-link action-color--white action-hover-color--pink">
-                            <li>
-                                <a href="#search">
+                        <div class="header-actions d-flex align-items-center">
+                            <!-- Search Button -->
+                            <div class="header-action-item me-3">
+                                <a href="#search" class="header-action-btn">
                                     <i class="icon-magnifier"></i>
                                 </a>
-                            </li>
+                            </div>
+
+                            <!-- User Account -->
                             @if (User.Identity?.IsAuthenticated ?? false)
                             {
-                                <li>
-                                    <a asp-controller="Account" asp-action="Index">
-                                        <i class="icon-user"></i>
-                                    </a>
-                                </li>
+                                <div class="header-action-item me-3">
+                                    <div class="user-profile-modern">
+                                        @{
+                                            var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "MaKhachHang");
+                                            var customer = customerIdClaim != null ? ViewContext.HttpContext.RequestServices.GetRequiredService<Ecommerce_CaFeShop.Models.CaFeContext>().KhachHangs.FirstOrDefault(c => c.MaKhachHang == int.Parse(customerIdClaim.Value)) : null;
+                                            var avatarImage = customer?.HinhDaiDien ?? "default-avatar.png";
+                                        }
+                                        <a asp-controller="Account" asp-action="Index" class="user-profile-link">
+                                            <div class="user-avatar-wrapper">
+                                                <img src="~/Images/@avatarImage" alt="Avatar" class="user-avatar" />
+                                                <div class="user-info">
+                                                    <span class="user-name">@(customer?.TenHienThi ?? "Tài khoản")</span>
+                                                    <span class="user-role">Khách hàng</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                             }
                             else
                             {
-                                <li>
-                                    <a data-bs-toggle="modal" data-bs-target="#loginModal">
-                                        <i class="icon-login"></i>
+                                <div class="header-action-item me-3">
+                                    <a data-bs-toggle="modal" data-bs-target="#loginModal" class="header-action-btn login-btn">
+                                        <i class="icon-login me-2"></i>
+                                        <span>Đăng nhập</span>
                                     </a>
-                                </li>
+                                </div>
                             }
-                            <span id="cart-summary">
-                                @await Component.InvokeAsync("Cart")
-                            </span>
-                        </ul>
+
+                            <!-- Cart -->
+                            <div class="header-action-item">
+                                <span id="cart-summary" style="font-size:22px;color:#fff">
+                                    @await Component.InvokeAsync("Cart")
+                                </span>
+                            </div>
+
+                            <!-- Mobile Menu Toggle -->
+                            <div class="header-action-item d-xl-none ms-3">
+                                <a href="#mobile-menu-offcanvas" class="offcanvas-toggle mobile-menu-btn">
+                                    <i class="icon-menu"></i>
+                                </a>
+                            </div>
+                        </div>
                         <!-- End Header Action Link -->
                     </div>
                 </div>
@@ -84,63 +110,213 @@
         </div>
     </div>
 </header>
-<!-- Start Header Area -->
-<!-- Start Mobile Header -->
-<div class="mobile-header mobile-header-bg-color--black section-fluid d-lg-block d-xl-none">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 d-flex align-items-center justify-content-between">
-                <!-- Start Mobile Left Side -->
-                <div class="mobile-header-left">
-                    <ul class="mobile-menu-logo">
-                        <li>
-                            <a asp-controller="Home" asp-action="Index">
-                                <div class="logo">
-                                    <img src="~/Images/Logo.png" alt="Logo" style="height: 40px;">
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Mobile Left Side -->
-                <!-- Start Mobile Right Side -->
-                <div class="mobile-right-side">
-                    <ul class="header-action-link action-color--white action-hover-color--pink">
-                        <li>
-                            <a href="#search">
-                                <i class="icon-magnifier"></i>
-                            </a>
-                        </li>
-                        @if (User.Identity?.IsAuthenticated ?? false)
-                        {
-                            <li>
-                                <a asp-controller="Account" asp-action="Index">
-                                    <i class="icon-user"></i>
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a data-bs-toggle="modal" data-bs-target="#loginModal">
-                                    <i class="icon-login"></i>
-                                </a>
-                            </li>
-                        }
-                        <span id="cart-summary">
-                            @await Component.InvokeAsync("Cart")
-                        </span>
-                        <li>
-                            <a href="#mobile-menu-offcanvas"
-                               class="offcanvas-toggle offside-menu offside-menu-color--black">
-                                <i class="icon-menu"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Mobile Right Side -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Mobile Header -->
+
+
+<style>
+    /* Modern Header Styles */
+    .header-section {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1000;
+    }
+
+    .header-bottom {
+        padding: 15px 0;
+        background: linear-gradient(135deg, #0d2a27 0%, #1a4b44 100%);
+    }
+
+    .nav-link-modern {
+        color: #ffffff !important;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 8px 0;
+    }
+
+        .nav-link-modern:hover {
+            color: #ff6b6b !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link-modern::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff6b6b;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link-modern:hover::after {
+            width: 100%;
+        }
+
+    .header-actions {
+        gap: 15px;
+    }
+
+    .header-action-btn {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        color: #ffffff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+        .header-action-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+    .login-btn {
+        background: linear-gradient(45deg, #ff6b6b, #ff5252);
+        border: none;
+        font-weight: 500;
+    }
+
+        .login-btn:hover {
+            background: linear-gradient(45deg, #ff5252, #ff4444);
+        }
+
+    .user-profile-modern {
+        position: relative;
+    }
+
+    .user-profile-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px 15px;
+        border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+    }
+
+        .user-profile-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+    .user-avatar-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ff6b6b;
+    }
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-name {
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 1;
+        margin-bottom: 2px;
+    }
+
+    .user-role {
+        font-size: 11px;
+        opacity: 0.8;
+        line-height: 1;
+    }
+
+    /* Mobile Styles */
+    .mobile-header {
+        background: linear-gradient(135deg, #0d2a27 0%, #1a4b44 100%);
+        padding: 12px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-actions {
+        gap: 10px;
+    }
+
+    .mobile-action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: #ffffff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+        .mobile-action-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+    .mobile-user-avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ff6b6b;
+    }
+
+    .mobile-menu-btn {
+        background: #ff6b6b;
+        border: none;
+    }
+
+        .mobile-menu-btn:hover {
+            background: #ff5252;
+        }
+
+    /* Responsive adjustments */
+    @@media (max-width: 1199px) {
+        .user-info
+
+    {
+        display: none;
+    }
+
+    .user-avatar-wrapper {
+        gap: 0;
+    }
+
+    .user-profile-link {
+        padding: 8px;
+    }
+
+    }
+
+    @@media (max-width: 768px) {
+        .header-bottom
+
+    {
+        padding: 10px 0;
+    }
+
+    }
+</style>
