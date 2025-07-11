@@ -2519,6 +2519,7 @@ wwwroot\Images\6464a51c-08d0-4c9b-bcc6-d17400a2b9a4.jpg
 wwwroot\Images\735b0a56-0f6e-4c8c-ae68-9872006071aa.jpg
 wwwroot\Images\769c5d5c-9d98-418e-9151-beddfa351bf3.png
 wwwroot\Images\7a2104a2-6b9e-46ad-8fb9-6f7f31ae9816.png
+wwwroot\Images\80bbf39d-6963-4a6c-9d3b-1ac5b2be6d11.jpg
 wwwroot\Images\81f2f126-0255-4e9f-8d22-da8731cfde21.jpg
 wwwroot\Images\8386bc9f-b49b-42f8-b9cc-5a2476e8b3a1.jpg
 wwwroot\Images\8448cb2f-cee8-4112-821a-dcdadcee723c.png

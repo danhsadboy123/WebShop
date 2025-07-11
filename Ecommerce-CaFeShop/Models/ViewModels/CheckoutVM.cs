@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Ecommerce_CaFeShop.Models.ViewModels
 {
@@ -44,5 +43,9 @@ namespace Ecommerce_CaFeShop.Models.ViewModels
                 return String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", TotalAmount);
             }
         }
+
+        public string? VoucherCode { get; set; }
+        public decimal DiscountAmount { get; set; }
+        public decimal ShippingFee { get; set; } = 30000;
     }
 }

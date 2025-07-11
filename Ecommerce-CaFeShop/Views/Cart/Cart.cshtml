@@ -67,9 +67,9 @@
                                                 <span id="item-total-price">@String.Format(new CultureInfo("vi-VN"), "{0:C}", (item.Price * item.Quantity))</span>
                                             </td>
                                             <td class="product_remove">
-                                                <form asp-controller="Cart" asp-action="RemoveCartItem" asp-route-slug="@item.Slug">
-                                                    <button class="remove-item-btn" type="submit">
-                                                        <i class="fa fa-trash-o"></i>
+                                                <form asp-controller="Cart" asp-action="RemoveCartItem" asp-route-slug="@item.Slug" style="display: inline;">
+                                                    <button class="remove-item-btn btn btn-danger btn-sm" type="submit" title="Xóa sản phẩm" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')">
+                                                        <i class="fa fa-trash" style="color: white;"></i>
                                                     </button>
                                                 </form>
                                             </td>
@@ -126,21 +126,57 @@
         }
     }
     <!-- Start Coupon Start -->
-    <div class="coupon_area d-flex justify-content-end">
-        <div class="col-lg-5" style="margin-right: 12rem">
-            <div class="coupon_code" data-aos="fade-up" data-aos-delay="400">
-                <h3>Cart Totals</h3>
-                <div class="coupon_inner">
-                    <div class="cart_subtotal">
-                        <p>Tạm tính</p>
-                        <p class="cart_amount" id="cart-subtotal">@String.Format(new CultureInfo("vi-VN"), "{0:C}", cartTotal)</p>
+    <div class="coupon_area">
+        <div class="row justify-content-end">
+            <!-- Voucher Section -->
+            <div class="col-lg-5" style="margin-right: 2rem">
+                <div class="coupon_code" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Voucher khuyến mãi</h3>
+                    <div class="coupon_inner">
+                        <div class="voucher-section mb-3">
+                            <label for="voucher-select" class="form-label">Chọn voucher:</label>
+                            <select id="voucher-select" class="form-select mb-2" onchange="applyVoucher()">
+                                <option value="">-- Chọn voucher --</option>
+                                <option value="FREESHIP500" data-type="freeship" data-min="500000">FREESHIP500 - Miễn phí ship đơn từ 500k</option>
+                                <option value="DISCOUNT10" data-type="percent" data-value="10" data-min="200000">DISCOUNT10 - Giảm 10% đơn từ 200k</option>
+                                <option value="SAVE50K" data-type="fixed" data-value="50000" data-min="300000">SAVE50K - Giảm 50k đơn từ 300k</option>
+                                <option value="BUY2GET20" data-type="percent" data-value="20" data-min-qty="2">BUY2GET20 - Giảm 20% khi mua từ 2 sản phẩm</option>
+                            </select>
+                            <div id="voucher-message" class="small text-muted"></div>
+                        </div>
                     </div>
-                    <div class="cart_subtotal">
-                        <p>Tổng</p>
-                        <p class="cart_amount" id="cart-final-total">@String.Format(new CultureInfo("vi-VN"), "{0:C}", cartTotal)</p>
-                    </div>
-                    <div class="checkout_btn">
-                        <a asp-controller="Checkout" asp-action="Index" class="btn btn-md btn-golden">Mua hàng</a>
+                </div>
+            </div>
+
+            <!-- Cart Totals -->
+            <div class="col-lg-5">
+                <div class="coupon_code" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Cart Totals</h3>
+                    <div class="coupon_inner">
+                        <div class="cart_subtotal">
+                            <p>Tạm tính</p>
+                            <p class="cart_amount" id="cart-subtotal">@String.Format(new CultureInfo("vi-VN"), "{0:C}", cartTotal)</p>
+                        </div>
+                        <div class="cart_subtotal" id="shipping-section" style="display: none;">
+                            <p>Phí vận chuyển</p>
+                            <p class="cart_amount" id="shipping-fee">30.000 ₫</p>
+                        </div>
+                        <div class="cart_subtotal" id="discount-section" style="display: none;">
+                            <p>Giảm giá <span id="discount-label"></span></p>
+                            <p class="cart_amount text-success" id="discount-amount">-0 ₫</p>
+                        </div>
+                        <div class="cart_subtotal border-top pt-2">
+                            <p><strong>Tổng cộng</strong></p>
+                            <p class="cart_amount" id="cart-final-total"><strong>@String.Format(new CultureInfo("vi-VN"), "{0:C}", cartTotal)</strong></p>
+                        </div>
+                        <div class="checkout_btn">
+                            <form asp-controller="Checkout" asp-action="Index" method="post" id="checkout-form">
+                                <input type="hidden" id="voucher-code" name="voucherCode" value="" />
+                                <input type="hidden" id="discount-amount-hidden" name="discountAmount" value="0" />
+                                <input type="hidden" id="shipping-fee-hidden" name="shippingFee" value="0" />
+                                <button type="submit" class="btn btn-md btn-golden">Mua hàng</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -149,7 +185,29 @@
     <!-- End Coupon Start -->
 </div> <!-- ...:::: End Cart Section:::... -->
 @section Scripts {
+    <style>
+        .remove-item-btn {
+            background-color: #dc3545;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .remove-item-btn:hover {
+                background-color: #c82333;
+            }
+
+        .product_remove {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
     <script>
+        let currentVoucher = null;
+        let originalSubtotal = @cartTotal;
+
         function updateQuantity(input) {
             var slug = $(input).data('slug');
             var quantity = parseInt($(input).val());
@@ -175,19 +233,24 @@
 
                         $(input).closest('tr').find('#item-total-price').text(formattedItemTotal);
 
-                        var cartTotal = 0;
-                        $('#item-total-price').each(function() {
-                            var itemTotalStr = $(this).text().trim();
-                            cartTotal += parseFloat(itemTotalStr.replace(/[^0-9]/g, ''));
-                        });
+                        // Tính lại tổng tiền và cập nhật originalSubtotal
+                        var cartData = updateCartTotals();
 
-                        var formattedCartTotal = new Intl.NumberFormat('vi-VN', {
-                            style: 'currency',
-                            currency: 'VND'
-                        }).format(cartTotal);
+                        // Reset voucher sections
+                        $('#shipping-section').hide();
+                        $('#discount-section').hide();
 
-                        $('#cart-subtotal').text(formattedCartTotal);
-                        $('#cart-final-total').text(formattedCartTotal);
+                        // Áp dụng lại voucher nếu có
+                        if (currentVoucher) {
+                            var voucherSelect = $('#voucher-select');
+                            var selectedVoucher = voucherSelect.val();
+                            if (selectedVoucher) {
+                                applyVoucher();
+                            }
+                        } else {
+                            // Nếu không có voucher, chỉ cần cập nhật final total
+                            calculateFinalTotal();
+                        }
 
                     } else {
                         Swal.fire({
@@ -208,5 +271,149 @@
                 }
             });
         }
+
+        function updateCartTotals() {
+            var cartTotal = 0;
+            var totalQuantity = 0;
+
+            $('[id="item-total-price"]').each(function() {
+                var itemTotalStr = $(this).text().trim();
+                cartTotal += parseFloat(itemTotalStr.replace(/[^0-9]/g, ''));
+            });
+
+            $('.quantity-input').each(function() {
+                totalQuantity += parseInt($(this).val()) || 0;
+            });
+
+            originalSubtotal = cartTotal;
+
+            var formattedCartTotal = new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            }).format(cartTotal);
+
+            $('#cart-subtotal').text(formattedCartTotal);
+
+            return { total: cartTotal, quantity: totalQuantity };
+        }
+
+        function applyVoucher() {
+            var voucherSelect = $('#voucher-select');
+            var selectedOption = voucherSelect.find('option:selected');
+            var messageDiv = $('#voucher-message');
+
+            // Reset voucher
+            currentVoucher = null;
+            $('#shipping-section').hide();
+            $('#discount-section').hide();
+            messageDiv.text('').removeClass('text-success text-danger').addClass('text-muted');
+
+            // Reset form values
+            $('#voucher-code').val('');
+            $('#discount-amount-hidden').val('0');
+            $('#shipping-fee-hidden').val('0');
+
+            if (!selectedOption.val()) {
+                calculateFinalTotal();
+                return;
+            }
+
+            var cartData = updateCartTotals();
+            var voucherCode = selectedOption.val();
+            var voucherType = selectedOption.data('type');
+            var voucherValue = selectedOption.data('value');
+            var minAmount = selectedOption.data('min') || 0;
+            var minQty = selectedOption.data('min-qty') || 0;
+
+            // Kiểm tra điều kiện áp dụng voucher
+            if (minAmount > 0 && cartData.total < minAmount) {
+                messageDiv.text('Đơn hàng chưa đủ điều kiện. Cần tối thiểu ' + formatCurrency(minAmount))
+                    .removeClass('text-success text-muted').addClass('text-danger');
+                voucherSelect.val('');
+                calculateFinalTotal();
+                return;
+            }
+
+            if (minQty > 0 && cartData.quantity < minQty) {
+                messageDiv.text('Cần mua tối thiểu ' + minQty + ' sản phẩm')
+                    .removeClass('text-success text-muted').addClass('text-danger');
+                voucherSelect.val('');
+                calculateFinalTotal();
+                return;
+            }
+
+            // Áp dụng voucher
+            currentVoucher = {
+                code: voucherCode,
+                type: voucherType,
+                value: voucherValue
+            };
+
+            var discountAmount = 0;
+            var discountLabel = '';
+
+            switch (voucherType) {
+                case 'freeship':
+                    $('#shipping-section').show();
+                    discountAmount = 30000; // Phí ship cố định
+                    discountLabel = '(Miễn phí ship)';
+                    messageDiv.text('Áp dụng thành công! Miễn phí vận chuyển.')
+                        .removeClass('text-danger text-muted').addClass('text-success');
+                    break;
+
+                case 'percent':
+                    discountAmount = cartData.total * (voucherValue / 100);
+                    discountLabel = '(' + voucherValue + '%)';
+                    messageDiv.text('Áp dụng thành công! Giảm ' + voucherValue + '% đơn hàng.')
+                        .removeClass('text-danger text-muted').addClass('text-success');
+                    break;
+
+                case 'fixed':
+                    discountAmount = Math.min(voucherValue, cartData.total);
+                    discountLabel = '(Giảm cố định)';
+                    messageDiv.text('Áp dụng thành công! Giảm ' + formatCurrency(voucherValue) + '.')
+                        .removeClass('text-danger text-muted').addClass('text-success');
+                    break;
+            }
+
+            if (discountAmount > 0) {
+                $('#discount-section').show();
+                $('#discount-label').text(discountLabel);
+                $('#discount-amount').text('-' + formatCurrency(discountAmount));
+            }
+
+            // Lưu thông tin voucher vào form
+            $('#voucher-code').val(voucherCode);
+            $('#discount-amount-hidden').val(discountAmount);
+            $('#shipping-fee-hidden').val($('#shipping-section').is(':visible') ? 30000 : 0);
+
+            calculateFinalTotal();
+        }
+
+        function calculateFinalTotal() {
+            var subtotal = originalSubtotal;
+            var shipping = $('#shipping-section').is(':visible') ? 30000 : 0;
+            var discount = 0;
+
+            if ($('#discount-section').is(':visible')) {
+                var discountText = $('#discount-amount').text().replace(/[^0-9]/g, '');
+                discount = parseFloat(discountText) || 0;
+            }
+
+            var finalTotal = subtotal + shipping - discount;
+            $('#cart-final-total').html('<strong>' + formatCurrency(finalTotal) + '</strong>');
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            }).format(amount);
+        }
+
+        // Khởi tạo khi trang load
+        $(document).ready(function() {
+            updateCartTotals();
+        });
     </script>
 }

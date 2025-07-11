@@ -17,7 +17,7 @@ namespace Ecommerce_CaFeShop.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? voucherCode = null, decimal discountAmount = 0, decimal shippingFee = 30000)
         {
             if (!User.Identity!.IsAuthenticated)
             {
@@ -52,8 +52,10 @@ namespace Ecommerce_CaFeShop.Controllers
 
             var checkoutVM = new CheckoutVM();
             var subtotal = cartItems.Sum(item => (decimal)(item.Quantity * item.Price));
-            var shippingFee = 30000;
-            checkoutVM.TotalAmount = subtotal + shippingFee;
+            checkoutVM.VoucherCode = voucherCode;
+            checkoutVM.DiscountAmount = discountAmount;
+            checkoutVM.ShippingFee = shippingFee;
+            checkoutVM.TotalAmount = subtotal + shippingFee - discountAmount;
 
             // Lấy thông tin khách hàng
             var customerClaim = HttpContext.User.Claims.SingleOrDefault(c => c.Type == "MaKhachHang");
@@ -153,8 +155,9 @@ namespace Ecommerce_CaFeShop.Controllers
 
                 // Tính tổng tiền
                 var subtotal = cartItems.Sum(item => (decimal)(item.Quantity * item.Price));
-                var shippingFee = 30000m;
-                var totalAmount = subtotal + shippingFee;
+                var shippingFee = model.ShippingFee;
+                var discountAmount = model.DiscountAmount;
+                var totalAmount = subtotal + shippingFee - discountAmount;
 
                 // Sử dụng transaction để đảm bảo tính toàn vẹn dữ liệu
                 using var transaction = await _context.Database.BeginTransactionAsync();
@@ -208,7 +211,7 @@ namespace Ecommerce_CaFeShop.Controllers
                     // Xóa giỏ hàng
                     CartHelper.ClearCart(HttpContext.Session);
 
-                    TempData["success"] = "Đặt hàng thành công! Mã đơn hàng: #DH" + hoaDon.MaHoaDon.ToString("D6");
+                    TempData["success"] = $"Đặt hàng thành công! Mã đơn hàng: #DH{hoaDon.MaHoaDon:D6}";
                     return RedirectToAction("OrderSuccess", new { orderId = hoaDon.MaHoaDon });
                 }
                 catch (Exception)

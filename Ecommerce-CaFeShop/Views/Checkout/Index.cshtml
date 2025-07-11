@@ -49,6 +49,9 @@
                     <h3 class="text-center mb-4">THÔNG TIN GIAO HÀNG</h3>
 
                     <form method="post" asp-action="Checkout">
+                        <input type="hidden" asp-for="VoucherCode" />
+                        <input type="hidden" asp-for="DiscountAmount" />
+                        <input type="hidden" asp-for="ShippingFee" />
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -138,7 +141,7 @@
                                 {
                                     <tr>
                                         <a asp-controller="Product" asp-action="ProductDetail" asp-route-slug="@item.Slug" class="image-link">
-                                            <img src="@Url.Content(item.Image ?? "/images/default-image.jpg")" style="width:100%" alt="@item.ProductName"
+                                            <img src="@Url.Content(item.Image ?? "/images/default-image.jpg")" style="width:100%;height: 200px;object-fit: contain;" alt="@item.ProductName"
                                                  onerror="this.src='/images/default-image.jpg'; this.onerror=null;">
                                         </a>
                                         <td>
@@ -158,13 +161,23 @@
                                     <th>Tạm tính</th>
                                     <td>@(((double)subtotal).ToString("#,0")) VND</td>
                                 </tr>
-                                <tr>
-                                    <th>Phí vận chuyển</th>
-                                    <td>@(((double)shippingFee).ToString("#,0")) VND</td>
-                                </tr>
+                                @if (Model.ShippingFee > 0)
+                                {
+                                    <tr>
+                                        <th>Phí vận chuyển</th>
+                                        <td>@(((double)Model.ShippingFee).ToString("#,0")) VND</td>
+                                    </tr>
+                                }
+                                @if (Model.DiscountAmount > 0)
+                                {
+                                    <tr class="text-success">
+                                        <th>Giảm giá (@Model.VoucherCode)</th>
+                                        <td>-@(((double)Model.DiscountAmount).ToString("#,0")) VND</td>
+                                    </tr>
+                                }
                                 <tr class="table-primary">
                                     <th><strong>Tổng cộng</strong></th>
-                                    <td><strong>@(((double)total).ToString("#,0")) VND</strong></td>
+                                    <td><strong>@(((double)Model.TotalAmount).ToString("#,0")) VND</strong></td>
                                 </tr>
                             }
                         </tbody>
