@@ -134,12 +134,14 @@
                                                             <div class="order-item d-flex align-items-center mb-2">
                                                                 @if (!string.IsNullOrEmpty(item.SanPham?.HinhAnh))
                                                                 {
-                                                                    <img src="~/Images/@item.SanPham.HinhAnh" alt="@item.SanPham.TenSanPham" class="item-image me-3">
+                                                                    <img src="@Url.Content(item.SanPham.HinhAnh)" alt="@item.SanPham.TenSanPham" class="item-image me-3" />
                                                                 }
                                                                 else
                                                                 {
-                                                                    <img src="~/Images/default-image.jpg" alt="Default" class="item-image me-3">
+                                                                    <img src="@Url.Content("~/images/default-image.jpg")" alt="Default" class="item-image me-3" />
                                                                 }
+
+
                                                                 <div class="item-details flex-grow-1">
                                                                     <h6 class="item-name mb-1">@item.SanPham?.TenSanPham</h6>
                                                                     <p class="item-info mb-0">
@@ -357,7 +359,7 @@
     }
 
     .status-unpaid {
-        background: #f8d7da;
+        background: #0a3f74;
         color: #721c24;
         border: 1px solid #f5c6cb;
     }
@@ -381,7 +383,7 @@
     }
 
     .status-cancelled {
-        background: #f8d7da;
+        background: #0a3f74;
         color: #721c24;
         border: 1px solid #f5c6cb;
     }
@@ -411,7 +413,7 @@
     }
 
     .status-returned {
-        background: #f8d7da;
+        background: #0a3f74;
         color: #721c24;
         border: 1px solid #f5c6cb;
     }

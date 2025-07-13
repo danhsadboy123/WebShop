@@ -3,7 +3,6 @@ using Ecommerce_CaFeShop.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json;
 using System.Globalization;
 
 namespace DongHo_Admin.Areas.Admin.Controllers
@@ -23,26 +22,20 @@ namespace DongHo_Admin.Areas.Admin.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [Route("GetRevenue")]
         public IActionResult GetRevenue()
         {
             try
             {
+                // ✅ Tính doanh thu theo Tổng tiền của Hóa đơn, không dùng chi tiết hóa đơn
                 var chartData = _context.HoaDons
-                    .Join(_context.ChiTietHoaDons,
-                        b => b.MaHoaDon,
-                        i => i.MaHoaDon,
-                        (b, i) => new RevenueStatisticVM
-                        {
-                            Date = b.NgayDatHang.Date,
-                            Revenue = i.SoLuong * i.Gia
-                        })
-                    .GroupBy(s => s.Date)
+                    .GroupBy(hd => hd.NgayDatHang.Date)
                     .Select(group => new RevenueStatisticVM
                     {
                         Date = group.Key,
-                        Revenue = group.Sum(s => s.Revenue)
+                        Revenue = group.Sum(hd => hd.TongTien)
                     })
                     .OrderBy(s => s.Date)
                     .ToList();
@@ -60,35 +53,11 @@ namespace DongHo_Admin.Areas.Admin.Controllers
                 return Json(new { error = ex.Message });
             }
         }
-        [HttpPost]
-        [Route("GetPurchase")]
-        //public IActionResult GetPurchase()
-        //{
-        //    var purchaseData = _context.Bills
-        //        .Join(_context.Invoices,
-        //            b => b.BillId,
-        //            i => i.BillId,
-        //            (b, i) => new
-        //            {
-        //                Date = b.OrderDate.Date,
-        //                Quantity = i.Quantity
-        //            })
-        //        .GroupBy(s => s.Date)
-        //        .Select(group => new
-        //        {
-        //            date = group.Key.ToString("yyyy-MM-dd"),
-        //            TotalPurchases = group.Sum(s => s.Quantity)
-        //        })
-        //        .OrderBy(s => s.date)
-        //        .ToList();
 
-        //    return Json(purchaseData);
-        //}
         [HttpPost]
         [Route("SubmitFilterDate")]
         public IActionResult SubmitFilterDate(string filterdate)
         {
-            // Kiểm tra và chuyển đổi ngày tháng
             if (!DateTime.TryParse(filterdate, out var parsedDate))
             {
                 return BadRequest("Ngày không hợp lệ.");
@@ -96,22 +65,14 @@ namespace DongHo_Admin.Areas.Admin.Controllers
 
             try
             {
-                // Truy vấn với so sánh DateTime trực tiếp
+                // ✅ Tính doanh thu theo ngày lọc và lấy từ bảng Hóa đơn
                 var chartData = _context.HoaDons
-                    .Where(b => b.NgayDatHang.Date == parsedDate.Date) // So sánh trực tiếp
-                    .Join(_context.ChiTietHoaDons,
-                        b => b.MaHoaDon,
-                        i => i.MaHoaDon,
-                        (b, i) => new RevenueStatisticVM
-                        {
-                            Date = b.NgayDatHang.Date,
-                            Revenue = i.SoLuong * i.Gia, // Tính doanh thu
-                        })
-                    .GroupBy(s => s.Date)
+                    .Where(hd => hd.NgayDatHang.Date == parsedDate.Date)
+                    .GroupBy(hd => hd.NgayDatHang.Date)
                     .Select(group => new RevenueStatisticVM
                     {
                         Date = group.Key,
-                        Revenue = group.Sum(s => s.Revenue),
+                        Revenue = group.Sum(hd => hd.TongTien)
                     })
                     .ToList();
 
@@ -125,7 +86,6 @@ namespace DongHo_Admin.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                // Log lỗi
                 Console.WriteLine(ex.Message);
                 return StatusCode(500, "Đã xảy ra lỗi trong quá trình xử lý.");
             }
