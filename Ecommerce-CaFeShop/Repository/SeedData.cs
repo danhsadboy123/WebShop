@@ -40,13 +40,50 @@ namespace Ecommerce_CaFeShop
             //    var TheCoffeeHouse = _context.ThuongHieus.FirstOrDefault(b => b.TenThuongHieu == "The Coffee House");
             //    var G7 = _context.ThuongHieus.FirstOrDefault(b => b.TenThuongHieu == "G7");
 
-            //    await _context.SanPhams.AddRangeAsync(
-
-            //    );
+            //    //await _context.SanPhams.AddRangeAsync(
+            //    //    new SanPham
+            //    //    {
+            //    //        TenSanPham = "Trung Nguyên Classic",
+            //    //        HinhAnh = "trungnguyenclassic.png",
+            //    //        Gia = 150000,
+            //    //        GiaKhuyenMai = 120000,
+            //    //        MoTa = "Cà phê Trung Nguyên Classic với hương vị đậm đà truyền thống",
+            //    //        Slug = "trung-nguyen-classic",
+            //    //        MaDanhMuc = cafeXay?.MaDanhMuc,
+            //    //        MaThuongHieu = TrungNguyen?.MaThuongHieu,
+            //    //        TrangThai = true
+            //    //    },
+            //    //    new SanPham
+            //    //    {
+            //    //        TenSanPham = "Highlands Coffee Arabica Blend",
+            //    //        HinhAnh = "HighlandsCoffeeArabicaBlend.png",
+            //    //        Gia = 200000,
+            //    //        GiaKhuyenMai = 180000,
+            //    //        MoTa = "Cà phê Arabica blend cao cấp từ Highlands Coffee",
+            //    //        Slug = "highlands-arabica-blend",
+            //    //        MaDanhMuc = cafeHatRang?.MaDanhMuc,
+            //    //        MaThuongHieu = HighlandsCoffee?.MaThuongHieu,
+            //    //        TrangThai = true
+            //    //    },
+            //    //    new SanPham
+            //    //    {
+            //    //        TenSanPham = "G7 3 in 1 Instant Coffee",
+            //    //        HinhAnh = "G73in1Instant Coffee.png",
+            //    //        Gia = 80000,
+            //    //        GiaKhuyenMai = 70000,
+            //    //        MoTa = "Cà phê hòa tan G7 3 trong 1 tiện lợi",
+            //    //        Slug = "g7-3in1-instant",
+            //    //        MaDanhMuc = cafePhinTruyenThong?.MaDanhMuc,
+            //    //        MaThuongHieu = G7?.MaThuongHieu,
+            //    //        TrangThai = true
+            //    //    }
+            //    //);
             //    await _context.SaveChangesAsync();
 
             //    await _context.HinhAnhSanPhams.AddRangeAsync(
-
+            //        new HinhAnhSanPham { MaSanPham = 1, HinhAnh = "trungnguyenclassic.png" },
+            //        new HinhAnhSanPham { MaSanPham = 2, HinhAnh = "HighlandsCoffeeArabicaBlend.png" },
+            //        new HinhAnhSanPham { MaSanPham = 3, HinhAnh = "G73in1Instant Coffee.png" }
             //    );
             //    await _context.SaveChangesAsync();
             //}
@@ -113,37 +150,37 @@ namespace Ecommerce_CaFeShop
             //    await _context.SaveChangesAsync();
             //}
 
-            if (!_context.Footers.Any())
-            {
-                await _context.Footers.AddRangeAsync(
-                    new Footer
-                    {
-                        Logo = "Logo.png",
-                        MoTa = "Coffeeshop không chỉ là nơi để mua sắm, mà còn là nơi để khám phá, tìm hiểu và đắm mình trong thế giới cà phê Việt Nam.",
-                        DiaChi = "65 Đ. Huỳnh Thúc Kháng, Bến Nghé, Quận 1, Hồ Chí Minh",
-                        Email = "contact@coffeeshop.com",
-                        SoDienThoai = "0123456789",
-                        FacebookUrl = "https://www.facebook.com/COFFEESHOP/",
-                        TrangThai = true
-                    }
-                );
-                await _context.SaveChangesAsync();
-            }
+            //if (!_context.Footers.Any())
+            //{
+            //    await _context.Footers.AddRangeAsync(
+            //        new Footer
+            //        {
+            //            Logo = "Logo.png",
+            //            MoTa = "Coffeeshop không chỉ là nơi để mua sắm, mà còn là nơi để khám phá, tìm hiểu và đắm mình trong thế giới cà phê Việt Nam.",
+            //            DiaChi = "65 Đ. Huỳnh Thúc Kháng, Bến Nghé, Quận 1, Hồ Chí Minh",
+            //            Email = "contact@coffeeshop.com",
+            //            SoDienThoai = "0123456789",
+            //            FacebookUrl = "https://www.facebook.com/COFFEESHOP/",
+            //            TrangThai = true
+            //        }
+            //    );
+            //    await _context.SaveChangesAsync();
+            //}
 
-            if (!_context.FooterLinks.Any())
-            {
-                await _context.FooterLinks.AddRangeAsync(
-                    new FooterLink { TieuDe = "Giới Thiệu", Url = "/Home/Introduction", MaNhom = 1, ThuTuHienThi = 1, TrangThai = true },
-                    new FooterLink { TieuDe = "Liên Hệ", Url = "/Home/Contact", MaNhom = 1, ThuTuHienThi = 2, TrangThai = true },
-                    new FooterLink { TieuDe = "Tài Khoản Của Tôi", Url = "/Account/Index", MaNhom = 2, ThuTuHienThi = 1, TrangThai = true },
-                    new FooterLink { TieuDe = "Yêu Thích", Url = "/Account/Favorite", MaNhom = 2, ThuTuHienThi = 2, TrangThai = true },
-                    new FooterLink { TieuDe = "Lịch Sử Đơn Hàng", Url = "/Account/Order", MaNhom = 2, ThuTuHienThi = 3, TrangThai = true },
-                    new FooterLink { TieuDe = "Cà Phê Hạt Rang", Url = "/ca-phe-hat-rang", MaNhom = 3, ThuTuHienThi = 1, TrangThai = true },
-                    new FooterLink { TieuDe = "Cà Phê Xay", Url = "/ca-phe-xay", MaNhom = 3, ThuTuHienThi = 2, TrangThai = true },
-                    new FooterLink { TieuDe = "Cà Phê Phin Truyền Thống", Url = "/ca-phe-phin-truyen-thong", MaNhom = 3, ThuTuHienThi = 3, TrangThai = true }
-                );
-                await _context.SaveChangesAsync();
-            }
+            //if (!_context.FooterLinks.Any())
+            //{
+            //    await _context.FooterLinks.AddRangeAsync(
+            //        new FooterLink { TieuDe = "Giới Thiệu", Url = "/Home/Introduction", MaNhom = 1, ThuTuHienThi = 1, TrangThai = true },
+            //        new FooterLink { TieuDe = "Liên Hệ", Url = "/Home/Contact", MaNhom = 1, ThuTuHienThi = 2, TrangThai = true },
+            //        new FooterLink { TieuDe = "Tài Khoản Của Tôi", Url = "/Account/Index", MaNhom = 2, ThuTuHienThi = 1, TrangThai = true },
+            //        new FooterLink { TieuDe = "Yêu Thích", Url = "/Account/Favorite", MaNhom = 2, ThuTuHienThi = 2, TrangThai = true },
+            //        new FooterLink { TieuDe = "Lịch Sử Đơn Hàng", Url = "/Account/Order", MaNhom = 2, ThuTuHienThi = 3, TrangThai = true },
+            //        new FooterLink { TieuDe = "Cà Phê Hạt Rang", Url = "/ca-phe-hat-rang", MaNhom = 3, ThuTuHienThi = 1, TrangThai = true },
+            //        new FooterLink { TieuDe = "Cà Phê Xay", Url = "/ca-phe-xay", MaNhom = 3, ThuTuHienThi = 2, TrangThai = true },
+            //        new FooterLink { TieuDe = "Cà Phê Phin Truyền Thống", Url = "/ca-phe-phin-truyen-thong", MaNhom = 3, ThuTuHienThi = 3, TrangThai = true }
+            //    );
+            //    await _context.SaveChangesAsync();
+            //}
 
             //if (!_context.Sliders.Any())
             //{
@@ -206,39 +243,189 @@ namespace Ecommerce_CaFeShop
             //    await _context.SaveChangesAsync();
             //}
 
-            //if (!_context.VaiTros.Any())
-            //{
-            //    await _context.VaiTros.AddRangeAsync(
-            //        new VaiTro { Loai = "User" },
-            //        new VaiTro { Loai = "Admin" }
-            //    );
-            //    await _context.SaveChangesAsync();
-            //}
+            if (!_context.VaiTros.Any())
+            {
+                await _context.VaiTros.AddRangeAsync(
+                    new VaiTro { Loai = "User" },
+                    new VaiTro { Loai = "Admin" }
+                );
+                await _context.SaveChangesAsync();
+            }
 
-            //if (!_context.TaiKhoans.Any())
-            //{
-            //    await _context.TaiKhoans.AddRangeAsync(
-            //        new TaiKhoan { TenDangNhap = "admin", MatKhau = "admin", MaVaiTro = 2 },
-            //        new TaiKhoan { TenDangNhap = "user1", MatKhau = "user1", MaVaiTro = 1 },
-            //        new TaiKhoan { TenDangNhap = "user2", MatKhau = "user2", MaVaiTro = 1 },
-            //        new TaiKhoan { TenDangNhap = "user3", MatKhau = "user3", MaVaiTro = 1 },
-            //        new TaiKhoan { TenDangNhap = "user4", MatKhau = "user4", MaVaiTro = 1 },
-            //        new TaiKhoan { TenDangNhap = "user5", MatKhau = "user5", MaVaiTro = 1 },
-            //        new TaiKhoan { TenDangNhap = "user6", MatKhau = "user6", MaVaiTro = 1 },
-            //        new TaiKhoan { TenDangNhap = "user7", MatKhau = "user7", MaVaiTro = 1 },
-            //        new TaiKhoan { TenDangNhap = "user8", MatKhau = "user8", MaVaiTro = 1 },
-            //        new TaiKhoan { TenDangNhap = "user9", MatKhau = "user9", MaVaiTro = 1 },
-            //        new TaiKhoan { TenDangNhap = "user10", MatKhau = "user10", MaVaiTro = 1 }
-            //    );
-            //    await _context.SaveChangesAsync();
-            //}
+            if (!_context.TaiKhoans.Any())
+            {
+                await _context.TaiKhoans.AddRangeAsync(
+                    new TaiKhoan { TenDangNhap = "admin", MatKhau = "admin@123", MaVaiTro = 2 },
+                    new TaiKhoan { TenDangNhap = "user1", MatKhau = "user1", MaVaiTro = 1 },
+                    new TaiKhoan { TenDangNhap = "user2", MatKhau = "user2", MaVaiTro = 1 },
+                    new TaiKhoan { TenDangNhap = "user3", MatKhau = "user3", MaVaiTro = 1 },
+                    new TaiKhoan { TenDangNhap = "user4", MatKhau = "user4", MaVaiTro = 1 },
+                    new TaiKhoan { TenDangNhap = "user5", MatKhau = "user5", MaVaiTro = 1 },
+                    new TaiKhoan { TenDangNhap = "user6", MatKhau = "user6", MaVaiTro = 1 },
+                    new TaiKhoan { TenDangNhap = "user7", MatKhau = "user7", MaVaiTro = 1 },
+                    new TaiKhoan { TenDangNhap = "user8", MatKhau = "user8", MaVaiTro = 1 },
+                    new TaiKhoan { TenDangNhap = "user9", MatKhau = "user9", MaVaiTro = 1 },
+                    new TaiKhoan { TenDangNhap = "user10", MatKhau = "user10", MaVaiTro = 1 }
+                );
+                await _context.SaveChangesAsync();
+            }
 
-            //if (!_context.KhachHangs.Any())
-            //{
-            //    await _context.KhachHangs.AddRangeAsync(
-            //    );
-            //    await _context.SaveChangesAsync();
-            //}
+            if (!_context.KhachHangs.Any())
+            {
+                await _context.KhachHangs.AddRangeAsync(
+                    new KhachHang
+                    {
+                        HoTen = "Nguyễn Văn An",
+                        SoDienThoai = "0901234567",
+                        DiaChi = "123 Đường Lê Lợi, Phường Bến Nghé",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận 1",
+                        Xa = "Phường Bến Nghé",
+                        Email = "nguyenvanan@gmail.com",
+                        TenHienThi = "An Nguyễn",
+                        NgaySinh = new DateOnly(1990, 5, 15),
+                        GioiTinh = true,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 2
+                    },
+                    new KhachHang
+                    {
+                        HoTen = "Trần Thị Bình",
+                        SoDienThoai = "0907654321",
+                        DiaChi = "456 Đường Nguyễn Huệ, Phường Đakao",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận 1",
+                        Xa = "Phường Đakao",
+                        Email = "tranthibinh@gmail.com",
+                        TenHienThi = "Bình Trần",
+                        NgaySinh = new DateOnly(1988, 8, 22),
+                        GioiTinh = false,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 3
+                    },
+                    new KhachHang
+                    {
+                        HoTen = "Lê Minh Cường",
+                        SoDienThoai = "0912345678",
+                        DiaChi = "789 Đường Pasteur, Phường 6",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận 3",
+                        Xa = "Phường 6",
+                        Email = "leminhcuong@gmail.com",
+                        TenHienThi = "Cường Lê",
+                        NgaySinh = new DateOnly(1995, 3, 10),
+                        GioiTinh = true,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 4
+                    },
+                    new KhachHang
+                    {
+                        HoTen = "Phạm Thị Dung",
+                        SoDienThoai = "0923456789",
+                        DiaChi = "321 Đường Cách Mạng Tháng 8, Phường 10",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận 3",
+                        Xa = "Phường 10",
+                        Email = "phamthidung@gmail.com",
+                        TenHienThi = "Dung Phạm",
+                        NgaySinh = new DateOnly(1992, 12, 5),
+                        GioiTinh = false,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 5
+                    },
+                    new KhachHang
+                    {
+                        HoTen = "Hoàng Văn Em",
+                        SoDienThoai = "0934567890",
+                        DiaChi = "654 Đường Võ Văn Tần, Phường 6",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận 3",
+                        Xa = "Phường 6",
+                        Email = "hoangvanem@gmail.com",
+                        TenHienThi = "Em Hoàng",
+                        NgaySinh = new DateOnly(1993, 7, 18),
+                        GioiTinh = true,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 6
+                    },
+                    new KhachHang
+                    {
+                        HoTen = "Đỗ Thị Phương",
+                        SoDienThoai = "0945678901",
+                        DiaChi = "987 Đường Điện Biên Phủ, Phường 25",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận Bình Thạnh",
+                        Xa = "Phường 25",
+                        Email = "dothiphuong@gmail.com",
+                        TenHienThi = "Phương Đỗ",
+                        NgaySinh = new DateOnly(1991, 4, 25),
+                        GioiTinh = false,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 7
+                    },
+                    new KhachHang
+                    {
+                        HoTen = "Vũ Minh Giang",
+                        SoDienThoai = "0956789012",
+                        DiaChi = "147 Đường Phan Xích Long, Phường 2",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận Phú Nhuận",
+                        Xa = "Phường 2",
+                        Email = "vuminhgiang@gmail.com",
+                        TenHienThi = "Giang Vũ",
+                        NgaySinh = new DateOnly(1989, 11, 30),
+                        GioiTinh = true,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 8
+                    },
+                    new KhachHang
+                    {
+                        HoTen = "Bùi Thị Hương",
+                        SoDienThoai = "0967890123",
+                        DiaChi = "258 Đường Lý Thường Kiệt, Phường 14",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận 10",
+                        Xa = "Phường 14",
+                        Email = "buithihuong@gmail.com",
+                        TenHienThi = "Hương Bùi",
+                        NgaySinh = new DateOnly(1994, 6, 8),
+                        GioiTinh = false,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 9
+                    },
+                    new KhachHang
+                    {
+                        HoTen = "Ngô Văn Inh",
+                        SoDienThoai = "0978901234",
+                        DiaChi = "369 Đường Nguyễn Thị Minh Khai, Phường Đa Kao",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận 1",
+                        Xa = "Phường Đa Kao",
+                        Email = "ngovaninh@gmail.com",
+                        TenHienThi = "Inh Ngô",
+                        NgaySinh = new DateOnly(1987, 9, 12),
+                        GioiTinh = true,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 10
+                    },
+                    new KhachHang
+                    {
+                        HoTen = "Đinh Thị Kiều",
+                        SoDienThoai = "0989012345",
+                        DiaChi = "741 Đường Trần Hưng Đạo, Phường 1",
+                        Tinh = "Hồ Chí Minh",
+                        Huyen = "Quận 5",
+                        Xa = "Phường 1",
+                        Email = "dinhthikieu@gmail.com",
+                        TenHienThi = "Kiều Đinh",
+                        NgaySinh = new DateOnly(1996, 1, 20),
+                        GioiTinh = false,
+                        HinhDaiDien = "default-avatar.png",
+                        MaTaiKhoan = 11
+                    }
+                );
+                await _context.SaveChangesAsync();
+            }
 
             //if (!_context.HoaDons.Any())
             //{

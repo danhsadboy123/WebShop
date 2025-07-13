@@ -24,7 +24,7 @@ public class CartController : Controller
         return customerIdClaim != null ? int.Parse(customerIdClaim.Value) : (int?)null;
     }
 
-    public async Task<IActionResult> Cart(int page = 1, int pageSize = 5)
+    public async Task<IActionResult> Cart()
     {
         try
         {
@@ -44,19 +44,8 @@ public class CartController : Controller
                 return View("EmptyCart");
             }
 
-            var totalItems = cartItems.Count;
-            var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
-
-            var paginatedItems = cartItems
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
-
-            ViewBag.CurrentPage = page;
-            ViewBag.TotalPages = totalPages;
-            ViewBag.TotalItems = totalItems;
-
-            return View(paginatedItems);
+            // Trả về toàn bộ danh sách mà không phân trang
+            return View(cartItems);
         }
         catch (Exception ex)
         {

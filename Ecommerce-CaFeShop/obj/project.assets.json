@@ -7820,11 +7820,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sunhitech\\Desktop\\New folder (4)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
+      "projectUniqueName": "C:\\Users\\Sunhitech\\Desktop\\doan\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
       "projectName": "Ecommerce-CaFeShop",
-      "projectPath": "C:\\Users\\Sunhitech\\Desktop\\New folder (4)\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
+      "projectPath": "C:\\Users\\Sunhitech\\Desktop\\doan\\WebShop\\Ecommerce-CaFeShop\\Ecommerce-CaFeShop.csproj",
       "packagesPath": "C:\\Users\\Sunhitech\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sunhitech\\Desktop\\New folder (4)\\WebShop\\Ecommerce-CaFeShop\\obj\\",
+      "outputPath": "C:\\Users\\Sunhitech\\Desktop\\doan\\WebShop\\Ecommerce-CaFeShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

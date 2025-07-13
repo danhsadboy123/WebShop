@@ -77,36 +77,6 @@
                                     }
                                 </tbody>
                             </table>
-                            @if (ViewBag.TotalPages > 1)
-                            {
-                                <div class="page-pagination text-center" data-aos="fade-up" data-aos-delay="0">
-                                    <ul>
-                                        <!-- Link trang trước -->
-                                        @if (ViewBag.CurrentPage > 1)
-                                        {
-                                            <li>
-                                                <a href="@Url.Action("Cart", new { page = ViewBag.CurrentPage - 1 })">« Trước</a>
-                                            </li>
-                                        }
-
-                                        <!-- Link các trang -->
-                                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
-                                        {
-                                            <li class="@(i == ViewBag.CurrentPage ? "active" : "")">
-                                                <a href="@Url.Action("Cart", new { page = i })">@i</a>
-                                            </li>
-                                        }
-
-                                        <!-- Link trang sau -->
-                                        @if (ViewBag.CurrentPage < ViewBag.TotalPages)
-                                        {
-                                            <li>
-                                                <a href="@Url.Action("Cart", new { page = ViewBag.CurrentPage + 1 })">Sau »</a>
-                                            </li>
-                                        }
-                                    </ul>
-                                </div>
-                            }
                         </div>
                         <form asp-controller="Cart" asp-action="ClearCart">
                             <div class="cart_submit">
@@ -122,7 +92,7 @@
         double cartTotal = 0;
         foreach (var item in Model)
         {
-            cartTotal += (double)(item.Quantity * item.Price); // Tính tổng
+            cartTotal += (double)(item.Quantity * item.Price); // Tính tổng trên toàn bộ Model
         }
     }
     <!-- Start Coupon Start -->
@@ -166,8 +136,8 @@
                             <p class="cart_amount text-success" id="discount-amount">-0 ₫</p>
                         </div>
                         <div class="cart_subtotal border-top pt-2">
-                            <p><strong>Tổng cộng</strong></p>
-                            <p class="cart_amount" id="cart-final-total"><strong>@String.Format(new CultureInfo("vi-VN"), "{0:C}", cartTotal)</strong></p>
+                            <p><strong style="color:black!important">Tổng cộng</strong></p>
+                            <p class="cart_amount" id="cart-final-total" style="color:black!important"><strong>@String.Format(new CultureInfo("vi-VN"), "{0:C}", cartTotal)</strong></p>
                         </div>
                         <div class="checkout_btn">
                             <form asp-controller="Checkout" asp-action="Index" method="post" id="checkout-form">
