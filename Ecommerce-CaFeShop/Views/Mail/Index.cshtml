@@ -1,0 +1,275 @@
+﻿@model Ecommerce_CaFeShop.Models.ViewModels.SendMailVM
+@{
+    ViewData["Title"] = "Gửi Email";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="card-title mb-0">
+                        <i class="fas fa-envelope"></i>
+                        Gửi Email
+                    </h4>
+                </div>
+                <div class="card-body">
+                    @if (TempData["success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle"></i>
+                            @TempData["success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (TempData["error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            @TempData["error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <form asp-action="SendMail" method="post" id="mailForm">
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <label asp-for="ToEmail" class="form-label">
+                                        <i class="fas fa-user"></i> @Html.DisplayNameFor(m => m.ToEmail) <span class="text-danger">*</span>
+                                    </label>
+                                    <input asp-for="ToEmail" class="form-control" placeholder="example@email.com" />
+                                    <span asp-validation-for="ToEmail" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label asp-for="ToName" class="form-label">
+                                        <i class="fas fa-signature"></i> @Html.DisplayNameFor(m => m.ToName)
+                                    </label>
+                                    <input asp-for="ToName" class="form-control" placeholder="Tên người nhận" />
+                                    <span asp-validation-for="ToName" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="CcEmail" class="form-label">
+                                        <i class="fas fa-copy"></i> @Html.DisplayNameFor(m => m.CcEmail)
+                                    </label>
+                                    <input asp-for="CcEmail" class="form-control" placeholder="cc@email.com" />
+                                    <span asp-validation-for="CcEmail" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="BccEmail" class="form-label">
+                                        <i class="fas fa-eye-slash"></i> @Html.DisplayNameFor(m => m.BccEmail)
+                                    </label>
+                                    <input asp-for="BccEmail" class="form-control" placeholder="bcc@email.com" />
+                                    <span asp-validation-for="BccEmail" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Subject" class="form-label">
+                                <i class="fas fa-heading"></i> @Html.DisplayNameFor(m => m.Subject) <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="Subject" class="form-control" placeholder="Tiêu đề email" />
+                            <span asp-validation-for="Subject" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input asp-for="IsHtml" class="form-check-input" type="checkbox" />
+                                <label asp-for="IsHtml" class="form-check-label">
+                                    <i class="fas fa-code"></i> @Html.DisplayNameFor(m => m.IsHtml)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Body" class="form-label">
+                                <i class="fas fa-edit"></i> @Html.DisplayNameFor(m => m.Body) <span class="text-danger">*</span>
+                            </label>
+                            <textarea asp-for="Body" class="form-control" rows="10" placeholder="Nhập nội dung email..."></textarea>
+                            <span asp-validation-for="Body" class="text-danger"></span>
+                            <div class="form-text">
+                                <small>Nếu chọn "Gửi dưới dạng HTML", bạn có thể sử dụng các thẻ HTML như &lt;strong&gt;, &lt;em&gt;, &lt;br&gt;, etc.</small>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="button" class="btn btn-secondary me-md-2" onclick="clearForm()">
+                                <i class="fas fa-eraser"></i> Xóa form
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="sendBtn">
+                                <i class="fas fa-paper-plane"></i> Gửi Email
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Email Templates -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-templates"></i> Mẫu Email Có Sẵn
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-info w-100 mb-2" onclick="loadTemplate('welcome')">
+                                <i class="fas fa-handshake"></i> Chào mừng khách hàng
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-info w-100 mb-2" onclick="loadTemplate('promotion')">
+                                <i class="fas fa-percent"></i> Khuyến mãi
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-info w-100 mb-2" onclick="loadTemplate('newsletter')">
+                                <i class="fas fa-newspaper"></i> Bản tin
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+                function clearForm() {
+                    if (confirm('Bạn có chắc chắn muốn xóa toàn bộ form?')) {
+                        document.getElementById('mailForm').reset();
+                    }
+                }
+
+                function loadTemplate(templateType) {
+                    const subjectField = document.querySelector('input[name="Subject"]');
+                    const bodyField = document.querySelector('textarea[name="Body"]');
+                    const isHtmlField = document.querySelector('input[name="IsHtml"]');
+
+                    switch(templateType) {
+                        case 'welcome':
+                            subjectField.value = 'Chào mừng bạn đến với CaFe Shop!';
+                            bodyField.value = `<h2>Chào mừng bạn đến với CaFe Shop!</h2>
+        <p>Xin chào,</p>
+        <p>Chúng tôi rất vui mừng chào đón bạn trở thành khách hàng của CaFe Shop. Tại đây, bạn sẽ tìm thấy những loại cà phê chất lượng cao từ khắp nơi trên thế giới.</p>
+        <p><strong>Ưu đãi đặc biệt cho khách hàng mới:</strong></p>
+        <ul>
+            <li>Giảm 15% cho đơn hàng đầu tiên</li>
+            <li>Miễn phí giao hàng cho đơn hàng trên 500.000 VNĐ</li>
+            <li>Tích điểm thành viên để nhận nhiều ưu đãi hấp dẫn</li>
+        </ul>
+        <p>Cảm ơn bạn đã tin tưởng và lựa chọn CaFe Shop!</p>
+        <p>Trân trọng,<br><strong>Đội ngũ CaFe Shop</strong></p>`;
+                            isHtmlField.checked = true;
+                            break;
+
+                        case 'promotion':
+                            subjectField.value = '🎉 Khuyến mãi đặc biệt - Giảm giá lên đến 30%!';
+                            bodyField.value = `<h2 style="color: #d63384;">🎉 KHUYẾN MÃI ĐỘC QUYỀN!</h2>
+        <p>Xin chào,</p>
+        <p>Chúng tôi có tin tuyệt vời dành cho bạn! Từ hôm nay đến hết tháng, CaFe Shop giảm giá <strong style="color: #d63384;">lên đến 30%</strong> cho tất cả sản phẩm cà phê premium.</p>
+        <p><strong>🔥 Ưu đãi nổi bật:</strong></p>
+        <ul>
+            <li>Cà phê Arabica: Giảm 25%</li>
+            <li>Cà phê Robusta: Giảm 20%</li>
+            <li>Các loại cà phê blend đặc biệt: Giảm 30%</li>
+        </ul>
+        <p><strong>⏰ Thời gian có hạn:</strong> Chỉ đến hết ngày 31/12/2024</p>
+        <p>Đừng bỏ lỡ cơ hội này! Hãy đặt hàng ngay hôm nay.</p>
+        <p>Trân trọng,<br><strong>Đội ngũ CaFe Shop</strong></p>`;
+                            isHtmlField.checked = true;
+                            break;
+
+                        case 'newsletter':
+                            subjectField.value = 'Bản tin CaFe Shop - Khám phá thế giới cà phê';
+                            bodyField.value = `<h2>📰 BẢN TIN CAFE SHOP</h2>
+        <p>Xin chào những người yêu cà phê,</p>
+        <p>Chào mừng bạn đến với bản tin tháng này của CaFe Shop! Hôm nay chúng tôi sẽ chia sẻ với bạn:</p>
+        <h3>☕ Kiến thức về cà phê</h3>
+        <p>Bạn có biết rằng cà phê Arabica chiếm khoảng 60-70% sản lượng cà phê toàn cầu? Loại cà phê này có hương vị nhẹ nhàng, ít đắng hơn so với Robusta.</p>
+        <h3>🎯 Sản phẩm nổi bật tháng này</h3>
+        <ul>
+            <li><strong>Cà phê Arabica Brazil Santos:</strong> Hương vị cân bằng, note chocolate</li>
+            <li><strong>Cà phê Robusta Đak Lak:</strong> Đậm đà, thích hợp pha phin</li>
+            <li><strong>Blend House Special:</strong> Công thức độc quyền của CaFe Shop</li>
+        </ul>
+        <h3>💡 Mẹo pha cà phê</h3>
+        <p>Để có ly cà phê ngon, hãy nhớ sử dụng nước ở nhiệt độ 90-96°C và tỷ lệ cà phê:nước là 1:15 đến 1:17.</p>
+        <p>Cảm ơn bạn đã theo dõi bản tin của chúng tôi!</p>
+        <p>Trân trọng,<br><strong>Đội ngũ CaFe Shop</strong></p>`;
+                            isHtmlField.checked = true;
+                            break;
+                    }
+                }
+
+                // Form submission handling
+                document.getElementById('mailForm').addEventListener('submit', function(e) {
+                    const sendBtn = document.getElementById('sendBtn');
+                    const originalText = sendBtn.innerHTML;
+
+                    sendBtn.disabled = true;
+                    sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang gửi...';
+
+                    // Re-enable button after 10 seconds to prevent hanging
+                    setTimeout(() => {
+                        sendBtn.disabled = false;
+                        sendBtn.innerHTML = originalText;
+                    }, 10000);
+                });
+
+                // Auto-resize textarea
+                document.querySelector('textarea[name="Body"]').addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = this.scrollHeight + 'px';
+                });
+    </script>
+
+    <style>
+        .card {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .card-header {
+            border-radius: 10px 10px 0 0 !important;
+        }
+
+        .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+
+        .btn {
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .alert {
+            border-radius: 8px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+    </style>
+}

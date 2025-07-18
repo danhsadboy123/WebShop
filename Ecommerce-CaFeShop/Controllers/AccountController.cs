@@ -269,6 +269,8 @@ public class AccountController : Controller
 
             // Cập nhật trạng thái đơn hàng thành đã hủy (status = 5)
             bill.TrangThai = 5;
+            bill.NgayHuy = DateTime.Now;
+            bill.LyDoHuy = "Đơn hàng bị hủy bởi khách hàng";
             _context.HoaDons.Update(bill);
             await _context.SaveChangesAsync();
 

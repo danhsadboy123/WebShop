@@ -1,0 +1,157 @@
+﻿@* Modal hủy đơn hàng *@
+<div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-labelledby="cancelOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelOrderModalLabel">Hủy đơn hàng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="cancelOrderForm">
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Bạn có chắc chắn muốn hủy đơn hàng này không? Hành động này không thể hoàn tác.
+                    </div>
+                    <div class="mb-3">
+                        <label for="cancelReason" class="form-label">Lý do hủy đơn hàng <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="cancelReason" name="reason" rows="3"
+                                  placeholder="Vui lòng nhập lý do hủy đơn hàng..." required></textarea>
+                        <div class="invalid-feedback">
+                            Vui lòng nhập lý do hủy đơn hàng.
+                        </div>
+                    </div>
+                    <input type="hidden" id="cancelOrderId" name="orderId" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-times"></i> Xác nhận hủy đơn hàng
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showCancelModal(orderId) {
+        document.getElementById('cancelOrderId').value = orderId;
+        document.getElementById('cancelReason').value = '';
+        document.getElementById('cancelReason').classList.remove('is-invalid');
+        var modal = new bootstrap.Modal(document.getElementById('cancelOrderModal'));
+        modal.show();
+    }
+
+    document.getElementById('cancelOrderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const orderId = document.getElementById('cancelOrderId').value;
+        const reason = document.getElementById('cancelReason').value.trim();
+        const reasonField = document.getElementById('cancelReason');
+
+        // Validate reason
+        if (!reason) {
+            reasonField.classList.add('is-invalid');
+            return;
+        } else {
+            reasonField.classList.remove('is-invalid');
+        }
+
+        // Disable submit button
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+
+        // Send AJAX request
+        fetch('/Checkout/CancelOrder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+            },
+            body: `orderId=${orderId}&reason=${encodeURIComponent(reason)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Update UI
+                updateOrderStatus(orderId, data.newStatus, data.cancelDate, data.cancelReason);
+
+                // Show success message
+                showAlert('success', data.message);
+
+                // Close modal
+                bootstrap.Modal.getInstance(document.getElementById('cancelOrderModal')).hide();
+            } else {
+                showAlert('error', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showAlert('error', 'Có lỗi xảy ra khi hủy đơn hàng');
+        })
+        .finally(() => {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        });
+    });
+
+    function updateOrderStatus(orderId, newStatus, cancelDate, cancelReason) {
+        // Update status badge
+        const statusBadge = document.querySelector(`[data-order-id="${orderId}"] .order-status`);
+        if (statusBadge) {
+            statusBadge.className = 'badge bg-danger order-status';
+            statusBadge.textContent = newStatus;
+        }
+
+        // Hide cancel button
+        const cancelBtn = document.querySelector(`[data-order-id="${orderId}"] .cancel-order-btn`);
+        if (cancelBtn) {
+            cancelBtn.style.display = 'none';
+        }
+
+        // Add cancel info if in details view
+        const cancelInfo = document.querySelector(`[data-order-id="${orderId}"] .cancel-info`);
+        if (cancelInfo) {
+            cancelInfo.innerHTML = `
+                <div class="alert alert-danger">
+                    <strong>Đơn hàng đã bị hủy</strong><br>
+                    <small>Ngày hủy: ${cancelDate}</small><br>
+                    <small>Lý do: ${cancelReason}</small>
+                </div>
+            `;
+            cancelInfo.style.display = 'block';
+        }
+    }
+
+    function showAlert(type, message) {
+        const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+        const alertHtml = `
+            <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        `;
+
+        // Find alert container or create one
+        let alertContainer = document.getElementById('alert-container');
+        if (!alertContainer) {
+            alertContainer = document.createElement('div');
+            alertContainer.id = 'alert-container';
+            alertContainer.className = 'container mt-3';
+            document.body.insertBefore(alertContainer, document.body.firstChild);
+        }
+
+        alertContainer.innerHTML = alertHtml;
+
+        // Auto hide after 5 seconds
+        setTimeout(() => {
+            const alert = alertContainer.querySelector('.alert');
+            if (alert) {
+                alert.remove();
+            }
+        }, 5000);
+    }
+</script>

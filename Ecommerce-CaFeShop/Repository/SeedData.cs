@@ -815,7 +815,7 @@ namespace Ecommerce_CaFeShop
             Tinh = "Hồ Chí Minh",
             Huyen = "Quận 1",
             Xa = "Phường Bến Nghé",
-            PhuongThucThanhToan = "MOMO",
+            PhuongThucThanhToan = "COD",
             TongTien = 900000,
             TrangThai = 10
         },
@@ -830,7 +830,7 @@ namespace Ecommerce_CaFeShop
             Tinh = "Đà Nẵng",
             Huyen = "Hải Châu",
             Xa = "Phường Hòa Cường",
-            PhuongThucThanhToan = "ZALO PAY",
+            PhuongThucThanhToan = "COD",
             TongTien = 420000,
             TrangThai = 10
         }

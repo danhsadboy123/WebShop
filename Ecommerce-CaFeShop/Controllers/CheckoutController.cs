@@ -270,7 +270,8 @@ namespace Ecommerce_CaFeShop.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CancelOrder(int orderId)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CancelOrder(int orderId, string reason)
         {
             try
             {
@@ -293,24 +294,39 @@ namespace Ecommerce_CaFeShop.Controllers
                     return Json(new { success = false, message = "Không tìm thấy đơn hàng" });
                 }
 
-                // Kiểm tra trạng thái đơn hàng (chỉ cho phép hủy đơn hàng chờ xác nhận, đã xác nhận hoặc đang chuẩn bị hàng)
-                if (order.TrangThai != 0 && order.TrangThai != 1 && order.TrangThai != 2)
+                // Kiểm tra trạng thái đơn hàng (chỉ cho phép hủy đơn hàng chờ xác nhận, đã xác nhận)
+                if (order.TrangThai != 0 && order.TrangThai != 7)
                 {
                     return Json(new { success = false, message = "Đơn hàng này không thể hủy" });
                 }
 
-                // Kiểm tra thời gian (chỉ cho phép hủy trong vòng 1 giờ)
+                // Kiểm tra thời gian (chỉ cho phép hủy trong vòng 2 giờ)
                 var hoursSinceOrder = (DateTime.Now - order.NgayDatHang).TotalHours;
-                if (hoursSinceOrder > 1)
+                if (hoursSinceOrder > 2)
                 {
-                    return Json(new { success = false, message = "Đã quá thời gian cho phép hủy đơn hàng (1 giờ)" });
+                    return Json(new { success = false, message = "Đã quá thời gian cho phép hủy đơn hàng (2 giờ)" });
                 }
 
-                // Cập nhật trạng thái đơn hàng thành đã hủy (status = 8)
-                order.TrangThai = 8;
+                // Kiểm tra lý do hủy
+                if (string.IsNullOrWhiteSpace(reason))
+                {
+                    return Json(new { success = false, message = "Vui lòng nhập lý do hủy đơn hàng" });
+                }
+
+                // Cập nhật trạng thái đơn hàng thành đã hủy (status = 5)
+                order.TrangThai = 5;
+                order.NgayHuy = DateTime.Now;
+                order.LyDoHuy = reason.Trim();
                 await _context.SaveChangesAsync();
 
-                return Json(new { success = true, message = "Hủy đơn hàng thành công" });
+                return Json(new
+                {
+                    success = true,
+                    message = "Hủy đơn hàng thành công",
+                    newStatus = "Đã hủy",
+                    cancelDate = order.NgayHuy?.ToString("dd/MM/yyyy HH:mm"),
+                    cancelReason = order.LyDoHuy
+                });
             }
             catch (Exception ex)
             {

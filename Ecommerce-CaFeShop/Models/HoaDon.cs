@@ -46,4 +46,9 @@ public partial class HoaDon
     public virtual KhachHang? KhachHang { get; set; }
 
     public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; } = new List<ChiTietHoaDon>();
+
+    [Column(TypeName = "nvarchar(500)")]
+    public string? LyDoHuy { get; set; }
+
+    public DateTime? NgayHuy { get; set; }
 }

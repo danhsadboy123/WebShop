@@ -386,10 +386,16 @@ namespace Ecommerce_CaFeShop.Migrations
                     b.Property<int?>("KhachHangMaKhachHang")
                         .HasColumnType("int");
 
+                    b.Property<string>("LyDoHuy")
+                        .HasColumnType("nvarchar(500)");
+
                     b.Property<int>("MaKhachHang")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("NgayDatHang")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("NgayHuy")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PhuongThucThanhToan")

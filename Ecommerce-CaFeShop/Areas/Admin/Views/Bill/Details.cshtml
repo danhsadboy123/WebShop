@@ -239,10 +239,24 @@
                                     }
                                     @if (Model.TrangThai != 4 && Model.TrangThai != 8)
                                     {
-                                        <button class="btn btn-danger" onclick="updateOrderStatus(@Model.MaHoaDon, 5)">
+                                        <button class="btn btn-danger" onclick="showCancelModal(@Model.MaHoaDon)">
                                             <i class="fas fa-times"></i> Hủy đơn hàng
                                         </button>
                                     }
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Thông tin hủy đơn hàng (nếu đã bị hủy) -->
+                    @if (Model.TrangThai == 5 && Model.NgayHuy.HasValue)
+                    {
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="alert alert-danger">
+                                    <h6><i class="fas fa-exclamation-triangle"></i> Thông tin hủy đơn hàng</h6>
+                                    <p><strong>Ngày hủy:</strong> @Model.NgayHuy.Value.ToString("dd/MM/yyyy HH:mm")</p>
+                                    <p><strong>Lý do hủy:</strong> @Model.LyDoHuy</p>
                                 </div>
                             </div>
                         </div>
@@ -251,6 +265,45 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal Hủy đơn hàng -->
+<div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-labelledby="cancelOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelOrderModalLabel">Hủy đơn hàng #DH@(Model.MaHoaDon.ToString("D6"))</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="cancelOrderForm">
+                <div class="modal-body">
+                    <input type="hidden" id="cancelOrderId" name="orderId" value="@Model.MaHoaDon" />
+                    <div class="mb-3">
+                        <label for="cancelReason" class="form-label">Lý do hủy đơn hàng <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="cancelReason" name="reason" rows="3"
+                                  placeholder="Vui lòng nhập lý do hủy đơn hàng..." required></textarea>
+                        <div class="invalid-feedback">
+                            Vui lòng nhập lý do hủy đơn hàng.
+                        </div>
+                    </div>
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Chú ý:</strong> Hành động này không thể hoàn tác. Khách hàng sẽ nhận được email thông báo về việc hủy đơn hàng.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-times"></i> Xác nhận hủy đơn hàng
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 @section Scripts {
@@ -295,31 +348,117 @@
             }
 
             if (confirm(`Bạn có chắc chắn muốn ${statusText} đơn hàng này?`)) {
+                // Tạo form để submit
                 var form = document.createElement('form');
-                form.method = 'post';
-                form.action = '@Url.Action("UpdateStatus", "Bill")';
+                form.method = 'POST';
+                form.action = '/Admin/Bill/UpdateStatus';
 
+                // Thêm CSRF token
+                var token = document.querySelector('input[name="__RequestVerificationToken"]');
+                if (token) {
+                    var tokenInput = document.createElement('input');
+                    tokenInput.type = 'hidden';
+                    tokenInput.name = '__RequestVerificationToken';
+                    tokenInput.value = token.value;
+                    form.appendChild(tokenInput);
+                }
+
+                // Thêm id
                 var idInput = document.createElement('input');
                 idInput.type = 'hidden';
                 idInput.name = 'id';
                 idInput.value = orderId;
+                form.appendChild(idInput);
 
+                // Thêm status
                 var statusInput = document.createElement('input');
                 statusInput.type = 'hidden';
                 statusInput.name = 'status';
                 statusInput.value = status;
-
-                var tokenInput = document.createElement('input');
-                tokenInput.type = 'hidden';
-                tokenInput.name = '__RequestVerificationToken';
-                tokenInput.value = '@Html.AntiForgeryToken().ToString()';
-
-                form.appendChild(idInput);
                 form.appendChild(statusInput);
-                form.appendChild(tokenInput);
+
                 document.body.appendChild(form);
                 form.submit();
             }
         }
+
+        function showCancelModal(orderId) {
+            document.getElementById('cancelOrderId').value = orderId;
+            document.getElementById('cancelReason').value = '';
+            document.getElementById('cancelReason').classList.remove('is-invalid');
+            var modal = new bootstrap.Modal(document.getElementById('cancelOrderModal'));
+            modal.show();
+        }
+
+        // Handle cancel order form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const cancelForm = document.getElementById('cancelOrderForm');
+            if (cancelForm) {
+                cancelForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const orderId = document.getElementById('cancelOrderId').value;
+                    const reason = document.getElementById('cancelReason').value.trim();
+                    const reasonField = document.getElementById('cancelReason');
+
+                    // Validate reason
+                    if (!reason) {
+                        reasonField.classList.add('is-invalid');
+                        return;
+                    } else {
+                        reasonField.classList.remove('is-invalid');
+                    }
+
+                    // Disable submit button
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+
+                    // Create form data
+                    const formData = new FormData();
+                    formData.append('id', orderId);
+                    formData.append('reason', reason);
+
+                    // Get CSRF token
+                    const token = document.querySelector('input[name="__RequestVerificationToken"]');
+                    if (token) {
+                        formData.append('__RequestVerificationToken', token.value);
+                    }
+
+                    // Send request
+                    fetch('/Admin/Bill/CancelOrder', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Show success message
+                            alert(data.message);
+
+                            // Close modal
+                            bootstrap.Modal.getInstance(document.getElementById('cancelOrderModal')).hide();
+
+                            // Reload page to update status
+                            location.reload();
+                        } else {
+                            alert('Lỗi: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Có lỗi xảy ra khi hủy đơn hàng');
+                    })
+                    .finally(() => {
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    });
+                });
+            }
+        });
     </script>
+
+    @Html.AntiForgeryToken()
 }
