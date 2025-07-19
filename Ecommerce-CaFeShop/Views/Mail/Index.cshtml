@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                           @*  <div class="col-md-6">
                                 <div class="mb-3">
                                     <label asp-for="CcEmail" class="form-label">
                                         <i class="fas fa-copy"></i> @Html.DisplayNameFor(m => m.CcEmail)
@@ -65,8 +65,8 @@
                                     <input asp-for="CcEmail" class="form-control" placeholder="cc@email.com" />
                                     <span asp-validation-for="CcEmail" class="text-danger"></span>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
+                            </div> *@
+                            @* <div class="col-md-6">
                                 <div class="mb-3">
                                     <label asp-for="BccEmail" class="form-label">
                                         <i class="fas fa-eye-slash"></i> @Html.DisplayNameFor(m => m.BccEmail)
@@ -74,7 +74,7 @@
                                     <input asp-for="BccEmail" class="form-control" placeholder="bcc@email.com" />
                                     <span asp-validation-for="BccEmail" class="text-danger"></span>
                                 </div>
-                            </div>
+                            </div> *@
                         </div>
 
                         <div class="mb-3">
@@ -139,6 +139,21 @@
                         <div class="col-md-4">
                             <button type="button" class="btn btn-outline-info w-100 mb-2" onclick="loadTemplate('newsletter')">
                                 <i class="fas fa-newspaper"></i> Bản tin
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-warning w-100 mb-2" onclick="loadTemplate('cancel_order')">
+                                <i class="fas fa-times-circle"></i> Hủy đơn hàng
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-success w-100 mb-2" onclick="loadTemplate('thank_you')">
+                                <i class="fas fa-heart"></i> Cảm ơn khách hàng
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-primary w-100 mb-2" onclick="loadTemplate('order_confirm')">
+                                <i class="fas fa-check-circle"></i> Xác nhận đơn hàng
                             </button>
                         </div>
                     </div>
@@ -216,6 +231,209 @@
         <p>Để có ly cà phê ngon, hãy nhớ sử dụng nước ở nhiệt độ 90-96°C và tỷ lệ cà phê:nước là 1:15 đến 1:17.</p>
         <p>Cảm ơn bạn đã theo dõi bản tin của chúng tôi!</p>
         <p>Trân trọng,<br><strong>Đội ngũ CaFe Shop</strong></p>`;
+                            isHtmlField.checked = true;
+                            break;
+
+                        case 'cancel_order':
+                            subjectField.value = 'Thông báo hủy đơn hàng #[SỐ ĐƠN HÀNG]';
+                            bodyField.value = `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="background-color: #dc3545; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+                <h1 style="margin: 0; font-size: 24px;">⚠️ Thông báo hủy đơn hàng</h1>
+            </div>
+
+            <div style="padding: 30px; background-color: #f8f9fa; border-radius: 0 0 8px 8px;">
+                <p style="font-size: 16px; color: #333;">Xin chào <strong>[TÊN KHÁCH HÀNG]</strong>,</p>
+
+                <p style="color: #666; line-height: 1.6;">Chúng tôi xin thông báo rằng đơn hàng <strong>#[SỐ ĐƠN HÀNG]</strong> của bạn đã bị hủy.</p>
+
+                <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #dc3545;">
+                    <h3 style="margin-top: 0; color: #dc3545;">📋 Thông tin đơn hàng:</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0; font-weight: bold;">Mã đơn hàng:</td>
+                            <td style="padding: 8px 0;">#[SỐ ĐƠN HÀNG]</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0; font-weight: bold;">Ngày đặt hàng:</td>
+                            <td style="padding: 8px 0;">[NGÀY ĐẶT]</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0; font-weight: bold;">Ngày hủy:</td>
+                            <td style="padding: 8px 0;">[NGÀY HỦY]</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0; font-weight: bold;">Tổng tiền:</td>
+                            <td style="padding: 8px 0; color: #dc3545; font-weight: bold;">[TỔNG TIỀN] VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0; font-weight: bold;">Lý do hủy:</td>
+                            <td style="padding: 8px 0;">[LÝ DO HỦY]</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 20px 0;">
+                    <p style="margin: 0; color: #856404;"><strong>💰 Về việc hoàn tiền:</strong></p>
+                    <p style="margin: 5px 0 0 0; color: #856404;">Nếu bạn đã thanh toán cho đơn hàng này, chúng tôi sẽ tiến hành hoàn tiền trong vòng 3-5 ngày làm việc.</p>
+                </div>
+
+                <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <h4 style="margin-top: 0; color: #333;">📞 Liên hệ hỗ trợ:</h4>
+                    <ul style="color: #666; line-height: 1.6;">
+                        <li>📧 Email: support@cafeshop.com</li>
+                        <li>📱 Hotline: 1900 1234</li>
+                        <li>⏰ Thời gian hỗ trợ: 8:00 - 22:00 (Thứ 2 - Chủ nhật)</li>
+                    </ul>
+                </div>
+
+                <p style="color: #666; line-height: 1.6;">Chúng tôi xin lỗi vì sự bất tiện này và hy vọng được phục vụ bạn trong những lần mua hàng tiếp theo. Cảm ơn bạn đã tin tưởng CaFe Shop!</p>
+
+                <p style="margin-top: 30px; color: #333;">Trân trọng,<br><strong style="color: #dc3545;">Đội ngũ CaFe Shop</strong></p>
+            </div>
+        </div>`;
+                            isHtmlField.checked = true;
+                            break;
+
+                        case 'thank_you':
+                            subjectField.value = '💝 Cảm ơn bạn đã tin tưởng CaFe Shop!';
+                            bodyField.value = `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                <h1 style="margin: 0; font-size: 28px;">💝 Cảm ơn bạn rất nhiều!</h1>
+                <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">Sự tin tưởng của bạn là động lực lớn nhất cho chúng tôi</p>
+            </div>
+
+            <div style="padding: 30px; background-color: #f8f9fa; border-radius: 0 0 8px 8px;">
+                <p style="font-size: 16px; color: #333;">Kính chào <strong>[TÊN KHÁCH HÀNG]</strong>,</p>
+
+                <p style="color: #666; line-height: 1.8;">Thay mặt toàn thể đội ngũ CaFe Shop, chúng tôi xin gửi lời cảm ơn chân thành nhất đến bạn vì đã tin tưởng và lựa chọn sản phẩm của chúng tôi.</p>
+
+                <div style="background-color: white; padding: 25px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #28a745;">
+                    <h3 style="margin-top: 0; color: #28a745;">🎯 Tại sao chúng tôi biết ơn bạn?</h3>
+                    <ul style="color: #666; line-height: 1.8; padding-left: 20px;">
+                        <li>Bạn đã tin tưởng chọn CaFe Shop trong rất nhiều lựa chọn khác</li>
+                        <li>Sự ủng hộ của bạn giúp chúng tôi tiếp tục cải thiện chất lượng sản phẩm</li>
+                        <li>Những phản hồi của bạn giúp chúng tôi phục vụ tốt hơn</li>
+                        <li>Bạn là một phần quan trọng trong cộng đồng yêu cà phê của chúng tôi</li>
+                    </ul>
+                </div>
+
+                <div style="background-color: #e7f3ff; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #007bff;">
+                    <h4 style="margin-top: 0; color: #007bff;">🎁 Ưu đãi đặc biệt dành cho bạn:</h4>
+                    <ul style="color: #666; line-height: 1.6;">
+                        <li>🎯 Giảm 10% cho đơn hàng tiếp theo (Mã: THANKUUU)</li>
+                        <li>☕ Miễn phí giao hàng cho đơn hàng trên 300.000 VNĐ</li>
+                        <li>🌟 Tích điểm thành viên VIP với nhiều ưu đãi hấp dẫn</li>
+                        <li>📱 Nhận thông báo sớm nhất về khuyến mãi và sản phẩm mới</li>
+                    </ul>
+                </div>
+
+                <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 25px 0; text-align: center;">
+                    <h4 style="margin-top: 0; color: #333;">☕ Chia sẻ trải nghiệm của bạn!</h4>
+                    <p style="color: #666; margin-bottom: 15px;">Hãy để lại đánh giá và chia sẻ những khoảnh khắc tuyệt vời với CaFe Shop</p>
+                    <div style="margin: 15px 0;">
+                        <a href="#" style="display: inline-block; background-color: #3b5998; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 5px;">Facebook</a>
+                        <a href="#" style="display: inline-block; background-color: #e4405f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 5px;">Instagram</a>
+                        <a href="#" style="display: inline-block; background-color: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 5px;">Zalo</a>
+                    </div>
+                </div>
+
+                <div style="background-color: #fff3cd; padding: 20px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #ffc107;">
+                    <h4 style="margin-top: 0; color: #856404;">📞 Chúng tôi luôn sẵn sàng hỗ trợ:</h4>
+                    <ul style="color: #856404; line-height: 1.6;">
+                        <li>📧 Email: support@cafeshop.com</li>
+                        <li>📱 Hotline: 1900 1234</li>
+                        <li>💬 Chat trực tuyến trên website</li>
+                        <li>⏰ Thời gian hỗ trợ: 8:00 - 22:00 (Thứ 2 - Chủ nhật)</li>
+                    </ul>
+                </div>
+
+                <p style="color: #666; line-height: 1.8; font-style: italic;">Một lần nữa, chúng tôi xin cảm ơn bạn từ tận đáy lòng. Hy vọng rằng những sản phẩm của CaFe Shop sẽ mang đến cho bạn những trải nghiệm tuyệt vời nhất!</p>
+
+                <p style="margin-top: 30px; color: #333; text-align: center;">Với tình cảm và sự biết ơn sâu sắc,<br><strong style="color: #28a745; font-size: 18px;">💚 Đội ngũ CaFe Shop 💚</strong></p>
+            </div>
+        </div>`;
+                            isHtmlField.checked = true;
+                            break;
+
+                        case 'order_confirm':
+                            subjectField.value = '✅ Xác nhận đơn hàng #[SỐ ĐƠN HÀNG] - CaFe Shop';
+                            bodyField.value = `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 25px; text-align: center; border-radius: 8px 8px 0 0;">
+                <h1 style="margin: 0; font-size: 26px;">✅ Xác nhận đơn hàng</h1>
+                <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">Cảm ơn bạn đã đặt hàng tại CaFe Shop!</p>
+            </div>
+
+            <div style="padding: 30px; background-color: #f8f9fa; border-radius: 0 0 8px 8px;">
+                <p style="font-size: 16px; color: #333;">Xin chào <strong>[TÊN KHÁCH HÀNG]</strong>,</p>
+
+                <p style="color: #666; line-height: 1.6;">Chúng tôi đã nhận được đơn hàng của bạn và đang tiến hành xử lý. Dưới đây là thông tin chi tiết:</p>
+
+                <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #007bff;">
+                    <h3 style="margin-top: 0; color: #007bff;">📋 Thông tin đơn hàng:</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0; font-weight: bold;">Mã đơn hàng:</td>
+                            <td style="padding: 8px 0; color: #007bff; font-weight: bold;">#[SỐ ĐƠN HÀNG]</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0; font-weight: bold;">Ngày đặt hàng:</td>
+                            <td style="padding: 8px 0;">[NGÀY ĐẶT]</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0; font-weight: bold;">Trạng thái:</td>
+                            <td style="padding: 8px 0; color: #28a745; font-weight: bold;">Đã xác nhận</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0; font-weight: bold;">Tổng tiền:</td>
+                            <td style="padding: 8px 0; color: #dc3545; font-weight: bold; font-size: 18px;">[TỔNG TIỀN] VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0; font-weight: bold;">Phương thức thanh toán:</td>
+                            <td style="padding: 8px 0;">[PHƯƠNG THỨC THANH TOÁN]</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #28a745;">
+                    <h3 style="margin-top: 0; color: #28a745;">🚚 Thông tin giao hàng:</h3>
+                    <p style="margin: 5px 0; color: #666;"><strong>Địa chỉ:</strong> [ĐỊA CHỈ GIAO HÀNG]</p>
+                    <p style="margin: 5px 0; color: #666;"><strong>Số điện thoại:</strong> [SỐ ĐIỆN THOẠI]</p>
+                    <p style="margin: 5px 0; color: #666;"><strong>Dự kiến giao hàng:</strong> 2-3 ngày làm việc</p>
+                    <p style="margin: 5px 0; color: #666;"><strong>Phí giao hàng:</strong> [PHÍ GIAO HÀNG]</p>
+                </div>
+
+                <div style="background-color: #e7f3ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #17a2b8;">
+                    <h4 style="margin-top: 0; color: #17a2b8;">📦 Sản phẩm đã đặt:</h4>
+                    <div style="border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin: 10px 0; background-color: white;">
+                        <p style="margin: 0; color: #666; font-style: italic;">Danh sách sản phẩm sẽ được cập nhật tại đây...</p>
+                    </div>
+                </div>
+
+                <div style="background-color: #d4edda; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #28a745;">
+                    <h4 style="margin-top: 0; color: #155724;">🎯 Bước tiếp theo:</h4>
+                    <ol style="color: #155724; line-height: 1.6; padding-left: 20px;">
+                        <li>Chúng tôi sẽ chuẩn bị và đóng gói sản phẩm</li>
+                        <li>Gửi thông báo khi hàng được giao cho đơn vị vận chuyển</li>
+                        <li>Cập nhật mã vận đơn để bạn theo dõi</li>
+                        <li>Giao hàng đến địa chỉ của bạn</li>
+                    </ol>
+                </div>
+
+                <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center;">
+                    <h4 style="margin-top: 0; color: #333;">📞 Cần hỗ trợ?</h4>
+                    <p style="color: #666; margin-bottom: 15px;">Đội ngũ chăm sóc khách hàng luôn sẵn sàng hỗ trợ bạn!</p>
+                    <div style="margin: 15px 0;">
+                        <p style="margin: 5px 0; color: #666;">📧 Email: support@cafeshop.com</p>
+                        <p style="margin: 5px 0; color: #666;">📱 Hotline: 1900 1234</p>
+                        <p style="margin: 5px 0; color: #666;">⏰ Thời gian: 8:00 - 22:00 (Thứ 2 - Chủ nhật)</p>
+                    </div>
+                </div>
+
+                <p style="color: #666; line-height: 1.6;">Cảm ơn bạn đã tin tưởng và lựa chọn CaFe Shop. Chúng tôi cam kết mang đến cho bạn những sản phẩm cà phê chất lượng nhất!</p>
+
+                <p style="margin-top: 30px; color: #333; text-align: center;">Trân trọng,<br><strong style="color: #007bff;">Đội ngũ CaFe Shop</strong></p>
+            </div>
+        </div>`;
                             isHtmlField.checked = true;
                             break;
                     }

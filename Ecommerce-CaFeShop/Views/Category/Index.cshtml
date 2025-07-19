@@ -32,7 +32,7 @@
                 @await Component.InvokeAsync("MenuCategory")
 
                
-                <div class="sidebar-single-widget">
+      @*           <div class="sidebar-single-widget">
                     <h6 class="sidebar-title">Giá</h6>
                     <div class="sidebar-content">
                         <div class="filter-type-select">
@@ -76,7 +76,7 @@
                             </ul>
                         </div>
                     </div>
-                </div> <!-- End Single Sidebar Widget -->
+                </div> *@
                 @await Component.InvokeAsync("MenuBrand")
              
             </div> <!-- End Sidebar Area -->
@@ -134,13 +134,13 @@
                                                             <p>
                                                                 @item.ShortDescription
                                                             </p>
-                                                            <div class="product-action-icon-link-list">
+                                                            @* <div class="product-action-icon-link-list">
                                                                 <a asp-controller="Cart" asp-action="Cart" data-bs-toggle="modal"
                                                                    data-bs-target="#modalAddcart"
                                                                    class="btn btn-lg btn-black-default-hover">
                                                                     Thêm vào giỏ
                                                                 </a>
-                                                            </div>
+                                                            </div> *@
                                                         </div>
                                                     </div> <!-- End Product Defautlt Single -->
                                                 </div>

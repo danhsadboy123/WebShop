@@ -5,7 +5,6 @@ wwwroot\assets\css\plugins\nice-select.css
 wwwroot\assets\css\plugins\plugins.min.css
 wwwroot\assets\css\plugins\swiper-bundle.min.css
 wwwroot\assets\css\plugins\venobox.min.css
-wwwroot\assets\css\portal.css
 wwwroot\assets\css\style.css
 wwwroot\assets\css\style.min.css
 wwwroot\assets\css\vendor\font-awesome.min.css
@@ -2571,6 +2570,7 @@ wwwroot\Images\banner1.png
 wwwroot\Images\banner2.png
 wwwroot\Images\bannerCaFe.jpg
 wwwroot\Images\bf56648b-bdf5-4193-a4a3-3d65b3124731.png
+wwwroot\Images\c1f40438-c0f6-45ac-a414-04b7e6944523.jpg
 wwwroot\Images\c45d63c4-c8ab-4349-b621-718b012ca96d.png
 wwwroot\Images\c8122637-d896-4146-907f-628d6bbd7dee.png
 wwwroot\Images\ca-phe-chon-gia-bao-nhieu-va-ban-o-dau-202109281143187496 (1).jpg
@@ -2705,6 +2705,7 @@ wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\simple-line-icons.css
+wwwroot\assets\css\portal.css
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\plugins\animate.min.css
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\plugins\aos.min.css
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\plugins\jquery.lineProgressbar.css
@@ -2713,7 +2714,6 @@ C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\pl
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\plugins\swiper-bundle.min.css
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\plugins\venobox.min.css
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\style.css
-C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\style.min.css
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\vendor\font-awesome.min.css
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\vendor\ionicons.css
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\vendor\jquery-ui.min.css
@@ -4922,4 +4922,5 @@ C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\lib\jquery\di
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\simple-line-icons.css
+C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\style.min.css
 C:\Users\Sunhitech\Desktop\DoAn\WebShop\Ecommerce-CaFeShop\wwwroot\assets\css\portal.css

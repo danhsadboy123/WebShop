@@ -22,7 +22,7 @@ namespace Ecommerce_CaFeShop.Controllers
             if (!User.Identity!.IsAuthenticated)
             {
                 TempData["error"] = "Vui lòng đăng nhập để thanh toán";
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("index", "Home");
             }
 
             // Kiểm tra session có tồn tại không

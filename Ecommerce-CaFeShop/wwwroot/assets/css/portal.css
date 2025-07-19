@@ -13637,7 +13637,7 @@ button.close:focus {
         }
 
     .app-search-form .search-btn {
-        color: #828d9f;
+        color: black;
         background: none;
         border: none;
         position: absolute;
@@ -13732,7 +13732,7 @@ button.close:focus {
     }
 
     .app-notifications-dropdown .dropdown-menu .meta {
-        color: #828d9f;
+        color: black;
         position: absolute;
         right: 0;
         top: 0;

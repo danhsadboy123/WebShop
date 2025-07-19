@@ -211,24 +211,28 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
                 var bill = await _context.HoaDons.FindAsync(id);
                 if (bill == null)
                 {
-                    return Json(new { success = false, message = "Không tìm thấy đơn hàng" });
+                    TempData["error"] = "Không tìm thấy đơn hàng";
+                    return RedirectToAction("Details", new { id = id });
                 }
 
                 // Kiểm tra xem đơn hàng có thể hủy không
                 if (bill.TrangThai == 5)
                 {
-                    return Json(new { success = false, message = "Đơn hàng đã bị hủy trước đó" });
+                    TempData["error"] = "Đơn hàng đã bị hủy trước đó";
+                    return RedirectToAction("Details", new { id = id });
                 }
 
                 if (bill.TrangThai == 8 || bill.TrangThai == 4)
                 {
-                    return Json(new { success = false, message = "Không thể hủy đơn hàng đã hoàn thành hoặc đã giao" });
+                    TempData["error"] = "Không thể hủy đơn hàng đã hoàn thành hoặc đã giao";
+                    return RedirectToAction("Details", new { id = id });
                 }
 
                 // Kiểm tra lý do hủy
                 if (string.IsNullOrWhiteSpace(reason))
                 {
-                    return Json(new { success = false, message = "Vui lòng nhập lý do hủy đơn hàng" });
+                    TempData["error"] = "Vui lòng nhập lý do hủy đơn hàng";
+                    return RedirectToAction("Details", new { id = id });
                 }
 
                 // Cập nhật trạng thái hủy
@@ -239,36 +243,22 @@ namespace Ecommerce_CaFeShop.Areas.Admin.Controllers
 
                 await _context.SaveChangesAsync();
 
-                // Gửi email thông báo cho khách hàng
-                try
-                {
-                    await SendCancelOrderNotification(bill);
-                    return Json(new
-                    {
-                        success = true,
-                        message = "Đơn hàng đã được hủy thành công và đã gửi thông báo cho khách hàng",
-                        newStatus = "Đã hủy",
-                        cancelDate = bill.NgayHuy?.ToString("dd/MM/yyyy HH:mm"),
-                        cancelReason = bill.LyDoHuy
-                    });
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Email error: {ex.Message}");
-                    return Json(new
-                    {
-                        success = true,
-                        message = "Đơn hàng đã được hủy thành công nhưng không thể gửi email thông báo",
-                        newStatus = "Đã hủy",
-                        cancelDate = bill.NgayHuy?.ToString("dd/MM/yyyy HH:mm"),
-                        cancelReason = bill.LyDoHuy
-                    });
-                }
+                // Lưu thông tin đơn hàng vào TempData để sử dụng trong form gửi email
+                TempData["CancelledOrderId"] = bill.MaHoaDon;
+                TempData["CustomerEmail"] = bill.Email;
+                TempData["CustomerName"] = bill.HoTen;
+                TempData["OrderCode"] = $"DH{bill.MaHoaDon.ToString("D6")}";
+                TempData["CancelReason"] = reason;
+                TempData["CancelDate"] = bill.NgayHuy?.ToString("dd/MM/yyyy HH:mm");
+
+                // Chuyển hướng đến trang gửi email
+                return RedirectToAction("Index", "Mail");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error cancelling order: {ex.Message}");
-                return Json(new { success = false, message = $"Có lỗi xảy ra: {ex.Message}" });
+                TempData["error"] = $"Có lỗi xảy ra: {ex.Message}";
+                return RedirectToAction("Details", new { id = id });
             }
         }
 
